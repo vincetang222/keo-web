@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kèo — Tạo Kèo mới</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--cr);color:var(--t1);min-height:100vh}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.ntag{font-size:11px;color:rgba(245,240,232,.45);letter-spacing:.1em;text-transform:uppercase}
+.hero{background:var(--g);padding:36px 40px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--cr);clip-path:ellipse(60% 100% at 50% 100%)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:500;color:var(--go);letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--go);animation:p 2s ease infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:'Lora',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--cr);line-height:1.2;letter-spacing:-.8px;margin-bottom:8px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero p{font-size:14px;color:rgba(245,240,232,.6);font-weight:300;max-width:440px;margin:0 auto;line-height:1.7}
+.wrap{max-width:640px;margin:0 auto;padding:40px 24px 72px}
+.card{background:var(--w);border-radius:18px;border:1px solid var(--cr2);padding:36px;box-shadow:0 4px 28px rgba(26,58,40,.07)}
+.div{display:flex;align-items:center;gap:10px;margin:24px 0 18px}
+.div::before,.div::after{content:'';flex:1;height:1px;background:var(--cr2)}
+.div span{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.fg{margin-bottom:18px}
+label{display:block;font-size:11px;font-weight:500;color:var(--t2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.req{color:var(--go)}
+input,select,textarea{width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid var(--cr2);background:var(--w);font-family:'Inter',sans-serif;font-size:14px;color:var(--t1);outline:none;transition:border .18s,box-shadow .18s}
+input:focus,select:focus,textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(26,58,40,.07)}
+input::placeholder,textarea::placeholder{color:var(--t3)}
+textarea{resize:vertical;min-height:84px;line-height:1.6}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8A80' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+input[type=date],input[type=time]{cursor:pointer}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:4px}
+.ci{display:flex;align-items:center;gap:7px;padding:9px 11px;border-radius:7px;border:1.5px solid var(--cr2);cursor:pointer;font-size:12px;color:var(--t2);transition:all .14s;user-select:none}
+.ci:hover{border-color:var(--g2)}
+.ci.on{border-color:var(--g);background:rgba(26,58,40,.05)}
+.cb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--cr2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;transition:all .14s}
+.ci.on .cb{background:var(--g);border-color:var(--g);color:var(--cr)}
+.hint{font-size:11px;color:var(--t3);margin-top:6px;line-height:1.5}
+.preview{background:rgba(26,58,40,.04);border:1px solid var(--cr2);border-radius:10px;padding:16px;margin:20px 0;display:none}
+.preview-title{font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+.preview-row{display:flex;gap:8px;font-size:13px;color:var(--t2);margin-bottom:6px;align-items:flex-start}
+.preview-row strong{color:var(--t1);font-weight:500;flex-shrink:0;min-width:90px}
+.btn-submit{width:100%;padding:14px;border-radius:100px;border:none;font-family:'Lora',serif;font-size:16px;font-weight:700;cursor:pointer;background:var(--go);color:var(--g);transition:all .2s;margin-top:8px;letter-spacing:-.3px}
+.btn-submit:hover{background:#d4b45a;transform:translateY(-1px);box-shadow:0 5px 20px rgba(201,168,76,.35)}
+.fnote{font-size:11px;color:var(--t3);text-align:center;margin-top:10px;line-height:1.6}
+.suc{display:none;text-align:center;padding:48px 24px}
+.suc-ic{font-size:56px;margin-bottom:16px}
+.suc-t{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--g);margin-bottom:10px}
+.suc-s{font-size:14px;color:var(--t3);line-height:1.75;max-width:360px;margin:0 auto}
+.suc-btn{display:inline-block;margin-top:24px;padding:12px 28px;border-radius:100px;background:var(--g);color:var(--cr);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s}
+.suc-btn:hover{background:var(--g2)}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2);background:var(--w)}
+.fl{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+.fs{font-size:11px;color:var(--t3);margin-top:3px}
+@media(max-width:580px){
+  nav{padding:16px 18px}
+  .hero{padding:28px 18px 48px}
+  .wrap{padding:28px 16px 56px}
+  .card{padding:22px 16px}
+  .row{grid-template-columns:1fr}
+  .cg{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://keo.social" class="logo">Kèo<span>.</span></a>
+  <span class="ntag">Dành cho Chủ xị đã đăng ký</span>
+</nav>
+
+<div class="hero">
+  <div class="badge"><div class="dot"></div>Chủ xị · Tạo buổi gặp gỡ mới</div>
+  <h1>Tạo <em>Kèo</em> mới</h1>
+  <p>Điền thông tin buổi gặp gỡ — mình sẽ tìm Người đồng hành phù hợp và liên hệ bạn trong 24 giờ.</p>
+</div>
+
+<div class="wrap">
+<div class="card" id="form-card">
+
+  <div class="div"><span>Thông tin Chủ xị</span></div>
+
+  <div class="row">
+    <div class="fg">
+      <label>Họ tên <span class="req">*</span></label>
+      <input type="text" name="ho_ten" id="f-name" placeholder="Nguyễn Văn B" required>
+    </div>
+    <div class="fg">
+      <label>Số Zalo <span class="req">*</span></label>
+      <input type="tel" name="zalo" id="f-zalo" placeholder="09xxxxxxxx" required>
+    </div>
+  </div>
+
+  <div class="div"><span>Địa điểm</span></div>
+
+  <div class="fg">
+    <label>Tên địa điểm <span class="req">*</span></label>
+    <input type="text" name="ten_dia_diem" id="f-venue" placeholder="Nhà hàng Kazu, The Workshop, Cama ATK..." required>
+  </div>
+
+  <div class="fg">
+    <label>Địa chỉ đầy đủ <span class="req">*</span></label>
+    <input type="text" name="dia_chi" id="f-addr" placeholder="Số nhà, tên đường, phường, quận, thành phố..." required>
+  </div>
+
+  <div class="div"><span>Thời gian</span></div>
+
+  <div class="row">
+    <div class="fg">
+      <label>Ngày <span class="req">*</span></label>
+      <input type="date" name="ngay" id="f-date" required>
+    </div>
+    <div class="fg">
+      <label>Giờ bắt đầu <span class="req">*</span></label>
+      <input type="time" name="gio" id="f-time" required>
+    </div>
+  </div>
+
+  <div class="fg">
+    <label>Thời lượng dự kiến</label>
+    <select name="thoi_luong" id="f-dur">
+      <option value="2 giờ">2 giờ</option>
+      <option value="3 giờ">3 giờ</option>
+      <option value="Nửa ngày">Nửa ngày</option>
+      <option value="Thỏa thuận">Thỏa thuận</option>
+    </select>
+  </div>
+
+  <div class="div"><span>Loại sự kiện</span></div>
+
+  <div class="fg">
+    <div class="cg" id="type-grid">
+      <label class="ci" data-tog><span class="cb"></span>🍽 Bữa tối</label>
+      <label class="ci" data-tog><span class="cb"></span>☕ Cà phê</label>
+      <label class="ci" data-tog><span class="cb"></span>🎨 Triển lãm</label>
+      <label class="ci" data-tog><span class="cb"></span>🎵 Âm nhạc</label>
+      <label class="ci" data-tog><span class="cb"></span>🍷 Wine &amp; Cocktail</label>
+      <label class="ci" data-tog><span class="cb"></span>🌿 Dã ngoại</label>
+    </div>
+    <input type="hidden" name="loai_sk" id="f-type">
+    <p class="hint">Có thể chọn nhiều</p>
+  </div>
+
+  <div class="div"><span>Người đồng hành</span></div>
+
+  <div class="row">
+    <div class="fg">
+      <label>Giới tính của bạn</label>
+      <select name="gioi_tinh">
+        <option value="">--</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+        <option>Non-binary</option>
+        <option>Genderfluid</option>
+        <option>Transgender Nam</option>
+        <option>Transgender Nữ</option>
+        <option>Queer</option>
+        <option>Không muốn tiết lộ</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>Giới tính mong muốn gặp</label>
+      <select name="gioi_tinh_mong_muon">
+        <option value="any">Không quan trọng</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+        <option>Non-binary</option>
+        <option>Transgender Nam</option>
+        <option>Transgender Nữ</option>
+        <option>Queer</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="fg">
+    <label>Bạn tìm người như thế nào? <span class="req">*</span></label>
+    <textarea name="yeu_cau" id="f-req" placeholder="Mô tả càng cụ thể càng dễ match. Ví dụ: Sành ẩm thực Nhật, nói được tiếng Anh, đã từng đến Nhật Bản..." required></textarea>
+  </div>
+
+  <div class="row">
+    <div class="fg">
+      <label>Thù lao cho Người đồng hành <span class="req">*</span></label>
+      <select name="thu_lao" id="f-fee" required>
+        <option value="">Chọn mức thù lao</option>
+        <option>200,000 VND</option>
+        <option>300,000 VND</option>
+        <option>400,000 VND</option>
+        <option>500,000 VND</option>
+        <option>600,000 VND</option>
+        <option>750,000 VND</option>
+        <option>1,000,000 VND</option>
+        <option>Thỏa thuận</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>Số lượng Người đồng hành</label>
+      <select name="so_luong" id="f-num">
+        <option>1 người</option>
+        <option>2 người</option>
+        <option>3 người</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="fg">
+    <label>Ghi chú thêm cho Người đồng hành</label>
+    <textarea name="ghi_chu" id="f-note" placeholder="Dress code, chủ đề muốn nói chuyện, món muốn được tư vấn, yêu cầu đặc biệt..."></textarea>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview" id="preview">
+    <div class="preview-title">📋 Xem lại Kèo của bạn</div>
+    <div class="preview-row"><strong>Địa điểm:</strong><span id="pv-venue">—</span></div>
+    <div class="preview-row"><strong>Địa chỉ:</strong><span id="pv-addr">—</span></div>
+    <div class="preview-row"><strong>Thời gian:</strong><span id="pv-time">—</span></div>
+    <div class="preview-row"><strong>Loại:</strong><span id="pv-type">—</span></div>
+    <div class="preview-row"><strong>Yêu cầu:</strong><span id="pv-req">—</span></div>
+    <div class="preview-row"><strong>Thù lao:</strong><span id="pv-fee">—</span></div>
+  </div>
+
+  <input type="hidden" name="vai_tro" value="Chu xi - Tao Keo">
+  <button type="button" id="btn-preview">Xem lại Kèo →</button>
+  <button type="button" id="btn-submit" style="display:none" class="btn-submit">Tạo Kèo ngay 🌿</button>
+  <p class="fnote">Sau khi gửi, mình sẽ tìm Người đồng hành phù hợp và liên hệ bạn trong 24 giờ.</p>
+
+</div>
+
+<div class="suc" id="success">
+  <div class="suc-ic">🎉</div>
+  <div class="suc-t">Kèo đã được tạo!</div>
+  <div class="suc-s">Mình sẽ tìm Người đồng hành phù hợp nhất và liên hệ bạn qua Zalo trong 24 giờ nhé.</div>
+  <a href="https://keo.social" class="suc-btn">Về trang chủ</a>
+</div>
+
+</div><!-- wrap -->
+
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div class="fs">keo.social · Gặp gỡ có chiều sâu</div>
+</footer>
+
+<script>
+(function(){
+// Checkbox toggle
+document.querySelectorAll('[data-tog]').forEach(function(el){
+  el.addEventListener('click',function(){
+    el.classList.toggle('on');
+    var cb=el.querySelector('.cb');
+    cb.textContent=el.classList.contains('on')?'\u2713':'';
+    updateType();
+  });
+});
+
+function updateType(){
+  var types=[];
+  document.querySelectorAll('#type-grid .ci.on').forEach(function(el){
+    types.push(el.textContent.trim());
+  });
+  document.getElementById('f-type').value=types.join(', ');
+  updatePreview();
+}
+
+function fmtDate(d){
+  if(!d)return '';
+  var p=d.split('-');
+  return p[2]+'/'+p[1]+'/'+p[0];
+}
+
+function updatePreview(){
+  var v=document.getElementById('f-venue').value;
+  var a=document.getElementById('f-addr').value;
+  var d=document.getElementById('f-date').value;
+  var t=document.getElementById('f-time').value;
+  var dur=document.getElementById('f-dur').value;
+  var ty=document.getElementById('f-type').value;
+  var r=document.getElementById('f-req').value;
+  var f=document.getElementById('f-fee').value;
+  document.getElementById('pv-venue').textContent=v||'\u2014';
+  document.getElementById('pv-addr').textContent=a||'\u2014';
+  document.getElementById('pv-time').textContent=(d?fmtDate(d):'\u2014')+(t?' l\u00fac '+t:'')+(dur?' ('+dur+')':'');
+  document.getElementById('pv-type').textContent=ty||'\u2014';
+  document.getElementById('pv-req').textContent=r||'\u2014';
+  document.getElementById('pv-fee').textContent=f||'\u2014';
+}
+
+// Preview button
+document.getElementById('btn-preview').addEventListener('click',function(){
+  var reqs=['f-name','f-zalo','f-venue','f-addr','f-date','f-time','f-req','f-fee'];
+  var ok=true;
+  reqs.forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el.value.trim()){ok=false;el.style.borderColor='#e05555';}
+    else{el.style.borderColor='';}
+  });
+  if(!ok)return;
+  updatePreview();
+  var pv=document.getElementById('preview');
+  pv.style.display='block';
+  document.getElementById('btn-preview').style.display='none';
+  document.getElementById('btn-submit').style.display='block';
+  pv.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+// Live update preview fields
+['f-venue','f-addr','f-date','f-time','f-dur','f-req','f-fee'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener('input',function(){if(document.getElementById('preview').style.display==='block')updatePreview();});
+});
+
+// Submit
+document.getElementById('btn-submit').addEventListener('click',function(){
+  var data=new FormData();
+  data.append('ho_ten',document.getElementById('f-name').value);
+  data.append('zalo',document.getElementById('f-zalo').value);
+  data.append('ten_dia_diem',document.getElementById('f-venue').value);
+  data.append('dia_chi',document.getElementById('f-addr').value);
+  data.append('ngay',document.getElementById('f-date').value);
+  data.append('gio',document.getElementById('f-time').value);
+  data.append('thoi_luong',document.getElementById('f-dur').value);
+  data.append('loai_sk',document.getElementById('f-type').value);
+  data.append('yeu_cau',document.getElementById('f-req').value);
+  data.append('thu_lao',document.getElementById('f-fee').value);
+  data.append('so_luong',document.getElementById('f-num').value);
+  data.append('ghi_chu',document.getElementById('f-note').value);
+  data.append('vai_tro','Chu xi - Tao Keo');
+  fetch('https://formspree.io/f/xjgpdwwl',{
+    method:'POST',body:data,headers:{'Accept':'application/json'}
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('form-card').style.display='none';
+      document.getElementById('success').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+  }).catch(function(){
+    document.getElementById('form-card').style.display='none';
+    document.getElementById('success').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// Set min date to today
+var today=new Date().toISOString().split('T')[0];
+document.getElementById('f-date').min=today;
+
+// Style preview btn
+var pb=document.getElementById('btn-preview');
+pb.style.cssText='width:100%;padding:14px;border-radius:100px;border:1.5px solid #1A3A28;background:transparent;font-family:Inter,sans-serif;font-size:14px;font-weight:500;cursor:pointer;color:#1A3A28;margin-top:8px;transition:all .2s';
+pb.addEventListener('mouseenter',function(){pb.style.background='rgba(26,58,40,.05)';});
+pb.addEventListener('mouseleave',function(){pb.style.background='transparent';});
+})();
+</script>
+</body>
+</html>
