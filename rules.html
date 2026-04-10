@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kèo — Hướng dẫn an toàn & Quy tắc ứng xử</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80;--r:#C0392B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1)}
+.en{display:none}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.lang-btn{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 12px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+.ntag{font-size:11px;color:rgba(245,240,232,.45);letter-spacing:.1em;text-transform:uppercase}
+.hero{background:var(--g);padding:40px 40px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:500;color:var(--go);letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--cr);line-height:1.2;letter-spacing:-.8px;margin-bottom:8px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero p{font-size:14px;color:rgba(245,240,232,.6);font-weight:300;max-width:480px;margin:0 auto;line-height:1.7}
+.tabs-nav{display:flex;justify-content:center;gap:0;max-width:600px;margin:28px auto 0;background:rgba(0,0,0,.2);border-radius:10px;padding:3px}
+.tnav{flex:1;padding:9px 12px;border-radius:8px;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;color:rgba(245,240,232,.5);background:transparent}
+.tnav.on{background:var(--cr);color:var(--g)}
+.wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+.section{display:none}.section.on{display:block}
+.card{background:var(--w);border-radius:16px;border:1px solid var(--cr2);padding:32px;margin-bottom:20px;box-shadow:0 2px 16px rgba(26,58,40,.05)}
+.card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.card-ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ic-green{background:rgba(26,58,40,.08)}
+.ic-gold{background:rgba(201,168,76,.12)}
+.ic-red{background:rgba(192,57,43,.08)}
+.card-title{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g);margin-bottom:4px}
+.card-sub{font-size:12px;color:var(--t3)}
+.card p{font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:10px}
+.card ul{padding-left:0;list-style:none}
+.card ul li{font-size:14px;color:var(--t2);line-height:1.7;padding:7px 0 7px 24px;border-bottom:1px solid var(--cr2);position:relative}
+.card ul li:last-child{border-bottom:none}
+.card ul li::before{content:'✓';position:absolute;left:0;color:var(--g);font-weight:600;font-size:13px}
+.card ul li.no::before{content:'✗';color:var(--r)}
+.card ul li.warn::before{content:'⚠';font-size:11px}
+.divider{display:flex;align-items:center;gap:10px;margin:24px 0 8px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--cr2)}
+.divider span{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.penalty-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.penalty-card{border-radius:10px;padding:14px;border:1px solid var(--cr2)}
+.penalty-level{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.penalty-desc{font-size:13px;color:var(--t2);line-height:1.6}
+.p-warn{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.3)}
+.p-warn .penalty-level{color:#8a6a00}
+.p-sus{background:rgba(26,58,40,.04);border-color:rgba(26,58,40,.15)}
+.p-sus .penalty-level{color:var(--g)}
+.p-ban{background:rgba(192,57,43,.05);border-color:rgba(192,57,43,.2)}
+.p-ban .penalty-level{color:var(--r)}
+.p-law{background:rgba(192,57,43,.1);border-color:rgba(192,57,43,.35)}
+.p-law .penalty-level{color:var(--r)}
+.sos-box{background:var(--g);border-radius:14px;padding:24px;color:var(--cr);margin-top:16px}
+.sos-title{font-family:'Lora',serif;font-size:16px;font-weight:700;margin-bottom:12px;color:var(--cr)}
+.sos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sos-item{background:rgba(255,255,255,.08);border-radius:8px;padding:10px 14px}
+.sos-num{font-size:18px;font-weight:700;color:var(--go)}
+.sos-label{font-size:11px;color:rgba(245,240,232,.65);margin-top:2px}
+.tip-box{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:10px;padding:16px;margin-top:12px}
+.tip-title{font-size:11px;font-weight:600;color:#8a6a00;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.tip-box p{font-size:13px;color:var(--t2);margin-bottom:0}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2);background:var(--w)}
+.fl{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+.fs{font-size:11px;color:var(--t3);margin-top:4px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--t3);text-decoration:none;margin-bottom:24px}
+.back-link:hover{color:var(--g)}
+@media(max-width:580px){
+  nav{padding:16px 18px}
+  .hero{padding:28px 18px 48px}
+  .wrap{padding:28px 16px 56px}
+  .card{padding:20px 16px}
+  .penalty-grid{grid-template-columns:1fr}
+  .sos-grid{grid-template-columns:1fr 1fr}
+  .tabs-nav{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://keo.social" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r">
+    <span class="ntag"><span class="vi">An toàn & Quy tắc</span><span class="en">Safety & Rules</span></span>
+    <button class="lang-btn" id="lang-toggle">EN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">🌿 Kèo</div>
+  <h1><span class="vi">An toàn &<br><em>Quy tắc ứng xử</em></span><span class="en">Safety &<br><em>Code of Conduct</em></span></h1>
+  <p><span class="vi">Mọi buổi Kèo được xây dựng trên nền tảng tôn trọng, minh bạch và an toàn cho tất cả mọi người.</span><span class="en">Every Kèo session is built on a foundation of respect, transparency and safety for everyone.</span></p>
+  <div class="tabs-nav">
+    <button class="tnav on" data-sec="safety"><span class="vi">🛡 Hướng dẫn an toàn</span><span class="en">🛡 Safety Guide</span></button>
+    <button class="tnav" data-sec="conduct"><span class="vi">📋 Quy tắc ứng xử</span><span class="en">📋 Code of Conduct</span></button>
+    <button class="tnav" data-sec="penalty"><span class="vi">⚖️ Xử lý vi phạm</span><span class="en">⚖️ Enforcement</span></button>
+  </div>
+</div>
+
+<div class="wrap">
+<a href="https://keo.social" class="back-link">← <span class="vi">Về trang chủ</span><span class="en">Back to home</span></a>
+
+<!-- ═══ SAFETY ═══ -->
+<div class="section on" id="sec-safety">
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">📍</div>
+      <div><div class="card-title"><span class="vi">Địa điểm công cộng 100%</span><span class="en">100% Public Venues</span></div>
+      <div class="card-sub"><span class="vi">Quy tắc bắt buộc với mọi buổi Kèo</span><span class="en">Mandatory for every session</span></div></div>
+    </div>
+    <p><span class="vi">Mọi buổi Kèo <strong>phải diễn ra tại địa điểm công cộng</strong> — nhà hàng, quán cà phê, triển lãm, sự kiện. Tuyệt đối không hẹn gặp tại nhà riêng, khách sạn hoặc bất kỳ không gian riêng tư nào.</span><span class="en">Every Kèo session <strong>must take place at a public venue</strong> — restaurant, cafe, gallery, event. Absolutely no meetings at private homes, hotels or any private space.</span></p>
+    <div class="tip-box">
+      <div class="tip-title"><span class="vi">💡 Nếu được yêu cầu gặp tại địa điểm riêng tư</span><span class="en">💡 If asked to meet at a private location</span></div>
+      <p><span class="vi">Từ chối ngay và báo cáo cho Kèo qua Zalo. Bạn không bao giờ phải giải thích lý do từ chối.</span><span class="en">Decline immediately and report to Kèo via Zalo. You never need to explain your refusal.</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">🔒</div>
+      <div><div class="card-title"><span class="vi">Trước buổi Kèo</span><span class="en">Before the session</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi">Thông báo cho ít nhất <strong>1 người thân hoặc bạn bè</strong> về địa điểm, thời gian và người bạn sẽ gặp</span><span class="en">Tell at least <strong>1 friend or family member</strong> the venue, time and who you're meeting</span></li>
+      <li><span class="vi">Đọc kỹ thông tin hồ sơ của đối phương trước buổi gặp</span><span class="en">Review the other person's profile carefully before the meetup</span></li>
+      <li><span class="vi">Đến bằng phương tiện cá nhân hoặc grab/taxi — không đi chung xe với người lạ lần đầu gặp</span><span class="en">Arrive by your own transport or ride-hailing — don't share a ride with someone you're meeting for the first time</span></li>
+      <li><span class="vi">Sạc đầy điện thoại và đảm bảo bạn có thể liên lạc được trong suốt buổi</span><span class="en">Fully charge your phone and ensure you can be reached throughout the session</span></li>
+      <li><span class="vi">Lưu số Zalo của Kèo: <strong>0902755265</strong> vào danh bạ để liên hệ khi cần</span><span class="en">Save Kèo's Zalo: <strong>0902755265</strong> to your contacts for emergencies</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">🤝</div>
+      <div><div class="card-title"><span class="vi">Trong buổi Kèo</span><span class="en">During the session</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi">Tin vào bản năng — nếu có gì đó không ổn, hãy rời đi ngay và nhắn Kèo</span><span class="en">Trust your instincts — if something feels wrong, leave immediately and message Kèo</span></li>
+      <li><span class="vi">Không chia sẻ địa chỉ nhà, nơi làm việc hoặc thông tin tài chính cá nhân</span><span class="en">Don't share your home address, workplace or personal financial information</span></li>
+      <li><span class="vi">Giữ đồ uống trong tầm mắt — không để người lạ mang đồ uống đến cho bạn</span><span class="en">Keep your drink in sight — don't accept drinks brought to you by a stranger</span></li>
+      <li><span class="vi">Không uống quá mức có thể ảnh hưởng đến khả năng phán đoán của bạn</span><span class="en">Don't drink to the point where your judgement is impaired</span></li>
+      <li><span class="vi">Nếu cảm thấy không an toàn, bạn có thể rời đi bất cứ lúc nào — không cần lý do</span><span class="en">If you feel unsafe, you may leave at any time — no explanation needed</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">✅</div>
+      <div><div class="card-title"><span class="vi">Sau buổi Kèo</span><span class="en">After the session</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi">Nhắn Kèo feedback về buổi gặp — phản hồi của bạn giúp cải thiện chất lượng cho mọi người</span><span class="en">Message Kèo with feedback about the session — your input helps improve quality for everyone</span></li>
+      <li><span class="vi">Báo cáo ngay nếu có bất kỳ hành vi nào khiến bạn không thoải mái</span><span class="en">Report immediately if any behaviour made you uncomfortable</span></li>
+      <li><span class="vi">Không tiếp tục liên lạc với đối phương nếu họ không muốn — tôn trọng ranh giới</span><span class="en">Don't continue contacting the other party if they don't wish — respect boundaries</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-red">🆘</div>
+      <div><div class="card-title"><span class="vi">Số điện thoại khẩn cấp</span><span class="en">Emergency Numbers</span></div>
+      <div class="card-sub"><span class="vi">Lưu vào điện thoại ngay bây giờ</span><span class="en">Save to your phone right now</span></div></div>
+    </div>
+    <div class="sos-box">
+      <div class="sos-title">🆘 <span class="vi">Liên hệ khẩn cấp</span><span class="en">Emergency contacts</span></div>
+      <div class="sos-grid">
+        <div class="sos-item"><div class="sos-num">113</div><div class="sos-label"><span class="vi">Công an</span><span class="en">Police</span></div></div>
+        <div class="sos-item"><div class="sos-num">115</div><div class="sos-label"><span class="vi">Cấp cứu y tế</span><span class="en">Ambulance</span></div></div>
+        <div class="sos-item"><div class="sos-num">114</div><div class="sos-label"><span class="vi">Cứu hỏa</span><span class="en">Fire</span></div></div>
+        <div class="sos-item"><div class="sos-num">1800 599 920</div><div class="sos-label"><span class="vi">Hỗ trợ nạn nhân bạo lực</span><span class="en">Violence victim support</span></div></div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:12px">
+      <div class="tip-title"><span class="vi">Kèo hỗ trợ 24/7</span><span class="en">Kèo support 24/7</span></div>
+      <p><span class="vi">Zalo: 0902755265 · hello&#64;keo&#46;social · Phản hồi trong 1 giờ với trường hợp khẩn cấp</span><span class="en">Zalo: 0902755265 · hello&#64;keo&#46;social · 1-hour response for emergencies</span></p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ CONDUCT ═══ -->
+<div class="section" id="sec-conduct">
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">✅</div>
+      <div><div class="card-title"><span class="vi">Dịch vụ bao gồm</span><span class="en">What's included</span></div>
+      <div class="card-sub"><span class="vi">Phạm vi của một buổi Kèo</span><span class="en">Scope of a Kèo session</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi">Trò chuyện thân thiện, chia sẻ kiến thức và góc nhìn</span><span class="en">Friendly conversation, sharing knowledge and perspectives</span></li>
+      <li><span class="vi">Đồng hành tại các sự kiện, bữa ăn hoặc hoạt động đã thỏa thuận</span><span class="en">Accompanying to events, meals or agreed activities</span></li>
+      <li><span class="vi">Tư vấn, giới thiệu về lĩnh vực chuyên môn của Người đồng hành</span><span class="en">Advice and introduction to the Companion's area of expertise</span></li>
+      <li><span class="vi">Là một người bạn đồng hành dễ chịu, hòa đồng trong suốt buổi gặp</span><span class="en">Being a pleasant, sociable companion throughout the meetup</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-red">✗</div>
+      <div><div class="card-title"><span class="vi">Dịch vụ không bao gồm</span><span class="en">What's NOT included</span></div></div>
+    </div>
+    <ul>
+      <li class="no"><span class="vi">Dịch vụ tình cảm hoặc tình dục dưới bất kỳ hình thức nào</span><span class="en">Romantic or sexual services in any form</span></li>
+      <li class="no"><span class="vi">Việc vặt cá nhân hoặc nhiệm vụ không liên quan đến buổi Kèo</span><span class="en">Personal errands or tasks unrelated to the session</span></li>
+      <li class="no"><span class="vi">Liên lạc ngoài nền tảng khi chưa có sự đồng ý của cả hai bên</span><span class="en">Contact outside the platform without mutual consent</span></li>
+      <li class="no"><span class="vi">Bất kỳ hành động nào vi phạm pháp luật Việt Nam</span><span class="en">Any action that violates Vietnamese law</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">🤝</div>
+      <div><div class="card-title"><span class="vi">Quy tắc chung cho cả 2 bên</span><span class="en">General rules for both parties</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi"><strong>Đúng giờ:</strong> Đến đúng giờ đã hẹn. Nếu trễ, thông báo trước ít nhất <strong>30 phút</strong>. Trễ lặp lại sẽ ảnh hưởng đến đánh giá.</span><span class="en"><strong>Punctuality:</strong> Arrive on time. If late, notify at least <strong>30 minutes</strong> in advance. Repeated lateness affects ratings.</span></li>
+      <li><span class="vi"><strong>Trang phục:</strong> Ăn mặc phù hợp với loại sự kiện. Nếu không chắc, trao đổi trước với đối phương.</span><span class="en"><strong>Dress code:</strong> Dress appropriately for the event type. If unsure, discuss with the other party in advance.</span></li>
+      <li><span class="vi"><strong>Giao tiếp:</strong> Luôn lịch sự, tôn trọng. Tránh chủ đề gây tranh cãi nếu đối phương không thoải mái.</span><span class="en"><strong>Communication:</strong> Always be polite and respectful. Avoid controversial topics if the other party is uncomfortable.</span></li>
+      <li><span class="vi"><strong>Ranh giới:</strong> Tôn trọng "không" của đối phương — không cần giải thích, không cần thuyết phục.</span><span class="en"><strong>Boundaries:</strong> Respect the other person's "no" — no explanations needed, no persuasion.</span></li>
+      <li><span class="vi"><strong>Hình ảnh:</strong> Không chụp ảnh, ghi âm hoặc quay video đối phương khi chưa được đồng ý rõ ràng bằng lời.</span><span class="en"><strong>Photos:</strong> Do not photograph, record audio or video of the other person without explicit verbal consent.</span></li>
+      <li><span class="vi"><strong>Mạng xã hội:</strong> Không đăng ảnh hoặc thông tin về đối phương lên mạng xã hội khi chưa có sự đồng ý.</span><span class="en"><strong>Social media:</strong> Do not post photos or information about the other person online without consent.</span></li>
+      <li><span class="vi"><strong>Rượu bia:</strong> Uống ở mức kiểm soát được. Say xỉn là lý do chấm dứt buổi Kèo ngay lập tức.</span><span class="en"><strong>Alcohol:</strong> Drink within controlled limits. Intoxication is grounds for immediate session termination.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-gold">👑</div>
+      <div><div class="card-title"><span class="vi">Riêng cho Chủ xị</span><span class="en">Specific to Hosts</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi">Chọn địa điểm công cộng an toàn, phù hợp với loại sự kiện đã thỏa thuận</span><span class="en">Choose a safe public venue appropriate for the agreed event type</span></li>
+      <li><span class="vi">Chuyển khoản thù lao đầy đủ cho Kèo trước buổi gặp — không thỏa thuận thanh toán trực tiếp với Người đồng hành</span><span class="en">Transfer the full fee to Kèo before the session — do not arrange direct payment with the Companion</span></li>
+      <li><span class="vi">Không ép Người đồng hành uống rượu, ăn món họ không thích hoặc tham gia hoạt động ngoài phạm vi đã thỏa thuận</span><span class="en">Do not pressure the Companion to drink alcohol, eat food they dislike or participate in activities beyond the agreed scope</span></li>
+      <li><span class="vi">Hồ sơ của bạn phải phản ánh đúng con người thật — ảnh thật, thông tin chính xác</span><span class="en">Your profile must accurately reflect who you are — real photos, accurate information</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">🌟</div>
+      <div><div class="card-title"><span class="vi">Riêng cho Người đồng hành</span><span class="en">Specific to Companions</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi">Hồ sơ phải phản ánh chính xác kỹ năng, kinh nghiệm và ảnh thật của bạn — không dùng ảnh cũ hoặc chỉnh sửa quá mức</span><span class="en">Profile must accurately reflect your skills, experience and real photos — no outdated or heavily edited photos</span></li>
+      <li><span class="vi">Phản hồi yêu cầu Kèo từ Kèo trong vòng <strong>24 giờ</strong></span><span class="en">Respond to Kèo session requests within <strong>24 hours</strong></span></li>
+      <li><span class="vi">Không yêu cầu tip, quà tặng hoặc bất kỳ khoản tiền nào ngoài thù lao đã thỏa thuận</span><span class="en">Do not request tips, gifts or any money beyond the agreed fee</span></li>
+      <li><span class="vi">Bạn có quyền từ chối bất kỳ yêu cầu nào vượt phạm vi đã thỏa thuận — không cần giải thích</span><span class="en">You have the right to refuse any request beyond the agreed scope — no explanation needed</span></li>
+      <li><span class="vi">Tôn trọng quyền riêng tư của Chủ xị — không chia sẻ thông tin cá nhân của họ với bất kỳ ai</span><span class="en">Respect the Host's privacy — do not share their personal information with anyone</span></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ═══ PENALTY ═══ -->
+<div class="section" id="sec-penalty">
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-red">🚫</div>
+      <div><div class="card-title"><span class="vi">Vi phạm nghiêm trọng — Cấm ngay, không cảnh báo</span><span class="en">Serious violations — Immediate ban, no warning</span></div></div>
+    </div>
+    <ul>
+      <li class="no"><span class="vi"><strong>Dịch vụ tình dục dưới mọi hình thức</strong> — vi phạm Điều 327, 328 BLHS 2015, có thể bị truy cứu hình sự với mức phạt tù lên đến 15 năm</span><span class="en"><strong>Sexual services in any form</strong> — violates Articles 327, 328 of the Penal Code 2015, may result in criminal prosecution with up to 15 years imprisonment</span></li>
+      <li class="no"><span class="vi"><strong>Quấy rối, đe doạ hoặc bạo lực</strong> dưới bất kỳ hình thức nào</span><span class="en"><strong>Harassment, threats or violence</strong> in any form</span></li>
+      <li class="no"><span class="vi"><strong>Sử dụng hoặc phân phối chất cấm, ma túy</strong> trong quá trình booking</span><span class="en"><strong>Using or distributing controlled substances or drugs</strong> during a booking</span></li>
+      <li class="no"><span class="vi"><strong>Gian lận, lừa đảo</strong> hoặc tạo hồ sơ giả mạo</span><span class="en"><strong>Fraud or deception</strong> or creating fake profiles</span></li>
+      <li class="no"><span class="vi"><strong>Chia sẻ thông tin cá nhân</strong> của người dùng khác ra bên ngoài nền tảng</span><span class="en"><strong>Sharing personal information</strong> of other users outside the platform</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-gold">⚖️</div>
+      <div><div class="card-title"><span class="vi">Hệ thống xử lý vi phạm theo cấp bậc</span><span class="en">Tiered enforcement system</span></div></div>
+    </div>
+    <div class="penalty-grid">
+      <div class="penalty-card p-warn">
+        <div class="penalty-level"><span class="vi">Cấp 1 — Cảnh cáo</span><span class="en">Level 1 — Warning</span></div>
+        <div class="penalty-desc"><span class="vi">Vi phạm nhẹ lần đầu: trễ giờ, thái độ không phù hợp, thông tin hồ sơ không chính xác</span><span class="en">Minor first-time violations: lateness, inappropriate attitude, inaccurate profile info</span></div>
+      </div>
+      <div class="penalty-card p-sus">
+        <div class="penalty-level"><span class="vi">Cấp 2 — Tạm khoá 7 ngày</span><span class="en">Level 2 — 7-day suspension</span></div>
+        <div class="penalty-desc"><span class="vi">Vi phạm lặp lại hoặc mức độ trung bình. No-show không báo lần đầu.</span><span class="en">Repeated or moderate violations. First unexplained no-show.</span></div>
+      </div>
+      <div class="penalty-card p-sus">
+        <div class="penalty-level"><span class="vi">Cấp 3 — Tạm khoá 30 ngày</span><span class="en">Level 3 — 30-day suspension</span></div>
+        <div class="penalty-desc"><span class="vi">Vi phạm cấp độ cao hơn. No-show lần 2 trong 90 ngày. Đánh giá dưới 3.0 sau 10 buổi.</span><span class="en">Higher-level violations. 2nd no-show within 90 days. Rating below 3.0 after 10 sessions.</span></div>
+      </div>
+      <div class="penalty-card p-ban">
+        <div class="penalty-level"><span class="vi">Cấp 4 — Khoá vĩnh viễn</span><span class="en">Level 4 — Permanent ban</span></div>
+        <div class="penalty-desc"><span class="vi">No-show lần 3 trong 90 ngày. Vi phạm nghiêm trọng. Tạo nhiều tài khoản.</span><span class="en">3rd no-show within 90 days. Serious violations. Creating multiple accounts.</span></div>
+      </div>
+    </div>
+    <div class="penalty-card p-law" style="margin-top:12px">
+      <div class="penalty-level"><span class="vi">Báo cáo cơ quan chức năng — Không cần cảnh báo</span><span class="en">Report to authorities — No warning required</span></div>
+      <div class="penalty-desc"><span class="vi">Vi phạm pháp luật hình sự (mại dâm, bạo lực, ma túy...) sẽ bị báo cáo ngay cho Cục An ninh mạng (Bộ Công an) và cơ quan có thẩm quyền.</span><span class="en">Criminal violations (prostitution, violence, drugs...) will be immediately reported to the Department of Cybersecurity (Ministry of Public Security) and competent authorities.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ic ic-green">🔄</div>
+      <div><div class="card-title"><span class="vi">Quy trình khiếu nại & kháng cáo</span><span class="en">Complaint & Appeal Process</span></div></div>
+    </div>
+    <ul>
+      <li><span class="vi"><strong>Bước 1:</strong> Liên hệ Kèo qua Zalo <strong>0902755265</strong> hoặc hello&#64;keo&#46;social trong vòng <strong>24 giờ</strong> sau sự cố, mô tả chi tiết và đính kèm bằng chứng nếu có</span><span class="en"><strong>Step 1:</strong> Contact Kèo via Zalo <strong>0902755265</strong> or hello&#64;keo&#46;social within <strong>24 hours</strong> of the incident, describe in detail and attach evidence if available</span></li>
+      <li><span class="vi"><strong>Bước 2:</strong> Kèo xem xét và phản hồi trong vòng <strong>48 giờ</strong> làm việc</span><span class="en"><strong>Step 2:</strong> Kèo reviews and responds within <strong>48 business hours</strong></span></li>
+      <li><span class="vi"><strong>Kháng cáo:</strong> Nếu không đồng ý với quyết định xử lý, bạn có quyền kháng cáo trong vòng <strong>7 ngày</strong> bằng cách nhắn Kèo và cung cấp thêm thông tin</span><span class="en"><strong>Appeal:</strong> If you disagree with the decision, you may appeal within <strong>7 days</strong> by messaging Kèo with additional information</span></li>
+      <li><span class="vi">Tất cả báo cáo được xử lý nghiêm túc và bảo mật danh tính người báo cáo</span><span class="en">All reports are handled seriously and reporter identity is kept confidential</span></li>
+    </ul>
+  </div>
+
+</div>
+
+</div><!-- wrap -->
+
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div class="fs">
+    <span class="vi">keo.social · Gặp gỡ có chiều sâu ·</span>
+    <span class="en">keo.social · Connections that go deeper ·</span>
+    <a href="https://keo.social" style="color:var(--go);text-decoration:none"> <span class="vi">Điều khoản</span><span class="en">Terms</span></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+var isEN=false;
+document.addEventListener('DOMContentLoaded',function(){
+  // Tab navigation
+  document.querySelectorAll('.tnav').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.tnav').forEach(function(b){b.classList.remove('on');});
+      document.querySelectorAll('.section').forEach(function(s){s.classList.remove('on');});
+      btn.classList.add('on');
+      document.getElementById('sec-'+btn.getAttribute('data-sec')).classList.add('on');
+    });
+  });
+  // Lang toggle
+  var lt=document.getElementById('lang-toggle');
+  if(lt)lt.addEventListener('click',function(){
+    isEN=!isEN;
+    lt.textContent=isEN?'VI':'EN';
+    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
+    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
+  });
+  // Init VI
+  document.querySelectorAll('.vi').forEach(function(el){el.style.display='inline';});
+  document.querySelectorAll('.en').forEach(function(el){el.style.display='none';});
+});
+})();
+</script>
+</body>
+</html>
