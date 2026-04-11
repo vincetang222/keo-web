@@ -1,0 +1,34 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/blog/di-an-toi-mot-minh",
+      "dest": "/blog-di-an-toi-mot-minh.html"
+    },
+    {
+      "src": "/blog/nguoi-dong-hanh-sai-gon",
+      "dest": "/blog-nguoi-dong-hanh-sai-gon.html"
+    },
+    {
+      "src": "/huongdan",
+      "dest": "/huongdan.html"
+    },
+    {
+      "src": "/register",
+      "dest": "/register.html"
+    },
+    {
+      "src": "/nguoidonghanh",
+      "dest": "/nguoidonghanh.html"
+    },
+    {
+      "src": "/rules",
+      "dest": "/rules.html"
+    },
+    {
+      "src": "/taokeo",
+      "dest": "/taokeo.html"
+    }
+  ]
+}
