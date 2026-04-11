@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kèo — Đăng ký tham gia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1)}
+.header{background:var(--g);padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.htag{font-size:11px;color:rgba(245,240,232,.45);letter-spacing:.1em;text-transform:uppercase}
+.hero{background:var(--g);padding:40px 40px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:50px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.htag2{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:500;color:var(--go);letter-spacing:.07em;text-transform:uppercase;margin-bottom:18px}
+.hdot{width:5px;height:5px;border-radius:50%;background:var(--go);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:'Lora',serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--cr);line-height:1.15;letter-spacing:-1px;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero p{font-size:14px;color:rgba(245,240,232,.6);font-weight:300;max-width:460px;margin:0 auto;line-height:1.7}
+.tabs{display:flex;max-width:660px;margin:36px auto 0;background:var(--cr2);border-radius:12px;padding:4px}
+.tab{flex:1;padding:11px 16px;border-radius:9px;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .22s;color:var(--t3);background:transparent}
+.tab.on{background:var(--g);color:var(--cr);box-shadow:0 2px 10px rgba(26,58,40,.22)}
+.wrap{padding:40px 40px 72px;max-width:660px;margin:0 auto}
+.card{background:var(--w);border-radius:18px;border:1px solid var(--cr2);padding:36px;box-shadow:0 4px 28px rgba(26,58,40,.06)}
+.pane{display:none}.pane.on{display:block}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+.fg{margin-bottom:18px}
+label{display:block;font-size:11px;font-weight:500;color:var(--t2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.req{color:var(--go)}
+input[type=text],input[type=tel],input[type=date],input[type=time],input[type=number],select,textarea{
+  width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid var(--cr2);
+  background:var(--w);font-family:'Inter',sans-serif;font-size:14px;color:var(--t1);
+  outline:none;transition:border .18s,box-shadow .18s}
+input:focus,select:focus,textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(26,58,40,.07)}
+input::placeholder,textarea::placeholder{color:var(--t3)}
+textarea{resize:vertical;min-height:80px;line-height:1.6}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8A80' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.cg4{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.ci{display:flex;align-items:center;gap:7px;padding:9px 11px;border-radius:7px;border:1.5px solid var(--cr2);cursor:pointer;font-size:12px;color:var(--t2);transition:all .14s;user-select:none}
+.ci:hover{border-color:var(--g2);background:rgba(26,58,40,.03)}
+.ci.on{border-color:var(--g);background:rgba(26,58,40,.05)}
+.cb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--cr2);flex-shrink:0;transition:all .14s;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
+.ci.on .cb{background:var(--g);border-color:var(--g);color:var(--cr)}
+.div{display:flex;align-items:center;gap:10px;margin:24px 0 20px}
+.div::before,.div::after{content:'';flex:1;height:1px;background:var(--cr2)}
+.div span{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.pkg{border:1.5px solid var(--cr2);border-radius:12px;padding:20px;margin-bottom:14px;position:relative;transition:border .15s}
+.pkg:hover{border-color:var(--g2)}
+.pkg-title{font-size:12px;font-weight:600;color:var(--t2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.pkg-del{background:none;border:none;cursor:pointer;font-size:16px;color:var(--t3);padding:0;line-height:1}
+.pkg-del:hover{color:#c0392b}
+.add-pkg{width:100%;padding:11px;border-radius:9px;border:1.5px dashed var(--cr2);background:transparent;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--t3);cursor:pointer;transition:all .18s;margin-top:4px}
+.add-pkg:hover{border-color:var(--g);color:var(--g);background:rgba(26,58,40,.03)}
+.range-val{text-align:center;font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--g);margin-bottom:7px}
+.range-val small{font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--t3)}
+input[type=range]{width:100%;height:4px;border-radius:2px;background:var(--cr2);outline:none;-webkit-appearance:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--g);cursor:pointer;box-shadow:0 2px 6px rgba(26,58,40,.28)}
+.rl{display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:4px}
+.sub{width:100%;padding:14px;border-radius:100px;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;margin-top:6px}
+.sub-c{background:var(--g);color:var(--cr)}.sub-c:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 5px 18px rgba(26,58,40,.22)}
+.sub-h{background:var(--go);color:var(--g)}.sub-h:hover{background:#d4b45a;transform:translateY(-1px);box-shadow:0 5px 18px rgba(201,168,76,.3)}
+.fnote{font-size:11px;color:var(--t3);text-align:center;margin-top:10px;line-height:1.6}
+.suc{display:none;text-align:center;padding:40px 20px}
+.suc-ic{font-size:48px;margin-bottom:14px}
+.suc-t{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:8px}
+.suc-s{font-size:13px;color:var(--t3);line-height:1.7}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
+.flogo{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--g)}
+.flogo span{color:var(--go)}
+.fsub{font-size:11px;color:var(--t3);margin-top:3px}
+.en{display:none}
+.tip{background:rgba(26,58,40,.04);border-left:3px solid var(--go);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:8px;font-size:12px;color:var(--t2);line-height:1.65}
+.tip strong{color:var(--g);display:block;margin-bottom:4px;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.tip-eg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tip-tag{background:var(--w);border:1px solid var(--cr2);border-radius:6px;padding:5px 10px;font-size:12px;color:var(--t2)}
+.tip-tag b{color:var(--g);font-weight:600}
+.lang-btn{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+@media(max-width:580px){
+  .header,.hero,.wrap{padding-left:18px;padding-right:18px}
+  .card{padding:22px 18px}
+  .row,.row3{grid-template-columns:1fr}
+  .cg,.cg4{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="https://keo.social" class="logo">Kèo<span>.</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span class="htag"><span class="vi">Đăng ký tham gia</span><span class="en">Sign Up</span></span>
+    <button class="lang-btn" id="lang-toggle">EN</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="htag2"><div class="hdot"></div><span class="vi">Đang tuyển — còn ít suất</span><span class="en">Now recruiting — limited spots</span></div>
+  <h1><span class="vi">Bạn là ai<br>trong <em>Kèo</em>?</span><span class="en">Who are you<br>on <em>Kèo</em>?</span></h1>
+  <p><span class="vi">Chọn vai trò của bạn và điền thông tin. Mình sẽ liên hệ qua Zalo trong 24 giờ.</span><span class="en">Choose your role and fill in your details. We'll reach out within 24 hours.</span></p>
+  <div class="tabs">
+    <button class="tab on" id="tab-comp" data-anchor="companion" data-sw="comp"><span class="vi">🌟 Người đồng hành</span><span class="en">🌟 Companion</span></button>
+    <button class="tab" id="tab-host" data-anchor="host" data-sw="host"><span class="vi">👑 Chủ xị</span><span class="en">👑 Host</span></button>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="card">
+
+<!-- ═══════════════════════════════════════════════════════
+     NGƯỜI ĐỒNG HÀNH FORM
+     Formspree: xykbvarb
+═══════════════════════════════════════════════════════ -->
+<div class="pane on" id="pane-comp">
+  <div id="comp-fi">
+  <form id="form-comp">
+
+    <div class="div"><span><span class="vi">Thông tin cơ bản</span><span class="en">Basic Information</span></span></div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Họ tên</span><span class="en">Full name</span> <span class="req">*</span></label>
+        <input type="text" name="ho_ten" placeholder="Nguyễn Thị A" data-vi="Nguyễn Thị A" data-en="Your name" required>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Số Zalo</span><span class="en">WhatsApp / Phone</span> <span class="req">*</span></label>
+        <input type="tel" name="zalo" placeholder="09xxxxxxxx" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Năm sinh</span><span class="en">Year of birth</span> <span class="req">*</span></label>
+        <select name="nam_sinh" required>
+          <option value="">--</option>
+          <option>2008</option>
+          <option>2007</option>
+          <option>2006</option>
+          <option>2005</option>
+          <option>2004</option>
+          <option>2003</option>
+          <option>2002</option>
+          <option>2001</option>
+          <option>2000</option>
+          <option>1999</option>
+          <option>1998</option>
+          <option>1997</option>
+          <option>1996</option>
+          <option>1995</option>
+          <option>1994</option>
+          <option>1993</option>
+          <option>1992</option>
+          <option>1991</option>
+          <option>1990</option>
+          <option>1989</option>
+          <option>1988</option>
+          <option>1987</option>
+          <option>1986</option>
+          <option>1985</option>
+          <option>1984</option>
+          <option>1983</option>
+          <option>1982</option>
+          <option>1981</option>
+          <option>1980</option>
+          <option>1979</option>
+          <option>1978</option>
+          <option>1977</option>
+          <option>1976</option>
+          <option>1975</option>
+          <option>Trước 1975</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Giới tính</span><span class="en">Gender</span></label>
+        <select name="gioi_tinh">
+          <option value="">--</option>
+          <option>Nam</option>
+          <option>Nữ</option>
+          <option>Non-binary</option>
+          <option>Genderfluid</option>
+          <option>Transgender Nam</option>
+          <option>Transgender Nữ</option>
+          <option>Queer</option>
+          <option>Không muốn tiết lộ</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Bạn thoải mái gặp giới tính nào?</span><span class="en">Comfortable meeting which gender?</span></label>
+      <select name="gioi_tinh_mong_muon">
+        <option value="any">Không quan trọng / Any</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+        <option>Non-binary</option>
+        <option>Transgender Nam</option>
+        <option>Transgender Nữ</option>
+        <option>Queer</option>
+      </select>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Bạn thuộc cộng đồng nào?</span><span class="en">Which community do you belong to?</span></label>
+      <select data-bilingual="name" name="cong_dong">
+        <option value="">Không muốn tiết lộ / Prefer not to say</option>
+        <option>Thẳng (Straight)</option>
+        <option>Gay</option>
+        <option>Lesbian</option>
+        <option>Bisexual</option>
+        <option>Pansexual</option>
+        <option>Asexual</option>
+        <option>Queer</option>
+        <option>Khác</option>
+      </select>
+      <div style="font-size:11px;color:var(--t3);margin-top:5px">
+        <span class="vi">Thông tin này giúp match bạn với người phù hợp hơn. Không bắt buộc.</span>
+        <span class="en">This helps us match you better. Optional.</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Thành phố</span><span class="en">City</span> <span class="req">*</span></label>
+        <select data-bilingual="name" name="thanh_pho" id="city-comp" required>
+          <option value="">Chọn thành phố</option>
+          <option>TP. Hồ Chí Minh</option>
+          <option>Hà Nội</option>
+          <option>Đà Nẵng</option>
+          <option value="other">Khác / Other</option>
+        </select>
+        <input type="text" name="thanh_pho_khac" id="city-comp-other" placeholder="Nhập thành phố của bạn..." data-vi="Nhập thành phố của bạn..." data-en="Enter your city..." style="display:none;margin-top:8px">
+      </div>
+      <div class="fg">
+        <label><span class="vi">Phường / Xã</span><span class="en">Ward</span></label>
+        <input type="text" name="quan" placeholder="Quận 1, Ba Đình..." data-vi="Quận 1, Ba Đình..." data-en="District 1, Central...">
+      </div>
+    </div>
+
+    <div class="div"><span><span class="vi">Về bạn</span><span class="en">About You</span></span></div>
+
+    <div class="fg">
+      <label><span class="vi">Lĩnh vực chính</span><span class="en">Main field</span> <span class="req">*</span></label>
+      <select data-bilingual="name" name="linh_vuc" required>
+        <option value="">Chọn lĩnh vực chính</option>
+        <option>Ẩm thực &amp; Wine</option>
+        <option>Barista &amp; Cà phê specialty</option>
+        <option>Nghệ thuật &amp; Hội họa</option>
+        <option>Nhiếp ảnh &amp; Quay phim</option>
+        <option>Âm nhạc &amp; Biểu diễn</option>
+        <option>Thời trang &amp; Phong cách</option>
+        <option>Sách &amp; Văn học</option>
+        <option>Kinh doanh &amp; Khởi nghiệp</option>
+        <option>Tài chính &amp; Đầu tư</option>
+        <option>Marketing &amp; Truyền thông</option>
+        <option>Công nghệ &amp; Lập trình</option>
+        <option>Thiết kế &amp; Sáng tạo</option>
+        <option>Du lịch &amp; Khám phá</option>
+        <option>Thể thao &amp; Sức khỏe</option>
+        <option>Thiên nhiên &amp; Dã ngoại</option>
+        <option>Tâm lý &amp; Phát triển bản thân</option>
+        <option>Giáo dục &amp; Dạy học</option>
+        <option>Y tế &amp; Sức khỏe</option>
+        <option>Pháp lý &amp; Luật</option>
+        <option>Ngoại ngữ &amp; Văn hóa</option>
+        <option>Khác</option>
+      </select>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Nếu ngồi cùng người lạ 2 tiếng, bạn muốn nói về gì?</span><span class="en">If sitting with a stranger for 2 hours, what would you talk about?</span> <span class="req">*</span></label>
+      <textarea name="chu_de" placeholder="Mô tả tự nhiên — đây là điều giúp mình match bạn với đúng người..." required></textarea>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Mô tả bản thân trong 1 câu</span><span class="en">Describe yourself in one sentence</span> <span class="req">*</span></label>
+      <input type="text" name="mo_ta" placeholder="Câu mà bạn tự hào nhất về mình..." data-vi="Câu mà bạn tự hào nhất về mình..." data-en="One sentence you're most proud of..." required>
+      <div class="tip">
+        <strong><span class="vi">💡 Gợi ý viết</span><span class="en">💡 Writing tips</span></strong>
+        <span class="vi">Câu hay nhất là câu cụ thể và gây tò mò. Ví dụ:<br>
+        ✓ <em>"Food blogger 5 năm, đã thử 200+ nhà hàng Sài Gòn"</em><br>
+        ✓ <em>"Người Hà Nội gốc, biết từng con phố có gì ngon"</em><br>
+        ✗ <em>"Mình là người vui vẻ và thân thiện"</em> — quá chung chung</span>
+        <span class="en">The best sentences are specific and curiosity-provoking. Examples:<br>
+        ✓ <em>"Food blogger 5 years, tried 200+ Saigon restaurants"</em><br>
+        ✓ <em>"Hanoi local, knows every street's best food"</em><br>
+        ✗ <em>"I'm a fun and friendly person"</em> — too generic</span>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Link ảnh đại diện</span><span class="en">Profile photo link</span> <span class="req">*</span></label>
+      <input type="url" name="anh_dai_dien" placeholder="https://drive.google.com/... hoặc link Facebook/Instagram" data-vi="https://drive.google.com/... hoặc link Facebook/Instagram" data-en="https://drive.google.com/... or Facebook/Instagram link" required>
+      <div style="font-size:11px;color:var(--t3);margin-top:6px;line-height:1.6">
+        <span class="vi">📎 Cách lấy link: <strong>Google Drive</strong> → chuột phải vào ảnh → "Lấy link" → đổi thành "Bất kỳ ai có đường link" → copy. Hoặc paste link ảnh Facebook / Instagram của bạn.</span>
+        <span class="en">📎 How to share: <strong>Google Drive</strong> → right-click photo → "Get link" → change to "Anyone with the link" → copy. Or paste your Facebook / Instagram photo link.</span>
+      </div>
+    </div>
+
+    <div class="div"><span><span class="vi">Thông tin cá nhân</span><span class="en">Personal Details</span></span></div>
+
+    <div class="row3">
+      <div class="fg">
+        <label><span class="vi">Chiều cao</span><span class="en">Height</span></label>
+        <input type="text" name="chieu_cao" placeholder="Ví dụ: 165cm" data-vi="Ví dụ: 165cm" data-en="e.g. 165cm">
+      </div>
+      <div class="fg">
+        <label><span class="vi">Trình độ học vấn</span><span class="en">Education</span></label>
+        <select data-bilingual="name" name="hoc_van">
+          <option value="">Chọn</option>
+          <option>THPT</option>
+          <option>Cao đẳng</option>
+          <option>Đại học</option>
+          <option>Thạc sĩ</option>
+          <option>Tiến sĩ</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Chòm sao</span><span class="en">Star sign</span></label>
+        <select data-bilingual="name" name="chom_sao">
+          <option value="">Chọn</option>
+          <option>Bạch Dương</option>
+          <option>Kim Ngưu</option>
+          <option>Song Tử</option>
+          <option>Cự Giải</option>
+          <option>Sư Tử</option>
+          <option>Xử Nữ</option>
+          <option>Thiên Bình</option>
+          <option>Bọ Cạp</option>
+          <option>Nhân Mã</option>
+          <option>Ma Kết</option>
+          <option>Bảo Bình</option>
+          <option>Song Ngư</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Ngũ hành</span><span class="en">Five Elements</span></label>
+        <select name="ngu_hanh">
+          <option value="">--</option>
+          <option>Kim (Metal)</option>
+          <option>Mộc (Wood)</option>
+          <option>Thuỷ (Water)</option>
+          <option>Hoả (Fire)</option>
+          <option>Thổ (Earth)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row3">
+      <div class="fg">
+        <label><span class="vi">Uống cồn</span><span class="en">Alcohol</span></label>
+        <select data-bilingual="name" name="uong_con">
+          <option value="">Chọn</option>
+          <option>Có, uống được</option>
+          <option>Uống ít / xã giao</option>
+          <option>Không uống</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Hút thuốc</span><span class="en">Smoking</span></label>
+        <select data-bilingual="name" name="hut_thuoc">
+          <option value="">Chọn</option>
+          <option>Có</option>
+          <option>Không</option>
+          <option>Đã bỏ</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Tôn giáo</span><span class="en">Religion</span></label>
+        <select data-bilingual="name" name="ton_giao">
+          <option value="">Chọn</option>
+          <option>Không</option>
+          <option>Phật giáo</option>
+          <option>Thiên Chúa giáo</option>
+          <option>Tin Lành</option>
+          <option>Hồi giáo</option>
+          <option>Cao Đài</option>
+          <option>Khác</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Ngoại ngữ</span><span class="en">Languages</span></label>
+      <div class="cg4" id="lang-grid">
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Anh</span><span class="en">English</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Trung</span><span class="en">Chinese</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Nhật</span><span class="en">Japanese</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Hàn</span><span class="en">Korean</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Pháp</span><span class="en">French</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Đức</span><span class="en">German</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tiếng Tây Ban Nha</span><span class="en">Spanish</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Khác</span><span class="en">Other</span></label>
+      </div>
+      <input type="hidden" name="ngoai_ngu" id="ngoai-ngu-val">
+    </div>
+
+    <div class="div"><span><span class="vi">Lịch &amp; Sự kiện</span><span class="en">Schedule &amp; Events</span></span></div>
+
+    <div class="fg">
+      <label><span class="vi">Khung giờ rảnh</span><span class="en">Availability</span></label>
+      <div class="cg" id="gio-grid">
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Sáng T2-T6</span><span class="en">Mon-Fri Morning</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Chiều T2-T6</span><span class="en">Mon-Fri Afternoon</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Tối T2-T6</span><span class="en">Mon-Fri Evening</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Cuối tuần sáng</span><span class="en">Weekend Morning</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Cuối tuần chiều</span><span class="en">Weekend Afternoon</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Cuối tuần tối</span><span class="en">Weekend Evening</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">Linh hoạt</span><span class="en">Flexible</span></label>
+      </div>
+      <input type="hidden" name="gio_ranh" id="gio-ranh-val">
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Loại sự kiện muốn tham dự</span><span class="en">Event types</span></label>
+      <div class="cg" id="loai-grid">
+      <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🍽 Bữa tối</span><span class="en">🍽 Dinner</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🥗 Bữa trưa</span><span class="en">🥗 Lunch</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">☕ Cà phê</span><span class="en">☕ Coffee</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🍷 Wine &amp; Cocktail</span><span class="en">🍷 Wine &amp; Cocktail</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎵 Âm nhạc</span><span class="en">🎵 Music</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎨 Triển lãm</span><span class="en">🎨 Gallery</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🏸 Thể thao</span><span class="en">🏸 Sports</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🕺 Club / Bar</span><span class="en">🕺 Club / Bar</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🛍 Mua sắm</span><span class="en">🛍 Shopping</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎬 Xem phim</span><span class="en">🎬 Cinema</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">💆 Spa &amp; Wellness</span><span class="en">💆 Spa &amp; Wellness</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🌿 Dã ngoại</span><span class="en">🌿 Outdoors</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎪 Sự kiện</span><span class="en">🎪 Event</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">✨ Khác</span><span class="en">✨ Other</span></label>
+      </div>
+      <input type="hidden" name="loai_sk" id="loai-sk-val">
+      <input type="text" name="loai_sk_khac" placeholder="Mô tả thêm nếu cần..." style="margin-top:10px" data-vi="Mô tả thêm nếu cần..." data-en="Describe further if needed...">
+    </div>
+
+    <div class="div"><span><span class="vi">Gói dịch vụ của bạn</span><span class="en">Your Service Packages</span></span></div>
+
+    <div class="tip" style="margin-bottom:16px">
+      <strong><span class="vi">💡 Đặt giá như thế nào?</span><span class="en">💡 How to price your packages?</span></strong>
+      <span class="vi">Nghĩ đến <em>giá trị bạn mang lại</em>, không chỉ thời gian. Gợi ý tham khảo:</span>
+      <span class="en">Think about the <em>value you bring</em>, not just time. Reference ranges:</span>
+      <div class="tip-eg">
+        <div class="tip-tag"><b>200–300k</b> <span class="vi">Cà phê · 1–2h · Chia sẻ cơ bản</span><span class="en">Coffee · 1–2h · Basic sharing</span></div>
+        <div class="tip-tag"><b>300–500k</b> <span class="vi">Bữa trưa · Dạo phố · Tư vấn nhẹ</span><span class="en">Lunch · Walk · Light advice</span></div>
+        <div class="tip-tag"><b>500–750k</b> <span class="vi">Bữa tối · Triển lãm · Chuyên môn cao</span><span class="en">Dinner · Gallery · High expertise</span></div>
+        <div class="tip-tag"><b>750k+</b> <span class="vi">Sự kiện đặc biệt · Chuyên gia</span><span class="en">Special events · Expert level</span></div>
+      </div>
+      <span class="vi" style="display:block;margin-top:8px;font-style:italic">Mới bắt đầu? Đặt 300–400k để có buổi đầu, tăng dần sau khi có đánh giá 🌿</span>
+      <span class="en" style="display:block;margin-top:8px;font-style:italic">Just starting? Set 300–400k to get your first session, increase after good reviews 🌿</span>
+    </div>
+
+    <div id="pkg-list"></div>
+    <button type="button" class="add-pkg" id="add-pkg-btn"><span class="vi">+ Thêm gói dịch vụ</span><span class="en">+ Add service package</span></button>
+    <input type="hidden" name="goi_dich_vu" id="pkg-val">
+
+    <div class="div"><span><span class="vi">Ghi chú thêm</span><span class="en">Additional Notes</span></span></div>
+
+    <div class="fg">
+      <textarea name="ghi_chu" placeholder="Bất kỳ điều gì bạn muốn mình biết thêm..." data-vi="Bất kỳ điều gì bạn muốn mình biết thêm..." data-en="Anything else you'd like us to know..."></textarea>
+    </div>
+
+    <input type="hidden" name="vai_tro" value="Nguoi dong hanh">
+    <button type="button" class="sub sub-c" data-sub="comp"><span class="vi">Gửi hồ sơ Người đồng hành →</span><span class="en">Submit Companion Profile →</span></button>
+    <p class="fnote">Mình sẽ liên hệ Zalo trong 24 giờ và giúp bạn xây dựng gói đồng hành 🌿</p>
+  </form>
+  </div>
+  <div class="suc" id="comp-suc">
+    <div class="suc-ic">🙌</div>
+    <div class="suc-t"><span class="vi">Hồ sơ đã gửi!</span><span class="en">Profile submitted!</span></div>
+    <div class="suc-s"><span class="vi">Mình sẽ liên hệ qua Zalo trong 24 giờ<br>để cùng xây dựng gói đồng hành phù hợp nhé.</span><span class="en">We'll reach out via Zalo within 24 hours<br>to build your companion profile together.</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CHỦ XỊ FORM
+     Formspree: xeepdwyn
+═══════════════════════════════════════════════════════ -->
+<div class="pane" id="pane-host">
+  <div id="host-fi">
+  <form id="form-host">
+
+    <div class="div"><span><span class="vi">Thông tin cơ bản</span><span class="en">Basic Information</span></span></div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Họ tên</span><span class="en">Full name</span> <span class="req">*</span></label>
+        <input type="text" name="ho_ten" placeholder="Nguyễn Văn B" data-vi="Nguyễn Văn B" data-en="Your name" required>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Số Zalo</span><span class="en">WhatsApp / Phone</span> <span class="req">*</span></label>
+        <input type="tel" name="zalo" placeholder="09xxxxxxxx" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Năm sinh</span><span class="en">Year of birth</span> <span class="req">*</span></label>
+        <select name="nam_sinh" required>
+          <option value="">--</option>
+          <option>2008</option>
+          <option>2007</option>
+          <option>2006</option>
+          <option>2005</option>
+          <option>2004</option>
+          <option>2003</option>
+          <option>2002</option>
+          <option>2001</option>
+          <option>2000</option>
+          <option>1999</option>
+          <option>1998</option>
+          <option>1997</option>
+          <option>1996</option>
+          <option>1995</option>
+          <option>1994</option>
+          <option>1993</option>
+          <option>1992</option>
+          <option>1991</option>
+          <option>1990</option>
+          <option>1989</option>
+          <option>1988</option>
+          <option>1987</option>
+          <option>1986</option>
+          <option>1985</option>
+          <option>1984</option>
+          <option>1983</option>
+          <option>1982</option>
+          <option>1981</option>
+          <option>1980</option>
+          <option>1979</option>
+          <option>1978</option>
+          <option>1977</option>
+          <option>1976</option>
+          <option>1975</option>
+          <option>Trước 1975</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Giới tính</span><span class="en">Gender</span></label>
+        <select name="gioi_tinh">
+          <option value="">--</option>
+          <option>Nam</option>
+          <option>Nữ</option>
+          <option>Non-binary</option>
+          <option>Genderfluid</option>
+          <option>Transgender Nam</option>
+          <option>Transgender Nữ</option>
+          <option>Queer</option>
+          <option>Không muốn tiết lộ</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Chòm sao</span><span class="en">Star sign</span></label>
+        <select name="chom_sao_host">
+          <option value="">--</option>
+          <option>Bạch Dương</option>
+          <option>Kim Ngưu</option>
+          <option>Song Tử</option>
+          <option>Cự Giải</option>
+          <option>Sư Tử</option>
+          <option>Xử Nữ</option>
+          <option>Thiên Bình</option>
+          <option>Bọ Cạp</option>
+          <option>Nhân Mã</option>
+          <option>Ma Kết</option>
+          <option>Bảo Bình</option>
+          <option>Song Ngư</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="vi">Ngũ hành</span><span class="en">Five Elements</span></label>
+        <select name="ngu_hanh_host">
+          <option value="">--</option>
+          <option>Kim (Metal)</option>
+          <option>Mộc (Wood)</option>
+          <option>Thuỷ (Water)</option>
+          <option>Hoả (Fire)</option>
+          <option>Thổ (Earth)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Giới tính Người đồng hành mong muốn</span><span class="en">Preferred companion gender</span></label>
+      <select name="gioi_tinh_mong_muon">
+        <option value="any">Không quan trọng</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+        <option>Non-binary</option>
+        <option>Transgender Nam</option>
+        <option>Transgender Nữ</option>
+        <option>Queer</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label><span class="vi">Bạn thuộc cộng đồng nào?</span><span class="en">Which community do you belong to?</span></label>
+      <select data-bilingual="name" name="cong_dong">
+        <option value="">Không muốn tiết lộ / Prefer not to say</option>
+        <option>Thẳng (Straight)</option>
+        <option>Gay</option>
+        <option>Lesbian</option>
+        <option>Bisexual</option>
+        <option>Pansexual</option>
+        <option>Asexual</option>
+        <option>Queer</option>
+        <option>Khác</option>
+      </select>
+      <div style="font-size:11px;color:var(--t3);margin-top:5px">
+        <span class="vi">Thông tin này giúp match bạn tốt hơn. Không bắt buộc.</span>
+        <span class="en">This helps us match you better. Optional.</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="fg">
+        <label><span class="vi">Thành phố</span><span class="en">City</span> <span class="req">*</span></label>
+        <select data-bilingual="name" name="thanh_pho" id="city-host" required>
+          <option value="">Chọn thành phố</option>
+          <option>TP. Hồ Chí Minh</option>
+          <option>Hà Nội</option>
+          <option>Đà Nẵng</option>
+          <option value="other">Khác / Other</option>
+        </select>
+        <input type="text" name="thanh_pho_khac" id="city-host-other" placeholder="Nhập thành phố của bạn..." data-vi="Nhập thành phố của bạn..." data-en="Enter your city..." style="display:none;margin-top:8px">
+      </div>
+      <div class="fg">
+        <label><span class="vi">Khu vực hay đến</span><span class="en">Area you frequent</span></label>
+        <input type="text" name="khu_vuc" placeholder="Quận 1, Hoàn Kiếm...">
+      </div>
+    </div>
+
+    <div class="div"><span><span class="vi">Sở thích &amp; Phong cách</span><span class="en">Preferences &amp; Style</span></span></div>
+
+    <div class="fg">
+      <label><span class="vi">Loại buổi gặp bạn thích</span><span class="en">Preferred event types</span></label>
+      <div class="cg" id="host-loai-grid">
+      <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🍽 Bữa tối</span><span class="en">🍽 Dinner</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🥗 Bữa trưa</span><span class="en">🥗 Lunch</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">☕ Cà phê</span><span class="en">☕ Coffee</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🍷 Wine &amp; Cocktail</span><span class="en">🍷 Wine &amp; Cocktail</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎵 Âm nhạc</span><span class="en">🎵 Music</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎨 Triển lãm</span><span class="en">🎨 Gallery</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🏸 Thể thao</span><span class="en">🏸 Sports</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🕺 Club / Bar</span><span class="en">🕺 Club / Bar</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🛍 Mua sắm</span><span class="en">🛍 Shopping</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎬 Xem phim</span><span class="en">🎬 Cinema</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">💆 Spa &amp; Wellness</span><span class="en">💆 Spa &amp; Wellness</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🌿 Dã ngoại</span><span class="en">🌿 Outdoors</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">🎪 Sự kiện</span><span class="en">🎪 Event</span></label>
+        <label class="ci" data-tog="1"><span class="cb"></span><span class="vi">✨ Khác</span><span class="en">✨ Other</span></label>
+      </div>
+      <input type="hidden" name="loai_buoi" id="host-loai-val">
+      <input type="text" name="loai_buoi_khac" placeholder="Mô tả thêm nếu cần..." style="margin-top:10px" data-vi="Mô tả thêm nếu cần..." data-en="Describe further if needed...">
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Người đồng hành lý tưởng của bạn như thế nào?</span><span class="en">What is your ideal companion like?</span> <span class="req">*</span></label>
+      <textarea name="mong_muon" placeholder="Ví dụ: sành ẩm thực Nhật, am hiểu nghệ thuật, người bản địa Sài Gòn, chuyên gia một lĩnh vực..." data-vi="Ví dụ: sành ẩm thực Nhật, am hiểu nghệ thuật, người bản địa Sài Gòn, chuyên gia một lĩnh vực..." data-en="e.g. Japanese cuisine expert, art lover, local Saigon guide, industry specialist..." required></textarea>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Ngân sách thù lao mỗi buổi</span><span class="en">Budget per session</span> <span class="req">*</span></label>
+      <select data-bilingual="name" name="ngan_sach" required>
+        <option value="">Chọn mức ngân sách</option>
+        <option>Dưới 500k</option>
+        <option>500k — 1 triệu</option>
+        <option>1 — 2 triệu</option>
+        <option>2 — 5 triệu</option>
+        <option>Trên 5 triệu</option>
+      </select>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Lý do bạn muốn thử Kèo?</span><span class="en">Why do you want to try Kèo?</span> <span class="req">*</span></label>
+      <textarea name="ly_do" placeholder="Câu này giúp mình hiểu bạn hơn để tìm đúng người..." data-vi="Câu này giúp mình hiểu bạn hơn để tìm đúng người..." data-en="This helps us find the right person for you..." required></textarea>
+    </div>
+
+    <div class="fg">
+      <label><span class="vi">Link ảnh đại diện</span><span class="en">Profile photo link</span> <span class="req">*</span></label>
+      <input type="url" name="anh_dai_dien" placeholder="https://drive.google.com/... hoặc link Facebook/Instagram" data-vi="https://drive.google.com/... hoặc link Facebook/Instagram" data-en="https://drive.google.com/... or Facebook/Instagram link" required>
+      <div style="font-size:11px;color:var(--t3);margin-top:6px;line-height:1.6">
+        <span class="vi">📎 Cách lấy link: <strong>Google Drive</strong> → chuột phải vào ảnh → "Lấy link" → đổi thành "Bất kỳ ai có đường link" → copy. Hoặc paste link ảnh Facebook / Instagram.</span>
+        <span class="en">📎 How to share: <strong>Google Drive</strong> → right-click photo → "Get link" → change to "Anyone with the link" → copy. Or paste your Facebook / Instagram photo link.</span>
+      </div>
+    </div>
+
+    <input type="hidden" name="vai_tro" value="Chu xi">
+    <input type="hidden" name="host_loai" id="host-loai-hidden">
+    <button type="button" class="sub sub-h" data-sub="host"><span class="vi">Gửi yêu cầu Chủ xị →</span><span class="en">Submit Host Profile →</span></button>
+    <p class="fnote">Mình sẽ liên hệ Zalo trong 24 giờ và giới thiệu Người đồng hành phù hợp 🌿</p>
+  </form>
+  </div>
+  <div class="suc" id="host-suc">
+    <div class="suc-ic">🎉</div>
+    <div class="suc-t"><span class="vi">Yêu cầu đã gửi!</span><span class="en">Request submitted!</span></div>
+    <div class="suc-s"><span class="vi">Mình sẽ liên hệ qua Zalo trong 24 giờ<br>và giới thiệu Người đồng hành phù hợp nhất nhé.</span><span class="en">We'll reach out via Zalo within 24 hours<br>with the best matched companion for you.</span></div>
+  </div>
+</div>
+
+</div><!-- card -->
+</div><!-- wrap -->
+
+<footer>
+  <div class="flogo">Kèo<span>.</span></div>
+  <div class="fsub">keo.social · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+</footer>
+
+<script>
+(function(){
+
+function sw(t){
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('.pane').forEach(function(p){p.classList.remove('on');});
+  document.getElementById('tab-'+t).classList.add('on');
+  document.getElementById('pane-'+t).classList.add('on');
+}
+
+function tog(el){
+  el.classList.toggle('on');
+  var cb=el.querySelector('.cb');
+  cb.textContent=el.classList.contains('on')?'\u2713':'';
+}
+
+// Collect checked items from a grid
+function getChecked(gridId){
+  var items=[];
+  document.querySelectorAll('#'+gridId+' .ci.on').forEach(function(el){
+    items.push(el.textContent.trim());
+  });
+  return items.join(', ');
+}
+
+// Package builder
+var pkgCount=0;
+var isEN=false;
+function addPkg(){
+  pkgCount++;
+  var n=pkgCount;
+  var div=document.createElement('div');
+  div.className='pkg';
+  div.id='pkg-'+n;
+  var lbl1=isEN?'Package':'G\u00f3i';
+  var lbl2=isEN?'Package name':'T\u00ean g\u00f3i';
+  var ph1=isEN?'e.g. Omakase Dinner Package, Creative Coffee...':'V\u00ed d\u1ee5: G\u00f3i \u1ea8m th\u1ef1c Omakase, G\u00f3i C\u00e0 ph\u00ea S\u00e1ng t\u1ea1o...';
+  var lbl3=isEN?'Fee (VND)':'Th\u00f9 lao (VND)';
+  var lbl4=isEN?'Duration':'Th\u1eddi gian';
+  var lbl5=isEN?'Package description':'M\u00f4 t\u1ea3 g\u00f3i';
+  var ph2=isEN?'What will you provide in this package?...':'B\u1ea1n s\u1ebd cung c\u1ea5p g\u00ec trong g\u00f3i n\u00e0y?...';
+  var dur=isEN?'<option>1 hour</option><option>2 hours</option><option>3 hours</option><option>Half day</option><option>Negotiable</option>':'<option>1 ti\u1ebfng</option><option>2 ti\u1ebfng</option><option>3 ti\u1ebfng</option><option>N\u1eeda ng\u00e0y</option><option>Th\u1ecfa thu\u1eadn</option>';
+  div.innerHTML='<div class="pkg-title"><span>'+lbl1+' '+n+'</span><button type="button" class="pkg-del" data-delpkg="'+n+'">\u2715</button></div>'
+    +'<div class="fg"><label>'+lbl2+' <span style="color:#e05555">*</span></label><input type="text" name="pkg_'+n+'_ten" placeholder="'+ph1+'"></div>'
+    +'<div class="row">'
+    +'<div class="fg"><label>'+lbl3+' <span style="color:#e05555">*</span></label><input type="number" name="pkg_'+n+'_gia" placeholder="300000" min="50000" step="50000"></div>'
+    +'<div class="fg"><label>'+lbl4+'</label><select name="pkg_'+n+'_tg">'+dur+'</select></div>'
+    +'</div>'
+    +'<div class="fg"><label>'+lbl5+'</label><textarea name="pkg_'+n+'_mo_ta" placeholder="'+ph2+'" style="min-height:60px"></textarea></div>';
+  document.getElementById('pkg-list').appendChild(div);
+}
+
+function delPkg(n){
+  var el=document.getElementById('pkg-'+n);
+  if(el)el.remove();
+}
+
+// Collect packages into JSON hidden field
+function collectPkgs(){
+  var pkgs=[];
+  document.querySelectorAll('#pkg-list .pkg').forEach(function(p){
+    var id=p.id.replace('pkg-','');
+    var ten=p.querySelector('[name="pkg_'+id+'_ten"]');
+    var gia=p.querySelector('[name="pkg_'+id+'_gia"]');
+    var tg=p.querySelector('[name="pkg_'+id+'_tg"]');
+    var mo=p.querySelector('[name="pkg_'+id+'_mo_ta"]');
+    pkgs.push({
+      ten:ten?ten.value:'',
+      gia:gia?gia.value:'',
+      tg:tg?tg.value:'',
+      mo_ta:mo?mo.value:''
+    });
+  });
+  return JSON.stringify(pkgs);
+}
+
+function sub(t){
+  var fid=t==='comp'?'xykbvarb':'xeepdwyn';
+  var form=document.getElementById('form-'+t);
+  var reqs=form.querySelectorAll('[required]');
+  var ok=true;
+  reqs.forEach(function(inp){
+    if(!inp.value.trim()){ok=false;inp.style.borderColor='#e05555';}
+    else{inp.style.borderColor='';}
+  });
+  // Validate companion: must have >= 1 pkg with name + price
+  if(t==='comp'){
+    var pkgList=document.getElementById('pkg-list');
+    var pkgs=pkgList?pkgList.querySelectorAll('.pkg'):[];
+    var hasPkg=false;
+    pkgs.forEach(function(p){
+      var id=p.id.replace('pkg-','');
+      var ten=p.querySelector('[name="pkg_'+id+'_ten"]');
+      var gia=p.querySelector('[name="pkg_'+id+'_gia"]');
+      if(ten&&ten.value.trim()&&gia&&gia.value.trim()){
+        hasPkg=true;
+        ten.style.borderColor='';gia.style.borderColor='';
+      } else {
+        ok=false;
+        if(ten&&!ten.value.trim())ten.style.borderColor='#e05555';
+        if(gia&&!gia.value.trim())gia.style.borderColor='#e05555';
+      }
+    });
+    if(!hasPkg){
+      ok=false;
+      if(pkgList)pkgList.style.outline='2px solid #e05555';
+      alert(isEN?'Please add at least 1 service package with a name and fee.':'Vui l\u00f2ng th\u00eam \u00edt nh\u1ea5t 1 g\u00f3i d\u1ecbch v\u1ee5 c\u00f3 t\u00ean v\u00e0 gi\u00e1.');
+    } else {
+      if(pkgList)pkgList.style.outline='';
+    }
+  }
+  if(!ok){return;}
+
+  if(t==='comp'){
+    document.getElementById('ngoai-ngu-val').value=getChecked('lang-grid');
+    document.getElementById('gio-ranh-val').value=getChecked('gio-grid');
+    document.getElementById('loai-sk-val').value=getChecked('loai-grid');
+    document.getElementById('pkg-val').value=collectPkgs();
+  } else {
+    document.getElementById('host-loai-hidden').value=getChecked('host-loai-grid');
+  }
+
+  var data=new FormData(form);
+  fetch('https://formspree.io/f/'+fid,{
+    method:'POST',body:data,headers:{'Accept':'application/json'}
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById(t+'-fi').style.display='none';
+      document.getElementById(t+'-suc').style.display='block';
+    }
+  }).catch(function(){
+    document.getElementById(t+'-fi').style.display='none';
+    document.getElementById(t+'-suc').style.display='block';
+  });
+}
+// Event delegation
+document.addEventListener('DOMContentLoaded',function(){
+  // Tab switches
+  document.querySelectorAll('[data-sw]').forEach(function(el){
+    el.addEventListener('click',function(){sw(el.getAttribute('data-sw'));});
+  });
+  // Checkboxes
+  document.addEventListener('click',function(e){
+    var ci=e.target.closest('[data-tog]');
+    if(ci)tog(ci);
+    var dp=e.target.closest('[data-delpkg]');
+    if(dp)delPkg(dp.getAttribute('data-delpkg'));
+    var apb=document.getElementById('add-pkg-btn');
+    if(e.target===apb||e.target.closest('#add-pkg-btn'))addPkg();
+    var sb=e.target.closest('[data-sub]');
+    if(sb)sub(sb.getAttribute('data-sub'));
+  });
+  // Add first package
+  addPkg();
+  // Auto-switch tab from URL hash (#companion or #host)
+  if(window.location.hash==='#host'){sw('host');}
+
+  // Lang toggle
+  // Show city "other" input
+  function setupCityOther(selId, inputId){
+    var sel=document.getElementById(selId);
+    var inp=document.getElementById(inputId);
+    if(!sel||!inp)return;
+    sel.addEventListener('change',function(){
+      inp.style.display=sel.value==='other'?'block':'none';
+      inp.required=sel.value==='other';
+    });
+  }
+  setupCityOther('city-comp','city-comp-other');
+  setupCityOther('city-host','city-host-other');
+
+  var OPTS={
+    'city-comp':['<option value="">Ch\u1ecdn th\u00e0nh ph\u1ed1</option><option>TP. H\u1ed3 Ch\u00ed Minh</option><option>H\u00e0 N\u1ed9i</option><option>\u0110\u00e0 N\u1eb5ng</option><option value="other">Kh\u00e1c / Other</option>','<option value="">Select city</option><option>Ho Chi Minh City</option><option>Ha Noi</option><option>Da Nang</option><option value="other">Other</option>'],
+    'city-host':['<option value="">Ch\u1ecdn th\u00e0nh ph\u1ed1</option><option>TP. H\u1ed3 Ch\u00ed Minh</option><option>H\u00e0 N\u1ed9i</option><option>\u0110\u00e0 N\u1eb5ng</option><option value="other">Kh\u00e1c / Other</option>','<option value="">Select city</option><option>Ho Chi Minh City</option><option>Ha Noi</option><option>Da Nang</option><option value="other">Other</option>'],
+    'linh_vuc':['<option value="">Ch\u1ecdn l\u0129nh v\u1ef1c ch\u00ednh</option><option>\u1ea8m th\u1ef1c &amp; Wine</option><option>Barista &amp; C\u00e0 ph\u00ea specialty</option><option>Ngh\u1ec7 thu\u1eadt &amp; H\u1ed9i h\u1ecda</option><option>Nhi\u1ebft \u1ea3nh &amp; Quay phim</option><option>\u00c2m nh\u1ea1c &amp; Bi\u1ec3u di\u1ec5n</option><option>Th\u1eddi trang &amp; Phong c\u00e1ch</option><option>S\u00e1ch &amp; V\u0103n h\u1ecdc</option><option>Kinh doanh &amp; Kh\u1edfi nghi\u1ec7p</option><option>T\u00e0i ch\u00ednh &amp; \u0110\u1ea7u t\u01b0</option><option>Marketing &amp; Truy\u1ec1n th\u00f4ng</option><option>C\u00f4ng ngh\u1ec7 &amp; L\u1eadp tr\u00ecnh</option><option>Thi\u1ebft k\u1ebf &amp; S\u00e1ng t\u1ea1o</option><option>Du l\u1ecbch &amp; Kh\u00e1m ph\u00e1</option><option>Th\u1ec3 thao &amp; S\u1ee9c kh\u1ecfe</option><option>Thi\u00ean nhi\u00ean &amp; D\u00e3 ngo\u1ea1i</option><option>T\u00e2m l\u00fd &amp; Ph\u00e1t tri\u1ec3n b\u1ea3n th\u00e2n</option><option>Gi\u00e1o d\u1ee5c &amp; D\u1ea1y h\u1ecdc</option><option>Y t\u1ebf &amp; S\u1ee9c kh\u1ecfe</option><option>Ph\u00e1p l\u00fd &amp; Lu\u1eadt</option><option>Ngo\u1ea1i ng\u1eef &amp; V\u0103n h\u00f3a</option><option>Kh\u00e1c</option>','<option value="">Select main field</option><option>Food &amp; Wine</option><option>Barista &amp; Specialty Coffee</option><option>Art &amp; Painting</option><option>Photography &amp; Videography</option><option>Music &amp; Performance</option><option>Fashion &amp; Style</option><option>Books &amp; Literature</option><option>Business &amp; Entrepreneurship</option><option>Finance &amp; Investment</option><option>Marketing &amp; Media</option><option>Technology &amp; Coding</option><option>Design &amp; Creative</option><option>Travel &amp; Exploration</option><option>Sports &amp; Health</option><option>Nature &amp; Outdoors</option><option>Psychology &amp; Self-development</option><option>Education &amp; Teaching</option><option>Healthcare</option><option>Legal &amp; Law</option><option>Languages &amp; Culture</option><option>Other</option>'],
+    'hoc_van':['<option value="">Ch\u1ecdn</option><option>THPT</option><option>Cao \u0111\u1eb3ng</option><option>\u0110\u1ea1i h\u1ecdc</option><option>Th\u1ea1c s\u0129</option><option>Ti\u1ebfn s\u0129</option>','<option value="">Select</option><option>High School</option><option>College</option><option>Bachelor\'s</option><option>Master\'s</option><option>PhD</option>'],
+    'chom_sao':['<option value="">Ch\u1ecdn</option><option>B\u1ea1ch D\u01b0\u01a1ng</option><option>Kim Ng\u01b0u</option><option>Song T\u1eed</option><option>C\u1ef1 Gi\u1ea3i</option><option>S\u01b0 T\u1eed</option><option>X\u1eed N\u1eef</option><option>Thi\u00ean B\u00ecnh</option><option>B\u1ecd C\u1ea1p</option><option>Nh\u00e2n M\u00e3</option><option>Ma K\u1ebft</option><option>B\u1ea3o B\u00ecnh</option><option>Song Ng\u01b0</option>','<option value="">Select</option><option>Aries</option><option>Taurus</option><option>Gemini</option><option>Cancer</option><option>Leo</option><option>Virgo</option><option>Libra</option><option>Scorpio</option><option>Sagittarius</option><option>Capricorn</option><option>Aquarius</option><option>Pisces</option>'],
+    'uong_con':['<option value="">Ch\u1ecdn</option><option>C\u00f3, u\u1ed1ng \u0111\u01b0\u1ee3c</option><option>U\u1ed1ng \u00edt / x\u00e3 giao</option><option>Kh\u00f4ng u\u1ed1ng</option>','<option value="">Select</option><option>Yes, I drink</option><option>Occasionally</option><option>No</option>'],
+    'hut_thuoc':['<option value="">Ch\u1ecdn</option><option>C\u00f3</option><option>Kh\u00f4ng</option><option>\u0110\u00e3 b\u1ecf</option>','<option value="">Select</option><option>Yes</option><option>No</option><option>Quit</option>'],
+    'ton_giao':['<option value="">Ch\u1ecdn</option><option>Kh\u00f4ng</option><option>Ph\u1eadt gi\u00e1o</option><option>Thi\u00ean Ch\u00faa gi\u00e1o</option><option>Tin L\u00e0nh</option><option>H\u1ed3i gi\u00e1o</option><option>Cao \u0110\u00e0i</option><option>Kh\u00e1c</option>','<option value="">Select</option><option>None</option><option>Buddhism</option><option>Catholicism</option><option>Protestantism</option><option>Islam</option><option>Cao Dai</option><option>Other</option>'],
+    'ngan_sach':['<option value="">Ch\u1ecdn m\u1ee9c ng\u00e2n s\u00e1ch</option><option>D\u01b0\u1edbi 500k</option><option>500k \u2014 1 tri\u1ec7u</option><option>1 \u2014 2 tri\u1ec7u</option><option>2 \u2014 5 tri\u1ec7u</option><option>Tr\u00ean 5 tri\u1ec7u</option>','<option value="">Select budget</option><option>Under 500k VND</option><option>500k \u2014 1M VND</option><option>1M \u2014 2M VND</option><option>2M \u2014 5M VND</option><option>Over 5M VND</option>'],
+    'chom_sao_host':['<option value="">--</option><option>B\u1ea1ch D\u01b0\u01a1ng</option><option>Kim Ng\u01b0u</option><option>Song T\u1eed</option><option>C\u1ef1 Gi\u1ea3i</option><option>S\u01b0 T\u1eed</option><option>X\u1eed N\u1eef</option><option>Thi\u00ean B\u00ecnh</option><option>B\u1ecd C\u1ea1p</option><option>Nh\u00e2n M\u00e3</option><option>Ma K\u1ebft</option><option>B\u1ea3o B\u00ecnh</option><option>Song Ng\u01b0</option>','<option value="">Select</option><option>Aries</option><option>Taurus</option><option>Gemini</option><option>Cancer</option><option>Leo</option><option>Virgo</option><option>Libra</option><option>Scorpio</option><option>Sagittarius</option><option>Capricorn</option><option>Aquarius</option><option>Pisces</option>'],
+    'ngu_hanh_host':['<option value="">--</option><option>Kim (Metal)</option><option>M\u1ed9c (Wood)</option><option>Thu\u1ef7 (Water)</option><option>Ho\u1ea3 (Fire)</option><option>Th\u1ed5 (Earth)</option>','<option value="">--</option><option>Metal (Kim)</option><option>Wood (M\u1ed9c)</option><option>Water (Thu\u1ef7)</option><option>Fire (Ho\u1ea3)</option><option>Earth (Th\u1ed5)</option>'],
+    'ngu_hanh':['<option value="">--</option><option>Kim (Metal)</option><option>M\u1ed9c (Wood)</option><option>Thu\u1ef7 (Water)</option><option>Ho\u1ea3 (Fire)</option><option>Th\u1ed5 (Earth)</option>','<option value="">--</option><option>Metal (Kim)</option><option>Wood (M\u1ed9c)</option><option>Water (Thu\u1ef7)</option><option>Fire (Ho\u1ea3)</option><option>Earth (Th\u1ed5)</option>'],
+    'cong_dong':['<option value="">Kh\u00f4ng mu\u1ed1n ti\u1ebft l\u1ed9 / Prefer not to say</option><option>Th\u1eb3ng (Straight)</option><option>Gay</option><option>Lesbian</option><option>Bisexual</option><option>Pansexual</option><option>Asexual</option><option>Queer</option><option>Kh\u00e1c</option>','<option value="">Prefer not to say</option><option>Straight</option><option>Gay</option><option>Lesbian</option><option>Bisexual</option><option>Pansexual</option><option>Asexual</option><option>Queer</option><option>Other</option>']
+  };
+  var GVI='<option value="">--</option><option>Nam</option><option>N\u1eef</option><option>Non-binary</option><option>Genderfluid</option><option>Transgender Nam</option><option>Transgender N\u1eef</option><option>Queer</option><option>Kh\u00f4ng mu\u1ed1n ti\u1ebft l\u1ed9</option>';
+  var GEN='<option value="">--</option><option>Male</option><option>Female</option><option>Non-binary</option><option>Genderfluid</option><option>Transgender Male</option><option>Transgender Female</option><option>Queer</option><option>Prefer not to say</option>';
+  var PVI='<option value="any">Kh\u00f4ng quan tr\u1ecdng / Any</option><option>Nam</option><option>N\u1eef</option><option>Non-binary</option><option>Transgender Nam</option><option>Transgender N\u1eef</option><option>Queer</option>';
+  var PEN='<option value="any">Any gender</option><option>Male</option><option>Female</option><option>Non-binary</option><option>Transgender Male</option><option>Transgender Female</option><option>Queer</option>';
+  function applyLang(goEN){
+    var vis=document.querySelectorAll('.vi');
+    var ens=document.querySelectorAll('.en');
+    for(var i=0;i<vis.length;i++){vis[i].style.display=goEN?'none':'inline';}
+    for(var i=0;i<ens.length;i++){ens[i].style.display=goEN?'inline':'none';}
+    var phs=document.querySelectorAll('[data-vi][data-en]');
+    for(var i=0;i<phs.length;i++){phs[i].placeholder=goEN?phs[i].getAttribute('data-en'):phs[i].getAttribute('data-vi');}
+    for(var k in OPTS){
+      var sel=document.getElementById(k)||document.querySelector('[name="'+k+'"]');
+      if(sel){var v=sel.value;sel.innerHTML=OPTS[k][goEN?1:0];sel.value=v;}
+    }
+    document.querySelectorAll('[name="gioi_tinh"]').forEach(function(s){var v=s.value;s.innerHTML=goEN?GEN:GVI;s.value=v;});
+    document.querySelectorAll('[name="gioi_tinh_mong_muon"]').forEach(function(s){var v=s.value;s.innerHTML=goEN?PEN:PVI;s.value=v;});
+    // Re-render existing packages with correct language
+    var pkgList=document.getElementById('pkg-list');
+    if(pkgList&&pkgList.children.length>0){
+      var savedCount=pkgCount;
+      pkgList.innerHTML='';
+      pkgCount=0;
+      for(var pi=0;pi<savedCount;pi++){addPkg();}
+    }
+  }
+  var lt=document.getElementById('lang-toggle');
+  if(lt)lt.addEventListener('click',function(){
+    isEN=!isEN;
+    lt.textContent=isEN?'VI':'EN';
+    applyLang(isEN);
+  });
+});
+
+})();
+</script>
+</body>
+</html>
