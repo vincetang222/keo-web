@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/blog/di-an-toi-mot-minh",
+      "destination": "/blog-di-an-toi-mot-minh.html"
+    },
+    {
+      "source": "/blog/nguoi-dong-hanh-sai-gon",
+      "destination": "/blog-nguoi-dong-hanh-sai-gon.html"
+    }
+  ]
+}
