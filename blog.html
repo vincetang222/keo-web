@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog — Kèo · Gặp gỡ có chiều sâu</title>
+<meta name="description" content="Góc nhìn về kết nối xã hội, gặp gỡ có chiều sâu, người đồng hành và cuộc sống đô thị. Bài viết từ Kèo — nền tảng gặp gỡ tại Sài Gòn & Hà Nội.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — Kèo · Gặp gỡ có chiều sâu">
+<meta property="og:description" content="Góc nhìn về kết nối xã hội, gặp gỡ có chiều sâu và cuộc sống đô thị.">
+<meta property="og:url" content="https://keo.social/blog">
+<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:site_name" content="Kèo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1)}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
+.hero{background:var(--g);padding:48px 40px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:500;color:var(--go);letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--cr);line-height:1.2;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero p{font-size:14px;color:rgba(245,240,232,.6);max-width:480px;margin:0 auto;line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:48px 24px 80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:24px}
+.post{background:#fff;border:1px solid var(--cr2);border-radius:16px;overflow:hidden;text-decoration:none;display:block;transition:transform .2s,box-shadow .2s}
+.post:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(26,58,40,.1)}
+.post-body{padding:28px}
+.post-cat{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:12px}
+.post-title{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--t1);line-height:1.3;margin-bottom:12px}
+.post-desc{font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:16px}
+.post-meta{font-size:12px;color:var(--t3);display:flex;align-items:center;gap:12px}
+.post-dot{width:3px;height:3px;border-radius:50%;background:var(--cr2)}
+.post-tag{display:inline-block;background:rgba(26,58,40,.06);border-radius:100px;padding:3px 10px;font-size:11px;color:var(--t2)}
+.coming{background:var(--cr);border:1px dashed var(--cr2);border-radius:16px;padding:28px;opacity:.6}
+.coming-title{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t3);margin-bottom:8px}
+.coming-desc{font-size:14px;color:var(--t3);line-height:1.6}
+.cta-bar{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin-top:48px}
+.cta-bar h3{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);margin-bottom:8px}
+.cta-bar p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:20px}
+.cta-bar a{display:inline-block;background:var(--go);color:var(--g);padding:12px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2);margin-top:48px}
+.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+@media(max-width:600px){nav{padding:16px 18px}.hero{padding:36px 18px 48px}.wrap{padding:32px 16px 56px}.grid{grid-template-columns:1fr}}
+
+.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+.en{display:none}
+</style></head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <a href="/" class="back"><span class="vi">← Trang chủ</span><span class="en" style="display:none">← Home</span></a>
+  <button class="lang-toggle" id="lang-toggle">EN</button>
+</nav>
+
+<div class="hero">
+  <div class="badge">📖 <span class="vi">Blog</span><span class="en" style="display:none">Blog</span></div>
+  <h1><span class="vi">Góc nhìn về<br><em>gặp gỡ có chiều sâu</em></span><span class="en" style="display:none">Stories about<br><em>meaningful connection</em></span></h1>
+  <p><span class="vi">Chuyện về kết nối xã hội, sự cô đơn đô thị, và những buổi tối đáng nhớ.</span><span class="en" style="display:none">Stories about social connection, urban loneliness, and evenings worth remembering.</span></p>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+
+    <a href="/di-an-toi-mot-minh" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Lifestyle</span><span class="en" style="display:none">Perspective · Lifestyle</span></div>
+        <div class="post-title"><span class="vi">Đi ăn tối một mình — và cách để không còn như vậy</span><span class="en" style="display:none">Dining Alone — And How to Change That</span></div>
+        <div class="post-desc"><span class="vi">Có những bữa ăn xứng đáng có người ngồi cùng. Không phải hẹn hò, không phải bạn bè — chỉ là một người lạ thú vị.</span><span class="en" style="display:none">Some meals deserve company. Not a date, not a friend — just an interesting stranger.</span></div>
+        <div class="post-meta">
+          <span>5 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">đi ăn tối một mình</span>
+          <span class="post-tag"><span class="vi">người đồng hành</span><span class="en" style="display:none">companion</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/nguoi-dong-hanh-sai-gon" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Sài Gòn</span><span class="en" style="display:none">Guide · Saigon</span></div>
+        <div class="post-title"><span class="vi">Tìm người đồng hành tại Sài Gòn — không hẹn hò, chỉ gặp gỡ có chiều sâu</span><span class="en" style="display:none">Finding a Companion in Saigon — Not Dating, Just Meaningful Connection</span></div>
+        <div class="post-desc"><span class="vi">Hơn 45 người đồng hành đang sẵn sàng tại Sài Gòn — từ cà phê sáng đến bữa tối, triển lãm nghệ thuật.</span><span class="en" style="display:none">Over 45 companions ready in Saigon — from morning coffee to dinner and art galleries.</span></div>
+        <div class="post-meta">
+          <span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">người đồng hành Sài Gòn</span>
+          <span class="post-tag">cà phê</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/nguoi-dong-hanh-ha-noi" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Hà Nội</span><span class="en" style="display:none">Guide · Hanoi</span></div>
+        <div class="post-title"><span class="vi">Người đồng hành Hà Nội — Kiếm thêm thu nhập từ kỹ năng</span><span class="en" style="display:none">Companion in Hanoi — Earn Extra Income From Your Skills</span></div>
+        <div class="post-desc"><span class="vi">Kiếm 200–500k mỗi buổi chỉ bằng cách trò chuyện và đi cà phê tại Hà Nội. Miễn phí đăng ký.</span><span class="en" style="display:none">Earn 200–500k per session just by having coffee and conversations in Hanoi. Free to register.</span></div>
+        <div class="post-meta">
+          <span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">người đồng hành Hà Nội</span>
+          <span class="post-tag">kiếm thêm</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/co-don-do-thi" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Xã hội</span><span class="en" style="display:none">Perspective · Society</span></div>
+        <div class="post-title"><span class="vi">Sự cô đơn đô thị và cách kết nối thật sự</span><span class="en" style="display:none">Urban Loneliness and How to Really Connect</span></div>
+        <div class="post-desc"><span class="vi">Tại sao càng nhiều người xung quanh, càng khó tìm được kết nối thật? Góc nhìn về Sài Gòn và Hà Nội.</span><span class="en" style="display:none">Why the more people around you, the harder it is to find real connection. A look at Saigon and Hanoi.</span></div>
+        <div class="post-meta">
+          <span>5 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">cô đơn đô thị</span>
+          <span class="post-tag">kết nối xã hội</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/gap-go-co-chieu-sau" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Khái niệm · Kèo</span><span class="en" style="display:none">Concept · Kèo</span></div>
+        <div class="post-title"><span class="vi">Gặp gỡ có chiều sâu là gì?</span><span class="en" style="display:none">What Is Meaningful Connection?</span></div>
+        <div class="post-desc"><span class="vi">Không phải hẹn hò, không phải networking. Đây là những buổi trò chuyện thật sự — không kỳ vọng, không áp lực.</span><span class="en" style="display:none">Not dating, not networking. These are genuine conversations — no expectations, no pressure.</span></div>
+        <div class="post-meta">
+          <span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">gặp gỡ có chiều sâu</span>
+          <span class="post-tag">paid companionship</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="/tra-tien-de-gap-go" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en" style="display:none">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Tại sao trả tiền để gặp gỡ không phải điều xấu</span><span class="en" style="display:none">Why Paying to Meet Up Isn't a Bad Thing</span></div>
+        <div class="post-desc"><span class="vi">Bạn đã trả tiền cho gym, therapist, life coach. Kèo không khác gì nhiều — chỉ là thoải mái hơn và ít áp lực hơn.</span><span class="en" style="display:none">You already pay for gym, therapist, life coach. Kèo is no different — just more relaxed and less pressure.</span></div>
+        <div class="post-meta">
+          <span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">paid companionship</span>
+          <span class="post-tag"><span class="vi">góc nhìn</span><span class="en" style="display:none">perspective</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/nguoi-dong-hanh-da-nang" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Mới · Đà Nẵng</span><span class="en" style="display:none">New · Da Nang</span></div>
+        <div class="post-title"><span class="vi">Người đồng hành Đà Nẵng — gặp gỡ có chiều sâu tại thành phố biển</span><span class="en" style="display:none">Companion in Da Nang — Meaningful Connection by the Sea</span></div>
+        <div class="post-desc"><span class="vi">Kèo chính thức có mặt tại Đà Nẵng. Tìm người đồng hành hoặc đăng ký kiếm thêm thu nhập tại thành phố biển.</span><span class="en" style="display:none">Kèo is officially in Da Nang. Find a companion or register to earn extra income by the sea.</span></div>
+        <div class="post-meta">
+          <span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag">Đà Nẵng</span>
+          <span class="post-tag"><span class="vi">mới mở</span><span class="en" style="display:none">newly opened</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/5-loai-buoi-keo" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Chủ xị</span><span class="en" style="display:none">Guide · Host</span></div>
+        <div class="post-title"><span class="vi">5 loại buổi Kèo phổ biến nhất — bạn muốn thử cái nào?</span><span class="en" style="display:none">The 5 Most Popular Types of Kèo Sessions — Which Will You Try?</span></div>
+        <div class="post-desc"><span class="vi">Cà phê sáng, bữa tối, triển lãm, wine bar hay bữa trưa tư vấn — mỗi loại có trải nghiệm và thù lao khác nhau.</span><span class="en" style="display:none">Morning coffee, dinner, gallery, wine bar or advisory lunch — each with its own experience and pricing.</span></div>
+        <div class="post-meta">
+          <span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">hướng dẫn</span><span class="en" style="display:none">guide</span></span>
+          <span class="post-tag"><span class="vi">chủ xị</span><span class="en" style="display:none">host</span></span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="/keo-danh-cho-ai" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en" style="display:none">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Kèo dành cho ai?</span><span class="en" style="display:none">Who Is Kèo For?</span></div>
+        <div class="post-desc"><span class="vi">Không phải một kiểu người cụ thể — mà là một kiểu tình huống cụ thể. Bạn có đang ở trong tình huống đó không?</span><span class="en" style="display:none">Not a specific type of person — a specific type of situation. Are you in that situation?</span></div>
+        <div class="post-meta"><span>3 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span><span class="post-dot"></span><span class="post-tag"><span class="vi">Kèo là gì</span><span class="en" style="display:none">what is Kèo</span></span><span class="post-tag"><span class="vi">chủ xị</span><span class="en" style="display:none">host</span></span></div>
+      </div>
+    </a>
+
+    <a href="/lan-dau-tao-keo" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Chủ xị</span><span class="en" style="display:none">Guide · Host</span></div>
+        <div class="post-title"><span class="vi">Lần đầu tạo Kèo — không biết bắt đầu từ đâu?</span><span class="en" style="display:none">First Time Creating a Kèo — Not Sure Where to Start?</span></div>
+        <div class="post-desc"><span class="vi">Nhiều người đăng ký rồi không biết bước tiếp theo là gì. Thật ra đơn giản hơn bạn nghĩ.</span><span class="en" style="display:none">Many people register and don't know what to do next. It's simpler than you think.</span></div>
+        <div class="post-meta"><span>3 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span><span class="post-dot"></span><span class="post-tag"><span class="vi">hướng dẫn</span><span class="en" style="display:none">guide</span></span><span class="post-tag"><span class="vi">lần đầu</span><span class="en" style="display:none">first time</span></span></div>
+      </div>
+    </a>
+
+    <a href="/nguoi-dong-hanh-kiem-duoc-bao-nhieu" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Người đồng hành</span><span class="en" style="display:none">Perspective · Companion</span></div>
+        <div class="post-title"><span class="vi">Người đồng hành Kèo kiếm được bao nhiêu một tháng?</span><span class="en" style="display:none">How Much Does a Kèo Companion Earn Per Month?</span></div>
+        <div class="post-desc"><span class="vi">Con số thực tế, không tô vẽ — và những thứ quan trọng hơn tiền.</span><span class="en" style="display:none">Real numbers, no embellishment — and the things more important than money.</span></div>
+        <div class="post-meta"><span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span><span class="post-dot"></span><span class="post-tag"><span class="vi">thu nhập</span><span class="en" style="display:none">income</span></span><span class="post-tag"><span class="vi">người đồng hành</span><span class="en" style="display:none">companion</span></span></div>
+      </div>
+    </a>
+
+    <a href="/keo-khac-gi-dating-app" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en" style="display:none">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Kèo khác gì dating app?</span><span class="en" style="display:none">How Is Kèo Different From a Dating App?</span></div>
+        <div class="post-desc"><span class="vi">Câu hỏi mình nhận nhiều nhất. Dating app cho bạn hy vọng. Kèo cho bạn một buổi tối cụ thể.</span><span class="en" style="display:none">The question I get asked most. Dating apps give you hope. Kèo gives you a concrete evening.</span></div>
+        <div class="post-meta"><span>4 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span><span class="post-dot"></span><span class="post-tag"><span class="vi">Kèo là gì</span><span class="en" style="display:none">what is Kèo</span></span><span class="post-tag">dating app</span></div>
+      </div>
+    </a>
+
+
+    <a href="/keo-khong-phai-ca-cuoc" class="post">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en" style="display:none">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">"Kèo" — không phải kèo cá cược</span><span class="en" style="display:none">"Kèo" — Not Sports Betting</span></div>
+        <div class="post-desc"><span class="vi">Nếu bạn Google "Kèo" và tìm thấy trang này, có thể bạn đang bị nhầm. Hoặc không nhầm.</span><span class="en" style="display:none">If you Googled "Kèo" and landed here, you might be in the wrong place. Or maybe not.</span></div>
+        <div class="post-meta"><span>3 <span class="vi">phút đọc</span><span class="en" style="display:none">min read</span></span><span class="post-dot"></span><span class="post-tag"><span class="vi">Kèo là gì</span><span class="en" style="display:none">what is Kèo</span></span><span class="post-tag"><span class="vi">cá cược</span><span class="en" style="display:none">betting</span></span></div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="cta-bar">
+    <h3><span class="vi">Sẵn sàng thử Kèo?</span><span class="en" style="display:none">Ready to Try Kèo?</span></h3>
+    <p><span class="vi">Đăng ký làm Chủ xị hoặc Người đồng hành — hoàn toàn miễn phí.</span><span class="en" style="display:none">Register as a Host or Companion — completely free.</span></p>
+    <a href="/register"><span class="vi">Tham gia Kèo 🌿</span><span class="en" style="display:none">Join Kèo 🌿</span></a>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en" style="display:none">Meaningful connection · keo.social</span></div>
+</footer>
+
+<script>
+var isEN=false;
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('lang-toggle');
+  if(btn){btn.addEventListener('click',function(){
+    isEN=!isEN;
+    btn.textContent=isEN?'VI':'EN';
+    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
+    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
+  });}
+});
+</script>
+</body></html>
