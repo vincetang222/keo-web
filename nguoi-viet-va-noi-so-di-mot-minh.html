@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Người Việt và nỗi sợ đi một mình | Kèo</title>
+<meta name="description" content="Tại sao người Việt ngại đi ăn một mình — và tại sao điều đó không phải lỗi của bạn.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/nguoi-viet-va-noi-so-di-mot-minh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Người Việt và nỗi sợ đi một mình">
+<meta property="og:description" content="Tại sao điều đó không phải lỗi của bạn.">
+<meta property="og:url" content="https://keo.social/nguoi-viet-va-noi-so-di-mot-minh">
+<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:site_name" content="Kèo">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
+.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
+.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
+.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
+.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
+.wrap h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin:28px 0 12px}
+.wrap strong{color:var(--t1);font-weight:600}
+blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
+blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
+.spot-card{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:22px;margin-bottom:16px}
+.spot-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
+.spot-name{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin-bottom:6px}
+.spot-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:10px}
+.spot-meta{display:flex;gap:10px;flex-wrap:wrap}
+.spot-tag{font-size:12px;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.1);border-radius:100px;padding:3px 11px;color:var(--t2)}
+.spot-tag.price{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.2);color:#8a6a00}
+.divider{height:1px;background:var(--cr2);margin:44px 0}
+.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
+.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
+.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
+.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
+.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
+.tags{margin-bottom:32px}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
+.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+.en{display:none}
+@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}}
+</style></head><body>
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r">
+    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
+    <button class="lang-toggle" id="lang-toggle">EN</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="cat"><span class="vi">Góc nhìn · Văn hóa</span><span class="en">Perspective · Culture</span></div>
+  <h1><span class="vi">Người Việt và<br><em>nỗi sợ đi một mình</em></span><span class="en">Vietnamese Culture and<br><em>the Fear of Going Alone</em></span></h1>
+  <div class="hero-meta"><span class="vi">Kèo · 4 phút đọc</span><span class="en">Kèo · 4 min read</span></div>
+</div>
+<div class="wrap">
+  <div class="tags"><span class="tag"><span class="vi">văn hóa</span><span class="en">culture</span></span><span class="tag"><span class="vi">đi một mình</span><span class="en">going alone</span></span><span class="tag"><span class="vi">góc nhìn</span><span class="en">perspective</span></span></div>
+  <p><span class="vi">Bạn có bao giờ muốn đến một nhà hàng mới, xem một triển lãm, hay thử một quán wine bar — nhưng lại không đi vì "không có ai đi cùng"? Không phải vì bạn sợ đi một mình. Mà vì ở Việt Nam, đi một mình đến những nơi đó vẫn còn là điều gì đó cần giải thích.</span><span class="en">Have you ever wanted to try a new restaurant, see an exhibition, or visit a wine bar — but didn't go because "there's nobody to go with"? Not because you're afraid of going alone. But because in Vietnam, going alone to those places still feels like something that needs explaining.</span></p>
+  <h2><span class="vi">Văn hóa "rủ nhau đi" của người Việt</span><span class="en">Vietnam's "Let's Go Together" Culture</span></h2>
+  <p><span class="vi">Người Việt không hay đi ăn một mình. Không phải vì không thể — mà vì bàn ăn trong văn hóa Việt là không gian chia sẻ. Ăn một mình ở quán cơm bình dân thì được, nhưng ngồi một mình tại nhà hàng ngon vào tối thứ 7 lại là hình ảnh khiến nhiều người ngại. Cái nhìn của người xung quanh, câu hỏi của nhân viên phục vụ — dù không ai nói ra, bạn vẫn cảm nhận được.</span><span class="en">Vietnamese people don't often eat alone. Not because they can't — but because the dining table in Vietnamese culture is a space for sharing. Eating alone at a simple rice restaurant is fine, but sitting alone at a nice restaurant on Saturday night is an image that makes many people uncomfortable. The glances from others, the questions from staff — even if nobody says anything, you still feel it.</span></p>
+  <h2><span class="vi">Nỗi sợ thật sự không phải là sự đơn độc</span><span class="en">The Real Fear Isn't Solitude</span></h2>
+  <p><span class="vi">Phần lớn người ngại đi một mình không phải vì họ không thích ở một mình — mà vì họ sợ bị nhìn như người không có bạn bè. Đây là hai điều rất khác nhau. Một người có thể hoàn toàn thoải mái với sự cô đơn, nhưng vẫn không muốn bị xã hội gán nhãn "cô đơn".</span><span class="en">Most people who are reluctant to go alone aren't because they dislike being alone — but because they fear being seen as someone without friends. These are two very different things. A person can be completely comfortable with solitude, yet still not want to be socially labeled as "lonely."</span></p>
+  <blockquote><p><span class="vi">Đi một mình không có nghĩa là không có ai. Đôi khi nó có nghĩa là bạn đủ tự tin để không cần chứng minh điều đó.</span><span class="en">Going alone doesn't mean having no one. Sometimes it means you're confident enough not to need to prove otherwise.</span></p></blockquote>
+  <h2><span class="vi">Và đây là lý do Kèo tồn tại</span><span class="en">And This Is Why Kèo Exists</span></h2>
+  <p><span class="vi">Kèo không phải giải pháp cho sự cô đơn — Kèo là giải pháp cho cái rào cản văn hóa đó. Bạn muốn đến nhà hàng omakase đó? Bạn muốn xem triển lãm mà bạn bè không ai quan tâm? Bạn muốn thử wine bar mới mà không muốn ngồi một mình? Kèo có người đồng hành cho những khoảnh khắc đó.</span><span class="en">Kèo isn't a solution for loneliness — Kèo is a solution for that cultural barrier. You want to go to that omakase restaurant? You want to see the exhibition your friends don't care about? You want to try the new wine bar without sitting alone? Kèo has a companion for those moments.</span></p>
+  <div class="divider"></div>
+  <div class="cta-box">
+    <h3><span class="vi">Đừng để "không có ai đi cùng" cản bạn</span><span class="en">Don't Let "Nobody to Go With" Stop You</span></h3>
+    <p><span class="vi">Kèo có người đồng hành tại Sài Gòn, Hà Nội &amp; Đà Nẵng — sẵn sàng cho buổi tối đáng nhớ của bạn.</span><span class="en">Kèo has companions in Saigon, Hanoi &amp; Da Nang — ready for your memorable evening.</span></p>
+    <a href="/chu-xi"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
+  </div>
+  <p style="font-size:14px;color:var(--t3);text-align:center"><span class="vi">Xem thêm: <a href="/co-don-do-thi" style="color:var(--g)">Sự cô đơn ở đô thị</a> · <a href="/di-an-toi-mot-minh" style="color:var(--g)">Đi ăn tối một mình</a></span><span class="en">Read more: <a href="/co-don-do-thi" style="color:var(--g)">Urban loneliness</a> · <a href="/di-an-toi-mot-minh" style="color:var(--g)">Dining alone</a></span></p>
+</div>
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+</footer>
+<script>
+var isEN=false;
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('lang-toggle');
+  if(btn){btn.addEventListener('click',function(){
+    isEN=!isEN;
+    btn.textContent=isEN?'VI':'EN';
+    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
+    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
+  });}
+});
+</script>
+</body></html>
