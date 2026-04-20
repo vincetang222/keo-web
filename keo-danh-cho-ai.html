@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kèo dành cho ai? | Kèo</title>
+<meta name="description" content="Kèo không phải cho người cô đơn. Kèo cho người biết mình muốn gì — và chọn không chờ đợi.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/keo-danh-cho-ai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kèo dành cho ai?">
+<meta property="og:description" content="Kèo không phải cho người cô đơn. Kèo cho người biết mình muốn gì.">
+<meta property="og:url" content="https://keo.social/keo-danh-cho-ai">
+<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:site_name" content="Kèo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
+.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
+.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
+.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
+.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
+.wrap strong{color:var(--t1);font-weight:600}
+blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
+blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
+.divider{height:1px;background:var(--cr2);margin:44px 0}
+.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
+.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
+.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
+.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
+.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
+.tags{margin-bottom:32px}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
+.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+.en{display:none}
+@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}}
+
+
+.next-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
+.next-link{display:block;text-decoration:none}
+.next-link:hover .next-title{color:var(--go)}
+.next-title{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--g);line-height:1.3;transition:color .2s;margin-bottom:6px}
+.next-read{font-size:12px;color:var(--t3)}
+.next-arrow{display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--go)}
+
+
+.related{margin-top:56px;padding-top:24px;border-top:2px solid var(--g)}
+.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.related-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.related-card{background:var(--cr);border:1px solid var(--cr2);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:all .18s}
+.related-card:hover{background:var(--cr2);transform:translateY(-1px)}
+.related-card.featured{grid-column:span 2;background:var(--g)}
+.related-card.featured:hover{background:var(--g2)}
+.related-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
+.related-card.featured .related-pill{color:rgba(201,168,76,.8)}
+.related-card-title{font-family:"Lora",serif;font-size:14px;font-weight:700;color:var(--t1);line-height:1.35}
+.related-card.featured .related-card-title{font-size:17px;color:var(--cr)}
+@media(max-width:500px){.related-grid{grid-template-columns:1fr}.related-card.featured{grid-column:span 1}}
+</style></head><body>
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r">
+    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
+    <button class="lang-toggle" id="lang-toggle">EN</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+  <h1><span class="vi">Kèo <em>dành cho ai?</em></span><span class="en">Who Is <em>Kèo For?</em></span></h1>
+  <div class="hero-meta"><span class="vi">Kèo · 3 phút đọc</span><span class="en">Kèo · 3 min read</span></div>
+</div>
+<div class="wrap">
+  <div class="tags">
+    <span class="tag"><span class="vi">Kèo là gì</span><span class="en">What is Kèo</span></span>
+    <span class="tag"><span class="vi">người đồng hành</span><span class="en">companion</span></span>
+    <span class="tag"><span class="vi">gặp gỡ có chiều sâu</span><span class="en">meaningful connection</span></span>
+  </div>
+
+  <p><span class="vi">Câu này mình được hỏi nhiều nhất.</span><span class="en">This is the question I get asked most.</span></p>
+
+  <p><span class="vi">Và thật ra câu trả lời không phải một kiểu người cụ thể — mà là một kiểu <strong>tình huống</strong> cụ thể.</span><span class="en">And the answer isn't a specific type of person — it's a specific type of <strong>situation</strong>.</span></p>
+
+  <p><span class="vi">Bạn vừa chuyển đến Sài Gòn làm việc. Ba tháng đầu còn hào hứng khám phá một mình. Đến tháng thứ tư, bạn tìm được một nhà hàng omakase nghe nói ngon lắm — nhưng đi một mình thì kỳ, mà rủ đồng nghiệp thì không phải ai cũng hợp gu.</span><span class="en">You just moved to Saigon for work. The first three months you happily explored alone. By the fourth month, you found an omakase restaurant that's supposed to be incredible — but going alone feels odd, and not every colleague shares your taste.</span></p>
+
+  <p><span class="vi">Hoặc bạn là người hay đi công tác. Một mình ở khách sạn tối thứ 5, không biết làm gì, không muốn ăn một mình lần nữa.</span><span class="en">Or you travel for work frequently. Alone in a hotel on Thursday night, nothing to do, not wanting to eat alone again.</span></p>
+
+  <p><span class="vi">Hoặc đơn giản hơn: bạn muốn nói chuyện thật với ai đó — không phải chuyện công việc, không phải chuyện gia đình. Chỉ là một cuộc trò chuyện không có agenda.</span><span class="en">Or more simply: you want a real conversation with someone — not about work, not about family. Just a conversation with no agenda.</span></p>
+
+  <blockquote><p><span class="vi">Kèo không phải cho người cô đơn. Kèo cho người biết mình muốn gì — và chọn không chờ đợi.</span><span class="en">Kèo isn't for lonely people. Kèo is for people who know what they want — and choose not to wait.</span></p></blockquote>
+
+  <h2><span class="vi">Không phải ai cũng phù hợp</span><span class="en">Not Everyone Is the Right Fit</span></h2>
+
+  <p><span class="vi">Nếu bạn đang tìm người yêu, Kèo không phải chỗ đó. Nếu bạn muốn gặp gỡ xã giao để networking kiếm khách hàng, cũng không phải.</span><span class="en">If you're looking for a romantic partner, Kèo isn't the place. If you want to network and find clients, it's not for that either.</span></p>
+
+  <p><span class="vi">Kèo phù hợp với người muốn một buổi tối khác đi — không có kỳ vọng, không có áp lực, chỉ có một người lạ thú vị ngồi cùng và một cuộc trò chuyện thật sự.</span><span class="en">Kèo is for someone who wants a different kind of evening — no expectations, no pressure, just an interesting stranger and a real conversation.</span></p>
+
+  <h2><span class="vi">Ai đang dùng Kèo?</span><span class="en">Who Uses Kèo?</span></h2>
+
+  <p><span class="vi">Người mới chuyển thành phố, chưa kịp có vòng bạn bè. Người hay đi công tác một mình. Người muốn học hỏi từ ai đó có kinh nghiệm trong lĩnh vực mình đang tò mò. Người chỉ đơn giản là muốn có một buổi tối đáng nhớ — không phải ngồi một mình với điện thoại.</span><span class="en">People who just moved to a new city and haven't built their social circle yet. Frequent solo business travelers. People who want to learn from someone experienced in a field they're curious about. People who simply want a memorable evening — not sitting alone with their phone.</span></p>
+
+  <p><span class="vi">Không nhất thiết phải có lý do đặc biệt. Đôi khi chỉ cần thứ 6 đang rảnh và muốn làm gì đó khác đi là đủ.</span><span class="en">You don't need a special reason. Sometimes just having a free Friday and wanting something different is enough.</span></p>
+
+  <div class="divider"></div>
+
+  <div class="cta-box">
+    <h3><span class="vi">Thử một buổi Kèo đầu tiên</span><span class="en">Try Your First Kèo Session</span></h3>
+    <p><span class="vi">Đăng ký làm Chủ xị — Kèo match người phù hợp trong 24 giờ tại Sài Gòn, Hà Nội &amp; Đà Nẵng.</span><span class="en">Register as a Host — Kèo matches the right person within 24 hours in Saigon, Hanoi &amp; Da Nang.</span></p>
+    <a href="/register#host"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
+  </div>
+
+  <p style="font-size:14px;color:var(--t3);text-align:center">
+    <span class="vi">Xem thêm: <a href="/gap-go-co-chieu-sau" style="color:var(--g)">Gặp gỡ có chiều sâu là gì?</a> · <a href="/5-loai-buoi-keo" style="color:var(--g)">5 loại buổi Kèo phổ biến</a></span>
+    <span class="en">Read more: <a href="/gap-go-co-chieu-sau" style="color:var(--g)">What is meaningful connection?</a> · <a href="/5-loai-buoi-keo" style="color:var(--g)">5 popular Kèo session types</a></span>
+  </p>
+<div class="related">
+  <div class="related-head">
+    <div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div>
+    <a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
+  </div>
+  <div class="related-grid">
+    <a href="/nguoi-dong-hanh-ha-noi" class="related-card featured">
+      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
+      <div class="related-card-title"><span class="vi">Người đồng hành Hà Nội</span><span class="en">Companion in Hanoi</span></div>
+    </a><a href="/keo-khac-gi-dating-app" class="related-card ">
+      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
+      <div class="related-card-title"><span class="vi">Kèo khác gì ứng dụng hẹn hò</span><span class="en">How Is Kèo Different From a Dating App</span></div>
+    </a><a href="/work-from-home-va-cai-gia-an-cua-su-linh-hoat" class="related-card ">
+      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
+      <div class="related-card-title"><span class="vi">Làm việc từ xa và cái giá ẩn của sự linh hoạt</span><span class="en">Working from Home and the Hidden Cost of Flexibility</span></div>
+    </a><a href="/kho-ket-ban-sau-25-tuoi" class="related-card ">
+      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
+      <div class="related-card-title"><span class="vi">Tại sao người trẻ Việt Nam ngày càng khó kết bạn sau 25 tuổi</span><span class="en">Why Young Vietnamese Find It Hard to Make Friends After 25</span></div>
+    </a><a href="/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem" class="related-card ">
+      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
+      <div class="related-card-title"><span class="vi">Mạng xã hội cho bạn 500 người theo dõi nhưng không ai gọi lúc 11 giờ đêm</span><span class="en">Social Media Gives You 500 Followers But Nobody Calls at 11 at Night</span></div>
+    </a>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+</footer>
+<script>
+var isEN=false;
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('lang-toggle');
+  if(btn){btn.addEventListener('click',function(){
+    isEN=!isEN;
+    btn.textContent=isEN?'VI':'EN';
+    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
+    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
+  });}
+});
+</script>
+</body></html>
