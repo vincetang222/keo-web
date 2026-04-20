@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog — Kèo · Gặp gỡ có chiều sâu</title>
+<meta name="description" content="Góc nhìn về kết nối xã hội, gặp gỡ có chiều sâu, địa điểm và cuộc sống đô thị.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — Kèo">
+<meta property="og:url" content="https://keo.social/blog">
+<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:site_name" content="Kèo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1)}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
+.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+.hero{background:var(--g);padding:40px 40px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:500;color:var(--go);letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--cr);line-height:1.2;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero p{font-size:14px;color:rgba(245,240,232,.6);max-width:480px;margin:0 auto;line-height:1.7}
+.filters{max-width:1100px;margin:28px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.fbtn{background:var(--w);border:1.5px solid var(--cr2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:500;cursor:pointer;color:var(--t2);font-family:'Inter',sans-serif;transition:all .15s}
+.fbtn.on{background:var(--g);color:var(--cr);border-color:var(--g)}
+.fbtn:hover:not(.on){border-color:var(--g);color:var(--g)}
+.count{font-size:12px;color:var(--t3);margin-left:auto}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 24px 80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.post{background:#fff;border:1px solid var(--cr2);border-radius:12px;overflow:hidden;text-decoration:none;display:block;transition:transform .2s,box-shadow .2s}
+.post:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,58,40,.09)}
+.post.hidden{display:none}
+.post-body{padding:18px}
+.post-cat{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:8px}
+.post-title{font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--t1);line-height:1.35;margin-bottom:8px}
+.post-desc{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:12px}
+.post-meta{font-size:11px;color:var(--t3);display:flex;align-items:center;gap:8px}
+.post-dot{width:3px;height:3px;border-radius:50%;background:var(--cr2)}
+.post-tag{display:inline-block;background:rgba(26,58,40,.06);border-radius:100px;padding:2px 9px;font-size:11px;color:var(--t2)}
+.cta-bar{background:var(--g);border-radius:16px;padding:32px;text-align:center;margin-top:40px}
+.cta-bar h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--cr);margin-bottom:8px}
+.cta-bar p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:18px}
+.cta-bar a{display:inline-block;background:var(--go);color:var(--g);padding:11px 24px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2);margin-top:40px}
+.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+.en{display:none}
+@media(max-width:600px){nav{padding:16px 18px}.hero{padding:28px 18px 44px}.filters{padding:0 16px}.wrap{padding:16px 16px 56px}.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r">
+    <a href="/" class="back"><span class="vi">← Trang chủ</span><span class="en">← Home</span></a>
+    <button class="lang-toggle" id="lang-toggle">EN</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="badge">📖 Blog</div>
+  <h1><span class="vi">Góc nhìn về<br><em>gặp gỡ có chiều sâu</em></span><span class="en">Stories about<br><em>meaningful connection</em></span></h1>
+  <p><span class="vi">Chuyện về kết nối xã hội, sự cô đơn đô thị, địa điểm và những buổi tối đáng nhớ.</span><span class="en">Stories about social connection, urban loneliness, venues and evenings worth remembering.</span></p>
+</div>
+<div class="filters">
+  <button class="fbtn on" data-filter="all"><span class="vi">Tất cả</span><span class="en">All</span></button>
+  <button class="fbtn" data-filter="dothi"><span class="vi">Đô thị</span><span class="en">Urban Life</span></button>
+  <button class="fbtn" data-filter="kynang"><span class="vi">Kỹ năng</span><span class="en">Skills</span></button>
+  <button class="fbtn" data-filter="nghi-thuc"><span class="vi">Nghi thức</span><span class="en">Rituals</span></button>
+  <button class="fbtn" data-filter="ket-noi"><span class="vi">Kết nối</span><span class="en">Connection</span></button>
+  <span class="count" id="count"></span>
+</div>
+<div class="wrap">
+  <div class="grid" id="grid">
+    <a href="/di-an-toi-mot-minh" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Lifestyle</span><span class="en">Perspective · Lifestyle</span></div>
+        <div class="post-title"><span class="vi">Đi ăn tối một mình — và cách để không còn như vậy</span><span class="en">Dining Alone — And How to Change That</span></div>
+        <div class="post-desc"><span class="vi">Có những bữa ăn xứng đáng có người ngồi cùng. Không phải hẹn hò, không phải bạn bè.</span><span class="en">Some meals deserve company. Not a date, not a friend — just an interesting stranger.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">đi ăn tối</span><span class="en">dining alone</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-dong-hanh-sai-gon" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Sài Gòn</span><span class="en">Guide · Saigon</span></div>
+        <div class="post-title"><span class="vi">Tìm người đồng hành tại Sài Gòn</span><span class="en">Finding a Companion in Saigon</span></div>
+        <div class="post-desc"><span class="vi">Hơn 50 người đồng hành tại Sài Gòn — cà phê, bữa tối, triển lãm.</span><span class="en">Over 50 companions in Saigon — coffee, dinner, galleries.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">Sài Gòn</span><span class="en">Saigon</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-dong-hanh-ha-noi" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Hà Nội</span><span class="en">Guide · Hanoi</span></div>
+        <div class="post-title"><span class="vi">Người đồng hành Hà Nội — Kiếm thêm thu nhập từ kỹ năng</span><span class="en">Companion in Hanoi — Earn Extra Income From Your Skills</span></div>
+        <div class="post-desc"><span class="vi">Kiếm 200–500k mỗi buổi chỉ bằng cách trò chuyện tại Hà Nội.</span><span class="en">Earn 200–500k per session just by having conversations in Hanoi.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">Hà Nội</span><span class="en">Hanoi</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/co-don-do-thi" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Xã hội</span><span class="en">Perspective · Society</span></div>
+        <div class="post-title"><span class="vi">Sự cô đơn ở đô thị và cách kết nối thật sự</span><span class="en">Urban Loneliness and How to Really Connect</span></div>
+        <div class="post-desc"><span class="vi">Tại sao càng nhiều người xung quanh, càng khó tìm được kết nối thật?</span><span class="en">Why the more people around you, the harder it is to find real connection.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">cô đơn</span><span class="en">loneliness</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/gap-go-co-chieu-sau" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Khái niệm · Kèo</span><span class="en">Concept · Kèo</span></div>
+        <div class="post-title"><span class="vi">Gặp gỡ có chiều sâu là gì?</span><span class="en">What Is Meaningful Connection?</span></div>
+        <div class="post-desc"><span class="vi">Không phải hẹn hò, không phải networking — những buổi trò chuyện thật sự.</span><span class="en">Not dating, not networking — genuinely real conversations.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">khái niệm</span><span class="en">concept</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/tra-tien-de-gap-go" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Tại sao trả tiền để gặp gỡ không phải điều xấu</span><span class="en">Why Paying to Meet Up Isn't a Bad Thing</span></div>
+        <div class="post-desc"><span class="vi">Bạn đã trả tiền cho gym, therapist, life coach. Kèo không khác gì nhiều.</span><span class="en">You already pay for gym, therapist, life coach. Kèo is no different.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">góc nhìn</span><span class="en">perspective</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-dong-hanh-da-nang" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Mới · Đà Nẵng</span><span class="en">New · Da Nang</span></div>
+        <div class="post-title"><span class="vi">Người đồng hành Đà Nẵng — gặp gỡ có chiều sâu tại thành phố biển</span><span class="en">Companion in Da Nang — Meaningful Connection by the Sea</span></div>
+        <div class="post-desc"><span class="vi">Kèo chính thức có mặt tại Đà Nẵng. Tìm người hoặc đăng ký kiếm thêm.</span><span class="en">Kèo is officially in Da Nang. Find a companion or register to earn.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">Đà Nẵng</span><span class="en">Da Nang</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/5-loai-buoi-keo" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Chủ xị</span><span class="en">Guide · Host</span></div>
+        <div class="post-title"><span class="vi">5 loại buổi Kèo phổ biến nhất</span><span class="en">The 5 Most Popular Types of Kèo Sessions</span></div>
+        <div class="post-desc"><span class="vi">Cà phê sáng, bữa tối, triển lãm, wine bar — mỗi loại có trải nghiệm riêng.</span><span class="en">Morning coffee, dinner, gallery, wine bar — each with its own experience.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">hướng dẫn</span><span class="en">guide</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/keo-danh-cho-ai" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Kèo dành cho ai?</span><span class="en">Who Is Kèo For?</span></div>
+        <div class="post-desc"><span class="vi">Không phải một kiểu người — mà là một kiểu tình huống. Bạn có đang ở đó không?</span><span class="en">Not a type of person — a type of situation. Are you in that situation?</span></div>
+        <div class="post-meta">
+          <span><span class="vi">3 phút đọc</span><span class="en">3 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">Kèo là gì</span><span class="en">what is Kèo</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/lan-dau-tao-keo" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Chủ xị</span><span class="en">Guide · Host</span></div>
+        <div class="post-title"><span class="vi">Lần đầu tạo Kèo — không biết bắt đầu từ đâu?</span><span class="en">First Time Creating a Kèo — Not Sure Where to Start?</span></div>
+        <div class="post-desc"><span class="vi">Đã đăng ký rồi nhưng chưa biết làm gì tiếp? Đơn giản hơn bạn nghĩ.</span><span class="en">Registered but don't know what to do next? Simpler than you think.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">3 phút đọc</span><span class="en">3 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">lần đầu</span><span class="en">first time</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-dong-hanh-kiem-duoc-bao-nhieu" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Người đồng hành</span><span class="en">Perspective · Companion</span></div>
+        <div class="post-title"><span class="vi">Người đồng hành Kèo kiếm được bao nhiêu một tháng?</span><span class="en">How Much Does a Kèo Companion Earn Per Month?</span></div>
+        <div class="post-desc"><span class="vi">Con số thực tế, không tô vẽ — và những thứ quan trọng hơn tiền.</span><span class="en">Real numbers, no embellishment — and the things more important than money.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">thu nhập</span><span class="en">income</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/keo-khac-gi-dating-app" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Kèo khác gì dating app?</span><span class="en">How Is Kèo Different From a Dating App?</span></div>
+        <div class="post-desc"><span class="vi">Dating app cho bạn hy vọng. Kèo cho bạn một buổi tối cụ thể.</span><span class="en">Dating apps give you hope. Kèo gives you a concrete evening.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">Kèo là gì</span><span class="en">what is Kèo</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/keo-khong-phai-ca-cuoc" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">"Kèo" — không phải kèo cá cược</span><span class="en">"Kèo" — Not Sports Betting</span></div>
+        <div class="post-desc"><span class="vi">Nếu bạn Google "Kèo" và tìm thấy trang này — bạn không nhầm đâu.</span><span class="en">If you Googled "Kèo" and landed here — you're not in the wrong place.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">3 phút đọc</span><span class="en">3 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">Kèo là gì</span><span class="en">what is Kèo</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/dat-keo-lan-dau" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Hướng dẫn · Chủ xị</span><span class="en">Guide · Host</span></div>
+        <div class="post-title"><span class="vi">Đặt Kèo lần đầu — những lo lắng thường gặp và sự thật</span><span class="en">First Time Booking Kèo — Common Concerns Answered</span></div>
+        <div class="post-desc"><span class="vi">Lo tiền mất? Lo người không phù hợp? Đây là sự thật đằng sau từng câu hỏi.</span><span class="en">Worried about losing money? About mismatched companions? Here are straight answers.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">lần đầu</span><span class="en">first time</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/keo-co-an-toan-khong" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · An toàn</span><span class="en">Perspective · Safety</span></div>
+        <div class="post-title"><span class="vi">Kèo có an toàn không?</span><span class="en">Is Kèo Safe?</span></div>
+        <div class="post-desc"><span class="vi">Câu hỏi phổ biến thứ hai về Kèo — và câu trả lời thẳng thắn không vòng vo.</span><span class="en">The second most common question about Kèo — and a straight answer.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">3 phút đọc</span><span class="en">3 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">an toàn</span><span class="en">safety</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-viet-va-noi-so-di-mot-minh" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Văn hóa</span><span class="en">Perspective · Culture</span></div>
+        <div class="post-title"><span class="vi">Người Việt và nỗi sợ đi một mình</span><span class="en">Vietnamese Culture and the Fear of Going Alone</span></div>
+        <div class="post-desc"><span class="vi">Tại sao người Việt ngại đi ăn một mình — và tại sao điều đó không phải lỗi của bạn.</span><span class="en">Why Vietnamese people hesitate to go alone — and why it's not your fault.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">văn hóa</span><span class="en">culture</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-thanh-cong-an-toi-voi-nguoi-la" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+        <div class="post-title"><span class="vi">Tại sao người thành công hay ăn tối với người lạ</span><span class="en">Why Successful People Often Dine With Strangers</span></div>
+        <div class="post-desc"><span class="vi">Một thói quen ít được nói đến nhưng rất phổ biến — và tại sao nó hiệu quả.</span><span class="en">A little-discussed but very common habit — and why it works.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">4 phút đọc</span><span class="en">4 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">networking</span><span class="en">networking</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/thu-keo" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Trải nghiệm · Chủ xị</span><span class="en">Experience · Host</span></div>
+        <div class="post-title"><span class="vi">Tôi đã thử Kèo — và đây là những gì xảy ra</span><span class="en">I Tried Kèo — And Here's What Happened</span></div>
+        <div class="post-desc"><span class="vi">Buổi gặp có awkward không? Người đồng hành như thế nào? Có làm lại không?</span><span class="en">Was it awkward? What was the companion like? Would I do it again?</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">trải nghiệm</span><span class="en">experience</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/kho-ket-ban-sau-25-tuoi" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Đô thị & Kết nối</span><span class="en">Urban Life & Connection</span></div>
+        <div class="post-title"><span class="vi">Tại sao người trẻ Việt Nam ngày càng khó kết bạn sau 25 tuổi</span><span class="en">Why Young Vietnamese Find It Increasingly Hard to Make Friends After 25</span></div>
+        <div class="post-desc"><span class="vi">Không phải vì bạn bận hơn hay khó tính hơn. Cấu trúc cuộc sống người lớn không được thiết kế để tình bạn tự nhiên hình thành.</span><span class="en">It's not because you're busier or more particular. Adult life just isn't designed for friendships to form naturally.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">kết bạn</span><span class="en">friendship</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/cach-dat-cau-hoi" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Kỹ năng · Giao tiếp</span><span class="en">Skills · Communication</span></div>
+        <div class="post-title"><span class="vi">Cách đặt câu hỏi để cuộc trò chuyện không bao giờ cạn</span><span class="en">How to Ask Questions That Keep a Conversation Going Deeper</span></div>
+        <div class="post-desc"><span class="vi">Câu hỏi đúng không chỉ mở chủ đề mới — nó mở ra cả con người của người đối diện. Ba lớp trò chuyện.</span><span class="en">The right question doesn't just open a new topic — it opens up the person. Three layers of conversation.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">câu hỏi</span><span class="en">questions</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/lang-nghe-that-su" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Kỹ năng · Giao tiếp</span><span class="en">Skills · Communication</span></div>
+        <div class="post-title"><span class="vi">Lắng nghe thật sự — và tại sao hầu hết chúng ta không làm được</span><span class="en">Deep Listening — And Why Most of Us Don't Actually Do It</span></div>
+        <div class="post-desc"><span class="vi">Hầu hết chúng ta không lắng nghe — chúng ta chờ để nói. Ba mức độ lắng nghe và kỹ thuật đơn giản để nghe tốt hơn.</span><span class="en">Most of us aren't listening — we're waiting to speak. Three levels of listening and simple techniques.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">lắng nghe</span><span class="en">listening</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/bua-an-la-nghi-thuc-ket-noi" class="post" data-filter="nghi-thuc">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Nghi thức · Ẩm thực</span><span class="en">Ritual · Food</span></div>
+        <div class="post-title"><span class="vi">Tại sao bữa ăn là nghi thức kết nối quan trọng nhất của con người</span><span class="en">Why the Shared Meal Is Humanity's Most Important Ritual of Connection</span></div>
+        <div class="post-desc"><span class="vi">Từ đống lửa nguyên thủy đến bàn tiệc ngoại giao — bữa ăn chung là công nghệ xã hội cổ xưa và hiệu quả nhất.</span><span class="en">From the primal hearth to the diplomatic table — the shared meal is our oldest and most effective social technology.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">bữa ăn</span><span class="en">dining</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/omakase-va-nghe-thuat-pho-thac" class="post" data-filter="nghi-thuc">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Nghi thức · Văn hóa Nhật</span><span class="en">Ritual · Japanese Culture</span></div>
+        <div class="post-title"><span class="vi">Omakase và nghệ thuật phó thác — bài học từ văn hóa Nhật</span><span class="en">Omakase and the Art of Entrusting — A Lesson from Japanese Culture</span></div>
+        <div class="post-desc"><span class="vi">"Tôi để bạn quyết định." Omakase dạy chúng ta tại sao phó thác đôi khi cho kết quả tốt hơn tự kiểm soát.</span><span class="en">"I'll leave it to you." Omakase teaches why entrusting sometimes gives better results than controlling.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">omakase</span><span class="en">omakase</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Đô thị & Xã hội học</span><span class="en">Urban Life & Sociology</span></div>
+        <div class="post-title"><span class="vi">Seoul, Tokyo và Sài Gòn — những thành phố cô đơn nhất châu Á</span><span class="en">Seoul, Tokyo and Saigon — Asia's Loneliest Cities</span></div>
+        <div class="post-desc"><span class="vi">Dịch cô đơn không chỉ là vấn đề phương Tây — và những con số từ Hàn Quốc, Nhật Bản.</span><span class="en">The loneliness epidemic isn't just a Western problem — and the numbers from Korea, Japan.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">đô thị châu Á</span><span class="en">Asian cities</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/work-from-home-va-cai-gia-an-cua-su-linh-hoat" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Đô thị & Kết nối</span><span class="en">Urban Life & Connection</span></div>
+        <div class="post-title"><span class="vi">Work from Home và cái giá ẩn của sự linh hoạt</span><span class="en">Work from Home and the Hidden Cost of Flexibility</span></div>
+        <div class="post-desc"><span class="vi">Năng suất tăng nhưng những kết nối ngẫu nhiên đang dần biến mất.</span><span class="en">Productivity is up but accidental connections are quietly disappearing.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">remote work</span><span class="en">remote work</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/millennials-co-don-hon-bat-ky-the-he-nao-truoc" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Đô thị & Xã hội học</span><span class="en">Urban Life & Sociology</span></div>
+        <div class="post-title"><span class="vi">Tại sao millennials cô đơn hơn bất kỳ thế hệ nào trước</span><span class="en">Why Millennials Are Lonelier Than Any Previous Generation</span></div>
+        <div class="post-desc"><span class="vi">Thế hệ kết nối nhất lịch sử lại cô đơn nhất — nghiên cứu Cigna và Harvard.</span><span class="en">The most connected generation in history is also the loneliest — Cigna and Harvard research.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">millennials</span><span class="en">millennials</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nguoi-gioi-nhat-trong-phong-thuong-noi-it-nhat" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Kỹ năng · Giao tiếp</span><span class="en">Skills · Communication</span></div>
+        <div class="post-title"><span class="vi">Tại sao người giỏi nhất trong phòng thường nói ít nhất</span><span class="en">Why the Smartest Person in the Room Usually Speaks Least</span></div>
+        <div class="post-desc"><span class="vi">Dunning-Kruger, SPIN Selling và nguyên tắc ma — im lặng là dấu hiệu của trí tuệ.</span><span class="en">Dunning-Kruger, SPIN Selling and the principle of ma — silence signals intelligence.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">im lặng</span><span class="en">silence</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Kỹ năng · Kết nối</span><span class="en">Skills · Connection</span></div>
+        <div class="post-title"><span class="vi">Sự im lặng thoải mái — dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence — The Sign of Genuine Connection</span></div>
+        <div class="post-desc"><span class="vi">Nghiên cứu từ Đại học Groningen: im lặng 4 giây đủ để tạo ra lo lắng xã hội.</span><span class="en">Research from University of Groningen: 4 seconds of silence is enough to trigger social anxiety.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">im lặng</span><span class="en">silence</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/tai-sao-nguoi-phap-an-toi-3-tieng" class="post" data-filter="nghi-thuc">
+      <div class="post-body">
+        <div class="post-cat">Nghi thức · Văn hóa</div>
+        <div class="post-title">Tại sao người Pháp ăn tối 3 tiếng</div>
+        <div class="post-desc">Không phải vì họ có nhiều thời gian hơn. Bữa tối là nghi thức xã hội được bảo vệ.</div>
+        <div class="post-meta">
+          <span>4 phút đọc</span>
+          <span class="post-dot"></span>
+          <span class="post-tag">văn hóa Pháp</span>
+        </div>
+      </div>
+    </a>
+    <a href="/introvert-ket-noi-sau-hon-extrovert" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat">Kỹ năng · Tâm lý học</div>
+        <div class="post-title">Introvert kết nối sâu hơn extrovert không?</div>
+        <div class="post-desc">Người hướng nội không kém khả năng kết nối. Họ chỉ cần môi trường khác.</div>
+        <div class="post-meta">
+          <span>5 phút đọc</span>
+          <span class="post-dot"></span>
+          <span class="post-tag">introvert</span>
+        </div>
+      </div>
+    </a>
+    <a href="/ban-an-gia-dinh-viet-nam-nghi-thuc-dang-mat-di" class="post" data-filter="nghi-thuc">
+      <div class="post-body">
+        <div class="post-cat">Nghi thức · Văn hóa Việt</div>
+        <div class="post-title">Bàn ăn gia đình Việt Nam và nghi thức đang dần mất đi</div>
+        <div class="post-desc">Bữa cơm gia đình tạo ra điều mà không buổi team building nào thay thế được.</div>
+        <div class="post-meta">
+          <span>5 phút đọc</span>
+          <span class="post-dot"></span>
+          <span class="post-tag">văn hóa Việt</span>
+        </div>
+      </div>
+    </a>
+    <a href="/wine-tasting-va-nghe-thuat-lang-nghe" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat">Kỹ năng · Nghi thức</div>
+        <div class="post-title">Wine tasting và nghệ thuật lắng nghe</div>
+        <div class="post-desc">Wine tasting dạy bạn chú ý. Đó cũng là kỹ năng cốt lõi của lắng nghe thật sự.</div>
+        <div class="post-meta">
+          <span>4 phút đọc</span>
+          <span class="post-dot"></span>
+          <span class="post-tag">wine</span>
+        </div>
+      </div>
+    </a>
+    <a href="/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem" class="post" data-filter="dothi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Đô thị và Kết nối</span><span class="en">Urban Life and Connection</span></div>
+        <div class="post-title"><span class="vi">Mạng xã hội cho bạn 500 người theo dõi nhưng không ai gọi lúc 11 giờ đêm</span><span class="en">Social Media Gives You 500 Followers But Nobody Calls at 11 at Night</span></div>
+        <div class="post-desc"><span class="vi">Tiếp xúc xã hội và kết nối xã hội là hai thứ hoàn toàn khác nhau.</span><span class="en">Social contact and social connection are two entirely different things.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">mạng xã hội</span><span class="en">social media</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/nghe-thuat-ke-chuyen-trong-tro-chuyen" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Kỹ năng và Kết nối</span><span class="en">Skills and Connection</span></div>
+        <div class="post-title"><span class="vi">Nghệ thuật kể chuyện trong trò chuyện</span><span class="en">The Art of Storytelling in Conversation</span></div>
+        <div class="post-desc"><span class="vi">Nghiên cứu não bộ cho thấy câu chuyện thật tạo ra sự đồng bộ giữa hai bộ não.</span><span class="en">Brain research shows genuine stories create synchronisation between two minds.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">kể chuyện</span><span class="en">storytelling</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/van-hoa-tra-va-su-cham-rai-trong-ket-noi" class="post" data-filter="nghi-thuc">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Nghi thức và Văn hóa</span><span class="en">Ritual and Culture</span></div>
+        <div class="post-title"><span class="vi">Văn hóa trà và sự chậm rãi trong kết nối</span><span class="en">Tea Culture and the Slowness of Connection</span></div>
+        <div class="post-desc"><span class="vi">Từ trà đạo Nhật Bản đến nghi lễ trà Maroc, tại sao chậm lại là cách kết nối sâu hơn.</span><span class="en">From Japanese tea ceremony to Moroccan tea ritual, why slowing down is how to connect more deeply.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">văn hóa trà</span><span class="en">tea culture</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/tai-sao-nguoi-ta-hay-tam-su-voi-nguoi-la-tren-may-bay" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Tâm lý học Xã hội</span><span class="en">Social Psychology</span></div>
+        <div class="post-title"><span class="vi">Tại sao người ta hay tâm sự với người lạ trên máy bay</span><span class="en">Why People Often Confide in Strangers on Planes</span></div>
+        <div class="post-desc"><span class="vi">Không có gì để mất khi nói thật với người bạn sẽ không bao giờ gặp lại.</span><span class="en">There is nothing to lose in telling the truth to someone you will never see again.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">người lạ</span><span class="en">strangers</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/hieu-ung-guong-va-khoa-hoc-cua-su-gan-gui" class="post" data-filter="kynang">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Tâm lý học Xã hội</span><span class="en">Social Psychology</span></div>
+        <div class="post-title"><span class="vi">Hiệu ứng gương và khoa học của sự gần gũi</span><span class="en">The Mirroring Effect and the Science of Closeness</span></div>
+        <div class="post-desc"><span class="vi">Cơ thể trung thực hơn lời nói khi nói về sự kết nối giữa hai người.</span><span class="en">The body is more honest than words when it comes to connection between two people.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">hiệu ứng gương</span><span class="en">mirroring</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Tâm lý học Xã hội</span><span class="en">Social Psychology</span></div>
+        <div class="post-title"><span class="vi">Tại sao cùng trải qua khó khăn lại gắn kết người ta nhanh hơn</span><span class="en">Why Shared Hardship Bonds People More Quickly</span></div>
+        <div class="post-desc"><span class="vi">Không phải khoảnh khắc dễ chịu mà là khi cả hai cùng cần nhau.</span><span class="en">Not the pleasant moments but the ones when both people needed each other.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">gắn kết</span><span class="en">bonding</span></span>
+        </div>
+      </div>
+    </a>
+    <a href="/oxytocin-va-khoa-hoc-cua-su-tin-tuong" class="post" data-filter="ket-noi">
+      <div class="post-body">
+        <div class="post-cat"><span class="vi">Tâm lý học Xã hội</span><span class="en">Social Psychology</span></div>
+        <div class="post-title"><span class="vi">Oxytocin và khoa học của sự tin tưởng</span><span class="en">Oxytocin and the Science of Trust</span></div>
+        <div class="post-desc"><span class="vi">Tại sao sự tin tưởng, một khi được xây dựng, có xu hướng phát triển chứ không giảm đi.</span><span class="en">Why trust, once built, tends to grow rather than diminish.</span></div>
+        <div class="post-meta">
+          <span><span class="vi">5 phút đọc</span><span class="en">5 min read</span></span>
+          <span class="post-dot"></span>
+          <span class="post-tag"><span class="vi">oxytocin</span><span class="en">oxytocin</span></span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="cta-bar">
+    <h3><span class="vi">Sẵn sàng thử Kèo?</span><span class="en">Ready to Try Kèo?</span></h3>
+    <p><span class="vi">Đăng ký làm Chủ xị hoặc Người đồng hành — hoàn toàn miễn phí.</span><span class="en">Register as a Host or Companion — completely free.</span></p>
+    <a href="/register"><span class="vi">Tham gia Kèo 🌿</span><span class="en">Join Kèo 🌿</span></a>
+  </div>
+</div>
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+</footer>
+<script>
+var isEN=false,curFilter='all';
+function updateCount(){
+  var v=document.querySelectorAll('.post:not(.hidden)').length;
+  document.getElementById('count').textContent=isEN?(v+' posts'):(v+' bài viết');
+}
+function applyFilter(){
+  document.querySelectorAll('.post').forEach(function(p){
+    p.classList.toggle('hidden',curFilter!=='all'&&p.getAttribute('data-filter')!==curFilter);
+  });
+  updateCount();
+}
+document.addEventListener('DOMContentLoaded',function(){
+  updateCount();
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      curFilter=b.getAttribute('data-filter');
+      document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      applyFilter();
+    });
+  });
+  document.getElementById('lang-toggle').addEventListener('click',function(){
+    isEN=!isEN;
+    this.textContent=isEN?'VI':'EN';
+    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
+    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
+    updateCount();
+  });
+});
+</script>
+</body></html>
