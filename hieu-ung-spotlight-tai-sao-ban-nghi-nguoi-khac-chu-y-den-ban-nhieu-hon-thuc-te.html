@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Hiệu ứng spotlight — tại sao bạn nghĩ người khác chú ý đến bạn nhiều hơn thực tế | Kèo</title>
+<meta name="description" content="Nghiên cứu Cornell của Gilovich và Savitsky: tại sao chúng ta luôn đánh giá quá cao sự chú ý của người khác đến mình.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/hieu-ung-spotlight-tai-sao-ban-nghi-nguoi-khac-chu-y-den-ban-nhieu-hon-thuc-te">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hiệu ứng spotlight — tại sao bạn nghĩ người khác chú ý đến bạn nhiều hơn thực tế">
+<meta property="og:description" content="Hầu hết mọi người đang lo lắng về spotlight của chính họ, không phải của bạn.">
+<meta property="og:url" content="https://keo.social/hieu-ung-spotlight-tai-sao-ban-nghi-nguoi-khac-chu-y-den-ban-nhieu-hon-thuc-te">
+<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:site_name" content="Kèo">
+<style>
+:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
+nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
+.logo span{color:var(--go)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
+.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Inter',sans-serif}
+.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
+.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--go)}
+.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
+.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
+.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
+.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
+.wrap h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin:28px 0 12px}
+.wrap strong{color:var(--t1);font-weight:600}
+blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
+blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
+.spot-card{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:22px;margin-bottom:16px}
+.spot-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
+.spot-name{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin-bottom:6px}
+.spot-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:10px}
+.spot-meta{display:flex;gap:10px;flex-wrap:wrap}
+.spot-tag{font-size:12px;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.1);border-radius:100px;padding:3px 11px;color:var(--t2)}
+.spot-tag.price{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.2);color:#8a6a00}
+.divider{height:1px;background:var(--cr2);margin:44px 0}
+.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
+.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
+.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
+.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
+.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
+.tags{margin-bottom:32px}
+footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
+.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
+.fl span{color:var(--go)}
+.en{display:none}
+@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}}
+
+.sources{border-top:1px solid var(--cr2);margin-top:56px;padding-top:20px}
+.sources h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+.sources ol{padding-left:16px;display:flex;flex-direction:column;gap:6px}
+.sources li{font-size:11px;color:var(--t3);line-height:1.6}
+.sources li em{font-style:italic}
+
+.related{margin-top:56px;padding-top:24px;border-top:2px solid var(--g)}.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.related-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related-card{background:var(--cr);border:1px solid var(--cr2);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:all .18s}.related-card:hover{background:var(--cr2);transform:translateY(-1px)}.related-card.featured{grid-column:span 2;background:var(--g)}.related-card.featured:hover{background:var(--g2)}.related-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px}.related-card.featured .related-pill{color:rgba(201,168,76,.8)}.related-card-title{font-family:"Lora",serif;font-size:14px;font-weight:700;color:var(--t1);line-height:1.35}.related-card.featured .related-card-title{font-size:17px;color:var(--cr)}@media(max-width:500px){.related-grid{grid-template-columns:1fr}.related-card.featured{grid-column:span 1}}
+</style></head><body>
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r">
+    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
+    <button class="lang-toggle" id="lang-toggle">EN</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="cat"><span class="vi">Tâm lý học Xã hội</span><span class="en">Social Psychology</span></div>
+  <h1><span class="vi">Hiệu ứng spotlight —<br>tại sao bạn nghĩ người khác<br><em>chú ý đến bạn nhiều hơn thực tế</em></span><span class="en">The Spotlight Effect —<br>Why You Think Others<br><em>Notice You More Than They Do</em></span></h1>
+  <div class="hero-meta"><span class="vi">Kèo · 5 phút đọc</span><span class="en">Kèo · 5 min read</span></div>
+</div>
+<div class="wrap">
+  <div class="tags">
+    <span class="tag"><span class="vi">hiệu ứng spotlight</span><span class="en">spotlight effect</span></span>
+    <span class="tag"><span class="vi">tâm lý học xã hội</span><span class="en">social psychology</span></span>
+    <span class="tag"><span class="vi">giao tiếp</span><span class="en">communication</span></span>
+  </div>
+
+  <p><span class="vi">Bạn đã bao giờ nói nhầm một từ trong cuộc họp và cả ngày sau đó cứ lo lắng rằng mọi người đều đang nhớ đến sự cố đó không? Hoặc mặc một bộ quần áo khác với ngày thường và cứ nghĩ mọi người đang nhìn bạn? Rất có thể không ai nhớ, không ai nhìn. Đây chính là hiệu ứng spotlight.</span><span class="en">Have you ever said the wrong word in a meeting and spent the rest of the day worrying that everyone was thinking about that incident? Or worn something different from usual and kept feeling people were looking at you? Very likely nobody remembered, nobody was looking. This is the spotlight effect.</span></p>
+
+  <h2><span class="vi">Nghiên cứu của Thomas Gilovich và Kenneth Savitsky</span><span class="en">Research by Thomas Gilovich and Kenneth Savitsky</span></h2>
+
+  <p><span class="vi">Thomas Gilovich và Kenneth Savitsky tại Đại học Cornell là những người đặt tên và nghiên cứu có hệ thống hiện tượng này. Trong một thí nghiệm nổi tiếng năm 2000 đăng trên Current Directions in Psychological Science, họ yêu cầu người tham gia mặc áo có in hình một nhân vật gây chú ý rồi đi vào phòng đông người. Sau đó, người tham gia phải ước tính bao nhiêu phần trăm người trong phòng đã chú ý đến áo của họ.</span><span class="en">Thomas Gilovich and Kenneth Savitsky at Cornell University were the ones who named and systematically studied this phenomenon. In a well-known experiment in 2000 published in Current Directions in Psychological Science, they asked participants to wear a t-shirt with an attention-grabbing image on it and walk into a crowded room. Participants then estimated what percentage of people in the room had noticed their shirt.</span></p>
+
+  <p><span class="vi">Người tham gia ước tính khoảng 50% người trong phòng đã chú ý. Thực tế chỉ khoảng 25%. Họ đã đánh giá cao sự chú ý của người khác lên mình gấp đôi so với thực tế.</span><span class="en">Participants estimated around 50% of people in the room had noticed. In reality it was around 25%. They overestimated the attention others paid to them by roughly double.</span></p>
+
+  <h2><span class="vi">Tại sao não người tạo ra hiệu ứng này</span><span class="en">Why the Brain Creates This Effect</span></h2>
+
+  <p><span class="vi">Nguyên nhân là do chúng ta luôn là trung tâm của quan điểm của chính mình — không thể không như vậy. Từ góc nhìn của mình, bạn nhận thức rất rõ mọi điều bạn làm, mọi từ bạn nói, mọi sai lầm bạn mắc. Nhưng người khác đang bận bịu với cuộc sống của họ, với những lo lắng của riêng họ. Họ không dành nhiều sự chú ý cho bạn như bạn nghĩ.</span><span class="en">The reason is that we are always the centre of our own perspective — we cannot be otherwise. From your own viewpoint, you are highly aware of everything you do, every word you say, every mistake you make. But other people are busy with their own lives, their own concerns. They do not pay as much attention to you as you think.</span></p>
+
+  <h2><span class="vi">Hiệu ứng spotlight và nỗi sợ kết nối</span><span class="en">The Spotlight Effect and Fear of Connection</span></h2>
+
+  <p><span class="vi">Hiệu ứng spotlight là một trong những lý do khiến người ta ngại bắt chuyện với người lạ, ngại bày tỏ ý kiến trong nhóm, hoặc ngại thừa nhận mình không biết điều gì đó. Họ lo lắng rằng người khác sẽ chú ý và phán xét. Thực tế hầu hết người khác đang lo lắng về hiệu ứng spotlight của chính họ và không có đủ chú ý dư để phán xét bạn.</span><span class="en">The spotlight effect is one of the reasons people hesitate to start conversations with strangers, to express opinions in a group, or to admit they do not know something. They worry that others will notice and judge. In reality most other people are busy worrying about their own spotlight effect and do not have enough spare attention to judge you.</span></p>
+
+  <blockquote><p><span class="vi">Bạn không phải diễn viên chính trong phim của người khác. Bạn chỉ là một nhân vật phụ — giống như họ trong phim của bạn.</span><span class="en">You are not the main character in other people's films. You are just a minor character — just as they are in yours.</span></p></blockquote>
+
+  <div class="divider"></div>
+  <div class="cta-box">
+    <h3><span class="vi">Gặp người lạ mà không cần lo về spotlight</span><span class="en">Meet a Stranger Without Worrying About the Spotlight</span></h3>
+    <p><span class="vi">Người đồng hành Kèo không biết lịch sử của bạn và không có lý do gì để phán xét. Đây là không gian an toàn nhất để thực hành việc thật sự hiện diện với người khác.</span><span class="en">A Kèo companion does not know your history and has no reason to judge. This is the safest space to practice being genuinely present with another person.</span></p>
+    <a href="/chu-xi"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
+  </div>
+
+  <div class="sources">
+    <h4><span class="vi">Nguồn tham khảo</span><span class="en">References</span></h4>
+    <ol>
+      <li>Gilovich, T., &amp; Savitsky, K. (1999). <em>The spotlight effect and the illusion of transparency: Egocentric assessments of how we are seen by others</em>. Current Directions in Psychological Science, 8(6), 165–168. Cornell University.</li>
+      <li>Gilovich, T., Medvec, V. H., &amp; Savitsky, K. (2000). <em>The spotlight effect in social judgment: An egocentric bias in estimates of the salience of one's own actions and appearance</em>. Journal of Personality and Social Psychology, 78(2), 211–222.</li>
+    </ol>
+  </div>
+
+  <p style="font-size:14px;color:var(--t3);text-align:center;margin-top:28px">
+    <span class="vi">Xem thêm: <a href="/tai-sao-nguoi-ta-hay-tam-su-voi-nguoi-la-tren-may-bay" style="color:var(--g)">Tại sao người ta tâm sự với người lạ</a> · <a href="/nguoi-viet-va-noi-so-di-mot-minh" style="color:var(--g)">Người Việt và nỗi sợ đi một mình</a></span>
+    <span class="en">Read more: <a href="/tai-sao-nguoi-ta-hay-tam-su-voi-nguoi-la-tren-may-bay" style="color:var(--g)">Why people confide in strangers</a> · <a href="/nguoi-viet-va-noi-so-di-mot-minh" style="color:var(--g)">Vietnamese culture and going alone</a></span>
+  </p>
+<div class="related"><div class="related-head"><div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div><a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a></div><div class="related-grid"><a href="/co-don-do-thi" class="related-card featured"><div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div><div class="related-card-title"><span class="vi">Sự cô đơn ở đô thị và cách kết nối thật sự</span><span class="en">Urban Loneliness and How to Really Connect</span></div></a><a href="/kho-ket-ban-sau-25-tuoi" class="related-card "><div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div><div class="related-card-title"><span class="vi">Tại sao người trẻ Việt Nam ngày càng khó kết bạn sau 25 tuổi</span><span class="en">Why Young Vietnamese Find It Hard to Make Friends After 25</span></div></a><a href="/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon" class="related-card "><div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div><div class="related-card-title"><span class="vi">Tại sao cùng trải qua khó khăn lại gắn kết người ta nhanh hơn</span><span class="en">Why Shared Hardship Bonds People More Quickly</span></div></a><a href="/oxytocin-va-khoa-hoc-cua-su-tin-tuong" class="related-card "><div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div><div class="related-card-title"><span class="vi">Oxytocin và khoa học của sự tin tưởng</span><span class="en">Oxytocin and the Science of Trust</span></div></a><a href="/cach-dat-cau-hoi" class="related-card "><div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div><div class="related-card-title"><span class="vi">Cách đặt câu hỏi để cuộc trò chuyện không bao giờ cạn</span><span class="en">How to Ask Questions That Keep a Conversation Going Deeper</span></div></a></div></div>
+</div>
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+</footer>
+<script>
+var isEN=false;
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('lang-toggle');
+  if(btn){btn.addEventListener('click',function(){
+    isEN=!isEN;
+    btn.textContent=isEN?'VI':'EN';
+    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
+    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
+  });}
+});
+</script>
+</body></html>
