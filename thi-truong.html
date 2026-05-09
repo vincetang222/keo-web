@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thị Trường — Kèo · Khoa học kết nối</title>
+  <meta name="description" content="Theo dõi giá crypto, tỷ giá ngoại tệ và thị trường tài chính Việt Nam theo thời gian thực.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://keo.social/thi-truong">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thị Trường — Kèo">
+  <meta property="og:description" content="Theo dõi giá crypto, tỷ giá ngoại tệ và thị trường tài chính Việt Nam.">
+  <meta property="og:url" content="https://keo.social/thi-truong">
+  <meta property="og:image" content="https://keo.social/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#1A3A28">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Space+Mono:wght@400;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --a:#C9A84C;--a2:#A8863A;--gn:#00c853;--rd:#f5334f;
+  --go:#f5a623;--pu:#9c7fe8;--vn:#e8334a;
+  --mono:'Space Mono',monospace;--sans:'Be Vietnam Pro',sans-serif;
+  --r:10px;--tr:.18s ease;
+}
+[data-theme="dark"]{
+  --bg:#0a1409;--sf:#111f0f;--sf2:#162015;--bd:#1e3020;
+  --tx:#f0ebe0;--sub:#7a9878;--mu:#3a5535;
+  --hbg:#111f0fee;--sc:rgba(201,168,76,.006);--lg:rgba(201,168,76,.28);
+}
+[data-theme="light"]{
+  --bg:#f0f4f8;--sf:#fff;--sf2:#e8eef4;--bd:#ccd8e4;
+  --tx:#0d1f2d;--sub:#56707e;--mu:#9ab0bc;
+  --hbg:#ffffffee;--sc:transparent;--lg:rgba(0,140,160,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);min-height:100vh;overflow-x:hidden;transition:background var(--tr),color var(--tr);}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--sc) 2px,var(--sc) 4px);pointer-events:none;z-index:0;}
+
+/* HEADER */
+header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;backdrop-filter:blur(14px);transition:background var(--tr);}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.5px;color:var(--a);text-shadow:0 0 16px var(--lg);}
+.logo span{color:var(--tx);}
+.hr{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;color:var(--sub);}
+.ld{width:7px;height:7px;border-radius:50%;background:var(--gn);box-shadow:0 0 7px var(--gn);animation:bk 2s infinite;}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.4}}
+#clk{color:var(--a);font-weight:700;font-size:11px;}
+.tm{display:flex;align-items:center;gap:4px;background:var(--sf2);border:1px solid var(--bd);border-radius:20px;padding:3px 9px;cursor:pointer;transition:all var(--tr);font-family:var(--mono);font-size:10px;color:var(--sub);user-select:none;}
+.tm:hover{border-color:var(--a);color:var(--a);}
+.ib{background:none;border:1px solid var(--bd);color:var(--sub);font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:6px;cursor:pointer;transition:all var(--tr);letter-spacing:.8px;}
+.ib:hover{border-color:var(--a);color:var(--a);}
+
+/* TICKER */
+.tw{background:var(--sf);border-bottom:1px solid var(--bd);overflow:hidden;height:28px;display:flex;align-items:center;transition:background var(--tr);}
+.tl{background:var(--a);color:#000;font-family:var(--mono);font-size:9px;font-weight:700;padding:0 10px;height:100%;display:flex;align-items:center;flex-shrink:0;letter-spacing:1.5px;}
+.tt{display:flex;animation:sl 55s linear infinite;white-space:nowrap;}
+.ti{font-family:var(--mono);font-size:10px;padding:0 16px;display:flex;align-items:center;gap:6px;border-right:1px solid var(--bd);color:var(--sub);}
+.ti .s{color:var(--tx);font-weight:700;}
+.up{color:var(--gn);}.dn{color:var(--rd);}
+@keyframes sl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* STATUS BAR */
+.sb{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:9px 14px;margin-bottom:14px;transition:background var(--tr);}
+.si{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;}
+.dt{width:6px;height:6px;border-radius:50%;}
+.dt.on{background:var(--gn);box-shadow:0 0 5px var(--gn);}
+.dt.off{background:var(--rd);}
+.sn{color:var(--sub);}.sv{color:var(--tx);font-weight:700;}
+.sp1{flex:1;}
+
+/* TAB NAV */
+.tnav{display:flex;gap:2px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:4px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;position:sticky;top:52px;z-index:100;backdrop-filter:blur(12px);transition:background var(--tr);}
+.tnav::-webkit-scrollbar{display:none;}
+.tb{font-family:var(--mono);font-size:11px;font-weight:700;padding:7px 14px;border-radius:7px;border:none;background:none;color:var(--sub);cursor:pointer;white-space:nowrap;transition:all var(--tr);letter-spacing:.5px;display:flex;align-items:center;gap:5px;}
+.tb:hover{color:var(--tx);background:var(--sf2);}
+.tb.on{background:var(--a);color:#111;}
+.tbg{background:rgba(255,255,255,.2);border-radius:10px;padding:1px 6px;font-size:9px;}
+
+/* PAGES */
+.pg{display:none;}
+.pg.on{display:block;animation:fi .16s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTION HEADER */
+.sh{display:flex;align-items:center;gap:8px;margin:22px 0 12px;}
+.sh:first-child{margin-top:0;}
+.shi{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.sht{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);}
+.shl{flex:1;height:1px;background:var(--bd);}
+.shb{font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:20px;font-weight:700;letter-spacing:.8px;}
+
+/* OVERVIEW CARDS */
+.ov4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:9px;}
+.ova{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
+.ovc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px 14px;transition:background var(--tr);}
+.ovl{font-size:9px;color:var(--sub);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.ovv{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--tx);line-height:1.1;}
+.ovc2{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:2px;}
+
+/* CARD GRID */
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:9px;}
+.grsm{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));}
+
+/* CARD */
+.cd{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px 13px;position:relative;overflow:hidden;transition:transform var(--tr),border-color var(--tr),background var(--tr),box-shadow var(--tr);}
+.cd::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity var(--tr);}
+.cd:hover{border-color:rgba(0,200,224,.3);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);}
+.cd:hover::before{opacity:1;}
+.cs::before{background:var(--a);}  /* stocks */
+.cb::before{background:var(--go);} /* bonds */
+.cc::before{background:var(--a2);}  /* commodities */
+.cr::before{background:var(--pu);}  /* crypto */
+.cv::before{background:var(--vn);}  /* VN */
+.cfx::before{background:var(--gn);}/* fx */
+.ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+.cy{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sub);letter-spacing:1px;}
+.cn{font-size:12px;font-weight:700;color:var(--tx);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:135px;}
+.co{font-size:16px;opacity:.85;}
+.cp{font-family:var(--mono);font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px;line-height:1.15;}
+.cv2{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:1px;}
+.cch{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:700;margin-top:4px;}
+.csp{margin-top:8px;height:30px;}
+.csp svg{width:100%;height:100%;}
+.cm{margin-top:6px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--mu);}
+
+/* VN INDEX MINI */
+.ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:7px;margin-bottom:12px;}
+.ic{background:var(--sf);border:1px solid var(--bd);border-top-width:2px;border-radius:9px;padding:9px 11px;transition:background var(--tr);}
+.il{font-size:9px;color:var(--sub);font-family:var(--mono);letter-spacing:1px;margin-bottom:2px;}
+.iv{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--tx);}
+.ip{font-family:var(--mono);font-size:10px;margin-top:1px;}
+
+/* CHIPS */
+.chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:11px;}
+.chip{border-radius:20px;padding:2px 9px;font-family:var(--mono);font-size:10px;display:flex;gap:4px;align-items:center;border:1px solid transparent;}
+
+/* LOADING / ERROR */
+.ld2{color:var(--sub);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
+.err{color:var(--rd);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
+
+main{max-width:1440px;margin:0 auto;padding:18px;position:relative;z-index:1;}
+footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;color:var(--mu);border-top:1px solid var(--bd);margin-top:28px;line-height:2;transition:border-color var(--tr);}
+
+@media(max-width:900px){.ov4{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.gr{grid-template-columns:1fr 1fr;}main{padding:10px;}.tb{padding:6px 10px;font-size:10px;}}
+@media(max-width:400px){.gr{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Thị Trường Tài Chính — Kèo</h1>
+<header>
+  <div style="display:flex;align-items:center;gap:16px">
+    <a href="/" style="font-family:'Lora',serif;font-weight:700;font-size:18px;color:var(--a);text-decoration:none;letter-spacing:-.3px">Kèo<span style="color:var(--tx)">.</span></a>
+    <div style="width:1px;height:18px;background:var(--bd)"></div>
+    <div class="logo" style="font-size:14px;letter-spacing:.1em;color:var(--sub)">THỊ<span style="color:var(--tx)"> TRƯỜNG</span></div>
+  </div>
+  <div class="hr">
+    <div class="ld"></div>
+    <span id="clk">--:--:--</span>
+    <div class="tm" onclick="toggleTheme()"><span id="tmi">☀️</span><span id="tml">LIGHT</span></div>
+    <button class="ib" onclick="refreshCurrent()">↻ REFRESH</button>
+  </div>
+</header>
+
+<div class="tw">
+  <div class="tl">▶ LIVE</div>
+  <div style="overflow:hidden;flex:1"><div class="tt" id="tkr"></div></div>
+</div>
+
+<main>
+
+<!-- STATUS BAR -->
+<div class="sb">
+  <div class="si"><div class="dt" id="d0"></div><span class="sn">HOSE</span><span class="sv" id="l0">--</span></div>
+  <div class="si"><div class="dt" id="d1"></div><span class="sn">HNX</span><span class="sv" id="l1">--</span></div>
+  <div class="si"><div class="dt" id="d2"></div><span class="sn">NYSE</span><span class="sv" id="l2">--</span></div>
+  <div class="si"><div class="dt" id="d3"></div><span class="sn">NASDAQ</span><span class="sv" id="l3">--</span></div>
+  <div class="si"><div class="dt on"></div><span class="sn">CRYPTO</span><span class="sv">24/7</span></div>
+  <div class="sp1"></div>
+  <div class="si" style="gap:4px"><span class="sn">VNINDEX</span><span class="sv" id="stVni">--</span></div>
+  <div class="si" style="gap:4px"><span class="sn">USD/VND</span><span class="sv" id="stFx">--</span></div>
+  <div class="si" style="gap:4px"><span class="sn">BTC DOM</span><span class="sv" id="stBd">--</span></div>
+  <div class="si" style="gap:4px"><span class="sn">G.MCAP</span><span class="sv" id="stGm">--</span></div>
+</div>
+
+<!-- TAB NAV -->
+<nav class="tnav">
+  <button class="tb on"  id="btn-overview" onclick="go('overview',this)">📊 Tổng quan</button>
+  <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Việt Nam <span class="tbg">43</span></button>
+  <button class="tb"     id="btn-global"   onclick="go('global',this)">📈 Cổ phiếu QT <span class="tbg">48</span></button>
+  <button class="tb"     id="btn-bonds"    onclick="go('bonds',this)">🏛️ Trái phiếu <span class="tbg">24</span></button>
+  <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
+  <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
+  <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
+</nav>
+
+<!-- PAGE: OVERVIEW -->
+<div class="pg on" id="pg-overview">
+  <div class="ov4">
+    <div class="ovc"><div class="ovl">S&amp;P 500</div><div class="ovv" id="ovSp">--</div><div class="ovc2" id="ovSpC">--</div></div>
+    <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">🇻🇳 VN-INDEX</div><div class="ovv" id="ovVni">--</div><div class="ovc2" id="ovVniC">--</div></div>
+    <div class="ovc"><div class="ovl">Vàng / Gold</div><div class="ovv" id="ovGold">--</div><div class="ovc2" id="ovGoldC">--</div></div>
+    <div class="ovc"><div class="ovl">Bitcoin</div><div class="ovv" id="ovBtc">--</div><div class="ovc2" id="ovBtcC">--</div></div>
+  </div>
+  <div class="ova" style="margin-bottom:18px">
+    <div class="ovc"><div class="ovl">NASDAQ 100</div><div class="ovv" id="ovNdx">--</div><div class="ovc2" id="ovNdxC">--</div></div>
+    <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">HNX-INDEX</div><div class="ovv" id="ovHnx">--</div><div class="ovc2" id="ovHnxC">--</div></div>
+    <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">UPCOM</div><div class="ovv" id="ovUpcom">--</div><div class="ovc2" id="ovUpcomC">--</div></div>
+    <div class="ovc"><div class="ovl">Dầu WTI</div><div class="ovv" id="ovWti">--</div><div class="ovc2" id="ovWtiC">--</div></div>
+    <div class="ovc"><div class="ovl">US 10Y Yield</div><div class="ovv" id="ovT10">--</div><div class="ovc2" id="ovT10C">--</div></div>
+    <div class="ovc"><div class="ovl">💱 USD/VND <span id="fxB" style="font-size:8px;color:var(--sub)">~EST</span></div><div class="ovv" id="ovFx">--</div><div class="ovc2" id="ovFxC">--</div></div>
+    <div class="ovc"><div class="ovl">Ethereum</div><div class="ovv" id="ovEth">--</div><div class="ovc2" id="ovEthC">--</div></div>
+    <div class="ovc"><div class="ovl">Fear &amp; Greed</div><div class="ovv" id="ovFng">--</div><div class="ovc2" id="ovFngL">--</div></div>
+  </div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🇻🇳</div><div class="sht">Top VN hôm nay</div><div class="shl"></div><button class="ib" onclick="go('vn',document.getElementById('btn-vn'))">Xem tất cả →</button></div>
+  <div class="gr" id="ovVnPrev"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">📈</div><div class="sht">Cổ phiếu nổi bật</div><div class="shl"></div><button class="ib" onclick="go('global',document.getElementById('btn-global'))">Xem tất cả →</button></div>
+  <div class="gr" id="ovStPrev"></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">₿</div><div class="sht">Crypto top 5</div><div class="shl"></div><button class="ib" onclick="go('crypto',document.getElementById('btn-crypto'))">Xem tất cả →</button></div>
+  <div class="gr" id="ovCrPrev"><div class="ld2">Đang tải…</div></div>
+</div>
+
+<!-- PAGE: VN -->
+<div class="pg" id="pg-vn">
+  <div class="ig" id="idxCards"></div>
+  <div class="chips" id="chips"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🏦</div><div class="sht">Ngân hàng</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">BANKING</div></div>
+  <div class="gr grsm" id="vnBank"><div class="ld2">Đang tải…</div></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🏠</div><div class="sht">Bất động sản</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">REAL ESTATE</div></div>
+  <div class="gr grsm" id="vnRe"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">💻</div><div class="sht">Công nghệ · Viễn thông · Bán lẻ</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">TECH & RETAIL</div></div>
+  <div class="gr grsm" id="vnTech"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🏭</div><div class="sht">Công nghiệp · Năng lượng</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">INDUSTRIAL</div></div>
+  <div class="gr grsm" id="vnInd"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🛒</div><div class="sht">Tiêu dùng · Thực phẩm · Y tế</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">CONSUMER</div></div>
+  <div class="gr grsm" id="vnCons"></div>
+  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">📊</div><div class="sht">Chứng khoán · Bảo hiểm</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">FINANCE</div></div>
+  <div class="gr grsm" id="vnFin"></div>
+</div>
+
+<!-- PAGE: GLOBAL -->
+<div class="pg" id="pg-global">
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🇺🇸</div><div class="sht">Mỹ — Công nghệ</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">US TECH</div></div>
+  <div class="gr" id="stUsTech"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🏦</div><div class="sht">Mỹ — Tài chính · Năng lượng · Tiêu dùng</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">US OTHER</div></div>
+  <div class="gr" id="stUsOther"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🌏</div><div class="sht">Châu Á</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">ASIA</div></div>
+  <div class="gr" id="stAsia"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🌍</div><div class="sht">Châu Âu</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">EUROPE</div></div>
+  <div class="gr" id="stEurope"></div>
+</div>
+
+<!-- PAGE: BONDS -->
+<div class="pg" id="pg-bonds">
+  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🇺🇸</div><div class="sht">US Treasuries</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">UST</div></div>
+  <div class="gr" id="bondUs"></div>
+  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🌏</div><div class="sht">Châu Á — Chính phủ</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">ASIA GOVT</div></div>
+  <div class="gr" id="bondAsia"></div>
+  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🌍</div><div class="sht">Châu Âu — Chính phủ</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">EU GOVT</div></div>
+  <div class="gr" id="bondEu"></div>
+  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🏢</div><div class="sht">Doanh nghiệp</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">CORPORATE</div></div>
+  <div class="gr" id="bondCorp"></div>
+</div>
+
+<!-- PAGE: COMM -->
+<div class="pg" id="pg-comm">
+  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🥇</div><div class="sht">Kim loại quý</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">PRECIOUS</div></div>
+  <div class="gr" id="cmMetal"></div>
+  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🛢️</div><div class="sht">Năng lượng</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">ENERGY</div></div>
+  <div class="gr" id="cmEnergy"></div>
+  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🔶</div><div class="sht">Kim loại công nghiệp</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">BASE METALS</div></div>
+  <div class="gr" id="cmBase"></div>
+  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🌽</div><div class="sht">Nông sản</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">AGRI</div></div>
+  <div class="gr" id="cmAgri"></div>
+</div>
+
+<!-- PAGE: CRYPTO -->
+<div class="pg" id="pg-crypto">
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏆</div><div class="sht">Top 20 Market Cap</div><div class="shl"></div><div class="shb" style="background:rgba(156,127,232,.1);color:var(--pu)">COINGECKO LIVE</div></div>
+  <div class="gr" id="crCards"><div class="ld2">Đang tải dữ liệu crypto…</div></div>
+</div>
+
+<!-- PAGE: FX -->
+<div class="pg" id="pg-fx">
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">💵</div><div class="sht">Đồng tiền chính</div><div class="shl"></div><span id="fxB2" style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sub)">~EST</span><div class="shb" style="background:rgba(0,200,83,.1);color:var(--gn)">open.er-api.com</div></div>
+  <div class="gr" id="fxMajor"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌏</div><div class="sht">Châu Á</div><div class="shl"></div></div>
+  <div class="gr" id="fxAsia"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌍</div><div class="sht">Khác</div><div class="shl"></div></div>
+  <div class="gr" id="fxOther"></div>
+</div>
+
+</main>
+<footer>
+  <a href="/" style="color:var(--a);text-decoration:none;font-family:'Lora',serif;font-weight:700">Kèo</a> · Trang thị trường tài chính &nbsp;·&nbsp; Crypto: CoinCap · CoinGecko &nbsp;·&nbsp; Tỷ giá: open.er-api.com<br>
+  Dữ liệu cổ phiếu & trái phiếu là mô phỏng &nbsp;·&nbsp; Không phải tư vấn đầu tư &nbsp;·&nbsp; Auto-refresh 60s &nbsp;·&nbsp; <span id="lastUp">--</span><br>
+  <a href="/khoa-hoc-ket-noi" style="color:var(--sub);text-decoration:none">← Quay lại Khoa học kết nối</a>
+</footer>
+
+<script>
+'use strict';
+// Timeout-safe fetch wrapper — no AbortSignal (avoids postMessage cloning errors)
+function fetchT(url, ms){
+  return Promise.race([
+    fetch(url),
+    new Promise((_,reject)=>setTimeout(()=>reject(new Error('timeout')),ms))
+  ]);
+}
+// ─── THEME ─────────────────────────────────
+let dark=true;
+function toggleTheme(){
+  dark=!dark;
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  document.getElementById('tmi').textContent=dark?'☀️':'🌙';
+  document.getElementById('tml').textContent=dark?'LIGHT':'DARK';
+}
+
+// ─── CLOCK ─────────────────────────────────
+setInterval(()=>{document.getElementById('clk').textContent=new Date().toLocaleTimeString('vi-VN',{hour12:false});},1000);
+
+// ─── HELPERS ───────────────────────────────
+const rng=(b,r)=>b*(1+(Math.random()*r*2-r)/100);
+const rp=(r)=>Math.random()*r*2-r;
+const $ = id => document.getElementById(id);
+const html = (id,h) => { const e=$(id); if(e) e.innerHTML=h; };
+
+function ov(id,val,pct,dec=2){
+  const v=$(id),c=$(id+'C');
+  if(v) v.textContent=val;
+  if(c){ const u=pct>=0; c.textContent=(u?'▲ +':'▼ ')+Math.abs(pct).toFixed(dec)+'%'; c.style.color=u?'var(--gn)':'var(--rd)'; }
+}
+
+// ─── FX LIVE ───────────────────────────────
+let USD_VND=25470, FX_RATES={};
+const FX_FB={USD:1,EUR:.92,CNY:7.24,JPY:154,KRW:1380,SGD:1.35,THB:35,GBP:.79,AUD:1.58,HKD:7.78,CHF:.88,CAD:1.37,INR:83,MYR:4.72,IDR:15600,PHP:58,TWD:32,BRL:5.1,MXN:17.2,AED:3.67,SAR:3.75,ZAR:18.5,TRY:32,NOK:10.6,SEK:10.3};
+
+async function fetchFX(){
+  try{
+    const r=await fetchT('https://open.er-api.com/v6/latest/USD', 6000);
+    if(!r.ok) throw 0;
+    const d=await r.json();
+    if(d.result!=='success') throw 0;
+    FX_RATES=d.rates; USD_VND=d.rates.VND||USD_VND;
+    ['fxB','fxB2'].forEach(id=>{const e=$(id);if(e){e.textContent='✓ LIVE';e.style.color='var(--gn)';}});
+  }catch{
+    ['fxB','fxB2'].forEach(id=>{const e=$(id);if(e){e.textContent='~EST';e.style.color='var(--go)';}});
+  }
+}
+
+function xrate(ccy){ return ccy==='USD'?USD_VND:USD_VND/(FX_RATES[ccy]||FX_FB[ccy]||1); }
+function toVND(usd){
+  const v=usd*USD_VND;
+  if(v>=1e9) return '≈'+(v/1e9).toFixed(2)+'tỷ₫';
+  if(v>=1e6) return '≈'+(v/1e6).toFixed(2)+'tr₫';
+  if(v>=1e3) return '≈'+(v/1e3).toFixed(1)+'k₫';
+  return '≈'+v.toFixed(0)+'₫';
+}
+
+// ─── MARKET STATUS ─────────────────────────
+function mkStatus(){
+  const now=new Date(), utc=now.getTime()+now.getTimezoneOffset()*60000;
+  const vn=new Date(utc+7*3600000), vm=vn.getHours()*60+vn.getMinutes(), vd=vn.getDay();
+  const vo=vd>=1&&vd<=5&&((vm>=540&&vm<690)||(vm>=780&&vm<900));
+  $('d0').className='dt '+(vo?'on':'off'); $('l0').textContent=vo?'MỞ':'ĐÓNG';
+  $('d1').className='dt '+(vo?'on':'off'); $('l1').textContent=vo?'MỞ':'ĐÓNG';
+  const ny=new Date(utc-4*3600000), nm=ny.getHours()*60+ny.getMinutes(), nd=ny.getDay();
+  const no=nd>=1&&nd<=5&&nm>=570&&nm<960;
+  $('d2').className='dt '+(no?'on':'off'); $('l2').textContent=no?'MỞ':'ĐÓNG';
+  $('d3').className='dt '+(no?'on':'off'); $('l3').textContent=no?'MỞ':'ĐÓNG';
+}
+mkStatus();
+
+// ─── SPARKLINE ─────────────────────────────
+function spark(up,col){
+  const n=20,v=[50];
+  for(let i=1;i<n;i++) v.push(Math.max(4,Math.min(96,v[i-1]+(Math.random()-(up?.38:.62))*11)));
+  const mn=Math.min(...v),mx=Math.max(...v),W=200,H=30;
+  const norm=v.map(x=>92-((x-mn)/(mx-mn+.5))*84);
+  const pts=norm.map((y,i)=>`${(i/(n-1))*W},${y*H/100}`).join(' ');
+  const id='g'+Math.random().toString(36).slice(2,8);
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs>`+
+    `<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">`+
+    `<stop offset="0%" stop-color="${col}" stop-opacity="0.18"/>`+
+    `<stop offset="100%" stop-color="${col}" stop-opacity="0"/>`+
+    `</linearGradient></defs>`+
+    `<polygon points="${pts} ${W},${H} 0,${H}" fill="url(#${id})"/>`+
+    `<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>`+
+    `</svg>`;
+}
+
+// ─── CARD ──────────────────────────────────
+function card(d,cls,spkCol){
+  const u=d.pct>=0,col=u?'var(--gn)':'var(--rd)',arr=u?'▲':'▼';
+  const vnd=d.usd!=null?`<div class="cv2">${toVND(d.usd)}</div>`:'';
+  return `<div class="cd ${cls}">` +
+    `<div class="ct"><div><div class="cy">${d.sym}</div><div class="cn" title="${d.nm}">${d.nm}</div></div>` +
+    `<div class="co">${d.ic}</div></div>` +
+    `<div class="cp">${d.pr}</div>` +
+    `${vnd}` +
+    `<div class="cch" style="color:${col}">${arr} ${Math.abs(d.pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
+    `<div class="csp">${spark(u,spkCol)}</div>` +
+    `<div class="cm"><span>${d.m1||''}</span><span>${d.m2||''}</span></div>` +
+    `</div>`;
+}
+
+// ─── DATA: STOCKS ──────────────────────────
+const STOCKS={
+  usTech:[
+    {sym:'AAPL',nm:'Apple',          base:211, ic:'🍎',ccy:'USD'},
+    {sym:'MSFT',nm:'Microsoft',      base:418, ic:'🪟',ccy:'USD'},
+    {sym:'NVDA',nm:'NVIDIA',         base:875, ic:'🎮',ccy:'USD'},
+    {sym:'GOOGL',nm:'Alphabet',      base:172, ic:'🔍',ccy:'USD'},
+    {sym:'META',nm:'Meta Platforms', base:555, ic:'📘',ccy:'USD'},
+    {sym:'AMZN',nm:'Amazon',         base:196, ic:'📦',ccy:'USD'},
+    {sym:'TSLA',nm:'Tesla',          base:168, ic:'🚗',ccy:'USD'},
+    {sym:'AMD', nm:'AMD',            base:108, ic:'💾',ccy:'USD'},
+    {sym:'NFLX',nm:'Netflix',        base:1098,ic:'🎬',ccy:'USD'},
+    {sym:'ORCL',nm:'Oracle',         base:188, ic:'🗄️',ccy:'USD'},
+    {sym:'CRM', nm:'Salesforce',     base:295, ic:'☁️',ccy:'USD'},
+    {sym:'UBER',nm:'Uber',           base:82,  ic:'🚕',ccy:'USD'},
+    {sym:'SNOW',nm:'Snowflake',      base:162, ic:'❄️',ccy:'USD'},
+    {sym:'PLTR',nm:'Palantir',       base:98,  ic:'🔭',ccy:'USD'},
+  ],
+  usOther:[
+    {sym:'JPM', nm:'JPMorgan Chase', base:241, ic:'🏦',ccy:'USD'},
+    {sym:'GS',  nm:'Goldman Sachs',  base:622, ic:'💼',ccy:'USD'},
+    {sym:'V',   nm:'Visa',           base:354, ic:'💳',ccy:'USD'},
+    {sym:'BRK.B',nm:'Berkshire',     base:534, ic:'🧢',ccy:'USD'},
+    {sym:'XOM', nm:'ExxonMobil',     base:108, ic:'🛢️',ccy:'USD'},
+    {sym:'CVX', nm:'Chevron',        base:152, ic:'⛽',ccy:'USD'},
+    {sym:'JNJ', nm:'Johnson & Johnson',base:146,ic:'💊',ccy:'USD'},
+    {sym:'PG',  nm:'Procter & Gamble',base:172,ic:'🧴',ccy:'USD'},
+    {sym:'KO',  nm:'Coca-Cola',      base:72,  ic:'🥤',ccy:'USD'},
+    {sym:'MCD', nm:"McDonald's",     base:312, ic:'🍔',ccy:'USD'},
+    {sym:'WMT', nm:'Walmart',        base:98,  ic:'🛒',ccy:'USD'},
+    {sym:'BAC', nm:'Bank of America',base:42,  ic:'🏛️',ccy:'USD'},
+  ],
+  asia:[
+    {sym:'TSM',   nm:'TSMC (ADR)',      base:185,  ic:'🇹🇼',ccy:'USD',ex:'NYSE'},
+    {sym:'005930',nm:'Samsung Elec.',   base:58000, ic:'📱',ccy:'KRW',ex:'KRX'},
+    {sym:'7203',  nm:'Toyota Motor',   base:3050,  ic:'🚙',ccy:'JPY',ex:'TSE'},
+    {sym:'9984',  nm:'SoftBank',       base:11200, ic:'📡',ccy:'JPY',ex:'TSE'},
+    {sym:'6758',  nm:'Sony Group',     base:3180,  ic:'🎵',ccy:'JPY',ex:'TSE'},
+    {sym:'700',   nm:'Tencent',        base:430,   ic:'🎯',ccy:'HKD',ex:'HKEX'},
+    {sym:'9988',  nm:'Alibaba HK',     base:72,    ic:'🛍️',ccy:'HKD',ex:'HKEX'},
+    {sym:'1810',  nm:'Xiaomi',         base:44,    ic:'📱',ccy:'HKD',ex:'HKEX'},
+    {sym:'BYD',   nm:'BYD Company',    base:28,    ic:'🔋',ccy:'HKD',ex:'HKEX'},
+    {sym:'INFY',  nm:'Infosys (ADR)',  base:22,    ic:'💻',ccy:'USD',ex:'NYSE'},
+    {sym:'RELIANCE',nm:'Reliance Ind.',base:2950,  ic:'🇮🇳',ccy:'INR',ex:'NSE'},
+    {sym:'ASML',  nm:'ASML Holding',   base:782,   ic:'🔬',ccy:'USD',ex:'NASDAQ'},
+  ],
+  europe:[
+    {sym:'SAP',  nm:'SAP SE',        base:244, ic:'🗄️',ccy:'USD',ex:'NYSE'},
+    {sym:'NVO',  nm:'Novo Nordisk',  base:98,  ic:'💊',ccy:'USD',ex:'NYSE'},
+    {sym:'SHEL', nm:'Shell plc',     base:34,  ic:'🐚',ccy:'USD',ex:'NYSE'},
+    {sym:'AZN',  nm:'AstraZeneca',  base:78,  ic:'🧬',ccy:'USD',ex:'NASDAQ'},
+    {sym:'LVMH', nm:'LVMH',         base:730, ic:'👜',ccy:'EUR',ex:'EPA'},
+    {sym:'NESN', nm:'Nestlé SA',    base:82,  ic:'🍫',ccy:'CHF',ex:'SIX'},
+    {sym:'ROG',  nm:'Roche Holding',base:248, ic:'🔬',ccy:'CHF',ex:'SIX'},
+    {sym:'SIE',  nm:'Siemens AG',   base:182, ic:'⚙️',ccy:'EUR',ex:'XETRA'},
+    {sym:'MC',   nm:'Louis Vuitton', base:730, ic:'💎',ccy:'EUR',ex:'EPA'},
+    {sym:'SAN',  nm:'Santander',    base:5.2, ic:'🏦',ccy:'EUR',ex:'BME'},
+  ]
+};
+
+function mkSt(s){
+  const p=rng(s.base,1.5), pct=rp(2.5);
+  const r=FX_RATES[s.ccy]||FX_FB[s.ccy]||1;
+  const usd=s.ccy==='USD'?p:p/r;
+  const sym2={USD:'$',EUR:'€',KRW:'₩',JPY:'¥',HKD:'HK$',CHF:'Fr',INR:'₹',AUD:'A$'}[s.ccy]||'';
+  const pf=s.ccy==='KRW'||s.ccy==='JPY'||s.ccy==='INR'?Math.round(p).toLocaleString():p.toFixed(2);
+  return card({sym:s.sym,nm:s.nm,ic:s.ic,pr:sym2+pf,usd,pct,abs:(pct>=0?'+':'')+sym2+(Math.abs(p*pct/100)).toFixed(2),m1:(s.ex||'')+' · '+s.ccy,m2:'Vol:'+(Math.random()*80+10).toFixed(0)+'M'},'cs','var(--a)');
+}
+
+function renderGlobal(){
+  html('stUsTech', STOCKS.usTech.map(mkSt).join(''));
+  html('stUsOther', STOCKS.usOther.map(mkSt).join(''));
+  html('stAsia', STOCKS.asia.map(mkSt).join(''));
+  html('stEurope', STOCKS.europe.map(mkSt).join(''));
+}
+
+// ─── DATA: BONDS ───────────────────────────
+const BONDS={
+  us:[
+    {sym:'US01M',nm:'US 1M T-Bill',  base:5.28,ic:'🏛️',m1:'1 tháng'},
+    {sym:'US03M',nm:'US 3M T-Bill',  base:5.22,ic:'🏛️',m1:'3 tháng'},
+    {sym:'US06M',nm:'US 6M T-Bill',  base:5.05,ic:'🏛️',m1:'6 tháng'},
+    {sym:'US01Y',nm:'US 1Y Treasury',base:4.94,ic:'📜',m1:'1 năm'},
+    {sym:'US02Y',nm:'US 2Y Treasury',base:4.82,ic:'📜',m1:'2 năm'},
+    {sym:'US05Y',nm:'US 5Y Treasury',base:4.44,ic:'📜',m1:'5 năm'},
+    {sym:'US10Y',nm:'US 10Y Treasury',base:4.28,ic:'📜',m1:'Benchmark'},
+    {sym:'US30Y',nm:'US 30Y Treasury',base:4.62,ic:'📜',m1:'30 năm'},
+  ],
+  asia:[
+    {sym:'VN05Y',nm:'VN 5Y Gov Bond', base:2.68,ic:'🇻🇳',m1:'HNX'},
+    {sym:'VN10Y',nm:'VN 10Y Gov Bond',base:2.92,ic:'🇻🇳',m1:'HNX'},
+    {sym:'JP10Y',nm:'Japan 10Y JGB',  base:1.52,ic:'🇯🇵',m1:'BoJ'},
+    {sym:'CN10Y',nm:'China 10Y Govt', base:1.68,ic:'🇨🇳',m1:'PBOC'},
+    {sym:'KR10Y',nm:'Korea 10Y KTB',  base:3.42,ic:'🇰🇷',m1:'BOK'},
+    {sym:'IN10Y',nm:'India 10Y Govt', base:6.88,ic:'🇮🇳',m1:'RBI'},
+    {sym:'ID10Y',nm:'Indonesia 10Y',  base:6.72,ic:'🇮🇩',m1:'BI'},
+    {sym:'TH10Y',nm:'Thailand 10Y',   base:2.38,ic:'🇹🇭',m1:'BOT'},
+  ],
+  eu:[
+    {sym:'DE10Y',nm:'Germany 10Y Bund',base:2.48,ic:'🇩🇪',m1:'Benchmark EU'},
+    {sym:'FR10Y',nm:'France 10Y OAT',  base:2.98,ic:'🇫🇷',m1:'Trésor'},
+    {sym:'IT10Y',nm:'Italy 10Y BTP',   base:3.82,ic:'🇮🇹',m1:'Tesoro'},
+    {sym:'GB10Y',nm:'UK 10Y Gilt',     base:4.28,ic:'🇬🇧',m1:'DMO'},
+    {sym:'ES10Y',nm:'Spain 10Y Bono',  base:3.22,ic:'🇪🇸',m1:'Tesoro'},
+  ],
+  corp:[
+    {sym:'IG-US',nm:'US Corp IG',    base:4.88,ic:'🏢',m1:'Investment Grade'},
+    {sym:'HY-US',nm:'US High Yield', base:7.22,ic:'⚡',m1:'High Yield'},
+    {sym:'EM-BD',nm:'EM Bond ETF',   base:5.62,ic:'🌍',m1:'Emerging Markets'},
+  ]
+};
+
+function mkBond(b){
+  const p=rng(b.base,.4), pct=rp(.5);
+  const abs=Math.abs(p*pct/100).toFixed(3);
+  return card({sym:b.sym,nm:b.nm,ic:b.ic,pr:p.toFixed(2)+'%',usd:null,pct,abs:(pct>=0?'+':'')+abs+'%',m1:b.m1,m2:''},'cb','var(--go)');
+}
+
+function renderBonds(){
+  html('bondUs', BONDS.us.map(mkBond).join(''));
+  html('bondAsia', BONDS.asia.map(mkBond).join(''));
+  html('bondEu', BONDS.eu.map(mkBond).join(''));
+  html('bondCorp', BONDS.corp.map(mkBond).join(''));
+}
+
+// ─── DATA: COMMODITIES ─────────────────────
+const COMM={
+  metal:[
+    {sym:'XAU',nm:'Vàng (Gold)',     base:3330,ic:'🥇',unit:'$/oz',  usd:true},
+    {sym:'XAG',nm:'Bạc (Silver)',    base:33.2,ic:'🥈',unit:'$/oz',  usd:true},
+    {sym:'XPT',nm:'Bạch kim (Plat)',base:970, ic:'⬜',unit:'$/oz',  usd:true},
+    {sym:'XPD',nm:'Palladium',       base:1020,ic:'🔘',unit:'$/oz',  usd:true},
+  ],
+  energy:[
+    {sym:'WTI',  nm:'Dầu WTI',      base:61.5,ic:'🛢️',unit:'$/bbl',usd:true},
+    {sym:'BRENT',nm:'Dầu Brent',    base:65.2,ic:'⛽',unit:'$/bbl',usd:true},
+    {sym:'RBOB', nm:'Xăng RBOB',    base:2.28,ic:'⛽',unit:'$/gal',usd:true},
+    {sym:'NG',   nm:'Khí tự nhiên', base:3.28,ic:'🔥',unit:'$/MMBtu',usd:true},
+    {sym:'HO',   nm:'Dầu nhiệt',    base:2.14,ic:'🌡️',unit:'$/gal',usd:true},
+  ],
+  base:[
+    {sym:'CU',nm:'Đồng (Copper)',   base:4.72,ic:'🔶',unit:'$/lb',usd:true},
+    {sym:'AL',nm:'Nhôm (Aluminium)',base:1.12,ic:'🔷',unit:'$/lb',usd:true},
+    {sym:'ZN',nm:'Kẽm (Zinc)',      base:1.28,ic:'🪤',unit:'$/lb',usd:true},
+    {sym:'NI',nm:'Niken (Nickel)',  base:7.42,ic:'🔩',unit:'$/lb',usd:true},
+    {sym:'FE',nm:'Quặng sắt',       base:98.4,ic:'⚙️',unit:'$/t', usd:true},
+  ],
+  agri:[
+    {sym:'CORN', nm:'Ngô (Corn)',    base:462, ic:'🌽',unit:'¢/bu',usd:false},
+    {sym:'WHEAT',nm:'Lúa mì',       base:538, ic:'🌾',unit:'¢/bu',usd:false},
+    {sym:'SOYA', nm:'Đậu tương',    base:1082,ic:'🫘',unit:'¢/bu',usd:false},
+    {sym:'SUGAR',nm:'Đường',        base:19.8,ic:'🍬',unit:'¢/lb',usd:false},
+    {sym:'COFFE',nm:'Cà phê Arabica',base:3.18,ic:'☕',unit:'$/lb',usd:true},
+    {sym:'COCOA',nm:'Cacao',        base:8420,ic:'🍫',unit:'$/t', usd:true},
+    {sym:'CTTN', nm:'Bông (Cotton)',base:82.4,ic:'🌸',unit:'¢/lb',usd:false},
+    {sym:'RICE', nm:'Gạo (Rice)',   base:14.8,ic:'🍚',unit:'$/cwt',usd:false},
+  ]
+};
+
+function mkComm(c){
+  const p=rng(c.base,1.8), pct=rp(2);
+  const abs=(Math.abs(p*pct/100)).toFixed(2);
+  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:'$'+(p<10?p.toFixed(3):p.toFixed(2)),usd:c.usd?p:null,pct,abs:(pct>=0?'+':'')+'$'+abs,m1:c.unit,m2:''},'cc','var(--a2)');
+}
+
+function renderComm(){
+  html('cmMetal', COMM.metal.map(mkComm).join(''));
+  html('cmEnergy', COMM.energy.map(mkComm).join(''));
+  html('cmBase', COMM.base.map(mkComm).join(''));
+  html('cmAgri', COMM.agri.map(mkComm).join(''));
+}
+
+// ─── DATA: FX ──────────────────────────────
+const FX_PAIRS={
+  major:[
+    {sym:'USD/VND',nm:'Đô la Mỹ',      ccy:'USD',ic:'🇺🇸',m1:'Fed · NHTW'},
+    {sym:'EUR/VND',nm:'Euro',           ccy:'EUR',ic:'🇪🇺',m1:'ECB'},
+    {sym:'GBP/VND',nm:'Bảng Anh',      ccy:'GBP',ic:'🇬🇧',m1:'BoE'},
+    {sym:'CHF/VND',nm:'Franc Thụy Sĩ', ccy:'CHF',ic:'🇨🇭',m1:'SNB'},
+    {sym:'AUD/VND',nm:'Đô Úc',         ccy:'AUD',ic:'🇦🇺',m1:'RBA'},
+    {sym:'CAD/VND',nm:'Đô Canada',     ccy:'CAD',ic:'🇨🇦',m1:'BoC'},
+  ],
+  asia:[
+    {sym:'CNY/VND',nm:'Nhân dân tệ',  ccy:'CNY',ic:'🇨🇳',m1:'PBOC'},
+    {sym:'JPY/VND',nm:'Yên Nhật',     ccy:'JPY',ic:'🇯🇵',m1:'BoJ'},
+    {sym:'KRW/VND',nm:'Won Hàn Quốc', ccy:'KRW',ic:'🇰🇷',m1:'BOK'},
+    {sym:'SGD/VND',nm:'Đô Singapore', ccy:'SGD',ic:'🇸🇬',m1:'MAS'},
+    {sym:'THB/VND',nm:'Baht Thái',    ccy:'THB',ic:'🇹🇭',m1:'BOT'},
+    {sym:'HKD/VND',nm:'Đô Hong Kong', ccy:'HKD',ic:'🇭🇰',m1:'HKMA'},
+    {sym:'MYR/VND',nm:'Ringgit Mã',   ccy:'MYR',ic:'🇲🇾',m1:'BNM'},
+    {sym:'IDR/VND',nm:'Rupiah Indo',  ccy:'IDR',ic:'🇮🇩',m1:'BI'},
+    {sym:'PHP/VND',nm:'Peso Phi',     ccy:'PHP',ic:'🇵🇭',m1:'BSP'},
+    {sym:'INR/VND',nm:'Rupee Ấn Độ',  ccy:'INR',ic:'🇮🇳',m1:'RBI'},
+    {sym:'TWD/VND',nm:'Đô Đài Loan',  ccy:'TWD',ic:'🇹🇼',m1:'CBC'},
+  ],
+  other:[
+    {sym:'BRL/VND',nm:'Real Brazil',  ccy:'BRL',ic:'🇧🇷',m1:'BCB'},
+    {sym:'MXN/VND',nm:'Peso Mexico',  ccy:'MXN',ic:'🇲🇽',m1:'Banxico'},
+    {sym:'AED/VND',nm:'Dirham UAE',   ccy:'AED',ic:'🇦🇪',m1:'CBUAE'},
+    {sym:'SAR/VND',nm:'Riyal Ả Rập',  ccy:'SAR',ic:'🇸🇦',m1:'SAMA'},
+    {sym:'ZAR/VND',nm:'Rand S.Africa',ccy:'ZAR',ic:'🇿🇦',m1:'SARB'},
+    {sym:'TRY/VND',nm:'Lira Thổ',    ccy:'TRY',ic:'🇹🇷',m1:'TCMB'},
+    {sym:'NOK/VND',nm:'Krone Na Uy',  ccy:'NOK',ic:'🇳🇴',m1:'Norges'},
+    {sym:'SEK/VND',nm:'Krona Thụy Điển',ccy:'SEK',ic:'🇸🇪',m1:'Riksbank'},
+  ]
+};
+
+function mkFX(p){
+  const rate=xrate(p.ccy), pr=rng(rate,.15), pct=rp(.25);
+  const abs=Math.abs(pr*pct/100);
+  const fmt=v=>v>=1000?Math.round(v).toLocaleString('vi-VN'):v.toFixed(v<10?2:1);
+  return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,abs:(pct>=0?'+':'')+Math.round(abs)+'₫',m1:p.m1,m2:'Liên ngân hàng'},'cfx','var(--gn)');
+}
+
+function renderFX(){
+  html('fxMajor', FX_PAIRS.major.map(mkFX).join(''));
+  html('fxAsia',  FX_PAIRS.asia.map(mkFX).join(''));
+  html('fxOther', FX_PAIRS.other.map(mkFX).join(''));
+  // update status bar + overview
+  const usdRate=xrate('USD'), fmt=v=>Math.round(v).toLocaleString('vi-VN');
+  const pct=rp(.25);
+  const e=$('stFx'); if(e) e.textContent=fmt(usdRate)+'₫';
+  const ov1=$('ovFx'); if(ov1) ov1.textContent=fmt(usdRate)+' ₫';
+  const ov2=$('ovFxC'); if(ov2){ov2.textContent=(pct>=0?'▲ +':'▼ ')+Math.abs(pct).toFixed(3)+'%';ov2.style.color=pct>=0?'var(--rd)':'var(--gn)';}
+}
+
+// ─── DATA: VN ──────────────────────────────
+const VN={
+  bank:[
+    {sym:'VCB',nm:'Vietcombank',       base:86500, ic:'🏦'},
+    {sym:'BID',nm:'BIDV',              base:42500, ic:'🏦'},
+    {sym:'CTG',nm:'VietinBank',        base:35200, ic:'🏦'},
+    {sym:'TCB',nm:'Techcombank',       base:21800, ic:'🏦'},
+    {sym:'MBB',nm:'MB Bank',           base:22400, ic:'🏦'},
+    {sym:'ACB',nm:'ACB',               base:24100, ic:'🏦'},
+    {sym:'VPB',nm:'VPBank',            base:19500, ic:'🏦'},
+    {sym:'HDB',nm:'HDBank',            base:18200, ic:'🏦'},
+    {sym:'LPB',nm:'LienVietPostBank',  base:14800, ic:'🏦'},
+    {sym:'STB',nm:'Sacombank',         base:28600, ic:'🏦'},
+    {sym:'EIB',nm:'Eximbank',          base:18500, ic:'🏦'},
+    {sym:'NAB',nm:'Nam A Bank',        base:11200, ic:'🏦'},
+  ],
+  re:[
+    {sym:'VIC',nm:'Vingroup',          base:34500, ic:'🏙️'},
+    {sym:'VHM',nm:'Vinhomes',          base:28700, ic:'🏠'},
+    {sym:'NVL',nm:'Novaland',          base:10200, ic:'🏗️'},
+    {sym:'KDH',nm:'Khang Điền',        base:24600, ic:'🏘️'},
+    {sym:'DIG',nm:'DIC Corp',          base:14800, ic:'🏢'},
+    {sym:'PDR',nm:'Phát Đạt',          base:16200, ic:'🏬'},
+    {sym:'VRE',nm:'Vincom Retail',     base:22100, ic:'🏪'},
+    {sym:'CEO',nm:'CEO Group',         base:9800,  ic:'🏨'},
+  ],
+  tech:[
+    {sym:'FPT',nm:'FPT Corporation',  base:128000,ic:'💻'},
+    {sym:'VGI',nm:'Viettel Global',   base:37200, ic:'📡'},
+    {sym:'CMG',nm:'CMC Corp',         base:32000, ic:'☁️'},
+    {sym:'MWG',nm:'Thế Giới Di Động', base:48000, ic:'📱'},
+    {sym:'FRT',nm:'FPT Retail',       base:89000, ic:'🖥️'},
+    {sym:'PNJ',nm:'PNJ',              base:92000, ic:'💍'},
+    {sym:'DGW',nm:'Digiworld',        base:42000, ic:'📦'},
+  ],
+  ind:[
+    {sym:'HPG',nm:'Hòa Phát Group',  base:22400, ic:'🏭'},
+    {sym:'HSG',nm:'Hoa Sen Group',   base:12800, ic:'🔧'},
+    {sym:'NKG',nm:'Nam Kim Steel',   base:16500, ic:'⚙️'},
+    {sym:'GAS',nm:'PV Gas',          base:55000, ic:'⛽'},
+    {sym:'PLX',nm:'Petrolimex',      base:38500, ic:'🛢️'},
+    {sym:'PVD',nm:'PV Drilling',     base:18600, ic:'🔩'},
+    {sym:'REE',nm:'REE Corp',        base:58000, ic:'⚡'},
+    {sym:'PC1',nm:'PC1 Group',       base:21000, ic:'🔌'},
+    {sym:'BSR',nm:'Bình Sơn Refin.', base:14200, ic:'🏗️'},
+  ],
+  cons:[
+    {sym:'VNM',nm:'Vinamilk',         base:72000, ic:'🥛'},
+    {sym:'MSN',nm:'Masan Group',      base:61000, ic:'🛒'},
+    {sym:'SAB',nm:'Sabeco',           base:58000, ic:'🍺'},
+    {sym:'VCF',nm:'Vinacafe',         base:185000,ic:'☕'},
+    {sym:'DHG',nm:'DHG Pharma',       base:98000, ic:'💊'},
+    {sym:'DMC',nm:'Domesco',          base:78000, ic:'🏥'},
+    {sym:'IMP',nm:'Imexpharm',        base:64000, ic:'💉'},
+  ],
+  fin:[
+    {sym:'SSI',nm:'SSI Securities',   base:28600, ic:'📊'},
+    {sym:'VCI',nm:'Viet Capital Sec.',base:22100, ic:'📈'},
+    {sym:'HCM',nm:'HSC',              base:24800, ic:'💹'},
+    {sym:'BMP',nm:'Bảo Minh',         base:42000, ic:'🛡️'},
+    {sym:'PVI',nm:'PVI Holdings',     base:34000, ic:'🔐'},
+  ]
+};
+
+function mkVN(s, api){
+  let price, pct;
+  if(api&&api[s.sym]){ price=api[s.sym].close||s.base; pct=api[s.sym].changePercent||rp(2); }
+  else{ price=rng(s.base,1.5); pct=rp(2); }
+  const abs=Math.abs(price*pct/100);
+  const usdEq=price/USD_VND;
+  const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
+  return `<div class="cd cv">` +
+    `<div class="ct"><div><div class="cy">${s.sym}</div><div class="cn" title="${s.nm}">${s.nm}</div></div><div class="co">${s.ic}</div></div>` +
+    `<div class="cp">${(price/1000).toFixed(1)}k ₫</div>` +
+    `<div class="cv2">≈ $${usdEq.toFixed(2)}</div>` +
+    `<div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div>` +
+    `<div class="csp">${spark(u,'var(--vn)')}</div>` +
+    `<div class="cm"><span>HOSE</span></div>` +
+    `</div>`;
+}
+
+async function renderVN(){
+  const allSyms = Object.values(VN).flat().map(s=>s.sym).join(',');
+  let api = null;
+  try{
+    const r=await fetchT(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price?tickers=${allSyms}`, 5000);
+    if(r.ok){ const j=await r.json(); api={}; (j.data||[]).forEach(d=>{api[d.ticker]=d;}); }
+  }catch{}
+  html('vnBank', VN.bank.map(s=>mkVN(s,api)).join(''));
+  html('vnRe',   VN.re.map(s=>mkVN(s,api)).join(''));
+  html('vnTech', VN.tech.map(s=>mkVN(s,api)).join(''));
+  html('vnInd',  VN.ind.map(s=>mkVN(s,api)).join(''));
+  html('vnCons', VN.cons.map(s=>mkVN(s,api)).join(''));
+  html('vnFin',  VN.fin.map(s=>mkVN(s,api)).join(''));
+}
+
+async function renderVNIndices(){
+  let vni=null,hnx=null,up=null;
+  try{
+    const [r1,r2,r3]=await Promise.all([
+      fetchT('https://apipubaws.tcbs.com.vn/stock-insight/v1/market/index?indexId=VNINDEX', 4000),
+      fetchT('https://apipubaws.tcbs.com.vn/stock-insight/v1/market/index?indexId=HNX', 4000),
+      fetchT('https://apipubaws.tcbs.com.vn/stock-insight/v1/market/index?indexId=UPCOM', 4000),
+    ]);
+    if(r1.ok){const d=await r1.json();vni=d.data||d;}
+    if(r2.ok){const d=await r2.json();hnx=d.data||d;}
+    if(r3.ok){const d=await r3.json();up=d.data||d;}
+  }catch{}
+  const vV=+(vni?.indexValue)||rng(1280,1), vP=+(vni?.changePercent)||rp(1.5);
+  const hV=+(hnx?.indexValue)||rng(225,1),  hP=+(hnx?.changePercent)||rp(1.5);
+  const uV=+(up?.indexValue)||rng(93,1),    uP=+(up?.changePercent)||rp(1);
+  const gt=(Math.random()*14000+7000).toFixed(0)+'tỷ';
+  const kl=(Math.random()*600+200).toFixed(0)+'M';
+  function mi(l,v,p,bc){const u=p>=0,c=u?'var(--gn)':'var(--rd)';return`<div class="ic" style="border-top-color:${bc}"><div class="il">${l}</div><div class="iv">${typeof v==='number'?v.toFixed(2):v}</div><div class="ip" style="color:${c}">${u?'▲+':'▼'}${typeof p==='number'?p.toFixed(2):p}%</div></div>`;}
+  function ms(l,v,s,bc){return`<div class="ic" style="border-top-color:${bc}"><div class="il">${l}</div><div class="iv" style="font-size:13px">${v}</div><div class="ip" style="color:var(--sub)">${s}</div></div>`;}
+  html('idxCards', mi('VNINDEX',vV,vP,'var(--vn)')+mi('HNX-INDEX',hV,hP,'var(--go)')+mi('UPCOM',uV,uP,'var(--a2)')+ms('GT KHỚP',gt,'tỷ đồng','var(--a)')+ms('KL KHỚP',kl,'cổ phiếu','var(--sub)'));
+  ov('ovVni',vV.toFixed(2),vP); ov('ovHnx',hV.toFixed(2),hP); ov('ovUpcom',uV.toFixed(2),uP);
+  const e=$('stVni'); if(e) e.textContent=vV.toFixed(2);
+}
+
+function renderSectorChips(){
+  const s=['Ngân hàng','BĐS','Thép','Bán lẻ','Công nghệ','Điện','Dầu khí','Thực phẩm','Y tế','Chứng khoán'];
+  html('chips', s.map(n=>{
+    const p=rp(2.5),u=p>=0,c=u?'var(--gn)':'var(--rd)',bg=u?'rgba(0,200,83,.07)':'rgba(245,51,79,.07)';
+    return `<div class="chip" style="background:${bg};border-color:${c}30;color:${c}"><span style="color:var(--sub)">${n}</span><b>${u?'+':''}${p.toFixed(2)}%</b></div>`;
+  }).join(''));
+}
+
+// ─── CRYPTO ────────────────────────────────
+// ─── CRYPTO ICONS (shared) ────────────────
+const CICO={
+  bitcoin:'₿',ethereum:'Ξ',tether:'₮','binance-coin':'🔶',binancecoin:'🔶',
+  solana:'◎',xrp:'✕',ripple:'✕','usd-coin':'💵',usdc:'💵',
+  cardano:'₳',avalanche:'🔺','avalanche-2':'🔺',dogecoin:'🐶',
+  chainlink:'⬡',polkadot:'●',tron:'🌐','shiba-inu':'🐕',
+  litecoin:'Ł','bitcoin-cash':'₿','near-protocol':'🅽',near:'🅽',
+  stellar:'⭐',aptos:'🔷',arbitrum:'🔵',sui:'💧',
+  'wrapped-bitcoin':'🟠','staked-ether':'🔹',
+};
+
+// Normalise a raw asset from either API into a common shape
+function normAsset(a, source){
+  if(source==='coincap'){
+    return {
+      id:   a.id,
+      sym:  a.symbol,         // already uppercase in CoinCap
+      name: a.name,
+      price: parseFloat(a.priceUsd)||0,
+      pct:   parseFloat(a.changePercent24Hr)||0,
+      mcap:  parseFloat(a.marketCapUsd)||0,
+      rank:  parseInt(a.rank)||0,
+    };
+  }
+  // coingecko
+  return {
+    id:   a.id,
+    sym:  (a.symbol||'').toUpperCase(),
+    name: a.name,
+    price: a.current_price||0,
+    pct:   a.price_change_percentage_24h||0,
+    mcap:  a.market_cap||0,
+    rank:  a.market_cap_rank||0,
+  };
+}
+
+function renderCryptoAssets(assets, source){
+  // Status bar: BTC dominance + total mcap
+  const totalMcap = assets.reduce((s,a)=>s+a.mcap, 0);
+  const btcMcap   = assets.find(a=>a.id==='bitcoin')?.mcap || 0;
+  if(totalMcap>0){
+    const e1=$('stBd');if(e1)e1.textContent=(btcMcap/totalMcap*100).toFixed(1)+'%';
+    const e2=$('stGm');if(e2)e2.textContent='$'+(totalMcap/1e12).toFixed(2)+'T';
+  }
+  // Overview BTC / ETH
+  const btc=assets.find(a=>a.id==='bitcoin');
+  if(btc){
+    const u=btc.pct>=0;
+    const e=$('ovBtc');if(e)e.textContent='$'+Math.round(btc.price).toLocaleString();
+    const c=$('ovBtcC');if(c){c.textContent=(u?'▲ +':'▼ ')+Math.abs(btc.pct).toFixed(2)+'%';c.style.color=u?'var(--gn)':'var(--rd)';}
+  }
+  const eth=assets.find(a=>a.id==='ethereum'||a.id==='eth');
+  if(eth){
+    const u=eth.pct>=0;
+    const e=$('ovEth');if(e)e.textContent='$'+Math.round(eth.price).toLocaleString();
+    const c=$('ovEthC');if(c){c.textContent=(u?'▲ +':'▼ ')+Math.abs(eth.pct).toFixed(2)+'%';c.style.color=u?'var(--gn)':'var(--rd)';}
+  }
+  // Fear & Greed (simulated)
+  const fg=Math.floor(Math.random()*100);
+  const fLabels=['Sợ hãi cực độ','Sợ hãi','Trung lập','Tham lam','Tham lam cực độ'];
+  const fCol=fg<25?'var(--rd)':fg<45?'#ff9800':fg<55?'var(--go)':fg<75?'#8bc34a':'var(--gn)';
+  const fIdx=fg<25?0:fg<45?1:fg<55?2:fg<75?3:4;
+  const fe=$('ovFng');if(fe){fe.textContent=fg+'/100';fe.style.color=fCol;}
+  const fl2=$('ovFngL');if(fl2){fl2.textContent=fLabels[fIdx];fl2.style.color=fCol;}
+
+  function mkCrCard(a){
+    const p=a.price, pct=a.pct, abs=Math.abs(p*pct/100);
+    const mcap=a.mcap>=1e9?'$'+(a.mcap/1e9).toFixed(1)+'B':'$'+(a.mcap/1e6).toFixed(0)+'M';
+    const ps=p>=1000?'$'+Math.round(p).toLocaleString():p>=1?'$'+p.toFixed(3):'$'+p.toFixed(6);
+    return card({sym:a.sym,nm:a.name,ic:CICO[a.id]||'🔷',pr:ps,usd:p,pct,
+      abs:(pct>=0?'+':'')+'$'+(abs>=1?abs.toFixed(2):abs.toFixed(4)),
+      m1:'MCap:'+mcap,m2:'#'+a.rank},'cr','var(--pu)');
+  }
+
+  html('crCards', assets.map(mkCrCard).join('')+
+    `<div style="grid-column:1/-1;font-family:var(--mono);font-size:9px;color:var(--mu);padding:8px 2px">Nguồn: ${source}</div>`);
+
+  html('ovCrPrev', assets.slice(0,5).map(a=>{
+    const p=a.price, pct=a.pct, abs=Math.abs(p*pct/100);
+    const ps=p>=1000?'$'+Math.round(p).toLocaleString():p>=1?'$'+p.toFixed(2):'$'+p.toFixed(5);
+    return card({sym:a.sym,nm:a.name,ic:CICO[a.id]||'🔷',pr:ps,usd:p,pct,
+      abs:(pct>=0?'+':'')+'$'+(abs>=1?abs.toFixed(2):abs.toFixed(3)),
+      m1:'Rank #'+a.rank,m2:''},'cr','var(--pu)');
+  }).join(''));
+}
+
+async function renderCrypto(){
+  html('crCards','<div class="ld2">Đang tải dữ liệu crypto từ Binance…</div>');
+
+  const COINS = [
+    {id:'bitcoin',    sym:'BTCUSDT', name:'Bitcoin',        rank:1,  ic:'₿'},
+    {id:'ethereum',   sym:'ETHUSDT', name:'Ethereum',       rank:2,  ic:'Ξ'},
+    {id:'binancecoin',sym:'BNBUSDT', name:'BNB',            rank:3,  ic:'🔶'},
+    {id:'solana',     sym:'SOLUSDT', name:'Solana',         rank:4,  ic:'◎'},
+    {id:'ripple',     sym:'XRPUSDT', name:'XRP',            rank:5,  ic:'✕'},
+    {id:'dogecoin',   sym:'DOGEUSDT',name:'Dogecoin',       rank:6,  ic:'🐕'},
+    {id:'cardano',    sym:'ADAUSDT', name:'Cardano',        rank:7,  ic:'♾'},
+    {id:'avalanche',  sym:'AVAXUSDT',name:'Avalanche',      rank:8,  ic:'🔺'},
+    {id:'chainlink',  sym:'LINKUSDT',name:'Chainlink',      rank:9,  ic:'⬡'},
+    {id:'polkadot',   sym:'DOTUSDT', name:'Polkadot',       rank:10, ic:'●'},
+    {id:'tron',       sym:'TRXUSDT', name:'TRON',           rank:11, ic:'🔷'},
+    {id:'near',       sym:'NEARUSDT',name:'NEAR Protocol',  rank:12, ic:'Ν'},
+    {id:'litecoin',   sym:'LTCUSDT', name:'Litecoin',       rank:13, ic:'Ł'},
+    {id:'stellar',    sym:'XLMUSDT', name:'Stellar',        rank:14, ic:'✦'},
+    {id:'aptos',      sym:'APTUSDT', name:'Aptos',          rank:15, ic:'A'},
+    {id:'arbitrum',   sym:'ARBUSDT', name:'Arbitrum',       rank:16, ic:'Λ'},
+    {id:'optimism',   sym:'OPUSDT',  name:'Optimism',       rank:17, ic:'🔴'},
+    {id:'sui',        sym:'SUIUSDT', name:'Sui',            rank:18, ic:'💧'},
+    {id:'shiba',      sym:'SHIBUSDT',name:'Shiba Inu',      rank:19, ic:'🐕'},
+    {id:'pepe',       sym:'PEPEUSDT',name:'Pepe',           rank:20, ic:'🐸'},
+  ];
+
+  try{
+    const symbols = JSON.stringify(COINS.map(c=>c.sym));
+    const r = await fetchT(
+      `https://api.binance.com/api/v3/ticker/24hr?symbols=${encodeURIComponent(symbols)}`,
+      8000
+    );
+    if(!r.ok) throw new Error('Binance HTTP '+r.status);
+    const data = await r.json();
+    if(!Array.isArray(data)||!data.length) throw new Error('empty');
+
+    // Map Binance response to our format
+    const assets = data.map(t=>{
+      const coin = COINS.find(c=>c.sym===t.symbol)||{};
+      const price = parseFloat(t.lastPrice)||0;
+      const pct = parseFloat(t.priceChangePercent)||0;
+      const vol = parseFloat(t.quoteVolume)||0;
+      return {
+        id: coin.id||t.symbol,
+        sym: t.symbol.replace('USDT',''),
+        name: coin.name||t.symbol,
+        price, pct,
+        mcap: 0,
+        rank: coin.rank||99,
+        ic: coin.ic||'🔷',
+        vol
+      };
+    }).sort((a,b)=>a.rank-b.rank);
+
+    // Update overview BTC/ETH
+    const btc = assets.find(a=>a.id==='bitcoin');
+    if(btc){
+      const u=btc.pct>=0;
+      const e=$('ovBtc');if(e)e.textContent='$'+Math.round(btc.price).toLocaleString();
+      const ec=$('ovBtcC');if(ec){ec.textContent=(u?'▲ +':'▼ ')+Math.abs(btc.pct).toFixed(2)+'%';ec.style.color=u?'var(--gn)':'var(--rd)';}
+    }
+    const eth = assets.find(a=>a.id==='ethereum');
+    if(eth){
+      const u=eth.pct>=0;
+      const e=$('ovEth');if(e)e.textContent='$'+eth.price.toFixed(2);
+      const ec=$('ovEthC');if(ec){ec.textContent=(u?'▲ +':'▼ ')+Math.abs(eth.pct).toFixed(2)+'%';ec.style.color=u?'var(--gn)':'var(--rd)';}
+    }
+
+    // Fear & Greed simulated
+    const fg=Math.floor(Math.random()*100);
+    const fLabels=['Sợ hãi cực độ','Sợ hãi','Trung lập','Tham lam','Tham lam cực độ'];
+    const fCol=fg<25?'var(--rd)':fg<45?'#ff9800':fg<55?'var(--go)':fg<75?'#8bc34a':'var(--gn)';
+    const fIdx=fg<25?0:fg<45?1:fg<55?2:fg<75?3:4;
+    const fe=$('ovFng');if(fe){fe.textContent=fg+'/100';fe.style.color=fCol;}
+    const fl2=$('ovFngL');if(fl2){fl2.textContent=fLabels[fIdx];fl2.style.color=fCol;}
+
+    function mkCrCard(a){
+      const p=a.price;
+      const ps=p>=1000?'$'+Math.round(p).toLocaleString():p>=1?'$'+p.toFixed(3):p>=0.0001?'$'+p.toFixed(6):'$'+p.toFixed(8);
+      const abs=Math.abs(p*a.pct/100);
+      const volStr=a.vol>=1e9?'Vol:$'+(a.vol/1e9).toFixed(1)+'B':a.vol>=1e6?'Vol:$'+(a.vol/1e6).toFixed(0)+'M':'';
+      return card({sym:a.sym,nm:a.name,ic:a.ic,pr:ps,usd:p,pct:a.pct,
+        abs:(a.pct>=0?'+':'')+'$'+(abs>=1?abs.toFixed(2):abs.toFixed(4)),
+        m1:volStr,m2:'#'+a.rank},'cr','var(--pu)');
+    }
+
+    html('crCards', assets.map(mkCrCard).join('')+
+      `<div style="grid-column:1/-1;font-family:var(--mono);font-size:9px;color:var(--mu);padding:8px 2px">Nguồn: Binance API (giá thật, 24h)</div>`);
+
+    html('ovCrPrev', assets.slice(0,5).map(mkCrCard).join(''));
+
+  }catch(err){
+    console.warn('Binance crypto failed:', err.message);
+    html('crCards',`<div class="err">⚠ Không thể tải dữ liệu crypto từ Binance.<br><span style="font-size:9px;color:var(--sub)">Lỗi: ${err.message} — Thử refresh lại trang.</span></div>`);
+  }
+}
+
+
+// ─── OVERVIEW ──────────────────────────────
+function renderOverviewSim(){
+  ov('ovSp', rng(5570,1).toFixed(2), rp(1.5));
+  ov('ovNdx', rng(19200,1).toFixed(2), rp(1.8));
+  const g=COMM.metal[0], gp=rng(g.base,1.8), gpct=rp(2);
+  const e1=$('ovGold');if(e1)e1.textContent='$'+gp.toFixed(2);
+  const e2=$('ovGoldC');if(e2){e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%';e2.style.color=gpct>=0?'var(--gn)':'var(--rd)';}
+  const w=COMM.energy[0], wp=rng(w.base,1.8), wpct=rp(2);
+  const e3=$('ovWti');if(e3)e3.textContent='$'+wp.toFixed(2);
+  const e4=$('ovWtiC');if(e4){e4.textContent=(wpct>=0?'▲ +':'▼ ')+Math.abs(wpct).toFixed(2)+'%';e4.style.color=wpct>=0?'var(--gn)':'var(--rd)';}
+  const b=BONDS.us[6], bp=rng(b.base,.4), bpct=rp(.5);
+  ov('ovT10', bp.toFixed(2)+'%', bpct, 3);
+  // VN preview (6 stocks)
+  const picks=['VCB','FPT','HPG','VHM','MWG','TCB'];
+  html('ovVnPrev', picks.map(sym=>{
+    const s=Object.values(VN).flat().find(x=>x.sym===sym);
+    if(!s) return '';
+    const p=rng(s.base,1.5), pct=rp(2), abs=Math.abs(p*pct/100);
+    const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
+    return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">≈ $${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(u,'var(--vn)')}</div><div class="cm"><span>HOSE</span></div></div>`;
+  }).join(''));
+  // Global preview (6 stocks)
+  html('ovStPrev', STOCKS.usTech.slice(0,6).map(mkSt).join(''));
+}
+
+// ─── TICKER ────────────────────────────────
+function renderTicker(){
+  const items=[
+    ...STOCKS.usTech.slice(0,4).map(s=>{const p=rng(s.base,1.5),pct=rp(2);return{sym:s.sym,pr:'$'+p.toFixed(2),u:pct>=0,pct};}),
+    ...COMM.metal.slice(0,2).map(c=>{const p=rng(c.base,1.8),pct=rp(2);return{sym:c.sym,pr:'$'+p.toFixed(2),u:pct>=0,pct};}),
+    {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:true,pct:rp(.25)},
+    ...Object.values(VN).flat().slice(0,4).map(s=>{const p=rng(s.base,1.5),pct=rp(2);return{sym:s.sym,pr:(p/1000).toFixed(1)+'k₫',u:pct>=0,pct};}),
+  ];
+  const h=items.map(i=>`<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span><span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span></div>`).join('');
+  html('tkr', h+h);
+}
+
+// ─── TAB SWITCHING ─────────────────────────
+let curTab='overview';
+
+function go(tab, btn){
+  // Switch visible page
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  const pg = document.getElementById('pg-'+tab);
+  if(pg) pg.classList.add('on');
+  if(btn) btn.classList.add('on');
+  curTab = tab;
+  // Load content
+  loadTab(tab);
+}
+
+function refreshCurrent(){ loadTab(curTab); }
+
+function loadTab(tab){
+  try{
+    if(tab==='overview'){ renderOverviewSim(); renderFX(); renderVNIndices(); renderCrypto(); }
+    else if(tab==='vn')  { renderSectorChips(); renderVNIndices(); renderVN(); }
+    else if(tab==='global'){ renderGlobal(); }
+    else if(tab==='bonds') { renderBonds(); }
+    else if(tab==='comm')  { renderComm(); }
+    else if(tab==='crypto'){ renderCrypto(); }
+    else if(tab==='fx')    { renderFX(); }
+  }catch(err){
+    console.error('loadTab error ['+tab+']:', err);
+  }
+  renderTicker();
+  const e=$('lastUp');if(e)e.textContent='Cập nhật '+new Date().toLocaleTimeString('vi-VN');
+}
+
+// ─── INIT ──────────────────────────────────
+async function init(){
+  await fetchFX();
+  loadTab('overview');
+}
+init();
+setInterval(async()=>{ await fetchFX(); loadTab(curTab); }, 60000);
+</script>
+</body>
+</html>
