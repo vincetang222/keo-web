@@ -1,0 +1,17 @@
+{
+  "name": "Kèo — Gặp gỡ có chiều sâu",
+  "short_name": "Kèo",
+  "description": "Kết nối xã hội có chiều sâu tại Sài Gòn, Hà Nội và Đà Nẵng",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#111113",
+  "theme_color": "#1A3A28",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
