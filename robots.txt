@@ -2,6 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://keo.social/sitemap.xml
-
-# Disallow admin or form pages from indexing
-Disallow: /nguoi-dong-hanh-dang-ky
