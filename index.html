@@ -4,24 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kèo — Gặp gỡ có chiều sâu | Sài Gòn · Hà Nội · Đà Nẵng</title>
-<meta name="description" content="Kết nối với người đồng hành có chuyên môn cho những buổi cà phê, bữa tối, triển lãm thật sự đáng nhớ tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò — chỉ là trò chuyện có chiều sâu.">
+<meta name="description" content="Kết nối với người đồng hành có chuyên môn cho những buổi cà phê, bữa tối, triển lãm đáng nhớ tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò.">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#0D0B09">
+<meta name="theme-color" content="#0F0C0A">
 <link rel="canonical" href="https://keo.social/">
-
-<!-- Favicon — nhiều định dạng cho Google & các trình duyệt -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="/site.webmanifest">
-
-<!-- Open Graph — Facebook, Zalo, LinkedIn share -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://keo.social/">
 <meta property="og:title" content="Kèo — Gặp gỡ có chiều sâu">
-<meta property="og:description" content="Kết nối với người đồng hành có chuyên môn cho những buổi gặp gỡ thật sự đáng nhớ tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò.">
+<meta property="og:description" content="Kết nối với người đồng hành có chuyên môn cho những buổi cà phê, bữa tối, triển lãm đáng nhớ tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò.">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,29 +25,17 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="Kèo">
-
-<!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@keo_social">
-<meta property="instagram:account" content="keosocialvn">
 <meta name="twitter:title" content="Kèo — Gặp gỡ có chiều sâu">
 <meta name="twitter:description" content="Marketplace người đồng hành có chuyên môn tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò — chỉ là trò chuyện đáng nhớ.">
 <meta name="twitter:image" content="https://keo.social/og-image.png">
-
-<!-- hreflang -->
 <link rel="alternate" hreflang="vi" href="https://keo.social/">
 <link rel="alternate" hreflang="en" href="https://keo.social/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://keo.social/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Font preconnect + preload for faster rendering -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Lora:ital,wght@1,400;1,700&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- JSON-LD Structured Data -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -89,1010 +73,1064 @@
 }
 </script>
 <style>
-/* ══════════════════════════════════════
-   ACCENT SYSTEM — 5 colours
-══════════════════════════════════════ */
 :root{
-  --a:#FF5C1A; --a2:#FF2D55;
-  --grad:linear-gradient(135deg,#FFAE00 0%,#FF5C1A 50%,#FF2D55 100%);
-}
-[data-accent="red"]    {--a:#FF2D55;--a2:#FF5C1A}
-[data-accent="gold"]   {--a:#FFB627;--a2:#FF8C00}
-[data-accent="teal"]   {--a:#00C9A7;--a2:#00A896}
-[data-accent="indigo"] {--a:#7C6EFA;--a2:#9B8EFA}
-
-/* ══════════════════════════════════════
-   SURFACES
-══════════════════════════════════════ */
-:root{
-  --bg:#0D0B09;
-  --s1:#161210; --s2:#1E1916; --s3:#252120;
-  --ink:#F0EAE1; --i2:rgba(240,234,225,.5); --i3:rgba(240,234,225,.27);
-  --rim:rgba(240,234,225,.07); --rim2:rgba(240,234,225,.14);
-  --e1:0 1px 3px rgba(0,0,0,.4),0 3px 10px rgba(0,0,0,.3);
-  --e2:0 2px 5px rgba(0,0,0,.45),0 10px 28px rgba(0,0,0,.4),0 28px 60px rgba(0,0,0,.35);
-  --e3:0 4px 10px rgba(0,0,0,.5),0 18px 44px rgba(0,0,0,.46),0 56px 100px rgba(0,0,0,.42);
+  --bg:#0F0C0A;--s1:#161310;--s2:#1E1A16;--s3:#252018;
+  --ink:#F0EAE1;--i2:rgba(240,234,225,.62);--i3:rgba(240,234,225,.34);
+  --rim:rgba(240,234,225,.08);--rim2:rgba(240,234,225,.14);
+  --a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --indigo:#6C63C4;--teal:#2E9E8C;--amber:#C08A2E;
 }
 body.light{
-  --bg:#F2EDE4; --s1:#FFFFFF; --s2:#F7F2EB; --s3:#EDE7DE;
-  --ink:#1A1510; --i2:rgba(26,21,16,.75); --i3:rgba(26,21,16,.52);
-  --rim:rgba(26,21,16,.07); --rim2:rgba(26,21,16,.14);
-  --e1:0 1px 3px rgba(26,21,16,.07),0 3px 10px rgba(26,21,16,.06);
-  --e2:0 2px 5px rgba(26,21,16,.05),0 10px 28px rgba(26,21,16,.09),0 28px 60px rgba(26,21,16,.08);
-  --e3:0 4px 10px rgba(26,21,16,.06),0 18px 44px rgba(26,21,16,.11),0 56px 100px rgba(26,21,16,.1);
+  --bg:#F2EDE4;--s1:#FFFFFF;--s2:#F5F0E8;--s3:#EBE4D9;
+  --ink:#1A1510;--i2:rgba(26,21,16,.7);--i3:rgba(26,21,16,.42);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
 }
+[data-accent="red"]{--a:#C6455E;--a2:#9E3450;--grad:linear-gradient(135deg,#D6704A 0%,#C6455E 50%,#9E3450 100%)}
+[data-accent="gold"]{--a:#C08A2E;--a2:#9A6C1E;--grad:linear-gradient(135deg,#D9B15A 0%,#C08A2E 50%,#8A5E1A 100%)}
+[data-accent="teal"]{--a:#2E9E8C;--a2:#1F7A6E;--grad:linear-gradient(135deg,#5CC4B4 0%,#2E9E8C 50%,#1A6055 100%)}
+[data-accent="indigo"]{--a:#6C63C4;--a2:#4A439E;--grad:linear-gradient(135deg,#A29BE0 0%,#6C63C4 50%,#463F8C 100%)}
 
-/* ══════════════════════════════════════
-   RESET
-══════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
-a{color:inherit;text-decoration:none} button{font-family:inherit;cursor:pointer}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;transition:background .4s,color .4s}
+/* Grain texture overlay */
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+/* Magnetic button */
+.btn-primary,.nav-cta{will-change:transform}
+h1,h2,h3,.stitle,.hero h1,.mani-is-text,.model-role,.step-title,.prob-title,.safe-title,.btitle,.faq-q,.cta-final h2,.nav-logo,.hv-name,.hv-fee,.cc-name,.cc-fee,.stat-n,.model-mid-label,.prob-num{font-optical-sizing:auto;font-variation-settings:"opsz" 40}
+.stitle,.hero h1,.cta-final h2,.mani-is-text{font-variation-settings:"opsz" 90}
+.hero h1{letter-spacing:-.02em}
+.stitle{letter-spacing:-.015em}
+a{text-decoration:none;color:inherit}
+.vi,.en{transition:opacity .2s}
 .en{display:none}
-body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23f)'/%3E%3C/svg%3E");background-size:180px;opacity:.042;mix-blend-mode:screen}
-body.light::before{opacity:.02;mix-blend-mode:multiply}
+body:not(.lang-en) .en{display:none !important}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+body:not(.lang-en) .vi{display:revert}
 
-/* ══════════════════════════════════════
-   CONTROLS — collapsible floating widget
-══════════════════════════════════════ */
-.controls{position:fixed;top:14px;right:14px;z-index:800;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
-.ctrl-toggle{width:32px;height:32px;border-radius:50%;background:var(--s1);border:1px solid var(--rim2);box-shadow:var(--e2);font-size:13px;display:flex;align-items:center;justify-content:center;color:var(--i3);transition:all .25s;cursor:pointer;padding:0}
-.ctrl-toggle:hover{color:var(--ink);border-color:var(--a);transform:rotate(30deg)}
-.ctrl-panel{display:none;flex-direction:column;align-items:flex-end;gap:5px}
-.ctrl-panel.open{display:flex}
-.mode-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:var(--s1);border:1px solid var(--rim);box-shadow:var(--e2)}
-.mb{padding:5px 12px;border-radius:100px;border:none;font-size:10px;font-weight:500;letter-spacing:.07em;color:var(--i3);background:transparent;transition:all .25s}
-.mb.on{background:var(--grad);color:#fff}
-.accent-row{display:flex;gap:5px;padding:5px 9px;border-radius:100px;background:var(--s1);border:1px solid var(--rim);box-shadow:var(--e2)}
-.ab{width:18px;height:18px;border-radius:50%;border:2.5px solid transparent;transition:all .2s;cursor:pointer}
-.ab.on{border-color:var(--ink);transform:scale(1.2)}
-
-/* ══════════════════════════════════════
-   NAV
-══════════════════════════════════════ */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;transition:all .35s}
-nav.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-bottom:1px solid var(--rim)}
-.logo{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.04em;color:var(--ink)}
-.logo em{color:var(--a);font-style:normal;transition:color .4s}
-.nav-r{display:flex;align-items:center;gap:6px}
-.nlk{font-size:13px;color:var(--i2);padding:7px 13px;border-radius:100px;border:1px solid transparent;transition:all .2s}
-.nlk:hover{color:var(--ink);border-color:var(--rim2)}
-.nlang{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--i3);background:none;border:1px solid var(--rim);padding:6px 12px;border-radius:100px;transition:all .2s}
-.nlang:hover{color:var(--ink);border-color:var(--rim2)}
-.ncta{padding:9px 20px;border-radius:100px;border:none;font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;background:var(--grad);color:#fff;box-shadow:0 3px 14px color-mix(in srgb,var(--a) 38%,transparent);transition:all .28s}
-.ncta:hover{transform:translateY(-1px);box-shadow:0 6px 22px color-mix(in srgb,var(--a) 48%,transparent)}
-
-/* ══════════════════════════════════════
-   MANIFESTO SECTION
-══════════════════════════════════════ */
-.sec-manifesto{background:var(--bg);position:relative;overflow:hidden}
-.sec-manifesto::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 70% 80% at 5% 50%,color-mix(in srgb,var(--a) 14%,transparent) 0%,transparent 55%),
-    radial-gradient(ellipse 50% 60% at 95% 80%,color-mix(in srgb,var(--a2) 10%,transparent) 0%,transparent 52%);
-}
-.mf-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-/* Left — quote */
-.mf-quote{position:relative;padding-left:22px}
-.mf-quote::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--grad);border-radius:2px}
-.mf-q-text{font-family:'Lora',serif;font-size:clamp(17px,2vw,22px);font-weight:400;font-style:italic;line-height:1.6;color:var(--ink);margin-bottom:14px}
-.mf-q-attr{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--i3)}
-/* Right — the NOT/IS statement */
-.mf-right{}
-.mf-not{margin-bottom:6px}
-.mf-not-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,2.8vw,36px);font-weight:700;line-height:1.1;color:var(--i3);position:relative;display:inline-block;margin-bottom:4px}
-.mf-not-line::after{content:'';position:absolute;left:0;right:0;top:52%;height:2.5px;background:var(--i3);border-radius:2px}
-.mf-label{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--i3);margin-bottom:10px;opacity:.6}
-.mf-is{margin:18px 0 28px}
-.mf-is-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3.2vw,44px);font-weight:700;line-height:1.05;color:var(--ink)}
-.mf-is-line em{font-family:'Lora',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;transition:background .5s}
-/* 3 checkmark glass cards */
-.mf-checks{display:flex;flex-direction:column;gap:8px}
-.mf-ck{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-radius:13px;background:rgba(255,255,255,.05);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,.08);transition:all .28s}
-body.light .mf-ck{background:rgba(255,255,255,.55);border-color:rgba(255,255,255,.72)}
-.mf-ck:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.14);transform:translateX(5px)}
-body.light .mf-ck:hover{background:rgba(255,255,255,.8)}
-.mf-ck-icon{width:22px;height:22px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px}
-.mf-ck-body{}
-.mf-ck-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.mf-ck-desc{font-size:11px;font-weight:300;color:var(--i2);line-height:1.55}
-
-@media(max-width:768px){
-  .mf-layout{grid-template-columns:1fr;gap:36px}
-  .mf-quote{display:none}
-}
-.stripe{height:1px;background:var(--rim2);transition:background .5s;opacity:.5}
-
-/* ══════════════════════════════════════
-   SECTION SYSTEM — clear alternating rhythm
-   Dark base ↔ Elevated panel, with defined edges
-══════════════════════════════════════ */
-.sec{padding:80px 48px;position:relative;overflow:hidden}
-.sec-in{max-width:1060px;margin:0 auto;position:relative;z-index:2}
-.sa{background:var(--bg)}
-.sb{background:var(--s1)}
-body.light .sb{background:#fff}
-
-/* TIER 1 — Deep dark (base sections) */
-.sec-manifesto,.sec-model,.sec-safe{background:var(--bg)}
-
-/* TIER 2 — Elevated panel (raised, lighter) creates clear contrast */
-.sec-how,.sec-comp,.sec-blog,.sec-faq{background:var(--s1);border-top:1px solid var(--rim);border-bottom:1px solid var(--rim)}
-body.light .sec-how,body.light .sec-comp,body.light .sec-blog,body.light .sec-faq{background:#fff}
-
-/* Subtle per-section glow — much softer, just atmosphere */
-.sec-manifesto::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 70% at 8% 40%,color-mix(in srgb,var(--a) 9%,transparent) 0%,transparent 55%);
-}
-.sec-model::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 60% at 92% 20%,color-mix(in srgb,var(--a) 8%,transparent) 0%,transparent 55%);
-}
-.sec-safe::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 70% at 10% 60%,color-mix(in srgb,#7C6EFA 8%,transparent) 0%,transparent 55%);
-}
-.sec-comp::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 65% 75% at 95% 30%,color-mix(in srgb,#00C9A7 7%,transparent) 0%,transparent 55%);
-}
-.sec-how::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 80% at 5% 30%,color-mix(in srgb,#FFB627 8%,transparent) 0%,transparent 55%);
-}
-.sec-blog::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 60% at 50% -5%,color-mix(in srgb,var(--a) 7%,transparent) 0%,transparent 58%);
-}
-.sec-faq::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 70% at 95% 90%,color-mix(in srgb,var(--a) 7%,transparent) 0%,transparent 55%);
-}
-
-.sec-model{background:var(--bg)}
-.sec-model .sec-sub{font-size:15px;font-weight:300;color:var(--i2);max-width:580px;line-height:1.75;margin-bottom:48px}
-.model-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start}
-.model-card{border-radius:20px;overflow:hidden;border:1px solid var(--rim2);transition:border-color .25s;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.model-card:hover{border-color:color-mix(in srgb,var(--a) 40%,transparent)}
-.model-card-hd{background:var(--grad);padding:22px 24px;display:flex;align-items:center;gap:14px}
-.model-icon{font-size:26px;width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.model-role{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:-.02em}
-.model-role-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px}
-.model-card-body{background:rgba(255,255,255,.04);padding:22px 24px;display:flex;flex-direction:column;gap:16px}
-body.light .model-card-body{background:rgba(255,255,255,.7)}
-.model-desc{font-size:13px;font-weight:300;color:var(--i2);line-height:1.75}
-.model-items{display:flex;flex-direction:column;gap:8px}
-.model-item{display:flex;align-items:baseline;gap:10px;font-size:13px;font-weight:300;color:var(--i2);line-height:1.5}
-.model-dot{width:5px;height:5px;border-radius:50%;background:var(--a);flex-shrink:0;margin-top:6px}
-.model-cta{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--a);display:inline-flex;align-items:center;gap:4px;transition:gap .2s;text-decoration:none;padding-top:4px}
-.model-cta:hover{gap:8px}
-
-.model-connector{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:36px}
-.model-conn-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,var(--rim2),transparent)}
-.model-conn-badge{background:var(--grad);border-radius:16px;padding:16px 20px;text-align:center;min-width:110px;box-shadow:0 8px 24px color-mix(in srgb,var(--a) 25%,transparent)}
-.model-conn-icon{font-size:22px;margin-bottom:6px}
-.model-conn-label{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:-.03em}
-.model-conn-sub{font-size:10px;color:rgba(255,255,255,.7);margin-top:2px}
-.model-fee-note{font-size:10px;color:var(--i3);text-align:center;line-height:1.6;font-style:italic}
-
-@media(max-width:860px){
-  .model-layout{grid-template-columns:1fr;gap:16px}
-  .model-connector{flex-direction:row;padding-top:0;justify-content:center}
-  .model-conn-line{width:40px;height:1px;background:linear-gradient(to right,transparent,var(--rim2),transparent)}
-  .model-fee-note{display:none}
-}
-/* Light mode section adjustments */
-body.light .sec-manifesto,body.light .sec-model,body.light .sec-safe{background:var(--bg)}
-body.light .sec-manifesto::before,body.light .sec-model::before,body.light .sec-safe::before,body.light .sec-comp::before,body.light .sec-how::before,body.light .sec-blog::before,body.light .sec-faq::before{opacity:.6}
-
-/* section colour accent on eyebrow matches section mood */
-.sec-how  .ey,.sec-how  .ey::before{color:#FFB627;background:#FFB627}
-.sec-comp .ey,.sec-comp .ey::before{color:#00C9A7;background:#00C9A7}
-.sec-safe .ey,.sec-safe .ey::before{color:#7C6EFA;background:#7C6EFA}
-/* these inherit --a accent */
-
-/* sec-title em per-section */
-.sec-how  .sec-title em{color:#FFB627}
-.sec-comp .sec-title em{color:#00C9A7}
-.sec-safe .sec-title em{color:#7C6EFA}
-
-.ey{display:flex;align-items:center;gap:9px;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:10px;transition:color .4s}
-.ey::before{content:'';width:20px;height:1.5px;background:var(--a);border-radius:2px;flex-shrink:0;transition:background .4s}
-.sec-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3.5vw,42px);font-weight:700;line-height:1.04;letter-spacing:-.04em;color:var(--ink);margin-bottom:36px}
-.sec-title em{font-family:'Lora',serif;font-style:italic;color:var(--a);transition:color .4s}
-
-/* ══════════════════════════════════════
-   HERO — full viewport
-══════════════════════════════════════ */
-.hero{min-height:100svh;position:relative;overflow:hidden;background:var(--bg);display:flex;align-items:center}
-.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 65% at 80% 20%,color-mix(in srgb,var(--a) 20%,transparent) 0%,transparent 56%),radial-gradient(ellipse 40% 50% at 12% 82%,color-mix(in srgb,var(--a2) 11%,transparent) 0%,transparent 54%);transition:background .5s}
-.hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--rim) 1px,transparent 1px),linear-gradient(90deg,var(--rim) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 46% 58% at 28% 50%,black,transparent 68%)}
-.hero-in{max-width:1160px;width:100%;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:center;position:relative;z-index:2}
-.hero-l{padding:138px 0 80px}
-.hero-r{padding:138px 0 80px;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
-
-/* badge */
-.badge{display:inline-flex;align-items:center;gap:7px;padding:4px 13px;border-radius:100px;border:1px solid color-mix(in srgb,var(--a) 32%,transparent);background:color-mix(in srgb,var(--a) 10%,transparent);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:24px;transition:background .4s,border-color .4s,color .4s}
-.bdot{width:5px;height:5px;border-radius:50%;background:var(--a);animation:blink 2s infinite;flex-shrink:0;transition:background .4s}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.22}}
-.h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(50px,6vw,86px);font-weight:700;line-height:.95;letter-spacing:-.04em;color:var(--ink);margin-bottom:22px}
-.h1 .accent{display:block;font-family:'Lora',serif;font-style:italic;font-weight:700;background:linear-gradient(135deg,var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;transition:background .5s}
-.hero-sub{font-size:15px;font-weight:300;line-height:1.82;color:var(--i2);max-width:390px;margin-bottom:34px}
-.hero-btns{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.bfire{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;border:none;font-size:14px;font-weight:600;font-family:'Space Grotesk',sans-serif;background:var(--grad);color:#fff;box-shadow:0 4px 18px color-mix(in srgb,var(--a) 40%,transparent),0 12px 36px color-mix(in srgb,var(--a2) 20%,transparent);transition:all .28s}
-.bfire:hover{transform:translateY(-2px);box-shadow:0 8px 28px color-mix(in srgb,var(--a) 52%,transparent),0 24px 56px color-mix(in srgb,var(--a2) 28%,transparent)}
-.bsoft{font-size:14px;font-weight:400;color:var(--i2);border-bottom:1px solid var(--rim2);padding-bottom:2px;transition:all .2s}
-.bsoft:hover{color:var(--ink)}
-
-/* STATS */
-.stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid var(--rim)}
-.sn{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;letter-spacing:-.04em;color:var(--ink);line-height:1}
-.sn sup{font-size:13px;color:var(--a);transition:color .4s}
-.sl{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--i3);margin-top:4px}
-
-/* SOCIAL PROOF + mini testimonials in hero */
-.hero-proof{margin-top:28px;padding-top:20px;border-top:1px solid var(--rim);display:flex;flex-direction:column;gap:12px}
-.proof-row{display:flex;align-items:center;gap:12px}
-.av-stack{display:flex}
-.av{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-left:-7px;flex-shrink:0;transition:background .4s}
-.av:first-child{margin-left:0}
-.proof-label{font-size:12px;font-weight:300;color:var(--i2)}
-.proof-label strong{color:var(--ink);font-weight:600}
-.hero-quotes{display:flex;flex-direction:column;gap:7px}
-.hq{display:flex;align-items:flex-start;gap:8px;font-size:11px;font-style:italic;font-weight:300;color:var(--i3);line-height:1.55}
-.hq-av{width:22px;height:22px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff;flex-shrink:0;margin-top:1px;transition:background .4s}
-.hq-text::before{content:'"';color:var(--a);margin-right:2px;font-size:14px;line-height:1;vertical-align:-2px;transition:color .4s}
-
-/* HERO COMPANION CARDS — glass styles defined in COMPANIONS section below */
-.cc-hd{padding:18px 18px 13px;background:var(--grad);display:flex;align-items:center;gap:11px}
-.cc-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.32);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
-.cc-name{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff}
-.cc-role{font-size:9px;color:rgba(255,255,255,.52);margin-top:2px}
-.cc-bd{padding:14px 16px}
-.cc-live{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:9px;transition:color .4s}
-.ldot{width:5px;height:5px;border-radius:50%;background:var(--a);animation:blink 2s infinite;flex-shrink:0;transition:background .4s}
-.cc-q{font-size:11px;font-style:italic;font-weight:300;line-height:1.65;color:var(--i2);padding-left:10px;border-left:2px solid color-mix(in srgb,var(--a) 32%,transparent);margin-bottom:12px;transition:border-color .4s}
-.cc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:11px}
-.cc-t{font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:100px;background:color-mix(in srgb,var(--a) 10%,transparent);color:var(--a);transition:background .4s,color .4s}
-.cc-t.lg{background:rgba(0,201,167,.08);color:#00C9A7}
-.cc-ft{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--rim)}
-.cc-fee{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--a);line-height:1;transition:color .4s}
-.cc-fee span{font-size:10px;font-weight:400;color:var(--i3);margin-left:2px}
-.cc-loc{font-size:10px;font-weight:300;color:var(--i3);text-align:right;line-height:1.6}
-@keyframes float-a{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
-@keyframes float-b{0%,100%{transform:translateX(18px) scale(.96)}50%{transform:translateX(18px) scale(.96) translateY(-8px)}}
-
-/* ══════════════════════════════════════
-   HOW IT WORKS
-══════════════════════════════════════ */
-.how-tabs{display:flex;gap:4px;padding:3px;background:var(--s2);border-radius:100px;width:fit-content;margin-bottom:28px;box-shadow:inset 0 1px 4px rgba(0,0,0,.3)}
-body.light .how-tabs{box-shadow:inset 0 1px 4px rgba(26,21,16,.1)}
-.htab{padding:8px 22px;border-radius:100px;border:none;font-size:12px;font-weight:500;font-family:'Space Grotesk',sans-serif;color:var(--i2);background:transparent;transition:all .25s}
-.htab.on{background:var(--s1);color:var(--ink);box-shadow:var(--e1)}
-body.light .htab.on{background:#fff}
-.hpanel{display:none}.hpanel.on{display:block}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
-.step{padding:0;background:rgba(0,0,0,.22);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden;transition:all .32s cubic-bezier(.15,.85,.2,1)}
-body.light .step{background:rgba(255,255,255,.44);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.68)}
-.step:first-child{border-radius:18px 0 0 18px}
-.step:last-child{border-radius:0 18px 18px 0}
-.step:hover{background:rgba(0,0,0,.14);box-shadow:var(--e2);border-color:rgba(255,255,255,.16);z-index:2}
-body.light .step:hover{background:rgba(255,255,255,.64)}
-.step::before{display:none}
-.step-cap{padding:12px 16px;background:color-mix(in srgb,var(--a) 22%,rgba(0,0,0,.3));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid color-mix(in srgb,var(--a) 28%,transparent);display:flex;align-items:center;justify-content:space-between;gap:8px}
-body.light .step-cap{background:color-mix(in srgb,var(--a) 16%,rgba(255,255,255,.4));border-bottom:1px solid color-mix(in srgb,var(--a) 20%,transparent)}
-.step-cap-info{display:flex;align-items:center;gap:8px;min-width:0}
-.step-cap .stic{font-size:17px;line-height:1;flex-shrink:0;margin:0}
-.step-cap .stit{font-size:11px;font-weight:600;color:color-mix(in srgb,var(--a) 90%,#fff);line-height:1.3;margin:0;transition:color .4s}
-.step-n{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:color-mix(in srgb,var(--a) 30%,transparent);line-height:1;flex-shrink:0}
-.stic{font-size:18px;margin-bottom:8px}
-.stit{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px}
-.sdesc{font-size:11px;font-weight:300;line-height:1.65;color:var(--i2);padding:13px 16px 18px}
-.how-cta{text-align:center;margin-top:24px}
-.how-cta a{display:inline-block;background:var(--grad);color:#fff;padding:11px 26px;border-radius:100px;font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;box-shadow:0 3px 14px color-mix(in srgb,var(--a) 34%,transparent);transition:all .28s}
-.how-cta a:hover{transform:translateY(-2px)}
-.how-note{text-align:center;font-size:10px;color:var(--i3);margin-top:9px;letter-spacing:.06em}
-
-/* ══════════════════════════════════════
-   COMPANIONS
-══════════════════════════════════════ */
-.chd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px}
-.chd a{font-size:12px;color:var(--a);border-bottom:1px solid color-mix(in srgb,var(--a) 30%,transparent);padding-bottom:1px;transition:color .4s}
-.cscroll{overflow-x:auto;margin:0 -48px;padding:0 48px 10px;scrollbar-width:none}
-.cscroll::-webkit-scrollbar{display:none}
-.ctrack{display:flex;gap:12px;width:max-content}
-.sc{width:218px;flex-shrink:0;border-radius:15px;overflow:hidden;background:var(--s2);border:1px solid var(--rim);box-shadow:var(--e1);transition:all .35s cubic-bezier(.15,.85,.2,1)}
-body.light .sc{background:rgba(255,255,255,.8)}
-.sc:hover{transform:translateY(-7px);box-shadow:var(--e3);border-color:var(--rim2)}
-.sc-h{padding:15px 15px 11px;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 38%,transparent),color-mix(in srgb,var(--a2) 26%,transparent));border-bottom:1px solid color-mix(in srgb,var(--a) 22%,transparent);display:flex;align-items:center;gap:9px;transition:background .4s}
-body.light .sc-h{background:var(--grad)}
-.sc-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
-
-/* ── Glassmorphism: hero companion cards ── */
-.hcard{width:300px;border-radius:18px;overflow:hidden;background:rgba(255,255,255,.07);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.12);box-shadow:0 8px 32px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.08);transition:all .4s cubic-bezier(.15,.85,.2,1)}
-body.light .hcard{background:rgba(255,255,255,.55);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 32px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.9)}
-.hcard:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.18);transform:translateY(-7px) scale(1.01);box-shadow:0 14px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.1)}
-body.light .hcard:hover{background:rgba(255,255,255,.72);transform:translateY(-7px) scale(1.01)}
-.hcard.dim{width:270px;opacity:.6;transform:translateX(18px) scale(.96);background:rgba(255,255,255,.04)}
-.hcard.dim:hover{opacity:.88;transform:translateX(10px) scale(.98) translateY(-5px);background:rgba(255,255,255,.08)}
-/* Keep card header solid gradient */
-.cc-hd{padding:18px 18px 13px;background:var(--grad);display:flex;align-items:center;gap:11px}
-
-/* ── Glassmorphism: safety items ── */
-.si{display:flex;gap:13px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.05);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,.09);box-shadow:var(--e1);transition:all .3s}
-body.light .si{background:rgba(255,255,255,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7)}
-.si:hover{transform:translateX(5px);background:rgba(255,255,255,.08);box-shadow:var(--e2);border-color:rgba(255,255,255,.15)}
-body.light .si:hover{background:rgba(255,255,255,.75)}
-.sc-name{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff}
-.sc-role{font-size:9px;color:rgba(255,255,255,.5);margin-top:1px;line-height:1.4}
-.sc-b{padding:11px 13px}
-.sc-tags{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:7px}
-.sc-t{font-size:8px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:100px;background:color-mix(in srgb,var(--a) 10%,transparent);color:var(--a);transition:background .4s,color .4s}
-.sc-t.l{background:rgba(0,201,167,.08);color:#00C9A7}
-.sc-c{font-size:10px;font-weight:400;color:var(--i2)}
-.sc-desc{font-size:10px;font-style:italic;font-weight:300;line-height:1.55;color:var(--i2);margin-bottom:8px;padding-left:8px;border-left:2px solid rgba(255,255,255,.2)}
-
-/* ══════════════════════════════════════
-   SAFETY
-══════════════════════════════════════ */
-.slayout{display:grid;grid-template-columns:5fr 7fr;gap:52px;align-items:start}
-.sitems{display:flex;flex-direction:column;gap:9px}
-/* .si glassmorphism defined in COMPANIONS section above */
-.siic{font-size:20px;flex-shrink:0;margin-top:1px}
-.sit{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.sid{font-size:11px;font-weight:300;line-height:1.62;color:var(--i2)}
-.scopy .sec-title{margin-bottom:10px}
-.scopy p{font-size:14px;font-weight:300;line-height:1.8;color:var(--i2);max-width:310px}
-
-/* ══════════════════════════════════════
-   SAFETY BANNER (Hướng dẫn an toàn)
-══════════════════════════════════════ */
-.safe-banner{
-  margin-top:32px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:16px 22px;border-radius:14px;
-  border:1px solid color-mix(in srgb,#7C6EFA 30%,transparent);
-  background:color-mix(in srgb,var(--s2) 90%,rgba(124,110,250,.1));
-  transition:all .3s;
-}
-body.light .safe-banner{background:color-mix(in srgb,#fff 90%,rgba(124,110,250,.1))}
-.safe-banner:hover{transform:translateY(-2px);box-shadow:var(--e2)}
-.sb-left{display:flex;align-items:center;gap:12px}
-.sb-icon{font-size:22px;flex-shrink:0}
-.sb-t{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--ink)}
-.sb-d{font-size:11px;font-weight:300;color:var(--i2);margin-top:2px}
-.sb-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:100px;border:1px solid color-mix(in srgb,#7C6EFA 40%,transparent);background:color-mix(in srgb,#7C6EFA 12%,transparent);color:#9B8EFA;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;white-space:nowrap;transition:all .25s;flex-shrink:0}
-.sb-btn:hover{background:color-mix(in srgb,#7C6EFA 22%,transparent);border-color:color-mix(in srgb,#7C6EFA 55%,transparent)}
-
-/* ══════════════════════════════════════
-   BLOG — featured + 4 small (2×2)
-══════════════════════════════════════ */
-.blhd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px}
-.blhd a{font-size:12px;color:var(--a);border-bottom:1px solid color-mix(in srgb,var(--a) 30%,transparent);padding-bottom:1px;transition:color .4s}
-.blog-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:2px;border-radius:18px;overflow:hidden;border:1px solid var(--rim)}
-/* Featured */
-.bc-feat{display:flex;flex-direction:column;padding:28px 26px;background:var(--s2);position:relative;overflow:hidden;border-right:1px solid var(--rim);transition:background .22s}
-body.light .bc-feat{background:rgba(255,255,255,.85)}
-.bc-feat:hover{background:var(--s3)}
-body.light .bc-feat:hover{background:#fff}
-.bc-grid{display:grid;grid-template-rows:1fr 1fr 1fr 1fr;gap:0}
-.bc-sm{display:flex;flex-direction:column;justify-content:space-between;padding:14px 18px;background:var(--s2);position:relative;overflow:hidden;border-bottom:1px solid var(--rim);min-height:90px;transition:background .22s}
-body.light .bc-sm{background:rgba(255,255,255,.85)}
-.bc-sm:last-child{border-bottom:none}
-.bc-sm:hover{background:var(--s3)}
-body.light .bc-sm:hover{background:#fff}
-/* Category badge */
-.bc-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--a);background:color-mix(in srgb,var(--a) 10%,transparent);border:1px solid color-mix(in srgb,var(--a) 18%,transparent);margin-bottom:12px;width:fit-content;transition:all .4s}
-.bc-sm .bc-badge{margin-bottom:6px}
-/* Titles */
-.bc-feat .bct{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;line-height:1.22;color:var(--ink);margin-bottom:9px}
-.bc-sm .bct{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;line-height:1.3;color:var(--ink);flex:1}
-/* Description */
-.bcd{font-size:11px;font-weight:300;line-height:1.72;color:var(--i2);margin-bottom:14px}
-/* Meta row */
-.bc-meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
-.bcm{font-size:10px;font-weight:300;color:var(--i3)}
-.bc-arr{font-size:15px;color:var(--i3);transition:all .28s}
-.bc-feat:hover .bc-arr,.bc-sm:hover .bc-arr{color:var(--a);transform:translate(3px,-2px)}
-.bc-sm .bc-meta{margin-top:6px}
-.bc-sm .bcm{font-size:9px}
-
-/* ══════════════════════════════════════
-   FAQ — compact, initially 2 visible
-══════════════════════════════════════ */
-.fwrap{max-width:680px;margin:0 auto;background:rgba(0,0,0,.18);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;padding:0 8px}
-body.light .fwrap{background:rgba(255,255,255,.38);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.68)}
-.fi{border-bottom:1px solid rgba(255,255,255,.08)}
-body.light .fi{border-bottom:1px solid rgba(26,21,16,.08)}
-.fq{width:100%;background:none;border:none;text-align:left;padding:16px 0;font-size:13px;font-weight:400;color:var(--i2);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
-.fq:hover{color:var(--ink)}
-.fic{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--i3);transition:all .3s}
-.fi.open .fq{color:var(--a)}
-.fi.open .fic{background:var(--grad);border-color:transparent;color:#fff;transform:rotate(45deg);box-shadow:0 2px 10px color-mix(in srgb,var(--a) 30%,transparent)}
-.fa{max-height:0;overflow:hidden;transition:max-height .32s ease}
-.fi.open .fa{max-height:400px}
-.fai{padding:0 0 16px;font-size:12px;font-weight:300;line-height:1.78;color:var(--i2)}
-.fai strong{color:var(--ink);font-weight:600}
-.fai a{color:var(--a);border-bottom:1px solid color-mix(in srgb,var(--a) 28%,transparent);transition:color .4s}
-.fi.fhide{display:none}
-.fmore{display:block;margin:18px auto 0;background:none;border:1.5px solid var(--rim2);border-radius:100px;padding:8px 24px;font-size:11px;font-weight:500;font-family:'Space Grotesk',sans-serif;color:var(--i3);letter-spacing:.06em;transition:all .25s}
-.fmore:hover{border-color:var(--a);color:var(--a)}
-.pgrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.pt{padding:8px 13px;border-radius:11px;background:var(--s2);border:1px solid var(--rim);font-size:11px;font-weight:300;color:var(--i2)}
-body.light .pt{background:#F2EDE4}
-.pt strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--a);margin-bottom:1px;transition:color .4s}
-
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
-footer{padding:26px 48px;border-top:1px solid var(--rim);background:var(--s1)}
-body.light footer{background:#fff}
-.fin{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.flogo{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;letter-spacing:-.04em;color:var(--ink)}
-.flogo em{color:var(--a);font-style:normal;transition:color .4s}
-.flinks{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.fl{font-size:11px;font-weight:300;color:var(--i3);transition:color .2s;cursor:pointer}
-.fl:hover{color:var(--a)}
-.fcopy{font-size:11px;font-weight:300;color:var(--i3)}
-/* Social icons */
-.social-icons{display:flex;gap:8px;align-items:center}
-.soc{width:30px;height:30px;border-radius:50%;border:1px solid var(--rim2);display:flex;align-items:center;justify-content:center;color:var(--i3);transition:all .25s;flex-shrink:0}
-.soc:hover{transform:translateY(-2px);border-color:transparent;color:#fff}
-.soc-ig:hover{background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);box-shadow:0 4px 12px rgba(253,29,29,.35)}
-.soc-th:hover{background:#000;border-color:#000;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.4)}
-.soc-zalo:hover{background:var(--grad);box-shadow:0 4px 12px rgba(255,45,85,.3)}
-
-/* zalo floating button */
-.zf{position:fixed;bottom:22px;left:22px;z-index:600;display:flex;align-items:center;gap:7px;padding:10px 17px;border-radius:100px;background:rgba(0,0,0,.35);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid color-mix(in srgb,var(--a) 35%,transparent);color:#fff;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;box-shadow:0 4px 16px color-mix(in srgb,var(--a) 28%,transparent),inset 0 1px 0 rgba(255,255,255,.08);transition:all .3s}
-.zf:hover{background:rgba(0,0,0,.18);border-color:color-mix(in srgb,var(--a) 55%,transparent);transform:translateY(-3px);box-shadow:0 8px 26px color-mix(in srgb,var(--a) 40%,transparent)}
-body.light .zf{background:rgba(255,255,255,.55);color:var(--ink);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
-body.light .zf:hover{background:rgba(255,255,255,.72)}
-
-/* modals */
-.mo{display:none;position:fixed;inset:0;z-index:900;background:rgba(8,6,3,.72);align-items:flex-start;justify-content:center;padding:52px 20px;overflow-y:auto;backdrop-filter:blur(14px)}
-.mo.open{display:flex}
-.md{background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:36px;max-width:560px;width:100%;position:relative;margin:auto;box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07)}
-body.light .md{background:rgba(255,255,255,.82);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border:1px solid rgba(255,255,255,.88)}
-.md h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:5px}
-.md .mv{font-size:9px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--i3);margin-bottom:16px}
-.md p,.md li{font-size:13px;font-weight:300;line-height:1.76;color:var(--i2);margin-bottom:9px}
-.md ul{margin:0 0 9px 16px}
-.md strong{color:var(--ink);font-weight:600}
-.mcls{position:absolute;top:16px;right:16px;background:var(--s2);border:1px solid var(--rim);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--i3);transition:all .2s}
-.mcls:hover{background:var(--s3);color:var(--ink)}
-.rcards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 14px}
-.rcard{display:block;padding:22px 14px;border-radius:16px;text-align:center;border:1.5px solid var(--rim);background:var(--bg);transition:all .25s}
-body.light .rcard{background:var(--s3)}
-.rcard:hover{border-color:var(--a);transform:translateY(-2px);box-shadow:var(--e1)}
-.rcard-i{font-size:32px;margin-bottom:10px}
-.rcard-t{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.rcard-s{font-size:11px;font-weight:300;line-height:1.6;color:var(--i3)}
-
-/* reveal */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+/* ═══ SCROLL REVEAL ═══ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
 
-/* anchors */
-#how,#dang-ky,#model{scroll-margin-top:70px}
+/* ═══ CONTROLS ═══ */
+.controls{position:fixed;top:14px;right:14px;z-index:800;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ctrl-toggle{width:34px;height:34px;border-radius:50%;background:var(--s1);border:1px solid var(--rim2);box-shadow:0 2px 14px rgba(0,0,0,.28);font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--i3);transition:all .3s;cursor:pointer}
+.ctrl-toggle:hover{color:var(--ink);border-color:var(--a);transform:rotate(45deg)}
+.ctrl-panel{display:none;flex-direction:column;align-items:flex-end;gap:5px}
+.ctrl-panel.open{display:flex;animation:popIn .3s cubic-bezier(.22,1,.36,1)}
+@keyframes popIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.pill-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:var(--s1);border:1px solid var(--rim2);box-shadow:0 2px 14px rgba(0,0,0,.2)}
+.pb{padding:5px 12px;border-radius:100px;border:none;font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--i3);background:transparent;transition:all .25s;cursor:pointer;font-family:'Fraunces',serif}
+.pb.on{background:var(--grad);color:#fff}
+.accent-row{display:flex;gap:5px;padding:5px 9px;border-radius:100px;background:var(--s1);border:1px solid var(--rim2);box-shadow:0 2px 14px rgba(0,0,0,.2)}
+.ab{width:18px;height:18px;border-radius:50%;border:2.5px solid transparent;transition:all .2s;cursor:pointer;padding:0}
+.ab.on{border-color:var(--ink);transform:scale(1.18)}
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
-@media(max-width:820px){
-  nav,footer{padding-left:20px;padding-right:20px}
-  .hero{grid-template-columns:1fr}
-  .hero-in{grid-template-columns:1fr;padding:0 20px}
-  .hero-r{display:none}
-  .hero-l{padding:110px 0 60px}
-  .sec{padding:44px 20px}
-  .steps{grid-template-columns:1fr 1fr}
-  .step:first-child{border-radius:18px 0 0 0}
-  .step:nth-child(2){border-radius:0 18px 0 0}
-  .step:nth-child(3){border-radius:0 0 0 18px}
-  .step:last-child{border-radius:0 0 18px 0}
-  .slayout{grid-template-columns:1fr;gap:24px}
-  .blog-layout{grid-template-columns:1fr;border-radius:16px}
-  .bc-feat{border-right:none;border-bottom:1px solid var(--rim);border-radius:16px 16px 0 0}
-  .bc-grid{border-radius:0 0 16px 16px}
-  .cscroll{margin:0 -20px;padding:0 20px 10px}
-  .fin{flex-direction:column;text-align:center}
-  .flinks{justify-content:center}
-  .social-icons{justify-content:center}
-  .controls{top:68px;right:14px;bottom:auto}
-  .stats{gap:18px;margin-top:32px;padding-top:18px}
-  .safe-banner{flex-direction:column;align-items:flex-start}
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:transparent;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--rim)}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Fraunces',serif;font-size:21px;font-weight:700;letter-spacing:-.04em;color:var(--ink);display:flex;align-items:center;gap:9px}
+.nav-mark{width:17px;height:22px;flex-shrink:0}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:2px}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;z-index:500;padding:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s;margin:0 auto}
+body.menu-open .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-open .hamburger span:nth-child(2){opacity:0}
+body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-link{font-size:13px;color:var(--i2);padding:7px 13px;border-radius:9px;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--ink);background:var(--rim)}
+.nav-cta{margin-left:10px;padding:9px 20px;border-radius:100px;background:var(--grad);color:#fff;font-family:'Fraunces',serif;font-size:13px;font-weight:600;box-shadow:0 3px 14px color-mix(in srgb,var(--a) 30%,transparent);transition:transform .25s,box-shadow .25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 22px color-mix(in srgb,var(--a) 40%,transparent)}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;will-change:transform}
+.hero-glow-1{width:600px;height:600px;background:radial-gradient(circle,color-mix(in srgb,var(--a) 55%,transparent) 0%,transparent 68%);top:-140px;right:-120px}
+.hero-glow-2{width:420px;height:420px;background:radial-gradient(circle,color-mix(in srgb,var(--a2) 40%,transparent) 0%,transparent 68%);bottom:-100px;left:-80px}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--rim) 1px,transparent 1px),linear-gradient(90deg,var(--rim) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000 30%,transparent 75%);opacity:.6}
+.hero-in{max-width:1120px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--a) 10%,transparent);border:1px solid color-mix(in srgb,var(--a) 24%,transparent);border-radius:100px;padding:7px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--a);margin-bottom:26px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--a);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 color-mix(in srgb,var(--a) 60%,transparent)}50%{opacity:.7;box-shadow:0 0 0 5px transparent}}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(44px,6.5vw,84px);font-weight:600;letter-spacing:-.03em;line-height:.96;margin-bottom:26px}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .word{display:inline-block;opacity:0;transform:translateY(100%);animation:wordUp .9s cubic-bezier(.22,1,.36,1) forwards}
+.hero h1 .l2 .word{animation-delay:.12s}
+.hero h1 em{font-family:'Fraunces',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:wordUp .9s cubic-bezier(.22,1,.36,1) .12s forwards,shimmer 5s linear infinite}
+@keyframes wordUp{to{opacity:1;transform:none}}
+@keyframes shimmer{to{background-position:200% center}}
+.hero-sub{font-size:18px;font-weight:300;color:var(--i2);line-height:1.8;max-width:460px;margin-bottom:36px;opacity:0;animation:fadeIn .8s ease .5s forwards}
+@keyframes fadeIn{to{opacity:1}}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeIn .8s ease .65s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;background:var(--grad);color:#fff;font-family:'Fraunces',serif;font-size:15px;font-weight:600;box-shadow:0 6px 24px color-mix(in srgb,var(--a) 34%,transparent);transition:transform .28s,box-shadow .28s;position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);transform:translateX(-100%);transition:transform .6s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 34px color-mix(in srgb,var(--a) 46%,transparent)}
+.btn-primary:hover::after{transform:translateX(100%)}
+.btn-soft{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:100px;background:transparent;color:var(--ink);font-family:'Fraunces',serif;font-size:15px;font-weight:500;border:1.5px solid var(--rim2);transition:all .25s}
+.btn-soft:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
+
+/* Hero visual card */
+.hero-visual{position:relative;opacity:0;animation:fadeIn 1s ease .4s forwards}
+.hv-card{background:color-mix(in srgb,var(--ink) 4%,transparent);border:1px solid var(--rim2);border-radius:22px;overflow:hidden;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.4);transform:rotate(1.5deg);transition:transform .5s}
+.hv-card:hover{transform:rotate(0) translateY(-4px)}
+.hv-hd{padding:18px 20px;background:var(--grad);display:flex;align-items:center;gap:12px}
+.hv-av{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:#fff}
+.hv-name{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:#fff}
+.hv-role{font-size:11px;color:rgba(255,255,255,.75);margin-top:2px}
+.hv-live{margin-left:auto;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:100px;display:flex;align-items:center;gap:5px}
+.hv-live::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
+.hv-body{padding:18px 20px}
+.hv-quote{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--i2);line-height:1.6;margin-bottom:14px}
+.hv-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.hv-tag{font-size:10px;font-weight:500;color:var(--a);background:color-mix(in srgb,var(--a) 12%,transparent);border:1px solid color-mix(in srgb,var(--a) 22%,transparent);border-radius:100px;padding:3px 11px}
+.hv-tag.lang{color:var(--indigo);background:rgba(124,110,250,.12);border-color:rgba(124,110,250,.24)}
+.hv-foot{display:flex;justify-content:space-between;align-items:flex-end;padding-top:14px;border-top:1px solid var(--rim)}
+.hv-fee{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--a)}
+.hv-fee small{font-size:12px;font-weight:400;color:var(--i3)}
+.hv-loc{font-size:11px;color:var(--i3);text-align:right}
+.hv-float{position:absolute;background:var(--s1);border:1px solid var(--rim2);border-radius:14px;padding:12px 16px;box-shadow:0 12px 30px rgba(0,0,0,.3);display:flex;align-items:center;gap:10px;animation:float 4s ease-in-out infinite}
+.hv-float-1{top:-24px;left:-30px;animation-delay:0s}
+.hv-float-2{bottom:-20px;right:-24px;animation-delay:2s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hv-float-ic{width:32px;height:32px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:15px}
+.hv-float-tx{font-size:11px;font-weight:600;color:var(--ink)}
+.hv-float-sub{font-size:9px;color:var(--i3)}
+
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--i3);opacity:0;animation:fadeIn 1s ease 1.2s forwards}
+.scroll-hint .mouse{width:22px;height:34px;border:1.5px solid var(--rim2);border-radius:12px;position:relative}
+.scroll-hint .mouse::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;border-radius:2px;background:var(--a);animation:scroll 1.8s infinite}
+@keyframes scroll{0%{opacity:1;top:6px}100%{opacity:0;top:16px}}
+
+/* ═══ SECTION SYSTEM ═══ */
+.sec{padding:104px 40px;position:relative;overflow:hidden}
+.sec-in{max-width:1120px;margin:0 auto;position:relative;z-index:2}
+.sd{background:var(--bg)}
+.se{background:var(--s1);border-top:1px solid var(--rim);border-bottom:1px solid var(--rim)}
+.sec-glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.14;pointer-events:none}
+.ey{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.ey.center{justify-content:center}
+.ey::before{content:"";width:22px;height:2px;background:var(--a)}
+.ey.center::after{content:"";width:22px;height:2px;background:var(--a)}
+.stitle{font-family:'Fraunces',serif;font-size:clamp(30px,4.2vw,50px);font-weight:600;letter-spacing:-.025em;line-height:1.06;margin-bottom:16px}
+.stitle em{font-family:'Fraunces',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ssub{font-size:17px;font-weight:300;color:var(--i2);line-height:1.8;max-width:580px}
+.center-head{text-align:center}
+.center-head .ssub{margin-left:auto;margin-right:auto}
+
+/* ═══ PROBLEM ═══ */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.prob-card{background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim);border-radius:18px;padding:30px;transition:transform .3s,border-color .3s}
+.prob-card:hover{transform:translateY(-6px);border-color:var(--rim2)}
+.prob-num{font-family:'Fraunces',serif;font-size:40px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:16px}
+.prob-title{font-family:'Fraunces',serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.prob-desc{font-size:13px;font-weight:300;color:var(--i2);line-height:1.7}
+
+/* ═══ SOLUTION / MANIFESTO ═══ */
+.mani{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:20px}
+.mani-nots{display:flex;flex-direction:column;gap:12px}
+.mani-not{display:flex;align-items:center;gap:14px;font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--i3)}
+.mani-not .x{width:28px;height:28px;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--a2) 50%,transparent);color:var(--a2);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.mani-not s{text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--a2) 60%,transparent)}
+.mani-is{margin-top:26px;padding-top:26px;border-top:1px solid var(--rim)}
+.mani-is-label{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+.mani-is-text{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.03em;line-height:1.2}
+.mani-is-text em{font-family:'Fraunces',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mani-checks{display:flex;flex-direction:column;gap:14px}
+.mani-ck{display:flex;gap:14px;padding:20px;background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim);border-radius:14px;transition:transform .3s,border-color .3s}
+.mani-ck:hover{transform:translateX(6px);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
+.mani-ck-ic{width:38px;height:38px;border-radius:11px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
+.mani-ck-title{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.mani-ck-desc{font-size:12px;font-weight:300;color:var(--i2);line-height:1.6}
+
+/* ═══ MODEL ═══ */
+.model-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:52px}
+.model-illo{max-width:560px;margin:44px auto 0;padding:0 20px}
+.model-illo svg{width:100%;height:auto;display:block;overflow:visible}
+.illo-person{opacity:0;transform:translateY(20px)}
+.model-illo.in .illo-left{animation:illoRise .8s cubic-bezier(.34,1.4,.5,1) .1s forwards}
+.model-illo.in .illo-right{animation:illoRise .8s cubic-bezier(.34,1.4,.5,1) .25s forwards}
+@keyframes illoRise{to{opacity:1;transform:none}}
+.illo-spark{opacity:0;transform-origin:280px 100px;transform:scale(0)}
+.model-illo.in .illo-spark{animation:illoPop .7s cubic-bezier(.34,1.6,.5,1) .6s forwards}
+@keyframes illoPop{to{opacity:1;transform:scale(1)}}
+.illo-bubble{opacity:0}
+.model-illo.in .illo-b1{animation:illoBubble 3s ease-in-out .9s infinite,illoFadeIn .5s ease .9s forwards}
+.model-illo.in .illo-b2{animation:illoBubble 3s ease-in-out 1.6s infinite,illoFadeIn .5s ease 1.2s forwards}
+@keyframes illoFadeIn{to{opacity:1}}
+@keyframes illoBubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.illo-cup{transform-origin:center bottom}
+.model-illo.in .illo-cup{animation:illoFadeIn .5s ease .5s forwards;opacity:0}
+.illo-steam{animation:steam 2.2s ease-in-out infinite}
+@keyframes steam{0%,100%{opacity:.2;transform:translateY(2px)}50%{opacity:.6;transform:translateY(-2px)}}
+.model-card{border-radius:20px;overflow:hidden;border:1px solid var(--rim2);transition:transform .3s,border-color .3s;background:color-mix(in srgb,var(--ink) 3%,transparent)}
+.model-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--a) 35%,transparent)}
+.model-card-hd{background:var(--grad);padding:24px;display:flex;align-items:center;gap:14px}
+.model-icon{font-size:26px;width:50px;height:50px;border-radius:13px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.model-role{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.model-role-sub{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+.model-body{padding:24px;display:flex;flex-direction:column;gap:16px}
+.model-desc{font-size:13px;font-weight:300;color:var(--i2);line-height:1.75}
+.model-items{display:flex;flex-direction:column;gap:9px}
+.model-item{display:flex;align-items:baseline;gap:11px;font-size:13px;font-weight:300;color:var(--i2);line-height:1.5}
+.model-dot{width:5px;height:5px;border-radius:50%;background:var(--a);flex-shrink:0;margin-top:6px}
+.model-cta{font-family:'Fraunces',serif;font-size:13px;font-weight:600;color:var(--a);display:inline-flex;align-items:center;gap:5px;transition:gap .25s;padding-top:4px}
+.model-cta:hover{gap:10px}
+.model-mid{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:40px}
+.model-mid-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--rim2),transparent)}
+.model-mid-badge{background:var(--grad);border-radius:18px;padding:18px 22px;text-align:center;min-width:116px;box-shadow:0 10px 30px color-mix(in srgb,var(--a) 30%,transparent);animation:float 5s ease-in-out infinite}
+.model-mid-ic{font-size:24px;margin-bottom:6px}
+.model-mid-label{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff}
+.model-mid-sub{font-size:10px;color:rgba(255,255,255,.72);margin-top:2px}
+.model-fee{font-size:10px;color:var(--i3);text-align:center;line-height:1.6;font-style:italic}
+
+/* ═══ HOW STEPS ═══ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px;counter-reset:step}
+.step{background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim);border-radius:16px;padding:26px;position:relative;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
+.step-num{font-family:'Fraunces',serif;font-size:13px;font-weight:700;color:#fff;width:34px;height:34px;border-radius:11px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px color-mix(in srgb,var(--a) 30%,transparent)}
+.step-title{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:8px}
+.step-desc{font-size:12px;font-weight:300;color:var(--i2);line-height:1.65}
+.step-conn{position:absolute;top:43px;right:-13px;color:var(--rim2);font-size:18px;z-index:3}
+
+/* ═══ STATS ═══ */
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;border:1px solid var(--rim2);border-radius:18px;overflow:hidden;background:color-mix(in srgb,var(--ink) 3%,transparent)}
+.stat-cell{padding:32px 20px;text-align:center;border-right:1px solid var(--rim)}
+.stat-cell:last-child{border-right:none}
+.stat-n{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,42px);font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-l{font-size:12px;color:var(--i3);margin-top:8px}
+
+/* ═══ COMPANIONS PREVIEW ═══ */
+.comp-scroll{display:flex;gap:16px;overflow-x:auto;padding:52px 40px 20px;margin:0 -40px;scrollbar-width:none}
+/* Text mask reveal for section titles */
+.stitle .reveal-word{display:inline-block;overflow:hidden;vertical-align:top}
+.stitle .reveal-word>span{display:inline-block;transform:translateY(105%);transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in .stitle .reveal-word>span,.center-head.in .reveal-word>span{transform:none}
+.comp-scroll::-webkit-scrollbar{display:none}
+.cc{min-width:280px;max-width:280px;background:color-mix(in srgb,var(--ink) 4%,transparent);border:1px solid var(--rim);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s;backdrop-filter:blur(10px)}
+.cc:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
+.cc-hd{padding:16px 18px 13px;background:var(--s2);border-bottom:1px solid var(--rim);display:flex;align-items:flex-start;gap:12px;position:relative}
+.cc-hd::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.cc-av{width:38px;height:38px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:#fff;flex-shrink:0}
+.cc-name{font-family:'Fraunces',serif;font-size:14px;font-weight:700}
+.cc-role{font-size:10px;color:var(--i3);margin-top:2px}
+.cc-body{padding:14px 18px 18px}
+.cc-quote{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--i2);line-height:1.6;margin-bottom:12px}
+.cc-foot{display:flex;justify-content:space-between;align-items:flex-end;padding-top:12px;border-top:1px solid var(--rim)}
+.cc-fee{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--a)}
+.cc-fee small{font-size:10px;color:var(--i3);font-weight:400}
+.cc-loc{font-size:10px;color:var(--i3);text-align:right}
+.comp-cta{text-align:center;margin-top:20px}
+
+/* ═══ SAFETY ═══ */
+.safe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+.safe-card{background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim);border-radius:16px;padding:26px;transition:transform .3s,border-color .3s}
+.safe-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--indigo) 30%,transparent)}
+.safe-ic{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--indigo) 14%,transparent);border:1px solid color-mix(in srgb,var(--indigo) 22%,transparent);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.safe-title{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:8px}
+.safe-desc{font-size:12px;font-weight:300;color:var(--i2);line-height:1.65}
+
+/* ═══ BLOG ═══ */
+.blog-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:52px}
+.blog-feat{background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim2);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s;display:flex;flex-direction:column;position:relative}
+.blog-feat:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
+.blog-feat-hd{height:210px;background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--a) 10%,var(--s2)));position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.blog-feat-hd svg{width:100%;height:100%;display:block}
+.blog-feat-tag{position:absolute;top:18px;left:18px;z-index:3;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);background:color-mix(in srgb,var(--a) 12%,var(--bg));border:1px solid color-mix(in srgb,var(--a) 26%,transparent);border-radius:100px;padding:5px 13px}
+.blog-feat-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.blog-side{display:flex;flex-direction:column;gap:16px}
+.bs{background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim);border-radius:16px;padding:22px;flex:1;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s,border-color .3s;position:relative}
+.bs::before{content:attr(data-n);position:absolute;top:16px;right:20px;font-family:'Fraunces',serif;font-size:30px;font-weight:500;font-style:italic;color:var(--rim2);line-height:1}
+.bs:hover{transform:translateX(6px);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
+.bbadge{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:100px;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);background:color-mix(in srgb,var(--a) 10%,transparent);border:1px solid color-mix(in srgb,var(--a) 18%,transparent);width:fit-content;margin-bottom:12px}
+.btitle{font-family:"Fraunces",serif;font-weight:600;line-height:1.2;margin-bottom:10px}
+.blog-feat .btitle{font-size:26px}
+.bs .btitle{font-size:15px;flex:1;padding-right:30px}
+.bmeta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.bmeta-t{font-size:11px;color:var(--i3)}
+.barr{color:var(--i3);transition:transform .25s,color .25s}
+.blog-feat:hover .barr,.bs:hover .barr{color:var(--a);transform:translate(3px,-2px)}
+
+/* ═══ FAQ ═══ */
+.faq-wrap{max-width:760px;margin:52px auto 0}
+.faq{border:1px solid var(--rim);border-radius:14px;margin-bottom:12px;overflow:hidden;background:color-mix(in srgb,var(--ink) 3%,transparent);transition:border-color .25s}
+.faq.open{border-color:color-mix(in srgb,var(--a) 30%,transparent)}
+.faq-q{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Fraunces',serif;font-size:15px;font-weight:600;gap:16px}
+.faq-ic{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:15px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--grad);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 24px 22px;font-size:14px;font-weight:300;color:var(--i2);line-height:1.75}
+
+/* ═══ CTA FINAL ═══ */
+.cta-final{padding:100px 40px;position:relative;overflow:hidden;text-align:center}
+.cta-final-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--a) 30%,transparent) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(70px);opacity:.5;pointer-events:none}
+.cta-final-in{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.cta-final h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,54px);font-weight:700;letter-spacing:-.04em;line-height:1.05;margin-bottom:18px}
+.cta-final h2 em{font-family:'Fraunces',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-final p{font-size:17px;font-weight:300;color:var(--i2);line-height:1.7;margin-bottom:32px}
+.cta-final-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32px}
+.foot-in{max-width:1120px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--rim)}
+.foot-brand .nav-logo{margin-bottom:14px}
+.foot-tagline{font-size:13px;font-weight:300;color:var(--i2);line-height:1.7;max-width:260px;margin-bottom:18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:38px;height:38px;border-radius:11px;background:color-mix(in srgb,var(--ink) 4%,transparent);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .25s}
+.fsoc:hover{border-color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:16px}
+.foot-link{display:block;font-size:13px;color:var(--i2);padding:6px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12px;color:var(--i3);flex-wrap:wrap;gap:12px}
+
+@media(max-width:960px){
+  .hero-in{grid-template-columns:1fr;gap:48px}
+  .hero-visual{max-width:380px;margin:0 auto}
+  .problem-grid,.steps,.safe-grid,.stats-band{grid-template-columns:1fr 1fr}
+  .mani,.model-layout,.blog-grid{grid-template-columns:1fr}
+  .model-mid{flex-direction:row;padding-top:0;justify-content:center}
+  .model-mid-line{width:44px;height:1px}
+  .model-fee{display:none}
+  .step-conn{display:none}
+  .foot-top{grid-template-columns:1fr 1fr}
 }
-@media(max-width:520px){
-  .steps{grid-template-columns:1fr}
-  .step{border-radius:0!important}
-  .step:first-child{border-radius:18px 18px 0 0!important}
-  .step:last-child{border-radius:0 0 18px 18px!important}
+@media(max-width:640px){
+  .controls{top:auto;bottom:16px;right:16px;left:auto}
+  .ctrl-panel{flex-direction:column-reverse}
+  .nav-links{position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:4px;background:var(--s1);border-left:1px solid var(--rim2);padding:88px 24px 32px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:-20px 0 60px rgba(0,0,0,.4);z-index:490}
+  body.menu-open .nav-links{transform:translateX(0)}
+  .nav-links .nav-link{display:block;font-size:16px;padding:12px 4px;width:100%;border-bottom:1px solid var(--rim)}
+  .nav-links .nav-cta{margin-left:0;margin-top:18px;width:100%;text-align:center;padding:14px}
+  .hamburger{display:flex}
+  .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;z-index:480}
+  body.menu-open .menu-overlay{opacity:1;visibility:visible}
+  .nav-in{padding:0 20px}
+  .hero{padding:96px 20px 72px;min-height:auto}
+  /* Floating cards INSIDE hero card, not overflowing */
+  .hv-float{position:static;margin:0;box-shadow:none;border-radius:12px;padding:10px 14px;animation:none;background:color-mix(in srgb,var(--ink) 4%,transparent)}
+  .hv-float-1{margin-bottom:10px}
+  .hv-float-2{margin-top:10px}
+  .hero-visual{overflow:visible}
+  .hv-card{transform:none;margin:0}
+  .sec{padding:56px 20px}
+  .problem-grid,.steps,.safe-grid,.stats-band{grid-template-columns:1fr}
+  .stats-band .stat-cell{border-right:none;border-bottom:1px solid var(--rim)}
+  .stats-band .stat-cell:last-child{border-bottom:none}
+  .cta-final{padding:64px 20px}
+  .foot-top{grid-template-columns:1fr}
+  .stitle{font-size:30px}
+  .hero h1{font-size:44px}
+  .scroll-hint{display:none}
+}
+@media(min-width:641px){.hamburger,.menu-overlay{display:none}}
+
+/* ═══ MOBILE PERFORMANCE: strip expensive effects ═══ */
+@media(max-width:640px){
+  body::after{display:none} /* film grain off — costly fixed+blend-mode repaint */
+  nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--bg) 95%,transparent)}
+  .hv-card{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--ink) 7%,var(--bg))}
+  .cc{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .hero-glow{filter:blur(40px);opacity:.35}
+  .hero-glow-2{display:none}
+  .sec-glow{filter:blur(45px);opacity:.1}
+  .cta-final-glow{width:400px;height:400px;filter:blur(40px)}
+  .illo-steam,.illo-bubble{animation:none !important}
+}
+@media(prefers-reduced-motion:reduce){
+  body::after{display:none}
+  .illo-steam,.illo-bubble{animation:none !important}
 }
 </style>
-</head>
-<body class="dark" data-accent="orange">
+<body data-accent="orange">
 
 <!-- CONTROLS -->
 <div class="controls">
-  <button class="ctrl-toggle" id="ctrl-toggle" title="Tuỳ chỉnh giao diện">⚙</button>
+  <button class="ctrl-toggle" id="ctrl-toggle" title="Tuỳ chỉnh">⚙</button>
   <div class="ctrl-panel" id="ctrl-panel">
-    <div class="mode-row">
-      <button class="mb" id="btn-light" onclick="setMode('light')">☀ Light</button>
-      <button class="mb on" id="btn-dark" onclick="setMode('dark')">◑ Dark</button>
+    <div class="pill-row">
+      <button class="pb on" id="lang-vi" onclick="setEN(false)">VI</button>
+      <button class="pb" id="lang-en" onclick="setEN(true)">EN</button>
+    </div>
+    <div class="pill-row">
+      <button class="pb on" id="mode-dark" onclick="setMode('dark')">Dark</button>
+      <button class="pb" id="mode-light" onclick="setMode('light')">Light</button>
     </div>
     <div class="accent-row" id="accent-row">
-      <button class="ab on" data-accent="orange" style="background:#FF5C1A"></button>
-      <button class="ab" data-accent="red"    style="background:#FF2D55"></button>
-      <button class="ab" data-accent="gold"   style="background:#FFB627"></button>
-      <button class="ab" data-accent="teal"   style="background:#00C9A7"></button>
-      <button class="ab" data-accent="indigo" style="background:#7C6EFA"></button>
+      <button class="ab on" data-accent="orange" style="background:#D65F35"></button>
+      <button class="ab" data-accent="red" style="background:#D14060"></button>
+      <button class="ab" data-accent="gold" style="background:#C08A2E"></button>
+      <button class="ab" data-accent="teal" style="background:#2E9E8C"></button>
+      <button class="ab" data-accent="indigo" style="background:#6C63C4"></button>
     </div>
   </div>
 </div>
 
+<!-- NAV -->
 <nav id="nav">
-  <a class="logo" href="/">Kèo<em>.</em></a>
-  <div class="nav-r">
-    <a href="/khoa-hoc-ket-noi" class="nlk"><span class="vi">Khoa học kết nối</span><span class="en">Science of Connection</span></a>
-    <button class="nlang" id="lang-toggle">EN</button>
-    <a href="#dang-ky" class="ncta" id="btn-register"><span class="vi">Tham gia ngay</span><span class="en">Join Now</span></a>
+  <div class="nav-in">
+    <a href="/" class="nav-logo">
+      <svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8A22B"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>
+      Kèo<em>.</em>
+    </a>
+    <div class="nav-links">
+      <a href="#model" class="nav-link"><span class="vi">Mô hình</span><span class="en">How it works</span></a>
+      <a href="/nguoidonghanh" class="nav-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+      <a href="/khoa-hoc-ket-noi" class="nav-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="/register#host" class="nav-cta"><span class="vi">Đặt Kèo</span><span class="en">Book a Kèo</span></a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="menu-overlay" id="menu-overlay"></div>
 
-<main>
-
-<!-- ════ HERO ════ -->
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-bg">
+    <div class="hero-glow hero-glow-1" data-parallax="0.3"></div>
+    <div class="hero-glow hero-glow-2" data-parallax="0.15"></div>
+    <div class="hero-grid"></div>
+  </div>
   <div class="hero-in">
-  <div class="hero-l">
-    <div class="badge"><span class="bdot"></span><span class="vi">Có mặt tại Sài Gòn · Hà Nội · Đà Nẵng</span><span class="en">Live in Saigon · Hanoi · Da Nang</span></div>
-    <h1 class="h1">
-      <span class="vi">Gặp gỡ có<span class="accent">chiều sâu</span></span>
-      <span class="en">Connections that<span class="accent">go deeper</span></span>
-    </h1>
-    <p class="hero-sub"><span class="vi">Bạn đã có đủ người quen rồi. Điều còn thiếu là những buổi gặp gỡ thật sự đáng nhớ — với người am hiểu sâu về điều bạn đang tìm kiếm, tại một không gian bạn chưa từng thử.</span><span class="en">You already have enough contacts. What's missing are conversations that actually stay with you — with someone who deeply knows the thing you're curious about, somewhere worth going.</span></p>
-    <p class="hero-sub" style="margin-top:-18px;font-size:12px;opacity:.7"><span class="vi">Chủ xị trả đúng giá niêm yết · Kèo giữ tiền an toàn · Người đồng hành nhận tiền ngay sau buổi</span><span class="en">Host pays the listed price · Kèo holds it securely · Companion gets paid right after the session</span></p>
-    <div class="hero-btns">
-      <a href="#dang-ky" class="bfire rg-trigger" id="btn-hero"><span class="vi">🌿 Bắt đầu →</span><span class="en">🌿 Get started →</span></a>
-      <a href="#model" class="bsoft" data-scroll="model"><span class="vi">Tìm hiểu thêm</span><span class="en">Learn more</span></a>
-    </div>
-    <div class="stats">
-      <div><div class="sn">2<sup>h</sup></div><div class="sl"><span class="vi">Thời gian trung bình</span><span class="en">Avg. duration</span></div></div>
-      <div><div class="sn">100<sup>%</sup></div><div class="sl"><span class="vi">Địa điểm công cộng</span><span class="en">Public venues</span></div></div>
-      <div><div class="sn">12<sup>%</sup></div><div class="sl"><span class="vi">Phí trừ từ thù lao</span><span class="en">Deducted from fee</span></div></div>
-    </div>
-    <!-- social proof + mini quotes -->
-    <div class="hero-proof">
-      <div class="proof-row">
-        <div class="av-stack">
-          <div class="av">L</div>
-          <div class="av" style="background:linear-gradient(135deg,#FFB627,#FF5C1A)">T</div>
-          <div class="av" style="background:linear-gradient(135deg,#7C6EFA,#00C9A7)">H</div>
-          <div class="av" style="background:linear-gradient(135deg,#00C9A7,#FFB627)">M</div>
-        </div>
-        <div class="proof-label"><strong><span class="vi">86+ người đồng hành</span><span class="en">86+ companions</span></strong> <span class="vi">đang sẵn sàng</span><span class="en">ready to meet</span></div>
+    <div class="hero-copy">
+      <div class="hero-badge"><span class="dot"></span><span class="vi">Có mặt tại Sài Gòn · Hà Nội · Đà Nẵng</span><span class="en">Now in Saigon · Hanoi · Da Nang</span></div>
+      <h1>
+        <span class="line l1"><span class="word vi">Gặp gỡ có</span><span class="word en">Connections that</span></span>
+        <span class="line l2"><em class="vi">chiều sâu.</em><em class="en">go deeper.</em></span>
+      </h1>
+      <p class="hero-sub"><span class="vi">Bạn quen biết đã nhiều. Thứ còn thiếu, có lẽ, là một buổi trò chuyện thật sự — với người hiểu điều bạn đang đi tìm.</span><span class="en">You already know enough people. What's missing are meetups that actually matter — with someone who truly understands what you're looking for.</span></p>
+      <div class="hero-actions">
+        <a href="/register#host" class="btn-primary">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
+        <a href="#model" class="btn-soft" data-scroll><span class="vi">Kèo hoạt động thế nào?</span><span class="en">How does it work?</span></a>
       </div>
-      <div class="hero-quotes">
-        <div class="hq"><div class="hq-av">MK</div><div class="hq-text"><span class="vi">Cảm giác như nói chuyện với người bạn thân lâu năm — không phải dịch vụ.</span><span class="en">Felt like talking with a close old friend — not a service.</span></div></div>
-        <div class="hq"><div class="hq-av" style="background:linear-gradient(135deg,#FFB627,#FF5C1A)">LA</div><div class="hq-text"><span class="vi">Mình kiếm được thêm thu nhập bằng cách chia sẻ niềm đam mê nghệ thuật.</span><span class="en">I earn extra income by simply sharing my passion for art.</span></div></div>
-        <div class="hq"><div class="hq-av" style="background:linear-gradient(135deg,#7C6EFA,#00C9A7)">TH</div><div class="hq-text"><span class="vi">Những buổi cà phê sáng thật sự có giá trị — gặp người thú vị thay vì nhìn điện thoại.</span><span class="en">Genuinely valuable morning coffees — meeting interesting people instead of staring at my phone.</span></div></div>
+    </div>
+    <div class="hero-visual">
+      <div class="hv-float hv-float-1">
+        <div class="hv-float-ic">✓</div>
+        <div><div class="hv-float-tx"><span class="vi">Đã xác minh</span><span class="en">Verified</span></div><div class="hv-float-sub">CCCD + hồ sơ</div></div>
+      </div>
+      <div class="hv-card">
+        <div class="hv-hd">
+          <div class="hv-av">L</div>
+          <div><div class="hv-name">Lan Anh</div><div class="hv-role">UX Designer · <span class="vi">Thiết kế</span><span class="en">Design</span></div></div>
+          <div class="hv-live"><span class="vi">Sẵn sàng</span><span class="en">Live</span></div>
+        </div>
+        <div class="hv-body">
+          <div class="hv-quote"><span class="vi">"Người dẫn bạn qua một triển lãm mà bạn sẽ không bao giờ quên."</span><span class="en">"Someone to walk you through an exhibition you'll never forget."</span></div>
+          <div class="hv-tags">
+            <span class="hv-tag"><span class="vi">Triển lãm</span><span class="en">Gallery</span></span>
+            <span class="hv-tag"><span class="vi">Cà phê</span><span class="en">Coffee</span></span>
+            <span class="hv-tag lang">EN</span>
+          </div>
+          <div class="hv-foot">
+            <div class="hv-fee">300k <small>/ <span class="vi">buổi</span><span class="en">session</span></small></div>
+            <div class="hv-loc">📍 Sài Gòn<br><span class="vi">Tối T2–T6</span><span class="en">Eve, Mon–Fri</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hv-float hv-float-2">
+        <div class="hv-float-ic">🌿</div>
+        <div><div class="hv-float-tx">89 <span class="vi">người</span><span class="en">people</span></div><div class="hv-float-sub"><span class="vi">đang sẵn sàng</span><span class="en">ready now</span></div></div>
       </div>
     </div>
   </div>
-  <!-- hero companion cards — show at 820px+ -->
-  <div class="hero-r" aria-hidden="true">
-    <div class="hcard" style="animation:float-a 8s ease-in-out infinite">
-      <div class="cc-hd"><div class="cc-av">L</div><div><div class="cc-name">Lan Anh</div><div class="cc-role">UX Designer · Thiết kế &amp; Sáng tạo</div></div></div>
-      <div class="cc-bd">
-        <div class="cc-live"><span class="ldot"></span>Đang sẵn sàng</div>
-        <div class="cc-q">"Người dẫn bạn qua một triển lãm mà bạn sẽ không bao giờ quên."</div>
-        <div class="cc-tags"><span class="cc-t">Triển lãm</span><span class="cc-t">Cà phê</span><span class="cc-t lg">EN</span><span class="cc-t lg">JP</span></div>
-        <div class="cc-ft"><div class="cc-fee">300k<span>/ buổi</span></div><div class="cc-loc">📍 Sài Gòn<br>Tối T2–T6</div></div>
-      </div>
-    </div>
-    <div class="hcard dim" style="animation:float-b 10s ease-in-out 2s infinite">
-      <div class="cc-hd"><div class="cc-av">T</div><div><div class="cc-name">Tuấn Minh</div><div class="cc-role">Thời trang &amp; Phong cách</div></div></div>
-      <div class="cc-bd">
-        <div class="cc-tags"><span class="cc-t">Bữa tối</span><span class="cc-t">Âm nhạc</span><span class="cc-t lg">EN</span></div>
-        <div class="cc-ft"><div class="cc-fee">500k<span>/ buổi</span></div><div class="cc-loc">📍 Sài Gòn<br>Linh hoạt</div></div>
-      </div>
-    </div>
-  </div><!-- /hero-r -->
-  </div><!-- /hero-in -->
+  <div class="scroll-hint"><div class="mouse"></div><span class="vi">Cuộn xuống</span><span class="en">Scroll</span></div>
 </section>
 
-<!-- ════ MANIFESTO ════ -->
-<section class="sec sec-manifesto">
+<!-- PROBLEM -->
+<section class="sec sd">
   <div class="sec-in">
-    <div class="mf-layout">
-
-      <!-- LEFT: founding quote -->
-      <div class="mf-quote rv">
-        <div class="mf-q-text"><span class="vi">"Bạn không thể mua tình bạn. Nhưng bạn có thể thuê thời gian của một người biết cách lắng nghe."</span><span class="en">"You can't buy friendship. But you can pay for the time of someone who truly knows how to listen."</span></div>
-        <div class="mf-q-attr"><span class="vi">— Triết lý sáng lập · Kèo 2026</span><span class="en">— Founding philosophy · Kèo 2026</span></div>
+    <div class="rv">
+      <div class="ey"><span class="vi">Vấn đề</span><span class="en">The problem</span></div>
+      <h2 class="stitle"><span class="vi">Quen thì nhiều,<br><em>thân thì hiếm</em></span><span class="en">Plenty of contacts,<br><em>few real connections</em></span></h2>
+      <p class="ssub"><span class="vi">Qua tuổi 25, những dịp tình cờ để làm quen cứ thưa dần. Cuộc sống người lớn vốn chẳng chừa chỗ cho tình bạn tự nhiên nảy nở.</span><span class="en">After 25, the "random contexts" for making friends disappear. Adult life simply isn't built for friendships to form on their own.</span></p>
+    </div>
+    <div class="problem-grid">
+      <div class="prob-card rv rv-d1">
+        <div class="prob-num">500+</div>
+        <div class="prob-title"><span class="vi">Người theo dõi</span><span class="en">Followers</span></div>
+        <div class="prob-desc"><span class="vi">Nhưng 11 giờ đêm, khi thèm một câu chuyện tử tế, chẳng biết gọi cho ai.</span><span class="en">But at 11pm when you want a real conversation — no one calls.</span></div>
       </div>
-
-      <!-- RIGHT: NOT / IS / checks -->
-      <div class="mf-right rv">
-        <div class="mf-label"><span class="vi">Kèo không phải là…</span><span class="en">Kèo is not…</span></div>
-        <div class="mf-not">
-          <div class="mf-not-line"><span class="vi">Hẹn hò.</span><span class="en">Dating.</span></div><br>
-          <div class="mf-not-line"><span class="vi">Networking.</span><span class="en">Networking.</span></div>
-        </div>
-        <div class="mf-is">
-          <div class="mf-is-line"><span class="vi">Là <em>người đồng hành</em><br>có chuyên môn.</span><span class="en">It's an <em>expert companion</em><br>for real conversation.</span></div>
-        </div>
-        <div class="mf-checks">
-          <div class="mf-ck">
-            <div class="mf-ck-icon">✓</div>
-            <div class="mf-ck-body">
-              <div class="mf-ck-title"><span class="vi">Trả công minh bạch</span><span class="en">Transparent compensation</span></div>
-              <div class="mf-ck-desc"><span class="vi">Giá hiển thị rõ ràng — không tip ngầm, không phí bất ngờ.</span><span class="en">Price shown upfront — no hidden tips, no surprise fees.</span></div>
-            </div>
-          </div>
-          <div class="mf-ck">
-            <div class="mf-ck-icon">✓</div>
-            <div class="mf-ck-body">
-              <div class="mf-ck-title"><span class="vi">Người thật, việc thật</span><span class="en">Real people, real expertise</span></div>
-              <div class="mf-ck-desc"><span class="vi">CCCD, hồ sơ chuyên môn, đánh giá công khai sau mỗi buổi.</span><span class="en">ID verified, professional profile, public reviews after each session.</span></div>
-            </div>
-          </div>
-          <div class="mf-ck">
-            <div class="mf-ck-icon">✓</div>
-            <div class="mf-ck-body">
-              <div class="mf-ck-title"><span class="vi">Có câu chuyện rõ ràng</span><span class="en">A real conversation, not small talk</span></div>
-              <div class="mf-ck-desc"><span class="vi">Không phải ngồi nhìn nhau.</span><span class="en">Not just staring at each other.</span></div>
-            </div>
-          </div>
-        </div>
+      <div class="prob-card rv rv-d2">
+        <div class="prob-num">0</div>
+        <div class="prob-title"><span class="vi">Bối cảnh mới</span><span class="en">New contexts</span></div>
+        <div class="prob-desc"><span class="vi">Lớp học, ký túc xá đã xa. Những nơi ta vô tình gặp người hợp gu cũng không còn.</span><span class="en">No more classrooms or dorms — the places you'd naturally meet like-minded people.</span></div>
       </div>
-
+      <div class="prob-card rv rv-d3">
+        <div class="prob-num">1</div>
+        <div class="prob-title"><span class="vi">Bữa tối một mình</span><span class="en">Dinner alone</span></div>
+        <div class="prob-desc"><span class="vi">Có những bữa ăn, những triển lãm đáng lẽ nên có một người ngồi cùng.</span><span class="en">Some meals, some exhibitions deserve someone to share them with.</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════ MODEL EXPLAINER ════ -->
-<section class="sec sec-model" id="model">
+<!-- SOLUTION / MANIFESTO -->
+<section class="sec se">
+  <div class="sec-glow" style="background:radial-gradient(circle,var(--a),transparent 70%);top:-100px;right:-80px;width:400px;height:400px"></div>
   <div class="sec-in">
-    <div class="ey" style="color:var(--a)">Mô hình</div>
-    <h2 class="sec-title">Hai vai trong <em>một Kèo</em></h2>
-    <p class="sec-sub">Kèo hoạt động như một marketplace: một người muốn gặp gỡ, một người có chuyên môn và câu chuyện để chia sẻ.</p>
+    <div class="center-head rv">
+      <div class="ey center"><span class="vi">Giải pháp</span><span class="en">The solution</span></div>
+      <h2 class="stitle"><span class="vi">Kèo không phải là...</span><span class="en">Kèo is not...</span></h2>
+    </div>
+    <div class="mani">
+      <div class="mani-left rv rv-d1">
+        <div class="mani-nots">
+          <div class="mani-not"><span class="x">✕</span><s><span class="vi">Hẹn hò</span><span class="en">Dating</span></s></div>
+          <div class="mani-not"><span class="x">✕</span><s><span class="vi">Networking</span><span class="en">Networking</span></s></div>
+          <div class="mani-not"><span class="x">✕</span><s><span class="vi">Thuê người lắng nghe</span><span class="en">Renting a listener</span></s></div>
+        </div>
+        <div class="mani-is">
+          <div class="mani-is-label"><span class="vi">Kèo là</span><span class="en">Kèo is</span></div>
+          <div class="mani-is-text"><span class="vi">Một <em>người đồng hành</em> có nghề, cho một cuộc chuyện trò đúng nghĩa.</span><span class="en">An <em>expert companion</em> for a genuine conversation.</span></div>
+        </div>
+      </div>
+      <div class="mani-checks">
+        <div class="mani-ck rv rv-d1">
+          <div class="mani-ck-ic">✓</div>
+          <div><div class="mani-ck-title"><span class="vi">Người thật, việc thật</span><span class="en">Real people, real expertise</span></div><div class="mani-ck-desc"><span class="vi">Xác minh CCCD, hồ sơ rõ ràng, và đánh giá công khai sau mỗi lần gặp.</span><span class="en">ID verified, professional profiles, public reviews after each session.</span></div></div>
+        </div>
+        <div class="mani-ck rv rv-d2">
+          <div class="mani-ck-ic">✓</div>
+          <div><div class="mani-ck-title"><span class="vi">Minh bạch từ đầu</span><span class="en">Transparent upfront</span></div><div class="mani-ck-desc"><span class="vi">Giá niêm yết minh bạch — không tip ngầm, không phí phát sinh.</span><span class="en">Prices shown clearly — no hidden tips, no surprise fees.</span></div></div>
+        </div>
+        <div class="mani-ck rv rv-d3">
+          <div class="mani-ck-ic">✓</div>
+          <div><div class="mani-ck-title"><span class="vi">Địa điểm công cộng</span><span class="en">Public venues only</span></div><div class="mani-ck-desc"><span class="vi">Mọi cuộc gặp đều ở quán xá, gallery hay nơi công cộng.</span><span class="en">Every meetup happens at cafés, galleries, public spaces.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- MODEL -->
+<section class="sec sd" id="model" style="scroll-margin-top:66px">
+  <div class="sec-in">
+    <div class="center-head rv">
+      <div class="ey center"><span class="vi">Mô hình</span><span class="en">The model</span></div>
+      <h2 class="stitle"><span class="vi">Hai vai trong <em>một Kèo</em></span><span class="en">Two roles in <em>one Kèo</em></span></h2>
+      <p class="ssub"><span class="vi">Một người muốn gặp. Một người có điều để kể. Kèo đứng giữa, kết nối an toàn.</span><span class="en">One person wants to meet. One has expertise to share. Kèo connects them safely.</span></p>
+    </div>
+    <div class="model-illo rv">
+      <svg viewBox="0 0 560 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="illoG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient>
+          <radialGradient id="illoGlow" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="var(--a)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--a)" stop-opacity="0"/></radialGradient>
+          <linearGradient id="tableG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--a)" stop-opacity=".22"/><stop offset="100%" stop-color="var(--a)" stop-opacity=".08"/></linearGradient>
+        </defs>
+
+        <!-- ambient glow -->
+        <ellipse cx="280" cy="130" rx="180" ry="110" fill="url(#illoGlow)"/>
+
+        <!-- floating chat bubbles above -->
+        <g class="illo-bubble illo-b1">
+          <rect x="196" y="30" width="52" height="34" rx="14" fill="var(--a)" opacity=".9"/>
+          <path d="M212 62 L206 74 L224 63 Z" fill="var(--a)" opacity=".9"/>
+          <circle cx="212" cy="47" r="3.5" fill="#fff"/><circle cx="222" cy="47" r="3.5" fill="#fff"/><circle cx="232" cy="47" r="3.5" fill="#fff"/>
+        </g>
+        <g class="illo-bubble illo-b2">
+          <rect x="312" y="24" width="46" height="30" rx="12" fill="var(--i2)" opacity=".28"/>
+          <path d="M340 52 L346 62 L330 53 Z" fill="var(--i2)" opacity=".28"/>
+          <path d="M322 39 h24 M322 45 h16" stroke="var(--bg)" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- LEFT cartoon person -->
+        <g class="illo-person illo-left">
+          <!-- body/shirt -->
+          <path d="M118 232 Q118 176 150 176 Q182 176 182 232 Z" fill="url(#illoG)"/>
+          <!-- neck -->
+          <rect x="142" y="158" width="16" height="20" rx="7" fill="#E8B89A"/>
+          <!-- head -->
+          <circle cx="150" cy="132" r="30" fill="#F2C9A8"/>
+          <!-- hair -->
+          <path d="M120 130 Q118 100 150 100 Q182 100 180 130 Q180 116 150 114 Q120 116 120 130 Z" fill="#3A2B22"/>
+          <path d="M120 130 Q116 118 122 108 L126 128 Z" fill="#3A2B22"/>
+          <!-- face -->
+          <circle cx="140" cy="132" r="3" fill="#2B2018"/>
+          <circle cx="160" cy="132" r="3" fill="#2B2018"/>
+          <path d="M144 144 Q150 149 156 144" stroke="#B5705A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <circle cx="135" cy="140" r="4" fill="#E89A82" opacity=".5"/>
+          <circle cx="165" cy="140" r="4" fill="#E89A82" opacity=".5"/>
+          <!-- arm resting on table -->
+          <path d="M172 200 Q200 206 216 214" stroke="#E8B89A" stroke-width="11" stroke-linecap="round" fill="none"/>
+        </g>
+
+        <!-- RIGHT cartoon person -->
+        <g class="illo-person illo-right">
+          <path d="M378 232 Q378 176 410 176 Q442 176 442 232 Z" fill="var(--i2)" opacity=".85"/>
+          <rect x="402" y="158" width="16" height="20" rx="7" fill="#D9A57E"/>
+          <circle cx="410" cy="132" r="30" fill="#E8B996"/>
+          <!-- hair bun style -->
+          <path d="M380 130 Q378 100 410 100 Q442 100 440 130 Q440 114 410 112 Q380 114 380 130 Z" fill="#4A2E1F"/>
+          <circle cx="410" cy="98" r="10" fill="#4A2E1F"/>
+          <circle cx="400" cy="132" r="3" fill="#2B2018"/>
+          <circle cx="420" cy="132" r="3" fill="#2B2018"/>
+          <path d="M404 144 Q410 149 416 144" stroke="#B5705A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <circle cx="395" cy="140" r="4" fill="#E89A82" opacity=".5"/>
+          <circle cx="425" cy="140" r="4" fill="#E89A82" opacity=".5"/>
+          <path d="M388 200 Q360 206 344 214" stroke="#E8B996" stroke-width="11" stroke-linecap="round" fill="none"/>
+        </g>
+
+        <!-- TABLE -->
+        <ellipse cx="280" cy="216" rx="86" ry="20" fill="url(#tableG)" stroke="var(--a)" stroke-width="2" stroke-opacity=".4"/>
+
+        <!-- two coffee cups -->
+        <g class="illo-cup">
+          <rect x="246" y="198" width="22" height="16" rx="4" fill="#fff" stroke="var(--a)" stroke-width="2"/>
+          <path d="M268 202 Q276 202 276 207 Q276 212 268 212" stroke="var(--a)" stroke-width="2" fill="none"/>
+          <path d="M252 192 Q249 187 252 183 M260 192 Q263 187 260 183" stroke="var(--a)" stroke-width="1.6" stroke-linecap="round" opacity=".55" class="illo-steam"/>
+        </g>
+        <g class="illo-cup">
+          <rect x="292" y="198" width="22" height="16" rx="4" fill="#fff" stroke="var(--a)" stroke-width="2"/>
+          <path d="M314 202 Q322 202 322 207 Q322 212 314 212" stroke="var(--a)" stroke-width="2" fill="none"/>
+          <path d="M298 192 Q295 187 298 183 M306 192 Q309 187 306 183" stroke="var(--a)" stroke-width="1.6" stroke-linecap="round" opacity=".55" class="illo-steam"/>
+        </g>
+
+        <!-- brand mark spark between them -->
+        <g class="illo-spark">
+          <circle cx="280" cy="88" r="7" fill="url(#illoG)"/>
+          <path d="M266 118 L280 94 L294 118" stroke="url(#illoG)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </g>
+      </svg>
+    </div>
     <div class="model-layout">
-
-      <!-- Card 1: Chủ xị -->
-      <div class="model-card rv">
+      <div class="model-card rv rv-d1">
         <div class="model-card-hd">
           <div class="model-icon">👑</div>
-          <div>
-            <div class="model-role">Chủ xị</div>
-            <div class="model-role-sub">Người đặt Kèo & trả thù lao</div>
-          </div>
+          <div><div class="model-role"><span class="vi">Chủ xị</span><span class="en">Host</span></div><div class="model-role-sub"><span class="vi">Người đặt Kèo & trả thù lao</span><span class="en">Books the Kèo & pays</span></div></div>
         </div>
-        <div class="model-card-body">
-          <p class="model-desc">Bạn có điều muốn tìm hiểu, trải nghiệm muốn thử, hoặc đơn giản là không muốn ăn tối một mình. Bạn tìm người đồng hành phù hợp và đặt Kèo.</p>
+        <div class="model-body">
+          <p class="model-desc"><span class="vi">Bạn có điều tò mò muốn hiểu, trải nghiệm muốn thử, hay chỉ là không muốn ăn tối một mình.</span><span class="en">You have something to explore, an experience to try, or simply don't want to dine alone.</span></p>
           <div class="model-items">
-            <div class="model-item"><span class="model-dot"></span>Chọn người đồng hành theo lĩnh vực</div>
-            <div class="model-item"><span class="model-dot"></span>Đặt buổi gặp — cà phê, bữa tối, triển lãm</div>
-            <div class="model-item"><span class="model-dot"></span>Trả thù lao qua Kèo, an toàn & minh bạch</div>
+            <div class="model-item"><span class="model-dot"></span><span class="vi">Chọn người đồng hành theo lĩnh vực</span><span class="en">Choose a companion by field</span></div>
+            <div class="model-item"><span class="model-dot"></span><span class="vi">Đặt buổi gặp — cà phê, bữa tối, triển lãm</span><span class="en">Book a meetup — coffee, dinner, gallery</span></div>
+            <div class="model-item"><span class="model-dot"></span><span class="vi">Trả thù lao qua Kèo, an toàn</span><span class="en">Pay through Kèo, safely</span></div>
           </div>
-          <a href="/chu-xi" class="model-cta">Tôi muốn đặt Kèo →</a>
+          <a href="/chu-xi" class="model-cta"><span class="vi">Tôi muốn đặt Kèo →</span><span class="en">I want to book →</span></a>
         </div>
       </div>
-
-      <!-- Connector -->
-      <div class="model-connector rv">
-        <div class="model-conn-line"></div>
-        <div class="model-conn-badge">
-          <div class="model-conn-icon">🌿</div>
-          <div class="model-conn-label">Kèo</div>
-          <div class="model-conn-sub">buổi gặp gỡ</div>
-        </div>
-        <div class="model-conn-line"></div>
-        <div class="model-fee-note">12% phí dịch vụ<br>trích từ thù lao</div>
+      <div class="model-mid rv rv-d2">
+        <div class="model-mid-line"></div>
+        <div class="model-mid-badge"><div class="model-mid-ic">🌿</div><div class="model-mid-label">Kèo</div><div class="model-mid-sub"><span class="vi">buổi gặp</span><span class="en">the meetup</span></div></div>
+        <div class="model-mid-line"></div>
+        <div class="model-fee"><span class="vi">12% phí dịch vụ<br>trích từ thù lao</span><span class="en">12% service fee<br>from companion</span></div>
       </div>
-
-      <!-- Card 2: Người đồng hành -->
-      <div class="model-card rv">
+      <div class="model-card rv rv-d3">
         <div class="model-card-hd">
           <div class="model-icon">🌿</div>
-          <div>
-            <div class="model-role">Người đồng hành</div>
-            <div class="model-role-sub">Người chia sẻ & nhận thù lao</div>
-          </div>
+          <div><div class="model-role"><span class="vi">Người đồng hành</span><span class="en">Companion</span></div><div class="model-role-sub"><span class="vi">Người chia sẻ & nhận thù lao</span><span class="en">Shares & earns</span></div></div>
         </div>
-        <div class="model-card-body">
-          <p class="model-desc">Bạn có chuyên môn, câu chuyện, hoặc đơn giản là khả năng tạo ra một cuộc trò chuyện thật sự có giá trị. Bạn đăng ký, được Kèo duyệt, và nhận thù lao.</p>
+        <div class="model-body">
+          <p class="model-desc"><span class="vi">Bạn có nghề, có chuyện để kể, hay đơn giản là biết cách khiến một cuộc trò chuyện trở nên đáng nhớ.</span><span class="en">You have expertise, stories, or the ability to hold a valuable conversation.</span></p>
           <div class="model-items">
-            <div class="model-item"><span class="model-dot"></span>Đăng ký hồ sơ — Kèo duyệt trong 24h</div>
-            <div class="model-item"><span class="model-dot"></span>Tự đặt khung giờ và mức thù lao</div>
-            <div class="model-item"><span class="model-dot"></span>Nhận tiền sau mỗi buổi, trừ 12% phí</div>
+            <div class="model-item"><span class="model-dot"></span><span class="vi">Đăng ký hồ sơ — Kèo duyệt trong 24h</span><span class="en">Apply — reviewed within 24h</span></div>
+            <div class="model-item"><span class="model-dot"></span><span class="vi">Tự đặt khung giờ và mức thù lao</span><span class="en">Set your own hours and rate</span></div>
+            <div class="model-item"><span class="model-dot"></span><span class="vi">Nhận tiền sau mỗi buổi, trừ 12%</span><span class="en">Earn after each session, minus 12%</span></div>
           </div>
-          <a href="/nguoi-dong-hanh-dang-ky" class="model-cta">Tôi muốn đồng hành →</a>
+          <a href="/nguoi-dong-hanh-dang-ky" class="model-cta"><span class="vi">Tôi muốn đồng hành →</span><span class="en">I want to be a companion →</span></a>
         </div>
       </div>
-
-    </div><!-- /model-layout -->
-  </div>
-</section>
-
-<!-- ════ HOW IT WORKS — amber mood ════ -->
-<div class="stripe"></div>
-<section class="sec sec-how" id="how">
-  <div class="sec-in">
-    <div class="ey"><span class="vi">Cách hoạt động</span><span class="en">How it works</span></div>
-    <h2 class="sec-title"><span class="vi">Từ đăng ký đến buổi gặp <em>đầu tiên</em></span><span class="en">From sign-up to your <em>first session</em></span></h2>
-    <div class="how-tabs">
-      <button class="htab on" data-p="host"><span class="vi">👑 Tôi là Chủ xị</span><span class="en">👑 I'm a Host</span></button>
-      <button class="htab" data-p="comp"><span class="vi">🌿 Người đồng hành</span><span class="en">🌿 I'm a Companion</span></button>
-    </div>
-    <div class="hpanel on" id="hp-host">
-      <div class="steps">
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">📝</span><span class="stit"><span class="vi">Đăng ký hồ sơ</span><span class="en">Register</span></span></div><span class="step-n">01</span></div><div class="sdesc"><span class="vi">Điền thông tin cơ bản — Kèo duyệt trong 24h</span><span class="en">Fill basic info — Kèo reviews within 24h</span></div></div>
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">🔗</span><span class="stit"><span class="vi">Nhận link tạo Kèo</span><span class="en">Get your link</span></span></div><span class="step-n">02</span></div><div class="sdesc"><span class="vi">Kèo gửi link tạo buổi gặp qua Zalo</span><span class="en">Kèo sends a session link via Zalo</span></div></div>
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">💳</span><span class="stit"><span class="vi">Tạo &amp; chuyển khoản</span><span class="en">Create &amp; pay</span></span></div><span class="step-n">03</span></div><div class="sdesc"><span class="vi">Điền địa điểm, thời gian, thù lao. Kèo giữ tiền an toàn</span><span class="en">Fill venue, time, fee. Kèo holds payment securely</span></div></div>
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">✨</span><span class="stit"><span class="vi">Gặp gỡ &amp; trò chuyện</span><span class="en">Meet &amp; connect</span></span></div><span class="step-n">04</span></div><div class="sdesc"><span class="vi">Kèo match trong 24h. Gặp tại địa điểm đã chọn</span><span class="en">Kèo matches within 24h at your chosen venue</span></div></div>
-      </div>
-      <div class="how-cta"><a href="/register#host" class="rg-trigger"><span class="vi">Đăng ký làm Chủ xị →</span><span class="en">Register as Host →</span></a></div>
-    </div>
-    <div class="hpanel" id="hp-comp">
-      <div class="steps">
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">🌿</span><span class="stit"><span class="vi">Điền hồ sơ</span><span class="en">Fill profile</span></span></div><span class="step-n">01</span></div><div class="sdesc"><span class="vi">Chia sẻ lĩnh vực, kỹ năng và gói dịch vụ</span><span class="en">Share your field, skills and service packages</span></div></div>
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">✅</span><span class="stit"><span class="vi">Kèo duyệt hồ sơ</span><span class="en">Kèo reviews</span></span></div><span class="step-n">02</span></div><div class="sdesc"><span class="vi">Kèo liên hệ qua Zalo trong 24h để xác nhận</span><span class="en">Kèo contacts you via Zalo within 24h to confirm</span></div></div>
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">🤝</span><span class="stit"><span class="vi">Được match</span><span class="en">Get matched</span></span></div><span class="step-n">03</span></div><div class="sdesc"><span class="vi">Khi có Chủ xị phù hợp, Kèo hỏi bạn có muốn tham gia không</span><span class="en">When a suitable Host appears, Kèo asks if you'd like to join</span></div></div>
-        <div class="step rv"><div class="step-cap"><div class="step-cap-info"><span class="stic">💰</span><span class="stit"><span class="vi">Nhận thù lao</span><span class="en">Get paid</span></span></div><span class="step-n">04</span></div><div class="sdesc"><span class="vi">Kèo chuyển tiền ngay sau buổi. Phí 12% trừ trực tiếp — Host không phụ trả thêm.</span><span class="en">Paid right after. 12% deducted from listed fee — Host pays nothing extra.</span></div></div>
-      </div>
-      <div class="how-cta"><a href="/register#companion" class="rg-trigger"><span class="vi">Đăng ký làm Người đồng hành →</span><span class="en">Register as Companion →</span></a></div>
-      <div class="how-note"><span class="vi">Miễn phí · Không giới hạn số buổi · Bạn tự quyết lịch</span><span class="en">Free · Unlimited sessions · You set your schedule</span></div>
     </div>
   </div>
 </section>
 
-<!-- ════ COMPANIONS — teal mood ════ -->
-<div class="stripe"></div>
-<section class="sec sec-comp" id="dang-ky" style="padding-bottom:44px">
+<!-- HOW IT WORKS -->
+<section class="sec se">
   <div class="sec-in">
-    <div class="chd">
-      <div>
-        <div class="ey"><span class="vi">Người đồng hành</span><span class="en">Companions</span></div>
-        <h2 class="sec-title" style="margin-bottom:0"><span class="vi">86+ người đồng hành <em>đang sẵn sàng</em></span><span class="en">86+ companions <em>ready to meet</em></span></h2>
-      </div>
-      <a href="/nguoidonghanh"><span class="vi">Xem tất cả →</span><span class="en">See all →</span></a>
+    <div class="center-head rv">
+      <div class="ey center"><span class="vi">Cách hoạt động</span><span class="en">How it works</span></div>
+      <h2 class="stitle"><span class="vi">Từ đăng ký đến <em>buổi gặp đầu tiên</em></span><span class="en">From sign-up to your <em>first meetup</em></span></h2>
     </div>
-  </div>
-  <div class="cscroll" style="margin-top:22px">
-    <div class="ctrack" style="padding:0 48px">
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">L</div><div><div class="sc-name">Lan Anh</div><div class="sc-role">UX Designer · Freelance</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Thiết kế</span><span class="sc-t">Startup</span><span class="sc-t">Cà phê</span></div><div class="sc-desc">Thiết kế không chỉ là thẩm mỹ — đó là tư duy.</div><div class="sc-c">📍 Sài Gòn · 300–500k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">T</div><div><div class="sc-name">Tuấn Minh</div><div class="sc-role">Thời trang &amp; Phong cách</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Bữa tối</span><span class="sc-t">Âm nhạc</span><span class="sc-t l">EN</span></div><div class="sc-desc">Phong cách là ngôn ngữ không cần lời.</div><div class="sc-c">📍 Sài Gòn · 500k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">H</div><div><div class="sc-name">Hương Giang</div><div class="sc-role">Hương học &amp; Tâm lý</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Cà phê</span></div><div class="sc-desc">Mỗi mùi hương kể một câu chuyện riêng.</div><div class="sc-c">📍 Sài Gòn · 500k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">M</div><div><div class="sc-name">Minh Đức</div><div class="sc-role">Tâm lý &amp; Tarot</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Cà phê</span><span class="sc-t l">EN</span></div><div class="sc-desc">Tâm hồn thực tế trong thế giới mơ mộng.</div><div class="sc-c">📍 Hà Nội · 300k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">A</div><div><div class="sc-name">Anh Thư</div><div class="sc-role">Kinh doanh &amp; Khởi nghiệp</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Bữa tối</span><span class="sc-t l">EN</span></div><div class="sc-desc">Câu hỏi đúng thay đổi hướng đi.</div><div class="sc-c">📍 Sài Gòn · 500k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">K</div><div><div class="sc-name">Khánh Linh</div><div class="sc-role">Nghệ thuật &amp; Hội họa</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Triển lãm</span></div><div class="sc-desc">Màu sắc nói điều ngôn ngữ không nói được.</div><div class="sc-c">📍 Hà Nội · 200k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">P</div><div><div class="sc-name">Phúc An</div><div class="sc-role">Thể thao &amp; Sức khỏe</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Cà phê</span><span class="sc-t">Dã ngoại</span></div><div class="sc-desc">Thói quen tốt không cần ý chí — chỉ cần hệ thống.</div><div class="sc-c">📍 Đà Nẵng · 300k/buổi</div></div></div>
-      <div class="sc rv"><div class="sc-h"><div class="sc-av">N</div><div><div class="sc-name">Nam Phương</div><div class="sc-role">Tài chính &amp; Đầu tư</div></div></div><div class="sc-b"><div class="sc-tags"><span class="sc-t">Bữa tối</span><span class="sc-t l">JP</span></div><div class="sc-desc">Tiền là công cụ — hiểu đúng mới dùng đúng.</div><div class="sc-c">📍 Hà Nội · 500k/buổi</div></div></div>
+    <div class="steps">
+      <div class="step rv rv-d1">
+        <div class="step-num">1</div>
+        <div class="step-title"><span class="vi">Chọn người</span><span class="en">Choose</span></div>
+        <div class="step-desc"><span class="vi">Lướt qua hồ sơ người đồng hành, lọc theo lĩnh vực, thành phố hay mức giá.</span><span class="en">Browse companion profiles by field, city, and price.</span></div>
+        <div class="step-conn">→</div>
+      </div>
+      <div class="step rv rv-d2">
+        <div class="step-num">2</div>
+        <div class="step-title"><span class="vi">Đặt Kèo</span><span class="en">Book</span></div>
+        <div class="step-desc"><span class="vi">Chọn buổi gặp, chốn hẹn và giờ giấc. Kèo giữ tiền giúp bạn.</span><span class="en">Pick the meetup, venue, and time. Kèo holds payment safely.</span></div>
+        <div class="step-conn">→</div>
+      </div>
+      <div class="step rv rv-d3">
+        <div class="step-num">3</div>
+        <div class="step-title"><span class="vi">Gặp gỡ</span><span class="en">Meet</span></div>
+        <div class="step-desc"><span class="vi">Gặp nhau ở nơi công cộng. Chuyện trò, học hỏi, kết nối.</span><span class="en">Meet at a public venue. Talk, learn, connect.</span></div>
+        <div class="step-conn">→</div>
+      </div>
+      <div class="step rv rv-d4">
+        <div class="step-num">4</div>
+        <div class="step-title"><span class="vi">Đánh giá</span><span class="en">Review</span></div>
+        <div class="step-desc"><span class="vi">Để lại vài dòng đánh giá. Kèo chuyển thù lao cho người đồng hành.</span><span class="en">Leave a public review. Payment is released to the companion.</span></div>
+      </div>
+    </div>
+    <div class="stats-band rv">
+      <div class="stat-cell"><div class="stat-n" data-count="89">0</div><div class="stat-l"><span class="vi">Người đồng hành</span><span class="en">Companions</span></div></div>
+      <div class="stat-cell"><div class="stat-n" data-count="3">0</div><div class="stat-l"><span class="vi">Thành phố</span><span class="en">Cities</span></div></div>
+      <div class="stat-cell"><div class="stat-n" data-count="17">0</div><div class="stat-l"><span class="vi">Lĩnh vực</span><span class="en">Fields</span></div></div>
+      <div class="stat-cell"><div class="stat-n" data-suffix="%">12</div><div class="stat-l"><span class="vi">Phí dịch vụ</span><span class="en">Service fee</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ════ SAFETY — indigo mood ════ -->
-<div class="stripe"></div>
-<section class="sec sec-safe">
+<!-- COMPANIONS PREVIEW -->
+<section class="sec sd">
   <div class="sec-in">
-    <div class="slayout">
-      <div class="scopy">
-        <div class="ey"><span class="vi">An toàn &amp; minh bạch</span><span class="en">Safe &amp; Transparent</span></div>
-        <h2 class="sec-title"><span class="vi">Được thiết kế để bạn <em>an tâm</em></span><span class="en">Designed so you <em>feel at ease</em></span></h2>
-        <p><span class="vi">Mọi buổi gặp gỡ tại địa điểm công cộng đã xác minh. Thù lao của bạn luôn được bảo vệ.</span><span class="en">Every session at a verified public venue. Your fee is always protected.</span></p>
-      </div>
-      <div class="sitems">
-        <div class="si rv"><div class="siic">📍</div><div><div class="sit"><span class="vi">Địa điểm công cộng 100%</span><span class="en">100% Public Venues</span></div><div class="sid"><span class="vi">Mọi Kèo diễn ra tại nhà hàng, quán cà phê hoặc triển lãm. Không bao giờ tại nhà riêng.</span><span class="en">Every Keo at a restaurant, cafe or gallery. Never at a private home.</span></div></div></div>
-        <div class="si rv"><div class="siic">🔒</div><div><div class="sit"><span class="vi">Thù lao được bảo vệ</span><span class="en">Fees Protected</span></div><div class="sid"><span class="vi">Tiền chuyển khoản trước, Kèo giữ và giải ngân ngay sau sự kiện.</span><span class="en">Payment held upfront and released right after the session.</span></div></div></div>
-        <div class="si rv"><div class="siic">✅</div><div><div class="sit"><span class="vi">Xác minh danh tính</span><span class="en">Identity Verified</span></div><div class="sid"><span class="vi">Cả Chủ xị và Người đồng hành đều xác minh CCCD trước khi tham gia.</span><span class="en">Both Host and Companion verify their ID before joining.</span></div></div></div>
-      </div>
+    <div class="center-head rv">
+      <div class="ey center"><span class="vi">Người đồng hành</span><span class="en">Companions</span></div>
+      <h2 class="stitle"><span class="vi">89 người <em>đang chờ bạn</em></span><span class="en">89 people <em>ready to meet</em></span></h2>
+      <p class="ssub"><span class="vi">Từ UX designer đến đầu bếp, từ người viết đến kẻ mê rượu vang — mỗi người là một thế giới.</span><span class="en">From UX designers to chefs, writers to wine lovers — each brings a world of their own.</span></p>
     </div>
-    <!-- Safety banner -->
-    <a href="/rules" class="safe-banner">
-      <div class="sb-left">
-        <div class="sb-icon">🛡</div>
-        <div>
-          <div class="sb-t"><span class="vi">Hướng dẫn an toàn &amp; Quy tắc ứng xử</span><span class="en">Safety Guide &amp; Code of Conduct</span></div>
-          <div class="sb-d"><span class="vi">Kèo hoạt động hợp pháp tại Việt Nam. Mọi hành vi vi phạm bị xóa tài khoản vĩnh viễn.</span><span class="en">Kèo operates legally in Vietnam. Violations result in permanent account removal.</span></div>
+    <div class="comp-scroll">
+      <div class="cc rv rv-d1"><div class="cc-hd"><div class="cc-av">L</div><div><div class="cc-name">Lan Anh</div><div class="cc-role">UX Designer</div></div></div><div class="cc-body"><div class="cc-quote"><span class="vi">"Dẫn bạn qua một triển lãm khó quên."</span><span class="en">"A gallery walk you won't forget."</span></div><div class="cc-foot"><div class="cc-fee">300k<small>/<span class="vi">buổi</span><span class="en">session</span></small></div><div class="cc-loc">Sài Gòn</div></div></div></div>
+      <div class="cc rv rv-d2"><div class="cc-hd"><div class="cc-av">T</div><div><div class="cc-name">Tuấn Minh</div><div class="cc-role"><span class="vi">Thời trang</span><span class="en">Fashion</span></div></div></div><div class="cc-body"><div class="cc-quote"><span class="vi">"Người bạn có gu, biết lắng nghe."</span><span class="en">"A stylish friend who listens."</span></div><div class="cc-foot"><div class="cc-fee">500k<small>/<span class="vi">buổi</span><span class="en">session</span></small></div><div class="cc-loc">Sài Gòn</div></div></div></div>
+      <div class="cc rv rv-d3"><div class="cc-hd"><div class="cc-av">H</div><div><div class="cc-name">Hương</div><div class="cc-role"><span class="vi">Tâm lý</span><span class="en">Psychology</span></div></div></div><div class="cc-body"><div class="cc-quote"><span class="vi">"Trò chuyện sâu về điều bạn đang trăn trở."</span><span class="en">"Deep talk about what weighs on you."</span></div><div class="cc-foot"><div class="cc-fee">400k<small>/<span class="vi">buổi</span><span class="en">session</span></small></div><div class="cc-loc">Hà Nội</div></div></div></div>
+      <div class="cc rv rv-d4"><div class="cc-hd"><div class="cc-av">D</div><div><div class="cc-name">Đức</div><div class="cc-role"><span class="vi">Ẩm thực</span><span class="en">Culinary</span></div></div></div><div class="cc-body"><div class="cc-quote"><span class="vi">"Khám phá ẩm thực đường phố đúng điệu."</span><span class="en">"Real street food, done right."</span></div><div class="cc-foot"><div class="cc-fee">350k<small>/<span class="vi">buổi</span><span class="en">session</span></small></div><div class="cc-loc">Đà Nẵng</div></div></div></div>
+    </div>
+    <div class="comp-cta"><a href="/nguoidonghanh" class="btn-soft"><span class="vi">Xem tất cả người đồng hành →</span><span class="en">See all companions →</span></a></div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="sec se">
+  <div class="sec-glow" style="background:radial-gradient(circle,var(--indigo),transparent 70%);bottom:-100px;left:-80px;width:400px;height:400px;opacity:.1"></div>
+  <div class="sec-in">
+    <div class="center-head rv">
+      <div class="ey center"><span class="vi">An toàn</span><span class="en">Safety</span></div>
+      <h2 class="stitle"><span class="vi">Được thiết kế để bạn <em>an tâm</em></span><span class="en">Designed so you <em>feel at ease</em></span></h2>
+    </div>
+    <div class="safe-grid">
+      <div class="safe-card rv rv-d1"><div class="safe-ic">🪪</div><div class="safe-title"><span class="vi">Xác minh danh tính</span><span class="en">ID verified</span></div><div class="safe-desc"><span class="vi">Ai muốn làm người đồng hành đều phải xác minh CCCD trước.</span><span class="en">Every companion verifies their ID before approval.</span></div></div>
+      <div class="safe-card rv rv-d2"><div class="safe-ic">📍</div><div class="safe-title"><span class="vi">Nơi công cộng</span><span class="en">Public places</span></div><div class="safe-desc"><span class="vi">Mọi cuộc gặp đều ở quán, gallery hay không gian mở.</span><span class="en">All meetups happen at cafés, galleries, open spaces.</span></div></div>
+      <div class="safe-card rv rv-d3"><div class="safe-ic">💳</div><div class="safe-title"><span class="vi">Thanh toán an toàn</span><span class="en">Safe payment</span></div><div class="safe-desc"><span class="vi">Kèo giữ tiền cho tới khi gặp xong. Không đưa tay trực tiếp.</span><span class="en">Kèo holds payment until the meetup is done. No cash.</span></div></div>
+      <div class="safe-card rv rv-d4"><div class="safe-ic">⭐</div><div class="safe-title"><span class="vi">Đánh giá công khai</span><span class="en">Public reviews</span></div><div class="safe-desc"><span class="vi">Đánh giá sau mỗi lần gặp giữ cho cộng đồng luôn minh bạch.</span><span class="en">Reviews after each session keep the community transparent.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="sec sd">
+  <div class="sec-in">
+    <div class="center-head rv">
+      <div class="ey center"><span class="vi">Khoa học kết nối</span><span class="en">The science of connection</span></div>
+      <h2 class="stitle"><span class="vi">Đọc về <em>kết nối người với người</em></span><span class="en">Read about <em>human connection</em></span></h2>
+    </div>
+    <div class="blog-grid">
+      <a href="/kho-ket-ban-sau-25-tuoi" class="blog-feat rv rv-d1">
+        <div class="blog-feat-hd">
+          <span class="blog-feat-tag"><span class="vi">Bài nổi bật</span><span class="en">Featured</span></span>
+          <svg viewBox="0 0 400 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="bfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient>
+            </defs>
+            <!-- city skyline silhouette -->
+            <g opacity=".18" fill="var(--ink)">
+              <rect x="40" y="120" width="26" height="90"/><rect x="72" y="95" width="30" height="115"/><rect x="108" y="135" width="22" height="75"/>
+              <rect x="270" y="110" width="28" height="100"/><rect x="304" y="90" width="32" height="120"/><rect x="342" y="128" width="20" height="82"/>
+            </g>
+            <!-- connection network dots -->
+            <g>
+              <line x1="150" y1="80" x2="200" y2="115" stroke="var(--a)" stroke-width="1.5" stroke-dasharray="3 5" opacity=".5"/>
+              <line x1="250" y1="80" x2="200" y2="115" stroke="var(--a)" stroke-width="1.5" stroke-dasharray="3 5" opacity=".5"/>
+              <line x1="150" y1="80" x2="250" y2="80" stroke="var(--a)" stroke-width="1.5" stroke-dasharray="3 5" opacity=".35"/>
+              <!-- three person nodes -->
+              <circle cx="150" cy="80" r="22" fill="url(#bfg)"/>
+              <circle cx="150" cy="72" r="7" fill="#fff" opacity=".92"/>
+              <path d="M139 90 Q150 82 161 90" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".92" fill="none"/>
+              <circle cx="250" cy="80" r="22" fill="var(--ink)" opacity=".7"/>
+              <circle cx="250" cy="72" r="7" fill="var(--bg)"/>
+              <path d="M239 90 Q250 82 261 90" stroke="var(--bg)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <circle cx="200" cy="115" r="26" fill="url(#bfg)"/>
+              <circle cx="200" cy="106" r="8" fill="#fff" opacity=".92"/>
+              <path d="M187 126 Q200 116 213 126" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".92" fill="none"/>
+            </g>
+          </svg>
         </div>
-      </div>
-      <div class="sb-btn"><span class="vi">Xem ngay →</span><span class="en">Read now →</span></div>
-    </a>
-  </div>
-</section>
-
-<!-- ════ BLOG — featured + 4 small ════ -->
-<div class="stripe"></div>
-<section class="sec sec-blog" style="padding-top:44px;padding-bottom:44px">
-  <div class="sec-in">
-    <div class="blhd">
-      <div>
-        <div class="ey"><span class="vi">Khoa học kết nối</span><span class="en">Science of Connection</span></div>
-        <h2 class="sec-title" style="margin-bottom:0"><span class="vi">Đọc về <em>kết nối người với người</em></span><span class="en">Read about <em>human connection</em></span></h2>
-      </div>
-      <a href="/khoa-hoc-ket-noi"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
-    </div>
-    <div class="blog-layout" style="margin-top:18px">
-      <!-- featured -->
-      <a href="/kho-ket-ban-sau-25-tuoi" class="bc-feat rv">
-        <div class="bc-badge"><span class="vi">Đô thị · Kết nối</span><span class="en">Urban · Connection</span></div>
-        <div class="bct"><span class="vi">Tại sao người trẻ ngày càng khó kết bạn sau 25 tuổi</span><span class="en">Why Making Friends After 25 Gets Harder</span></div>
-        <div class="bcd"><span class="vi">Không phải vì bạn bận hơn — mà vì cấu trúc cuộc sống người lớn không có chỗ cho những cuộc gặp tình cờ. Không còn lớp học, không còn ký túc xá, không còn không gian nơi bạn tự nhiên ở cạnh người cùng quan tâm đến điều mình yêu thích. Khoa học xã hội gọi đây là "proximity effect" — và đây là cách chủ động tạo ra nó.</span><span class="en">It's not because you're busier — it's that adult life has no built-in structures for accidental connection. No more classes, no dormitories, no shared spaces with people who care about the same things. Social science calls this the "proximity effect" — and here's how to deliberately create it.</span></div>
-        <div class="bc-meta"><div class="bcm"><span class="vi">5 phút đọc</span><span class="en">5 min read</span></div><span class="bc-arr">→</span></div>
+        <div class="blog-feat-body">
+          <div class="bbadge"><span class="vi">Đô thị · Kết nối</span><span class="en">Urban · Connection</span></div>
+          <div class="btitle"><span class="vi">Vì sao qua tuổi 25, kết bạn lại khó đến thế</span><span class="en">Why Making Friends After 25 Gets Harder</span></div>
+          <div class="bmeta"><span class="bmeta-t"><span class="vi">5 phút đọc · Khoa học kết nối</span><span class="en">5 min read · The science of connection</span></span><span class="barr">→</span></div>
+        </div>
       </a>
-      <!-- 4 small -->
-      <div class="bc-grid">
-        <a href="/bua-an-la-nghi-thuc-ket-noi" class="bc-sm rv">
-          <div class="bc-badge"><span class="vi">Nghi thức · Ẩm thực</span><span class="en">Ritual · Food</span></div>
-          <div class="bct"><span class="vi">Tại sao bữa ăn là nghi thức kết nối quan trọng nhất</span><span class="en">Why the Shared Meal Is Humanity's Most Important Ritual</span></div>
-          <div class="bc-meta"><div class="bcm"><span class="vi">5 phút</span><span class="en">5 min</span></div><span class="bc-arr">→</span></div>
+      <div class="blog-side">
+        <a href="/bua-an-la-nghi-thuc-ket-noi" class="bs rv rv-d2" data-n="01">
+          <div><div class="bbadge"><span class="vi">Nghi thức · Ẩm thực</span><span class="en">Ritual · Food</span></div><div class="btitle"><span class="vi">Bữa ăn — nghi thức kết nối lâu đời nhất của loài người</span><span class="en">The Shared Meal: Our Oldest Ritual</span></div></div>
+          <div class="bmeta"><span class="bmeta-t"><span class="vi">5 phút</span><span class="en">5 min</span></span><span class="barr">→</span></div>
         </a>
-        <a href="/cach-dat-cau-hoi" class="bc-sm rv">
-          <div class="bc-badge"><span class="vi">Kỹ năng · Giao tiếp</span><span class="en">Skills · Communication</span></div>
-          <div class="bct"><span class="vi">Cách đặt câu hỏi để trò chuyện không bao giờ cạn</span><span class="en">How to Ask Questions That Keep Conversations Deeper</span></div>
-          <div class="bc-meta"><div class="bcm"><span class="vi">5 phút</span><span class="en">5 min</span></div><span class="bc-arr">→</span></div>
+        <a href="/cach-dat-cau-hoi" class="bs rv rv-d3" data-n="02">
+          <div><div class="bbadge"><span class="vi">Kỹ năng · Trò chuyện</span><span class="en">Skills · Talk</span></div><div class="btitle"><span class="vi">Hỏi thế nào để câu chuyện không bao giờ nhạt</span><span class="en">Questions That Never Run Dry</span></div></div>
+          <div class="bmeta"><span class="bmeta-t"><span class="vi">5 phút</span><span class="en">5 min</span></span><span class="barr">→</span></div>
         </a>
-        <a href="/co-don-do-thi" class="bc-sm rv">
-          <div class="bc-badge"><span class="vi">Xã hội · Đô thị</span><span class="en">Society · Urban</span></div>
-          <div class="bct"><span class="vi">Đơn độc đô thị và cái giá của cuộc sống hiện đại</span><span class="en">Urban Loneliness and the Cost of Modern Life</span></div>
-          <div class="bc-meta"><div class="bcm"><span class="vi">6 phút</span><span class="en">6 min</span></div><span class="bc-arr">→</span></div>
-        </a>
-        <a href="/ca-phe-va-van-hoa-gap-mat-o-viet-nam" class="bc-sm rv">
-          <div class="bc-badge"><span class="vi">Sài Gòn · Khám phá</span><span class="en">Saigon · Explore</span></div>
-          <div class="bct"><span class="vi">Cà phê và văn hoá gặp mặt ở Việt Nam</span><span class="en">Coffee Culture and Meeting in Vietnam</span></div>
-          <div class="bc-meta"><div class="bcm"><span class="vi">5 phút</span><span class="en">5 min</span></div><span class="bc-arr">→</span></div>
-        </a>
+      </div>
+    </div>
+    <div class="comp-cta" style="margin-top:32px"><a href="/khoa-hoc-ket-noi" class="btn-soft"><span class="vi">Đọc thêm bài viết →</span><span class="en">Read more articles →</span></a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec se" id="faq" style="scroll-margin-top:66px">
+  <div class="sec-in">
+    <div class="center-head rv">
+      <div class="ey center">FAQ</div>
+      <h2 class="stitle"><span class="vi">Bạn đang <em>thắc mắc?</em></span><span class="en">Still <em>wondering?</em></span></h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq rv">
+        <div class="faq-q"><span><span class="vi">Kèo có phải là dịch vụ hẹn hò không?</span><span class="en">Is Kèo a dating service?</span></span><span class="faq-ic">+</span></div>
+        <div class="faq-a"><div class="faq-a-in"><span class="vi">Không. Kèo là marketplace kết nối bạn với người đồng hành có chuyên môn cho những buổi gặp gỡ có chủ đích — cà phê, bữa tối, triển lãm. Không phải hẹn hò, không phải networking.</span><span class="en">No. Kèo is a marketplace connecting you with expert companions for purposeful meetups — coffee, dinner, galleries. Not dating, not networking.</span></div></div>
+      </div>
+      <div class="faq rv">
+        <div class="faq-q"><span><span class="vi">Làm sao Kèo đảm bảo an toàn?</span><span class="en">How does Kèo keep things safe?</span></span><span class="faq-ic">+</span></div>
+        <div class="faq-a"><div class="faq-a-in"><span class="vi">Mọi người đồng hành đều xác minh CCCD. Mọi buổi gặp diễn ra tại địa điểm công cộng. Thanh toán được Kèo giữ đến khi hoàn tất, và có đánh giá công khai sau mỗi buổi.</span><span class="en">Every companion verifies their ID. All meetups happen in public. Payment is held by Kèo until completion, with public reviews after each session.</span></div></div>
+      </div>
+      <div class="faq rv">
+        <div class="faq-q"><span><span class="vi">Người đồng hành kiếm được bao nhiêu?</span><span class="en">How much do companions earn?</span></span><span class="faq-ic">+</span></div>
+        <div class="faq-a"><div class="faq-a-in"><span class="vi">Người đồng hành tự đặt mức thù lao, thường từ 200k đến 1.000k mỗi buổi. Kèo trích 12% phí dịch vụ, phần còn lại thuộc về người đồng hành.</span><span class="en">Companions set their own rate, usually 200k–1,000k per session. Kèo takes a 12% service fee; the rest goes to the companion.</span></div></div>
+      </div>
+      <div class="faq rv">
+        <div class="faq-q"><span><span class="vi">Tôi đăng ký làm người đồng hành thế nào?</span><span class="en">How do I become a companion?</span></span><span class="faq-ic">+</span></div>
+        <div class="faq-a"><div class="faq-a-in"><span class="vi">Điền hồ sơ đăng ký với thông tin cơ bản và lĩnh vực chuyên môn. Kèo duyệt trong 24h. Sau khi được duyệt, bạn có thể nhận Kèo ngay.</span><span class="en">Fill out the application with your basic info and expertise. Kèo reviews within 24h. Once approved, you can start accepting Kèos.</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ FAQ — compact ════ -->
-<div class="stripe"></div>
-<section class="sec sec-faq">
-  <div class="sec-in">
-    <div class="ey" style="justify-content:center"><span class="vi">Câu hỏi thường gặp</span><span class="en">FAQ</span></div>
-    <h2 class="sec-title" style="text-align:center;max-width:none;margin-bottom:28px"><span class="vi">Bạn đang <em>thắc mắc</em> điều gì?</span><span class="en">What are you <em>wondering</em> about?</span></h2>
-    <div class="fwrap">
-      <!-- 2 visible by default -->
-      <div class="fi"><button class="fq"><span><span class="vi">Kèo là gì? Có phải hẹn hò không?</span><span class="en">What is Kèo? Is it a dating app?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi">Kèo <strong>không phải hẹn hò</strong>. Kèo là nền tảng kết nối xã hội — nơi Chủ xị tìm người đồng hành có kiến thức hoặc kỹ năng đặc thù. Mọi buổi tại địa điểm công cộng, thù lao minh bạch.</span><span class="en">Kèo is <strong>not a dating app</strong>. It's a social connection platform where Hosts find companions with specific knowledge or skills. All sessions at public venues, with transparent fees.</span></div></div></div>
-      <div class="fi"><button class="fq"><span><span class="vi">Chủ xị nên trả thù lao bao nhiêu?</span><span class="en">How much should a Host pay?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi">Tuỳ loại sự kiện:</span><span class="en">Depends on event type:</span><div class="pgrid"><div class="pt"><strong>200–300k</strong><span class="vi">Cà phê · 1–2 tiếng</span><span class="en">Coffee · 1–2 hrs</span></div><div class="pt"><strong>300–500k</strong><span class="vi">Bữa trưa · Dạo phố</span><span class="en">Lunch · City walk</span></div><div class="pt"><strong>500–750k</strong><span class="vi">Bữa tối · Triển lãm</span><span class="en">Dinner · Gallery</span></div><div class="pt"><strong>750k–2tr</strong><span class="vi">Sự kiện đặc biệt</span><span class="en">Special events</span></div></div><p style="margin-top:10px;font-size:11px;color:var(--i3)"><span class="vi">💡 Đây là số tiền Host chuyển khoản. Kèo trừ 12% phí trực tiếp từ phần này — Host không phụ trả thêm. Ví dụ: Host trả 300k → Người đồng hành nhận 264k.</span><span class="en">💡 This is what the Host pays. Kèo deducts 12% from this — the Host pays nothing extra. Example: Host pays 300k → Companion receives 264k.</span></p></div></div></div>
-      <!-- hidden by default, shown on see more -->
-      <div class="fi fhide"><button class="fq"><span><span class="vi">Một buổi Kèo diễn ra như thế nào?</span><span class="en">How does a session work?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi"><strong>1.</strong> Chủ xị tạo Kèo và chuyển khoản thù lao trước.<br><strong>2.</strong> Kèo giới thiệu Người đồng hành phù hợp trong 24h.<br><strong>3.</strong> Hai bên gặp nhau tại địa điểm đã chọn.<br><strong>4.</strong> Kèo giải ngân cho Người đồng hành ngay sau buổi — phí 12% được trừ trực tiếp từ thù lao. Ví dụ: thù lao 300k → Người đồng hành nhận 264k. Chủ xị không phụ trả thêm bất kỳ khoản nào.</span><span class="en"><strong>1.</strong> Host creates a Kèo and transfers the fee upfront.<br><strong>2.</strong> Kèo introduces a matched companion within 24h.<br><strong>3.</strong> Both meet at the chosen venue.<br><strong>4.</strong> Kèo pays out the companion right after — 12% platform fee is deducted from the listed fee. Example: 300k fee → companion receives 264k. The Host pays nothing extra.</span></div></div></div>
-      <div class="fi fhide"><button class="fq"><span><span class="vi">Nếu tôi không hài lòng thì sao?</span><span class="en">What if I'm not satisfied?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi">Nhắn Zalo cho Kèo ngay sau buổi. Companion no-show hoặc không đúng mô tả → <strong>hoàn tiền 100%</strong>.</span><span class="en">Message Kèo on Zalo right after. Companion no-show or doesn't match → <strong>100% refund</strong>.</span></div></div></div>
-      <div class="fi fhide"><button class="fq"><span><span class="vi">An toàn không?</span><span class="en">Is it safe?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi">Mọi Kèo đều tại <strong>địa điểm công cộng</strong>. Cả hai bên xác minh CCCD. Nếu không an toàn, hãy rời đi và nhắn Kèo ngay.</span><span class="en">All sessions at <strong>public venues</strong>. Both sides are ID-verified. If you feel unsafe, leave and message Kèo immediately.</span></div></div></div>
-      <div class="fi fhide"><button class="fq"><span><span class="vi">Người đồng hành đặt giá như thế nào?</span><span class="en">How do Companions set their price?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi">Bạn tự đặt giá theo giá trị bạn mang lại. Gợi ý: bắt đầu từ 300–500k, tăng dần sau khi có đánh giá tốt. Nhớ rằng Kèo trừ 12% từ thù lao bạn niêm yết — ví dụ: bạn niêm yết 300k → bạn nhận 264k (chưa tính thuế TNCN).</span><span class="en">You set your own price based on the value you bring. Suggestion: start at 300–500k, increase after good reviews. Note that Kèo deducts 12% from your listed fee — e.g. you list 300k → you receive 264k (before personal income tax).</span></div></div></div>
-      <div class="fi fhide"><button class="fq"><span><span class="vi">Đây có phải dịch vụ tình dục không?</span><span class="en">Is this a sexual service?</span></span><span class="fic">+</span></button><div class="fa"><div class="fai"><span class="vi"><strong>Không.</strong> Kèo là nền tảng gặp gỡ xã hội tại địa điểm công cộng. Mọi hành vi tình dục bị nghiêm cấm và xóa tài khoản vĩnh viễn.</span><span class="en"><strong>No.</strong> Kèo is a social meetup platform at public venues. Any sexual conduct is strictly prohibited and results in permanent account removal.</span></div></div></div>
-      <button class="fmore" id="fq-more"><span class="vi">Xem thêm câu hỏi →</span><span class="en">See more questions →</span></button>
+<!-- CTA FINAL -->
+<section class="cta-final sd">
+  <div class="cta-final-glow"></div>
+  <div class="cta-final-in rv">
+    <h2><span class="vi">Một buổi hẹn tử tế<br><em>đang đợi bạn.</em></span><span class="en">A meetup worth having<br><em>is waiting for you.</em></span></h2>
+    <p><span class="vi">Thêm một tối nữa trôi qua giữa phố đông mà vẫn thấy trống trải — hay bắt đầu một cuộc trò chuyện đáng nhớ. Bạn chọn đi.</span><span class="en">Another empty evening in a crowded city — or the start of a conversation you'll remember. Your call.</span></p>
+    <div class="cta-final-actions">
+      <a href="/register#host" class="btn-primary">🌿 <span class="vi">Đặt Kèo đầu tiên</span><span class="en">Book your first Kèo</span></a>
+      <a href="/nguoi-dong-hanh-dang-ky" class="btn-soft"><span class="vi">Tôi muốn làm người đồng hành</span><span class="en">I'd like to be a companion</span></a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="fin">
-    <a href="/" class="flogo">Kèo<em>.</em></a>
-    <div class="flinks">
-      <a href="/khoa-hoc-ket-noi" class="fl"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
-      <a href="/thi-truong" class="fl"><span class="vi">Thị trường</span><span class="en">Marketplace</span></a>
-      <a href="/nguoidonghanh" class="fl"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
-      <a href="/chu-xi" class="fl"><span class="vi">Đặt Kèo</span><span class="en">Book</span></a>
-      <a href="/nguoi-dong-hanh-dang-ky" class="fl"><span class="vi">Đăng ký làm đồng hành</span><span class="en">Become Companion</span></a>
-      <a href="#" class="fl" id="btn-tos"><span class="vi">Điều khoản</span><span class="en">Terms</span></a>
-      <a href="#" class="fl" id="btn-prv"><span class="vi">Bảo mật</span><span class="en">Privacy</span></a>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8A22B"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram">📷</a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads">🧵</a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo">💬</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
     </div>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/keosocialvn/" class="soc soc-ig" target="_blank" rel="noopener" aria-label="Instagram @keosocialvn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="https://www.threads.com/@keosocialvn/" class="soc soc-th" target="_blank" rel="noopener" aria-label="Threads @keosocialvn">
-        <svg width="13" height="13" viewBox="0 0 192 192" fill="currentColor"><path d="M141.537 88.988a66.667 66.667 0 00-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.141-23.836 1.374-39.162 15.283-38.112 34.589.527 9.792 5.633 18.223 14.368 23.76 7.376 4.716 16.888 7.015 26.72 6.479 13.013-.712 23.226-5.765 30.353-15.015 5.429-7.012 8.861-16.094 10.39-27.603 6.232 3.762 10.851 8.733 13.441 14.769 4.762 11.076 5.045 29.242-9.813 44.027-13.076 13.002-28.79 18.625-52.565 18.801-26.314-.197-46.254-8.639-59.286-25.104C9.938 140.143 3.989 116.84 3.733 87.96c.256-28.88 6.205-52.183 17.691-69.316 13.032-16.465 32.972-24.907 59.286-25.104 26.498.197 46.463 8.689 59.348 25.242 6.328 8.088 11.11 18.2 14.298 30.001l16.152-4.528c-3.86-14.019-9.853-26.102-17.942-35.985C134.97 10.309 111.202.197 80.741 0h-.406C49.934.197 26.179 10.309 8.533 30.285 2.868 37.419-2.06 46.024-4.975 56.197-7.917 66.463-9.385 78.294-9.5 91.5v.5c.115 13.206 1.583 25.037 4.525 35.303 2.915 10.173 7.843 18.778 13.508 25.912 17.646 19.976 41.401 30.088 71.712 30.285h.406c27.006-.18 46.033-7.265 61.75-22.916 20.547-20.493 19.976-46.154 13.184-61.932-4.86-11.298-14.147-20.127-27.048-25.664z"/></svg>
-      </a>
-      <a href="https://zalo.me/0902755265" class="soc soc-zalo" target="_blank" rel="noopener" aria-label="Zalo">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 13.29c-.16.33-.5.52-.86.47-.54-.08-1.08-.19-1.6-.33a7.88 7.88 0 01-3.97-2.67A7.9 7.9 0 018.5 9.38c-.06-.45.17-.88.56-1.08.17-.09.36-.11.54-.08l1.2.26c.4.09.68.45.66.86l-.07.84c-.02.24.08.47.27.62l1.66 1.26c.19.14.44.18.66.1l.8-.3c.38-.14.8.01.99.37l.54 1.06c.1.2.1.43 0 .63l.33.47z"/></svg>
-      </a>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
     </div>
-    <div class="fcopy">© 2026 Kèo · keo.social</div>
   </div>
 </footer>
-</main>
-
-<a class="zf" href="https://zalo.me/0902755265" target="_blank" rel="noopener">💬 <span class="vi">Nhắn Zalo ngay</span><span class="en">Message us</span></a>
-
-<!-- MODALS -->
-<div class="mo" id="m-tos"><div class="md" style="max-width:600px"><button class="mcls" id="cls-tos">✕</button><h3><span class="vi">Điều khoản sử dụng</span><span class="en">Terms of Service</span></h3><div class="mv">v1.1 · Tháng 4/2026</div><p><span class="vi">Kèo <strong>không phải</strong> dịch vụ hẹn hò hay tình dục dưới bất kỳ hình thức nào. Phí dịch vụ <strong>12%</strong> (sau beta: <strong>15%</strong>) được trừ trực tiếp từ thù lao niêm yết — Chủ xị trả đúng giá, không phụ thu. Ví dụ: thù lao 300k → Người đồng hành nhận 264k. Huỷ trước 24h: hoàn 100%. Trong 24h: 50%. No-show: 100%.</span><span class="en">Kèo is <strong>not</strong> a dating or sexual service. Platform fee <strong>12%</strong> (post-beta: <strong>15%</strong>) is deducted directly from the listed fee — Host pays the listed price, nothing extra. Example: 300k fee → Companion receives 264k. Cancel 24h+: 100% refund. Within 24h: 50%. No-show: 100%.</span></p></div></div>
-<div class="mo" id="m-prv"><div class="md" style="max-width:600px"><button class="mcls" id="cls-prv">✕</button><h3><span class="vi">Chính sách bảo mật</span><span class="en">Privacy Policy</span></h3><div class="mv">v1.1 · Tháng 4/2026 · NĐ 13/2023</div><p><span class="vi">Kèo <strong>không bán, không cho thuê</strong> dữ liệu. Ảnh CCCD xoá sau 6 tháng. Lịch sử lưu 5 năm theo pháp lý. Không sử dụng cookie.</span><span class="en">Kèo <strong>does not sell or rent</strong> data. ID photos deleted after 6 months. Session history retained 5 years per law. No cookies.</span></p></div></div>
-<div class="mo" id="m-reg" style="align-items:center;padding:18px"><div class="md" style="max-width:420px;text-align:center"><button class="mcls" id="cls-reg">✕</button><div style="font-size:38px;margin-bottom:12px">🌿</div><h3 style="font-size:20px;margin-bottom:6px"><span class="vi">Bạn là ai trong Kèo?</span><span class="en">Who are you on Kèo?</span></h3><p style="font-size:12px;margin-bottom:0;font-weight:300;line-height:1.7;color:var(--i2)"><span class="vi">Chọn vai trò — mình sẽ dẫn bạn đến trang phù hợp.</span><span class="en">Choose your role — we'll take you to the right page.</span></p><div class="rcards"><a href="/nguoi-dong-hanh-dang-ky" class="rcard"><div class="rcard-i">🌟</div><div class="rcard-t"><span class="vi">Người đồng hành</span><span class="en">Companion</span></div><div class="rcard-s"><span class="vi">Chia sẻ kỹ năng · Nhận thù lao</span><span class="en">Share skills · Earn per session</span></div></a><a href="/chu-xi" class="rcard"><div class="rcard-i">👑</div><div class="rcard-t"><span class="vi">Chủ xị</span><span class="en">Host</span></div><div class="rcard-s"><span class="vi">Tạo buổi gặp · Tìm đồng hành</span><span class="en">Create a session · Find companion</span></div></a></div><p style="font-size:10px;color:var(--i3);font-weight:300;line-height:1.6"><span class="vi">Chỉ mất 3 phút · Kèo liên hệ trong 24 giờ 🌿</span><span class="en">3 minutes · We'll reach out within 24h 🌿</span></p></div></div>
 
 <script>
-(function(){
-/* MODE */
+// Nav scroll
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+
+// Scroll reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+
+// Parallax hero glows — throttled via rAF, skipped on mobile (blur+transform on scroll is costly)
+var glows=document.querySelectorAll('[data-parallax]');
+if(glows.length && window.innerWidth>640){
+  var pTicking=false;
+  window.addEventListener('scroll',function(){
+    if(pTicking)return;
+    pTicking=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY;
+      glows.forEach(function(g){var s=parseFloat(g.getAttribute('data-parallax'));g.style.transform='translateY('+(y*s)+'px)';});
+      pTicking=false;
+    });
+  },{passive:true});
+}
+
+// Count-up stats
+var counted=false;
+var statsBand=document.querySelector('.stats-band');
+function countUp(){
+  if(counted)return;counted=true;
+  document.querySelectorAll('.stat-n[data-count]').forEach(function(el){
+    var target=parseInt(el.getAttribute('data-count'));
+    var suffix=el.getAttribute('data-suffix')||'';
+    var isPlus=target>=80;
+    var dur=1400,start=performance.now();
+    function tick(now){
+      var p=Math.min((now-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased)+(isPlus&&p===1?'+':'')+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+if(statsBand){
+  var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)countUp();});},{threshold:.4});
+  sio.observe(statsBand);
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
+});
+
+// Smooth scroll for in-page links (sync with custom scroll)
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var href=a.getAttribute('href');
+    if(href==='#')return;
+    var t=document.querySelector(href);
+    if(t){e.preventDefault();var y=t.getBoundingClientRect().top+window.scrollY-66;window.scrollTo({top:y,behavior:'smooth'});}
+  });
+});
+
+// Language toggle
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+  try{localStorage.setItem('keo-lang',g?'en':'vi');}catch(e){}
+}
+// Mode toggle
 function setMode(m){
-  document.body.classList.remove('light','dark');
-  document.body.classList.add(m);
-  document.getElementById('btn-light').classList.toggle('on',m==='light');
-  document.getElementById('btn-dark').classList.toggle('on',m==='dark');
+  document.body.classList.toggle('light',m==='light');
+  document.getElementById('mode-dark').classList.toggle('on',m==='dark');
+  document.getElementById('mode-light').classList.toggle('on',m==='light');
+  document.querySelector('meta[name=theme-color]').setAttribute('content',m==='light'?'#F2EDE4':'#0D0B09');
   try{localStorage.setItem('keo-mode',m);}catch(e){}
 }
-window.setMode=setMode;
-try{var sm=localStorage.getItem('keo-mode');if(sm)setMode(sm);else setMode('dark');}catch(e){setMode('dark');}
-
-/* ACCENT */
-var A={
-  orange:{a:'#FF5C1A',a2:'#FF2D55',grad:'linear-gradient(135deg,#FFAE00 0%,#FF5C1A 50%,#FF2D55 100%)'},
-  red:   {a:'#FF2D55',a2:'#C41557',grad:'linear-gradient(135deg,#FF6B35 0%,#FF2D55 50%,#C41557 100%)'},
-  gold:  {a:'#FFB627',a2:'#FF8C00',grad:'linear-gradient(135deg,#FFE566 0%,#FFB627 50%,#FF7C00 100%)'},
-  teal:  {a:'#00C9A7',a2:'#00A896',grad:'linear-gradient(135deg,#43E8D8 0%,#00C9A7 50%,#007A6E 100%)'},
-  indigo:{a:'#7C6EFA',a2:'#9B8EFA',grad:'linear-gradient(135deg,#C4BDFF 0%,#7C6EFA 50%,#4A3FCC 100%)'}
-};
+// Accent toggle
+var ACC={orange:{a:'#D65F35',a2:'#D14060',g:'linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%)'},red:{a:'#C6455E',a2:'#9E3450',g:'linear-gradient(135deg,#D6704A 0%,#C6455E 50%,#9E3450 100%)'},gold:{a:'#C08A2E',a2:'#9A6C1E',g:'linear-gradient(135deg,#D9B15A 0%,#C08A2E 50%,#8A5E1A 100%)'},teal:{a:'#2E9E8C',a2:'#1F7A6E',g:'linear-gradient(135deg,#5CC4B4 0%,#2E9E8C 50%,#1A6055 100%)'},indigo:{a:'#6C63C4',a2:'#4A439E',g:'linear-gradient(135deg,#A29BE0 0%,#6C63C4 50%,#463F8C 100%)'}};
 function setAccent(n){
-  var c=A[n]||A.orange;
-  document.documentElement.style.setProperty('--a',c.a);
-  document.documentElement.style.setProperty('--a2',c.a2);
-  document.documentElement.style.setProperty('--grad',c.grad);
+  var c=ACC[n]||ACC.orange;
+  var r=document.documentElement.style;
+  r.setProperty('--a',c.a);r.setProperty('--a2',c.a2);r.setProperty('--grad',c.g);
   document.body.setAttribute('data-accent',n);
   document.querySelectorAll('.ab').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-accent')===n);});
   try{localStorage.setItem('keo-accent',n);}catch(e){}
 }
-window.setAccent=setAccent;
-try{var sa=localStorage.getItem('keo-accent');if(sa)setAccent(sa);}catch(e){}
-document.getElementById('accent-row').addEventListener('click',function(e){
-  var b=e.target.closest('.ab');if(!b)return;setAccent(b.getAttribute('data-accent'));
-});
+document.getElementById('accent-row').addEventListener('click',function(e){var b=e.target.closest('.ab');if(b)setAccent(b.getAttribute('data-accent'));});
+document.getElementById('ctrl-toggle').addEventListener('click',function(){document.getElementById('ctrl-panel').classList.toggle('open');});
 
-/* NAV */
-window.addEventListener('scroll',function(){
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>18);
-},{passive:true});
-
-/* BILINGUAL */
-var isEN=false;
-function setEN(g){
-  isEN=g;
-  document.querySelectorAll('.vi').forEach(function(e){e.style.display=g?'none':'inline';});
-  document.querySelectorAll('.en').forEach(function(e){e.style.display=g?'inline':'none';});
-  document.getElementById('lang-toggle').textContent=g?'VI':'EN';
+// Hamburger menu
+var hamburger=document.getElementById('hamburger');
+var overlay=document.getElementById('menu-overlay');
+function closeMenu(){document.body.classList.remove('menu-open');}
+if(hamburger){
+  hamburger.addEventListener('click',function(){document.body.classList.toggle('menu-open');});
+  overlay.addEventListener('click',closeMenu);
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',closeMenu);});
 }
 
-/* MODAL */
-function om(id){document.getElementById('m-'+id).classList.add('open');document.body.style.overflow='hidden';}
-function cm(id){document.getElementById('m-'+id).classList.remove('open');document.body.style.overflow='';}
-function goTo(id){var el=document.getElementById(id);if(!el)return;var n=document.querySelector('nav');window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-(n?n.offsetHeight+12:70),behavior:'smooth'});}
+// Restore prefs
+try{
+  var sl=localStorage.getItem('keo-lang');if(sl==='en')setEN(true);
+  var sm=localStorage.getItem('keo-mode');if(sm)setMode(sm);
+  var sa=localStorage.getItem('keo-accent');if(sa)setAccent(sa);
+}catch(e){}
 
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.vi').forEach(function(e){e.style.display='inline';});
-  document.querySelectorAll('.en').forEach(function(e){e.style.display='none';});
-  document.getElementById('lang-toggle').addEventListener('click',function(){setEN(!isEN);});
-  document.querySelectorAll('[data-scroll]').forEach(function(el){el.addEventListener('click',function(ev){ev.preventDefault();goTo(el.getAttribute('data-scroll'));});});
+// ═══ PAGE EFFECTS ═══
 
-  /* how tabs */
-  document.querySelectorAll('.htab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.htab').forEach(function(x){x.classList.remove('on');});document.querySelectorAll('.hpanel').forEach(function(p){p.classList.remove('on');});b.classList.add('on');document.getElementById('hp-'+b.getAttribute('data-p')).classList.add('on');});});
-
-  /* faq */
-  document.querySelectorAll('.fq').forEach(function(b){b.addEventListener('click',function(){var i=b.parentElement,was=i.classList.contains('open');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('open');});if(!was)i.classList.add('open');});});
-  var fm=document.getElementById('fq-more');
-  if(fm)fm.addEventListener('click',function(){document.querySelectorAll('.fhide').forEach(function(x){x.style.display='block';x.classList.remove('fhide');});fm.style.display='none';});
-
-  /* modals */
-  ['tos','prv'].forEach(function(id){var b=document.getElementById('btn-'+id);if(b)b.addEventListener('click',function(e){e.preventDefault();om(id);});});
-  ['tos','prv','reg'].forEach(function(id){var c=document.getElementById('cls-'+id);if(c)c.addEventListener('click',function(){cm(id);});var m=document.getElementById('m-'+id);if(m)m.addEventListener('click',function(e){if(e.target===m)cm(id);});});
-  ['btn-register','btn-hero'].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener('click',function(e){e.preventDefault();om('reg');});});
-  document.querySelectorAll('.rg-trigger').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();om('reg');});});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){['tos','prv','reg'].forEach(cm);}});
-
-  document.getElementById('ctrl-toggle').addEventListener('click',function(){
-    document.getElementById('ctrl-panel').classList.toggle('open');
+// 1. Magnetic buttons — gently follow cursor
+(function(){
+  if(window.matchMedia('(hover:none)').matches)return;
+  document.querySelectorAll('.btn-primary,.nav-cta,.btn-soft').forEach(function(btn){
+    btn.addEventListener('mousemove',function(e){
+      var r=btn.getBoundingClientRect();
+      var x=e.clientX-r.left-r.width/2;
+      var y=e.clientY-r.top-r.height/2;
+      btn.style.transform='translate('+(x*0.25)+'px,'+(y*0.35)+'px)';
+    });
+    btn.addEventListener('mouseleave',function(){btn.style.transform='';});
   });
+})();
 
-  /* reveal */
-  var io=new IntersectionObserver(function(entries){entries.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.06});
-  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%5)*.07+'s';io.observe(el);});
-});
+// (removed custom wheel-jacking scroll — native scroll-behavior:smooth is faster and GPU-accelerated)
+
+// 3. Companion auto-scroll (gentle drift) — desktop only, paused off-screen
+(function(){
+  var track=document.querySelector('.comp-scroll');
+  if(!track)return;
+  if(window.matchMedia('(hover:none)').matches || window.innerWidth<=640)return; // skip on touch/mobile — fights with native swipe
+  var paused=false,dir=1,visible=false;
+  track.addEventListener('mouseenter',function(){paused=true;});
+  track.addEventListener('mouseleave',function(){paused=false;});
+  var vio=new IntersectionObserver(function(es){visible=es[0].isIntersecting;},{threshold:0});
+  vio.observe(track);
+  function drift(){
+    if(!paused && visible){
+      track.scrollLeft+=0.5*dir;
+      var max=track.scrollWidth-track.clientWidth;
+      if(track.scrollLeft>=max-1)dir=-1;
+      else if(track.scrollLeft<=0)dir=1;
+    }
+    requestAnimationFrame(drift);
+  }
+  setTimeout(function(){requestAnimationFrame(drift);},2000);
+})();
+
+// 4. Text mask reveal — wrap section title words
+(function(){
+  document.querySelectorAll('.center-head,.rv').forEach(function(head){
+    var title=head.querySelector('.stitle');
+    if(!title||title.dataset.wrapped)return;
+    title.dataset.wrapped='1';
+  });
+})();
+
+// 5. Parallax tilt on hero card
+(function(){
+  if(window.matchMedia('(hover:none)').matches)return;
+  var card=document.querySelector('.hv-card');
+  if(!card)return;
+  var hero=document.querySelector('.hero');
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width-0.5;
+    var y=(e.clientY-r.top)/r.height-0.5;
+    card.style.transform='rotate(1.5deg) rotateY('+(x*6)+'deg) rotateX('+(-y*6)+'deg)';
+  });
+  hero.addEventListener('mouseleave',function(){card.style.transform='';});
 })();
 </script>
 </body>
