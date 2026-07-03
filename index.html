@@ -156,6 +156,22 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .hero-glow-1{width:600px;height:600px;background:radial-gradient(circle,color-mix(in srgb,var(--a) 55%,transparent) 0%,transparent 68%);top:-140px;right:-120px}
 .hero-glow-2{width:420px;height:420px;background:radial-gradient(circle,color-mix(in srgb,var(--a2) 40%,transparent) 0%,transparent 68%);bottom:-100px;left:-80px}
 .hero-grid{position:absolute;inset:0;background-image:radial-gradient(var(--rim2) 1.4px,transparent 1.4px);background-size:22px 22px;mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000 30%,transparent 75%);opacity:.8}
+.hero-embers{position:absolute;inset:0;overflow:hidden}
+.ember{position:absolute;bottom:-20px;width:4px;height:4px;border-radius:50%;background:var(--grad);opacity:0;animation:emberRise linear infinite}
+.ember::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:inherit;filter:blur(3px);opacity:.6}
+.e1{left:12%;animation-duration:14s;animation-delay:0s}
+.e2{left:28%;width:3px;height:3px;animation-duration:18s;animation-delay:3s}
+.e3{left:48%;animation-duration:16s;animation-delay:6s}
+.e4{left:65%;width:5px;height:5px;animation-duration:20s;animation-delay:1.5s}
+.e5{left:80%;width:3px;height:3px;animation-duration:15s;animation-delay:8s}
+.e6{left:92%;animation-duration:19s;animation-delay:4.5s}
+@keyframes emberRise{
+  0%{transform:translateY(0) translateX(0);opacity:0}
+  8%{opacity:.55}
+  50%{transform:translateY(-45vh) translateX(14px);opacity:.35}
+  92%{opacity:.15}
+  100%{transform:translateY(-88vh) translateX(-10px);opacity:0}
+}
 .hero-in{max-width:1120px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--a) 10%,transparent);border:1px solid color-mix(in srgb,var(--a) 24%,transparent);border-radius:100px;padding:7px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--a);margin-bottom:26px}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--a);animation:pulse 2s infinite}
@@ -391,8 +407,9 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
 .foot-brand .nav-logo{margin-bottom:14px}
 .foot-tagline{font-size:13px;font-weight:300;color:var(--i2);line-height:1.7;max-width:260px;margin-bottom:18px}
 .foot-social{display:flex;gap:10px}
-.fsoc{width:38px;height:38px;border-radius:11px;background:color-mix(in srgb,var(--ink) 4%,transparent);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .25s}
-.fsoc:hover{border-color:var(--a);transform:translateY(-3px)}
+.fsoc{width:38px;height:38px;border-radius:11px;background:color-mix(in srgb,var(--ink) 4%,transparent);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;color:var(--i2);transition:all .25s}
+.fsoc svg{width:18px;height:18px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
 .foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:16px}
 .foot-link{display:block;font-size:13px;color:var(--i2);padding:6px 0;transition:color .2s}
 .foot-link:hover{color:var(--a)}
@@ -485,10 +502,12 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
   .sec-glow{filter:blur(45px);opacity:.1}
   .cta-final-glow{width:400px;height:400px;filter:blur(40px)}
   .illo-accent,.illo-blink{animation:none !important}
+  .e2,.e4,.e6{display:none} /* fewer embers on mobile — cheap but trim anyway */
 }
 @media(prefers-reduced-motion:reduce){
   body::after{display:none}
   .illo-accent,.illo-blink{animation:none !important}
+  .ember{display:none}
 }
 </style>
 <body data-accent="orange">
@@ -540,6 +559,10 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
     <div class="hero-glow hero-glow-1" data-parallax="0.3"></div>
     <div class="hero-glow hero-glow-2" data-parallax="0.15"></div>
     <div class="hero-grid"></div>
+    <div class="hero-embers" aria-hidden="true">
+      <span class="ember e1"></span><span class="ember e2"></span><span class="ember e3"></span>
+      <span class="ember e4"></span><span class="ember e5"></span><span class="ember e6"></span>
+    </div>
   </div>
   <div class="hero-in">
     <div class="hero-copy">
@@ -1023,9 +1046,9 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
         <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
         <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
         <div class="foot-social">
-          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram">📷</a>
-          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads">🧵</a>
-          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo">💬</a>
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
       <div class="foot-col">
