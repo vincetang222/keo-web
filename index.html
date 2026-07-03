@@ -103,6 +103,8 @@ h1,h2,h3,.stitle,.hero h1,.mani-is-text,.model-role,.step-title,.prob-title,.saf
 .hero h1{letter-spacing:-.01em}
 .stitle{letter-spacing:-.008em}
 a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+button:focus-visible,.faq-q:focus-visible{outline-offset:2px}
 .vi,.en{transition:opacity .2s}
 .en{display:none}
 body:not(.lang-en) .en{display:none !important}
@@ -317,10 +319,6 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 
 /* ═══ COMPANIONS PREVIEW ═══ */
 .comp-scroll{display:flex;gap:16px;overflow-x:auto;padding:52px 40px 20px;margin:0 -40px;scrollbar-width:none}
-/* Text mask reveal for section titles */
-.stitle .reveal-word{display:inline-block;overflow:hidden;vertical-align:top}
-.stitle .reveal-word>span{display:inline-block;transform:translateY(105%);transition:transform .7s cubic-bezier(.22,1,.36,1)}
-.rv.in .stitle .reveal-word>span,.center-head.in .reveal-word>span{transform:none}
 .comp-scroll::-webkit-scrollbar{display:none}
 .cc{min-width:280px;max-width:280px;background:color-mix(in srgb,var(--ink) 4%,transparent);border:1px solid var(--rim);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s;backdrop-filter:blur(10px)}
 .cc:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--a) 30%,transparent)}
@@ -341,7 +339,8 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 .safe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
 .safe-card{background:color-mix(in srgb,var(--ink) 3%,transparent);border:1px solid var(--rim);border-radius:16px;padding:26px;transition:transform .3s,border-color .3s}
 .safe-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--indigo) 30%,transparent)}
-.safe-ic{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--indigo) 14%,transparent);border:1px solid color-mix(in srgb,var(--indigo) 22%,transparent);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.safe-ic{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--indigo) 14%,transparent);border:1px solid color-mix(in srgb,var(--indigo) 22%,transparent);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.safe-ic svg{width:21px;height:21px}
 .safe-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:8px}
 .safe-desc{font-size:12px;font-weight:300;color:var(--i2);line-height:1.65}
 
@@ -451,13 +450,13 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
   .mani-is{margin-top:16px;padding-top:16px}
   .mani-checks{gap:10px}
   .mani-ck{padding:14px}
-  .model-layout{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;margin-top:24px;padding-right:20px}
-  .model-layout::-webkit-scrollbar{display:none}
-  .model-card{min-width:250px;max-width:250px;flex-shrink:0}
-  .model-mid{flex-shrink:0;flex-direction:column;padding-top:0;justify-content:center}
-  .model-mid-line{width:1px;height:32px}
-  .model-desc{display:none}
-  .model-fee{display:none}
+  .role-toggle{display:flex;gap:6px;margin-top:24px;background:var(--s2);border:1px solid var(--rim2);border-radius:100px;padding:4px}
+  .role-tab{flex:1;padding:10px 8px;border-radius:100px;border:none;background:transparent;color:var(--i2);font-family:"Be Vietnam Pro",sans-serif;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .25s}
+  .role-tab.on{background:var(--grad);color:#fff}
+  .model-layout{display:block;margin-top:16px}
+  .model-card[data-role]{display:none}
+  .model-card[data-role].role-active{display:block;animation:illoFadeIn .3s ease forwards}
+  .model-mid[data-role="mid"]{display:none}
   .model-card-hd{padding:16px}
   .model-body{padding:16px}
   .model-items{gap:6px}
@@ -473,7 +472,7 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
   .hero h1{font-size:44px}
   .scroll-hint{display:none}
 }
-@media(min-width:641px){.hamburger,.menu-overlay{display:none}}
+@media(min-width:641px){.hamburger,.menu-overlay{display:none}.role-toggle{display:none}}
 
 /* ═══ MOBILE PERFORMANCE: strip expensive effects ═══ */
 @media(max-width:640px){
@@ -723,8 +722,12 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
         </g>
       </svg>
     </div>
+    <div class="role-toggle">
+      <button class="role-tab on" data-role="host"><span class="vi">👑 Chủ xị</span><span class="en">👑 Host</span></button>
+      <button class="role-tab" data-role="companion"><span class="vi">🌿 Người đồng hành</span><span class="en">🌿 Companion</span></button>
+    </div>
     <div class="model-layout">
-      <div class="model-card rv rv-d1">
+      <div class="model-card rv rv-d1" data-role="host">
         <div class="model-card-hd">
           <div class="model-icon">👑</div>
           <div><div class="model-role"><span class="vi">Chủ xị</span><span class="en">Host</span></div><div class="model-role-sub"><span class="vi">Người đặt Kèo & trả thù lao</span><span class="en">Books the Kèo & pays</span></div></div>
@@ -739,13 +742,13 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
           <a href="/chu-xi" class="model-cta"><span class="vi">Tôi muốn đặt Kèo →</span><span class="en">I want to book →</span></a>
         </div>
       </div>
-      <div class="model-mid rv rv-d2">
+      <div class="model-mid rv rv-d2" data-role="mid">
         <div class="model-mid-line"></div>
         <div class="model-mid-badge"><div class="model-mid-ic">🌿</div><div class="model-mid-label">Kèo</div><div class="model-mid-sub"><span class="vi">buổi gặp</span><span class="en">the meetup</span></div></div>
         <div class="model-mid-line"></div>
         <div class="model-fee"><span class="vi">12% phí dịch vụ<br>trích từ thù lao</span><span class="en">12% service fee<br>from companion</span></div>
       </div>
-      <div class="model-card rv rv-d3">
+      <div class="model-card rv rv-d3" data-role="companion">
         <div class="model-card-hd">
           <div class="model-icon">🌿</div>
           <div><div class="model-role"><span class="vi">Người đồng hành</span><span class="en">Companion</span></div><div class="model-role-sub"><span class="vi">Người chia sẻ & nhận thù lao</span><span class="en">Shares & earns</span></div></div>
@@ -886,10 +889,10 @@ footer{background:var(--s1);border-top:1px solid var(--rim);padding:56px 40px 32
       </svg>
     </div>
     <div class="safe-grid">
-      <div class="safe-card rv rv-d1"><div class="safe-ic">🪪</div><div class="safe-title"><span class="vi">Xác minh danh tính</span><span class="en">ID verified</span></div><div class="safe-desc"><span class="vi">Ai muốn làm người đồng hành đều phải xác minh CCCD trước.</span><span class="en">Every companion verifies their ID before approval.</span></div></div>
-      <div class="safe-card rv rv-d2"><div class="safe-ic">📍</div><div class="safe-title"><span class="vi">Nơi công cộng</span><span class="en">Public places</span></div><div class="safe-desc"><span class="vi">Mọi cuộc gặp đều ở quán, gallery hay không gian mở.</span><span class="en">All meetups happen at cafés, galleries, open spaces.</span></div></div>
-      <div class="safe-card rv rv-d3"><div class="safe-ic">💳</div><div class="safe-title"><span class="vi">Thanh toán an toàn</span><span class="en">Safe payment</span></div><div class="safe-desc"><span class="vi">Kèo giữ tiền cho tới khi gặp xong. Không đưa tay trực tiếp.</span><span class="en">Kèo holds payment until the meetup is done. No cash.</span></div></div>
-      <div class="safe-card rv rv-d4"><div class="safe-ic">⭐</div><div class="safe-title"><span class="vi">Đánh giá công khai</span><span class="en">Public reviews</span></div><div class="safe-desc"><span class="vi">Đánh giá sau mỗi lần gặp giữ cho cộng đồng luôn minh bạch.</span><span class="en">Reviews after each session keep the community transparent.</span></div></div>
+      <div class="safe-card rv rv-d1"><div class="safe-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="var(--indigo)" stroke-width="1.6"/><circle cx="9" cy="12" r="2.3" stroke="var(--indigo)" stroke-width="1.6"/><path d="M14 10h4M14 14h3" stroke="var(--indigo)" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="safe-title"><span class="vi">Xác minh danh tính</span><span class="en">ID verified</span></div><div class="safe-desc"><span class="vi">Ai muốn làm người đồng hành đều phải xác minh CCCD trước.</span><span class="en">Every companion verifies their ID before approval.</span></div></div>
+      <div class="safe-card rv rv-d2"><div class="safe-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11.5C19 5.4 15.9 3 12 3S5 5.4 5 9.5C5 14.8 12 21 12 21Z" stroke="var(--indigo)" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="var(--indigo)" stroke-width="1.6"/></svg></div><div class="safe-title"><span class="vi">Nơi công cộng</span><span class="en">Public places</span></div><div class="safe-desc"><span class="vi">Mọi cuộc gặp đều ở quán, gallery hay không gian mở.</span><span class="en">All meetups happen at cafés, galleries, open spaces.</span></div></div>
+      <div class="safe-card rv rv-d3"><div class="safe-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="var(--indigo)" stroke-width="1.6"/><path d="M3 10.5h18" stroke="var(--indigo)" stroke-width="1.6"/><path d="M7 15h4" stroke="var(--indigo)" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="safe-title"><span class="vi">Thanh toán an toàn</span><span class="en">Safe payment</span></div><div class="safe-desc"><span class="vi">Kèo giữ tiền cho tới khi gặp xong. Không đưa tay trực tiếp.</span><span class="en">Kèo holds payment until the meetup is done. No cash.</span></div></div>
+      <div class="safe-card rv rv-d4"><div class="safe-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5l2.5 5.3 5.8.7-4.3 4 1.1 5.7-5.1-2.8-5.1 2.8 1.1-5.7-4.3-4 5.8-.7L12 3.5Z" stroke="var(--indigo)" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div class="safe-title"><span class="vi">Đánh giá công khai</span><span class="en">Public reviews</span></div><div class="safe-desc"><span class="vi">Đánh giá sau mỗi lần gặp giữ cho cộng đồng luôn minh bạch.</span><span class="en">Reviews after each session keep the community transparent.</span></div></div>
     </div>
   </div>
 </section>
@@ -1148,6 +1151,23 @@ function setAccent(n){
 document.getElementById('accent-row').addEventListener('click',function(e){var b=e.target.closest('.ab');if(b)setAccent(b.getAttribute('data-accent'));});
 document.getElementById('ctrl-toggle').addEventListener('click',function(){document.getElementById('ctrl-panel').classList.toggle('open');});
 
+// Model section role toggle (mobile)
+(function(){
+  var tabs=document.querySelectorAll('.role-tab');
+  var cards=document.querySelectorAll('.model-card[data-role]');
+  if(!tabs.length)return;
+  // set initial active card to match default "on" tab
+  cards.forEach(function(c){c.classList.toggle('role-active',c.getAttribute('data-role')==='host');});
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var role=t.getAttribute('data-role');
+      tabs.forEach(function(x){x.classList.remove('on');});
+      t.classList.add('on');
+      cards.forEach(function(c){c.classList.toggle('role-active',c.getAttribute('data-role')===role);});
+    });
+  });
+})();
+
 // Hamburger menu
 var hamburger=document.getElementById('hamburger');
 var overlay=document.getElementById('menu-overlay');
@@ -1203,15 +1223,6 @@ try{
     requestAnimationFrame(drift);
   }
   setTimeout(function(){requestAnimationFrame(drift);},2000);
-})();
-
-// 4. Text mask reveal — wrap section title words
-(function(){
-  document.querySelectorAll('.center-head,.rv').forEach(function(head){
-    var title=head.querySelector('.stitle');
-    if(!title||title.dataset.wrapped)return;
-    title.dataset.wrapped='1';
-  });
 })();
 
 // 5. Parallax tilt on hero card
