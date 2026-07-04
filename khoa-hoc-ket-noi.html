@@ -61,14 +61,15 @@ body.lang-en .en{display:revert !important}
 
 
 /* NAV */
-nav{position:sticky;top:0;z-index:200;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--rim);transition:background .3s,box-shadow .3s}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08);transition:background .3s,box-shadow .3s}
 nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .nav-in{max-width:1100px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:var(--ink);display:flex;align-items:center;gap:8px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
 .nav-mark{width:15px;height:20px;flex-shrink:0}
 .nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-r{display:flex;align-items:center;gap:4px}
-.nav-link{font-size:13px;color:var(--i3);padding:6px 10px;border-radius:8px;transition:color .2s}
+.nav-link{font-size:13px;color:rgba(245,239,230,.65);padding:6px 10px;border-radius:8px;transition:color .2s}
+.nav-link:hover{color:#fff}
 .nav-link:hover,.nav-link.on{color:var(--ink)}
 .nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:'Playfair Display',serif;font-size:13px;font-weight:600}
 
@@ -207,17 +208,30 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 
 /* CTA */
 .cta-block{max-width:1100px;margin:0 auto;padding:0 32px}
-.cta-inner{background:var(--s1);border:1px solid var(--rim2);border-radius:20px;padding:44px;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 20px rgba(26,21,16,.06)}
-.cta-inner::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 80% at 50% 0%,color-mix(in srgb,var(--a) 10%,transparent),transparent 60%)}
+.cta-inner{background:#17120D;border:1px solid rgba(240,234,225,.1);border-radius:20px;padding:44px;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 34px rgba(0,0,0,.25)}
+.cta-inner::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 80% at 50% 0%,color-mix(in srgb,var(--a) 22%,transparent),transparent 60%)}
+.cta-inner::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(240,234,225,.08) 1.2px,transparent 1.2px);background-size:18px 18px;pointer-events:none}
 .cta-inner>*{position:relative;z-index:2}
-.cta-block h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.cta-block h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#F5EFE6;margin-bottom:10px}
 .cta-block h3 em{font-family:'Playfair Display',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cta-block p{font-size:14px;color:var(--i2);margin-bottom:22px;font-weight:300;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-block p{font-size:14px;color:rgba(245,239,230,.6);margin-bottom:22px;font-weight:300;max-width:440px;margin-left:auto;margin-right:auto}
 .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:13px 28px;border-radius:100px;font-family:'Playfair Display',serif;font-size:14px;font-weight:600;box-shadow:0 4px 18px color-mix(in srgb,var(--a) 28%,transparent);transition:transform .25s}
 .cta-btn:hover{transform:translateY(-2px)}
 
-footer{text-align:center;padding:36px 32px;border-top:1px solid var(--rim);margin-top:64px}
-.fl{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:-.015em;display:inline-flex;align-items:center;gap:8px}
+footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
+.foot-in{max-width:1100px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+@media(max-width:640px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}.foot-brand{grid-column:span 2}}
 .fl em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .foot-sub{font-size:11px;color:var(--i3);margin-top:6px}
 
@@ -285,7 +299,6 @@ footer{text-align:center;padding:36px 32px;border-top:1px solid var(--rim);margi
     <div class="nav-r">
       <a href="/" class="nav-link"><span class="vi">Trang chủ</span><span class="en">Home</span></a>
       <a href="/nguoidonghanh" class="nav-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
-      <a href="/thi-truong" class="nav-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
       <a href="/register#host" class="nav-cta"><span class="vi">Đặt Kèo</span><span class="en">Book</span></a>
     </div>
   </div>
@@ -1602,8 +1615,41 @@ footer{text-align:center;padding:36px 32px;border-top:1px solid var(--rim);margi
 </div>
 
 <footer>
-  <div class="fl"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
-  <div class="foot-sub"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Connections that go deeper · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
 
 <script>
