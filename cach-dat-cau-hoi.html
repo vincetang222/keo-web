@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cách đặt câu hỏi để cuộc trò chuyện không bao giờ cạn | Kèo</title>
 <meta name="description" content="Câu hỏi đúng không chỉ mở chủ đề mới — nó mở ra cả con người của người đối diện. Ba lớp trò chuyện và kỹ thuật đào sâu.">
 <meta name="robots" content="index, follow">
@@ -13,92 +13,207 @@
 <meta property="og:url" content="https://keo.social/cach-dat-cau-hoi">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Ba lớp của một cuộc trò chuyện là gì?","acceptedAnswer":{"@type":"Answer","text":"Sự kiện (bạn làm gì, bạn ở đâu), ý kiến (bạn nghĩ gì về điều đó), và cảm xúc/giá trị (điều đó có ý nghĩa gì với bạn). Hầu hết trò chuyện xã giao chỉ dừng ở lớp đầu tiên. Những cuộc trò chuyện đáng nhớ xảy ra khi đi được đến lớp thứ ba."}},
+    {"@type":"Question","name":"Kỹ thuật 'looping' trong đặt câu hỏi là gì?","acceptedAnswer":{"@type":"Answer","text":"Thay vì nghĩ câu hỏi tiếp theo ngay khi người kia đang nói, hãy lắng nghe và chọn một từ hoặc cụm từ trong câu trả lời của họ để đặt câu hỏi tiếp theo — vừa cho thấy bạn đang thật sự nghe, vừa dẫn cuộc trò chuyện đi sâu hơn."}},
+    {"@type":"Question","name":"Ba loại câu hỏi nào nên có trong mỗi cuộc trò chuyện?","acceptedAnswer":{"@type":"Answer","text":"Câu hỏi về hành trình ('Bạn đến với lĩnh vực này thế nào?'), câu hỏi về quan điểm khác biệt ('Điều gì hầu hết người trong ngành không đồng ý?'), và câu hỏi về ý nghĩa ('Điều gì khiến công việc bạn thấy có ý nghĩa?')."}},
+    {"@type":"Question","name":"Điều gì quan trọng hơn kỹ thuật đặt câu hỏi?","acceptedAnswer":{"@type":"Answer","text":"Sự tò mò thật sự. Câu hỏi hay chỉ có tác dụng khi bạn thực sự tò mò về câu trả lời — người ta nhận ra ngay khi bạn hỏi xã giao hay hỏi vì thực sự muốn biết. Kỹ thuật học được, nhưng tò mò thật không giả được."}}
+  ]
+}
+</script>
 <style>
-:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;--indigo:#6C63C4;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Be Vietnam Pro',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
-nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
-.logo span{color:var(--go)}
-.nav-r{display:flex;align-items:center;gap:12px}
-.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
-.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Be Vietnam Pro',sans-serif}
-.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
-.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
-.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
-.hero h1 em{font-style:italic;color:var(--go)}
-.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
-.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
-.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
-.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
-.wrap h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin:28px 0 12px}
-.wrap strong{color:var(--t1);font-weight:600}
-blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
-blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
-.spot-card{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:22px;margin-bottom:16px}
-.spot-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
-.spot-name{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin-bottom:6px}
-.spot-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:10px}
-.spot-meta{display:flex;gap:10px;flex-wrap:wrap}
-.spot-tag{font-size:12px;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.1);border-radius:100px;padding:3px 11px;color:var(--t2)}
-.spot-tag.price{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.2);color:#8a6a00}
-.divider{height:1px;background:var(--cr2);margin:44px 0}
-.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
-.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
-.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
-.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
-.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
-.tags{margin-bottom:32px}
-footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
-.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
-.fl span{color:var(--go)}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
 .en{display:none}
-@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
 
+.zone-dark{background:#17120D;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:760px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
 
-.next-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
-.next-link{display:block;text-decoration:none}
-.next-link:hover .next-title{color:var(--go)}
-.next-title{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--g);line-height:1.3;transition:color .2s;margin-bottom:6px}
-.next-read{font-size:12px;color:var(--t3)}
-.next-arrow{display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--go)}
+.article-hero{max-width:720px;margin:0 auto;padding:44px 32px 30px;position:relative;overflow:hidden}
+.article-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 15% 20%,color-mix(in srgb,var(--indigo) 25%,transparent),transparent 60%)}
+.breadcrumb{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.breadcrumb::before{content:"";width:16px;height:2px;background:var(--indigo)}
+h1.art-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:600;letter-spacing:-.012em;line-height:1.24;color:#F5EFE6;margin-bottom:18px}
+h1.art-title em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.art-meta{position:relative;z-index:2;display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(245,239,230,.42)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(245,239,230,.3)}
+.tags{position:relative;z-index:2;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(245,239,230,.55)}
 
+.art-illo{max-width:760px;margin:32px auto 0;padding:0 32px}
+.art-illo-frame{background:var(--s2);border-radius:18px;overflow:hidden;border:1px solid var(--rim2)}
+.art-illo-frame svg{width:100%;height:auto;display:block}
+.art-illo-cap{font-size:11px;color:var(--i3);text-align:center;margin-top:10px;margin-bottom:8px;font-style:italic}
 
-.related{margin-top:56px;padding-top:24px;border-top:2px solid var(--g)}
-.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.related-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.related-card{background:var(--cr);border:1px solid var(--cr2);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:all .18s}
-.related-card:hover{background:var(--cr2);transform:translateY(-1px)}
-.related-card.featured{grid-column:span 2;background:var(--g)}
-.related-card.featured:hover{background:var(--g2)}
-.related-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
-.related-card.featured .related-pill{color:rgba(201,168,76,.8)}
-.related-card-title{font-family:"Lora",serif;font-size:14px;font-weight:700;color:var(--t1);line-height:1.35}
-.related-card.featured .related-card-title{font-size:17px;color:var(--cr)}
-@media(max-width:500px){.related-grid{grid-template-columns:1fr}.related-card.featured{grid-column:span 1}}
-</style></head><body>
+.art-body{max-width:640px;margin:0 auto;padding:32px 32px 8px}
+.art-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--i2);margin-bottom:22px}
+.art-body p.lead{font-size:18px;color:var(--ink);padding-left:20px;border-left:3px solid var(--indigo)}
+.art-body h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.art-body h2::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--indigo);flex-shrink:0}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-pull{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;font-weight:600;line-height:1.5;color:var(--ink);padding:8px 26px 8px 54px;margin:32px 0;background:color-mix(in srgb,var(--indigo) 6%,transparent);border-radius:14px}
+.art-pull::before{content:"\201C";position:absolute;top:-8px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:700;font-style:normal;color:var(--indigo);opacity:.7;line-height:1}
+.art-pull span{position:relative;z-index:2}
+
+.art-illo2{max-width:400px;margin:36px auto 0}
+.art-illo2 svg{width:100%;height:auto;display:block}
+
+.sources{border-top:1px solid var(--rim);margin-top:48px;padding-top:24px}
+.sources h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:14px}
+.sources ol{padding-left:18px;display:flex;flex-direction:column;gap:10px}
+.sources li{font-size:12px;color:var(--i3);line-height:1.65}
+.sources li em{font-style:italic}
+.sources-note{font-size:11.5px;color:var(--i3);margin-top:14px;font-style:italic}
+
+.art-cta{max-width:640px;margin:24px auto 0;padding:0 32px}
+.art-cta-inner{background:#17120D;border:1px solid rgba(240,234,225,.1);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25);position:relative;overflow:hidden}
+.art-cta-inner::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(240,234,225,.08) 1.2px,transparent 1.2px);background-size:16px 16px;pointer-events:none}
+.art-cta-inner h3{position:relative;z-index:2;color:#F5EFE6;font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.art-cta-inner p{position:relative;z-index:2;color:rgba(245,239,230,.6);font-size:13px;margin-bottom:18px}
+.art-cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--indigo));color:#fff;padding:12px 26px;border-radius:100px;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;position:relative;z-index:2}
+
+.art-body-links{max-width:640px;margin:0 auto;padding:22px 32px 0;text-align:center;font-size:13px;color:var(--i3)}
+.art-body-links a{color:var(--indigo);border-bottom:1px solid color-mix(in srgb,var(--indigo) 30%,transparent)}
+
+.related-section{max-width:760px;margin:8px auto 0;padding:36px 32px 8px}
+.related-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--indigo);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.related-eyebrow::before{content:"";width:16px;height:2px;background:var(--indigo)}
+.related-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rel-card{background:var(--s1);border:1px solid var(--rim);border-radius:14px;overflow:hidden;transition:all .22s;display:block}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,21,16,.09);border-color:var(--rim2)}
+.rel-cover{height:100px;position:relative;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.rel-cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.rel-cover-kynang{background:linear-gradient(135deg,color-mix(in srgb,var(--indigo) 75%,var(--gold) 25%),var(--indigo) 55%,color-mix(in srgb,var(--indigo) 65%,#000 35%))}
+.rel-cover-ket-noi{background:linear-gradient(135deg,var(--gold),var(--a) 55%,var(--a2))}
+.rel-illo{position:absolute;bottom:0;right:4px;width:56px;height:56px;pointer-events:none;z-index:1}
+.rel-illo svg{width:100%;height:100%}
+.rel-cat{position:relative;z-index:2;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rel-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25);max-width:75%}
+
+.faq-section{max-width:640px;margin:24px auto 0;padding:40px 32px 8px}
+.faq-section-inner{background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--indigo) 4%,var(--s2)));border-radius:20px;padding:32px}
+.faq-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--indigo);margin-bottom:8px}
+.faq-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:22px}
+.faq{border:1px solid var(--rim2);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--s1);transition:border-color .2s}
+.faq:last-child{margin-bottom:0}
+.faq.open{border-color:color-mix(in srgb,var(--indigo) 35%,transparent);box-shadow:0 4px 16px rgba(26,21,16,.06)}
+.faq-q{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.faq-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff;background:var(--indigo);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:600;flex:1}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:13px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--indigo);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 18px 18px 58px;font-size:13.5px;font-weight:300;color:var(--i2);line-height:1.7}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
+.foot-in{max-width:760px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--indigo);color:var(--indigo);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--indigo)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:640px){
+  .nav-in,.article-hero,.art-illo,.art-body,.faq-section,.art-cta,.related-section,.art-body-links{padding-left:20px;padding-right:20px}
+  .related-grid{grid-template-columns:1fr}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r">
-    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
-    <button class="lang-toggle" id="lang-toggle">EN</button>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
-<div class="hero">
-  <div class="cat"><span class="vi">Kỹ năng · Giao tiếp</span><span class="en">Skills · Communication</span></div>
-  <h1><span class="vi">Cách đặt câu hỏi để<br>cuộc trò chuyện<br><em>không bao giờ cạn</em></span><span class="en">How to Ask Questions That Keep<br>a Conversation<br><em>Going Deeper</em></span></h1>
-  <div class="hero-meta"><span class="vi">Kèo · 5 phút đọc</span><span class="en">Kèo · 5 min read</span></div>
-</div>
-<div class="wrap">
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">Kỹ năng · Giao tiếp</span><span class="en">Skills · Communication</span></div>
+  <h1 class="art-title"><span class="vi">Cách đặt câu hỏi để cuộc trò chuyện <em>không bao giờ cạn</em></span><span class="en">How to Ask Questions That Keep a Conversation <em>Going Deeper</em></span></h1>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">5 phút đọc</span><span class="en">5 min read</span>
+  </div>
   <div class="tags">
     <span class="tag"><span class="vi">kỹ năng giao tiếp</span><span class="en">communication skills</span></span>
     <span class="tag"><span class="vi">câu hỏi</span><span class="en">questions</span></span>
     <span class="tag"><span class="vi">trò chuyện</span><span class="en">conversation</span></span>
   </div>
+</div>
+</div>
 
-  <p><span class="vi">Bạn đã bao giờ ngồi với ai đó và cảm thấy cuộc trò chuyện cứ cạn dần, dù cả hai đều đang cố? Câu trả lời thường không phải là thiếu chủ đề — mà là cách đặt câu hỏi sai. Câu hỏi đúng không chỉ mở ra chủ đề mới mà còn mở ra cả con người của người đối diện.</span><span class="en">Have you ever sat with someone and felt the conversation slowly running dry, despite both of you trying? The answer is usually not a lack of topics — it's asking the wrong kind of questions. The right question doesn't just open up a new topic, it opens up the person in front of you.</span></p>
+<div class="art-illo">
+  <div class="art-illo-frame">
+    <svg viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="ig" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--indigo)"/></linearGradient></defs>
+      <path d="M275 230 Q275 195 291 195 Q307 195 307 230Z" fill="url(#ig)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+      <circle cx="291" cy="176" r="21" fill="url(#ig)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+      <circle cx="285" cy="172" r="2.2" fill="#1A1510"/><circle cx="297" cy="172" r="2.2" fill="#1A1510"/>
+      <path d="M284 181 Q291 186 298 181" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <circle cx="440" cy="130" r="20" stroke="url(#ig)" stroke-width="1.8" opacity=".9" fill="none"/>
+      <circle cx="440" cy="130" r="40" stroke="url(#ig)" stroke-width="1.5" opacity=".55" fill="none"/>
+      <circle cx="440" cy="130" r="62" stroke="url(#ig)" stroke-width="1.2" opacity=".3" fill="none"/>
+      <text x="440" y="136" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="url(#ig)">?</text>
+      <text x="440" y="100" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" font-weight="700" letter-spacing="1" fill="var(--i3)" opacity=".8">SỰ KIỆN</text>
+      <text x="440" y="196" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" font-weight="700" letter-spacing="1" fill="var(--i3)" opacity=".5">Ý NGHĨA</text>
+    </svg>
+  </div>
+  <div class="art-illo-cap"><span class="vi">Minh hoạ: mỗi cuộc trò chuyện có nhiều lớp — câu hỏi đúng dẫn vào lớp sâu nhất.</span><span class="en">Illustration: every conversation has layers — the right question leads to the deepest one.</span></div>
+</div>
+
+<div class="art-body">
+  <p class="lead"><span class="vi">Bạn đã bao giờ ngồi với ai đó và cảm thấy cuộc trò chuyện cứ cạn dần, dù cả hai đều đang cố? Câu trả lời thường không phải là thiếu chủ đề — mà là cách đặt câu hỏi sai. Câu hỏi đúng không chỉ mở ra chủ đề mới mà còn mở ra cả con người của người đối diện.</span><span class="en">Have you ever sat with someone and felt the conversation slowly running dry, despite both of you trying? The answer is usually not a lack of topics — it's asking the wrong kind of questions. The right question doesn't just open up a new topic, it opens up the person in front of you.</span></p>
 
   <h2><span class="vi">Câu hỏi đóng và câu hỏi mở — nhưng đó chưa phải tất cả</span><span class="en">Closed and Open Questions — But That's Not the Whole Story</span></h2>
 
@@ -107,6 +222,19 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
   <p><span class="vi">Có ba lớp trong một cuộc trò chuyện: <strong>sự kiện</strong> (bạn làm gì, bạn ở đâu), <strong>ý kiến</strong> (bạn nghĩ gì về điều đó), và <strong>cảm xúc/giá trị</strong> (điều đó có ý nghĩa gì với bạn). Hầu hết các cuộc trò chuyện xã giao chỉ dừng lại ở lớp đầu tiên. Những cuộc trò chuyện đáng nhớ xảy ra khi bạn đi được đến lớp thứ ba.</span><span class="en">There are three layers in any conversation: <strong>facts</strong> (what you do, where you are), <strong>opinions</strong> (what you think about it), and <strong>emotions/values</strong> (what it means to you). Most social conversations stay at the first layer. Memorable conversations happen when you reach the third.</span></p>
 
   <h2><span class="vi">Câu hỏi đào sâu — kỹ thuật đơn giản nhất</span><span class="en">The Follow-Up Question — The Simplest Technique</span></h2>
+
+  <div class="art-illo2">
+    <svg viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="ig2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--indigo)"/></linearGradient></defs>
+      <rect width="300" height="140" rx="14" fill="var(--s2)"/>
+      <path d="M42 30 Q60 30 60 40 Q60 50 42 50 L34 58 L36 48 Q24 48 24 40 Q24 30 42 30Z" fill="none" stroke="url(#ig2b)" stroke-width="2"/>
+      <path d="M45 68 Q65 90 95 90 Q125 90 145 68" stroke="url(#ig2b)" stroke-width="1.6" stroke-dasharray="1 6" fill="none"/>
+      <path d="M228 90 Q250 90 250 102 Q250 114 228 114 L218 124 L221 112 Q206 112 206 102 Q206 90 228 90Z" fill="url(#ig2b)" opacity=".85"/>
+      <text x="35" y="42" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" fill="var(--illo-ink)">?</text>
+      <text x="228" y="106" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" fill="#1A1510">?</text>
+    </svg>
+  </div>
+  <div class="art-illo-cap"><span class="vi">"Looping": lấy một từ trong câu trả lời để tạo câu hỏi tiếp theo, sâu hơn.</span><span class="en">"Looping": using a word from their answer to build the next, deeper question.</span></div>
 
   <p><span class="vi">Thay vì nghĩ câu hỏi tiếp theo ngay khi người kia đang nói, hãy lắng nghe và chọn một từ hoặc cụm từ trong câu trả lời của họ để đặt câu hỏi tiếp theo. Kỹ thuật này — thường được gọi là "looping" trong các khoá học giao tiếp — vừa cho thấy bạn đang thật sự nghe, vừa tự nhiên dẫn cuộc trò chuyện đi sâu hơn mà không cần nhảy sang chủ đề mới.</span><span class="en">Instead of thinking of the next question while the other person is speaking, listen and pick one word or phrase from their answer to build your next question on. This technique — often called "looping" in communication courses — both shows you're genuinely listening and naturally guides the conversation deeper without jumping to a new topic.</span></p>
 
@@ -124,68 +252,141 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
 
   <p><span class="vi">Câu hỏi hay chỉ có tác dụng khi bạn thực sự tò mò về câu trả lời. Người ta nhận ra ngay khi bạn hỏi để xã giao và khi bạn hỏi vì thực sự muốn biết. Kỹ thuật có thể học được, nhưng sự tò mò thật thì không giả được.</span><span class="en">A good question only works when you're genuinely curious about the answer. People immediately sense when you're asking out of social obligation versus when you genuinely want to know. Technique can be learned, but genuine curiosity can't be faked.</span></p>
 
-  <blockquote><p><span class="vi">Cuộc trò chuyện tệ nhất không phải là im lặng. Mà là khi cả hai người đều đang nói nhưng không ai thực sự lắng nghe.</span><span class="en">The worst conversation isn't silence. It's when both people are talking but nobody is actually listening.</span></p></blockquote>
+  <div class="art-pull"><span><span class="vi">Cuộc trò chuyện tệ nhất không phải là im lặng. Mà là khi cả hai người đều đang nói nhưng không ai thực sự lắng nghe.</span><span class="en">The worst conversation isn't silence. It's when both people are talking but nobody is actually listening.</span></span></div>
 
-    <div class="sources">
+  <div class="sources">
     <h4><span class="vi">Nguồn tham khảo</span><span class="en">References</span></h4>
     <ol>
-      <li>Peter Thiel & Blake Masters, <em>Zero to One: Notes on Startups, or How to Build the Future</em> — Crown Business, 2014. Câu hỏi về quan điểm khác biệt được Thiel dùng trong quá trình phỏng vấn tại PayPal và các công ty ông đầu tư.</li>
-      <li>Stephen Covey, <em>The 7 Habits of Highly Effective People</em> — Simon & Schuster, 1989. Habit 5: "Seek First to Understand, Then to Be Understood."</li>
-      <li>Hargie, O., <em>Skilled Interpersonal Communication: Research, Theory and Practice</em> — 5th Edition, Routledge, 2011. Nguồn học thuật về kỹ thuật đặt câu hỏi và lắng nghe.</li>
+      <li>Peter Thiel &amp; Blake Masters, <em>Zero to One: Notes on Startups, or How to Build the Future</em> — Crown Business, 2014. <span class="vi">Câu hỏi về quan điểm khác biệt được Thiel dùng trong quá trình phỏng vấn tại PayPal và các công ty ông đầu tư.</span><span class="en">The contrarian question was used by Thiel in interviews at PayPal and companies he invested in.</span></li>
+      <li>Stephen Covey, <em>The 7 Habits of Highly Effective People</em> — Simon &amp; Schuster, 1989. Habit 5: "Seek First to Understand, Then to Be Understood."</li>
+      <li>Hargie, O., <em>Skilled Interpersonal Communication: Research, Theory and Practice</em> — 5th Edition, Routledge, 2011. <span class="vi">Nguồn học thuật về kỹ thuật đặt câu hỏi và lắng nghe.</span><span class="en">Academic source on questioning and listening technique.</span></li>
     </ol>
-    <p style="font-size:12px;color:var(--t3);margin-top:12px"><span class="vi">Bài viết tổng hợp từ các nghiên cứu học thuật đã được bình duyệt. Vui lòng truy cập nguồn gốc để đọc đầy đủ.</span><span class="en">This article synthesizes peer-reviewed academic research. Please visit original sources for full reading.</span></p>
+    <p class="sources-note"><span class="vi">Bài viết tổng hợp từ các nghiên cứu học thuật đã được bình duyệt. Vui lòng truy cập nguồn gốc để đọc đầy đủ.</span><span class="en">This article synthesizes peer-reviewed academic research. Please visit original sources for full reading.</span></p>
   </div>
+</div>
 
-  <div class="divider"></div>
-  <div class="cta-box">
+<div class="art-cta">
+  <div class="art-cta-inner">
     <h3><span class="vi">Thực hành với người thật, trong buổi tối thật</span><span class="en">Practice With a Real Person, in a Real Evening</span></h3>
     <p><span class="vi">Kèo kết nối bạn với người đồng hành có chuyên môn và câu chuyện thú vị — một buổi cà phê hay bữa tối để thực hành những kỹ năng này trong bối cảnh thật.</span><span class="en">Kèo connects you with a companion with real expertise and interesting stories — a coffee or dinner to practice these skills in a real setting.</span></p>
-    <a href="/chu-xi"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
+    <a href="/chu-xi" class="art-cta-btn">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
   </div>
+</div>
 
-  <p style="font-size:14px;color:var(--t3);text-align:center">
-    <span class="vi">Xem thêm: <a href="/lang-nghe-that-su" style="color:var(--g)">Lắng nghe thật sự</a> · <a href="/su-im-lang-thoai-mai" style="color:var(--g)">Sự im lặng thoải mái</a></span>
-    <span class="en">Read more: <a href="/lang-nghe-that-su" style="color:var(--g)">Deep listening</a> · <a href="/su-im-lang-thoai-mai" style="color:var(--g)">Comfortable silence</a></span>
-  </p>
-<div class="related">
-  <div class="related-head">
-    <div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div>
-    <a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
-  </div>
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Also recommended</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></h2>
   <div class="related-grid">
-    <a href="/nghe-thuat-ke-chuyen-trong-tro-chuyen" class="related-card featured">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Nghệ thuật kể chuyện trong trò chuyện</span><span class="en">The Art of Storytelling in Conversation</span></div>
-    </a><a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Sự im lặng thoải mái là dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence Is the Sign of Genuine Connection</span></div>
-    </a><a href="/di-an-toi-mot-minh" class="related-card ">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Đi ăn tối một mình và cách để không còn như vậy</span><span class="en">Dining Alone and How to Change That</span></div>
-    </a><a href="/ban-an-gia-dinh-viet-nam-nghi-thuc-dang-mat-di" class="related-card ">
-      <div class="related-pill"><span class="vi">Nghi thức</span><span class="en">Rituals</span></div>
-      <div class="related-card-title"><span class="vi">Bàn ăn gia đình Việt Nam và nghi thức đang dần mất đi</span><span class="en">The Vietnamese Family Table and the Ritual That Is Fading</span></div>
-    </a><a href="/work-from-home-va-cai-gia-an-cua-su-linh-hoat" class="related-card ">
-      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
-      <div class="related-card-title"><span class="vi">Làm việc từ xa và cái giá ẩn của sự linh hoạt</span><span class="en">Working from Home and the Hidden Cost of Flexibility</span></div>
+    <a href="/nghe-thuat-ke-chuyen-trong-tro-chuyen" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Nghệ thuật kể chuyện trong trò chuyện</span><span class="en">The Art of Storytelling in Conversation</span></div>
+      </div>
+    </a>
+    <a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Sự im lặng thoải mái là dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence Is a Sign of Genuine Connection</span></div>
+      </div>
+    </a>
+    <a href="/di-an-toi-mot-minh" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Đi ăn tối một mình và cách để không còn như vậy</span><span class="en">Dining Alone and How to Change That</span></div>
+      </div>
     </a>
   </div>
 </div>
+
+<div class="faq-section">
+  <div class="faq-section-inner">
+  <div class="faq-eyebrow">FAQ</div>
+  <h2 class="faq-h2"><span class="vi">Câu hỏi thường gặp</span><span class="en">Frequently Asked Questions</span></h2>
+
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">1</span><span class="faq-q-text"><span class="vi">Ba lớp của một cuộc trò chuyện là gì?</span><span class="en">What are the three layers of a conversation?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Sự kiện (bạn làm gì, bạn ở đâu), ý kiến (bạn nghĩ gì về điều đó), và cảm xúc/giá trị (điều đó có ý nghĩa gì với bạn). Hầu hết trò chuyện xã giao chỉ dừng ở lớp đầu tiên.</span><span class="en">Facts (what you do, where you are), opinions (what you think about it), and emotions/values (what it means to you). Most social conversations stay at the first layer.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">2</span><span class="faq-q-text"><span class="vi">Kỹ thuật "looping" trong đặt câu hỏi là gì?</span><span class="en">What is the "looping" technique in questioning?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Thay vì nghĩ câu hỏi tiếp theo ngay khi người kia đang nói, hãy lắng nghe và chọn một từ trong câu trả lời của họ để đặt câu hỏi tiếp theo — vừa cho thấy bạn đang nghe, vừa dẫn trò chuyện đi sâu hơn.</span><span class="en">Instead of thinking of the next question while they're speaking, listen and pick a word from their answer to build on — showing you're listening while guiding the conversation deeper.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">3</span><span class="faq-q-text"><span class="vi">Ba loại câu hỏi nào nên có trong mỗi cuộc trò chuyện?</span><span class="en">What three types of questions belong in every conversation?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Câu hỏi về hành trình, câu hỏi về quan điểm khác biệt, và câu hỏi về ý nghĩa — mỗi loại mở ra một cách người kia chia sẻ về bản thân.</span><span class="en">Journey questions, contrarian opinion questions, and meaning questions — each opens a different way for someone to share about themselves.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">4</span><span class="faq-q-text"><span class="vi">Điều gì quan trọng hơn kỹ thuật đặt câu hỏi?</span><span class="en">What matters more than the technique itself?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Sự tò mò thật sự. Người ta nhận ra ngay khi bạn hỏi xã giao hay hỏi vì thực sự muốn biết — kỹ thuật học được, nhưng tò mò thật không giả được.</span><span class="en">Genuine curiosity. People immediately sense social obligation versus real interest — technique can be learned, but real curiosity can't be faked.</span></div></div>
+  </div>
+  </div>
 </div>
+
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
+
 <script>
-var isEN=false;
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('lang-toggle');
-  if(btn){btn.addEventListener('click',function(){
-    isEN=!isEN;
-    btn.textContent=isEN?'VI':'EN';
-    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
-    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
-  });}
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
 });
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>

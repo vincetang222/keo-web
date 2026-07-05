@@ -1,120 +1,281 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#1A3A28">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#17120D">
 <title>Đặt Kèo — Tìm người đồng hành | Kèo</title>
 <meta name="description" content="Đặt Kèo để tìm người đồng hành phù hợp trong 24 giờ. Điền 1 form duy nhất — Kèo lo phần còn lại.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/chu-xi">
+<meta property="og:image" content="https://keo.social/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:var(--w);color:var(--t1)}
-nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
-.logo span{color:var(--go)}
-.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
-.hero{background:var(--g);padding:48px 40px 64px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:48px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:5px 16px;font-size:11px;font-weight:600;color:var(--go);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
-.hero h1{font-family:'Lora',serif;font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--cr);line-height:1.2;margin-bottom:10px}
-.hero h1 em{font-style:italic;color:var(--go)}
-.hero p{font-size:14px;color:rgba(245,240,232,.55);max-width:480px;margin:0 auto;line-height:1.7}
-.wrap{max-width:640px;margin:0 auto;padding:40px 24px 80px}
-.trust-bar{display:flex;justify-content:center;gap:24px;margin-bottom:36px;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--t2)}
-.trust-item span{font-weight:600;color:var(--g)}
-.form-box{background:#fff;border:1px solid var(--cr2);border-radius:20px;padding:36px;margin-bottom:20px}
-.form-box h2{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin-bottom:6px}
-.form-box .sub{font-size:13px;color:var(--t3);margin-bottom:24px}
-.field{margin-bottom:20px}
-.field label{display:block;font-size:13px;font-weight:600;color:var(--t1);margin-bottom:6px}
-.field label .req{color:var(--go)}
-.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--cr2);border-radius:10px;padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--t1);background:var(--w);transition:border-color .15s;outline:none}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--g)}
-.field textarea{resize:vertical;min-height:90px;line-height:1.6}
-.field .hint{font-size:12px;color:var(--t3);margin-top:5px;line-height:1.5}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.events{display:flex;flex-wrap:wrap;gap:8px}
-.event-btn{background:var(--w);border:1.5px solid var(--cr2);border-radius:100px;padding:7px 14px;font-size:13px;cursor:pointer;color:var(--t2);transition:all .15s;font-family:'Inter',sans-serif}
-.event-btn.on{background:var(--g);color:var(--cr);border-color:var(--g)}
-.fee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
-.fee-opt{border:1.5px solid var(--cr2);border-radius:12px;padding:12px 10px;text-align:center;cursor:pointer;transition:all .15s}
-.fee-opt.on{border-color:var(--g);background:rgba(26,58,40,.05)}
-.fee-opt .amount{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g);display:block;margin-bottom:3px}
-.fee-opt .desc{font-size:11px;color:var(--t3);line-height:1.4}
-.fee-custom{width:100%;border:1.5px solid var(--cr2);border-radius:10px;padding:10px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--t1);background:var(--w);outline:none;margin-top:4px}
-.fee-custom:focus{border-color:var(--g)}
-.submit-btn{width:100%;background:var(--go);color:var(--g);border:none;border-radius:100px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Lora',serif;transition:opacity .2s;margin-top:8px}
-.submit-btn:hover{opacity:.9}
-.trust-note{text-align:center;font-size:12px;color:var(--t3);margin-top:12px;line-height:1.6}
-.success{display:none;text-align:center;padding:48px 24px;background:#fff;border:1px solid var(--cr2);border-radius:20px}
-.success h2{font-family:'Lora',serif;font-size:28px;font-weight:700;color:var(--g);margin-bottom:12px}
-.success p{font-size:15px;color:var(--t2);line-height:1.7}
-.steps{background:var(--cr);border-radius:16px;padding:24px;margin-bottom:20px}
-.steps h3{font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--t1);margin-bottom:16px}
-.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
-.step:last-child{margin-bottom:0}
-.step-n{width:24px;height:24px;border-radius:50%;background:var(--g);color:var(--cr);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-text{font-size:13px;color:var(--t2);line-height:1.6;padding-top:2px}
-.step-text strong{color:var(--t1)}
-footer{text-align:center;padding:24px;border-top:1px solid var(--cr2)}
-.fl{font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--g)}
-.fl span{color:var(--go)}
-@media(max-width:600px){nav{padding:16px 18px}.hero{padding:32px 18px 48px}.wrap{padding:28px 16px 56px}.form-box{padding:24px 18px}.row{grid-template-columns:1fr}.fee-grid{grid-template-columns:1fr 1fr}}
-</style>  <meta property="og:image" content="https://keo.social/og-image.png">
-</head><body>
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
 
+/* ===== HERO ===== */
+.zone-dark{background:#17120D;border-radius:0 0 40px 40px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:680px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
+
+.hero{max-width:680px;margin:0 auto;padding:36px 32px 88px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 50% 15%,color-mix(in srgb,var(--a) 22%,transparent),transparent 65%)}
+.hero-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(50px);opacity:.35;pointer-events:none}
+.hero-glow.g1{background:var(--gold);top:-40px;left:8%}
+.hero-glow.g2{background:var(--a2);bottom:20px;right:6%}
+.hero-illo{position:relative;z-index:2;width:150px;margin:0 auto 8px}
+.hero-illo svg{width:100%;height:auto;display:block}
+.badge{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.18);border-radius:100px;padding:6px 16px;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.6vw,44px);font-weight:600;letter-spacing:-.01em;line-height:1.2;color:#F5EFE6;margin-bottom:14px}
+.hero h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{position:relative;z-index:2;font-size:14.5px;font-weight:300;color:rgba(245,239,230,.6);max-width:440px;margin:0 auto;line-height:1.75}
+
+/* ===== FLOATING STATS ===== */
+.stats-row{max-width:680px;margin:-56px auto 0;padding:0 32px;position:relative;z-index:20;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat-card{background:#17120D;border-radius:16px;padding:18px 12px;text-align:center;box-shadow:0 14px 34px rgba(0,0,0,.28);border:1px solid rgba(240,234,225,.1)}
+.stat-ic{font-size:18px;margin-bottom:6px}
+.stat-num{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1.1}
+.stat-label{font-size:10.5px;color:rgba(245,239,230,.55);margin-top:3px;line-height:1.3}
+
+.wrap{max-width:640px;margin:0 auto;padding:44px 24px 80px}
+
+/* ===== TIMELINE ===== */
+.timeline{margin-bottom:36px}
+.timeline-h{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;text-align:center;margin-bottom:26px}
+.tl-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative}
+.tl-row::before{content:"";position:absolute;top:23px;left:16%;right:16%;height:2px;background:linear-gradient(90deg,var(--gold),var(--a),var(--a2));opacity:.35;z-index:0}
+.tl-step{position:relative;z-index:1;text-align:center}
+.tl-ic{width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid var(--rim2);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:18px;box-shadow:0 4px 14px rgba(26,21,16,.06);transition:all .25s}
+.tl-step:nth-child(1) .tl-ic{border-color:var(--gold);color:var(--gold)}
+.tl-step:nth-child(2) .tl-ic{border-color:var(--a);color:var(--a)}
+.tl-step:nth-child(3) .tl-ic{border-color:var(--a2);color:var(--a2)}
+.tl-title{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3}
+.tl-desc{font-size:11px;color:var(--i3);line-height:1.5;padding:0 4px}
+
+/* ===== FORM ===== */
+.form-box{background:#fff;border:1px solid var(--rim2);border-radius:20px;padding:32px;margin-bottom:18px;transition:box-shadow .3s}
+.form-box:hover{box-shadow:0 8px 28px rgba(26,21,16,.06)}
+.form-box-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.form-box-num{width:34px;height:34px;border-radius:10px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Playfair Display',serif;font-weight:700;font-size:14px}
+.form-box h2{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.form-box .sub{font-size:12.5px;color:var(--i3)}
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+#sport-field{overflow:hidden;max-height:0;opacity:0;margin-bottom:0;transition:max-height .35s ease,opacity .3s ease,margin-bottom .35s ease}
+#sport-field.show{max-height:110px;opacity:1;margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.field label .req{color:var(--a)}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--rim2);border-radius:10px;padding:11px 14px;font-size:14px;font-family:'Be Vietnam Pro',sans-serif;color:var(--ink);background:var(--bg);transition:border-color .15s,box-shadow .15s;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--a);box-shadow:0 0 0 3px color-mix(in srgb,var(--a) 12%,transparent)}
+.field textarea{resize:vertical;min-height:90px;line-height:1.6}
+.field .hint{font-size:12px;color:var(--i3);margin-top:5px;line-height:1.5}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.events{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.event-btn{background:var(--bg);border:1.5px solid var(--rim2);border-radius:12px;padding:10px 6px;font-size:11.5px;cursor:pointer;color:var(--i2);transition:all .18s;font-family:'Be Vietnam Pro',sans-serif;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;line-height:1.25}
+.event-btn .ico{font-size:17px}
+.event-btn:hover{border-color:var(--a);transform:translateY(-1px)}
+.event-btn.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(214,95,53,.3)}
+.fee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+.fee-opt{position:relative;border:1.5px solid var(--rim2);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .18s}
+.fee-opt:hover{border-color:color-mix(in srgb,var(--a) 40%,var(--rim2))}
+.fee-opt.on{border-color:var(--a);background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 6%,transparent),color-mix(in srgb,var(--a) 5%,transparent));box-shadow:0 6px 18px rgba(214,95,53,.14)}
+.fee-check{position:absolute;top:6px;right:6px;width:16px;height:16px;border-radius:50%;background:var(--grad);color:#fff;font-size:10px;display:none;align-items:center;justify-content:center}
+.fee-opt.on .fee-check{display:flex}
+.fee-opt .amount{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);display:block;margin-bottom:3px}
+.fee-opt.on .amount{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fee-opt .desc{font-size:10.5px;color:var(--i3);line-height:1.4}
+.fee-custom{width:100%;border:1.5px solid var(--rim2);border-radius:10px;padding:10px 14px;font-size:14px;font-family:'Be Vietnam Pro',sans-serif;color:var(--ink);background:var(--bg);outline:none;margin-top:4px}
+.fee-custom:focus{border-color:var(--a)}
+
+.submit-btn{width:100%;background:var(--grad);color:#fff;border:none;border-radius:100px;padding:17px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Playfair Display',serif;transition:transform .2s,box-shadow .2s;margin-top:10px;box-shadow:0 10px 26px rgba(214,95,53,.32)}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(214,95,53,.4)}
+.submit-btn:disabled{opacity:.7;cursor:default;transform:none}
+.trust-note{text-align:center;font-size:12px;color:var(--i3);margin-top:14px;line-height:1.6}
+
+.success{display:none;text-align:center;padding:56px 28px;background:#fff;border:1px solid var(--rim2);border-radius:24px;box-shadow:0 20px 50px rgba(26,21,16,.08)}
+.success-ic{width:76px;height:76px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:34px;box-shadow:0 12px 28px rgba(214,95,53,.3)}
+.success h2{font-family:'Playfair Display',serif;font-size:27px;font-weight:600;color:var(--ink);margin-bottom:12px}
+.success p{font-size:15px;color:var(--i2);line-height:1.7}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:24px}
+.foot-in{max-width:680px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px;padding-bottom:28px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:240px;margin:12px 0 16px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:34px;height:34px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:16px;height:16px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:12px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:4px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:18px;font-size:11px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:8px}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:600px){
+  .nav-in{padding:0 20px}
+  .hero{padding:28px 20px 76px}
+  .hero-illo{width:120px}
+  .stats-row{padding:0 16px;gap:8px;margin-top:-48px}
+  .stat-card{padding:14px 6px;border-radius:14px}
+  .stat-ic{font-size:15px}
+  .stat-num{font-size:16px}
+  .stat-label{font-size:9.5px}
+  .wrap{padding:36px 16px 56px}
+  .form-box{padding:22px 18px}
+  .row{grid-template-columns:1fr}
+  .events{grid-template-columns:repeat(3,1fr)}
+  .fee-grid{grid-template-columns:1fr 1fr}
+  .tl-desc{display:none}
+  .foot-top{grid-template-columns:1fr 1fr;gap:20px}
+  .foot-brand{grid-column:span 2}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <a href="/register" class="back">← Quay lại</a>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/register" class="nav-back"><span class="vi">← Quay lại</span><span class="en">← Back</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <div class="hero">
-  <div class="badge">👑 Chủ xị</div>
-  <h1>Đặt <em>Kèo</em> ngay —<br>Kèo lo phần còn lại</h1>
-  <p>Điền thông tin bên dưới — Kèo giới thiệu người đồng hành phù hợp qua Zalo trong 24 giờ. Bạn đồng ý thì mới chuyển khoản.</p>
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-illo">
+    <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
+      <path d="M62 132 Q62 100 78 100 Q94 100 94 132Z" fill="url(#hg)" stroke="var(--illo-ink)" stroke-width="3"/>
+      <circle cx="78" cy="84" r="20" fill="url(#hg)" stroke="var(--illo-ink)" stroke-width="3"/>
+      <circle cx="72" cy="80" r="2.2" fill="#1A1510"/><circle cx="84" cy="80" r="2.2" fill="#1A1510"/>
+      <path d="M70 90 Q78 96 86 90" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M60 108 Q48 100 44 88" stroke="var(--illo-ink)" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M106 132 Q106 104 121 104 Q136 104 136 132Z" fill="#fff" stroke="var(--i3)" stroke-width="2.6"/>
+      <circle cx="121" cy="90" r="17" fill="#fff" stroke="var(--i3)" stroke-width="2.6"/>
+      <circle cx="116" cy="87" r="1.8" fill="var(--i3)"/><circle cx="126" cy="87" r="1.8" fill="var(--i3)"/>
+      <path d="M115 95 Q121 99 127 95" stroke="var(--i3)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <path d="M133 108 Q144 98 148 86" stroke="var(--i3)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+      <path d="M42 84 L38 80 M38 84 L42 80" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M150 84 L146 80 M146 84 L150 80" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+      <circle cx="100" cy="30" r="2.5" fill="var(--gold)"/>
+      <circle cx="30" cy="50" r="2" fill="var(--a2)" opacity=".7"/>
+      <circle cx="168" cy="55" r="2" fill="var(--gold)" opacity=".7"/>
+      <ellipse cx="100" cy="138" rx="76" ry="8" fill="rgba(240,234,225,.06)"/>
+    </svg>
+  </div>
+  <div class="badge">👑 <span class="vi">Chủ xị</span><span class="en">Host</span></div>
+  <h1><span class="vi">Đặt <em>Kèo</em> ngay — Kèo lo phần còn lại</span><span class="en">Book a <em>Kèo</em> Now — We Handle the Rest</span></h1>
+  <p><span class="vi">Điền thông tin bên dưới — Kèo giới thiệu người đồng hành phù hợp qua Zalo trong 24 giờ. Bạn đồng ý thì mới chuyển khoản.</span><span class="en">Fill in the details below — Kèo will introduce a suitable companion via Zalo within 24 hours. You only pay once you agree.</span></p>
+</div>
+</div>
+
+<div class="stats-row rv">
+  <div class="stat-card">
+    <div class="stat-ic">🌿</div>
+    <span class="stat-num">89</span>
+    <div class="stat-label"><span class="vi">người đồng hành</span><span class="en">companions</span></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-ic">⚡</div>
+    <span class="stat-num">24h</span>
+    <div class="stat-label"><span class="vi">thời gian match</span><span class="en">match time</span></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-ic">🔒</div>
+    <span class="stat-num">100%</span>
+    <div class="stat-label"><span class="vi">hoàn tiền nếu không match</span><span class="en">refund if no match</span></div>
+  </div>
 </div>
 
 <div class="wrap">
 
-  <div class="trust-bar">
-    <div class="trust-item">🌿 <span>86</span> người đồng hành</div>
-    <div class="trust-item">⚡ Match trong <span>24h</span></div>
-    <div class="trust-item">🔒 Hoàn tiền <span>100%</span> nếu không match</div>
-  </div>
-
-  <div class="steps">
-    <h3>Quy trình 3 bước đơn giản</h3>
-    <div class="step"><div class="step-n">1</div><div class="step-text"><strong>Điền form này</strong> — mô tả buổi gặp bạn muốn</div></div>
-    <div class="step"><div class="step-n">2</div><div class="step-text"><strong>Kèo giới thiệu người đồng hành</strong> — bạn xem hồ sơ và xác nhận trong 24h</div></div>
-    <div class="step"><div class="step-n">3</div><div class="step-text"><strong>Xác nhận &amp; chuyển khoản thù lao</strong> — Kèo giữ an toàn, giải ngân sau buổi gặp</div></div>
+  <div class="timeline rv">
+    <h3 class="timeline-h"><span class="vi">Quy trình 3 bước đơn giản</span><span class="en">3 Simple Steps</span></h3>
+    <div class="tl-row">
+      <div class="tl-step">
+        <div class="tl-ic">📝</div>
+        <div class="tl-title"><span class="vi">Điền form</span><span class="en">Fill the form</span></div>
+        <div class="tl-desc"><span class="vi">Mô tả buổi gặp bạn muốn</span><span class="en">Describe the meetup you want</span></div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-ic">🤝</div>
+        <div class="tl-title"><span class="vi">Kèo giới thiệu</span><span class="en">Kèo introduces</span></div>
+        <div class="tl-desc"><span class="vi">Xem hồ sơ, xác nhận trong 24h</span><span class="en">Review profile, confirm in 24h</span></div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-ic">✅</div>
+        <div class="tl-title"><span class="vi">Xác nhận &amp; gặp</span><span class="en">Confirm &amp; meet</span></div>
+        <div class="tl-desc"><span class="vi">Kèo giữ an toàn khoản thù lao</span><span class="en">Kèo holds the fee safely</span></div>
+      </div>
+    </div>
   </div>
 
   <form id="keo-form">
-    <div class="form-box">
-      <h2>Thông tin của bạn</h2>
-      <p class="sub">Kèo cần để liên hệ và match người phù hợp nhất cho bạn.</p>
+    <div class="form-box rv">
+      <div class="form-box-head">
+        <div class="form-box-num">01</div>
+        <div>
+          <h2><span class="vi">Thông tin của bạn</span><span class="en">Your Information</span></h2>
+          <div class="sub"><span class="vi">Kèo cần để liên hệ và match người phù hợp nhất</span><span class="en">Kèo needs this to contact you and find the best match</span></div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="field">
-          <label>Họ tên <span class="req">*</span></label>
+          <label><span class="vi">Họ tên</span><span class="en">Full name</span> <span class="req">*</span></label>
           <input type="text" id="ten" placeholder="Nguyễn Văn A" required>
         </div>
         <div class="field">
-          <label>Số Zalo <span class="req">*</span></label>
+          <label><span class="vi">Số Zalo</span><span class="en">Zalo number</span> <span class="req">*</span></label>
           <input type="tel" id="zalo" placeholder="09xx xxx xxx" required>
         </div>
       </div>
 
       <div class="field">
-        <label>Thành phố <span class="req">*</span></label>
+        <label><span class="vi">Thành phố</span><span class="en">City</span> <span class="req">*</span></label>
         <select id="city" required>
-          <option value="">Chọn thành phố</option>
+          <option value="" data-vi="Chọn thành phố" data-en="Select city">Chọn thành phố</option>
           <option>TP. Hồ Chí Minh</option>
           <option>Hà Nội</option>
           <option>Đà Nẵng</option>
@@ -122,95 +283,189 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--cr2)}
       </div>
     </div>
 
-    <div class="form-box">
-      <h2>Buổi Kèo của bạn</h2>
-      <p class="sub">Càng cụ thể, Kèo match càng chính xác.</p>
+    <div class="form-box rv">
+      <div class="form-box-head">
+        <div class="form-box-num">02</div>
+        <div>
+          <h2><span class="vi">Buổi Kèo của bạn</span><span class="en">Your Kèo Session</span></h2>
+          <div class="sub"><span class="vi">Càng cụ thể, Kèo match càng chính xác</span><span class="en">The more specific, the more accurate the match</span></div>
+        </div>
+      </div>
 
       <div class="field">
-        <label>Loại sự kiện <span class="req">*</span></label>
+        <label><span class="vi">Loại sự kiện</span><span class="en">Event type</span> <span class="req">*</span></label>
         <div class="events" id="events">
-          <button type="button" class="event-btn" data-val="Cà phê">☕ Cà phê</button>
-          <button type="button" class="event-btn" data-val="Bữa trưa">🥗 Bữa trưa</button>
-          <button type="button" class="event-btn" data-val="Bữa tối">🍽 Bữa tối</button>
-          <button type="button" class="event-btn" data-val="Wine & Cocktail">🍷 Wine & Cocktail</button>
-          <button type="button" class="event-btn" data-val="Triển lãm">🎨 Triển lãm</button>
-          <button type="button" class="event-btn" data-val="Âm nhạc">🎵 Âm nhạc</button>
-          <button type="button" class="event-btn" data-val="Thể thao">🏸 Thể thao</button>
-          <button type="button" class="event-btn" data-val="Khác">✨ Khác</button>
+          <button type="button" class="event-btn" data-val="Cà phê"><span class="ico">☕</span><span class="vi">Cà phê</span><span class="en">Coffee</span></button>
+          <button type="button" class="event-btn" data-val="Bữa trưa"><span class="ico">🥗</span><span class="vi">Bữa trưa</span><span class="en">Lunch</span></button>
+          <button type="button" class="event-btn" data-val="Bữa tối"><span class="ico">🍽</span><span class="vi">Bữa tối</span><span class="en">Dinner</span></button>
+          <button type="button" class="event-btn" data-val="Wine & Cocktail"><span class="ico">🍷</span>Wine &amp; Cocktail</button>
+          <button type="button" class="event-btn" data-val="Triển lãm"><span class="ico">🎨</span><span class="vi">Triển lãm</span><span class="en">Exhibition</span></button>
+          <button type="button" class="event-btn" data-val="Âm nhạc"><span class="ico">🎵</span><span class="vi">Âm nhạc</span><span class="en">Music</span></button>
+          <button type="button" class="event-btn" data-val="Thể thao"><span class="ico">🏸</span><span class="vi">Thể thao</span><span class="en">Sports</span></button>
+          <button type="button" class="event-btn" data-val="Khác"><span class="ico">✨</span><span class="vi">Khác</span><span class="en">Other</span></button>
         </div>
         <input type="hidden" id="event-val">
       </div>
 
+      <div class="field" id="sport-field">
+        <label><span class="vi">Môn thể thao</span><span class="en">Sport</span> <span class="req">*</span></label>
+        <select id="mon-the-thao">
+          <option value="" data-vi="Chọn môn" data-en="Select sport">Chọn môn</option>
+          <option value="Cầu lông" data-vi="Cầu lông" data-en="Badminton">Cầu lông</option>
+          <option value="Tennis" data-vi="Tennis" data-en="Tennis">Tennis</option>
+          <option value="Pickleball" data-vi="Pickleball" data-en="Pickleball">Pickleball</option>
+          <option value="Bóng bàn" data-vi="Bóng bàn" data-en="Table tennis">Bóng bàn</option>
+          <option value="Gym / Yoga" data-vi="Gym / Yoga" data-en="Gym / Yoga">Gym / Yoga</option>
+          <option value="Bơi" data-vi="Bơi" data-en="Swimming">Bơi</option>
+          <option value="Golf" data-vi="Golf" data-en="Golf">Golf</option>
+          <option value="Chạy bộ" data-vi="Chạy bộ" data-en="Running">Chạy bộ</option>
+          <option value="Khác" data-vi="Khác" data-en="Other">Khác</option>
+        </select>
+      </div>
+
       <div class="row">
         <div class="field">
-          <label>Địa điểm <span class="req">*</span></label>
-          <input type="text" id="diadiem" placeholder="Tên quán / nhà hàng" required>
+          <label><span id="diadiem-label-text">Địa điểm</span> <span class="req">*</span></label>
+          <input type="text" id="diadiem" placeholder="Tên quán / nhà hàng (có thể dán link Google Maps)" required>
         </div>
         <div class="field">
-          <label>Ngày & giờ <span class="req">*</span></label>
+          <label><span class="vi">Ngày &amp; giờ</span><span class="en">Date &amp; time</span> <span class="req">*</span></label>
           <input type="datetime-local" id="thoigian" required>
         </div>
       </div>
 
       <div class="field">
-        <label>Bạn muốn gặp người như thế nào? <span class="req">*</span></label>
+        <label><span class="vi">Bạn muốn gặp người như thế nào?</span><span class="en">What kind of person do you want to meet?</span> <span class="req">*</span></label>
         <textarea id="mota" placeholder="Ví dụ: Người sành ẩm thực, biết về wine, có thể nói chuyện về kinh doanh..." required></textarea>
-        <p class="hint">Càng cụ thể càng dễ match — lĩnh vực, tính cách, ngôn ngữ...</p>
+        <p class="hint"><span class="vi">Càng cụ thể càng dễ match — lĩnh vực, tính cách, ngôn ngữ...</span><span class="en">More specific details make matching easier — field, personality, language...</span></p>
       </div>
     </div>
 
-    <div class="form-box">
-      <h2>Thù lao dự kiến</h2>
-      <p class="sub">Chọn mức thù lao bạn muốn trả — chỉ chuyển khoản sau khi đồng ý với người đồng hành.</p>
+    <div class="form-box rv">
+      <div class="form-box-head">
+        <div class="form-box-num">03</div>
+        <div>
+          <h2><span class="vi">Thù lao dự kiến</span><span class="en">Expected Fee</span></h2>
+          <div class="sub"><span class="vi">Chỉ chuyển khoản sau khi đồng ý với người đồng hành</span><span class="en">Only pay after you agree with the companion</span></div>
+        </div>
+      </div>
 
       <div class="fee-grid" id="fee-grid">
         <div class="fee-opt" data-val="200000">
+          <div class="fee-check">✓</div>
           <span class="amount">200k</span>
-          <span class="desc">Cà phê · 1–2h</span>
+          <span class="desc"><span class="vi">Cà phê · 1–2h</span><span class="en">Coffee · 1–2h</span></span>
         </div>
         <div class="fee-opt" data-val="350000">
+          <div class="fee-check">✓</div>
           <span class="amount">350k</span>
-          <span class="desc">Bữa trưa · 1–2h</span>
+          <span class="desc"><span class="vi">Bữa trưa · 1–2h</span><span class="en">Lunch · 1–2h</span></span>
         </div>
         <div class="fee-opt" data-val="500000">
+          <div class="fee-check">✓</div>
           <span class="amount">500k</span>
-          <span class="desc">Bữa tối · 2–3h</span>
+          <span class="desc"><span class="vi">Bữa tối · 2–3h</span><span class="en">Dinner · 2–3h</span></span>
         </div>
         <div class="fee-opt" data-val="650000">
+          <div class="fee-check">✓</div>
           <span class="amount">650k</span>
-          <span class="desc">Wine bar · 2–3h</span>
+          <span class="desc"><span class="vi">Wine bar · 2–3h</span><span class="en">Wine bar · 2–3h</span></span>
         </div>
         <div class="fee-opt" data-val="800000">
+          <div class="fee-check">✓</div>
           <span class="amount">800k</span>
-          <span class="desc">Sự kiện đặc biệt</span>
+          <span class="desc"><span class="vi">Sự kiện đặc biệt</span><span class="en">Special event</span></span>
         </div>
         <div class="fee-opt" data-val="custom">
-          <span class="amount">Khác</span>
-          <span class="desc">Tự nhập</span>
+          <div class="fee-check">✓</div>
+          <span class="amount"><span class="vi">Khác</span><span class="en">Other</span></span>
+          <span class="desc"><span class="vi">Tự nhập</span><span class="en">Custom</span></span>
         </div>
       </div>
       <input type="text" class="fee-custom" id="fee-custom" placeholder="Nhập số tiền (VND)..." style="display:none">
       <input type="hidden" id="fee-val">
     </div>
 
-    <button type="submit" class="submit-btn">Tạo Kèo ngay 🌿</button>
-    <p class="trust-note">🔒 Chỉ chuyển khoản sau khi bạn đồng ý với người đồng hành — hoàn 100% nếu không hài lòng.</p>
+    <button type="submit" class="submit-btn"><span class="vi">Tạo Kèo ngay 🌿</span><span class="en">Create Kèo Now 🌿</span></button>
+    <p class="trust-note">🔒 <span class="vi">Chỉ chuyển khoản sau khi bạn đồng ý với người đồng hành — hoàn 100% nếu không hài lòng.</span><span class="en">Only pay after you agree with the companion — 100% refund if not satisfied.</span></p>
   </form>
 
   <div class="success" id="success">
-    <div style="font-size:48px;margin-bottom:16px">🎉</div>
-    <h2>Kèo đã được tạo!</h2>
-    <p>Mình sẽ tìm người đồng hành phù hợp nhất và liên hệ bạn qua Zalo trong 24 giờ nhé.</p>
-    <p style="margin-top:12px;font-size:13px;color:var(--t3)">Có thắc mắc? Nhắn Kèo qua Zalo bất kỳ lúc nào 🌿</p>
+    <div class="success-ic">🎉</div>
+    <h2><span class="vi">Kèo đã được tạo!</span><span class="en">Kèo Created!</span></h2>
+    <p><span class="vi">Mình sẽ tìm người đồng hành phù hợp nhất và liên hệ bạn qua Zalo trong 24 giờ nhé.</span><span class="en">We'll find the best companion and contact you via Zalo within 24 hours.</span></p>
+    <p style="margin-top:12px;font-size:13px;color:var(--i3)"><span class="vi">Có thắc mắc? Nhắn Kèo qua Zalo bất kỳ lúc nào 🌿</span><span class="en">Questions? Message Kèo via Zalo anytime 🌿</span></p>
   </div>
 </div>
 
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px">Gặp gỡ có chiều sâu · keo.social</div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social</div>
+    </div>
+  </div>
 </footer>
 
 <script>
+var currentLangEN=false;
+function setEN(g){
+  currentLangEN=g;
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+  var cityPlaceholder=document.querySelector('#city option[value=""]');
+  if(cityPlaceholder){cityPlaceholder.textContent=g?cityPlaceholder.getAttribute('data-en'):cityPlaceholder.getAttribute('data-vi');}
+  document.querySelectorAll('#mon-the-thao option').forEach(function(o){
+    o.textContent=g?o.getAttribute('data-en'):o.getAttribute('data-vi');
+  });
+  updateDiadiemField();
+}
+
+function updateDiadiemField(){
+  var hasSports=false;
+  document.querySelectorAll('.event-btn.on').forEach(function(b){
+    if(b.getAttribute('data-val')==='Thể thao')hasSports=true;
+  });
+  var sportField=document.getElementById('sport-field');
+  var monTheThao=document.getElementById('mon-the-thao');
+  var label=document.getElementById('diadiem-label-text');
+  var input=document.getElementById('diadiem');
+  if(hasSports){
+    sportField.classList.add('show');
+    monTheThao.setAttribute('required','required');
+    label.textContent=currentLangEN?'Court / Venue':'Sân / Địa điểm';
+    input.placeholder=currentLangEN?'e.g. Badminton court ABC, District 7':'VD: Sân cầu lông ABC, Quận 7';
+  } else {
+    sportField.classList.remove('show');
+    monTheThao.removeAttribute('required');
+    monTheThao.value='';
+    label.textContent=currentLangEN?'Venue':'Địa điểm';
+    input.placeholder=currentLangEN?'Venue name (or paste a Google Maps link)':'Tên quán / nhà hàng (có thể dán link Google Maps)';
+  }
+}
+
 // Event buttons
 document.querySelectorAll('.event-btn').forEach(function(b){
   b.addEventListener('click',function(){
@@ -218,6 +473,7 @@ document.querySelectorAll('.event-btn').forEach(function(b){
     var vals=[];
     document.querySelectorAll('.event-btn.on').forEach(function(x){vals.push(x.getAttribute('data-val'));});
     document.getElementById('event-val').value=vals.join(', ');
+    updateDiadiemField();
   });
 });
 
@@ -251,8 +507,10 @@ document.getElementById('keo-form').addEventListener('submit',function(e){
   var thoigian=document.getElementById('thoigian').value;
   var mota=document.getElementById('mota').value.trim();
   var fee=document.getElementById('fee-val').value;
+  var hasSports=event.indexOf('Thể thao')!==-1;
+  var monTheThao=document.getElementById('mon-the-thao').value;
 
-  if(!ten||!zalo||!city||!event||!diadiem||!thoigian||!mota||!fee){
+  if(!ten||!zalo||!city||!event||!diadiem||!thoigian||!mota||!fee||(hasSports&&!monTheThao)){
     alert('Bạn ơi, vui lòng điền đầy đủ thông tin nhé!');
     return;
   }
@@ -261,14 +519,17 @@ document.getElementById('keo-form').addEventListener('submit',function(e){
   btn.textContent='Đang gửi...';
   btn.disabled=true;
 
+  var payload={
+    ho_ten:ten, so_zalo:zalo, thanh_pho:city,
+    loai_su_kien:event, dia_diem:diadiem, thoi_gian:thoigian,
+    mo_ta_nguoi_dong_hanh:mota, thu_lao:fee+'đ'
+  };
+  if(hasSports){payload.mon_the_thao=monTheThao;}
+
   fetch('https://formspree.io/f/xjgpdwwl',{
     method:'POST',
     headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({
-      ho_ten:ten, so_zalo:zalo, thanh_pho:city,
-      loai_su_kien:event, dia_diem:diadiem, thoi_gian:thoigian,
-      mo_ta_nguoi_dong_hanh:mota, thu_lao:fee+'đ'
-    })
+    body:JSON.stringify(payload)
   }).then(function(r){
     if(r.ok){
       document.getElementById('keo-form').style.display='none';
@@ -285,5 +546,16 @@ document.getElementById('keo-form').addEventListener('submit',function(e){
     btn.disabled=false;
   });
 });
+
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>
