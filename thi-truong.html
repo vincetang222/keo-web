@@ -15,24 +15,26 @@
   <meta property="og:site_name" content="Kèo">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0a1409">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Space+Mono:wght@400;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0D0B09">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Mono:wght@400;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --a:#C9A84C;--a2:#A8863A;--gn:#00c853;--rd:#f5334f;
-  --go:#f5a623;--pu:#9c7fe8;--vn:#e8334a;
-  --mono:'Space Mono',monospace;--sans:'Be Vietnam Pro',sans-serif;
-  --r:10px;--tr:.18s ease;
+  --a:#D65F35;--a2:#D14060;--gn:#00c853;--rd:#f5334f;
+  --go:#E8A22B;--pu:#9c7fe8;--vn:#e8334a;
+  --mono:'Space Mono',monospace;--sans:'Be Vietnam Pro',sans-serif;--serif:'Playfair Display',serif;
+  --r:16px;--tr:.18s ease;
 }
 [data-theme="dark"]{
-  --bg:#0a1409;--sf:#111f0f;--sf2:#162015;--bd:#1e3020;
-  --tx:#f0ebe0;--sub:#7a9878;--mu:#3a5535;
-  --hbg:#111f0fee;--sc:rgba(201,168,76,.006);--lg:rgba(201,168,76,.28);
+  --bg:#0D0B09;--sf:#17120D;--sf2:#1F1912;--bd:rgba(240,234,225,.12);
+  --tx:#F5EFE6;--sub:rgba(240,234,225,.5);--mu:rgba(240,234,225,.28);
+  --hbg:#17120Dee;--sc:rgba(232,162,43,.008);--lg:rgba(214,95,53,.3);
+  --sh1:0 2px 10px rgba(0,0,0,.24);--sh2:0 10px 26px rgba(0,0,0,.36);--shi:0 2px 6px rgba(0,0,0,.2);
 }
 [data-theme="light"]{
-  --bg:#f0f4f8;--sf:#fff;--sf2:#e8eef4;--bd:#ccd8e4;
-  --tx:#0d1f2d;--sub:#56707e;--mu:#9ab0bc;
-  --hbg:#ffffffee;--sc:transparent;--lg:rgba(0,140,160,.18);
+  --bg:#FAFAF5;--sf:#fff;--sf2:#F2EDE8;--bd:#E8E2DC;
+  --tx:#1A1510;--sub:rgba(26,21,16,.55);--mu:rgba(26,21,16,.35);
+  --hbg:#ffffffee;--sc:transparent;--lg:rgba(214,95,53,.18);
+  --sh1:0 2px 10px rgba(26,21,16,.06);--sh2:0 10px 24px rgba(26,21,16,.1);--shi:0 2px 6px rgba(26,21,16,.05);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);min-height:100vh;overflow-x:hidden;transition:background var(--tr),color var(--tr);}
@@ -46,9 +48,9 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 .ld{width:7px;height:7px;border-radius:50%;background:var(--gn);box-shadow:0 0 7px var(--gn);animation:bk 2s infinite;}
 @keyframes bk{0%,100%{opacity:1}50%{opacity:.4}}
 #clk{color:var(--a);font-weight:700;font-size:11px;}
-.tm{display:flex;align-items:center;gap:4px;background:var(--sf2);border:1px solid var(--bd);border-radius:20px;padding:3px 9px;cursor:pointer;transition:all var(--tr);font-family:var(--mono);font-size:10px;color:var(--sub);user-select:none;}
+.tm{display:flex;align-items:center;gap:4px;background:var(--sf2);border:1px solid var(--bd);border-radius:100px;padding:4px 10px;cursor:pointer;transition:all var(--tr);font-family:var(--sans);font-weight:600;font-size:10.5px;color:var(--sub);user-select:none;}
 .tm:hover{border-color:var(--a);color:var(--a);}
-.ib{background:none;border:1px solid var(--bd);color:var(--sub);font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:6px;cursor:pointer;transition:all var(--tr);letter-spacing:.8px;}
+.ib{background:none;border:1px solid var(--bd);color:var(--sub);font-family:var(--sans);font-weight:600;font-size:11px;padding:4px 10px;border-radius:100px;cursor:pointer;transition:all var(--tr);letter-spacing:.2px;}
 .ib:hover{border-color:var(--a);color:var(--a);}
 
 /* TICKER */
@@ -72,7 +74,7 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 /* TAB NAV */
 .tnav{display:flex;gap:2px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:4px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;position:sticky;top:52px;z-index:100;backdrop-filter:blur(12px);transition:background var(--tr);}
 .tnav::-webkit-scrollbar{display:none;}
-.tb{font-family:var(--mono);font-size:11px;font-weight:700;padding:7px 14px;border-radius:7px;border:none;background:none;color:var(--sub);cursor:pointer;white-space:nowrap;transition:all var(--tr);letter-spacing:.5px;display:flex;align-items:center;gap:5px;}
+.tb{font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 15px;border-radius:100px;border:none;background:none;color:var(--sub);cursor:pointer;white-space:nowrap;transition:all var(--tr);letter-spacing:0;display:flex;align-items:center;gap:5px;}
 .tb:hover{color:var(--tx);background:var(--sf2);}
 .tb.on{background:var(--a);color:#111;}
 .tbg{background:rgba(255,255,255,.2);border-radius:10px;padding:1px 6px;font-size:9px;}
@@ -85,7 +87,7 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 /* SECTION HEADER */
 .sh{display:flex;align-items:center;gap:8px;margin:22px 0 12px;}
 .sh:first-child{margin-top:0;}
-.shi{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.shi{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--shi);}
 .sht{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);}
 .shl{flex:1;height:1px;background:var(--bd);}
 .shb{font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:20px;font-weight:700;letter-spacing:.8px;}
@@ -93,9 +95,10 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 /* OVERVIEW CARDS */
 .ov4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:9px;}
 .ova{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
-.ovc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px 14px;transition:background var(--tr);}
+.ovc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 15px;box-shadow:var(--sh1);transition:background var(--tr),box-shadow var(--tr),transform var(--tr);}
+.ovc:hover{transform:translateY(-2px);box-shadow:var(--sh2);}
 .ovl{font-size:9px;color:var(--sub);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
-.ovv{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--tx);line-height:1.1;}
+.ovv{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--tx);line-height:1.15;}
 .ovc2{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:2px;}
 
 /* CARD GRID */
@@ -103,21 +106,21 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 .grsm{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));}
 
 /* CARD */
-.cd{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px 13px;position:relative;overflow:hidden;transition:transform var(--tr),border-color var(--tr),background var(--tr),box-shadow var(--tr);}
-.cd::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity var(--tr);}
-.cd:hover{border-color:rgba(0,200,224,.3);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);}
+.cd{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 15px;position:relative;overflow:hidden;box-shadow:var(--sh1);transition:transform var(--tr),border-color var(--tr),background var(--tr),box-shadow var(--tr);}
+.cd::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;opacity:.65;transition:opacity var(--tr);}
+.cd:hover{border-color:rgba(214,95,53,.35);transform:translateY(-2px);box-shadow:var(--sh2);}
 .cd:hover::before{opacity:1;}
-.cs::before{background:var(--a);}  /* stocks */
-.cb::before{background:var(--go);} /* bonds */
-.cc::before{background:var(--a2);}  /* commodities */
-.cr::before{background:var(--pu);}  /* crypto */
-.cv::before{background:var(--vn);}  /* VN */
-.cfx::before{background:var(--gn);}/* fx */
+.cs::before{background:linear-gradient(90deg,var(--a),var(--a2));}  /* stocks */
+.cb::before{background:linear-gradient(90deg,var(--go),#B8781A);} /* bonds */
+.cc::before{background:linear-gradient(90deg,var(--a2),var(--a));}  /* commodities */
+.cr::before{background:linear-gradient(90deg,var(--pu),#7A5FD0);}  /* crypto */
+.cv::before{background:linear-gradient(90deg,var(--vn),#B8283C);}  /* VN */
+.cfx::before{background:linear-gradient(90deg,var(--gn),#00A047);}/* fx */
 .ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
 .cy{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sub);letter-spacing:1px;}
 .cn{font-size:12px;font-weight:700;color:var(--tx);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:135px;}
 .co{font-size:16px;opacity:.85;}
-.cp{font-family:var(--mono);font-size:17px;font-weight:700;color:var(--tx);letter-spacing:-.3px;line-height:1.15;}
+.cp{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--tx);letter-spacing:-.2px;line-height:1.2;}
 .cv2{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:1px;}
 .cch{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:700;margin-top:4px;}
 .csp{margin-top:8px;height:30px;}
@@ -126,14 +129,22 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 
 /* VN INDEX MINI */
 .ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:7px;margin-bottom:12px;}
-.ic{background:var(--sf);border:1px solid var(--bd);border-top-width:2px;border-radius:9px;padding:9px 11px;transition:background var(--tr);}
+.ic{background:var(--sf);border:1px solid var(--bd);border-top:2.5px solid var(--a);border-radius:var(--r);padding:11px 13px;box-shadow:var(--sh1);transition:background var(--tr),box-shadow var(--tr),transform var(--tr);}
+.ic:hover{transform:translateY(-2px);box-shadow:var(--sh2);}
 .il{font-size:9px;color:var(--sub);font-family:var(--mono);letter-spacing:1px;margin-bottom:2px;}
-.iv{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--tx);}
+.iv{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--tx);}
 .ip{font-family:var(--mono);font-size:10px;margin-top:1px;}
 
 /* CHIPS */
 .chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:11px;}
-.chip{border-radius:20px;padding:2px 9px;font-family:var(--mono);font-size:10px;display:flex;gap:4px;align-items:center;border:1px solid transparent;}
+.chip{border-radius:100px;padding:4px 11px;font-family:var(--sans);font-size:11.5px;font-weight:600;display:flex;gap:4px;align-items:center;border:1px solid transparent;}
+
+.news-item{display:block;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;text-decoration:none;box-shadow:var(--sh1);transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);}
+.news-item:hover{transform:translateY(-2px);box-shadow:var(--sh2);border-color:rgba(214,95,53,.35);}
+.news-title{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--tx);line-height:1.35;margin-bottom:6px;}
+.news-desc{font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.65;margin-bottom:8px;}
+.news-meta{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:10.5px;font-weight:600;color:var(--mu);}
+.news-src{color:var(--a);}
 
 /* LOADING / ERROR */
 .ld2{color:var(--sub);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
@@ -152,7 +163,7 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
 <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Thị Trường Tài Chính — Kèo</h1>
 <header>
   <div style="display:flex;align-items:center;gap:16px">
-    <a href="/" style="font-family:'Lora',serif;font-weight:700;font-size:18px;color:#D65F35;text-decoration:none;letter-spacing:-.3px">Kèo<span style="color:var(--tx)">.</span></a>
+    <a href="/" style="font-family:'Playfair Display',serif;font-weight:700;font-size:18px;color:#D65F35;text-decoration:none;letter-spacing:-.3px">Kèo<span style="color:var(--tx)">.</span></a>
     <div style="width:1px;height:18px;background:var(--bd)"></div>
     <div class="logo" style="font-size:14px;letter-spacing:.1em;color:var(--sub)">THỊ<span style="color:var(--tx)"> TRƯỜNG</span></div>
   </div>
@@ -188,12 +199,14 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
 <!-- TAB NAV -->
 <nav class="tnav">
   <button class="tb on"  id="btn-overview" onclick="go('overview',this)">📊 Tổng quan</button>
+  <button class="tb"     id="btn-outlook"  onclick="go('outlook',this)">🎯 Nhận định</button>
   <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Việt Nam <span class="tbg">43</span></button>
   <button class="tb"     id="btn-global"   onclick="go('global',this)">📈 Cổ phiếu QT <span class="tbg">48</span></button>
   <button class="tb"     id="btn-bonds"    onclick="go('bonds',this)">🏛️ Trái phiếu <span class="tbg">24</span></button>
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
+  <button class="tb"     id="btn-news"     onclick="go('news',this)">📰 Tin tức</button>
 </nav>
 
 <!-- PAGE: OVERVIEW -->
@@ -223,6 +236,78 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
 </div>
 
 <!-- PAGE: VN -->
+<!-- PAGE: OUTLOOK -->
+<div class="pg" id="pg-outlook">
+
+  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.7;box-shadow:var(--sh1)">
+    ⚠️ Đây là <strong style="color:var(--tx)">tổng hợp quan điểm công khai</strong> từ các tổ chức tài chính — không phải khuyến nghị đầu tư của Kèo. Mỗi dự báo đều có nguồn cụ thể kèm theo. Luôn tự nghiên cứu hoặc hỏi ý kiến chuyên gia trước khi quyết định.
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(214,95,53,.22),rgba(209,64,96,.18));color:var(--a)">🇺🇸</div><div class="sht">Chứng khoán Mỹ — Goldman Sachs</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub);margin-bottom:3px">S&amp;P 500 · MỤC TIÊU CUỐI 2026</div>
+      <div style="font-family:var(--serif);font-size:28px;font-weight:700;color:var(--gn)">8,000</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub);margin-bottom:3px">HIỆN TẠI (~cuối T5/2026)</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--tx)">7,519</div></div>
+    </div>
+    <svg viewBox="0 0 400 34" style="width:100%;height:34px">
+      <rect x="0" y="14" width="400" height="8" rx="4" fill="var(--sf2)"/>
+      <rect x="0" y="14" width="376" height="8" rx="4" fill="var(--gn)" opacity=".85"/>
+      <circle cx="376" cy="18" r="6" fill="var(--gn)"/>
+    </svg>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:10px;line-height:1.7">Goldman Sachs Research nâng mục tiêu S&amp;P 500 cuối năm 2026 lên 8.000 điểm (từ 7.600), dự phóng EPS 340 USD (tăng 24% so với cùng kỳ). Đầu tư hạ tầng AI được kỳ vọng đóng góp khoảng một nửa mức tăng trưởng lợi nhuận này. <span style="color:var(--sub);opacity:.7">— Nguồn: Goldman Sachs Research, 27/05/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,162,43,.22),rgba(184,120,26,.16));color:var(--go)">🥇</div><div class="sht">Vàng — J.P. Morgan</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:12px">
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub);margin-bottom:2px">HIỆN TẠI</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--tx)">$4,200</div></div>
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub);margin-bottom:2px">Q3 2026</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--go)">$4,300</div></div>
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub);margin-bottom:2px">Q4 2026</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--go)">$4,500</div></div>
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub);margin-bottom:2px">MỤC TIÊU XA</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--gn)">$6,000</div></div>
+    </div>
+    <svg viewBox="0 0 400 40" style="width:100%;height:40px">
+      <polyline points="10,32 140,28 270,20 390,6" fill="none" stroke="var(--go)" stroke-width="2.5"/>
+      <circle cx="10" cy="32" r="4" fill="var(--tx)"/><circle cx="140" cy="28" r="4" fill="var(--go)"/>
+      <circle cx="270" cy="20" r="4" fill="var(--go)"/><circle cx="390" cy="6" r="4" fill="var(--gn)"/>
+    </svg>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:10px;line-height:1.7">J.P. Morgan hạ dự báo giá vàng trung bình 2026 xuống 5.243 USD/oz (từ 5.708) do nhu cầu nhà đầu tư ngắn hạn yếu đi, nhưng vẫn giữ quan điểm tích cực trung hạn — kỳ vọng phục hồi lên khoảng 6.000 USD/oz vào Q4/2026 nhờ nhu cầu mua vào của ngân hàng trung ương. <span style="color:var(--sub);opacity:.7">— Nguồn: J.P. Morgan Global Research, 05-06/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,51,74,.22),rgba(184,40,60,.16));color:var(--vn)">🇻🇳</div><div class="sht">VN-Index — VNDirect &amp; SSI</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:6px">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px"><span style="font-family:var(--sans);font-weight:600;font-size:11px;color:var(--sub)">HIỆN TẠI (~T7/2026)</span><span style="font-family:var(--serif);font-size:15px;font-weight:700;color:var(--tx)">1,860</span></div>
+        <svg viewBox="0 0 400 10" style="width:100%;height:10px"><rect x="0" y="2" width="400" height="6" rx="3" fill="var(--sf2)"/><rect x="0" y="2" width="248" height="6" rx="3" fill="var(--sub)" opacity=".5"/></svg>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px"><span style="font-family:var(--sans);font-weight:600;font-size:11px;color:var(--sub)">VNDIRECT · kịch bản cơ sở</span><span style="font-family:var(--serif);font-size:15px;font-weight:700;color:var(--gn)">2,014</span></div>
+        <svg viewBox="0 0 400 10" style="width:100%;height:10px"><rect x="0" y="2" width="400" height="6" rx="3" fill="var(--sf2)"/><rect x="0" y="2" width="316" height="6" rx="3" fill="var(--gn)" opacity=".85"/></svg>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px"><span style="font-family:var(--sans);font-weight:600;font-size:11px;color:var(--sub)">SSI · kịch bản thận trọng</span><span style="font-family:var(--serif);font-size:15px;font-weight:700;color:var(--go)">1,750–1,800</span></div>
+        <svg viewBox="0 0 400 10" style="width:100%;height:10px"><rect x="0" y="2" width="400" height="6" rx="3" fill="var(--sf2)"/><rect x="0" y="2" width="282" height="6" rx="3" fill="var(--go)" opacity=".85"/></svg>
+      </div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:8px;line-height:1.7">VNDirect dự báo VN-Index đạt 2.014 điểm cuối 2026 (+12,8%), P/E mục tiêu 13,5 lần, lợi nhuận doanh nghiệp HOSE tăng 21%. SSI giữ quan điểm thận trọng hơn với vùng 1.750–1.800 điểm. Cả hai đều nhấn mạnh việc FTSE Russell chính thức nâng hạng thị trường Việt Nam lên Mới nổi thứ cấp từ tháng 9/2026 là động lực cấu trúc quan trọng. <span style="color:var(--sub);opacity:.7">— Nguồn: VNDIRECT Research &amp; SSI Research, 07/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(156,127,232,.22),rgba(122,95,208,.16));color:var(--pu)">🏭</div><div class="sht">Ngành được ưu tiên tại VN (SSI · Vietcap)</div><div class="shl"></div></div>
+  <div class="cd">
+    <div class="chips">
+      <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🏦 Ngân hàng</div>
+      <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🛒 Bán lẻ</div>
+      <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🛢️ Dầu khí</div>
+      <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏗️ Xây dựng &amp; VLXD</div>
+      <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏠 Bất động sản</div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Vietcap ưu tiên ngân hàng (lợi nhuận dự phóng +18%), bán lẻ và dầu khí cho chu kỳ tăng tốc đồng pha. SSI gọi tên cổ phiếu tiêu biểu: HPG, DGW, POW, VCB, FPT, DCM, TNG, PVT — nhóm vốn hoá trung bình có định giá hấp dẫn và dòng tiền cải thiện. <span style="color:var(--sub);opacity:.7">— Nguồn: SSI Research &amp; Vietcap, 07/2026</span></p>
+  </div>
+
+</div>
+
 <div class="pg" id="pg-vn">
   <div class="ig" id="idxCards"></div>
   <div class="chips" id="chips"></div>
@@ -292,9 +377,65 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
   <div class="gr" id="fxOther"></div>
 </div>
 
+<!-- PAGE: NEWS -->
+<div class="pg" id="pg-news">
+
+  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.7;box-shadow:var(--sh1)">
+    📰 Tin tức thật, chọn lọc từ các nguồn uy tín — bấm vào để đọc bài gốc. Kèo chỉ tóm tắt, không thay thế việc đọc kỹ nguồn trước khi ra quyết định.
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.22),rgba(0,140,58,.16))">🏦</div><div class="sht">Vĩ mô &amp; Fed</div><div class="shl"></div></div>
+
+  <a href="https://www.cnbc.com/2026/07/01/kevin-warsh-ecb-forum-live-updates.html" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">Tân Chủ tịch Fed Kevin Warsh: lạm phát "vẫn còn quá cao"</div>
+    <div class="news-desc">Phát biểu tại diễn đàn ECB Sintra, ông Warsh nhấn mạnh cuộc chiến chống lạm phát chưa kết thúc, dù để ngỏ khả năng cởi mở hơn với tác động giảm phát của AI.</div>
+    <div class="news-meta"><span class="news-src">CNBC</span><span>01/07/2026</span></div>
+  </a>
+  <a href="https://www.foxbusiness.com/economy/federal-reserve-interest-rate-decision-june-17-2026" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">Fed giữ nguyên lãi suất 3,5-3,75% trong cuộc họp đầu tiên dưới thời Warsh</div>
+    <div class="news-desc">FOMC bỏ phiếu 12-0 giữ nguyên lãi suất do lo ngại lạm phát từ giá năng lượng leo thang bởi chiến sự Iran. Dot plot cho thấy 9/18 thành viên dự báo có thể tăng lãi suất trong năm.</div>
+    <div class="news-meta"><span class="news-src">Fox Business</span><span>17/06/2026</span></div>
+  </a>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,162,43,.22),rgba(184,120,26,.16))">🛢️</div><div class="sht">Địa chính trị &amp; Dầu mỏ</div><div class="shl"></div></div>
+
+  <a href="https://www.aljazeera.com/economy/2026/7/2/oil-prices-fall-to-levels-not-seen-since-start-of-us-israel-war-on-iran" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">Giá dầu về mức thấp nhất kể từ khi chiến sự Iran bùng nổ</div>
+    <div class="news-desc">Brent giảm khi thị trường tin tưởng phần lớn xung đột đã lắng xuống và nguồn cung qua eo biển Hormuz phục hồi — dù giới phân tích cảnh báo tình hình chưa thực sự ổn định.</div>
+    <div class="news-meta"><span class="news-src">Al Jazeera</span><span>02/07/2026</span></div>
+  </a>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(214,95,53,.22),rgba(209,64,96,.18))">📈</div><div class="sht">Chứng khoán Mỹ &amp; AI</div><div class="shl"></div></div>
+
+  <a href="https://www.cnbc.com/2026/05/27/goldman-raises-its-sp-500-year-end-forecast-its-for-one-simple-reason.html" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">Goldman Sachs nâng mục tiêu S&amp;P 500 lên 8.000 điểm</div>
+    <div class="news-desc">Chiến lược gia Ben Snider nâng dự phóng EPS 2026 lên 340 USD, cho rằng tăng trưởng lợi nhuận — không phải đầu cơ — đang dẫn dắt đà tăng của thị trường.</div>
+    <div class="news-meta"><span class="news-src">CNBC</span><span>27/05/2026</span></div>
+  </a>
+  <a href="https://www.fool.com/investing/2026/06/30/3-reasons-to-buy-nvidia-stock-in-july/" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">Nvidia giảm 8% trong tháng 6 — cơ hội hay dấu hiệu đáng lo?</div>
+    <div class="news-desc">Dù giá cổ phiếu đi ngang so với đầu năm, doanh thu quý gần nhất vẫn tăng 85% và lợi nhuận điều chỉnh tăng 139% — định giá hiện chỉ còn 15 lần lợi nhuận dự phóng năm sau.</div>
+    <div class="news-meta"><span class="news-src">The Motley Fool</span><span>30/06/2026</span></div>
+  </a>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,51,74,.22),rgba(184,40,60,.16))">🇻🇳</div><div class="sht">Thị trường Việt Nam</div><div class="shl"></div></div>
+
+  <a href="https://vietstock.vn/2026/07/vndirect-dong-luc-hoi-tu-vn-index-co-co-hoi-cham-den-2014-diem-145-1461069.htm" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">VNDirect: các động lực đang hội tụ, VN-Index có thể chạm 2.014 điểm</div>
+    <div class="news-desc">Việc FTSE Russell chính thức nâng hạng thị trường Việt Nam từ tháng 9/2026, cùng lợi nhuận doanh nghiệp HOSE dự báo tăng 21%, được xem là động lực cấu trúc quan trọng nửa cuối năm.</div>
+    <div class="news-meta"><span class="news-src">Vietstock</span><span>07/2026</span></div>
+  </a>
+  <a href="https://dantri.com.vn/kinh-doanh/vn-index-ky-vong-vuot-2000-diem-chuyen-gia-goi-ten-3-nhom-nganh-20260704071003729.htm" target="_blank" rel="noopener" class="news-item">
+    <div class="news-title">Chuyên gia gọi tên 3 nhóm ngành dẫn dắt khi VN-Index vượt 2.000 điểm</div>
+    <div class="news-desc">Ngân hàng, bán lẻ và dầu khí được nhiều công ty chứng khoán ưu tiên cho chu kỳ tăng tốc nửa cuối năm, dù thanh khoản gần đây có dấu hiệu chững lại.</div>
+    <div class="news-meta"><span class="news-src">Dân Trí</span><span>04/07/2026</span></div>
+  </a>
+
+</div>
+
 </main>
 <footer>
-  <a href="/" style="color:#D65F35;text-decoration:none;font-family:'Lora',serif;font-weight:700">Kèo</a> · Trang thị trường tài chính &nbsp;·&nbsp; Crypto: CoinCap · CoinGecko &nbsp;·&nbsp; Tỷ giá: open.er-api.com<br>
+  <a href="/" style="color:#D65F35;text-decoration:none;font-family:'Playfair Display',serif;font-weight:700">Kèo</a> · Trang thị trường tài chính &nbsp;·&nbsp; Crypto: CoinCap · CoinGecko &nbsp;·&nbsp; Tỷ giá: open.er-api.com<br>
   Dữ liệu cổ phiếu &amp; trái phiếu là mô phỏng &nbsp;·&nbsp; Không phải tư vấn đầu tư &nbsp;·&nbsp; Auto-refresh 60s &nbsp;·&nbsp; <span id="lastUp">--</span><br>
   <a href="/" style="color:var(--sub);text-decoration:none">← Về trang chủ Kèo</a> &nbsp;·&nbsp; <a href="/khoa-hoc-ket-noi" style="color:var(--sub);text-decoration:none">Khoa học kết nối</a>
 </footer>
