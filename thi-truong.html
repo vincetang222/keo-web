@@ -534,8 +534,18 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="domAgri"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🍊</div><div class="sht">Trái cây <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domFruit"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản</div><div class="shl"></div></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🥬</div><div class="sht">Rau ăn lá <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="gr" id="domVegLeaf"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🥕</div><div class="sht">Rau ăn củ, quả <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="gr" id="domVegRoot"></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🍄</div><div class="sht">Nấm &amp; rau mầm <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="gr" id="domMushroom"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản tươi sống <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domSea"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">❄️</div><div class="sht">Thuỷ sản đông lạnh <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="gr" id="domSeaFrozen"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản khô &amp; chế biến <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="gr" id="domSeaDried"></div>
 </div>
 
 </main>
@@ -1129,12 +1139,65 @@ const DOM_FRUIT=[
   {sym:'NHO-VN',  nm:'Nho xanh (nhập)',      base:78000,    unit:'đ/kg',         ic:'🍇'},
   {sym:'TAO-VN',  nm:'Táo Envy (nhập)',      base:65000,    unit:'đ/kg',         ic:'🍎'},
   {sym:'BO-QUA',  nm:'Bơ sáp',               base:42000,    unit:'đ/kg',         ic:'🥑'},
+  {sym:'CHOMCHOM',nm:'Chôm chôm',            base:25000,    unit:'đ/kg',         ic:'🍒'},
+  {sym:'MANGCUT', nm:'Măng cụt',             base:48000,    unit:'đ/kg',         ic:'🟣'},
+  {sym:'NHAN',    nm:'Nhãn lồng',            base:35000,    unit:'đ/kg',         ic:'🍈'},
+  {sym:'CHANHDAY',nm:'Chanh dây',            base:30000,    unit:'đ/kg',         ic:'🟡'},
+  {sym:'DUA-THOM',nm:'Dứa (thơm)',           base:12000,    unit:'đ/kg',         ic:'🍍'},
+  {sym:'DUDU',    nm:'Đu đủ chín',           base:15000,    unit:'đ/kg',         ic:'🧡'},
 ];
 const DOM_SEA=[
+  {sym:'CA-HOI',  nm:'Cá hồi fillet (nhập)', base:280000,   unit:'đ/kg',         ic:'🐟'},
+  {sym:'CA-THU',  nm:'Cá thu',               base:120000,   unit:'đ/kg',         ic:'🐟'},
+  {sym:'CA-BASA', nm:'Cá basa',              base:35000,    unit:'đ/kg',         ic:'🐟'},
   {sym:'CA-TRA',  nm:'Cá tra nguyên liệu',   base:28500,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'TOM-THE', nm:'Tôm thẻ size 40',      base:145000,   unit:'đ/kg',         ic:'🦐'},
+  {sym:'CA-LOC',  nm:'Cá lóc',               base:65000,    unit:'đ/kg',         ic:'🐟'},
   {sym:'CA-DIEU', nm:'Cá điêu hồng',         base:52000,    unit:'đ/kg',         ic:'🐟'},
+  {sym:'TOM-SU',  nm:'Tôm sú',               base:220000,   unit:'đ/kg',         ic:'🦐'},
+  {sym:'TOM-THE', nm:'Tôm thẻ size 40',      base:145000,   unit:'đ/kg',         ic:'🦐'},
+  {sym:'CUA-BIEN',nm:'Cua biển',             base:280000,   unit:'đ/kg',         ic:'🦀'},
+  {sym:'NGHEU',   nm:'Nghêu trắng',          base:35000,    unit:'đ/kg',         ic:'🐚'},
+  {sym:'HAU',     nm:'Hàu sữa',              base:65000,    unit:'đ/kg',         ic:'🦪'},
   {sym:'MUC',     nm:'Mực ống',              base:180000,   unit:'đ/kg',         ic:'🦑'},
+  {sym:'BACHTUOC',nm:'Bạch tuộc',            base:150000,   unit:'đ/kg',         ic:'🐙'},
+];
+const DOM_SEA_FROZEN=[
+  {sym:'CAHOI-DL', nm:'Fillet cá hồi đông lạnh',base:320000, unit:'đ/kg',         ic:'❄️'},
+  {sym:'TOMSU-IQF',nm:'Tôm sú bóc vỏ IQF',   base:250000,   unit:'đ/kg',         ic:'❄️'},
+  {sym:'BASA-DL',  nm:'Fillet cá basa đông lạnh',base:55000,unit:'đ/kg',         ic:'❄️'},
+  {sym:'CHAMUC',   nm:'Chả mực viên',        base:120000,   unit:'đ/kg',         ic:'🍥'},
+];
+const DOM_SEA_DRIED=[
+  {sym:'KHOCALOC', nm:'Khô cá lóc',          base:280000,   unit:'đ/kg',         ic:'🐟'},
+  {sym:'KHOCASAC', nm:'Khô cá sặc',          base:250000,   unit:'đ/kg',         ic:'🐟'},
+  {sym:'MUCNANG',  nm:'Mực một nắng',        base:380000,   unit:'đ/kg',         ic:'🦑'},
+  {sym:'TOMKHO',   nm:'Tôm khô',             base:450000,   unit:'đ/kg',         ic:'🦐'},
+];
+const DOM_VEG_LEAF=[
+  {sym:'RAUMUONG', nm:'Rau muống',           base:10000,    unit:'đ/kg',         ic:'🥬'},
+  {sym:'CAINGOT',  nm:'Cải ngọt',            base:15000,    unit:'đ/kg',         ic:'🥬'},
+  {sym:'CAIBOXOI', nm:'Cải bó xôi',          base:30000,    unit:'đ/kg',         ic:'🥬'},
+  {sym:'RAUNGOT',  nm:'Rau ngót',            base:15000,    unit:'đ/kg',         ic:'🥬'},
+  {sym:'MONGTOI',  nm:'Mồng tơi',            base:12000,    unit:'đ/kg',         ic:'🥬'},
+  {sym:'XALACH',   nm:'Xà lách',             base:25000,    unit:'đ/kg',         ic:'🥗'},
+  {sym:'NGORI',    nm:'Ngò rí',              base:40000,    unit:'đ/kg',         ic:'🌿'},
+  {sym:'HUNGQUE',  nm:'Húng quế',            base:35000,    unit:'đ/kg',         ic:'🌿'},
+];
+const DOM_VEG_ROOT=[
+  {sym:'CAROT',    nm:'Cà rốt',              base:15000,    unit:'đ/kg',         ic:'🥕'},
+  {sym:'CACHUA',   nm:'Cà chua',             base:20000,    unit:'đ/kg',         ic:'🍅'},
+  {sym:'DUALEO',   nm:'Dưa leo',             base:12000,    unit:'đ/kg',         ic:'🥒'},
+  {sym:'BIDO',     nm:'Bí đỏ',               base:10000,    unit:'đ/kg',         ic:'🎃'},
+  {sym:'KHOQUA',   nm:'Khổ qua',             base:20000,    unit:'đ/kg',         ic:'🥒'},
+  {sym:'BAPCAI',   nm:'Bắp cải',             base:10000,    unit:'đ/kg',         ic:'🥬'},
+  {sym:'SUPLOX',   nm:'Súp lơ xanh',         base:25000,    unit:'đ/kg',         ic:'🥦'},
+  {sym:'SUHAO',    nm:'Su hào',              base:10000,    unit:'đ/kg',         ic:'🥔'},
+];
+const DOM_MUSHROOM=[
+  {sym:'NAMKIMCHAM',nm:'Nấm kim châm',       base:25000,    unit:'đ/kg',         ic:'🍄'},
+  {sym:'NAMDUIGA', nm:'Nấm đùi gà',          base:55000,    unit:'đ/kg',         ic:'🍄'},
+  {sym:'NAMBAONGU',nm:'Nấm bào ngư',         base:40000,    unit:'đ/kg',         ic:'🍄'},
+  {sym:'RAUMAM',   nm:'Rau mầm các loại',    base:30000,    unit:'đ/kg',         ic:'🌱'},
 ];
 
 function mkDomestic(d){
@@ -1154,7 +1217,12 @@ function renderDomestic(){
   html('domGrain',    DOM_GRAIN.map(mkDomestic).join(''));
   html('domAgri',     DOM_AGRI.map(mkDomestic).join(''));
   html('domFruit',    DOM_FRUIT.map(mkDomestic).join(''));
+  html('domVegLeaf',  DOM_VEG_LEAF.map(mkDomestic).join(''));
+  html('domVegRoot',  DOM_VEG_ROOT.map(mkDomestic).join(''));
+  html('domMushroom', DOM_MUSHROOM.map(mkDomestic).join(''));
   html('domSea',      DOM_SEA.map(mkDomestic).join(''));
+  html('domSeaFrozen',DOM_SEA_FROZEN.map(mkDomestic).join(''));
+  html('domSeaDried', DOM_SEA_DRIED.map(mkDomestic).join(''));
 }
 
 // ─── DATA: VN ──────────────────────────────
