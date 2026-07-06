@@ -82,6 +82,13 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 
 /* TAB NAV */
 .tnav{display:flex;gap:2px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:4px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;position:sticky;top:52px;z-index:100;backdrop-filter:blur(12px);transition:background var(--tr);}
+.tnav-wrap{position:relative;}
+.tnav-wrap .tnav{margin-bottom:14px;}
+.tnav-fade{position:absolute;top:4px;bottom:18px;width:28px;pointer-events:none;z-index:101;border-radius:var(--r);}
+.tnav-fade-l{left:0;background:linear-gradient(90deg,var(--sf),transparent);}
+.tnav-fade-r{right:0;background:linear-gradient(270deg,var(--sf),transparent);}
+.tb-hl{background:linear-gradient(135deg,rgba(214,95,53,.16),rgba(209,64,96,.1)) !important;color:var(--a) !important;font-weight:700 !important;}
+.tb-hl:hover{background:linear-gradient(135deg,rgba(214,95,53,.24),rgba(209,64,96,.16)) !important;}
 .tnav::-webkit-scrollbar{display:none;}
 .tb{font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 15px;border-radius:100px;border:none;background:none;color:var(--sub);cursor:pointer;white-space:nowrap;transition:all var(--tr);letter-spacing:0;display:flex;align-items:center;gap:5px;}
 .tb:hover{color:var(--tx);background:var(--sf2);}
@@ -230,8 +237,10 @@ footer a:hover{color:#F5EFE6}
 </div>
 
 <!-- TAB NAV -->
-<nav class="tnav">
+<div class="tnav-wrap">
+<nav class="tnav" id="tnav">
   <button class="tb on"  id="btn-overview" onclick="go('overview',this)">📊 Tổng quan</button>
+  <button class="tb tb-hl" id="btn-prices"   onclick="go('prices',this)">🛒 Giá tiêu dùng</button>
   <button class="tb"     id="btn-outlook"  onclick="go('outlook',this)">🎯 Nhận định</button>
   <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Việt Nam <span class="tbg">43</span></button>
   <button class="tb"     id="btn-global"   onclick="go('global',this)">📈 Cổ phiếu QT <span class="tbg">48</span></button>
@@ -239,8 +248,10 @@ footer a:hover{color:#F5EFE6}
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
-  <button class="tb"     id="btn-prices"   onclick="go('prices',this)">🛒 Giá hàng hoá trong nước</button>
 </nav>
+<div class="tnav-fade tnav-fade-l"></div>
+<div class="tnav-fade tnav-fade-r"></div>
+</div>
 
 <!-- PAGE: OVERVIEW -->
 <div class="pg on" id="pg-overview">
@@ -505,7 +516,22 @@ footer a:hover{color:#F5EFE6}
   <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
     🛒 Giá hàng hoá tiêu dùng &amp; nguyên vật liệu trong nước — tổng hợp từ bản tin giá hàng ngày, không phải giá tại một cửa hàng cụ thể.
   </div>
-  <div class="gr" id="domCards"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">⛽</div><div class="sht">Nhiên liệu &amp; Vàng</div><div class="shl"></div></div>
+  <div class="gr" id="domFuel"></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏗️</div><div class="sht">Vật liệu xây dựng</div><div class="shl"></div></div>
+  <div class="gr" id="domMaterial"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🐖</div><div class="sht">Gia súc, gia cầm (giá hơi/sống)</div><div class="shl"></div></div>
+  <div class="gr" id="domLive"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🥩</div><div class="sht">Thịt bán lẻ tại chợ/siêu thị</div><div class="shl"></div></div>
+  <div class="gr" id="domRetail"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🥚</div><div class="sht">Trứng</div><div class="shl"></div></div>
+  <div class="gr" id="domEgg"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">☕</div><div class="sht">Nông sản trong nước</div><div class="shl"></div></div>
+  <div class="gr" id="domAgri"></div>
+  <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🍊</div><div class="sht">Trái cây</div><div class="shl"></div></div>
+  <div class="gr" id="domFruit"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản</div><div class="shl"></div></div>
+  <div class="gr" id="domSea"></div>
 </div>
 
 </main>
@@ -985,6 +1011,10 @@ const FX_PAIRS={
     {base:'USD',quote:'HKD',nm:'Đô Mỹ / Đô Hong Kong', ic:'🇺🇸🇭🇰'},
     {base:'EUR',quote:'CAD',nm:'Euro / Đô Canada',     ic:'🇪🇺🇨🇦'},
     {base:'GBP',quote:'AUD',nm:'Bảng Anh / Đô Úc',     ic:'🇬🇧🇦🇺'},
+    {base:'NZD',quote:'USD',nm:'Đô New Zealand / Đô Mỹ',ic:'🇳🇿🇺🇸'},
+    {base:'GBP',quote:'CAD',nm:'Bảng Anh / Đô Canada',  ic:'🇬🇧🇨🇦'},
+    {base:'EUR',quote:'TRY',nm:'Euro / Lira Thổ',       ic:'🇪🇺🇹🇷'},
+    {base:'GBP',quote:'ZAR',nm:'Bảng Anh / Rand Nam Phi',ic:'🇬🇧🇿🇦'},
   ]
 };
 
@@ -1016,7 +1046,7 @@ function renderFX(){
 }
 
 // ─── DATA: HÀNG HOÁ TIÊU DÙNG TRONG NƯỚC ──────
-const DOMESTIC=[
+const DOM_FUEL=[
   {sym:'XANG-E5', nm:'Xăng E5 RON92',        base:19730,    unit:'đ/lít',        ic:'⛽'},
   {sym:'XANG-E10',nm:'Xăng E10 RON95-III',   base:20415,    unit:'đ/lít',        ic:'⛽'},
   {sym:'DIESEL',  nm:'Dầu Diesel',           base:21176,    unit:'đ/lít',        ic:'🛢️'},
@@ -1024,19 +1054,62 @@ const DOMESTIC=[
   {sym:'GAS',     nm:'Gas LPG bình 12kg',    base:420000,   unit:'đ/bình',       ic:'🔥'},
   {sym:'VANG-SJC',nm:'Vàng miếng SJC',       base:151400000,unit:'đ/lượng',      ic:'🥇'},
   {sym:'VANG-NHAN',nm:'Vàng nhẫn 24K',       base:149800000,unit:'đ/lượng',      ic:'💍'},
+];
+const DOM_MATERIAL=[
   {sym:'THEP',    nm:'Thép CB240 Hoà Phát',  base:15430,    unit:'đ/kg',         ic:'🔩'},
   {sym:'XIMANG',  nm:'Xi măng PCB40',        base:1450,     unit:'đ/kg',         ic:'🏗️'},
   {sym:'CAOSU',   nm:'Cao su mủ nước loại 1',base:452,      unit:'đ/độ TSC/kg',  ic:'🌳'},
-  {sym:'HEO',     nm:'Heo hơi bình quân',    base:63000,    unit:'đ/kg',         ic:'🐖'},
-  {sym:'GA-CN',   nm:'Gà công nghiệp',       base:32000,    unit:'đ/kg',         ic:'🐔'},
-  {sym:'TRUNG',   nm:'Trứng gà công nghiệp', base:2200,     unit:'đ/quả',        ic:'🥚'},
+  {sym:'CAT-XD',  nm:'Cát xây dựng',         base:280000,   unit:'đ/m³',         ic:'🏖️'},
+  {sym:'GACH',    nm:'Gạch xây tuynel',      base:1350,     unit:'đ/viên',       ic:'🧱'},
+];
+const DOM_LIVE=[
+  {sym:'HEO-HOI', nm:'Heo hơi bình quân',    base:63000,    unit:'đ/kg',         ic:'🐖'},
+  {sym:'BO-HOI',  nm:'Bò hơi bình quân',     base:78000,    unit:'đ/kg',         ic:'🐄'},
+  {sym:'GA-HOI',  nm:'Gà công nghiệp (trại)',base:33000,    unit:'đ/kg',         ic:'🐔'},
+  {sym:'GA-TA',   nm:'Gà ta (thả vườn)',     base:88000,    unit:'đ/kg',         ic:'🐓'},
+  {sym:'VIT-HOI', nm:'Vịt thịt (trại)',      base:43000,    unit:'đ/kg',         ic:'🦆'},
+];
+const DOM_RETAIL=[
+  {sym:'HEO-BAROI',nm:'Ba rọi heo',          base:159000,   unit:'đ/kg',         ic:'🥓'},
+  {sym:'HEO-SUON', nm:'Sườn non heo',        base:171000,   unit:'đ/kg',         ic:'🍖'},
+  {sym:'HEO-NACVAI',nm:'Nạc vai heo',        base:138000,   unit:'đ/kg',         ic:'🥩'},
+  {sym:'HEO-NACDUI',nm:'Nạc đùi heo',        base:132000,   unit:'đ/kg',         ic:'🥩'},
+  {sym:'HEO-XAY',  nm:'Thịt heo xay',        base:132000,   unit:'đ/kg',         ic:'🥩'},
+  {sym:'BO-THANNOI',nm:'Thăn nội bò',        base:559000,   unit:'đ/kg',         ic:'🥩'},
+  {sym:'BO-BACHI', nm:'Ba chỉ bò',           base:375000,   unit:'đ/kg',         ic:'🥩'},
+  {sym:'BO-NAM',   nm:'Nạm/gân/bắp bò',      base:275000,   unit:'đ/kg',         ic:'🍲'},
+  {sym:'GA-CN-BL', nm:'Gà công nghiệp làm sẵn',base:65000,  unit:'đ/kg',         ic:'🍗'},
+  {sym:'VIT-BL',   nm:'Vịt làm sẵn',         base:75000,    unit:'đ/kg',         ic:'🍗'},
+];
+const DOM_EGG=[
+  {sym:'TRUNG-GA', nm:'Trứng gà công nghiệp',base:2200,     unit:'đ/quả',        ic:'🥚'},
+  {sym:'TRUNG-VIT',nm:'Trứng vịt',           base:3500,     unit:'đ/quả',        ic:'🥚'},
+];
+const DOM_AGRI=[
   {sym:'CAPHE-VN',nm:'Cà phê nhân xô',       base:91800,    unit:'đ/kg',         ic:'☕'},
   {sym:'TIEU-VN', nm:'Hồ tiêu đen (Đắk Lắk)',base:155000,   unit:'đ/kg',         ic:'🌶️'},
   {sym:'DIEU-VN', nm:'Hạt điều nhân',        base:220000,   unit:'đ/kg',         ic:'🥜'},
   {sym:'GAO-TE',  nm:'Gạo tẻ thường',        base:16500,    unit:'đ/kg',         ic:'🍚'},
+  {sym:'GAO-THOM',nm:'Gạo thơm ST25',        base:28000,    unit:'đ/kg',         ic:'🍚'},
   {sym:'DUONG',   nm:'Đường cát trắng',      base:22000,    unit:'đ/kg',         ic:'🍬'},
+];
+const DOM_FRUIT=[
+  {sym:'SAURIENG',nm:'Sầu riêng Ri6',        base:95000,    unit:'đ/kg',         ic:'🥭'},
+  {sym:'THANHLONG',nm:'Thanh long ruột đỏ',  base:22000,    unit:'đ/kg',         ic:'🍈'},
+  {sym:'XOAI',    nm:'Xoài cát Hoà Lộc',     base:42000,    unit:'đ/kg',         ic:'🥭'},
+  {sym:'CHUOI',   nm:'Chuối già',            base:16000,    unit:'đ/kg',         ic:'🍌'},
+  {sym:'CAM-SANH',nm:'Cam sành',             base:28000,    unit:'đ/kg',         ic:'🍊'},
+  {sym:'BUOI',    nm:'Bưởi da xanh',         base:38000,    unit:'đ/kg',         ic:'🍈'},
+  {sym:'DUAHAU',  nm:'Dưa hấu',              base:12000,    unit:'đ/kg',         ic:'🍉'},
+  {sym:'NHO-VN',  nm:'Nho xanh (nhập)',      base:78000,    unit:'đ/kg',         ic:'🍇'},
+  {sym:'TAO-VN',  nm:'Táo Envy (nhập)',      base:65000,    unit:'đ/kg',         ic:'🍎'},
+  {sym:'BO-QUA',  nm:'Bơ sáp',               base:42000,    unit:'đ/kg',         ic:'🥑'},
+];
+const DOM_SEA=[
   {sym:'CA-TRA',  nm:'Cá tra nguyên liệu',   base:28500,    unit:'đ/kg',         ic:'🐟'},
   {sym:'TOM-THE', nm:'Tôm thẻ size 40',      base:145000,   unit:'đ/kg',         ic:'🦐'},
+  {sym:'CA-DIEU', nm:'Cá điêu hồng',         base:52000,    unit:'đ/kg',         ic:'🐟'},
+  {sym:'MUC',     nm:'Mực ống',              base:180000,   unit:'đ/kg',         ic:'🦑'},
 ];
 
 function mkDomestic(d){
@@ -1047,7 +1120,14 @@ function mkDomestic(d){
 }
 
 function renderDomestic(){
-  html('domCards', DOMESTIC.map(mkDomestic).join(''));
+  html('domFuel',     DOM_FUEL.map(mkDomestic).join(''));
+  html('domMaterial', DOM_MATERIAL.map(mkDomestic).join(''));
+  html('domLive',     DOM_LIVE.map(mkDomestic).join(''));
+  html('domRetail',   DOM_RETAIL.map(mkDomestic).join(''));
+  html('domEgg',      DOM_EGG.map(mkDomestic).join(''));
+  html('domAgri',     DOM_AGRI.map(mkDomestic).join(''));
+  html('domFruit',    DOM_FRUIT.map(mkDomestic).join(''));
+  html('domSea',      DOM_SEA.map(mkDomestic).join(''));
 }
 
 // ─── DATA: VN ──────────────────────────────
