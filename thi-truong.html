@@ -595,7 +595,7 @@ footer a:hover{color:#F5EFE6}
   <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
     🛒 Giá hàng hoá tiêu dùng &amp; nguyên vật liệu trong nước — tổng hợp từ bản tin giá hàng ngày. Xăng dầu/vàng/thép là giá niêm yết thống nhất toàn quốc; riêng mục có ghi <strong style="color:var(--tx)">"giá tham khảo"</strong> chỉ là một điểm mốc để hình dung — giá thực tế dao động khá nhiều theo chợ, siêu thị và khu vực.
   </div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">⛽</div><div class="sht">Nhiên liệu &amp; Vàng</div><div class="shl"></div></div>
+  <div class="sh" data-open="1"><div class="shi" style="background:rgba(0,200,83,.1)">⛽</div><div class="sht">Nhiên liệu &amp; Vàng</div><div class="shl"></div></div>
   <div class="gr" id="domFuel"></div>
   <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏗️</div><div class="sht">Vật liệu xây dựng · phần thô</div><div class="shl"></div></div>
   <div class="gr" id="domMaterial"></div>
@@ -605,15 +605,15 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="domMaterialFinish"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🐖</div><div class="sht">Gia súc, gia cầm (giá hơi/sống)</div><div class="shl"></div></div>
   <div class="gr" id="domLive"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🥩</div><div class="sht">Thịt bán lẻ tại chợ/siêu thị <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="sh" data-open="1"><div class="shi" style="background:rgba(232,51,74,.1)">🥩</div><div class="sht">Thịt bán lẻ tại chợ/siêu thị <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domRetail"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🥚</div><div class="sht">Trứng</div><div class="shl"></div></div>
+  <div class="sh" data-open="1"><div class="shi" style="background:rgba(232,162,43,.1)">🥚</div><div class="sht">Trứng</div><div class="shl"></div></div>
   <div class="gr" id="domEgg"></div>
   <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🧂</div><div class="sht">Gia vị &amp; hàng công nghệ phẩm <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domSpice"></div>
   <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌽</div><div class="sht">Lương thực khác</div><div class="shl"></div></div>
   <div class="gr" id="domGrain"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">☕</div><div class="sht">Nông sản trong nước</div><div class="shl"></div></div>
+  <div class="sh" data-open="1"><div class="shi" style="background:rgba(0,200,83,.1)">☕</div><div class="sht">Nông sản trong nước</div><div class="shl"></div></div>
   <div class="gr" id="domAgri"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🍊</div><div class="sht">Trái cây <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domFruit"></div>
@@ -623,7 +623,7 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="domVegRoot"></div>
   <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🍄</div><div class="sht">Nấm &amp; rau mầm <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domMushroom"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản tươi sống <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="sh" data-open="1"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản tươi sống <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domSea"></div>
   <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">❄️</div><div class="sht">Thuỷ sản đông lạnh <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
   <div class="gr" id="domSeaFrozen"></div>
@@ -665,7 +665,12 @@ function sim(key, base, range){
   let st = _mkt[key];
   if(!st){
     const initPct = rp(range);
-    st = { price: base*(1+initPct/100), pct: initPct };
+    const p0 = base*(1+initPct/100);
+    // Khởi tạo lịch sử ban đầu bằng 1 bước đi ngẫu nhiên NHẸ (không phải random tự do) để
+    // sparkline lần đầu vẫn có hình dạng hợp lý, không phải 1 đường thẳng đơ.
+    const hist=[p0];
+    for(let i=1;i<20;i++) hist.push(Math.max(base*.97,Math.min(base*1.03, hist[i-1]*(1+rp(range/10)/100))));
+    st = { price: p0, pct: initPct, hist };
     _mkt[key] = st;
     return st;
   }
@@ -676,6 +681,8 @@ function sim(key, base, range){
   newPrice = Math.max(lo, Math.min(hi, newPrice));
   st.pct = (newPrice/base-1)*100;
   st.price = newPrice;
+  st.hist.push(newPrice);
+  if(st.hist.length>20) st.hist.shift(); // giữ đúng 20 điểm gần nhất — đúng lịch sử thật, không bịa
   return st;
 }
 const $ = id => document.getElementById(id);
@@ -733,11 +740,11 @@ function mkStatus(){
 mkStatus();
 
 // ─── SPARKLINE ─────────────────────────────
-function spark(up,col){
-  const n=20,v=[50];
-  for(let i=1;i<n;i++) v.push(Math.max(4,Math.min(96,v[i-1]+(Math.random()-(up?.38:.62))*11)));
-  const mn=Math.min(...v),mx=Math.max(...v),W=200,H=30;
-  const norm=v.map(x=>92-((x-mn)/(mx-mn+.5))*84);
+function spark(hist,col){
+  // Vẽ ĐÚNG lịch sử giá thật đã mô phỏng (mảng hist từ sim()) — không tự bịa random nữa.
+  const n=hist.length;
+  const mn=Math.min(...hist),mx=Math.max(...hist),W=200,H=30;
+  const norm=hist.map(x=>92-((x-mn)/(mx-mn+.0001))*84);
   const pts=norm.map((y,i)=>`${(i/(n-1))*W},${y*H/100}`).join(' ');
   const id='g'+Math.random().toString(36).slice(2,8);
   return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs>`+
@@ -754,13 +761,14 @@ function spark(up,col){
 function card(d,cls,spkCol){
   const u=d.pct>=0,col=u?'var(--gn)':'var(--rd)',arr=u?'▲':'▼';
   const vnd=d.usd!=null?`<div class="cv2">${toVND(d.usd)}</div>`:'';
+  const histArr = d.hist || [50,50]; // dự phòng nếu caller quên truyền — tránh vỡ giao diện
   return `<div class="cd ${cls}">` +
     `<div class="ct"><div><div class="cy">${d.sym}</div><div class="cn" title="${d.nm}">${d.nm}</div></div>` +
     `<div class="co">${d.ic}</div></div>` +
     `<div class="cp">${d.pr}</div>` +
     `${vnd}` +
     `<div class="cch" style="color:${col}">${arr} ${Math.abs(d.pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
-    `<div class="csp">${spark(u,col)}</div>` +
+    `<div class="csp">${spark(histArr,col)}</div>` +
     `<div class="cm"><span>${d.m1||''}</span><span>${d.m2||''}</span></div>` +
     `</div>`;
 }
@@ -906,7 +914,7 @@ function mkSt(s){
   const usd=s.ccy==='USD'?p:p/r;
   const sym2={USD:'$',EUR:'€',KRW:'₩',JPY:'¥',HKD:'HK$',CHF:'Fr',INR:'₹',AUD:'A$'}[s.ccy]||'';
   const pf=s.ccy==='KRW'||s.ccy==='JPY'||s.ccy==='INR'?Math.round(p).toLocaleString():p.toFixed(2);
-  return card({sym:s.sym,nm:s.nm,ic:s.ic,pr:sym2+pf,usd,pct,abs:(pct>=0?'+':'')+sym2+(Math.abs(p*pct/100)).toFixed(2),m1:(s.ex||'')+' · '+s.ccy,m2:'Vol:'+(Math.random()*80+10).toFixed(0)+'M'},'cs','var(--a)');
+  return card({sym:s.sym,nm:s.nm,ic:s.ic,pr:sym2+pf,usd,pct,hist:st.hist,abs:(pct>=0?'+':'')+sym2+(Math.abs(p*pct/100)).toFixed(2),m1:(s.ex||'')+' · '+s.ccy,m2:'Vol:'+(Math.random()*80+10).toFixed(0)+'M'},'cs','var(--a)');
 }
 
 function renderGlobal(){
@@ -993,7 +1001,7 @@ const BONDS={
 function mkBond(b){
   const st=sim(b.sym,b.base,.4), p=st.price, pct=st.pct;
   const abs=Math.abs(p*pct/100).toFixed(3);
-  return card({sym:b.sym,nm:b.nm,ic:b.ic,pr:p.toFixed(2)+'%',usd:null,pct,abs:(pct>=0?'+':'')+abs+'%',m1:b.m1,m2:''},'cb','var(--go)');
+  return card({sym:b.sym,nm:b.nm,ic:b.ic,pr:p.toFixed(2)+'%',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+abs+'%',m1:b.m1,m2:''},'cb','var(--go)');
 }
 
 function renderBonds(){
@@ -1068,7 +1076,7 @@ function mkComm(c){
   else usdVal = p/100;
   const priceLabel = c.ccy ? (p<10?p.toFixed(3):p.toFixed(2))+' '+c.ccy : '$'+(p<10?p.toFixed(3):p.toFixed(2));
   const changeLabel = c.ccy ? (pct>=0?'+':'')+abs+' '+c.ccy : (pct>=0?'+':'')+'$'+abs;
-  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,abs:changeLabel,m1:c.unit,m2:''},'cc','var(--a2)');
+  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,hist:st.hist,abs:changeLabel,m1:c.unit,m2:''},'cc','var(--a2)');
 }
 
 function renderComm(){
@@ -1133,14 +1141,14 @@ function mkFX(p){
   const rate=xrate(p.ccy), st=sim(p.sym,rate,.15), pr=st.price, pct=st.pct;
   const abs=Math.abs(pr*pct/100);
   const fmt=v=>v>=1000?Math.round(v).toLocaleString('vi-VN'):v.toFixed(v<10?2:1);
-  return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,abs:(pct>=0?'+':'')+Math.round(abs)+'₫',m1:p.m1,m2:'Liên ngân hàng'},'cfx','var(--gn)');
+  return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+Math.round(abs)+'₫',m1:p.m1,m2:'Liên ngân hàng'},'cfx','var(--gn)');
 }
 
 function mkFXCross(p){
   const rate=crossRate(p.base,p.quote), key=p.base+'/'+p.quote, st=sim(key,rate,.2), pr=st.price, pct=st.pct;
   const abs=Math.abs(pr*pct/100);
   const dp = pr>=10?2:4; // Yên Nhật quy ước 2 số thập phân, còn lại 4 số
-  return card({sym:key,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,abs:(pct>=0?'+':'')+abs.toFixed(dp),m1:'Cặp chéo',m2:'Forex'},'cfx','var(--gn)');
+  return card({sym:key,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+abs.toFixed(dp),m1:'Cặp chéo',m2:'Forex'},'cfx','var(--gn)');
 }
 
 function renderFX(){
@@ -1316,7 +1324,7 @@ function mkDomestic(d){
   const st=sim(d.sym,d.base,1.3), p=st.price, pct=st.pct;
   const abs=Math.abs(p*pct/100);
   const fmt=v=>v>=1e6?(v/1e6).toFixed(2)+'tr':v>=1000?Math.round(v).toLocaleString('vi-VN'):Math.round(v).toString();
-  return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)');
+  return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)');
 }
 
 function renderDomestic(){
@@ -1344,17 +1352,22 @@ function renderDomestic(){
 // Chạy 1 lần duy nhất lúc khởi tạo — toàn bộ .sh đều là HTML tĩnh nên không cần chạy lại mỗi lần đổi tab.
 function setupCollapsibleSections(){
   document.querySelectorAll('.pg').forEach(panel=>{
-    if(panel.id==='pg-overview') return; // Tổng quan luôn mở hết, không thu gọn — đây là trang xem nhanh tổng thể
+    if(panel.id==='pg-overview') return; // Tổng quan luôn mở hết, không thu gọn
+    const shList = Array.from(panel.querySelectorAll('.sh'));
+    const hasExplicit = shList.some(sh=>sh.hasAttribute('data-open')); // có đánh dấu riêng không?
     let i=0;
-    panel.querySelectorAll('.sh').forEach(sh=>{
+    shList.forEach(sh=>{
       const gr=sh.nextElementSibling;
       if(!gr||!gr.classList.contains('gr')) return; // chỉ áp dụng cho .sh đứng trước .gr (lưới dữ liệu)
       sh.classList.add('sh-collapse');
+      // Nếu tab có đánh dấu data-open riêng (VD: Giá tiêu dùng) → dùng đúng nhóm đó.
+      // Nếu không → mặc định mở 2 nhóm đầu như trước.
+      const shouldOpen = hasExplicit ? sh.hasAttribute('data-open') : i<2;
       const chev=document.createElement('span');
-      chev.className='sh-chevron'+(i<2?' open':'');
+      chev.className='sh-chevron'+(shouldOpen?' open':'');
       chev.textContent='▾';
       sh.appendChild(chev);
-      if(i>=2) gr.classList.add('collapsed');
+      if(!shouldOpen) gr.classList.add('collapsed');
       sh.addEventListener('click', ()=>{
         gr.classList.toggle('collapsed');
         chev.classList.toggle('open');
@@ -1437,8 +1450,9 @@ const VN={
 
 function mkVN(s, api){
   let price, pct;
+  const st=sim(s.sym,s.base,1.5); // luôn gọi để có lịch sử hist nhất quán cho sparkline
   if(api&&api[s.sym]){ price=api[s.sym].close||s.base; pct=api[s.sym].changePercent||rp(2); }
-  else{ const st=sim(s.sym,s.base,1.5); price=st.price; pct=st.pct; }
+  else{ price=st.price; pct=st.pct; }
   const abs=Math.abs(price*pct/100);
   const usdEq=price/USD_VND;
   const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
@@ -1447,7 +1461,7 @@ function mkVN(s, api){
     `<div class="cp">${(price/1000).toFixed(1)}k ₫</div>` +
     `<div class="cv2">$${usdEq.toFixed(2)}</div>` +
     `<div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div>` +
-    `<div class="csp">${spark(u,col)}</div>` +
+    `<div class="csp">${spark(st.hist,col)}</div>` +
     `<div class="cm"><span>HOSE</span></div>` +
     `</div>`;
 }
@@ -1720,7 +1734,7 @@ function renderOverviewSim(){
     if(!s) return '';
     const st=sim(s.sym,s.base,1.5), p=st.price, pct=st.pct, abs=Math.abs(p*pct/100);
     const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
-    return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">$${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(u,col)}</div><div class="cm"><span>HOSE</span></div></div>`;
+    return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">$${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(st.hist,col)}</div><div class="cm"><span>HOSE</span></div></div>`;
   }).join(''));
   // Global preview (6 stocks)
   html('ovStPrev', STOCKS.usTech.slice(0,6).map(mkSt).join(''));
