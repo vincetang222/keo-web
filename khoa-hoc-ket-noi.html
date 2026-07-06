@@ -1783,6 +1783,20 @@ document.getElementById('ctrl-toggle').addEventListener('click',function(){
   document.getElementById('ctrl-panel').classList.toggle('open');
 });
 try{var sa=localStorage.getItem('keo-accent');if(sa)setAccent(sa);}catch(e){}
+
+// Randomize post order on each visit so one category doesn't dominate the top.
+// The curated .featured spotlight above is untouched — only the .grid below is shuffled.
+(function shuffleGrid(){
+  var grid=document.getElementById('grid');
+  if(!grid)return;
+  var posts=Array.prototype.slice.call(grid.querySelectorAll('.post'));
+  for(var i=posts.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1));
+    var tmp=posts[i];posts[i]=posts[j];posts[j]=tmp;
+  }
+  posts.forEach(function(p){grid.appendChild(p);});
+})();
+
 filterPosts('all');
 
 // Scroll reveal — subtle fade+rise on entry, site-wide
