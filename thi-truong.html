@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="Kèo">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0D0B09">
+  <meta name="theme-color" content="#FAFAF5">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Mono:wght@400;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -23,25 +23,33 @@
   --go:#E8A22B;--pu:#9c7fe8;--vn:#e8334a;
   --mono:'Space Mono',monospace;--sans:'Be Vietnam Pro',sans-serif;--serif:'Playfair Display',serif;
   --r:16px;--tr:.18s ease;
-}
-[data-theme="dark"]{
-  --bg:#0D0B09;--sf:#17120D;--sf2:#1F1912;--bd:rgba(240,234,225,.12);
+  /* Nền trang: sáng, cố định — khớp khoa-hoc-ket-noi.html, không còn theme tối/sáng */
+  --bg:#FAFAF5;
+  /* Card: tối, cố định — hiệu ứng "card nổi trên nền sáng" */
+  --sf:#17120D;--sf2:#1F1912;--bd:rgba(240,234,225,.12);
   --tx:#F5EFE6;--sub:rgba(240,234,225,.5);--mu:rgba(240,234,225,.28);
-  --hbg:#17120Dee;--sc:rgba(232,162,43,.008);--lg:rgba(214,95,53,.3);
-  --sh1:0 2px 10px rgba(0,0,0,.24);--sh2:0 10px 26px rgba(0,0,0,.36);--shi:0 2px 6px rgba(0,0,0,.2);
-}
-[data-theme="light"]{
-  --bg:#FAFAF5;--sf:#fff;--sf2:#F2EDE8;--bd:#E8E2DC;
-  --tx:#1A1510;--sub:rgba(26,21,16,.55);--mu:rgba(26,21,16,.35);
-  --hbg:#ffffffee;--sc:transparent;--lg:rgba(214,95,53,.18);
-  --sh1:0 2px 10px rgba(26,21,16,.06);--sh2:0 10px 24px rgba(26,21,16,.1);--shi:0 2px 6px rgba(26,21,16,.05);
+  --hbg:rgba(23,18,13,.85);--lg:rgba(214,95,53,.3);
+  /* Shadow ấm, nhẹ — đúng kiểu Kèo dùng cho card trên nền sáng */
+  --sh1:0 2px 10px rgba(26,21,16,.07);--sh2:0 10px 24px rgba(26,21,16,.12);--shi:0 2px 6px rgba(26,21,16,.06);
+  /* Chữ nằm TRỰC TIẾP trên nền sáng (ngoài card tối) — khác với --tx/--sub dùng bên trong card */
+  --ink:#1A1510;--ink-sub:rgba(26,21,16,.5);--ink-mu:rgba(26,21,16,.32);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--tx);font-family:var(--sans);min-height:100vh;overflow-x:hidden;transition:background var(--tr),color var(--tr);}
-body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--sc) 2px,var(--sc) 4px);pointer-events:none;z-index:0;}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;}
 
 /* HEADER */
-header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;backdrop-filter:blur(14px);transition:background var(--tr);}
+header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:200;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);}
+.nav-in-tt{display:flex;align-items:center;gap:14px}
+.tt-logo{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:7px;text-decoration:none}
+.tt-mark{width:13px;height:18px}
+.tt-logo em{font-style:normal;background:var(--grad,linear-gradient(135deg,#E8A22B,#D65F35,#D14060));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tt-sep{width:1px;height:16px;background:rgba(240,234,225,.15)}
+.tt-sublabel{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;color:rgba(240,234,225,.4)}
+.tt-sublabel span{color:#F5EFE6}
+.tt-navlink{font-family:var(--sans);font-size:12.5px;color:rgba(240,234,225,.6);text-decoration:none;padding:5px 10px;border-radius:8px;transition:color .2s,background .2s}
+.tt-navlink:hover{color:#F5EFE6;background:rgba(240,234,225,.06)}
+@media(max-width:640px){.tt-navlink{display:none}}
 .logo{font-weight:800;font-size:20px;letter-spacing:-.5px;color:var(--a);text-shadow:0 0 16px var(--lg);}
 .logo span{color:var(--tx);}
 .hr{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;color:var(--sub);}
@@ -51,6 +59,7 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 .tm{display:flex;align-items:center;gap:4px;background:var(--sf2);border:1px solid var(--bd);border-radius:100px;padding:4px 10px;cursor:pointer;transition:all var(--tr);font-family:var(--sans);font-weight:600;font-size:10.5px;color:var(--sub);user-select:none;}
 .tm:hover{border-color:var(--a);color:var(--a);}
 .ib{background:none;border:1px solid var(--bd);color:var(--sub);font-family:var(--sans);font-weight:600;font-size:11px;padding:4px 10px;border-radius:100px;cursor:pointer;transition:all var(--tr);letter-spacing:.2px;}
+.sh .ib{color:var(--a);border-color:rgba(214,95,53,.3);margin-left:auto;flex-shrink:0;}
 .ib:hover{border-color:var(--a);color:var(--a);}
 
 /* TICKER */
@@ -88,8 +97,8 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 .sh{display:flex;align-items:center;gap:8px;margin:22px 0 12px;}
 .sh:first-child{margin-top:0;}
 .shi{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--shi);}
-.sht{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sub);}
-.shl{flex:1;height:1px;background:var(--bd);}
+.sht{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-sub);}
+.shl{flex:1;height:1px;background:var(--ink-mu);opacity:.25;}
 .shb{font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:20px;font-weight:700;letter-spacing:.8px;}
 
 /* OVERVIEW CARDS */
@@ -145,7 +154,11 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 .err{color:var(--rd);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
 
 main{max-width:1440px;margin:0 auto;padding:18px;position:relative;z-index:1;}
-footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;color:var(--mu);border-top:1px solid var(--bd);margin-top:28px;line-height:2;transition:border-color var(--tr);}
+footer{background:#17120D;text-align:center;padding:28px 20px 22px;font-family:var(--sans);font-size:11.5px;color:rgba(240,234,225,.4);margin-top:28px;line-height:2;}
+footer a{color:rgba(240,234,225,.55);text-decoration:none;transition:color .2s}
+footer a:hover{color:#F5EFE6}
+.foot-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#F5EFE6;text-decoration:none}
+.foot-logo em{font-style:normal;background:var(--grad,linear-gradient(135deg,#E8A22B,#D65F35,#D14060));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 @media(max-width:900px){.ov4{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.gr{grid-template-columns:1fr 1fr;}main{padding:10px;}.tb{padding:6px 10px;font-size:10px;}}
@@ -156,15 +169,15 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
 
 <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Thị Trường Tài Chính — Kèo</h1>
 <header>
-  <div style="display:flex;align-items:center;gap:16px">
-    <a href="/" style="font-family:'Playfair Display',serif;font-weight:700;font-size:18px;color:#D65F35;text-decoration:none;letter-spacing:-.3px">Kèo<span style="color:var(--tx)">.</span></a>
-    <div style="width:1px;height:18px;background:var(--bd)"></div>
-    <div class="logo" style="font-size:14px;letter-spacing:.1em;color:var(--sub)">THỊ<span style="color:var(--tx)"> TRƯỜNG</span></div>
+  <div class="nav-in-tt">
+    <a href="/" class="tt-logo"><svg class="tt-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="ttm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#ttm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#ttm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#ttm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="tt-sep"></div>
+    <div class="tt-sublabel">THỊ <span>TRƯỜNG</span></div>
+    <a href="/khoa-hoc-ket-noi" class="tt-navlink">Khoa học kết nối</a>
   </div>
   <div class="hr">
     <div class="ld"></div>
     <span id="clk">--:--:--</span>
-    <div class="tm" onclick="toggleTheme()"><span id="tmi">☀️</span><span id="tml">LIGHT</span></div>
     <button class="ib" onclick="refreshCurrent()">↻ REFRESH</button>
   </div>
 </header>
@@ -200,6 +213,7 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
+  <button class="tb"     id="btn-prices"   onclick="go('prices',this)">🛒 Giá cả</button>
 </nav>
 
 <!-- PAGE: OVERVIEW -->
@@ -299,6 +313,58 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
     <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Vietcap ưu tiên ngân hàng (lợi nhuận dự phóng +18%), bán lẻ và dầu khí cho chu kỳ tăng tốc đồng pha. SSI gọi tên cổ phiếu tiêu biểu: HPG, DGW, POW, VCB, FPT, DCM, TNG, PVT — nhóm vốn hoá trung bình có định giá hấp dẫn và dòng tiền cải thiện. <span style="color:var(--sub);opacity:.7">— Nguồn: SSI Research &amp; Vietcap, 07/2026</span></p>
   </div>
 
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.22),rgba(0,140,58,.16))">🌾</div><div class="sht">Hàng hoá xuất khẩu Việt Nam</div><div class="shl"></div></div>
+
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">☕ CÀ PHÊ · XK 2025</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">8,9 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VN ĐỨNG THỨ</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">#2 TG</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Việt Nam giữ vững vị trí xuất khẩu cà phê lớn thứ hai thế giới (sau Brazil) với kỷ lục 8,9 tỷ USD năm 2025. Tuy nhiên giá robusta đang hạ nhiệt — chuyên gia dự báo kim ngạch 2026 khó vượt kỷ lục này do nguồn cung toàn cầu dồi dào hơn (USDA dự báo sản lượng robusta toàn cầu tăng 10,9%) và Mỹ đã miễn thuế đối ứng 0% cho cà phê, giảm áp lực giá. <span style="color:var(--sub);opacity:.7">— Nguồn: VietnamBiz, USDA, 01/2026</span></p>
+  </div>
+
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌾 GẠO · XK NỬA ĐẦU 2026</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">2,36 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">GẠO THƠM JASMINE</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">$516-520/tấn</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">5 triệu tấn xuất khẩu nửa đầu 2026 (+5,7% lượng, -3,3% giá trị) do dư cung toàn cầu từ Ấn Độ ép giá gạo phổ thông. Điểm sáng: gạo thơm Jasmine và 5% tấm của Việt Nam đang bán cao hơn đáng kể so với Thái Lan, Pakistan, Ấn Độ — cho thấy lợi thế rõ ở phân khúc chất lượng cao. Chủ tịch VFA kỳ vọng thị trường châu Phi mới mở là động lực dài hạn. <span style="color:var(--sub);opacity:.7">— Nguồn: VFA, USDA, Báo Công Thương, 07/2026</span></p>
+  </div>
+
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🥜 HẠT ĐIỀU · MỤC TIÊU 2026</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">5 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VN ĐỨNG THỨ</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">#1 TG</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Việt Nam là nước xuất khẩu hạt điều nhân số 1 thế giới, đặt mục tiêu giữ mốc kỷ lục 5 tỷ USD của 2025 trong năm 2026. Thách thức chính: hơn 50% điều thô nguyên liệu phải nhập từ châu Phi, trong khi một số nước như Bờ Biển Ngà đang hạn chế xuất thô để phát triển chế biến nội địa — buộc ngành phải đẩy nhanh chế biến sâu (sữa hạt điều) để giảm phụ thuộc. <span style="color:var(--sub);opacity:.7">— Nguồn: Hiệp hội Điều Việt Nam (Vinacas), 03/2026</span></p>
+  </div>
+
+  <div class="cd">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌶️ HỒ TIÊU · XK 2025</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">1,66 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">TĂNG GIÁ TRỊ</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">+26,3%</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Kỷ lục mới 1,66 tỷ USD năm 2025 dù sản lượng giảm nhẹ — nhờ giá hồ tiêu duy trì ở mức cao gấp 2,5 lần cuối 2022, năm tăng giá thứ ba liên tiếp. Nửa đầu 2026 tiếp tục tăng 17,4% lượng và 10,6% giá trị, động lực chính từ Mỹ (+30%) và châu Âu ổn định. Nguồn cung trong nước đang thu hẹp, phải bổ sung nhập khẩu để đáp ứng đơn hàng. <span style="color:var(--sub);opacity:.7">— Nguồn: Cục Hải quan, Báo Tin Tức TTXVN, 07/2026</span></p>
+  </div>
+
+  <div class="cd">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🥭 RAU QUẢ · XK 2025</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">8,5 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">RIÊNG SẦU RIÊNG</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">3,8 tỷ USD</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Xuất khẩu rau quả đạt kỷ lục 8,5 tỷ USD năm 2025 (+19,8%), trong đó riêng sầu riêng chiếm 45% với 3,8 tỷ USD (+20,2%) — động lực chính nhờ mở rộng mã số vùng trồng và Nghị định thư xuất khẩu đông lạnh sang Trung Quốc. Đáng chú ý: dừa (534 triệu USD, +26,6%) lần đầu vượt thanh long (~403-526 triệu USD, giảm nhẹ) để lên vị trí thứ 2. Việt Nam và Thái Lan đang cạnh tranh sát nút vị trí số 1 cung cấp sầu riêng cho Trung Quốc (49% vs 50,4% thị phần). Mục tiêu 2026: 9-10 tỷ USD toàn ngành. <span style="color:var(--sub);opacity:.7">— Nguồn: Cục Hải quan, Bộ Công Thương, VnExpress, 01-06/2026</span></p>
+  </div>
+
 </div>
 
 <div class="pg" id="pg-vn">
@@ -370,11 +436,63 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
   <div class="gr" id="fxOther"></div>
 </div>
 
+<!-- PAGE: PRICES -->
+<div class="pg" id="pg-prices">
+
+  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.7;box-shadow:var(--sh1)">
+    🛒 Giá các mặt hàng thiết yếu &amp; nguyên vật liệu sản xuất trong nước — tổng hợp từ bản tin giá hàng ngày của báo chí trong nước, không phải giá bán lẻ tại một cửa hàng cụ thể.
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.22),rgba(0,140,58,.16))">⛽</div><div class="sht">Xăng dầu (Petrolimex)</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div class="ov4" style="gap:10px">
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub)">E5 RON92</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--tx)">19.730đ</div></div>
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub)">E10 RON95-III</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--tx)">20.415đ</div></div>
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub)">DẦU DIESEL</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--tx)">21.176đ</div></div>
+      <div style="text-align:center"><div style="font-family:var(--sans);font-weight:600;font-size:9.5px;color:var(--sub)">DẦU MAZUT</div><div style="font-family:var(--serif);font-size:16px;font-weight:700;color:var(--tx)">14.053đ</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:10px;line-height:1.7">Giá bán lẻ theo kỳ điều hành 2/7/2026 của Liên Bộ Công Thương - Tài chính, đã giảm 5 lần liên tiếp trong tháng 6 và đầu tháng 7 nhờ nguồn cung dầu thế giới dồi dào hơn khi căng thẳng Trung Đông hạ nhiệt. Giá xăng Việt Nam hiện thấp hơn cả Thái Lan, Campuchia, Lào và Trung Quốc. <span style="color:var(--sub);opacity:.7">— Nguồn: Petrolimex, Báo Thanh Niên, 06/07/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,162,43,.22),rgba(184,120,26,.16))">🥇</div><div class="sht">Vàng SJC trong nước</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">VÀNG MIẾNG SJC</div>
+      <div style="font-family:var(--serif);font-size:24px;font-weight:700;color:var(--go)">151,4 triệu đ/lượng</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VÀNG TG</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">$4.100+/oz</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Vàng SJC chốt tuần đầu tháng 7/2026 ở mức cao, tăng mạnh nhất kể từ cuối tháng 5 khi giá vàng thế giới vượt mốc 4.100 USD/ounce. Vàng nhẫn cũng tăng theo, có phiên tăng tới 2 triệu đồng/lượng. <span style="color:var(--sub);opacity:.7">— Nguồn: VietnamNet, 06/07/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(156,127,232,.22),rgba(122,95,208,.16))">🔩</div><div class="sht">Thép xây dựng</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">THÉP CUỘN CB240 (HOÀ PHÁT)</div>
+      <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--tx)">15.430đ/kg</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">6 THÁNG ĐẦU 2026</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--rd)">+1.400-1.500đ</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Giá thép các thương hiệu lớn (Hoà Phát, Việt Đức, Việt Ý) dao động 15.000-15.500 đồng/kg, tăng liên tục từ đầu năm do chi phí nguyên liệu, than cốc, điện tăng, cộng hưởng với chính sách kích thích đầu tư công và bất động sản của Chính phủ. Việt Nam duy trì top 10 sản lượng thép thế giới, dự kiến ~27 triệu tấn cả năm 2026 (+10%). <span style="color:var(--sub);opacity:.7">— Nguồn: SteelOnline, VSA, 03/07/2026</span></p>
+  </div>
+
+  <div class="cd">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌳 CAO SU · MỦ NƯỚC LOẠI 1</div>
+      <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--tx)">452đ/độ TSC/kg</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">XU HƯỚNG</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">Ổn định</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Giá thu mua mủ cao su trong nước (Công ty Cao su Bà Rịa) giữ ổn định trong khi giá trên các sàn giao dịch châu Á biến động trái chiều. Việt Nam là một trong những nước xuất khẩu cao su tự nhiên lớn của thế giới, chủ yếu phục vụ ngành sản xuất lốp xe. <span style="color:var(--sub);opacity:.7">— Nguồn: Doanh nghiệp và Hội nhập, 02-03/07/2026</span></p>
+  </div>
+
+</div>
+
 </main>
 <footer>
-  <a href="/" style="color:#D65F35;text-decoration:none;font-family:'Playfair Display',serif;font-weight:700">Kèo</a> · Trang thị trường tài chính &nbsp;·&nbsp; Crypto: CoinCap · CoinGecko &nbsp;·&nbsp; Tỷ giá: open.er-api.com<br>
+  <a href="/" class="foot-logo">Kèo<em>.</em></a> · Trang thị trường tài chính &nbsp;·&nbsp; Crypto: CoinCap · CoinGecko &nbsp;·&nbsp; Tỷ giá: open.er-api.com<br>
   Dữ liệu cổ phiếu &amp; trái phiếu là mô phỏng &nbsp;·&nbsp; Không phải tư vấn đầu tư &nbsp;·&nbsp; Auto-refresh 60s &nbsp;·&nbsp; <span id="lastUp">--</span><br>
-  <a href="/" style="color:var(--sub);text-decoration:none">← Về trang chủ Kèo</a> &nbsp;·&nbsp; <a href="/khoa-hoc-ket-noi" style="color:var(--sub);text-decoration:none">Khoa học kết nối</a>
+  <a href="/">← Về trang chủ Kèo</a> &nbsp;·&nbsp; <a href="/khoa-hoc-ket-noi">Khoa học kết nối</a>
 </footer>
 
 <script>
@@ -385,14 +503,6 @@ function fetchT(url, ms){
     fetch(url),
     new Promise((_,reject)=>setTimeout(()=>reject(new Error('timeout')),ms))
   ]);
-}
-// ─── THEME ─────────────────────────────────
-let dark=true;
-function toggleTheme(){
-  dark=!dark;
-  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
-  document.getElementById('tmi').textContent=dark?'☀️':'🌙';
-  document.getElementById('tml').textContent=dark?'LIGHT':'DARK';
 }
 
 // ─── CLOCK ─────────────────────────────────
