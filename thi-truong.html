@@ -242,12 +242,12 @@ footer a:hover{color:#F5EFE6}
   <button class="tb on"  id="btn-overview" onclick="go('overview',this)">📊 Tổng quan</button>
   <button class="tb tb-hl" id="btn-prices"   onclick="go('prices',this)">🛒 Giá tiêu dùng</button>
   <button class="tb"     id="btn-outlook"  onclick="go('outlook',this)">🎯 Nhận định</button>
-  <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Việt Nam <span class="tbg">43</span></button>
-  <button class="tb"     id="btn-global"   onclick="go('global',this)">📈 Cổ phiếu QT <span class="tbg">48</span></button>
-  <button class="tb"     id="btn-bonds"    onclick="go('bonds',this)">🏛️ Trái phiếu <span class="tbg">24</span></button>
-  <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
-  <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
-  <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
+  <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Việt Nam</button>
+  <button class="tb"     id="btn-global"   onclick="go('global',this)">📈 Cổ phiếu QT</button>
+  <button class="tb"     id="btn-bonds"    onclick="go('bonds',this)">🏛️ Trái phiếu</button>
+  <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa</button>
+  <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto</button>
+  <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá</button>
 </nav>
 <div class="tnav-fade tnav-fade-l"></div>
 <div class="tnav-fade tnav-fade-r"></div>
@@ -526,6 +526,10 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="domRetail"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🥚</div><div class="sht">Trứng</div><div class="shl"></div></div>
   <div class="gr" id="domEgg"></div>
+  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🧂</div><div class="sht">Gia vị &amp; hàng công nghệ phẩm</div><div class="shl"></div></div>
+  <div class="gr" id="domSpice"></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌽</div><div class="sht">Lương thực khác</div><div class="shl"></div></div>
+  <div class="gr" id="domGrain"></div>
   <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">☕</div><div class="sht">Nông sản trong nước</div><div class="shl"></div></div>
   <div class="gr" id="domAgri"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🍊</div><div class="sht">Trái cây</div><div class="shl"></div></div>
@@ -1085,6 +1089,27 @@ const DOM_EGG=[
   {sym:'TRUNG-GA', nm:'Trứng gà công nghiệp',base:2200,     unit:'đ/quả',        ic:'🥚'},
   {sym:'TRUNG-VIT',nm:'Trứng vịt',           base:3500,     unit:'đ/quả',        ic:'🥚'},
 ];
+const DOM_SPICE=[
+  {sym:'MUOI',    nm:'Muối hạt/muối i-ốt',   base:5000,     unit:'đ/kg',         ic:'🧂'},
+  {sym:'NUOCMAM', nm:'Nước mắm (loại phổ thông)',base:35000,unit:'đ/chai 500ml',ic:'🍶'},
+  {sym:'DAUAN',   nm:'Dầu ăn thực vật',       base:52000,    unit:'đ/lít',        ic:'🫗'},
+  {sym:'SUATUOI', nm:'Sữa tươi tiệt trùng',   base:32000,    unit:'đ/hộp 1L',     ic:'🥛'},
+  {sym:'MIGOI',   nm:'Mì gói (loại phổ thông)',base:4500,    unit:'đ/gói',        ic:'🍜'},
+  {sym:'BOTNGOT', nm:'Bột ngọt/hạt nêm',      base:45000,    unit:'đ/kg',         ic:'🧉'},
+  {sym:'OT',      nm:'Ớt tươi',               base:45000,    unit:'đ/kg',         ic:'🌶️'},
+  {sym:'CHANH',   nm:'Chanh tươi',            base:28000,    unit:'đ/kg',         ic:'🍋'},
+  {sym:'TOI',     nm:'Tỏi khô',               base:55000,    unit:'đ/kg',         ic:'🧄'},
+  {sym:'HANH-LA', nm:'Hành lá',               base:22000,    unit:'đ/kg',         ic:'🌿'},
+  {sym:'HANH-TIM',nm:'Hành tím',              base:38000,    unit:'đ/kg',         ic:'🧅'},
+];
+const DOM_GRAIN=[
+  {sym:'NGO',     nm:'Ngô nếp/ngô tẻ',        base:8000,     unit:'đ/kg',         ic:'🌽'},
+  {sym:'KHOAILANG',nm:'Khoai lang',           base:12000,    unit:'đ/kg',         ic:'🍠'},
+  {sym:'DAUXANH', nm:'Đậu xanh',              base:48000,    unit:'đ/kg',         ic:'🫘'},
+  {sym:'SAN',     nm:'Sắn (khoai mì)',        base:6000,     unit:'đ/kg',         ic:'🥔'},
+  {sym:'PHANBON', nm:'Phân bón NPK',          base:14500,    unit:'đ/kg',         ic:'🌾'},
+];
+
 const DOM_AGRI=[
   {sym:'CAPHE-VN',nm:'Cà phê nhân xô',       base:91800,    unit:'đ/kg',         ic:'☕'},
   {sym:'TIEU-VN', nm:'Hồ tiêu đen (Đắk Lắk)',base:155000,   unit:'đ/kg',         ic:'🌶️'},
@@ -1125,6 +1150,8 @@ function renderDomestic(){
   html('domLive',     DOM_LIVE.map(mkDomestic).join(''));
   html('domRetail',   DOM_RETAIL.map(mkDomestic).join(''));
   html('domEgg',      DOM_EGG.map(mkDomestic).join(''));
+  html('domSpice',    DOM_SPICE.map(mkDomestic).join(''));
+  html('domGrain',    DOM_GRAIN.map(mkDomestic).join(''));
   html('domAgri',     DOM_AGRI.map(mkDomestic).join(''));
   html('domFruit',    DOM_FRUIT.map(mkDomestic).join(''));
   html('domSea',      DOM_SEA.map(mkDomestic).join(''));
