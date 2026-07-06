@@ -1,229 +1,373 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-<title>Người đồng hành Hà Nội — Kiếm thêm thu nhập từ kỹ năng | Kèo</title>
-<meta name="description" content="Đăng ký làm Người đồng hành tại Hà Nội — kiếm 200–500k mỗi buổi chỉ bằng cách trò chuyện.">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Người đồng hành Hà Nội — kiếm thêm thu nhập | Kèo</title>
+<meta name="description" content="Đăng ký làm Người đồng hành tại Hà Nội — kiếm 200-500k mỗi buổi chỉ bằng cách trò chuyện.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/nguoi-dong-hanh-ha-noi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Người đồng hành Hà Nội — Kiếm thêm thu nhập từ kỹ năng">
-<meta property="og:description" content="Kiếm 200–500k mỗi buổi chỉ bằng cách trò chuyện tại Hà Nội.">
+<meta property="og:title" content="Người đồng hành Hà Nội — kiếm thêm thu nhập">
+<meta property="og:description" content="Kiếm thêm thu nhập từ kỹ năng của bạn.">
 <meta property="og:url" content="https://keo.social/nguoi-dong-hanh-ha-noi">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+.mini-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.mini-card{background:#17120D;border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.mini-card::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:14px 14px;pointer-events:none}
+.mini-card .field{position:relative;font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:#F5EFE6;margin-bottom:6px}
+.mini-card .fee{position:relative;font-size:13px;color:var(--gold);font-weight:600}
+.mini-card .loc{position:relative;font-size:11px;color:rgba(245,239,230,.45);margin-top:4px}
+
+.earn-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.earn-card{background:var(--s2);border:1px solid var(--rim2);border-radius:14px;padding:18px}
+.earn-card .type{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--i3);margin-bottom:6px}
+.earn-card .amount{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.earn-card .desc{font-size:12px;color:var(--i2);margin-top:6px}
+
+.cta-btns-dual{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.cta-btn-s{display:inline-flex;align-items:center;gap:8px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.16);color:#F5EFE6;padding:12px 22px;border-radius:100px;font-family:"Be Vietnam Pro",sans-serif;font-size:13px;font-weight:500}
+
+@media(max-width:560px){.mini-card-grid,.earn-grid{grid-template-columns:1fr}}
+</style>
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Be Vietnam Pro',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
-nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
-.logo span{color:var(--go)}
-.nav-r{display:flex;align-items:center;gap:12px}
-.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
-.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Be Vietnam Pro',sans-serif}
-.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
-.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
-.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
-.hero h1 em{font-style:italic;color:var(--go)}
-.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
-.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
-.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
-.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
-.wrap h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin:28px 0 12px}
-.wrap strong{color:var(--t1);font-weight:600}
-blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
-blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
-.step{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:24px;margin-bottom:16px}
-.step-num{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--go);text-transform:uppercase;margin-bottom:8px}
-.step-title{font-family:'Lora',serif;font-size:19px;font-weight:700;color:var(--t1);margin-bottom:8px}
-.step-desc{font-size:15px;color:var(--t2);line-height:1.7}
-.calc{background:var(--g);border-radius:16px;padding:28px;margin:32px 0}
-.calc-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.calc-row:last-child{border-bottom:none;padding-top:16px;margin-top:4px}
-.calc-label{font-size:14px;color:rgba(245,240,232,.6)}
-.calc-val{font-size:15px;font-weight:600;color:#F5F0E8}
-.calc-row.total .calc-label{font-size:15px;color:rgba(245,240,232,.8);font-weight:500}
-.calc-row.total .calc-val{font-size:22px;font-weight:700;color:var(--go);font-family:'Lora',serif}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-.col{border-radius:14px;padding:22px}
-.col.dating{background:#F5F5F5;border:1px solid #E0E0E0}
-.col.keo{background:var(--g);border:1px solid var(--g2)}
-.col-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
-.col.dating .col-title{color:#888}
-.col.keo .col-title{color:var(--go)}
-.col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.col li{font-size:14px;line-height:1.5;padding-left:14px;position:relative}
-.col.dating li{color:#555}
-.col.keo li{color:rgba(245,240,232,.75)}
-.col li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%}
-.col.dating li::before{background:#ccc}
-.col.keo li::before{background:var(--go)}
-.keo-type{background:var(--cr);border:1px solid var(--cr2);border-radius:16px;padding:28px;margin-bottom:20px}
-.keo-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:8px}
-.keo-title{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--t1);margin-bottom:10px}
-.keo-desc{font-size:15px;color:var(--t2);line-height:1.7;margin-bottom:14px}
-.keo-meta{display:flex;gap:12px;flex-wrap:wrap}
-.keo-tag{font-size:12px;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.1);border-radius:100px;padding:4px 12px;color:var(--t2)}
-.keo-tag.fee{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.25);color:#8a6a00}
-.meaning-box{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:24px 28px;margin:32px 0;display:flex;flex-direction:column;gap:14px}
-.meaning-row{display:flex;gap:16px;align-items:flex-start}
-.meaning-word{font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--g);min-width:120px;flex-shrink:0}
-.meaning-def{font-size:15px;color:var(--t2);line-height:1.6}
-.meaning-row.highlight .meaning-word{color:var(--go)}
-.meaning-row.highlight .meaning-def{color:var(--t1);font-weight:500}
-.earn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-.earn-card{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:20px}
-.earn-card .type{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
-.earn-card .amount{font-family:'Lora',serif;font-size:28px;font-weight:700;color:var(--g);line-height:1}
-.earn-card .desc{font-size:13px;color:var(--t2);margin-top:6px}
-.divider{height:1px;background:var(--cr2);margin:44px 0}
-.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
-.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
-.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
-.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-p{display:inline-block;background:var(--go);color:var(--g);padding:12px 24px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
-.btn-s{display:inline-block;background:rgba(255,255,255,.1);color:var(--cr);padding:12px 24px;border-radius:100px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,.2)}
-.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-.mini-card{background:var(--g);border-radius:14px;padding:20px}
-.mini-card .field{font-family:'Lora',serif;font-size:17px;font-weight:700;color:var(--cr);margin-bottom:6px}
-.mini-card .fee{font-size:13px;color:var(--go);font-weight:600}
-.mini-card .loc{font-size:12px;color:rgba(245,240,232,.4);margin-top:4px}
-.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
-.tags{margin-bottom:32px}
-footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
-.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
-.fl span{color:var(--go)}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
 .en{display:none}
-@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}.compare{grid-template-columns:1fr}.earn-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr}}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
 
+.zone-dark{background:#17120D;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:720px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
 
-.next-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
-.next-link{display:block;text-decoration:none}
-.next-link:hover .next-title{color:var(--go)}
-.next-title{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--g);line-height:1.3;transition:color .2s;margin-bottom:6px}
-.next-read{font-size:12px;color:var(--t3)}
-.next-arrow{display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--go)}
+.article-hero{max-width:720px;margin:0 auto;padding:44px 32px 30px;position:relative;overflow:hidden}
+.article-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 50% 20%,color-mix(in srgb,var(--a) 22%,transparent),transparent 60%)}
+.breadcrumb{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.breadcrumb::before{content:"";width:16px;height:2px;background:var(--a)}
+h1.art-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:600;letter-spacing:-.012em;line-height:1.24;color:#F5EFE6;margin-bottom:18px}
+h1.art-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.art-meta{position:relative;z-index:2;display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(245,239,230,.42)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(245,239,230,.3)}
+.tags{position:relative;z-index:2;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(245,239,230,.55)}
 
+.art-illo{max-width:760px;margin:32px auto 0;padding:0 32px}
+.art-illo-frame{background:var(--s2);border-radius:18px;overflow:hidden;border:1px solid var(--rim2)}
+.art-illo-frame svg{width:100%;height:auto;display:block}
+.art-illo-cap{font-size:11px;color:var(--i3);text-align:center;margin-top:10px;margin-bottom:8px;font-style:italic}
 
-.related{margin-top:56px;padding-top:24px;border-top:2px solid var(--g)}
-.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.related-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.related-card{background:var(--cr);border:1px solid var(--cr2);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:all .18s}
-.related-card:hover{background:var(--cr2);transform:translateY(-1px)}
-.related-card.featured{grid-column:span 2;background:var(--g)}
-.related-card.featured:hover{background:var(--g2)}
-.related-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
-.related-card.featured .related-pill{color:rgba(201,168,76,.8)}
-.related-card-title{font-family:"Lora",serif;font-size:14px;font-weight:700;color:var(--t1);line-height:1.35}
-.related-card.featured .related-card-title{font-size:17px;color:var(--cr)}
-@media(max-width:500px){.related-grid{grid-template-columns:1fr}.related-card.featured{grid-column:span 1}}
-</style></head><body>
+.art-body{max-width:640px;margin:0 auto;padding:32px 32px 8px}
+.art-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--i2);margin-bottom:22px}
+.art-body p.lead{font-size:18px;color:var(--ink);padding-left:20px;border-left:3px solid var(--a)}
+.art-body h2{font-family:'Playfair Display',serif;font-size:23px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.art-body h2::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--a);flex-shrink:0}
+.art-body h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--ink);margin:26px 0 12px}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-pull{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;font-weight:600;line-height:1.5;color:var(--ink);padding:8px 26px 8px 54px;margin:32px 0;background:color-mix(in srgb,var(--a) 6%,transparent);border-radius:14px}
+.art-pull::before{content:"\201C";position:absolute;top:-8px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:700;font-style:normal;color:var(--a);opacity:.7;line-height:1}
+.art-pull span{position:relative;z-index:2}
+
+/* COMPARE TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.comp-col{border-radius:16px;padding:22px}
+.comp-col.no{background:var(--s2);border:1px solid var(--rim2)}
+.comp-col.yes{background:#17120D;border:1px solid rgba(240,234,225,.1)}
+.comp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.comp-col.no .comp-title{color:var(--i3)}
+.comp-col.yes .comp-title{color:var(--gold)}
+.comp-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.comp-col li{font-size:13.5px;line-height:1.5;padding-left:16px;position:relative}
+.comp-col.no li{color:var(--i2)}
+.comp-col.yes li{color:rgba(245,239,230,.8)}
+.comp-col li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%}
+.comp-col.no li::before{background:var(--i3)}
+.comp-col.yes li::before{background:var(--gold)}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+.sources{border-top:1px solid var(--rim);margin-top:48px;padding-top:24px}
+.sources h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:14px}
+.sources ol{padding-left:18px;display:flex;flex-direction:column;gap:10px}
+.sources li{font-size:12px;color:var(--i3);line-height:1.65}
+.sources li em{font-style:italic}
+
+.art-cta{max-width:640px;margin:24px auto 0;padding:0 32px}
+.art-cta-inner{background:radial-gradient(ellipse 90% 100% at 15% 0%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 55%),radial-gradient(ellipse 90% 100% at 100% 100%,color-mix(in srgb,var(--a2) 18%,transparent),transparent 55%),#17120D;border:1px solid rgba(240,234,225,.12);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.art-cta-inner h3{position:relative;z-index:2;color:#F5EFE6;font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.art-cta-inner p{position:relative;z-index:2;color:rgba(245,239,230,.6);font-size:13px;margin-bottom:18px}
+.art-cta-inner strong{color:#F5EFE6}
+.art-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:12px 26px;border-radius:100px;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;position:relative;z-index:2}
+
+.related-section{max-width:760px;margin:8px auto 0;padding:36px 32px 8px}
+.related-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.related-eyebrow::before{content:"";width:16px;height:2px;background:var(--a)}
+.related-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rel-card{background:var(--s1);border:1px solid var(--rim);border-radius:14px;overflow:hidden;transition:all .22s;display:block}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,21,16,.09);border-color:var(--rim2)}
+.rel-cover{height:100px;position:relative;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.rel-cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.rel-cover-ket-noi{background:linear-gradient(135deg,var(--gold),var(--a) 55%,var(--a2))}
+.rel-cover-kynang{background:linear-gradient(135deg,color-mix(in srgb,#6C63C4 75%,var(--gold) 25%),#6C63C4 55%,color-mix(in srgb,#6C63C4 65%,#000 35%))}
+.rel-cover-nghi-thuc{background:linear-gradient(135deg,color-mix(in srgb,#2E9E8C 75%,var(--gold) 25%),#2E9E8C 55%,color-mix(in srgb,#2E9E8C 65%,#000 35%))}
+.rel-cover-dothi{background:linear-gradient(135deg,color-mix(in srgb,#C08A2E 80%,var(--gold) 20%),#C08A2E 55%,color-mix(in srgb,#C08A2E 65%,#000 30%))}
+.rel-illo{position:absolute;bottom:0;right:4px;width:56px;height:56px;pointer-events:none;z-index:1}
+.rel-illo svg{width:100%;height:100%}
+.rel-cat{position:relative;z-index:2;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rel-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25);max-width:75%}
+
+.faq-section{max-width:640px;margin:24px auto 0;padding:40px 32px 8px}
+.faq-section-inner{background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--a) 4%,var(--s2)));border-radius:20px;padding:32px}
+.faq-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.faq-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:22px}
+.faq{border:1px solid var(--rim2);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--s1);transition:border-color .2s}
+.faq:last-child{margin-bottom:0}
+.faq.open{border-color:color-mix(in srgb,var(--a) 35%,transparent);box-shadow:0 4px 16px rgba(26,21,16,.06)}
+.faq-q{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.faq-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff;background:var(--a);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:600;flex:1}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:13px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--a);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 18px 18px 58px;font-size:13.5px;font-weight:300;color:var(--i2);line-height:1.7}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
+.foot-in{max-width:760px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:640px){
+  .nav-in,.article-hero,.art-illo,.art-body,.faq-section,.art-cta,.related-section{padding-left:20px;padding-right:20px}
+  .related-grid{grid-template-columns:1fr}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r">
-    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
-    <button class="lang-toggle" id="lang-toggle">EN</button>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
-<div class="hero">
-  <div class="cat"><span class="vi">Hướng dẫn · Hà Nội</span><span class="en">Guide · Hanoi</span></div>
-  <h1><span class="vi">Người đồng hành Hà Nội —<br><em>Kiếm thêm thu nhập</em><br>từ kỹ năng của bạn</span><span class="en">Companion in Hanoi —<br><em>Earn Extra Income</em><br>From Your Skills</span></h1>
-  <div class="hero-meta"><span class="vi">Kèo · 4 phút đọc</span><span class="en">Kèo · 4 min read</span></div>
-</div>
-<div class="wrap">
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">Hướng dẫn · Hà Nội</span><span class="en">Guide · Hanoi</span></div>
+  <h1 class="art-title"><span class="vi">Người đồng hành Hà Nội — <em>kiếm thêm thu nhập</em></span><span class="en">Companion in Hanoi — <em>Earn Extra Income</em></span></h1>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">4 phút đọc</span><span class="en">4 min read</span>
+  </div>
   <div class="tags">
     <span class="tag"><span class="vi">người đồng hành Hà Nội</span><span class="en">companion in Hanoi</span></span>
     <span class="tag"><span class="vi">kiếm thêm thu nhập</span><span class="en">earn extra income</span></span>
-    <span class="tag"><span class="vi">kiếm tiền từ kỹ năng</span><span class="en">earn from skills</span></span>
-    <span class="tag"><span class="vi">việc làm thêm Hà Nội</span><span class="en">side job Hanoi</span></span>
   </div>
+</div>
+</div>
 
-  <p><span class="vi">Bạn có kiến thức, có câu chuyện, có kỹ năng — và thường xuyên có thời gian rảnh vào buổi chiều hoặc cuối tuần. Tại sao không biến điều đó thành thu nhập thêm, chỉ bằng cách ngồi cà phê hoặc đi triển lãm cùng ai đó tại Hà Nội?</span><span class="en">You have knowledge, stories, skills — and regularly have free time on weekday afternoons or weekends. Why not turn that into extra income, simply by having coffee or visiting a gallery with someone in Hanoi?</span></p>
+<div class="art-illo">
+  <div class="art-illo-frame">
+<svg viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="c2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
+<path d="M344 232 Q344 197 360 197 Q376 197 376 232Z" fill="url(#c2)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="360" cy="176" r="23" fill="url(#c2)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="354" cy="172" r="2.2" fill="#1A1510"/><circle cx="366" cy="172" r="2.2" fill="#1A1510"/>
+<path d="M354 181 Q360 186 366 181" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+<rect x="440" y="140" width="50" height="6" rx="3" fill="var(--rim2)"/>
+<circle cx="460" cy="175" r="10" fill="none" stroke="var(--gold)" stroke-width="1.8" opacity=".85"/>
+<circle cx="480" cy="170" r="8" fill="none" stroke="var(--a2)" stroke-width="1.8" opacity=".6"/>
+</svg>
+  </div>
+  <div class="art-illo-cap"><span class="vi">Minh hoạ: một người, một tách cà phê, và cơ hội kiếm thêm từ trò chuyện.</span><span class="en">Illustration: a person, a coffee, an opportunity to earn from conversation.</span></div>
+</div>
 
-  <p><span class="vi">Đó chính xác là những gì <strong>Người đồng hành Kèo</strong> làm. Không phải gia sư, không phải hướng dẫn viên, không phải dịch vụ tình dục. Chỉ là một người thú vị — sẵn sàng dành thời gian chất lượng cùng Chủ xị trong một buổi gặp gỡ có chiều sâu.</span><span class="en">That's exactly what <strong>Kèo Companions</strong> do. Not a tutor, not a tour guide, not a sexual service. Just an interesting person — ready to spend quality time with a Host in a meaningful meetup.</span></p>
+<div class="art-body">
 
+  <p class="lead"><span class="vi">Bạn có kiến thức, có câu chuyện, có kỹ năng — và thường xuyên có thời gian rảnh vào buổi chiều hoặc cuối tuần. Tại sao không biến điều đó thành thu nhập thêm, chỉ bằng cách ngồi cà phê hoặc đi triển lãm cùng ai đó tại Hà Nội?</span><span class="en">You have knowledge, stories, skills — and free time on weekday afternoons or weekends. Why not turn that into income, simply by having coffee with someone in Hanoi?</span></p>
+  <p><span class="vi">Đó chính xác là những gì <strong>Người đồng hành Kèo</strong> làm. Không phải gia sư, không phải hướng dẫn viên, không phải dịch vụ tình dục. Chỉ là một người thú vị — sẵn sàng dành thời gian chất lượng cùng Chủ xị.</span><span class="en">That's exactly what <strong>Kèo Companions</strong> do. Not a tutor, not a tour guide. Just an interesting person spending quality time with a Host.</span></p>
   <h2><span class="vi">Kiếm được bao nhiêu?</span><span class="en">How Much Can You Earn?</span></h2>
-
   <div class="earn-grid">
     <div class="earn-card"><div class="type"><span class="vi">Cà phê · 1–2h</span><span class="en">Coffee · 1–2h</span></div><div class="amount">170–260k</div><div class="desc"><span class="vi">Sau phí 12% từ 200–300k</span><span class="en">After 12% fee from 200–300k</span></div></div>
     <div class="earn-card"><div class="type"><span class="vi">Bữa trưa · 1–2h</span><span class="en">Lunch · 1–2h</span></div><div class="amount">260–350k</div><div class="desc"><span class="vi">Sau phí 12% từ 300–400k</span><span class="en">After 12% fee from 300–400k</span></div></div>
     <div class="earn-card"><div class="type"><span class="vi">Bữa tối · 2–3h</span><span class="en">Dinner · 2–3h</span></div><div class="amount">350–440k</div><div class="desc"><span class="vi">Sau phí 12% từ 400–500k</span><span class="en">After 12% fee from 400–500k</span></div></div>
     <div class="earn-card"><div class="type"><span class="vi">Sự kiện đặc biệt</span><span class="en">Special events</span></div><div class="amount">660k+</div><div class="desc"><span class="vi">Sau phí 12% từ 750k+</span><span class="en">After 12% fee from 750k+</span></div></div>
   </div>
-
   <h2><span class="vi">Ai phù hợp làm Người đồng hành tại Hà Nội?</span><span class="en">Who Is Suitable to Be a Companion in Hanoi?</span></h2>
-
-  <p><span class="vi">Không cần bằng cấp hay chứng chỉ. Điều quan trọng là bạn có <strong>điều gì đó thú vị để chia sẻ</strong> — một lĩnh vực chuyên môn, một góc nhìn độc đáo, hay đơn giản là khả năng lắng nghe và trò chuyện thật sự.</span><span class="en">No degrees or certificates required. What matters is that you have <strong>something interesting to share</strong> — a field of expertise, a unique perspective, or simply the ability to genuinely listen and converse.</span></p>
-
-  <blockquote><p><span class="vi">"Mình làm Người đồng hành được 3 tuần. Mỗi buổi cà phê là một câu chuyện mới — và mình được trả tiền để ngồi nói chuyện về những điều mình yêu thích."</span><span class="en">"I've been a Companion for 3 weeks. Every coffee session is a new story — and I get paid to talk about the things I love."</span></p></blockquote>
-
+  <p><span class="vi">Không cần bằng cấp hay chứng chỉ. Điều quan trọng là bạn có <strong>điều gì đó thú vị để chia sẻ</strong> — một lĩnh vực chuyên môn, một góc nhìn độc đáo, hay đơn giản là khả năng lắng nghe và trò chuyện thật sự.</span><span class="en">No degrees required. What matters: <strong>something interesting to share</strong> — expertise, perspective, or genuine listening.</span></p>
+  <div class="art-pull"><span><span class="vi">Mình làm Người đồng hành được 3 tuần. Mỗi buổi cà phê là một câu chuyện mới — và mình được trả tiền để ngồi nói chuyện về những điều mình yêu thích.</span><span class="en">I've been a Companion for 3 weeks. Every coffee is a new story — and I get paid to talk about what I love.</span></span></div>
   <h2><span class="vi">Đăng ký như thế nào?</span><span class="en">How to Register?</span></h2>
+  <p><span class="vi"><strong>Bước 1 — Điền hồ sơ.</strong> Chọn tab Người đồng hành, điền lĩnh vực, mô tả bản thân, tạo gói dịch vụ. Quote càng cụ thể, cơ hội match càng cao.</span><span class="en"><strong>Step 1 — Fill in profile.</strong> The more specific your quote, the higher your match rate.</span></p>
+  <p><span class="vi"><strong>Bước 2 — Kèo duyệt trong 24 giờ.</strong> Hoàn toàn miễn phí — không phí đăng ký hay phí ẩn.</span><span class="en"><strong>Step 2 — Kèo reviews within 24 hours.</strong> Completely free.</span></p>
+  <p><span class="vi"><strong>Bước 3 — Được match &amp; nhận thù lao.</strong> Bạn hoàn toàn có quyền từ chối. Sau buổi gặp, thù lao giải ngân ngay.</span><span class="en"><strong>Step 3 — Get matched &amp; paid.</strong> You can always decline. Paid right after each session.</span></p>
 
-  <h3><span class="vi">Bước 1 — Điền hồ sơ</span><span class="en">Step 1 — Fill In Your Profile</span></h3>
-  <p><span class="vi">Vào <strong>keo.social/register</strong>, chọn tab Người đồng hành. Điền lĩnh vực, mô tả bản thân, tạo gói dịch vụ với thù lao rõ ràng. Quote càng cụ thể và thú vị, cơ hội được match càng cao.</span><span class="en">Go to <strong>keo.social/register</strong>, select the Companion tab. Fill in your field, describe yourself, create a service package with clear pricing. The more specific and interesting your quote, the higher your chance of being matched.</span></p>
+</div>
 
-  <h3><span class="vi">Bước 2 — Kèo duyệt trong 24 giờ</span><span class="en">Step 2 — Kèo Reviews Within 24 Hours</span></h3>
-  <p><span class="vi">Kèo xem xét hồ sơ và liên hệ qua Zalo để xác nhận. Hoàn toàn miễn phí — không có phí đăng ký hay phí ẩn nào.</span><span class="en">Kèo reviews your profile and contacts you via Zalo to confirm. Completely free — no registration fee or hidden charges.</span></p>
-
-  <h3><span class="vi">Bước 3 — Được match & nhận thù lao</span><span class="en">Step 3 — Get Matched & Receive Payment</span></h3>
-  <p><span class="vi">Khi có Chủ xị phù hợp, Kèo nhắn Zalo giới thiệu và hỏi bạn có muốn tham gia không. Bạn hoàn toàn có quyền từ chối. Sau buổi gặp, thù lao được giải ngân ngay.</span><span class="en">When a suitable Host is found, Kèo messages you via Zalo to introduce them and ask if you'd like to participate. You have every right to decline. After the session, payment is released immediately.</span></p>
-
-  <div class="divider"></div>
-
-  <div class="cta-box">
+<div class="art-cta">
+  <div class="art-cta-inner">
     <h3><span class="vi">Sẵn sàng trở thành Người đồng hành tại Hà Nội?</span><span class="en">Ready to Become a Companion in Hanoi?</span></h3>
-    <p><span class="vi">Miễn phí đăng ký · Tự quyết lịch · Nhận thù lao ngay sau buổi gặp</span><span class="en">Free to register · Set your own schedule · Get paid right after each session</span></p>
-    <a href="/register#companion"><span class="vi">Đăng ký ngay 🌿</span><span class="en">Register Now 🌿</span></a>
+    <p><span class="vi">Miễn phí đăng ký · Tự quyết lịch · Nhận thù lao ngay sau buổi gặp.</span><span class="en">Free · Set your schedule · Get paid right after.</span></p>
+    <a href="/register#companion" class="art-cta-btn">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
   </div>
+</div>
 
-  <p style="font-size:14px;color:var(--t3);text-align:center">
-    <span class="vi">Xem thêm: <a href="/nguoidonghanh" style="color:var(--g)">Danh sách Người đồng hành</a> · <a href="/huongdan" style="color:var(--g)">Hướng dẫn sử dụng</a></span>
-    <span class="en">Read more: <a href="/nguoidonghanh" style="color:var(--g)">Browse Companions</a> · <a href="/huongdan" style="color:var(--g)">Usage guide</a></span>
-  </p>
-<div class="related">
-  <div class="related-head">
-    <div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div>
-    <a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
-  </div>
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Also recommended</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></h2>
   <div class="related-grid">
-    <a href="/dat-keo-lan-dau" class="related-card featured">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Đặt Kèo lần đầu và những lo lắng thường gặp</span><span class="en">First Time Booking Kèo and Common Concerns</span></div>
-    </a><a href="/lan-dau-tao-keo" class="related-card ">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Lần đầu tạo Kèo không biết bắt đầu từ đâu</span><span class="en">First Time Creating a Kèo</span></div>
-    </a><a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Sự im lặng thoải mái là dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence Is the Sign of Genuine Connection</span></div>
-    </a><a href="/ban-an-gia-dinh-viet-nam-nghi-thuc-dang-mat-di" class="related-card ">
-      <div class="related-pill"><span class="vi">Nghi thức</span><span class="en">Rituals</span></div>
-      <div class="related-card-title"><span class="vi">Bàn ăn gia đình Việt Nam và nghi thức đang dần mất đi</span><span class="en">The Vietnamese Family Table and the Ritual That Is Fading</span></div>
-    </a><a href="/millennials-co-don-hon-bat-ky-the-he-nao-truoc" class="related-card ">
-      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
-      <div class="related-card-title"><span class="vi">Tại sao millennials cô đơn hơn bất kỳ thế hệ nào trước</span><span class="en">Why Millennials Are Lonelier Than Any Previous Generation</span></div>
+    <a href="/nguoi-dong-hanh-kiem-duoc-bao-nhieu" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Người đồng hành Kèo kiếm được bao nhiêu một tháng?</span><span class="en">How Much Does a Kèo Companion Earn Per Month?</span></div>
+      </div>
+    </a>
+    <a href="/dat-keo-lan-dau" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Đặt Kèo lần đầu và những lo lắng thường gặp</span><span class="en">First Time Booking Kèo and Common Concerns</span></div>
+      </div>
+    </a>
+    <a href="/lan-dau-tao-keo" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Lần đầu tạo Kèo — không biết bắt đầu từ đâu?</span><span class="en">First Time Creating a Kèo — Not Sure Where to Start?</span></div>
+      </div>
+    </a>
+    <a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Sự im lặng thoải mái — dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence — A Sign of Genuine Connection</span></div>
+      </div>
+    </a>
+    <a href="/keo-danh-cho-ai" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Kèo dành cho ai?</span><span class="en">Who Is Kèo For?</span></div>
+      </div>
+    </a>
+    <a href="/nguoi-dong-hanh-sai-gon" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tìm người đồng hành tại Sài Gòn</span><span class="en">Finding a Companion in Saigon</span></div>
+      </div>
     </a>
   </div>
 </div>
-</div>
+
+
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
+
 <script>
-var isEN=false;
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('lang-toggle');
-  if(btn){btn.addEventListener('click',function(){
-    isEN=!isEN;
-    btn.textContent=isEN?'VI':'EN';
-    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
-    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
-  });}
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
 });
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>
