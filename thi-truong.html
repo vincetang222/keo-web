@@ -139,12 +139,6 @@ header{background:var(--hbg);border-bottom:1px solid var(--bd);padding:0 20px;di
 .chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:11px;}
 .chip{border-radius:100px;padding:4px 11px;font-family:var(--sans);font-size:11.5px;font-weight:600;display:flex;gap:4px;align-items:center;border:1px solid transparent;}
 
-.news-item{display:block;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;text-decoration:none;box-shadow:var(--sh1);transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);}
-.news-item:hover{transform:translateY(-2px);box-shadow:var(--sh2);border-color:rgba(214,95,53,.35);}
-.news-title{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--tx);line-height:1.35;margin-bottom:6px;}
-.news-desc{font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.65;margin-bottom:8px;}
-.news-meta{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:10.5px;font-weight:600;color:var(--mu);}
-.news-src{color:var(--a);}
 
 /* LOADING / ERROR */
 .ld2{color:var(--sub);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
@@ -206,7 +200,6 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
-  <button class="tb"     id="btn-news"     onclick="go('news',this)">📰 Tin tức</button>
 </nav>
 
 <!-- PAGE: OVERVIEW -->
@@ -375,66 +368,6 @@ footer{text-align:center;padding:16px;font-family:var(--mono);font-size:9px;colo
   <div class="gr" id="fxAsia"></div>
   <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌍</div><div class="sht">Khác</div><div class="shl"></div></div>
   <div class="gr" id="fxOther"></div>
-</div>
-
-<!-- PAGE: NEWS -->
-<div class="pg" id="pg-news">
-
-  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.7;box-shadow:var(--sh1)">
-    📰 <span id="news-status">Tin tức thật, chọn lọc từ các nguồn uy tín</span> — bấm vào để đọc bài gốc. Kèo chỉ tóm tắt, không thay thế việc đọc kỹ nguồn trước khi ra quyết định.
-  </div>
-
-  <div id="news-live"></div>
-
-  <div id="news-fallback">
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.22),rgba(0,140,58,.16))">🏦</div><div class="sht">Vĩ mô &amp; Fed</div><div class="shl"></div></div>
-
-  <a href="https://www.cnbc.com/2026/07/01/kevin-warsh-ecb-forum-live-updates.html" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">Tân Chủ tịch Fed Kevin Warsh: lạm phát "vẫn còn quá cao"</div>
-    <div class="news-desc">Phát biểu tại diễn đàn ECB Sintra, ông Warsh nhấn mạnh cuộc chiến chống lạm phát chưa kết thúc, dù để ngỏ khả năng cởi mở hơn với tác động giảm phát của AI.</div>
-    <div class="news-meta"><span class="news-src">CNBC</span><span>01/07/2026</span></div>
-  </a>
-  <a href="https://www.foxbusiness.com/economy/federal-reserve-interest-rate-decision-june-17-2026" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">Fed giữ nguyên lãi suất 3,5-3,75% trong cuộc họp đầu tiên dưới thời Warsh</div>
-    <div class="news-desc">FOMC bỏ phiếu 12-0 giữ nguyên lãi suất do lo ngại lạm phát từ giá năng lượng leo thang bởi chiến sự Iran. Dot plot cho thấy 9/18 thành viên dự báo có thể tăng lãi suất trong năm.</div>
-    <div class="news-meta"><span class="news-src">Fox Business</span><span>17/06/2026</span></div>
-  </a>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,162,43,.22),rgba(184,120,26,.16))">🛢️</div><div class="sht">Địa chính trị &amp; Dầu mỏ</div><div class="shl"></div></div>
-
-  <a href="https://www.aljazeera.com/economy/2026/7/2/oil-prices-fall-to-levels-not-seen-since-start-of-us-israel-war-on-iran" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">Giá dầu về mức thấp nhất kể từ khi chiến sự Iran bùng nổ</div>
-    <div class="news-desc">Brent giảm khi thị trường tin tưởng phần lớn xung đột đã lắng xuống và nguồn cung qua eo biển Hormuz phục hồi — dù giới phân tích cảnh báo tình hình chưa thực sự ổn định.</div>
-    <div class="news-meta"><span class="news-src">Al Jazeera</span><span>02/07/2026</span></div>
-  </a>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(214,95,53,.22),rgba(209,64,96,.18))">📈</div><div class="sht">Chứng khoán Mỹ &amp; AI</div><div class="shl"></div></div>
-
-  <a href="https://www.cnbc.com/2026/05/27/goldman-raises-its-sp-500-year-end-forecast-its-for-one-simple-reason.html" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">Goldman Sachs nâng mục tiêu S&amp;P 500 lên 8.000 điểm</div>
-    <div class="news-desc">Chiến lược gia Ben Snider nâng dự phóng EPS 2026 lên 340 USD, cho rằng tăng trưởng lợi nhuận — không phải đầu cơ — đang dẫn dắt đà tăng của thị trường.</div>
-    <div class="news-meta"><span class="news-src">CNBC</span><span>27/05/2026</span></div>
-  </a>
-  <a href="https://www.fool.com/investing/2026/06/30/3-reasons-to-buy-nvidia-stock-in-july/" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">Nvidia giảm 8% trong tháng 6 — cơ hội hay dấu hiệu đáng lo?</div>
-    <div class="news-desc">Dù giá cổ phiếu đi ngang so với đầu năm, doanh thu quý gần nhất vẫn tăng 85% và lợi nhuận điều chỉnh tăng 139% — định giá hiện chỉ còn 15 lần lợi nhuận dự phóng năm sau.</div>
-    <div class="news-meta"><span class="news-src">The Motley Fool</span><span>30/06/2026</span></div>
-  </a>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,51,74,.22),rgba(184,40,60,.16))">🇻🇳</div><div class="sht">Thị trường Việt Nam</div><div class="shl"></div></div>
-
-  <a href="https://vietstock.vn/2026/07/vndirect-dong-luc-hoi-tu-vn-index-co-co-hoi-cham-den-2014-diem-145-1461069.htm" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">VNDirect: các động lực đang hội tụ, VN-Index có thể chạm 2.014 điểm</div>
-    <div class="news-desc">Việc FTSE Russell chính thức nâng hạng thị trường Việt Nam từ tháng 9/2026, cùng lợi nhuận doanh nghiệp HOSE dự báo tăng 21%, được xem là động lực cấu trúc quan trọng nửa cuối năm.</div>
-    <div class="news-meta"><span class="news-src">Vietstock</span><span>07/2026</span></div>
-  </a>
-  <a href="https://dantri.com.vn/kinh-doanh/vn-index-ky-vong-vuot-2000-diem-chuyen-gia-goi-ten-3-nhom-nganh-20260704071003729.htm" target="_blank" rel="noopener" class="news-item">
-    <div class="news-title">Chuyên gia gọi tên 3 nhóm ngành dẫn dắt khi VN-Index vượt 2.000 điểm</div>
-    <div class="news-desc">Ngân hàng, bán lẻ và dầu khí được nhiều công ty chứng khoán ưu tiên cho chu kỳ tăng tốc nửa cuối năm, dù thanh khoản gần đây có dấu hiệu chững lại.</div>
-    <div class="news-meta"><span class="news-src">Dân Trí</span><span>04/07/2026</span></div>
-  </a>
-  </div>
-
 </div>
 
 </main>
@@ -1166,36 +1099,6 @@ async function init(){
 }
 init();
 
-// ─── LIVE NEWS (gọi /api/news — serverless function tự viết, xem file api/news.js) ───
-// Nếu bạn CHƯA deploy /api/news.js, đoạn này sẽ tự fail êm và giữ nguyên
-// danh sách tin tĩnh (#news-fallback) đã có sẵn trong HTML — không vỡ giao diện.
-(async function loadLiveNews(){
-  try{
-    const r = await fetch('/api/news');
-    if(!r.ok) throw new Error('API chưa sẵn sàng (status '+r.status+')');
-    const data = await r.json();
-    const all = [...(data.international||[]), ...(data.vietnam||[])];
-    if(!all.length) throw new Error('Không có bài viết nào trả về');
-
-    const html = all.map(function(a){
-      const date = a.published ? new Date(a.published).toLocaleDateString('vi-VN') : '';
-      const desc = (a.description||'').replace(/</g,'&lt;');
-      const title = (a.title||'').replace(/</g,'&lt;');
-      return '<a href="'+a.url+'" target="_blank" rel="noopener" class="news-item">'
-           + '<div class="news-title">'+title+'</div>'
-           + '<div class="news-desc">'+desc+'</div>'
-           + '<div class="news-meta"><span class="news-src">'+a.source+'</span><span>'+date+'</span></div>'
-           + '</a>';
-    }).join('');
-
-    document.getElementById('news-live').innerHTML = html;
-    document.getElementById('news-fallback').style.display = 'none';
-    document.getElementById('news-status').textContent = 'Tin tức cập nhật tự động';
-  }catch(err){
-    console.warn('Live news chưa hoạt động, đang hiện danh sách dự phòng:', err.message);
-    // Giữ nguyên #news-fallback đang hiển thị sẵn, không cần làm gì thêm.
-  }
-})();
 setInterval(async()=>{ await fetchFX(); loadTab(curTab); }, 60000);
 </script>
 </body>
