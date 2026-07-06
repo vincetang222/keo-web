@@ -111,11 +111,36 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 .ovc2{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:2px;}
 
 /* CARD GRID */
-.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:9px;}
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:7px;}
 .grsm{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));}
 
 /* CARD */
 .cd{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 15px;position:relative;overflow:hidden;box-shadow:var(--sh1);transition:transform var(--tr),border-color var(--tr),background var(--tr),box-shadow var(--tr);}
+/* Card gọn hơn — chỉ áp dụng cho card dữ liệu (mã/giá) nằm trong lưới .gr, KHÔNG ảnh hưởng card phân tích ở tab Nhận định/Giá cả */
+.gr .cd{padding:10px 11px;border-radius:12px;}
+.gr .cy{font-size:9px;padding:1px 5px;}
+.gr .cn{font-size:12px;margin-top:3px;max-width:120px;}
+.gr .cp{font-size:16px;}
+.gr .cv2{font-size:9.5px;margin-top:2px;}
+.gr .cch{font-size:9px;margin-top:3px;}
+.gr .csp{height:18px;margin-top:5px;}
+.gr .cm{font-size:8px;margin-top:4px;}
+
+/* Policy card — thiết kế riêng cho phần dự đoán ngành theo chính sách, giàu hình ảnh hơn card thường */
+.policy-card{background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:20px 22px;margin-bottom:16px;box-shadow:var(--sh1);position:relative;overflow:hidden;transition:box-shadow var(--tr),transform var(--tr);}
+.policy-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--grad,linear-gradient(180deg,#E8A22B,#D65F35,#D14060));}
+.policy-card:hover{box-shadow:var(--sh2);transform:translateY(-2px);}
+.policy-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.policy-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.15);}
+.policy-tag{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--a);text-transform:uppercase;margin-bottom:4px;}
+.policy-title{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--tx);line-height:1.3;}
+.policy-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:var(--sf2);border-radius:12px;padding:14px 12px;margin-bottom:14px;}
+.policy-stat{text-align:center;}
+.policy-stat-v{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--gold);line-height:1.2;margin-bottom:3px;}
+.policy-stat-l{font-family:var(--sans);font-size:9px;color:var(--sub);line-height:1.35;}
+.policy-body{font-family:var(--sans);font-size:12.5px;color:var(--sub);line-height:1.75;margin-bottom:10px;}
+.policy-src{font-family:var(--sans);font-size:10px;color:var(--mu);border-top:1px solid var(--bd);padding-top:10px;}
+@media(max-width:640px){.policy-stats{grid-template-columns:1fr}.policy-head{flex-direction:column;align-items:flex-start;gap:8px}}
 .cd::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;opacity:.65;transition:opacity var(--tr);}
 .cd:hover{border-color:rgba(214,95,53,.35);transform:translateY(-2px);box-shadow:var(--sh2);}
 .cd:hover::before{opacity:1;}
@@ -126,11 +151,12 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 .cv::before{background:linear-gradient(90deg,var(--vn),#B8283C);}  /* VN */
 .cfx::before{background:linear-gradient(90deg,var(--gn),#00A047);}/* fx */
 .ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
-.cy{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--sub);letter-spacing:1px;}
-.cn{font-size:12px;font-weight:700;color:var(--tx);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:135px;}
+.cy{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:700;color:var(--a);letter-spacing:.4px;background:rgba(214,95,53,.14);padding:1.5px 7px;border-radius:5px;}
+.cn{font-family:var(--serif);font-size:13.5px;font-weight:700;color:var(--tx);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px;}
 .co{font-size:16px;opacity:.85;}
 .cp{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--tx);letter-spacing:-.2px;line-height:1.2;}
-.cv2{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:1px;}
+.cv2{font-family:var(--sans);font-size:11px;font-weight:600;color:var(--go);margin-top:3px;}
+.cv2::before{content:'≈ ';opacity:.6;}
 .cch{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:700;margin-top:4px;}
 .csp{margin-top:8px;height:30px;}
 .csp svg{width:100%;height:100%;}
@@ -213,7 +239,7 @@ footer a:hover{color:#F5EFE6}
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa <span class="tbg">22</span></button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto <span class="tbg">20</span></button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá <span class="tbg">25</span></button>
-  <button class="tb"     id="btn-prices"   onclick="go('prices',this)">🛒 Giá cả</button>
+  <button class="tb"     id="btn-prices"   onclick="go('prices',this)">🛒 Giá hàng hoá trong nước</button>
 </nav>
 
 <!-- PAGE: OVERVIEW -->
@@ -311,6 +337,42 @@ footer a:hover{color:#F5EFE6}
       <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏠 Bất động sản</div>
     </div>
     <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Vietcap ưu tiên ngân hàng (lợi nhuận dự phóng +18%), bán lẻ và dầu khí cho chu kỳ tăng tốc đồng pha. SSI gọi tên cổ phiếu tiêu biểu: HPG, DGW, POW, VCB, FPT, DCM, TNG, PVT — nhóm vốn hoá trung bình có định giá hấp dẫn và dòng tiền cải thiện. <span style="color:var(--sub);opacity:.7">— Nguồn: SSI Research &amp; Vietcap, 07/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(214,95,53,.28),rgba(209,64,96,.22))">🏛️</div><div class="sht">Ngành hưởng lợi từ chính sách Nhà nước</div><div class="shl"></div></div>
+
+  <div class="policy-card">
+    <div class="policy-head">
+      <div class="policy-icon" style="background:linear-gradient(135deg,rgba(156,127,232,.25),rgba(122,95,208,.15))">🔬</div>
+      <div>
+        <div class="policy-tag">CHÍNH SÁCH ƯU TIÊN QUỐC GIA 2026</div>
+        <div class="policy-title">Công nghiệp bán dẫn &amp; công nghệ số</div>
+      </div>
+    </div>
+    <div class="policy-stats">
+      <div class="policy-stat"><div class="policy-stat-v">14,2 tỷ USD</div><div class="policy-stat-l">FDI bán dẫn / 241 dự án</div></div>
+      <div class="policy-stat"><div class="policy-stat-v">50+</div><div class="policy-stat-l">Doanh nghiệp thiết kế chip</div></div>
+      <div class="policy-stat"><div class="policy-stat-v">16/1</div><div class="policy-stat-l">Khởi công nhà máy chip đầu tiên</div></div>
+    </div>
+    <p class="policy-body">Chính phủ chọn 2026 là năm "Quyết liệt triển khai" cho ngành bán dẫn, với Luật Công nghiệp công nghệ số 2025 (hiệu lực 1/1/2026) miễn giảm thuế, hỗ trợ vốn thiết kế chip. Viettel đã khởi công nhà máy chế tạo chip công nghệ cao đầu tiên của Việt Nam (16/1/2026); FPT công bố nhà máy đóng gói-kiểm thử riêng. Nhóm hưởng lợi trực tiếp: doanh nghiệp công nghệ nội địa (FPT, Viettel), bất động sản khu công nghiệp, giáo dục đào tạo kỹ sư vi mạch.</p>
+    <div class="policy-src">Nguồn: Bộ KH&amp;CN, Cổng TTĐT Chính phủ · 01-04/2026</div>
+  </div>
+
+  <div class="policy-card">
+    <div class="policy-head">
+      <div class="policy-icon" style="background:linear-gradient(135deg,rgba(232,162,43,.25),rgba(184,120,26,.15))">🏗️</div>
+      <div>
+        <div class="policy-tag">ĐỘT PHÁ CHIẾN LƯỢC HẠ TẦNG 2026-2030</div>
+        <div class="policy-title">Xây dựng &amp; đầu tư công hạ tầng giao thông</div>
+      </div>
+    </div>
+    <div class="policy-stats">
+      <div class="policy-stat"><div class="policy-stat-v">8,22 triệu tỷ</div><div class="policy-stat-l">Tổng vốn đầu tư công 2026-30</div></div>
+      <div class="policy-stat"><div class="policy-stat-v">67 tỷ USD</div><div class="policy-stat-l">Đường sắt tốc độ cao Bắc-Nam</div></div>
+      <div class="policy-stat"><div class="policy-stat-v">5.000km</div><div class="policy-stat-l">Mục tiêu cao tốc đến 2030</div></div>
+    </div>
+    <p class="policy-body">Đầu tư công được xác định là công cụ điều hành vĩ mô quan trọng nhất cho mục tiêu tăng trưởng "2 con số" — chiếm 20-22% tổng vốn đầu tư toàn xã hội, giải ngân mục tiêu &gt;95% kế hoạch năm. Dự án đường sắt tốc độ cao Bắc-Nam (1.541km) đang hoàn thiện báo cáo khả thi trong 7/2026. Nhóm hưởng lợi trực tiếp: thép xây dựng (HPG), xi măng, đá xây dựng, nhà thầu hạ tầng, bất động sản dọc tuyến.</p>
+    <div class="policy-src">Nguồn: Báo Chính Phủ, Nhân Dân điện tử · 02-04/2026</div>
   </div>
 
   <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.22),rgba(0,140,58,.16))">🌾</div><div class="sht">Hàng hoá xuất khẩu Việt Nam</div><div class="shl"></div></div>
@@ -434,6 +496,8 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="fxAsia"></div>
   <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌍</div><div class="sht">Khác</div><div class="shl"></div></div>
   <div class="gr" id="fxOther"></div>
+  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.12)">💱</div><div class="sht">Cặp tiền tệ chéo (Forex)</div><div class="shl"></div><div class="shb" style="background:rgba(214,95,53,.1);color:var(--a)">Không qua VND</div></div>
+  <div class="gr" id="fxCross"></div>
 </div>
 
 <!-- PAGE: PRICES -->
@@ -476,7 +540,7 @@ footer a:hover{color:#F5EFE6}
     <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Giá thép các thương hiệu lớn (Hoà Phát, Việt Đức, Việt Ý) dao động 15.000-15.500 đồng/kg, tăng liên tục từ đầu năm do chi phí nguyên liệu, than cốc, điện tăng, cộng hưởng với chính sách kích thích đầu tư công và bất động sản của Chính phủ. Việt Nam duy trì top 10 sản lượng thép thế giới, dự kiến ~27 triệu tấn cả năm 2026 (+10%). <span style="color:var(--sub);opacity:.7">— Nguồn: SteelOnline, VSA, 03/07/2026</span></p>
   </div>
 
-  <div class="cd">
+  <div class="cd" style="margin-bottom:14px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
       <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌳 CAO SU · MỦ NƯỚC LOẠI 1</div>
       <div style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--tx)">452đ/độ TSC/kg</div></div>
@@ -484,6 +548,28 @@ footer a:hover{color:#F5EFE6}
       <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">Ổn định</div></div>
     </div>
     <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Giá thu mua mủ cao su trong nước (Công ty Cao su Bà Rịa) giữ ổn định trong khi giá trên các sàn giao dịch châu Á biến động trái chiều. Việt Nam là một trong những nước xuất khẩu cao su tự nhiên lớn của thế giới, chủ yếu phục vụ ngành sản xuất lốp xe. <span style="color:var(--sub);opacity:.7">— Nguồn: Doanh nghiệp và Hội nhập, 02-03/07/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,51,74,.22),rgba(184,40,60,.16))">🐖</div><div class="sht">Heo hơi trong nước</div><div class="shl"></div></div>
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">CAO NHẤT (MIỀN BẮC)</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">66.000đ/kg</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">THẤP NHẤT (MIỀN NAM)</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--sub)">60.000đ/kg</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Thị trường heo hơi toàn quốc chưa có điều chỉnh mới, giữ giá ổn định giữa các vùng miền — chênh lệch Bắc-Nam khoảng 6.000đ/kg, phản ánh khác biệt về nguồn cung và chi phí vận chuyển. <span style="color:var(--sub);opacity:.7">— Nguồn: Doanh nghiệp và Hội nhập, 03/07/2026</span></p>
+  </div>
+
+  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(160,110,60,.22),rgba(120,80,40,.18))">☕</div><div class="sht">Cà phê nhân xô trong nước</div><div class="shl"></div></div>
+  <div class="cd">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">GIÁ THU MUA</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">91.600-92.000đ/kg</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">THAY ĐỔI</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">+1.600đ</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Giá cà phê nhân xô thu mua tại các vùng trồng trọng điểm (Đắk Lắk, Lâm Đồng, Đắk Nông) tăng thêm 1.600 đồng/kg so với phiên trước, dù thị trường robusta thế giới diễn biến trái chiều. <span style="color:var(--sub);opacity:.7">— Nguồn: Doanh nghiệp và Hội nhập, 03/07/2026</span></p>
   </div>
 
 </div>
@@ -538,6 +624,11 @@ async function fetchFX(){
 }
 
 function xrate(ccy){ return ccy==='USD'?USD_VND:USD_VND/(FX_RATES[ccy]||FX_FB[ccy]||1); }
+// Tỷ giá chéo A/B (không qua VND) — dùng cho các cặp forex trader hay giao dịch
+function crossRate(base,quote){
+  const r=ccy=>ccy==='USD'?1:(FX_RATES[ccy]||FX_FB[ccy]||1);
+  return r(quote)/r(base);
+}
 function toVND(usd){
   const v=usd*USD_VND;
   if(v>=1e9) return '≈'+(v/1e9).toFixed(2)+'tỷ₫';
@@ -588,7 +679,7 @@ function card(d,cls,spkCol){
     `<div class="cp">${d.pr}</div>` +
     `${vnd}` +
     `<div class="cch" style="color:${col}">${arr} ${Math.abs(d.pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
-    `<div class="csp">${spark(u,spkCol)}</div>` +
+    `<div class="csp">${spark(u,col)}</div>` +
     `<div class="cm"><span>${d.m1||''}</span><span>${d.m2||''}</span></div>` +
     `</div>`;
 }
@@ -610,6 +701,24 @@ const STOCKS={
     {sym:'UBER',nm:'Uber',           base:82,  ic:'🚕',ccy:'USD'},
     {sym:'SNOW',nm:'Snowflake',      base:162, ic:'❄️',ccy:'USD'},
     {sym:'PLTR',nm:'Palantir',       base:98,  ic:'🔭',ccy:'USD'},
+    {sym:'INTC',nm:'Intel',          base:32,  ic:'🔲',ccy:'USD'},
+    {sym:'IBM', nm:'IBM',            base:198, ic:'🖥️',ccy:'USD'},
+    {sym:'ADBE',nm:'Adobe',          base:512, ic:'🎨',ccy:'USD'},
+    {sym:'NOW', nm:'ServiceNow',     base:928, ic:'⚙️',ccy:'USD'},
+    {sym:'PANW',nm:'Palo Alto Networks',base:352,ic:'🛡️',ccy:'USD'},
+    {sym:'CSCO',nm:'Cisco Systems',  base:58,  ic:'🔌',ccy:'USD'},
+    {sym:'QCOM',nm:'Qualcomm',       base:162, ic:'📶',ccy:'USD'},
+    {sym:'TXN', nm:'Texas Instruments',base:198,ic:'🔧',ccy:'USD'},
+    {sym:'AVGO',nm:'Broadcom',       base:1680,ic:'📡',ccy:'USD'},
+    {sym:'MU',  nm:'Micron Tech',    base:112, ic:'💽',ccy:'USD'},
+    {sym:'ARM', nm:'Arm Holdings',   base:142, ic:'🦾',ccy:'USD'},
+    {sym:'SHOP',nm:'Shopify',        base:82,  ic:'🛍️',ccy:'USD'},
+    {sym:'SPOT',nm:'Spotify',        base:452, ic:'🎧',ccy:'USD'},
+    {sym:'ABNB',nm:'Airbnb',         base:132, ic:'🏠',ccy:'USD'},
+    {sym:'DDOG',nm:'Datadog',        base:118, ic:'🐕',ccy:'USD'},
+    {sym:'CRWD',nm:'CrowdStrike',    base:342, ic:'🦅',ccy:'USD'},
+    {sym:'PYPL',nm:'PayPal',         base:78,  ic:'💰',ccy:'USD'},
+    {sym:'SQ',  nm:'Block Inc.',     base:82,  ic:'⬛',ccy:'USD'},
   ],
   usOther:[
     {sym:'JPM', nm:'JPMorgan Chase', base:241, ic:'🏦',ccy:'USD'},
@@ -624,6 +733,24 @@ const STOCKS={
     {sym:'MCD', nm:"McDonald's",     base:312, ic:'🍔',ccy:'USD'},
     {sym:'WMT', nm:'Walmart',        base:98,  ic:'🛒',ccy:'USD'},
     {sym:'BAC', nm:'Bank of America',base:42,  ic:'🏛️',ccy:'USD'},
+    {sym:'DIS', nm:'Walt Disney',    base:112, ic:'🏰',ccy:'USD'},
+    {sym:'NKE', nm:'Nike',           base:78,  ic:'👟',ccy:'USD'},
+    {sym:'SBUX',nm:'Starbucks',      base:92,  ic:'☕',ccy:'USD'},
+    {sym:'COST',nm:'Costco',         base:912, ic:'📦',ccy:'USD'},
+    {sym:'HD',  nm:'Home Depot',     base:398, ic:'🔨',ccy:'USD'},
+    {sym:'UNH', nm:'UnitedHealth',   base:512, ic:'⚕️',ccy:'USD'},
+    {sym:'PFE', nm:'Pfizer',         base:28,  ic:'💉',ccy:'USD'},
+    {sym:'MRK', nm:'Merck & Co',     base:98,  ic:'🧪',ccy:'USD'},
+    {sym:'LLY', nm:'Eli Lilly',      base:892, ic:'💊',ccy:'USD'},
+    {sym:'T',   nm:'AT&T',           base:22,  ic:'📞',ccy:'USD'},
+    {sym:'VZ',  nm:'Verizon',        base:42,  ic:'📱',ccy:'USD'},
+    {sym:'F',   nm:'Ford Motor',     base:11,  ic:'🚙',ccy:'USD'},
+    {sym:'GM',  nm:'General Motors', base:48,  ic:'🚘',ccy:'USD'},
+    {sym:'BA',  nm:'Boeing',         base:182, ic:'✈️',ccy:'USD'},
+    {sym:'CAT', nm:'Caterpillar',    base:382, ic:'🚜',ccy:'USD'},
+    {sym:'HON', nm:'Honeywell',      base:212, ic:'⚙️',ccy:'USD'},
+    {sym:'GE',  nm:'GE Aerospace',   base:182, ic:'✈️',ccy:'USD'},
+    {sym:'UPS', nm:'United Parcel',  base:132, ic:'📦',ccy:'USD'},
   ],
   asia:[
     {sym:'TSM',   nm:'TSMC (ADR)',      base:185,  ic:'🇹🇼',ccy:'USD',ex:'NYSE'},
@@ -638,6 +765,25 @@ const STOCKS={
     {sym:'INFY',  nm:'Infosys (ADR)',  base:22,    ic:'💻',ccy:'USD',ex:'NYSE'},
     {sym:'RELIANCE',nm:'Reliance Ind.',base:2950,  ic:'🇮🇳',ccy:'INR',ex:'NSE'},
     {sym:'ASML',  nm:'ASML Holding',   base:782,   ic:'🔬',ccy:'USD',ex:'NASDAQ'},
+    {sym:'6501',  nm:'Hitachi',        base:3420,  ic:'⚡',ccy:'JPY',ex:'TSE'},
+    {sym:'8306',  nm:'Mitsubishi UFJ', base:1820,  ic:'🏦',ccy:'JPY',ex:'TSE'},
+    {sym:'6098',  nm:'Recruit Holdings',base:7420, ic:'💼',ccy:'JPY',ex:'TSE'},
+    {sym:'000660',nm:'SK Hynix',       base:198000,ic:'💾',ccy:'KRW',ex:'KRX'},
+    {sym:'035420',nm:'Naver Corp',     base:182000,ic:'🔍',ccy:'KRW',ex:'KRX'},
+    {sym:'3690',  nm:'Meituan',        base:98,    ic:'🥡',ccy:'HKD',ex:'HKEX'},
+    {sym:'1211',  nm:'BYD Electronic', base:32,    ic:'🔋',ccy:'HKD',ex:'HKEX'},
+    {sym:'2318',  nm:'Ping An Insurance',base:42,  ic:'🏥',ccy:'HKD',ex:'HKEX'},
+    {sym:'941',   nm:'China Mobile',   base:78,    ic:'📶',ccy:'HKD',ex:'HKEX'},
+    {sym:'TCS',   nm:'Tata Consultancy',base:4150, ic:'💻',ccy:'INR',ex:'NSE'},
+    {sym:'HDFCBANK',nm:'HDFC Bank',    base:1680,  ic:'🏦',ccy:'INR',ex:'NSE'},
+    {sym:'2330',  nm:'TSMC (Taiwan)',  base:998,   ic:'🇹🇼',ccy:'USD',ex:'TWSE'},
+    {sym:'2317',  nm:'Foxconn',        base:198,   ic:'🏭',ccy:'USD',ex:'TWSE'},
+    {sym:'D05',   nm:'DBS Group',      base:42,    ic:'🏦',ccy:'USD',ex:'SGX'},
+    {sym:'BABA',  nm:'Alibaba (ADR)',  base:92,    ic:'🛍️',ccy:'USD',ex:'NYSE'},
+    {sym:'JD',    nm:'JD.com',         base:38,    ic:'📦',ccy:'USD',ex:'NASDAQ'},
+    {sym:'PDD',   nm:'PDD Holdings',   base:112,   ic:'🛒',ccy:'USD',ex:'NASDAQ'},
+    {sym:'NTES',  nm:'NetEase',        base:98,    ic:'🎮',ccy:'USD',ex:'NASDAQ'},
+    {sym:'GRAB',  nm:'Grab Holdings',  base:5.2,   ic:'🛵',ccy:'USD',ex:'NASDAQ'},
   ],
   europe:[
     {sym:'SAP',  nm:'SAP SE',        base:244, ic:'🗄️',ccy:'USD',ex:'NYSE'},
@@ -650,6 +796,26 @@ const STOCKS={
     {sym:'SIE',  nm:'Siemens AG',   base:182, ic:'⚙️',ccy:'EUR',ex:'XETRA'},
     {sym:'MC',   nm:'Louis Vuitton', base:730, ic:'💎',ccy:'EUR',ex:'EPA'},
     {sym:'SAN',  nm:'Santander',    base:5.2, ic:'🏦',ccy:'EUR',ex:'BME'},
+    {sym:'HSBA', nm:'HSBC Holdings',base:8.4, ic:'🏦',ccy:'USD',ex:'LSE'},
+    {sym:'BP',   nm:'BP plc',       base:5.8, ic:'⛽',ccy:'USD',ex:'NYSE'},
+    {sym:'UL',   nm:'Unilever',     base:62,  ic:'🧴',ccy:'USD',ex:'NYSE'},
+    {sym:'DEO',  nm:'Diageo',       base:128, ic:'🥃',ccy:'USD',ex:'NYSE'},
+    {sym:'GSK',  nm:'GSK plc',      base:42,  ic:'💊',ccy:'USD',ex:'NYSE'},
+    {sym:'BTI',  nm:'British American Tobacco',base:38,ic:'🚬',ccy:'USD',ex:'NYSE'},
+    {sym:'RIO',  nm:'Rio Tinto',    base:62,  ic:'⛏️',ccy:'USD',ex:'NYSE'},
+    {sym:'BHP',  nm:'BHP Group',    base:52,  ic:'⛏️',ccy:'USD',ex:'NYSE'},
+    {sym:'TTE',  nm:'TotalEnergies',base:62,  ic:'⛽',ccy:'USD',ex:'NYSE'},
+    {sym:'ALV',  nm:'Allianz SE',   base:298, ic:'🛡️',ccy:'EUR',ex:'XETRA'},
+    {sym:'BAS',  nm:'BASF SE',      base:48,  ic:'🧪',ccy:'EUR',ex:'XETRA'},
+    {sym:'BMW',  nm:'BMW AG',       base:82,  ic:'🚗',ccy:'EUR',ex:'XETRA'},
+    {sym:'VOW3', nm:'Volkswagen',   base:102, ic:'🚗',ccy:'EUR',ex:'XETRA'},
+    {sym:'AIR',  nm:'Airbus SE',    base:168, ic:'✈️',ccy:'EUR',ex:'EPA'},
+    {sym:'OR',   nm:"L'Oréal",      base:392, ic:'💄',ccy:'EUR',ex:'EPA'},
+    {sym:'BN',   nm:'Danone',       base:62,  ic:'🥛',ccy:'EUR',ex:'EPA'},
+    {sym:'ENEL', nm:'Enel SpA',     base:7.2, ic:'⚡',ccy:'EUR',ex:'BIT'},
+    {sym:'ISP',  nm:'Intesa Sanpaolo',base:4.2,ic:'🏦',ccy:'EUR',ex:'BIT'},
+    {sym:'INGA', nm:'ING Group',    base:16,  ic:'🏦',ccy:'EUR',ex:'AEX'},
+    {sym:'NOVN', nm:'Novartis AG',  base:102, ic:'💊',ccy:'CHF',ex:'SIX'},
   ]
 };
 
@@ -677,31 +843,69 @@ const BONDS={
     {sym:'US06M',nm:'US 6M T-Bill',  base:5.05,ic:'🏛️',m1:'6 tháng'},
     {sym:'US01Y',nm:'US 1Y Treasury',base:4.94,ic:'📜',m1:'1 năm'},
     {sym:'US02Y',nm:'US 2Y Treasury',base:4.82,ic:'📜',m1:'2 năm'},
+    {sym:'US03Y',nm:'US 3Y Treasury',base:4.68,ic:'📜',m1:'3 năm'},
     {sym:'US05Y',nm:'US 5Y Treasury',base:4.44,ic:'📜',m1:'5 năm'},
+    {sym:'US07Y',nm:'US 7Y Treasury',base:4.36,ic:'📜',m1:'7 năm'},
     {sym:'US10Y',nm:'US 10Y Treasury',base:4.28,ic:'📜',m1:'Benchmark'},
+    {sym:'US20Y',nm:'US 20Y Treasury',base:4.58,ic:'📜',m1:'20 năm'},
     {sym:'US30Y',nm:'US 30Y Treasury',base:4.62,ic:'📜',m1:'30 năm'},
+    {sym:'TIP05',nm:'US 5Y TIPS',    base:2.02,ic:'🛡️',m1:'Chống lạm phát'},
+    {sym:'TIP10',nm:'US 10Y TIPS',   base:2.08,ic:'🛡️',m1:'Chống lạm phát'},
+    {sym:'TIP30',nm:'US 30Y TIPS',   base:2.22,ic:'🛡️',m1:'Chống lạm phát'},
+    {sym:'MBS',  nm:'US MBS 30Y',    base:5.42,ic:'🏠',m1:'Mortgage-Backed'},
   ],
   asia:[
     {sym:'VN05Y',nm:'VN 5Y Gov Bond', base:2.68,ic:'🇻🇳',m1:'HNX'},
     {sym:'VN10Y',nm:'VN 10Y Gov Bond',base:2.92,ic:'🇻🇳',m1:'HNX'},
+    {sym:'VN15Y',nm:'VN 15Y Gov Bond',base:3.18,ic:'🇻🇳',m1:'HNX'},
+    {sym:'VN20Y',nm:'VN 20Y Gov Bond',base:3.42,ic:'🇻🇳',m1:'HNX'},
+    {sym:'JP02Y',nm:'Japan 2Y JGB',   base:0.42,ic:'🇯🇵',m1:'BoJ'},
     {sym:'JP10Y',nm:'Japan 10Y JGB',  base:1.52,ic:'🇯🇵',m1:'BoJ'},
+    {sym:'JP30Y',nm:'Japan 30Y JGB',  base:2.42,ic:'🇯🇵',m1:'BoJ'},
+    {sym:'CN02Y',nm:'China 2Y Govt',  base:1.32,ic:'🇨🇳',m1:'PBOC'},
     {sym:'CN10Y',nm:'China 10Y Govt', base:1.68,ic:'🇨🇳',m1:'PBOC'},
+    {sym:'KR03Y',nm:'Korea 3Y KTB',   base:2.98,ic:'🇰🇷',m1:'BOK'},
     {sym:'KR10Y',nm:'Korea 10Y KTB',  base:3.42,ic:'🇰🇷',m1:'BOK'},
     {sym:'IN10Y',nm:'India 10Y Govt', base:6.88,ic:'🇮🇳',m1:'RBI'},
     {sym:'ID10Y',nm:'Indonesia 10Y',  base:6.72,ic:'🇮🇩',m1:'BI'},
     {sym:'TH10Y',nm:'Thailand 10Y',   base:2.38,ic:'🇹🇭',m1:'BOT'},
+    {sym:'MY10Y',nm:'Malaysia 10Y',   base:3.72,ic:'🇲🇾',m1:'BNM'},
+    {sym:'PH10Y',nm:'Philippines 10Y',base:6.12,ic:'🇵🇭',m1:'BSP'},
+    {sym:'SG10Y',nm:'Singapore 10Y',  base:2.72,ic:'🇸🇬',m1:'MAS'},
+    {sym:'TW10Y',nm:'Taiwan 10Y',     base:1.62,ic:'🇹🇼',m1:'CBC'},
+    {sym:'HK10Y',nm:'Hong Kong 10Y',  base:3.22,ic:'🇭🇰',m1:'HKMA'},
+    {sym:'AU10Y',nm:'Australia 10Y',  base:4.32,ic:'🇦🇺',m1:'RBA'},
   ],
   eu:[
+    {sym:'DE02Y',nm:'Germany 2Y Schatz',base:2.28,ic:'🇩🇪',m1:'Bundesbank'},
     {sym:'DE10Y',nm:'Germany 10Y Bund',base:2.48,ic:'🇩🇪',m1:'Benchmark EU'},
+    {sym:'DE30Y',nm:'Germany 30Y Bund',base:2.82,ic:'🇩🇪',m1:'30 năm'},
     {sym:'FR10Y',nm:'France 10Y OAT',  base:2.98,ic:'🇫🇷',m1:'Trésor'},
     {sym:'IT10Y',nm:'Italy 10Y BTP',   base:3.82,ic:'🇮🇹',m1:'Tesoro'},
+    {sym:'GB02Y',nm:'UK 2Y Gilt',      base:4.02,ic:'🇬🇧',m1:'DMO'},
     {sym:'GB10Y',nm:'UK 10Y Gilt',     base:4.28,ic:'🇬🇧',m1:'DMO'},
+    {sym:'GB30Y',nm:'UK 30Y Gilt',     base:4.72,ic:'🇬🇧',m1:'30 năm'},
     {sym:'ES10Y',nm:'Spain 10Y Bono',  base:3.22,ic:'🇪🇸',m1:'Tesoro'},
+    {sym:'NL10Y',nm:'Netherlands 10Y', base:2.62,ic:'🇳🇱',m1:'DSTA'},
+    {sym:'CH10Y',nm:'Switzerland 10Y', base:0.62,ic:'🇨🇭',m1:'SNB'},
+    {sym:'SE10Y',nm:'Sweden 10Y',      base:2.18,ic:'🇸🇪',m1:'Riksbank'},
+    {sym:'NO10Y',nm:'Norway 10Y',      base:3.62,ic:'🇳🇴',m1:'Norges'},
+    {sym:'PL10Y',nm:'Poland 10Y',      base:5.42,ic:'🇵🇱',m1:'NBP'},
+    {sym:'PT10Y',nm:'Portugal 10Y',    base:2.82,ic:'🇵🇹',m1:'IGCP'},
+    {sym:'GR10Y',nm:'Greece 10Y',      base:3.42,ic:'🇬🇷',m1:'PDMA'},
   ],
   corp:[
     {sym:'IG-US',nm:'US Corp IG',    base:4.88,ic:'🏢',m1:'Investment Grade'},
     {sym:'HY-US',nm:'US High Yield', base:7.22,ic:'⚡',m1:'High Yield'},
     {sym:'EM-BD',nm:'EM Bond ETF',   base:5.62,ic:'🌍',m1:'Emerging Markets'},
+    {sym:'IG-EU',nm:'EU Corp IG',    base:3.42,ic:'🏢',m1:'Investment Grade EU'},
+    {sym:'HY-EU',nm:'EU High Yield', base:5.92,ic:'⚡',m1:'High Yield EU'},
+    {sym:'FIN-B',nm:'Financials Bond',base:5.12,ic:'🏦',m1:'Ngành ngân hàng'},
+    {sym:'TECH-B',nm:'Tech Corp Bond',base:4.62,ic:'💻',m1:'Ngành công nghệ'},
+    {sym:'ENE-B',nm:'Energy Corp Bond',base:5.82,ic:'🛢️',m1:'Ngành năng lượng'},
+    {sym:'MUNI', nm:'US Muni Bond',  base:3.42,ic:'🏛️',m1:'Trái phiếu địa phương'},
+    {sym:'CONV', nm:'Convertible Bond',base:4.22,ic:'🔄',m1:'Trái phiếu chuyển đổi'},
+    {sym:'VN-CB',nm:'VN Corp Bond',  base:8.42,ic:'🇻🇳',m1:'Doanh nghiệp VN'},
   ]
 };
 
@@ -725,6 +929,8 @@ const COMM={
     {sym:'XAG',nm:'Bạc (Silver)',    base:33.2,ic:'🥈',unit:'$/oz',  usd:true},
     {sym:'XPT',nm:'Bạch kim (Plat)',base:970, ic:'⬜',unit:'$/oz',  usd:true},
     {sym:'XPD',nm:'Palladium',       base:1020,ic:'🔘',unit:'$/oz',  usd:true},
+    {sym:'XRH',nm:'Rhodium',         base:4850,ic:'⚪',unit:'$/oz',  usd:true},
+    {sym:'URAN',nm:'Uranium (U3O8)', base:78.5,ic:'☢️',unit:'$/lb', usd:true},
   ],
   energy:[
     {sym:'WTI',  nm:'Dầu WTI',      base:61.5,ic:'🛢️',unit:'$/bbl',usd:true},
@@ -732,6 +938,9 @@ const COMM={
     {sym:'RBOB', nm:'Xăng RBOB',    base:2.28,ic:'⛽',unit:'$/gal',usd:true},
     {sym:'NG',   nm:'Khí tự nhiên', base:3.28,ic:'🔥',unit:'$/MMBtu',usd:true},
     {sym:'HO',   nm:'Dầu nhiệt',    base:2.14,ic:'🌡️',unit:'$/gal',usd:true},
+    {sym:'PROP', nm:'Propane',      base:0.92,ic:'🔥',unit:'$/gal',usd:true},
+    {sym:'COAL', nm:'Than nhiệt điện',base:118,ic:'⚫',unit:'$/t',  usd:true},
+    {sym:'DUBAI',nm:'Dầu Dubai',    base:63.8,ic:'🛢️',unit:'$/bbl',usd:true},
   ],
   base:[
     {sym:'CU',nm:'Đồng (Copper)',   base:4.72,ic:'🔶',unit:'$/lb',usd:true},
@@ -739,6 +948,10 @@ const COMM={
     {sym:'ZN',nm:'Kẽm (Zinc)',      base:1.28,ic:'🪤',unit:'$/lb',usd:true},
     {sym:'NI',nm:'Niken (Nickel)',  base:7.42,ic:'🔩',unit:'$/lb',usd:true},
     {sym:'FE',nm:'Quặng sắt',       base:98.4,ic:'⚙️',unit:'$/t', usd:true},
+    {sym:'PB',nm:'Chì (Lead)',      base:0.92,ic:'⚫',unit:'$/lb',usd:true},
+    {sym:'SN',nm:'Thiếc (Tin)',     base:14.8,ic:'🥫',unit:'$/lb',usd:true},
+    {sym:'CO',nm:'Coban (Cobalt)',  base:16.2,ic:'🔷',unit:'$/lb',usd:true},
+    {sym:'LI',nm:'Lithium Carbonate',base:11.4,ic:'🔋',unit:'$/kg',usd:true},
   ],
   agri:[
     {sym:'CORN', nm:'Ngô (Corn)',    base:462, ic:'🌽',unit:'¢/bu',usd:false},
@@ -748,14 +961,33 @@ const COMM={
     {sym:'COFFE',nm:'Cà phê Arabica',base:3.18,ic:'☕',unit:'$/lb',usd:true},
     {sym:'COCOA',nm:'Cacao',        base:8420,ic:'🍫',unit:'$/t', usd:true},
     {sym:'CTTN', nm:'Bông (Cotton)',base:82.4,ic:'🌸',unit:'¢/lb',usd:false},
-    {sym:'RICE', nm:'Gạo (Rice)',   base:14.8,ic:'🍚',unit:'$/cwt',usd:false},
+    {sym:'RICE', nm:'Gạo (Rice)',   base:14.8,ic:'🍚',unit:'$/cwt',usd:true},
+    {sym:'OATS', nm:'Yến mạch',     base:342, ic:'🌾',unit:'¢/bu',usd:false},
+    {sym:'OJ',   nm:'Nước cam (OJ)',base:342, ic:'🍊',unit:'¢/lb',usd:false},
+    {sym:'LUMBER',nm:'Gỗ xẻ',       base:582, ic:'🪵',unit:'$/1000ft²',usd:true},
+    {sym:'MILK', nm:'Sữa (Class III)',base:18.2,ic:'🥛',unit:'$/cwt',usd:true},
+    {sym:'CATTLE',nm:'Bò thịt (Live Cattle)',base:198,ic:'🐄',unit:'¢/lb',usd:false},
+    {sym:'HOGS', nm:'Heo nạc (Lean Hogs)',base:88.4,ic:'🐖',unit:'¢/lb',usd:false},
+    {sym:'CANOLA',nm:'Cải dầu (Canola)',base:612,ic:'🌻',unit:'CAD/t',usd:false,ccy:'CAD'},
+    {sym:'PALM', nm:'Dầu cọ (Palm Oil)',base:3820,ic:'🌴',unit:'MYR/t',usd:false,ccy:'MYR'},
+    {sym:'RUBB', nm:'Cao su (Rubber)', base:172,ic:'🌳',unit:'¢/kg', usd:false},
   ]
 };
 
 function mkComm(c){
   const p=rng(c.base,1.8), pct=rp(2);
   const abs=(Math.abs(p*pct/100)).toFixed(2);
-  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:'$'+(p<10?p.toFixed(3):p.toFixed(2)),usd:c.usd?p:null,pct,abs:(pct>=0?'+':'')+'$'+abs,m1:c.unit,m2:''},'cc','var(--a2)');
+  // Quy đổi VND đúng theo từng loại đơn vị:
+  // - usd:true → giá đã là USD
+  // - có ccy riêng (CAD/MYR...) → đổi qua tỷ giá thật trước khi ra USD
+  // - còn lại (usd:false, không ccy) → giá tính bằng CENT, chia 100 để ra USD
+  let usdVal;
+  if(c.usd) usdVal = p;
+  else if(c.ccy){ const r=FX_RATES[c.ccy]||FX_FB[c.ccy]||1; usdVal = p/r; }
+  else usdVal = p/100;
+  const priceLabel = c.ccy ? (p<10?p.toFixed(3):p.toFixed(2))+' '+c.ccy : '$'+(p<10?p.toFixed(3):p.toFixed(2));
+  const changeLabel = c.ccy ? (pct>=0?'+':'')+abs+' '+c.ccy : (pct>=0?'+':'')+'$'+abs;
+  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,abs:changeLabel,m1:c.unit,m2:''},'cc','var(--a2)');
 }
 
 function renderComm(){
@@ -797,6 +1029,28 @@ const FX_PAIRS={
     {sym:'TRY/VND',nm:'Lira Thổ',    ccy:'TRY',ic:'🇹🇷',m1:'TCMB'},
     {sym:'NOK/VND',nm:'Krone Na Uy',  ccy:'NOK',ic:'🇳🇴',m1:'Norges'},
     {sym:'SEK/VND',nm:'Krona Thụy Điển',ccy:'SEK',ic:'🇸🇪',m1:'Riksbank'},
+  ],
+  cross:[
+    {base:'EUR',quote:'USD',nm:'Euro / Đô Mỹ',        ic:'🇪🇺🇺🇸'},
+    {base:'GBP',quote:'USD',nm:'Bảng Anh / Đô Mỹ',    ic:'🇬🇧🇺🇸'},
+    {base:'USD',quote:'JPY',nm:'Đô Mỹ / Yên Nhật',    ic:'🇺🇸🇯🇵'},
+    {base:'AUD',quote:'USD',nm:'Đô Úc / Đô Mỹ',       ic:'🇦🇺🇺🇸'},
+    {base:'USD',quote:'CHF',nm:'Đô Mỹ / Franc Thụy Sĩ',ic:'🇺🇸🇨🇭'},
+    {base:'USD',quote:'CAD',nm:'Đô Mỹ / Đô Canada',   ic:'🇺🇸🇨🇦'},
+    {base:'EUR',quote:'GBP',nm:'Euro / Bảng Anh',      ic:'🇪🇺🇬🇧'},
+    {base:'EUR',quote:'JPY',nm:'Euro / Yên Nhật',      ic:'🇪🇺🇯🇵'},
+    {base:'GBP',quote:'JPY',nm:'Bảng Anh / Yên Nhật',  ic:'🇬🇧🇯🇵'},
+    {base:'AUD',quote:'JPY',nm:'Đô Úc / Yên Nhật',     ic:'🇦🇺🇯🇵'},
+    {base:'EUR',quote:'CHF',nm:'Euro / Franc Thụy Sĩ', ic:'🇪🇺🇨🇭'},
+    {base:'GBP',quote:'CHF',nm:'Bảng Anh / Franc TS',  ic:'🇬🇧🇨🇭'},
+    {base:'CHF',quote:'JPY',nm:'Franc TS / Yên Nhật',  ic:'🇨🇭🇯🇵'},
+    {base:'AUD',quote:'NZD',nm:'Đô Úc / Đô NZ',        ic:'🇦🇺🇳🇿'},
+    {base:'EUR',quote:'AUD',nm:'Euro / Đô Úc',         ic:'🇪🇺🇦🇺'},
+    {base:'USD',quote:'CNY',nm:'Đô Mỹ / Nhân dân tệ',ic:'🇺🇸🇨🇳'},
+    {base:'USD',quote:'SGD',nm:'Đô Mỹ / Đô Singapore', ic:'🇺🇸🇸🇬'},
+    {base:'USD',quote:'HKD',nm:'Đô Mỹ / Đô Hong Kong', ic:'🇺🇸🇭🇰'},
+    {base:'EUR',quote:'CAD',nm:'Euro / Đô Canada',     ic:'🇪🇺🇨🇦'},
+    {base:'GBP',quote:'AUD',nm:'Bảng Anh / Đô Úc',     ic:'🇬🇧🇦🇺'},
   ]
 };
 
@@ -807,16 +1061,24 @@ function mkFX(p){
   return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,abs:(pct>=0?'+':'')+Math.round(abs)+'₫',m1:p.m1,m2:'Liên ngân hàng'},'cfx','var(--gn)');
 }
 
+function mkFXCross(p){
+  const rate=crossRate(p.base,p.quote), pr=rng(rate,.2), pct=rp(.3);
+  const abs=Math.abs(pr*pct/100);
+  const dp = pr>=10?2:4; // Yên Nhật quy ước 2 số thập phân, còn lại 4 số
+  return card({sym:p.base+'/'+p.quote,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,abs:(pct>=0?'+':'')+abs.toFixed(dp),m1:'Cặp chéo',m2:'Forex'},'cfx','var(--gn)');
+}
+
 function renderFX(){
   html('fxMajor', FX_PAIRS.major.map(mkFX).join(''));
   html('fxAsia',  FX_PAIRS.asia.map(mkFX).join(''));
   html('fxOther', FX_PAIRS.other.map(mkFX).join(''));
+  html('fxCross', FX_PAIRS.cross.map(mkFXCross).join(''));
   // update status bar + overview
   const usdRate=xrate('USD'), fmt=v=>Math.round(v).toLocaleString('vi-VN');
   const pct=rp(.25);
   const e=$('stFx'); if(e) e.textContent=fmt(usdRate)+'₫';
   const ov1=$('ovFx'); if(ov1) ov1.textContent=fmt(usdRate)+' ₫';
-  const ov2=$('ovFxC'); if(ov2){ov2.textContent=(pct>=0?'▲ +':'▼ ')+Math.abs(pct).toFixed(3)+'%';ov2.style.color=pct>=0?'var(--rd)':'var(--gn)';}
+  const ov2=$('ovFxC'); if(ov2){ov2.textContent=(pct>=0?'▲ +':'▼ ')+Math.abs(pct).toFixed(3)+'%';ov2.style.color=pct>=0?'var(--gn)':'var(--rd)';}
 }
 
 // ─── DATA: VN ──────────────────────────────
@@ -893,9 +1155,9 @@ function mkVN(s, api){
   return `<div class="cd cv">` +
     `<div class="ct"><div><div class="cy">${s.sym}</div><div class="cn" title="${s.nm}">${s.nm}</div></div><div class="co">${s.ic}</div></div>` +
     `<div class="cp">${(price/1000).toFixed(1)}k ₫</div>` +
-    `<div class="cv2">≈ $${usdEq.toFixed(2)}</div>` +
+    `<div class="cv2">$${usdEq.toFixed(2)}</div>` +
     `<div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div>` +
-    `<div class="csp">${spark(u,'var(--vn)')}</div>` +
+    `<div class="csp">${spark(u,col)}</div>` +
     `<div class="cm"><span>HOSE</span></div>` +
     `</div>`;
 }
@@ -1151,7 +1413,7 @@ function renderOverviewSim(){
     if(!s) return '';
     const p=rng(s.base,1.5), pct=rp(2), abs=Math.abs(p*pct/100);
     const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
-    return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">≈ $${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(u,'var(--vn)')}</div><div class="cm"><span>HOSE</span></div></div>`;
+    return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">$${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(u,col)}</div><div class="cm"><span>HOSE</span></div></div>`;
   }).join(''));
   // Global preview (6 stocks)
   html('ovStPrev', STOCKS.usTech.slice(0,6).map(mkSt).join(''));
