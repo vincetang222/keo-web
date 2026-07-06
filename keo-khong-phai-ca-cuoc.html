@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#1A3A28">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>"Kèo" — không phải kèo cá cược | Kèo</title>
-<meta name="description" content="Kèo không phải kèo cá cược thể thao. Kèo là buổi gặp gỡ có chiều sâu giữa hai người tại địa điểm công cộng."Kèo" và tìm thấy trang này, có thể bạn đang bị nhầm. Hoặc không nhầm.">
+<meta name="description" content="Kèo không phải kèo cá cược thể thao. Kèo là buổi gặp gỡ có chiều sâu giữa hai người tại địa điểm công cộng.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/keo-khong-phai-ca-cuoc">
 <meta property="og:type" content="article">
@@ -16,114 +13,353 @@
 <meta property="og:url" content="https://keo.social/keo-khong-phai-ca-cuoc">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
-<link rel="stylesheet" href="/style.css"></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+
+.zone-dark{background:#17120D;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:720px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
+
+.article-hero{max-width:720px;margin:0 auto;padding:44px 32px 30px;position:relative;overflow:hidden}
+.article-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 50% 20%,color-mix(in srgb,var(--a) 22%,transparent),transparent 60%)}
+.breadcrumb{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.breadcrumb::before{content:"";width:16px;height:2px;background:var(--a)}
+h1.art-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:600;letter-spacing:-.012em;line-height:1.24;color:#F5EFE6;margin-bottom:18px}
+h1.art-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.art-meta{position:relative;z-index:2;display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(245,239,230,.42)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(245,239,230,.3)}
+.tags{position:relative;z-index:2;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(245,239,230,.55)}
+
+.art-illo{max-width:760px;margin:32px auto 0;padding:0 32px}
+.art-illo-frame{background:var(--s2);border-radius:18px;overflow:hidden;border:1px solid var(--rim2)}
+.art-illo-frame svg{width:100%;height:auto;display:block}
+.art-illo-cap{font-size:11px;color:var(--i3);text-align:center;margin-top:10px;margin-bottom:8px;font-style:italic}
+
+.art-body{max-width:640px;margin:0 auto;padding:32px 32px 8px}
+.art-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--i2);margin-bottom:22px}
+.art-body p.lead{font-size:18px;color:var(--ink);padding-left:20px;border-left:3px solid var(--a)}
+.art-body h2{font-family:'Playfair Display',serif;font-size:23px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.art-body h2::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--a);flex-shrink:0}
+.art-body h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--ink);margin:26px 0 12px}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-pull{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;font-weight:600;line-height:1.5;color:var(--ink);padding:8px 26px 8px 54px;margin:32px 0;background:color-mix(in srgb,var(--a) 6%,transparent);border-radius:14px}
+.art-pull::before{content:"\201C";position:absolute;top:-8px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:700;font-style:normal;color:var(--a);opacity:.7;line-height:1}
+.art-pull span{position:relative;z-index:2}
+
+/* COMPARE TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.comp-col{border-radius:16px;padding:22px}
+.comp-col.no{background:var(--s2);border:1px solid var(--rim2)}
+.comp-col.yes{background:#17120D;border:1px solid rgba(240,234,225,.1)}
+.comp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.comp-col.no .comp-title{color:var(--i3)}
+.comp-col.yes .comp-title{color:var(--gold)}
+.comp-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.comp-col li{font-size:13.5px;line-height:1.5;padding-left:16px;position:relative}
+.comp-col.no li{color:var(--i2)}
+.comp-col.yes li{color:rgba(245,239,230,.8)}
+.comp-col.yes strong{color:#fff}
+.comp-col li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%}
+.comp-col.no li::before{background:var(--i3)}
+.comp-col.yes li::before{background:var(--gold)}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+.sources{border-top:1px solid var(--rim);margin-top:48px;padding-top:24px}
+.sources h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:14px}
+.sources ol{padding-left:18px;display:flex;flex-direction:column;gap:10px}
+.sources li{font-size:12px;color:var(--i3);line-height:1.65}
+.sources li em{font-style:italic}
+
+.art-cta{max-width:640px;margin:24px auto 0;padding:0 32px}
+.art-cta-inner{background:radial-gradient(ellipse 90% 100% at 15% 0%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 55%),radial-gradient(ellipse 90% 100% at 100% 100%,color-mix(in srgb,var(--a2) 18%,transparent),transparent 55%),#17120D;border:1px solid rgba(240,234,225,.12);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.art-cta-inner h3{position:relative;z-index:2;color:#F5EFE6;font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.art-cta-inner p{position:relative;z-index:2;color:rgba(245,239,230,.6);font-size:13px;margin-bottom:18px}
+.art-cta-inner strong{color:#F5EFE6}
+.art-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:12px 26px;border-radius:100px;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;position:relative;z-index:2}
+
+.related-section{max-width:760px;margin:8px auto 0;padding:36px 32px 8px}
+.related-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.related-eyebrow::before{content:"";width:16px;height:2px;background:var(--a)}
+.related-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rel-card{background:var(--s1);border:1px solid var(--rim);border-radius:14px;overflow:hidden;transition:all .22s;display:block}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,21,16,.09);border-color:var(--rim2)}
+.rel-cover{height:100px;position:relative;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.rel-cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.rel-cover-ket-noi{background:linear-gradient(135deg,var(--gold),var(--a) 55%,var(--a2))}
+.rel-cover-kynang{background:linear-gradient(135deg,color-mix(in srgb,#6C63C4 75%,var(--gold) 25%),#6C63C4 55%,color-mix(in srgb,#6C63C4 65%,#000 35%))}
+.rel-cover-nghi-thuc{background:linear-gradient(135deg,color-mix(in srgb,#2E9E8C 75%,var(--gold) 25%),#2E9E8C 55%,color-mix(in srgb,#2E9E8C 65%,#000 35%))}
+.rel-cover-dothi{background:linear-gradient(135deg,color-mix(in srgb,#C08A2E 80%,var(--gold) 20%),#C08A2E 55%,color-mix(in srgb,#C08A2E 65%,#000 30%))}
+.rel-illo{position:absolute;bottom:0;right:4px;width:56px;height:56px;pointer-events:none;z-index:1}
+.rel-illo svg{width:100%;height:100%}
+.rel-cat{position:relative;z-index:2;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rel-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25);max-width:75%}
+
+.faq-section{max-width:640px;margin:24px auto 0;padding:40px 32px 8px}
+.faq-section-inner{background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--a) 4%,var(--s2)));border-radius:20px;padding:32px}
+.faq-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.faq-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:22px}
+.faq{border:1px solid var(--rim2);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--s1);transition:border-color .2s}
+.faq:last-child{margin-bottom:0}
+.faq.open{border-color:color-mix(in srgb,var(--a) 35%,transparent);box-shadow:0 4px 16px rgba(26,21,16,.06)}
+.faq-q{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.faq-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff;background:var(--a);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:600;flex:1}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:13px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--a);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 18px 18px 58px;font-size:13.5px;font-weight:300;color:var(--i2);line-height:1.7}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
+.foot-in{max-width:760px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:640px){
+  .nav-in,.article-hero,.art-illo,.art-body,.faq-section,.art-cta,.related-section{padding-left:20px;padding-right:20px}
+  .related-grid{grid-template-columns:1fr}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r">
-    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
-    <button class="lang-toggle" id="lang-toggle">EN</button>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
-<div class="hero">
-  <div class="cat"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
-  <h1><span class="vi">"Kèo" —<br>không phải <em>kèo cá cược</em></span><span class="en">"Kèo" —<br>Not <em>Sports Betting</em></span></h1>
-  <div class="hero-meta"><span class="vi">Kèo · 3 phút đọc</span><span class="en">Kèo · 3 min read</span></div>
-</div>
-<div class="wrap">
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">Góc nhìn · Kèo</span><span class="en">Perspective · Kèo</span></div>
+  <h1 class="art-title"><span class="vi">"Kèo" — không phải <em>kèo cá cược</em></span><span class="en">"Kèo" — Not <em>Sports Betting</em></span></h1>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">3 phút đọc</span><span class="en">3 min read</span>
+  </div>
   <div class="tags">
     <span class="tag"><span class="vi">kèo là gì</span><span class="en">what is kèo</span></span>
-    <span class="tag"><span class="vi">kèo cá cược</span><span class="en">sports betting</span></span>
     <span class="tag">keo.social</span>
   </div>
+</div>
+</div>
 
-  <p><span class="vi">Nếu bạn Google "Kèo" và tìm thấy trang này, có thể bạn đang bị nhầm.</span><span class="en">If you Googled "Kèo" and landed here, you might be in the wrong place.</span></p>
+<div class="art-illo">
+  <div class="art-illo-frame">
+<svg viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig11" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
+<path d="M270 100 L310 100 L310 140 L270 140Z" fill="none" stroke="var(--i3)" stroke-width="2" opacity=".5"/>
+<circle cx="285" cy="115" r="2.5" fill="var(--i3)" opacity=".5"/><circle cx="295" cy="125" r="2.5" fill="var(--i3)" opacity=".5"/>
+<line x1="265" y1="95" x2="315" y2="145" stroke="var(--i3)" stroke-width="2" opacity=".4"/>
+<path d="M424 230 Q424 196 440 196 Q456 196 456 230Z" fill="url(#ig11)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="440" cy="176" r="22" fill="url(#ig11)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="434" cy="172" r="2.2" fill="#1A1510"/><circle cx="446" cy="172" r="2.2" fill="#1A1510"/>
+<path d="M434 181 Q440 186 446 181" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+<path d="M405 165 L395 155 M415 160 L410 148" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+</svg>
+  </div>
+  <div class="art-illo-cap"><span class="vi">Minh hoạ: bảng tỷ lệ cá cược gạch chéo, một lời mời chân thành bên cạnh.</span><span class="en">Illustration: a crossed-out betting board, a genuine invitation beside it.</span></div>
+</div>
 
-  <p><span class="vi">Hoặc không nhầm — và bạn đang tò mò về một thứ khác hoàn toàn.</span><span class="en">Or maybe not — and you're curious about something completely different.</span></p>
+<div class="art-body">
 
+  <p class="lead"><span class="vi">Nếu bạn Google "Kèo" và tìm thấy trang này, có thể bạn đang bị nhầm. Hoặc không nhầm — và bạn đang tò mò về một thứ khác hoàn toàn.</span><span class="en">If you Googled "Kèo" and landed here, you might be in the wrong place. Or maybe not — and you're curious about something completely different.</span></p>
   <h2><span class="vi">"Kèo" có mấy nghĩa?</span><span class="en">How Many Meanings Does "Kèo" Have?</span></h2>
-
-  <div class="meaning-box">
-    <div class="meaning-row">
-      <div class="meaning-word"><span class="vi">Kèo nhà</span><span class="en">Kèo (roof)</span></div>
-      <div class="meaning-def"><span class="vi">Thanh gỗ hoặc sắt đỡ mái nhà. Kiến trúc truyền thống.</span><span class="en">A wooden or metal beam supporting the roof. Traditional architecture.</span></div>
+  <div class="compare">
+    <div class="comp-col no">
+      <div class="comp-title"><span class="vi">Nghĩa khác</span><span class="en">Other Meanings</span></div>
+      <ul>
+        <li><span class="vi"><strong>Kèo nhà</strong> — thanh gỗ đỡ mái nhà</span><span class="en"><strong>Kèo (roof)</strong> — a beam supporting the roof</span></li>
+        <li><span class="vi"><strong>Kèo bóng đá</strong> — tỷ lệ cá cược trận đấu</span><span class="en"><strong>Kèo (betting)</strong> — odds in a match</span></li>
+      </ul>
     </div>
-    <div class="meaning-row">
-      <div class="meaning-word"><span class="vi">Kèo bóng đá</span><span class="en">Kèo (betting)</span></div>
-      <div class="meaning-def"><span class="vi">Tỷ lệ cá cược trong trận đấu. Cái mà bạn đang tìm nếu search nhầm.</span><span class="en">Betting odds in a match. What you were probably looking for.</span></div>
-    </div>
-    <div class="meaning-row highlight">
-      <div class="meaning-word"><span class="vi">Kèo (miền Nam)</span><span class="en">Kèo (Southern VN)</span></div>
-      <div class="meaning-def"><span class="vi">Một lời mời, một đề nghị — "mày có kèo không?" tức là có kế hoạch đi đâu không, có chỗ vui không.</span><span class="en">An invitation, a plan — "you got a kèo?" means do you have somewhere to go, something fun to do.</span></div>
+    <div class="comp-col yes">
+      <div class="comp-title"><span class="vi">Nghĩa mình chọn</span><span class="en">The Meaning We Chose</span></div>
+      <ul>
+        <li><span class="vi"><strong>Kèo (miền Nam)</strong> — một lời mời, một đề nghị</span><span class="en"><strong>Kèo (Southern VN)</strong> — an invitation, a plan</span></li>
+        <li><span class="vi">"Mày có kèo không?" — có kế hoạch gì vui không</span><span class="en">"You got a kèo?" — got something fun to do?</span></li>
+      </ul>
     </div>
   </div>
-
-  <p><span class="vi">Mình chọn tên Kèo từ nghĩa thứ ba. Nhẹ nhàng, thân mật, không áp lực. Không phải hẹn hò, không phải công việc — chỉ là một lời rủ đi chơi, được sắp xếp tử tế hơn một chút.</span><span class="en">We chose the name Kèo from the third meaning. Light, familiar, no pressure. Not a date, not work — just an invitation to go out, arranged a little more thoughtfully.</span></p>
-
+  <p><span class="vi">Mình chọn tên Kèo từ nghĩa thứ ba. Nhẹ nhàng, thân mật, không áp lực. Không phải hẹn hò, không phải công việc — chỉ là một lời rủ đi chơi, được sắp xếp tử tế hơn một chút.</span><span class="en">We chose the name from the third meaning. Light, familiar, no pressure. Not a date, not work — just an invitation, arranged a little more thoughtfully.</span></p>
   <h2><span class="vi">Vậy Kèo là gì?</span><span class="en">So What Is Kèo?</span></h2>
-
-  <p><span class="vi">Kèo là nền tảng kết nối <strong>Chủ xị</strong> — người muốn có một buổi tối thú vị — với <strong>Người đồng hành</strong> có chuyên môn và câu chuyện đáng nghe. Cà phê, bữa tối, triển lãm, wine bar. Minh bạch, an toàn, tại địa điểm công cộng.</span><span class="en">Kèo is a platform connecting <strong>Hosts</strong> — people who want an interesting evening — with <strong>Companions</strong> who have real expertise and stories worth hearing. Coffee, dinner, gallery, wine bar. Transparent, safe, at public venues.</span></p>
-
-  <p><span class="vi">Không có cá cược. Không có rủi ro. Không có swipe hay match kiểu dating app. Chỉ có một buổi gặp gỡ được sắp xếp — và Kèo lo phần kết nối cho bạn.</span><span class="en">No betting. No risk. No swiping or matching like a dating app. Just a well-arranged meetup — and Kèo handles the connection for you.</span></p>
-
-  <blockquote><p><span class="vi">Kèo cá cược thì bạn thắng hoặc thua. Kèo của mình thì cả hai bên đều được — một buổi tối đáng nhớ.</span><span class="en">In sports betting you win or lose. In our Kèo, both sides win — a memorable evening.</span></p></blockquote>
-
+  <p><span class="vi">Kèo là nền tảng kết nối <strong>Chủ xị</strong> — người muốn có buổi tối thú vị — với <strong>Người đồng hành</strong> có chuyên môn và câu chuyện đáng nghe. Minh bạch, an toàn, tại địa điểm công cộng.</span><span class="en">Kèo connects <strong>Hosts</strong> — people wanting an interesting evening — with <strong>Companions</strong> with real expertise. Transparent, safe, at public venues.</span></p>
+  <div class="art-pull"><span><span class="vi">Kèo cá cược thì bạn thắng hoặc thua. Kèo của mình thì cả hai bên đều được — một buổi tối đáng nhớ.</span><span class="en">In sports betting you win or lose. In our Kèo, both sides win — a memorable evening.</span></span></div>
   <h2><span class="vi">Tại sao lại đặt tên dễ nhầm như vậy?</span><span class="en">Why Choose Such a Confusing Name?</span></h2>
+  <p><span class="vi">Người tìm "kèo bóng đá" sẽ không ở lại đây lâu — và mình cũng không cần họ ở lại. Người tò mò về gặp gỡ có chiều sâu sẽ đọc tiếp. Và nếu bạn đang đọc đến đây — chào mừng 🌿</span><span class="en">People searching "kèo bóng đá" won't stay long — and we don't need them to. People curious about meaningful connection will keep reading. And if you're reading this far — welcome 🌿</span></p>
 
-  <p><span class="vi">Thật ra mình không thấy đó là vấn đề. Người tìm "kèo bóng đá" sẽ không ở lại đây lâu — và mình cũng không cần họ ở lại. Người tò mò về concept gặp gỡ có chiều sâu sẽ đọc tiếp.</span><span class="en">Honestly, we don't see it as a problem. People searching "kèo bóng đá" won't stay long — and we don't need them to. People curious about meaningful connection will keep reading.</span></p>
+</div>
 
-  <p><span class="vi">Và nếu bạn đang đọc đến đây — bạn thuộc nhóm thứ hai. Chào mừng 🌿</span><span class="en">And if you're reading this far — you're in the second group. Welcome 🌿</span></p>
-
-  <div class="divider"></div>
-
-  <div class="cta-box">
+<div class="art-cta">
+  <div class="art-cta-inner">
     <h3><span class="vi">Đặt Kèo đầu tiên của bạn</span><span class="en">Place Your First Kèo</span></h3>
     <p><span class="vi">Không cá cược, không rủi ro — chỉ cần cho Kèo biết bạn muốn gì.</span><span class="en">No betting, no risk — just tell Kèo what you're looking for.</span></p>
-    <a href="/register#host"><span class="vi">Bắt đầu ngay 🌿</span><span class="en">Get Started 🌿</span></a>
+    <a href="/register#host" class="art-cta-btn">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
   </div>
+</div>
 
-  <p style="font-size:14px;color:var(--t3);text-align:center">
-    <span class="vi">Xem thêm: <a href="/keo-danh-cho-ai" style="color:var(--g)">Kèo dành cho ai?</a> · <a href="/keo-khac-gi-dating-app" style="color:var(--g)">Kèo khác gì dating app?</a></span>
-    <span class="en">Read more: <a href="/keo-danh-cho-ai" style="color:var(--g)">Who is Kèo for?</a> · <a href="/keo-khac-gi-dating-app" style="color:var(--g)">How is Kèo different from dating apps?</a></span>
-  </p>
-<div class="related">
-  <div class="related-head">
-    <div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div>
-    <a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
-  </div>
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Also recommended</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></h2>
   <div class="related-grid">
-    <a href="/keo-danh-cho-ai" class="related-card featured">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Kèo dành cho ai</span><span class="en">Who Is Kèo For</span></div>
-    </a><a href="/lan-dau-tao-keo" class="related-card ">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Lần đầu tạo Kèo không biết bắt đầu từ đâu</span><span class="en">First Time Creating a Kèo</span></div>
-    </a><a href="/cach-dat-cau-hoi" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Cách đặt câu hỏi để cuộc trò chuyện không bao giờ cạn</span><span class="en">How to Ask Questions That Keep a Conversation Going Deeper</span></div>
-    </a><a href="/nguoi-viet-va-noi-so-di-mot-minh" class="related-card ">
-      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
-      <div class="related-card-title"><span class="vi">Người Việt và nỗi sợ đi một mình</span><span class="en">Vietnamese Culture and the Fear of Going Alone</span></div>
-    </a><a href="/nghe-thuat-ke-chuyen-trong-tro-chuyen" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Nghệ thuật kể chuyện trong trò chuyện</span><span class="en">The Art of Storytelling in Conversation</span></div>
+    <a href="/keo-danh-cho-ai" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Kèo dành cho ai?</span><span class="en">Who Is Kèo For?</span></div>
+      </div>
+    </a>
+    <a href="/lan-dau-tao-keo" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Lần đầu tạo Kèo — không biết bắt đầu từ đâu?</span><span class="en">First Time Creating a Kèo — Not Sure Where to Start?</span></div>
+      </div>
+    </a>
+    <a href="/cach-dat-cau-hoi" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Cách đặt câu hỏi để trò chuyện không bao giờ cạn</span><span class="en">How to Ask Questions That Keep Conversations Going</span></div>
+      </div>
+    </a>
+    <a href="/nguoi-viet-va-noi-so-di-mot-minh" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Người Việt và nỗi sợ đi một mình</span><span class="en">Vietnamese Culture and the Fear of Going Alone</span></div>
+      </div>
+    </a>
+    <a href="/bua-an-la-nghi-thuc-ket-noi" class="rel-card rv">
+      <div class="rel-cover rel-cover-nghi-thuc">
+        <span class="rel-cat"><span class="vi">Nghi thức</span><span class="en">Rituals</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M28 76 Q28 58 39 58 Q50 58 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="39" cy="46" r="13" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="34" cy="44" r="1.5" fill="#fff"/><circle cx="44" cy="44" r="1.5" fill="#fff"/><path d="M33 51 Q39 56 45 51" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M56 60 L56 68 Q56 72 60 72 L64 72 Q68 72 68 68 L68 60Z" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M68 63 Q73 63 73 66.5 Q73 70 68 70" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao bữa ăn là nghi thức kết nối quan trọng nhất</span><span class="en">Why the Shared Meal Is the Most Important Ritual</span></div>
+      </div>
+    </a>
+    <a href="/keo-khac-gi-dating-app" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Kèo khác gì dating app?</span><span class="en">How Is Kèo Different From a Dating App?</span></div>
+      </div>
     </a>
   </div>
 </div>
-</div>
+
+
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
+
 <script>
-var isEN=false;
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('lang-toggle');
-  if(btn){btn.addEventListener('click',function(){
-    isEN=!isEN;
-    btn.textContent=isEN?'VI':'EN';
-    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
-    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
-  });}
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
 });
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>
