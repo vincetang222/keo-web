@@ -1158,7 +1158,7 @@ function renderFX(){
   html('fxCross', FX_PAIRS.cross.map(mkFXCross).join(''));
   // update status bar + overview
   const usdRate=xrate('USD'), fmt=v=>Math.round(v).toLocaleString('vi-VN');
-  const pct=rp(.25);
+  const fxSt=sim('USDVNDCHG',100,.25), pct=fxSt.pct;
   const e=$('stFx'); if(e) e.textContent=fmt(usdRate)+'₫';
   const ov1=$('ovFx'); if(ov1) ov1.textContent=fmt(usdRate)+' ₫';
   const ov2=$('ovFxC'); if(ov2){ov2.textContent=(pct>=0?'▲ +':'▼ ')+Math.abs(pct).toFixed(3)+'%';ov2.style.color=pct>=0?'var(--gn)':'var(--rd)';}
@@ -1509,8 +1509,8 @@ async function renderVNIndices(){
 function renderSectorChips(){
   const s=['Ngân hàng','BĐS','Thép','Bán lẻ','Công nghệ','Điện','Dầu khí','Thực phẩm','Y tế','Chứng khoán'];
   html('chips', s.map(n=>{
-    const p=rp(2.5),u=p>=0,c=u?'var(--gn)':'var(--rd)',bg=u?'rgba(0,200,83,.07)':'rgba(245,51,79,.07)';
-    return `<div class="chip" style="background:${bg};border-color:${c}30;color:${c}"><span style="color:var(--ink-sub)">${n}</span><b>${u?'+':''}${p.toFixed(2)}%</b></div>`;
+    const st=sim('SECTOR-'+n,100,2.5), u=st.pct>=0,c=u?'var(--gn)':'var(--rd)',bg=u?'rgba(0,200,83,.07)':'rgba(245,51,79,.07)';
+    return `<div class="chip" style="background:${bg};border-color:${c}30;color:${c}"><span style="color:var(--ink-sub)">${n}</span><b>${u?'+':''}${st.pct.toFixed(2)}%</b></div>`;
   }).join(''));
 }
 
@@ -1752,10 +1752,11 @@ function renderOverviewSim(){
 
 // ─── TICKER ────────────────────────────────
 function renderTicker(){
+  const usdVndSt = sim('USDVNDCHG',100,.25); // dùng đúng 1 lần, tái sử dụng — tránh tiến 2 bước trong cùng 1 dòng
   const items=[
     ...STOCKS.usTech.slice(0,4).map(s=>{const st=sim(s.sym,s.base,1.5);return{sym:s.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
     ...COMM.metal.slice(0,2).map(c=>{const st=sim(c.sym,c.base,1.8);return{sym:c.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
-    {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:true,pct:rp(.25)},
+    {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:usdVndSt.pct>=0,pct:usdVndSt.pct},
     ...Object.values(VN).flat().slice(0,4).map(s=>{const st=sim(s.sym,s.base,1.5);return{sym:s.sym,pr:(st.price/1000).toFixed(1)+'k₫',u:st.pct>=0,pct:st.pct};}),
   ];
   const h=items.map(i=>`<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span><span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span></div>`).join('');
