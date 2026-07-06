@@ -1,140 +1,375 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-<title>Tại sao người trẻ ngại gọi điện hơn nhắn tin | Kèo</title>
-<meta name="description" content="Sherry Turkle tại MIT lý giải tại sao sự ưa thích nhắn tin hơn gọi điện phản ánh sự rút lui khỏi những khoảnh khắc đòi hỏi sự hiện diện thật.">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vì sao người trẻ ngại gọi điện hơn nhắn tin | Kèo</title>
+<meta name="description" content="Sherry Turkle (MIT): tại sao gọi điện đòi hỏi sự dễ tổn thương mà nhắn tin không có, và điều gì mất đi.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/tai-sao-nguoi-tre-ngai-goi-dien-hon-nhan-tin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tại sao người trẻ ngại gọi điện hơn nhắn tin">
-<meta property="og:description" content="Nhắn tin duy trì kết nối. Gọi điện tạo ra kết nối. Đây là hai việc khác nhau.">
+<meta property="og:title" content="Vì sao người trẻ ngại gọi điện hơn nhắn tin">
+<meta property="og:description" content="Nhắn tin duy trì kết nối. Gọi điện thực sự kết nối.">
 <meta property="og:url" content="https://keo.social/tai-sao-nguoi-tre-ngai-goi-dien-hon-nhan-tin">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
-<style>
-:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Be Vietnam Pro',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
-nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
-.logo span{color:var(--go)}
-.nav-r{display:flex;align-items:center;gap:12px}
-.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
-.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Be Vietnam Pro',sans-serif}
-.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
-.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
-.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
-.hero h1 em{font-style:italic;color:var(--go)}
-.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
-.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
-.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
-.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
-.wrap h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin:28px 0 12px}
-.wrap strong{color:var(--t1);font-weight:600}
-blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
-blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
-.spot-card{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:22px;margin-bottom:16px}
-.spot-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
-.spot-name{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin-bottom:6px}
-.spot-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:10px}
-.spot-meta{display:flex;gap:10px;flex-wrap:wrap}
-.spot-tag{font-size:12px;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.1);border-radius:100px;padding:3px 11px;color:var(--t2)}
-.spot-tag.price{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.2);color:#8a6a00}
-.divider{height:1px;background:var(--cr2);margin:44px 0}
-.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
-.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
-.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
-.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
-.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
-.tags{margin-bottom:32px}
-footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
-.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
-.fl span{color:var(--go)}
-.en{display:none}
-@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-.sources{border-top:1px solid var(--cr2);margin-top:56px;padding-top:20px}
-.sources h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
-.sources ol{padding-left:16px;display:flex;flex-direction:column;gap:6px}
-.sources li{font-size:11px;color:var(--t3);line-height:1.6}
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+
+.zone-dark{background:#17120D;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:720px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
+
+.article-hero{max-width:720px;margin:0 auto;padding:44px 32px 30px;position:relative;overflow:hidden}
+.article-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 50% 20%,color-mix(in srgb,var(--a) 22%,transparent),transparent 60%)}
+.breadcrumb{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.breadcrumb::before{content:"";width:16px;height:2px;background:var(--a)}
+h1.art-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:600;letter-spacing:-.012em;line-height:1.24;color:#F5EFE6;margin-bottom:18px}
+h1.art-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.art-meta{position:relative;z-index:2;display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(245,239,230,.42)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(245,239,230,.3)}
+.tags{position:relative;z-index:2;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(245,239,230,.55)}
+
+.art-illo{max-width:760px;margin:32px auto 0;padding:0 32px}
+.art-illo-frame{background:var(--s2);border-radius:18px;overflow:hidden;border:1px solid var(--rim2)}
+.art-illo-frame svg{width:100%;height:auto;display:block}
+.art-illo-cap{font-size:11px;color:var(--i3);text-align:center;margin-top:10px;margin-bottom:8px;font-style:italic}
+
+.art-body{max-width:640px;margin:0 auto;padding:32px 32px 8px}
+.art-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--i2);margin-bottom:22px}
+.art-body p.lead{font-size:18px;color:var(--ink);padding-left:20px;border-left:3px solid var(--a)}
+.art-body h2{font-family:'Playfair Display',serif;font-size:23px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.art-body h2::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--a);flex-shrink:0}
+.art-body h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--ink);margin:26px 0 12px}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-pull{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;font-weight:600;line-height:1.5;color:var(--ink);padding:8px 26px 8px 54px;margin:32px 0;background:color-mix(in srgb,var(--a) 6%,transparent);border-radius:14px}
+.art-pull::before{content:"\201C";position:absolute;top:-8px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:700;font-style:normal;color:var(--a);opacity:.7;line-height:1}
+.art-pull span{position:relative;z-index:2}
+
+/* COMPARE TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.comp-col{border-radius:16px;padding:22px}
+.comp-col.no{background:var(--s2);border:1px solid var(--rim2)}
+.comp-col.yes{background:#17120D;border:1px solid rgba(240,234,225,.1)}
+.comp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.comp-col.no .comp-title{color:var(--i3)}
+.comp-col.yes .comp-title{color:var(--gold)}
+.comp-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.comp-col li{font-size:13.5px;line-height:1.5;padding-left:16px;position:relative}
+.comp-col.no li{color:var(--i2)}
+.comp-col.yes li{color:rgba(245,239,230,.8)}
+.comp-col li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%}
+.comp-col.no li::before{background:var(--i3)}
+.comp-col.yes li::before{background:var(--gold)}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+.sources{border-top:1px solid var(--rim);margin-top:48px;padding-top:24px}
+.sources h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:14px}
+.sources ol{padding-left:18px;display:flex;flex-direction:column;gap:10px}
+.sources li{font-size:12px;color:var(--i3);line-height:1.65}
 .sources li em{font-style:italic}
 
-.related{margin-top:56px;padding-top:24px;border-top:2px solid var(--g)}.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.related-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related-card{background:var(--cr);border:1px solid var(--cr2);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:all .18s}.related-card:hover{background:var(--cr2);transform:translateY(-1px)}.related-card.featured{grid-column:span 2;background:var(--g)}.related-card.featured:hover{background:var(--g2)}.related-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px}.related-card.featured .related-pill{color:rgba(201,168,76,.8)}.related-card-title{font-family:"Lora",serif;font-size:14px;font-weight:700;color:var(--t1);line-height:1.35}.related-card.featured .related-card-title{font-size:17px;color:var(--cr)}@media(max-width:500px){.related-grid{grid-template-columns:1fr}.related-card.featured{grid-column:span 1}}
-</style></head><body>
+.art-cta{max-width:640px;margin:24px auto 0;padding:0 32px}
+.art-cta-inner{background:radial-gradient(ellipse 90% 100% at 15% 0%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 55%),radial-gradient(ellipse 90% 100% at 100% 100%,color-mix(in srgb,var(--a2) 18%,transparent),transparent 55%),#17120D;border:1px solid rgba(240,234,225,.12);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.art-cta-inner h3{position:relative;z-index:2;color:#F5EFE6;font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.art-cta-inner p{position:relative;z-index:2;color:rgba(245,239,230,.6);font-size:13px;margin-bottom:18px}
+.art-cta-inner strong{color:#F5EFE6}
+.art-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:12px 26px;border-radius:100px;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;position:relative;z-index:2}
+
+.related-section{max-width:760px;margin:8px auto 0;padding:36px 32px 8px}
+.related-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.related-eyebrow::before{content:"";width:16px;height:2px;background:var(--a)}
+.related-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rel-card{background:var(--s1);border:1px solid var(--rim);border-radius:14px;overflow:hidden;transition:all .22s;display:block}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,21,16,.09);border-color:var(--rim2)}
+.rel-cover{height:100px;position:relative;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.rel-cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.rel-cover-ket-noi{background:linear-gradient(135deg,var(--gold),var(--a) 55%,var(--a2))}
+.rel-cover-kynang{background:linear-gradient(135deg,color-mix(in srgb,#6C63C4 75%,var(--gold) 25%),#6C63C4 55%,color-mix(in srgb,#6C63C4 65%,#000 35%))}
+.rel-cover-nghi-thuc{background:linear-gradient(135deg,color-mix(in srgb,#2E9E8C 75%,var(--gold) 25%),#2E9E8C 55%,color-mix(in srgb,#2E9E8C 65%,#000 35%))}
+.rel-cover-dothi{background:linear-gradient(135deg,color-mix(in srgb,#C08A2E 80%,var(--gold) 20%),#C08A2E 55%,color-mix(in srgb,#C08A2E 65%,#000 30%))}
+.rel-illo{position:absolute;bottom:0;right:4px;width:56px;height:56px;pointer-events:none;z-index:1}
+.rel-illo svg{width:100%;height:100%}
+.rel-cat{position:relative;z-index:2;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rel-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25);max-width:75%}
+
+.faq-section{max-width:640px;margin:24px auto 0;padding:40px 32px 8px}
+.faq-section-inner{background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--a) 4%,var(--s2)));border-radius:20px;padding:32px}
+.faq-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.faq-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:22px}
+.faq{border:1px solid var(--rim2);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--s1);transition:border-color .2s}
+.faq:last-child{margin-bottom:0}
+.faq.open{border-color:color-mix(in srgb,var(--a) 35%,transparent);box-shadow:0 4px 16px rgba(26,21,16,.06)}
+.faq-q{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.faq-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff;background:var(--a);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:600;flex:1}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:13px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--a);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 18px 18px 58px;font-size:13.5px;font-weight:300;color:var(--i2);line-height:1.7}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
+.foot-in{max-width:760px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:640px){
+  .nav-in,.article-hero,.art-illo,.art-body,.faq-section,.art-cta,.related-section{padding-left:20px;padding-right:20px}
+  .related-grid{grid-template-columns:1fr}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r">
-    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
-    <button class="lang-toggle" id="lang-toggle">EN</button>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
-<div class="hero">
-  <div class="cat"><span class="vi">Đô thị và Kết nối</span><span class="en">Urban Life and Connection</span></div>
-  <h1><span class="vi">Tại sao người trẻ<br>ngại <em>gọi điện</em><br>hơn nhắn tin</span><span class="en">Why Young People<br>Dread <em>Phone Calls</em><br>More Than Texts</span></h1>
-  <div class="hero-meta"><span class="vi">Kèo · 5 phút đọc</span><span class="en">Kèo · 5 min read</span></div>
-</div>
-<div class="wrap">
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">Đô thị · Kết nối</span><span class="en">Urban Life · Connection</span></div>
+  <h1 class="art-title"><span class="vi">Tại sao người trẻ ngại <em>gọi điện hơn nhắn tin</em></span><span class="en">Why Young People Dread <em>Phone Calls More Than Texts</em></span></h1>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">5 phút đọc</span><span class="en">5 min read</span>
+  </div>
   <div class="tags">
     <span class="tag"><span class="vi">giao tiếp</span><span class="en">communication</span></span>
-    <span class="tag"><span class="vi">thế hệ trẻ</span><span class="en">young generation</span></span>
     <span class="tag"><span class="vi">điện thoại</span><span class="en">phone calls</span></span>
   </div>
+</div>
+</div>
 
-  <p><span class="vi">Có một thay đổi nhỏ nhưng đáng chú ý trong cách người trẻ giao tiếp hiện nay: gọi điện thoại ngày càng trở thành điều người ta cần chuẩn bị tinh thần trước khi làm. Không phải vì họ không muốn nói chuyện. Mà vì cuộc gọi đòi hỏi sự hiện diện tức thì và không có kịch bản sẵn — điều mà nhắn tin không yêu cầu.</span><span class="en">There is a small but notable shift in how young people communicate today: making a phone call has increasingly become something people need to mentally prepare for beforehand. Not because they do not want to talk. But because a call demands immediate presence and has no prepared script — something text messaging does not require.</span></p>
-
-  <h2><span class="vi">Tại sao nhắn tin được ưa chuộng hơn</span><span class="en">Why Messaging Is Preferred</span></h2>
-
-  <p><span class="vi">Nhắn tin cho phép người ta kiểm soát thời gian phản hồi, chỉnh sửa trước khi gửi, và xử lý nhiều cuộc trò chuyện song song. Nó giảm thiểu rủi ro của sự im lặng bất ngờ, câu trả lời vụng về, hoặc cảm xúc bị lộ ra ngoài kế hoạch. Theo một nghiên cứu của Pew Research Center, hơn 80% người Mỹ trong độ tuổi 18-29 coi nhắn tin là hình thức liên lạc chính, ưa thích hơn cả gọi điện.</span><span class="en">Messaging allows people to control response time, edit before sending, and manage multiple conversations simultaneously. It minimises the risk of unexpected silence, awkward answers, or emotions being revealed unplanned. According to a Pew Research Center study, more than 80% of Americans aged 18-29 consider messaging their primary form of communication, preferred over phone calls.</span></p>
-
-  <h2><span class="vi">Cuộc gọi đòi hỏi sự dễ bị tổn thương</span><span class="en">A Call Demands Vulnerability</span></h2>
-
-  <p><span class="vi">Nhà nghiên cứu Sherry Turkle tại MIT trong cuốn sách Reclaiming Conversation xuất bản năm 2015 lập luận rằng sự ưa thích nhắn tin hơn gọi điện không chỉ là vấn đề tiện lợi. Nó phản ánh sự rút lui khỏi những khoảnh khắc đòi hỏi sự ứng xử tức thì, không có thời gian suy nghĩ, không có nút xóa. Đây chính xác là những gì làm cho cuộc gọi khó hơn — và cũng là những gì làm cho nó có giá trị hơn trong việc tạo ra kết nối thật.</span><span class="en">Researcher Sherry Turkle at MIT in her book Reclaiming Conversation published in 2015 argues that the preference for messaging over calling is not just about convenience. It reflects a withdrawal from moments that demand immediate response, without time to think, without a delete button. These are precisely what makes phone calls harder — and also what makes them more valuable in creating genuine connection.</span></p>
-
-  <h2><span class="vi">Điều mất đi khi gọi điện biến mất</span><span class="en">What Is Lost When Phone Calls Disappear</span></h2>
-
-  <p><span class="vi">Giọng nói mang thông tin mà văn bản không thể truyền tải: nhịp điệu, ngập ngừng, hơi thở, giọng nói run run khi xúc động. Nghiên cứu của Amit Kumar và Nicholas Epley tại Đại học Chicago cho thấy các cuộc trò chuyện qua giọng nói tạo ra cảm giác kết nối mạnh hơn đáng kể so với trao đổi qua văn bản, ngay cả khi nội dung giống nhau. Người ta đánh giá thấp sự khác biệt này trước khi thử — nhưng nhận ra nó ngay sau khi thực sự nói chuyện.</span><span class="en">Voice carries information that text cannot transmit: rhythm, hesitation, breath, a trembling voice when moved. Research by Amit Kumar and Nicholas Epley at the University of Chicago shows that voice conversations create a significantly stronger sense of connection than text exchanges, even when the content is identical. People underestimate this difference beforehand — but recognise it immediately after actually talking.</span></p>
-
-  <blockquote><p><span class="vi">Nhắn tin giúp bạn duy trì kết nối. Gọi điện giúp bạn thực sự kết nối. Đây là hai việc khác nhau.</span><span class="en">Messaging helps you maintain connection. Calling helps you actually connect. These are two different things.</span></p></blockquote>
-
-  <div class="divider"></div>
-  <div class="cta-box">
-    <h3><span class="vi">Gặp nhau trực tiếp — không cần màn hình nào</span><span class="en">Meet in Person — No Screen Needed</span></h3>
-    <p><span class="vi">Kèo kết nối bạn với người thật, tại địa điểm thật, không qua màn hình. Sự hiện diện đầy đủ của con người — thứ không app nào tái tạo được.</span><span class="en">Kèo connects you with a real person, at a real venue, without a screen. The full presence of a human being — something no app can replicate.</span></p>
-    <a href="/chu-xi"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
+<div class="art-illo">
+  <div class="art-illo-frame">
+<svg viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="e7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
+<path d="M344 228 Q344 195 360 195 Q376 195 376 228Z" fill="url(#e7)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="360" cy="176" r="22" fill="url(#e7)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="354" cy="172" r="2.2" fill="#1A1510"/><circle cx="366" cy="172" r="2.2" fill="#1A1510"/>
+<path d="M354 183 L366 183" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+<rect x="330" y="145" width="18" height="30" rx="4" fill="none" stroke="var(--rim2)" stroke-width="1.6" opacity=".6"/>
+<path d="M420 150 Q440 165 420 180" stroke="var(--a2)" stroke-width="2" fill="none" opacity=".6"/>
+<circle cx="435" cy="165" r="2.5" fill="var(--a2)" opacity=".6"/>
+</svg>
   </div>
+  <div class="art-illo-cap"><span class="vi">Minh hoạ: một người, điện thoại đổ chuông, sự do dự.</span><span class="en">Illustration: a person, a ringing phone, hesitation.</span></div>
+</div>
 
+<div class="art-body">
+
+  <p class="lead"><span class="vi">Có một thay đổi nhỏ nhưng đáng chú ý: gọi điện thoại ngày càng trở thành điều người ta cần chuẩn bị tinh thần trước khi làm. Không phải vì không muốn nói chuyện, mà vì cuộc gọi đòi hỏi sự hiện diện tức thì, không kịch bản.</span><span class="en">A small but notable shift: phone calls increasingly require mental preparation. Not from unwillingness to talk, but because calls demand immediate, unscripted presence.</span></p>
+  <h2><span class="vi">Tại sao nhắn tin được ưa chuộng hơn</span><span class="en">Why Messaging Is Preferred</span></h2>
+  <p><span class="vi">Nhắn tin cho phép kiểm soát thời gian phản hồi, chỉnh sửa trước khi gửi. Theo Pew Research Center, hơn 80% người Mỹ 18-29 tuổi coi nhắn tin là hình thức liên lạc chính, ưa thích hơn gọi điện.</span><span class="en">Messaging allows controlling response time and editing before sending. Per Pew Research Center, 80%+ of Americans 18-29 prefer texting over calling.</span></p>
+  <h2><span class="vi">Cuộc gọi đòi hỏi sự dễ bị tổn thương</span><span class="en">A Call Demands Vulnerability</span></h2>
+  <p><span class="vi">Sherry Turkle tại MIT trong <em>Reclaiming Conversation</em> (2015) lập luận rằng sự ưa thích nhắn tin phản ánh sự rút lui khỏi khoảnh khắc đòi hỏi ứng xử tức thì, không có nút xóa — chính xác là điều làm cho cuộc gọi khó hơn nhưng cũng giá trị hơn.</span><span class="en">Sherry Turkle at MIT in <em>Reclaiming Conversation</em> (2015) argues texting preference reflects withdrawal from moments requiring instant response, no delete button — exactly what makes calls harder but more valuable.</span></p>
+  <h2><span class="vi">Điều mất đi khi gọi điện biến mất</span><span class="en">What's Lost When Calls Disappear</span></h2>
+  <p><span class="vi">Giọng nói mang thông tin văn bản không truyền tải được: nhịp điệu, ngập ngừng, hơi thở. Nghiên cứu của Amit Kumar và Nicholas Epley tại Chicago cho thấy trò chuyện qua giọng nói tạo kết nối mạnh hơn đáng kể so với văn bản — dù nội dung giống nhau.</span><span class="en">Voice carries what text cannot: rhythm, hesitation, breath. Amit Kumar and Nicholas Epley's Chicago research shows voice conversations create significantly stronger connection than text, even with identical content.</span></p>
+  <div class="art-pull"><span><span class="vi">Nhắn tin giúp bạn duy trì kết nối. Gọi điện giúp bạn thực sự kết nối. Đây là hai việc khác nhau.</span><span class="en">Messaging maintains connection. Calling actually connects. Two different things.</span></span></div>
   <div class="sources">
     <h4><span class="vi">Nguồn tham khảo</span><span class="en">References</span></h4>
     <ol>
-      <li>Pew Research Center, <em>Teens, Technology and Friendships</em>, 2015. Dữ liệu về xu hướng nhắn tin ở người trẻ.</li>
+      <li>Pew Research Center, <em>Teens, Technology and Friendships</em>, 2015.</li>
       <li>Turkle, S., <em>Reclaiming Conversation: The Power of Talk in a Digital Age</em>. Penguin Press, 2015. MIT.</li>
-      <li>Kumar, A., &amp; Epley, N. (2021). <em>It's surprisingly nice to hear you: Misunderstanding the impact of communication media can lead to suboptimal choices of how to connect with others</em>. Journal of Experimental Psychology: General, 150(3), 595–607.</li>
+      <li>Kumar, A., &amp; Epley, N. (2021). <em>It's surprisingly nice to hear you</em>. Journal of Experimental Psychology: General, 150(3), 595–607.</li>
     </ol>
   </div>
 
-  <p style="font-size:14px;color:var(--t3);text-align:center;margin-top:28px">
-    <span class="vi">Xem thêm: <a href="/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem" style="color:var(--g)">Mạng xã hội 500 người theo dõi</a> · <a href="/lang-nghe-that-su" style="color:var(--g)">Lắng nghe thật sự</a></span>
-    <span class="en">Read more: <a href="/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem" style="color:var(--g)">Social media 500 followers</a> · <a href="/lang-nghe-that-su" style="color:var(--g)">Deep listening</a></span>
-  </p>
-<div class="related"><div class="related-head"><div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div><a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a></div><div class="related-grid"><a href="/work-from-home-va-cai-gia-an-cua-su-linh-hoat" class="related-card featured"><div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div><div class="related-card-title"><span class="vi">Làm việc từ xa và cái giá ẩn của sự linh hoạt</span><span class="en">Working from Home and the Hidden Cost of Flexibility</span></div></a><a href="/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a" class="related-card "><div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div><div class="related-card-title"><span class="vi">Seoul, Tokyo và Sài Gòn — những thành phố cô đơn nhất châu Á</span><span class="en">Seoul, Tokyo and Saigon — Asia's Loneliest Cities</span></div></a><a href="/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon" class="related-card "><div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div><div class="related-card-title"><span class="vi">Tại sao cùng trải qua khó khăn lại gắn kết người ta nhanh hơn</span><span class="en">Why Shared Hardship Bonds People More Quickly</span></div></a><a href="/tai-sao-nguoi-ta-kho-noi-loi-xin-loi-that-su" class="related-card "><div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div><div class="related-card-title"><span class="vi">Tại sao người ta khó nói lời xin lỗi thật sự</span><span class="en">Why It Is So Hard to Give a Genuine Apology</span></div></a><a href="/nghe-thuat-ke-chuyen-trong-tro-chuyen" class="related-card "><div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div><div class="related-card-title"><span class="vi">Nghệ thuật kể chuyện trong trò chuyện</span><span class="en">The Art of Storytelling in Conversation</span></div></a></div></div>
 </div>
+
+<div class="art-cta">
+  <div class="art-cta-inner">
+    <h3><span class="vi">Gặp nhau trực tiếp — không cần màn hình</span><span class="en">Meet in Person — No Screen Needed</span></h3>
+    <p><span class="vi">Kèo kết nối bạn với người thật, tại địa điểm thật — sự hiện diện đầy đủ không app nào tái tạo được.</span><span class="en">Kèo connects you with a real person, at a real venue — full presence no app replicates.</span></p>
+    <a href="/chu-xi" class="art-cta-btn">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
+  </div>
+</div>
+
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Also recommended</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></h2>
+  <div class="related-grid">
+    <a href="/work-from-home-va-cai-gia-an-cua-su-linh-hoat" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Work From Home và cái giá ẩn của sự linh hoạt</span><span class="en">Work From Home and the Hidden Cost of Flexibility</span></div>
+      </div>
+    </a>
+    <a href="/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Seoul, Tokyo và Sài Gòn — thành phố cô đơn nhất châu Á</span><span class="en">Seoul, Tokyo and Saigon — Asia's Loneliest Cities</span></div>
+      </div>
+    </a>
+    <a href="/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao cùng trải qua khó khăn lại gắn kết nhanh hơn</span><span class="en">Why Shared Hardship Bonds People Faster</span></div>
+      </div>
+    </a>
+    <a href="/tai-sao-nguoi-ta-kho-noi-loi-xin-loi-that-su" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao người ta khó nói lời xin lỗi thật sự</span><span class="en">Why It's So Hard to Give a Genuine Apology</span></div>
+      </div>
+    </a>
+    <a href="/nghe-thuat-ke-chuyen-trong-tro-chuyen" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Nghệ thuật kể chuyện trong trò chuyện</span><span class="en">The Art of Storytelling in Conversation</span></div>
+      </div>
+    </a>
+    <a href="/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">500 người theo dõi nhưng không ai gọi lúc 11 giờ đêm</span><span class="en">500 Followers But Nobody Calls at 11PM</span></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+<div class="faq-section">
+  <div class="faq-section-inner">
+  <div class="faq-eyebrow">FAQ</div>
+  <h2 class="faq-h2"><span class="vi">Câu hỏi thường gặp</span><span class="en">Frequently Asked Questions</span></h2>
+
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">1</span><span class="faq-q-text"><span class="vi">Bao nhiêu người trẻ ưa thích nhắn tin hơn gọi điện?</span><span class="en">How many young people prefer texting over calling?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Theo Pew Research Center, hơn 80% người Mỹ 18-29 tuổi coi nhắn tin là hình thức liên lạc chính.</span><span class="en">Per Pew Research Center, 80%+ of Americans aged 18-29 consider texting their primary communication form.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">2</span><span class="faq-q-text"><span class="vi">Sherry Turkle nói gì về việc này?</span><span class="en">What does Sherry Turkle say about this?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Trong Reclaiming Conversation, bà lập luận sự ưa thích nhắn tin phản ánh sự rút lui khỏi khoảnh khắc đòi hỏi ứng xử tức thì.</span><span class="en">In Reclaiming Conversation, she argues texting preference reflects withdrawal from moments requiring immediate response.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">3</span><span class="faq-q-text"><span class="vi">Giọng nói mang lại điều gì mà văn bản không có?</span><span class="en">What does voice offer that text doesn't?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Nhịp điệu, ngập ngừng, hơi thở — nghiên cứu tại Chicago cho thấy giọng nói tạo kết nối mạnh hơn đáng kể so với văn bản.</span><span class="en">Rhythm, hesitation, breath — Chicago research shows voice creates significantly stronger connection than text.</span></div></div>
+  </div>
+  </div>
+</div>
+
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
+
 <script>
-var isEN=false;
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('lang-toggle');
-  if(btn){btn.addEventListener('click',function(){
-    isEN=!isEN;
-    btn.textContent=isEN?'VI':'EN';
-    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
-    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
-  });}
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
 });
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>

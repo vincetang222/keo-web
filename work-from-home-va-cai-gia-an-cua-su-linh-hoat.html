@@ -1,194 +1,373 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-<title>Work from Home và cái giá ẩn của sự linh hoạt | Kèo</title>
-<meta name="description" content="Remote work tăng năng suất nhưng ăn mòn kết nối xã hội. Nghiên cứu từ Harvard và Buffer cho thấy điều gì thực sự bị mất.">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work From Home và cái giá ẩn của sự linh hoạt | Kèo</title>
+<meta name="description" content="Nghiên cứu Harvard: loại bỏ vách ngăn văn phòng giảm 70% giao tiếp trực tiếp. Buffer: 23% coi cô đơn là thách thức lớn nhất của remote work.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/work-from-home-va-cai-gia-an-cua-su-linh-hoat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Work from Home và cái giá ẩn của sự linh hoạt">
-<meta property="og:description" content="Năng suất tăng — nhưng kết nối xã hội đang mất dần.">
+<meta property="og:title" content="Work From Home và cái giá ẩn của sự linh hoạt">
+<meta property="og:description" content="Cái giá của sự linh hoạt cũng thật không kém.">
 <meta property="og:url" content="https://keo.social/work-from-home-va-cai-gia-an-cua-su-linh-hoat">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
-<style>
-:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Be Vietnam Pro',sans-serif;background:var(--w);color:var(--t1);line-height:1.7}
-nav{background:var(--g);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
-.logo span{color:var(--go)}
-.nav-r{display:flex;align-items:center;gap:12px}
-.back{font-size:12px;color:rgba(245,240,232,.5);text-decoration:none}
-.lang-toggle{background:none;border:1.5px solid rgba(245,240,232,.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;color:rgba(245,240,232,.7);font-family:'Be Vietnam Pro',sans-serif}
-.hero{background:var(--g);padding:56px 40px 72px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--w);clip-path:ellipse(60% 100% at 50% 100%)}
-.cat{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:16px}
-.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--cr);line-height:1.2;max-width:720px;margin-bottom:16px}
-.hero h1 em{font-style:italic;color:var(--go)}
-.hero-meta{font-size:13px;color:rgba(245,240,232,.45)}
-.wrap{max-width:680px;margin:0 auto;padding:48px 24px 80px}
-.wrap p{font-size:17px;color:var(--t2);margin-bottom:28px;line-height:1.85}
-.wrap h2{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--t1);margin:44px 0 16px}
-.wrap h3{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin:28px 0 12px}
-.wrap strong{color:var(--t1);font-weight:600}
-blockquote{border-left:3px solid var(--go);padding:16px 24px;margin:32px 0;background:rgba(201,168,76,.06);border-radius:0 12px 12px 0}
-blockquote p{margin:0;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--t1);line-height:1.7}
-.spot-card{background:var(--cr);border:1px solid var(--cr2);border-radius:14px;padding:22px;margin-bottom:16px}
-.spot-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
-.spot-name{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--t1);margin-bottom:6px}
-.spot-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:10px}
-.spot-meta{display:flex;gap:10px;flex-wrap:wrap}
-.spot-tag{font-size:12px;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.1);border-radius:100px;padding:3px 11px;color:var(--t2)}
-.spot-tag.price{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.2);color:#8a6a00}
-.divider{height:1px;background:var(--cr2);margin:44px 0}
-.cta-box{background:var(--g);border-radius:20px;padding:36px;text-align:center;margin:48px 0}
-.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:10px}
-.cta-box p{font-size:14px;color:rgba(245,240,232,.6);margin-bottom:24px}
-.cta-box a{display:inline-block;background:var(--go);color:var(--g);padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
-.tag{display:inline-block;background:rgba(26,58,40,.07);border:1px solid rgba(26,58,40,.12);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--t2);margin:0 4px 8px 0}
-.tags{margin-bottom:32px}
-footer{text-align:center;padding:28px;border-top:1px solid var(--cr2)}
-.fl{font-family:'Lora',serif;font-size:18px;font-weight:700;color:var(--g)}
-.fl span{color:var(--go)}
-.en{display:none}
-@media(max-width:600px){nav{padding:16px 18px}.hero{padding:40px 18px 56px}.wrap{padding:32px 16px 56px}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-.sources{border-top:1px solid var(--cr2);margin-top:56px;padding-top:20px}
-.sources h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
-.sources ol{padding-left:16px;display:flex;flex-direction:column;gap:6px}
-.sources li{font-size:11px;color:var(--t3);line-height:1.6}
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+
+.zone-dark{background:#17120D;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:720px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
+
+.article-hero{max-width:720px;margin:0 auto;padding:44px 32px 30px;position:relative;overflow:hidden}
+.article-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 50% 20%,color-mix(in srgb,var(--a) 22%,transparent),transparent 60%)}
+.breadcrumb{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.breadcrumb::before{content:"";width:16px;height:2px;background:var(--a)}
+h1.art-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:600;letter-spacing:-.012em;line-height:1.24;color:#F5EFE6;margin-bottom:18px}
+h1.art-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.art-meta{position:relative;z-index:2;display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(245,239,230,.42)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(245,239,230,.3)}
+.tags{position:relative;z-index:2;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(245,239,230,.55)}
+
+.art-illo{max-width:760px;margin:32px auto 0;padding:0 32px}
+.art-illo-frame{background:var(--s2);border-radius:18px;overflow:hidden;border:1px solid var(--rim2)}
+.art-illo-frame svg{width:100%;height:auto;display:block}
+.art-illo-cap{font-size:11px;color:var(--i3);text-align:center;margin-top:10px;margin-bottom:8px;font-style:italic}
+
+.art-body{max-width:640px;margin:0 auto;padding:32px 32px 8px}
+.art-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--i2);margin-bottom:22px}
+.art-body p.lead{font-size:18px;color:var(--ink);padding-left:20px;border-left:3px solid var(--a)}
+.art-body h2{font-family:'Playfair Display',serif;font-size:23px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.art-body h2::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--a);flex-shrink:0}
+.art-body h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--ink);margin:26px 0 12px}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-pull{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;font-weight:600;line-height:1.5;color:var(--ink);padding:8px 26px 8px 54px;margin:32px 0;background:color-mix(in srgb,var(--a) 6%,transparent);border-radius:14px}
+.art-pull::before{content:"\201C";position:absolute;top:-8px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:700;font-style:normal;color:var(--a);opacity:.7;line-height:1}
+.art-pull span{position:relative;z-index:2}
+
+/* COMPARE TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.comp-col{border-radius:16px;padding:22px}
+.comp-col.no{background:var(--s2);border:1px solid var(--rim2)}
+.comp-col.yes{background:#17120D;border:1px solid rgba(240,234,225,.1)}
+.comp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.comp-col.no .comp-title{color:var(--i3)}
+.comp-col.yes .comp-title{color:var(--gold)}
+.comp-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.comp-col li{font-size:13.5px;line-height:1.5;padding-left:16px;position:relative}
+.comp-col.no li{color:var(--i2)}
+.comp-col.yes li{color:rgba(245,239,230,.8)}
+.comp-col li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%}
+.comp-col.no li::before{background:var(--i3)}
+.comp-col.yes li::before{background:var(--gold)}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+.sources{border-top:1px solid var(--rim);margin-top:48px;padding-top:24px}
+.sources h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:14px}
+.sources ol{padding-left:18px;display:flex;flex-direction:column;gap:10px}
+.sources li{font-size:12px;color:var(--i3);line-height:1.65}
 .sources li em{font-style:italic}
 
+.art-cta{max-width:640px;margin:24px auto 0;padding:0 32px}
+.art-cta-inner{background:radial-gradient(ellipse 90% 100% at 15% 0%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 55%),radial-gradient(ellipse 90% 100% at 100% 100%,color-mix(in srgb,var(--a2) 18%,transparent),transparent 55%),#17120D;border:1px solid rgba(240,234,225,.12);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.art-cta-inner h3{position:relative;z-index:2;color:#F5EFE6;font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.art-cta-inner p{position:relative;z-index:2;color:rgba(245,239,230,.6);font-size:13px;margin-bottom:18px}
+.art-cta-inner strong{color:#F5EFE6}
+.art-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:12px 26px;border-radius:100px;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;position:relative;z-index:2}
 
-.next-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
-.next-link{display:block;text-decoration:none}
-.next-link:hover .next-title{color:var(--go)}
-.next-title{font-family:'Lora',serif;font-size:20px;font-weight:700;color:var(--g);line-height:1.3;transition:color .2s;margin-bottom:6px}
-.next-read{font-size:12px;color:var(--t3)}
-.next-arrow{display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--go)}
+.related-section{max-width:760px;margin:8px auto 0;padding:36px 32px 8px}
+.related-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.related-eyebrow::before{content:"";width:16px;height:2px;background:var(--a)}
+.related-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rel-card{background:var(--s1);border:1px solid var(--rim);border-radius:14px;overflow:hidden;transition:all .22s;display:block}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,21,16,.09);border-color:var(--rim2)}
+.rel-cover{height:100px;position:relative;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.rel-cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.rel-cover-ket-noi{background:linear-gradient(135deg,var(--gold),var(--a) 55%,var(--a2))}
+.rel-cover-kynang{background:linear-gradient(135deg,color-mix(in srgb,#6C63C4 75%,var(--gold) 25%),#6C63C4 55%,color-mix(in srgb,#6C63C4 65%,#000 35%))}
+.rel-cover-nghi-thuc{background:linear-gradient(135deg,color-mix(in srgb,#2E9E8C 75%,var(--gold) 25%),#2E9E8C 55%,color-mix(in srgb,#2E9E8C 65%,#000 35%))}
+.rel-cover-dothi{background:linear-gradient(135deg,color-mix(in srgb,#C08A2E 80%,var(--gold) 20%),#C08A2E 55%,color-mix(in srgb,#C08A2E 65%,#000 30%))}
+.rel-illo{position:absolute;bottom:0;right:4px;width:56px;height:56px;pointer-events:none;z-index:1}
+.rel-illo svg{width:100%;height:100%}
+.rel-cat{position:relative;z-index:2;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rel-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25);max-width:75%}
 
+.faq-section{max-width:640px;margin:24px auto 0;padding:40px 32px 8px}
+.faq-section-inner{background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--a) 4%,var(--s2)));border-radius:20px;padding:32px}
+.faq-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.faq-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:22px}
+.faq{border:1px solid var(--rim2);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--s1);transition:border-color .2s}
+.faq:last-child{margin-bottom:0}
+.faq.open{border-color:color-mix(in srgb,var(--a) 35%,transparent);box-shadow:0 4px 16px rgba(26,21,16,.06)}
+.faq-q{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.faq-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff;background:var(--a);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:600;flex:1}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:13px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--a);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 18px 18px 58px;font-size:13.5px;font-weight:300;color:var(--i2);line-height:1.7}
 
-.related{margin-top:56px;padding-top:24px;border-top:2px solid var(--g)}
-.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.related-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.related-card{background:var(--cr);border:1px solid var(--cr2);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:all .18s}
-.related-card:hover{background:var(--cr2);transform:translateY(-1px)}
-.related-card.featured{grid-column:span 2;background:var(--g)}
-.related-card.featured:hover{background:var(--g2)}
-.related-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px}
-.related-card.featured .related-pill{color:rgba(201,168,76,.8)}
-.related-card-title{font-family:"Lora",serif;font-size:14px;font-weight:700;color:var(--t1);line-height:1.35}
-.related-card.featured .related-card-title{font-size:17px;color:var(--cr)}
-@media(max-width:500px){.related-grid{grid-template-columns:1fr}.related-card.featured{grid-column:span 1}}
-</style></head><body>
+footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
+.foot-in{max-width:760px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:640px){
+  .nav-in,.article-hero,.art-illo,.art-body,.faq-section,.art-cta,.related-section{padding-left:20px;padding-right:20px}
+  .related-grid{grid-template-columns:1fr}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r">
-    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
-    <button class="lang-toggle" id="lang-toggle">EN</button>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
-<div class="hero">
-  <div class="cat"><span class="vi">Đô thị & Kết nối</span><span class="en">Urban Life & Connection</span></div>
-  <h1><span class="vi">Work from Home và<br><em>cái giá ẩn</em><br>của sự linh hoạt</span><span class="en">Work from Home and<br>the <em>Hidden Cost</em><br>of Flexibility</span></h1>
-  <div class="hero-meta"><span class="vi">Kèo · 5 phút đọc</span><span class="en">Kèo · 5 min read</span></div>
-</div>
-<div class="wrap">
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">Đô thị · Kết nối</span><span class="en">Urban Life · Connection</span></div>
+  <h1 class="art-title"><span class="vi">Work From Home và <em>cái giá ẩn của sự linh hoạt</em></span><span class="en">Work From Home and <em>the Hidden Cost of Flexibility</em></span></h1>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">5 phút đọc</span><span class="en">5 min read</span>
+  </div>
   <div class="tags">
-    <span class="tag"><span class="vi">work from home</span><span class="en">work from home</span></span>
+    <span class="tag">work from home</span>
     <span class="tag"><span class="vi">kết nối xã hội</span><span class="en">social connection</span></span>
-    <span class="tag"><span class="vi">sức khỏe tâm thần</span><span class="en">mental health</span></span>
   </div>
+</div>
+</div>
 
-  <p><span class="vi">Từ năm 2020, làm việc từ xa trở thành chuẩn mới ở nhiều ngành. Năng suất tăng, tiết kiệm thời gian đi lại, linh hoạt hơn trong lịch làm việc — tất cả đều đúng. Nhưng có một chi phí ẩn mà không mấy ai nói đến khi tranh luận về remote work: sự mất mát của những kết nối ngẫu nhiên.</span><span class="en">Since 2020, remote work has become the new norm in many industries. Productivity up, commuting time saved, more flexible schedules — all true. But there's a hidden cost rarely mentioned in remote work debates: the loss of accidental connections.</span></p>
+<div class="art-illo">
+  <div class="art-illo-frame">
+<svg viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="e11" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
+<path d="M344 228 Q344 195 360 195 Q376 195 376 228Z" fill="url(#e11)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="360" cy="176" r="22" fill="url(#e11)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="354" cy="172" r="2.2" fill="#1A1510"/><circle cx="366" cy="172" r="2.2" fill="#1A1510"/>
+<path d="M354 183 L366 183" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+<rect x="320" y="140" width="80" height="50" rx="4" fill="none" stroke="var(--rim2)" stroke-width="1.6" opacity=".6"/>
+<path d="M270 200 L270 230 M450 200 L450 230" stroke="var(--rim2)" stroke-width="1.4" stroke-dasharray="1 5" opacity=".4"/>
+</svg>
+  </div>
+  <div class="art-illo-cap"><span class="vi">Minh hoạ: một người, một laptop, không gian trống xung quanh.</span><span class="en">Illustration: a person, a laptop, empty space around.</span></div>
+</div>
 
+<div class="art-body">
+
+  <p class="lead"><span class="vi">Từ 2020, làm việc từ xa trở thành chuẩn mới. Năng suất tăng, tiết kiệm thời gian đi lại — tất cả đúng. Nhưng có chi phí ẩn ít ai nói đến: sự mất mát của những kết nối ngẫu nhiên.</span><span class="en">Since 2020, remote work became the new norm. Productivity up, commute saved — all true. But there's a hidden cost rarely mentioned: the loss of accidental connections.</span></p>
   <h2><span class="vi">Những cuộc trò chuyện không ai lên kế hoạch</span><span class="en">The Conversations Nobody Planned</span></h2>
-
-  <p><span class="vi">Nhà nghiên cứu tổ chức Ethan Bernstein và Stephen Turban từ Harvard Business School đã công bố nghiên cứu trên tạp chí <em>Philosophical Transactions of the Royal Society B</em> (2018) theo dõi mô hình giao tiếp của nhân viên tại hai công ty Fortune 500 trước và sau khi chuyển sang không gian văn phòng mở. Kết quả cho thấy khi loại bỏ các vách ngăn, thay vì giao tiếp trực tiếp tăng lên — nó giảm 70%, và giao tiếp kỹ thuật số tăng để bù lại.</span><span class="en">Organizational researchers Ethan Bernstein and Stephen Turban from Harvard Business School published research in <em>Philosophical Transactions of the Royal Society B</em> (2018) tracking communication patterns at two Fortune 500 companies before and after transitioning to open-plan offices. Counterintuitively, removing partitions caused face-to-face interaction to drop 70%, with digital communication rising to compensate.</span></p>
-
-  <p><span class="vi">Nghiên cứu này gợi ý một điều quan trọng hơn: không phải không gian vật lý tạo ra kết nối — mà là những tình huống không có kế hoạch trong không gian đó. Và khi làm việc từ xa, những tình huống đó gần như biến mất hoàn toàn.</span><span class="en">This research hints at something more important: it's not physical space that creates connection — it's the unplanned situations within that space. And when working remotely, those situations nearly disappear entirely.</span></p>
-
-  <h2><span class="vi">Watercooler conversations — và tại sao chúng quan trọng hơn bạn nghĩ</span><span class="en">Watercooler Conversations — And Why They Matter More Than You Think</span></h2>
-
-  <p><span class="vi">Trong văn hóa công sở phương Tây có khái niệm "watercooler conversation" — cuộc trò chuyện ngắn, không chủ đề, thường xảy ra khi đồng nghiệp tình cờ gặp nhau ở máy lọc nước hay hành lang. Ở Việt Nam, tương đương có thể là cuộc trò chuyện trong thang máy, lúc pha cà phê, hay ngồi cạnh nhau trong giờ nghỉ trưa.</span><span class="en">Western office culture has the concept of "watercooler conversations" — brief, topicless conversations that happen when colleagues accidentally meet by the water cooler or in hallways. In Vietnam, the equivalent might be elevator conversations, chatting while making coffee, or sitting together during lunch breaks.</span></p>
-
-  <p><span class="vi">Những cuộc trò chuyện này trông vô nghĩa — và đó chính xác là lý do tại sao chúng quan trọng. Chúng không có agenda, không có áp lực, không cần kết quả. Chúng là những khoảnh khắc mà con người tiếp xúc với nhau không vì lý do công việc — và theo thời gian, đó là nền tảng của sự tin tưởng và cảm giác thuộc về một tập thể.</span><span class="en">These conversations look meaningless — and that's precisely why they matter. They have no agenda, no pressure, no required outcome. They're the moments when people connect without a work reason — and over time, they form the foundation of trust and sense of belonging.</span></p>
-
+  <p><span class="vi">Ethan Bernstein và Stephen Turban tại Harvard Business School (2018) theo dõi giao tiếp tại hai công ty Fortune 500 khi chuyển sang văn phòng mở. Kết quả ngược trực giác: loại bỏ vách ngăn khiến giao tiếp trực tiếp giảm 70%, giao tiếp kỹ thuật số tăng bù lại.</span><span class="en">Ethan Bernstein and Stephen Turban at Harvard Business School (2018) tracked communication at two Fortune 500 companies moving to open offices. Counterintuitively, removing partitions cut face-to-face interaction 70%, digital communication rose to compensate.</span></p>
+  <h2><span class="vi">Watercooler conversations — quan trọng hơn bạn nghĩ</span><span class="en">Watercooler Conversations Matter More Than You Think</span></h2>
+  <p><span class="vi">Những cuộc trò chuyện ngắn không chủ đề trông vô nghĩa — và đó chính là lý do chúng quan trọng. Không agenda, không áp lực. Theo thời gian, đó là nền tảng của tin tưởng và cảm giác thuộc về.</span><span class="en">Brief topicless conversations look meaningless — and that's exactly why they matter. No agenda, no pressure. Over time, they form the foundation of trust and belonging.</span></p>
   <h2><span class="vi">Remote work và sức khỏe tâm thần — con số thật</span><span class="en">Remote Work and Mental Health — The Real Numbers</span></h2>
-
-  <p><span class="vi">Một khảo sát của Buffer (State of Remote Work, 2023) với hơn 3.000 người làm việc từ xa trên toàn thế giới cho thấy 23% người được hỏi cho rằng cô đơn là thách thức lớn nhất của remote work — đứng đầu danh sách, trên cả vấn đề giao tiếp và múi giờ. Con số này tăng đáng kể so với 19% trong báo cáo năm 2020.</span><span class="en">A Buffer survey (State of Remote Work, 2023) of over 3,000 remote workers worldwide found that 23% cited loneliness as the biggest challenge of remote work — ranking first, above communication difficulties and time zones. This figure increased significantly from 19% in the 2020 report.</span></p>
-
-  <h2><span class="vi">Nghịch lý: năng suất tăng nhưng kết nối giảm</span><span class="en">The Paradox: Productivity Up, Connection Down</span></h2>
-
-  <p><span class="vi">Điều đáng chú ý là hầu hết các nghiên cứu đều xác nhận remote work không làm giảm năng suất — thậm chí có thể tăng trong ngắn hạn. Nhưng các nghiên cứu theo dõi dài hạn hơn chỉ ra rằng sự thiếu kết nối xã hội tích lũy theo thời gian dẫn đến giảm sáng tạo, giảm động lực, và tăng tỷ lệ burnout.</span><span class="en">What's notable is that most studies confirm remote work doesn't reduce productivity — it may even increase it in the short term. But longer-term longitudinal studies show that accumulated lack of social connection leads to reduced creativity, lower motivation, and higher burnout rates.</span></p>
-
-  <p><span class="vi">Nói cách khác: remote work tối ưu hóa năng suất cá nhân trong khi ăn mòn những thứ làm cho công việc có ý nghĩa hơn về lâu dài — cảm giác thuộc về, sự tin tưởng giữa người với người, và những kết nối ngẫu nhiên không thể lên lịch được.</span><span class="en">In other words: remote work optimizes individual productivity while eroding the things that make work meaningful in the long run — sense of belonging, trust between people, and the accidental connections that can't be scheduled.</span></p>
-
-  <blockquote><p><span class="vi">Sự linh hoạt của remote work là thật. Nhưng cái giá của nó — sự biến mất dần dần của những kết nối không có kế hoạch — cũng thật không kém.</span><span class="en">The flexibility of remote work is real. But its cost — the gradual disappearance of unplanned connections — is equally real.</span></p></blockquote>
-
-  <div class="divider"></div>
-  <div class="cta-box">
-    <h3><span class="vi">Lấy lại những kết nối bị mất</span><span class="en">Reclaim the Connections You've Lost</span></h3>
-    <p><span class="vi">Một buổi cà phê hay bữa trưa với người đồng hành Kèo — không có agenda, không có kết quả cần đạt. Chỉ là một cuộc trò chuyện thật.</span><span class="en">A coffee or lunch with a Kèo companion — no agenda, no required outcome. Just a real conversation.</span></p>
-    <a href="/chu-xi"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
-  </div>
-
+  <p><span class="vi">Khảo sát của Buffer (2023) với hơn 3.000 người làm remote cho thấy 23% cho rằng cô đơn là thách thức lớn nhất — đứng đầu danh sách, tăng từ 19% năm 2020.</span><span class="en">Buffer's 2023 survey of 3,000+ remote workers found 23% cite loneliness as the biggest challenge — ranking first, up from 19% in 2020.</span></p>
+  <div class="art-pull"><span><span class="vi">Sự linh hoạt của remote work là thật. Nhưng cái giá của nó — sự biến mất dần dần của những kết nối không có kế hoạch — cũng thật không kém.</span><span class="en">Remote work's flexibility is real. But its cost — the gradual disappearance of unplanned connections — is equally real.</span></span></div>
   <div class="sources">
     <h4><span class="vi">Nguồn tham khảo</span><span class="en">References</span></h4>
     <ol>
-      <li>Bernstein, E. S., &amp; Turban, S. (2018). <em>The impact of the 'open' workspace on human collaboration</em>. Philosophical Transactions of the Royal Society B, 373(1753).</li>
-      <li>Buffer, <em>State of Remote Work 2023</em>. Khảo sát 3.000+ người làm việc từ xa về thách thức của remote work.</li>
-      <li>Bloom, N. (2015). <em>Does Working from Home Work? Evidence from a Chinese Experiment</em>. Quarterly Journal of Economics, 130(1), 165–218. Stanford University.</li>
+      <li>Bernstein, E. &amp; Turban, S. (2018). <em>The impact of the "open" workspace on human collaboration</em>. Philosophical Transactions of the Royal Society B, 373(1753). Harvard Business School.</li>
+      <li>Buffer, <em>State of Remote Work 2023</em>.</li>
     </ol>
   </div>
 
-  <p style="font-size:14px;color:var(--t3);text-align:center;margin-top:28px">
-    <span class="vi">Xem thêm: <a href="/kho-ket-ban-sau-25-tuoi" style="color:var(--g)">Tại sao khó kết bạn sau 25 tuổi</a> · <a href="/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a" style="color:var(--g)">Những thành phố cô đơn nhất châu Á</a></span>
-    <span class="en">Read more: <a href="/kho-ket-ban-sau-25-tuoi" style="color:var(--g)">Why it's hard to make friends after 25</a> · <a href="/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a" style="color:var(--g)">Asia's loneliest cities</a></span>
-  </p>
-<div class="related">
-  <div class="related-head">
-    <div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div>
-    <a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
+</div>
+
+<div class="art-cta">
+  <div class="art-cta-inner">
+    <h3><span class="vi">Lấy lại những kết nối bị mất</span><span class="en">Reclaim the Connections You've Lost</span></h3>
+    <p><span class="vi">Kèo tạo ra những cuộc gặp không có agenda — đúng thứ mà work from home đã lấy đi.</span><span class="en">Kèo creates meetings with no agenda — exactly what remote work took away.</span></p>
+    <a href="/chu-xi" class="art-cta-btn">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
   </div>
+</div>
+
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Also recommended</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></h2>
   <div class="related-grid">
-    <a href="/millennials-co-don-hon-bat-ky-the-he-nao-truoc" class="related-card featured">
-      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
-      <div class="related-card-title"><span class="vi">Tại sao millennials cô đơn hơn bất kỳ thế hệ nào trước</span><span class="en">Why Millennials Are Lonelier Than Any Previous Generation</span></div>
-    </a><a href="/co-don-do-thi" class="related-card ">
-      <div class="related-pill"><span class="vi">Đô thị</span><span class="en">Urban Life</span></div>
-      <div class="related-card-title"><span class="vi">Sự cô đơn ở đô thị và cách kết nối thật sự</span><span class="en">Urban Loneliness and How to Really Connect</span></div>
-    </a><a href="/nguoi-dong-hanh-da-nang" class="related-card ">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Người đồng hành Đà Nẵng</span><span class="en">Companion in Da Nang</span></div>
-    </a><a href="/nguoi-gioi-nhat-trong-phong-thuong-noi-it-nhat" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Tại sao người giỏi nhất trong phòng thường nói ít nhất</span><span class="en">Why the Smartest Person in the Room Usually Speaks Least</span></div>
-    </a><a href="/5-loai-buoi-keo" class="related-card ">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">5 loại buổi Kèo phổ biến nhất</span><span class="en">The 5 Most Popular Types of Kèo Sessions</span></div>
+    <a href="/tai-sao-nguoi-tre-ngai-goi-dien-hon-nhan-tin" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao người trẻ ngại gọi điện hơn nhắn tin</span><span class="en">Why Young People Dread Phone Calls More Than Texts</span></div>
+      </div>
+    </a>
+    <a href="/tai-sao-thanh-pho-lon-co-nhieu-nguoi-nhung-it-cong-dong" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao thành phố lớn nhiều người nhưng ít cộng đồng</span><span class="en">Why Large Cities Have Many People But Little Community</span></div>
+      </div>
+    </a>
+    <a href="/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">500 người theo dõi nhưng không ai gọi lúc 11 giờ đêm</span><span class="en">500 Followers But Nobody Calls at 11PM</span></div>
+      </div>
+    </a>
+    <a href="/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Seoul, Tokyo và Sài Gòn — thành phố cô đơn nhất châu Á</span><span class="en">Seoul, Tokyo and Saigon — Asia's Loneliest Cities</span></div>
+      </div>
+    </a>
+    <a href="/nguoi-gioi-nhat-trong-phong-thuong-noi-it-nhat" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Người giỏi nhất trong phòng thường nói ít nhất</span><span class="en">The Smartest Person in the Room Usually Speaks Least</span></div>
+      </div>
+    </a>
+    <a href="/kho-ket-ban-sau-25-tuoi" class="rel-card rv">
+      <div class="rel-cover rel-cover-dothi">
+        <span class="rel-cat"><span class="vi">Đô thị</span><span class="en">Urban Life</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao khó kết bạn sau 25 tuổi</span><span class="en">Why It's Hard to Make Friends After 25</span></div>
+      </div>
     </a>
   </div>
 </div>
+
+
+<div class="faq-section">
+  <div class="faq-section-inner">
+  <div class="faq-eyebrow">FAQ</div>
+  <h2 class="faq-h2"><span class="vi">Câu hỏi thường gặp</span><span class="en">Frequently Asked Questions</span></h2>
+
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">1</span><span class="faq-q-text"><span class="vi">Nghiên cứu Harvard về văn phòng mở phát hiện gì?</span><span class="en">What did the Harvard open-office research find?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Loại bỏ vách ngăn khiến giao tiếp trực tiếp giảm 70%, giao tiếp kỹ thuật số tăng bù lại — ngược với kỳ vọng.</span><span class="en">Removing partitions cut face-to-face interaction 70%, with digital communication rising to compensate — the opposite of expected.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">2</span><span class="faq-q-text"><span class="vi">Tại sao watercooler conversations lại quan trọng?</span><span class="en">Why do watercooler conversations matter?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Chúng không có agenda, không áp lực — và theo thời gian đó là nền tảng của tin tưởng và cảm giác thuộc về tập thể.</span><span class="en">They have no agenda, no pressure — and over time form the foundation of trust and belonging.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">3</span><span class="faq-q-text"><span class="vi">Bao nhiêu người coi cô đơn là thách thức lớn nhất của remote work?</span><span class="en">How many people cite loneliness as remote work's biggest challenge?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Khảo sát Buffer 2023 với hơn 3.000 người cho thấy 23% — đứng đầu danh sách, tăng từ 19% năm 2020.</span><span class="en">Buffer's 2023 survey of 3,000+ found 23% — ranking first, up from 19% in 2020.</span></div></div>
+  </div>
+  </div>
 </div>
+
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
+
 <script>
-var isEN=false;
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('lang-toggle');
-  if(btn){btn.addEventListener('click',function(){
-    isEN=!isEN;
-    btn.textContent=isEN?'VI':'EN';
-    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
-    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
-  });}
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
 });
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>
