@@ -649,6 +649,30 @@ setInterval(()=>{document.getElementById('clk').textContent=new Date().toLocaleT
 // ─── HELPERS ───────────────────────────────
 const rng=(b,r)=>b*(1+(Math.random()*r*2-r)/100);
 const rp=(r)=>Math.random()*r*2-r;
+
+// ─── MÔ PHỎNG GIÁ CÓ TRÍ NHỚ ───────────────────────────────
+// Vấn đề của rng()/rp() cũ: mỗi lần gọi random lại HOÀN TOÀN từ base, không nhớ giá trước
+// → bấm refresh 2 lần cách nhau 1 giây vẫn có thể nhảy hết biên độ (không thực tế).
+// sim() sửa việc này: lần đầu random quanh base (như cũ), các lần SAU chỉ bước NHỎ từ
+// giá ngay trước đó — giống biến động thị trường thật giữa các lần refresh gần nhau.
+const _mkt = {};
+function sim(key, base, range){
+  let st = _mkt[key];
+  if(!st){
+    const initPct = rp(range);
+    st = { price: base*(1+initPct/100), pct: initPct };
+    _mkt[key] = st;
+    return st;
+  }
+  const step = range/10; // bước mỗi lần refresh nhỏ hơn nhiều so với biên độ gốc
+  const stepPct = rp(step);
+  let newPrice = st.price*(1+stepPct/100);
+  const hi = base*(1+range*1.4/100), lo = base*(1-range*1.4/100);
+  newPrice = Math.max(lo, Math.min(hi, newPrice));
+  st.pct = (newPrice/base-1)*100;
+  st.price = newPrice;
+  return st;
+}
 const $ = id => document.getElementById(id);
 const html = (id,h) => { const e=$(id); if(e) e.innerHTML=h; };
 
@@ -872,7 +896,7 @@ const STOCKS={
 };
 
 function mkSt(s){
-  const p=rng(s.base,1.5), pct=rp(2.5);
+  const st=sim(s.sym,s.base,1.5), p=st.price, pct=st.pct;
   const r=FX_RATES[s.ccy]||FX_FB[s.ccy]||1;
   const usd=s.ccy==='USD'?p:p/r;
   const sym2={USD:'$',EUR:'€',KRW:'₩',JPY:'¥',HKD:'HK$',CHF:'Fr',INR:'₹',AUD:'A$'}[s.ccy]||'';
@@ -962,7 +986,7 @@ const BONDS={
 };
 
 function mkBond(b){
-  const p=rng(b.base,.4), pct=rp(.5);
+  const st=sim(b.sym,b.base,.4), p=st.price, pct=st.pct;
   const abs=Math.abs(p*pct/100).toFixed(3);
   return card({sym:b.sym,nm:b.nm,ic:b.ic,pr:p.toFixed(2)+'%',usd:null,pct,abs:(pct>=0?'+':'')+abs+'%',m1:b.m1,m2:''},'cb','var(--go)');
 }
@@ -1027,7 +1051,7 @@ const COMM={
 };
 
 function mkComm(c){
-  const p=rng(c.base,1.8), pct=rp(2);
+  const st=sim(c.sym,c.base,1.8), p=st.price, pct=st.pct;
   const abs=(Math.abs(p*pct/100)).toFixed(2);
   // Quy đổi VND đúng theo từng loại đơn vị:
   // - usd:true → giá đã là USD
@@ -1111,17 +1135,17 @@ const FX_PAIRS={
 };
 
 function mkFX(p){
-  const rate=xrate(p.ccy), pr=rng(rate,.15), pct=rp(.25);
+  const rate=xrate(p.ccy), st=sim(p.sym,rate,.15), pr=st.price, pct=st.pct;
   const abs=Math.abs(pr*pct/100);
   const fmt=v=>v>=1000?Math.round(v).toLocaleString('vi-VN'):v.toFixed(v<10?2:1);
   return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,abs:(pct>=0?'+':'')+Math.round(abs)+'₫',m1:p.m1,m2:'Liên ngân hàng'},'cfx','var(--gn)');
 }
 
 function mkFXCross(p){
-  const rate=crossRate(p.base,p.quote), pr=rng(rate,.2), pct=rp(.3);
+  const rate=crossRate(p.base,p.quote), key=p.base+'/'+p.quote, st=sim(key,rate,.2), pr=st.price, pct=st.pct;
   const abs=Math.abs(pr*pct/100);
   const dp = pr>=10?2:4; // Yên Nhật quy ước 2 số thập phân, còn lại 4 số
-  return card({sym:p.base+'/'+p.quote,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,abs:(pct>=0?'+':'')+abs.toFixed(dp),m1:'Cặp chéo',m2:'Forex'},'cfx','var(--gn)');
+  return card({sym:key,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,abs:(pct>=0?'+':'')+abs.toFixed(dp),m1:'Cặp chéo',m2:'Forex'},'cfx','var(--gn)');
 }
 
 function renderFX(){
@@ -1293,7 +1317,7 @@ const DOM_MUSHROOM=[
 ];
 
 function mkDomestic(d){
-  const p=rng(d.base,1.3), pct=rp(1.8);
+  const st=sim(d.sym,d.base,1.3), p=st.price, pct=st.pct;
   const abs=Math.abs(p*pct/100);
   const fmt=v=>v>=1e6?(v/1e6).toFixed(2)+'tr':v>=1000?Math.round(v).toLocaleString('vi-VN'):Math.round(v).toString();
   return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)');
@@ -1412,7 +1436,7 @@ const VN={
 function mkVN(s, api){
   let price, pct;
   if(api&&api[s.sym]){ price=api[s.sym].close||s.base; pct=api[s.sym].changePercent||rp(2); }
-  else{ price=rng(s.base,1.5); pct=rp(2); }
+  else{ const st=sim(s.sym,s.base,1.5); price=st.price; pct=st.pct; }
   const abs=Math.abs(price*pct/100);
   const usdEq=price/USD_VND;
   const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
@@ -1453,9 +1477,9 @@ async function renderVNIndices(){
     if(r2.ok){const d=await r2.json();hnx=d.data||d;}
     if(r3.ok){const d=await r3.json();up=d.data||d;}
   }catch{}
-  const vV=+(vni?.indexValue)||rng(1280,1), vP=+(vni?.changePercent)||rp(1.5);
-  const hV=+(hnx?.indexValue)||rng(225,1),  hP=+(hnx?.changePercent)||rp(1.5);
-  const uV=+(up?.indexValue)||rng(93,1),    uP=+(up?.changePercent)||rp(1);
+  const vSt=sim('VNINDEX',1280,1), vV=+(vni?.indexValue)||vSt.price, vP=+(vni?.changePercent)||vSt.pct;
+  const hSt=sim('HNXINDEX',225,1), hV=+(hnx?.indexValue)||hSt.price, hP=+(hnx?.changePercent)||hSt.pct;
+  const uSt=sim('UPCOMINDEX',93,1), uV=+(up?.indexValue)||uSt.price, uP=+(up?.changePercent)||uSt.pct;
   const gt=(Math.random()*14000+7000).toFixed(0)+'tỷ';
   const kl=(Math.random()*600+200).toFixed(0)+'M';
   function mi(l,v,p,bc){const u=p>=0,c=u?'var(--gn)':'var(--rd)';return`<div class="ic" style="border-top-color:${bc}"><div class="il">${l}</div><div class="iv">${typeof v==='number'?v.toFixed(2):v}</div><div class="ip" style="color:${c}">${u?'▲+':'▼'}${typeof p==='number'?p.toFixed(2):p}%</div></div>`;}
@@ -1676,22 +1700,22 @@ async function renderCrypto(){
 
 // ─── OVERVIEW ──────────────────────────────
 function renderOverviewSim(){
-  ov('ovSp', rng(5570,1).toFixed(2), rp(1.5));
-  ov('ovNdx', rng(19200,1).toFixed(2), rp(1.8));
-  const g=COMM.metal[0], gp=rng(g.base,1.8), gpct=rp(2);
+  const spSt=sim('SP500SIM',5570,1); ov('ovSp', spSt.price.toFixed(2), spSt.pct);
+  const ndxSt=sim('NASDAQSIM',19200,1); ov('ovNdx', ndxSt.price.toFixed(2), ndxSt.pct);
+  const g=COMM.metal[0], gSt=sim(g.sym,g.base,1.8), gp=gSt.price, gpct=gSt.pct;
   const e1=$('ovGold');if(e1)e1.textContent='$'+gp.toFixed(2);
   const e2=$('ovGoldC');if(e2){e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%';e2.style.color=gpct>=0?'var(--gn)':'var(--rd)';}
-  const w=COMM.energy[0], wp=rng(w.base,1.8), wpct=rp(2);
+  const w=COMM.energy[0], wSt=sim(w.sym,w.base,1.8), wp=wSt.price, wpct=wSt.pct;
   const e3=$('ovWti');if(e3)e3.textContent='$'+wp.toFixed(2);
   const e4=$('ovWtiC');if(e4){e4.textContent=(wpct>=0?'▲ +':'▼ ')+Math.abs(wpct).toFixed(2)+'%';e4.style.color=wpct>=0?'var(--gn)':'var(--rd)';}
-  const b=BONDS.us[6], bp=rng(b.base,.4), bpct=rp(.5);
+  const b=BONDS.us[6], bSt=sim(b.sym,b.base,.4), bp=bSt.price, bpct=bSt.pct;
   ov('ovT10', bp.toFixed(2)+'%', bpct, 3);
   // VN preview (6 stocks)
   const picks=['VCB','FPT','HPG','VHM','MWG','TCB'];
   html('ovVnPrev', picks.map(sym=>{
     const s=Object.values(VN).flat().find(x=>x.sym===sym);
     if(!s) return '';
-    const p=rng(s.base,1.5), pct=rp(2), abs=Math.abs(p*pct/100);
+    const st=sim(s.sym,s.base,1.5), p=st.price, pct=st.pct, abs=Math.abs(p*pct/100);
     const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
     return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">$${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(u,col)}</div><div class="cm"><span>HOSE</span></div></div>`;
   }).join(''));
@@ -1712,10 +1736,10 @@ function renderOverviewSim(){
 // ─── TICKER ────────────────────────────────
 function renderTicker(){
   const items=[
-    ...STOCKS.usTech.slice(0,4).map(s=>{const p=rng(s.base,1.5),pct=rp(2);return{sym:s.sym,pr:'$'+p.toFixed(2),u:pct>=0,pct};}),
-    ...COMM.metal.slice(0,2).map(c=>{const p=rng(c.base,1.8),pct=rp(2);return{sym:c.sym,pr:'$'+p.toFixed(2),u:pct>=0,pct};}),
+    ...STOCKS.usTech.slice(0,4).map(s=>{const st=sim(s.sym,s.base,1.5);return{sym:s.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
+    ...COMM.metal.slice(0,2).map(c=>{const st=sim(c.sym,c.base,1.8);return{sym:c.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
     {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:true,pct:rp(.25)},
-    ...Object.values(VN).flat().slice(0,4).map(s=>{const p=rng(s.base,1.5),pct=rp(2);return{sym:s.sym,pr:(p/1000).toFixed(1)+'k₫',u:pct>=0,pct};}),
+    ...Object.values(VN).flat().slice(0,4).map(s=>{const st=sim(s.sym,s.base,1.5);return{sym:s.sym,pr:(st.price/1000).toFixed(1)+'k₫',u:st.pct>=0,pct:st.pct};}),
   ];
   const h=items.map(i=>`<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span><span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span></div>`).join('');
   html('tkr', h+h);
