@@ -102,6 +102,11 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 
 /* SECTION HEADER */
 .sh{display:flex;align-items:center;gap:8px;margin:22px 0 12px;}
+.sh-collapse{cursor:pointer;user-select:none;}
+.sh-collapse:hover .sht{color:var(--a);}
+.sh-chevron{margin-left:4px;font-size:9px;color:var(--ink-mu);transition:transform .2s;flex-shrink:0;}
+.sh-chevron.open{transform:rotate(180deg);}
+.gr.collapsed{display:none;}
 .sh:first-child{margin-top:0;}
 .shi{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--shi);}
 .sht{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-sub);}
@@ -277,6 +282,8 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="ovStPrev"></div>
   <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">₿</div><div class="sht">Crypto top 5</div><div class="shl"></div><button class="ib" onclick="go('crypto',document.getElementById('btn-crypto'))">Xem tất cả →</button></div>
   <div class="gr" id="ovCrPrev"><div class="ld2">Đang tải…</div></div>
+  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🛒</div><div class="sht">Giá tiêu dùng hôm nay</div><div class="shl"></div><button class="ib" onclick="go('prices',document.getElementById('btn-prices'))">Xem tất cả →</button></div>
+  <div class="gr" id="ovDomPrev"></div>
 </div>
 
 <!-- PAGE: VN -->
@@ -395,17 +402,17 @@ footer a:hover{color:#F5EFE6}
       <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VN ĐỨNG THỨ</div>
       <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">#2 TG</div></div>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Việt Nam giữ vững vị trí xuất khẩu cà phê lớn thứ hai thế giới (sau Brazil) với kỷ lục 8,9 tỷ USD năm 2025. Tuy nhiên giá robusta đang hạ nhiệt — chuyên gia dự báo kim ngạch 2026 khó vượt kỷ lục này do nguồn cung toàn cầu dồi dào hơn (USDA dự báo sản lượng robusta toàn cầu tăng 10,9%) và Mỹ đã miễn thuế đối ứng 0% cho cà phê, giảm áp lực giá. <span style="color:var(--sub);opacity:.7">— Nguồn: VietnamBiz, USDA, 01/2026</span></p>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Kỷ lục 8,9 tỷ USD (sau Brazil), nhưng 2026 khó vượt do nguồn cung robusta toàn cầu tăng 10,9%. <span style="color:var(--sub);opacity:.7">— VietnamBiz, USDA, 01/2026</span></p>
   </div>
 
   <div class="cd" style="margin-bottom:14px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
       <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌾 GẠO · XK NỬA ĐẦU 2026</div>
       <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">2,36 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">GẠO THƠM JASMINE</div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">GẠO JASMINE</div>
       <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">$516-520/tấn</div></div>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">5 triệu tấn xuất khẩu nửa đầu 2026 (+5,7% lượng, -3,3% giá trị) do dư cung toàn cầu từ Ấn Độ ép giá gạo phổ thông. Điểm sáng: gạo thơm Jasmine và 5% tấm của Việt Nam đang bán cao hơn đáng kể so với Thái Lan, Pakistan, Ấn Độ — cho thấy lợi thế rõ ở phân khúc chất lượng cao. Chủ tịch VFA kỳ vọng thị trường châu Phi mới mở là động lực dài hạn. <span style="color:var(--sub);opacity:.7">— Nguồn: VFA, USDA, Báo Công Thương, 07/2026</span></p>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Dư cung từ Ấn Độ ép giá gạo phổ thông, nhưng gạo thơm Jasmine vẫn bán cao hơn Thái Lan, Pakistan. <span style="color:var(--sub);opacity:.7">— VFA, USDA, 07/2026</span></p>
   </div>
 
   <div class="cd" style="margin-bottom:14px">
@@ -415,7 +422,7 @@ footer a:hover{color:#F5EFE6}
       <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VN ĐỨNG THỨ</div>
       <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">#1 TG</div></div>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Việt Nam là nước xuất khẩu hạt điều nhân số 1 thế giới, đặt mục tiêu giữ mốc kỷ lục 5 tỷ USD của 2025 trong năm 2026. Thách thức chính: hơn 50% điều thô nguyên liệu phải nhập từ châu Phi, trong khi một số nước như Bờ Biển Ngà đang hạn chế xuất thô để phát triển chế biến nội địa — buộc ngành phải đẩy nhanh chế biến sâu (sữa hạt điều) để giảm phụ thuộc. <span style="color:var(--sub);opacity:.7">— Nguồn: Hiệp hội Điều Việt Nam (Vinacas), 03/2026</span></p>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Số 1 thế giới, nhưng phụ thuộc 50%+ nguyên liệu thô nhập từ châu Phi. <span style="color:var(--sub);opacity:.7">— Vinacas, 03/2026</span></p>
   </div>
 
   <div class="cd" style="margin-bottom:14px">
@@ -425,17 +432,37 @@ footer a:hover{color:#F5EFE6}
       <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">TĂNG GIÁ TRỊ</div>
       <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">+26,3%</div></div>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Kỷ lục mới 1,66 tỷ USD năm 2025 dù sản lượng giảm nhẹ — nhờ giá hồ tiêu duy trì ở mức cao gấp 2,5 lần cuối 2022, năm tăng giá thứ ba liên tiếp. Nửa đầu 2026 tiếp tục tăng 17,4% lượng và 10,6% giá trị, động lực chính từ Mỹ (+30%) và châu Âu ổn định. Nguồn cung trong nước đang thu hẹp, phải bổ sung nhập khẩu để đáp ứng đơn hàng. <span style="color:var(--sub);opacity:.7">— Nguồn: Cục Hải quan, Báo Tin Tức TTXVN, 07/2026</span></p>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Kỷ lục dù sản lượng giảm — giá cao gấp 2,5 lần cuối 2022, động lực chính từ Mỹ (+30%). <span style="color:var(--sub);opacity:.7">— Hải quan, TTXVN, 07/2026</span></p>
   </div>
 
-  <div class="cd">
+  <div class="cd" style="margin-bottom:14px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
       <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🥭 RAU QUẢ · XK 2025</div>
       <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">8,5 tỷ USD</div></div>
       <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">RIÊNG SẦU RIÊNG</div>
       <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">3,8 tỷ USD</div></div>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Xuất khẩu rau quả đạt kỷ lục 8,5 tỷ USD năm 2025 (+19,8%), trong đó riêng sầu riêng chiếm 45% với 3,8 tỷ USD (+20,2%) — động lực chính nhờ mở rộng mã số vùng trồng và Nghị định thư xuất khẩu đông lạnh sang Trung Quốc. Đáng chú ý: dừa (534 triệu USD, +26,6%) lần đầu vượt thanh long (~403-526 triệu USD, giảm nhẹ) để lên vị trí thứ 2. Việt Nam và Thái Lan đang cạnh tranh sát nút vị trí số 1 cung cấp sầu riêng cho Trung Quốc (49% vs 50,4% thị phần). Mục tiêu 2026: 9-10 tỷ USD toàn ngành. <span style="color:var(--sub);opacity:.7">— Nguồn: Cục Hải quan, Bộ Công Thương, VnExpress, 01-06/2026</span></p>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Sầu riêng chiếm 45% kim ngạch; dừa lần đầu vượt thanh long lên vị trí thứ 2. <span style="color:var(--sub);opacity:.7">— Hải quan, VnExpress, 2026</span></p>
+  </div>
+
+  <div class="cd" style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🦐 THUỶ SẢN · XK 6T/2026</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">5,8 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">DỰ BÁO CẢ NĂM</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">&gt;12 tỷ USD</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Tôm (2,3 tỷ, 40,5%) và cá tra (1,1 tỷ) dẫn đầu; Trung Quốc là thị trường tăng mạnh nhất (+37,9%). <span style="color:var(--sub);opacity:.7">— VASEP, 07/2026</span></p>
+  </div>
+
+  <div class="cd">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
+      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌳 CAO SU · XK 2025</div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">~3,3 tỷ USD</div></div>
+      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">THỊ TRƯỜNG CHÍNH</div>
+      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">Trung Quốc</div></div>
+    </div>
+    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Top 3 thế giới về xuất khẩu, chủ yếu phục vụ ngành lốp xe toàn cầu. <span style="color:var(--sub);opacity:.7">— VRA, ước tính 2025</span></p>
   </div>
 
 </div>
@@ -1153,6 +1180,9 @@ const DOM_SEA=[
   {sym:'CA-TRA',  nm:'Cá tra nguyên liệu',   base:28500,    unit:'đ/kg',         ic:'🐟'},
   {sym:'CA-LOC',  nm:'Cá lóc',               base:65000,    unit:'đ/kg',         ic:'🐟'},
   {sym:'CA-DIEU', nm:'Cá điêu hồng',         base:52000,    unit:'đ/kg',         ic:'🐟'},
+  {sym:'CA-LANG', nm:'Cá lăng',              base:95000,    unit:'đ/kg',         ic:'🐟'},
+  {sym:'CA-CHEP', nm:'Cá chép',              base:58000,    unit:'đ/kg',         ic:'🐟'},
+  {sym:'CA-TRAM', nm:'Cá trắm',              base:62000,    unit:'đ/kg',         ic:'🐟'},
   {sym:'TOM-SU',  nm:'Tôm sú',               base:220000,   unit:'đ/kg',         ic:'🦐'},
   {sym:'TOM-THE', nm:'Tôm thẻ size 40',      base:145000,   unit:'đ/kg',         ic:'🦐'},
   {sym:'CUA-BIEN',nm:'Cua biển',             base:280000,   unit:'đ/kg',         ic:'🦀'},
@@ -1223,6 +1253,32 @@ function renderDomestic(){
   html('domSea',      DOM_SEA.map(mkDomestic).join(''));
   html('domSeaFrozen',DOM_SEA_FROZEN.map(mkDomestic).join(''));
   html('domSeaDried', DOM_SEA_DRIED.map(mkDomestic).join(''));
+  setupCollapsiblePrices();
+}
+
+// Thu gọn/mở rộng từng nhóm trong tab Giá tiêu dùng — vì có 15 nhóm, mặc định chỉ mở
+// 2 nhóm đầu (thiết yếu nhất: Nhiên liệu&Vàng, Vật liệu XD), còn lại thu gọn để đỡ dài trên mobile.
+let _collapseInit=false;
+function setupCollapsiblePrices(){
+  if(_collapseInit) return; // chỉ gắn sự kiện 1 lần
+  _collapseInit=true;
+  const panel=$('pg-prices');
+  if(!panel) return;
+  const shs=panel.querySelectorAll('.sh');
+  shs.forEach((sh,i)=>{
+    const gr=sh.nextElementSibling;
+    if(!gr||!gr.classList.contains('gr')) return;
+    sh.classList.add('sh-collapse');
+    const chev=document.createElement('span');
+    chev.className='sh-chevron'+(i<2?' open':'');
+    chev.textContent='▾';
+    sh.appendChild(chev);
+    if(i>=2) gr.classList.add('collapsed');
+    sh.addEventListener('click', ()=>{
+      gr.classList.toggle('collapsed');
+      chev.classList.toggle('open');
+    });
+  });
 }
 
 // ─── DATA: VN ──────────────────────────────
@@ -1561,6 +1617,16 @@ function renderOverviewSim(){
   }).join(''));
   // Global preview (6 stocks)
   html('ovStPrev', STOCKS.usTech.slice(0,6).map(mkSt).join(''));
+  // Giá tiêu dùng preview (6 mặt hàng đại diện nhiều nhóm)
+  const domPicks=[
+    ...DOM_FUEL.filter(d=>d.sym==='XANG-E5'),
+    ...DOM_FUEL.filter(d=>d.sym==='VANG-SJC'),
+    ...DOM_RETAIL.filter(d=>d.sym==='HEO-BAROI'),
+    ...DOM_AGRI.filter(d=>d.sym==='GAO-TE'),
+    ...DOM_VEG_ROOT.filter(d=>d.sym==='CACHUA'),
+    ...DOM_SEA.filter(d=>d.sym==='CA-BASA'),
+  ];
+  html('ovDomPrev', domPicks.map(mkDomestic).join(''));
 }
 
 // ─── TICKER ────────────────────────────────
