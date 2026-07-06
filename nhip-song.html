@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nhịp Sống — Kèo</title>
+<meta name="description" content="Thể thao, du lịch, văn hoá — những chủ đề để bắt đầu một cuộc trò chuyện. Tỷ số trực tiếp bóng đá, bóng rổ, tennis, cricket.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FAFAF5">
+<link rel="canonical" href="https://keo.social/nhip-song">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nhịp Sống — Kèo">
+<meta property="og:description" content="Thể thao, du lịch, văn hoá — những chủ đề để bắt đầu một cuộc trò chuyện.">
+<meta property="og:url" content="https://keo.social/nhip-song">
+<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:site_name" content="Kèo">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --gn:#00A047;--rd:#D14060;
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+
+/* ─── NAV (khớp mẫu chuẩn toàn site) ─────────────────────── */
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:1100px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-mark{width:13px;height:18px}
+.nav-r{display:flex;align-items:center;gap:4px}
+.nav-link{font-size:13px;color:rgba(245,239,230,.65);padding:6px 10px;border-radius:8px;transition:color .2s}
+.nav-link:hover{color:#F5EFE6}
+.nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:var(--serif);font-size:13px;font-weight:600}
+
+/* ─── HERO ────────────────────────────────────────────────── */
+.hero{padding:44px 32px 36px;position:relative;overflow:hidden;background:#17120D}
+.hero-in{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.hero-embers{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.ember{position:absolute;bottom:-20px;width:4px;height:4px;border-radius:50%;background:var(--grad);opacity:0;animation:emberRise linear infinite}
+.e1{left:15%;animation-duration:15s;animation-delay:0s}
+.e2{left:38%;width:3px;height:3px;animation-duration:19s;animation-delay:4s}
+.e3{left:60%;animation-duration:17s;animation-delay:8s}
+.e4{left:82%;width:5px;height:5px;animation-duration:21s;animation-delay:2s}
+@keyframes emberRise{
+  0%{transform:translateY(0);opacity:0}
+  8%{opacity:.5}
+  50%{transform:translateY(-40vh) translateX(12px);opacity:.3}
+  92%{opacity:.12}
+  100%{transform:translateY(-80vh) translateX(-8px);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){.ember{display:none}}
+.hero-ey{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.hero-ey::before{content:"";width:18px;height:2px;background:var(--a)}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-bottom:12px;max-width:640px;color:#F5EFE6}
+.hero h1 em{font-family:var(--serif);font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:15px;font-weight:300;color:rgba(245,239,230,.68);line-height:1.75;max-width:540px}
+
+/* ─── PILLAR NAV (3 trụ: Thể thao / Du lịch / Văn hoá) ──────── */
+.pillars{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.pillar{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:100px;border:1px solid var(--rim2);background:var(--s1);font-size:13.5px;font-weight:600;color:var(--i2);transition:all .2s;cursor:pointer}
+.pillar.active{background:var(--ink);color:#F5EFE6;border-color:var(--ink)}
+.pillar.soon{opacity:.5;cursor:default}
+.pillar-badge{font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:20px;background:var(--s2);color:var(--i3)}
+.pillar.active .pillar-badge{background:rgba(245,239,230,.15);color:#F5EFE6}
+
+/* ─── SPORT SUB-TABS ─────────────────────────────────────────── */
+.sport-tabs{max-width:1100px;margin:0 auto;padding:24px 32px 0;display:flex;gap:6px;border-bottom:1px solid var(--rim2);flex-wrap:wrap}
+.sport-tab{padding:10px 16px;font-size:13.5px;font-weight:600;color:var(--i3);border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.sport-tab.on{color:var(--a);border-bottom-color:var(--a)}
+.sport-tab:hover:not(.on){color:var(--ink)}
+
+/* ─── MAIN CONTENT ────────────────────────────────────────────── */
+main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
+.sp{display:none}
+.sp.on{display:block}
+.sp-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:760px){.sp-cols{grid-template-columns:1fr}}
+.col-title{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--i3);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.col-title .dot{width:6px;height:6px;border-radius:50%}
+.dot-live{background:var(--rd);animation:pulse 1.6s infinite}
+.dot-done{background:var(--gn)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.match-card{background:var(--s1);border:1px solid var(--rim2);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(26,21,16,.05);transition:transform .2s,box-shadow .2s}
+.match-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,21,16,.08)}
+.match-comp{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.match-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+.match-team{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink);min-width:0}
+.match-team span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.match-team.away{justify-content:flex-end;text-align:right}
+.match-badge{width:22px;height:22px;border-radius:50%;background:var(--s2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.match-score{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);white-space:nowrap;padding:0 6px}
+.match-score .w{color:var(--a)}
+.match-meta{text-align:center;font-size:10.5px;color:var(--i3);margin-top:8px}
+.match-prob{display:flex;height:5px;border-radius:3px;overflow:hidden;margin-top:10px;background:var(--s2)}
+.match-prob div:nth-child(1){background:var(--a)}
+.match-prob div:nth-child(2){background:var(--i3);opacity:.4}
+.match-prob div:nth-child(3){background:var(--gold)}
+.match-problabel{display:flex;justify-content:space-between;font-size:9.5px;color:var(--i3);margin-top:5px}
+.ld{text-align:center;padding:30px;color:var(--i3);font-size:13px}
+.err{text-align:center;padding:20px;color:var(--i3);font-size:12.5px;line-height:1.6}
+
+.attrib a{color:var(--a);font-weight:600}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
+.foot-in{max-width:1100px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc:hover{background:var(--grad);border-color:transparent;color:#fff}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:#F5EFE6}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+.attrib-foot{text-align:center;padding-top:16px;font-size:10.5px;color:rgba(245,239,230,.3)}
+.attrib-foot a{color:var(--a);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/" class="nav-link">Trang chủ</a>
+      <a href="/thi-truong" class="nav-link">Thị trường</a>
+      <a href="/khoa-hoc-ket-noi" class="nav-link">Khoa học kết nối</a>
+      <a href="/register#host" class="nav-cta">Đặt Kèo</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-embers" aria-hidden="true">
+    <span class="ember e1"></span><span class="ember e2"></span><span class="ember e3"></span><span class="ember e4"></span>
+  </div>
+  <div class="hero-in">
+    <div class="hero-ey">Chủ đề để bắt đầu trò chuyện</div>
+    <h1>Nhịp Sống — <em>thể thao</em>, du lịch & văn hoá</h1>
+    <p>Tỷ số trực tiếp, lịch thi đấu, tỷ lệ thắng — mọi thứ để có chuyện nói khi gặp gỡ. Bắt đầu với Thể thao, phần Du lịch và Văn hoá sẽ sớm ra mắt.</p>
+  </div>
+</div>
+
+<div class="pillars">
+  <div class="pillar active">⚽ Thể thao <span class="pillar-badge">TRỰC TIẾP</span></div>
+  <div class="pillar soon">✈️ Du lịch <span class="pillar-badge">SẮP RA MẮT</span></div>
+  <div class="pillar soon">🎭 Văn hoá <span class="pillar-badge">SẮP RA MẮT</span></div>
+</div>
+
+<div class="sport-tabs">
+  <div class="sport-tab on" data-sport="football" onclick="switchSport('football',this)">⚽ Bóng đá</div>
+  <div class="sport-tab" data-sport="basketball" onclick="switchSport('basketball',this)">🏀 Bóng rổ</div>
+  <div class="sport-tab" data-sport="tennis" onclick="switchSport('tennis',this)">🎾 Tennis</div>
+  <div class="sport-tab" data-sport="cricket" onclick="switchSport('cricket',this)">🏏 Cricket</div>
+</div>
+
+<main>
+  <div class="sp on" id="sp-football">
+    <div class="sp-cols">
+      <div>
+        <div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div>
+        <div id="fb-live" class="ld">Đang tải…</div>
+      </div>
+      <div>
+        <div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div>
+        <div id="fb-done" class="ld">Đang tải…</div>
+      </div>
+    </div>
+  </div>
+  <div class="sp" id="sp-basketball">
+    <div class="sp-cols">
+      <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="bb-live" class="ld">Đang tải…</div></div>
+      <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="bb-done" class="ld">Đang tải…</div></div>
+    </div>
+  </div>
+  <div class="sp" id="sp-tennis">
+    <div class="sp-cols">
+      <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="tn-live" class="ld">Đang tải…</div></div>
+      <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="tn-done" class="ld">Đang tải…</div></div>
+    </div>
+  </div>
+  <div class="sp" id="sp-cricket">
+    <div class="sp-cols">
+      <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="cr-live" class="ld">Đang tải…</div></div>
+      <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="cr-done" class="ld">Đang tải…</div></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo" style="color:#F5EFE6"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Khám phá</div>
+        <a href="/thi-truong" class="foot-link">Thị trường</a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link">Khoa học kết nối</a>
+        <a href="/nguoidonghanh" class="foot-link">Người đồng hành</a>
+        <a href="/huongdan" class="foot-link">Hướng dẫn sử dụng</a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Nhịp Sống</div>
+        <a href="#" class="foot-link" style="color:var(--a)">⚽ Thể thao</a>
+        <a href="#" class="foot-link" style="opacity:.4;cursor:default">✈️ Du lịch (sắp ra mắt)</a>
+        <a href="#" class="foot-link" style="opacity:.4;cursor:default">🎭 Văn hoá (sắp ra mắt)</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · Gặp gỡ có chiều sâu</div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+    <div class="attrib-foot">Dữ liệu thể thao trực tiếp từ <a href="https://sportscore.com/" rel="dofollow" target="_blank">SportScore</a> · Powered by SportScore</div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+
+function fetchT(url,ms){
+  return Promise.race([
+    fetch(url),
+    new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),ms))
+  ]);
+}
+
+function switchSport(sport,el){
+  document.querySelectorAll('.sport-tab').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.sp').forEach(p=>p.classList.remove('on'));
+  $('sp-'+sport).classList.add('on');
+  loadSport(sport);
+}
+
+const SPORT_PREFIX={football:'fb',basketball:'bb',tennis:'tn',cricket:'cr'};
+const loadedSports={};
+
+async function loadSport(sport){
+  if(loadedSports[sport]) return; // chỉ tải 1 lần mỗi môn khi vào tab
+  loadedSports[sport]=true;
+  const px=SPORT_PREFIX[sport];
+  try{
+    const r=await fetchT(`https://sportscore.com/api/widget/matches/?sport=${sport}&limit=20`,8000);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const data=await r.json();
+    const matches=data.matches||data.data||[];
+    if(!matches.length) throw new Error('Không có trận đấu nào trả về');
+
+    const live=[], done=[];
+    matches.forEach(m=>{
+      const status=(m.status||m.state||'').toLowerCase();
+      if(status.includes('fin')||status.includes('end')||status.includes('done')) done.push(m);
+      else live.push(m);
+    });
+
+    html(px+'-live', live.length? live.slice(0,8).map(mkMatchCard).join('') : '<div class="err">Không có trận sắp diễn ra trong dữ liệu trả về.</div>');
+    html(px+'-done', done.length? done.slice(0,8).map(mkMatchCard).join('') : '<div class="err">Chưa có kết quả gần đây.</div>');
+  }catch(err){
+    console.warn('SportScore lỗi ('+sport+'):', err.message);
+    const msg=`<div class="err">Không tải được dữ liệu trực tiếp lúc này (${err.message}).<br>Thử tải lại trang sau ít phút.</div>`;
+    html(px+'-live', msg);
+    html(px+'-done', msg);
+  }
+}
+
+function html(id,h){ const e=$(id); if(e) e.innerHTML=h; }
+
+// Đọc linh hoạt nhiều kiểu tên field khác nhau — vì chưa xác nhận được cấu trúc JSON
+// chính xác của SportScore, tránh vỡ giao diện nếu tên field khác giả định.
+function pick(obj, keys, fallback){
+  for(const k of keys){ if(obj && obj[k]!==undefined && obj[k]!==null) return obj[k]; }
+  return fallback;
+}
+
+function mkMatchCard(m){
+  const home = pick(m,['home','home_team','homeTeam'],{});
+  const away = pick(m,['away','away_team','awayTeam'],{});
+  const homeName = pick(home,['name','short_name'], pick(m,['home_name'],'Đội nhà'));
+  const awayName = pick(away,['name','short_name'], pick(m,['away_name'],'Đội khách'));
+  const homeScore = pick(m,['home_score','homeScore'], pick(home,['score'],null));
+  const awayScore = pick(m,['away_score','awayScore'], pick(away,['score'],null));
+  const comp = pick(m,['competition','league','tournament'],{});
+  const compName = typeof comp==='string'? comp : pick(comp,['name'],'');
+  const status = pick(m,['status','state'],'');
+  const time = pick(m,['start_time','date','kickoff'],'');
+  const hasScore = homeScore!==null && homeScore!==undefined;
+
+  const scoreHtml = hasScore
+    ? `<div class="match-score"><span class="${+homeScore>+awayScore?'w':''}">${homeScore}</span> — <span class="${+awayScore>+homeScore?'w':''}">${awayScore}</span></div>`
+    : `<div class="match-score" style="font-size:14px;color:var(--i3)">VS</div>`;
+
+  return `<div class="match-card">
+    ${compName?`<div class="match-comp">${compName}</div>`:''}
+    <div class="match-row">
+      <div class="match-team"><span class="match-badge">🏳️</span><span class="nm">${homeName}</span></div>
+      ${scoreHtml}
+      <div class="match-team away"><span class="nm">${awayName}</span><span class="match-badge">🏳️</span></div>
+    </div>
+    <div class="match-meta">${status||''}${time?' · '+time:''}</div>
+  </div>`;
+}
+
+loadSport('football');
+</script>
+</body>
+</html>

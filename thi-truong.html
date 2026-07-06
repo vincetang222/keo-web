@@ -1337,30 +1337,29 @@ function renderDomestic(){
   html('domSea',      DOM_SEA.map(mkDomestic).join(''));
   html('domSeaFrozen',DOM_SEA_FROZEN.map(mkDomestic).join(''));
   html('domSeaDried', DOM_SEA_DRIED.map(mkDomestic).join(''));
-  setupCollapsiblePrices();
 }
 
-// Thu gọn/mở rộng từng nhóm trong tab Giá tiêu dùng — vì có 15 nhóm, mặc định chỉ mở
-// 2 nhóm đầu (thiết yếu nhất: Nhiên liệu&Vàng, Vật liệu XD), còn lại thu gọn để đỡ dài trên mobile.
-let _collapseInit=false;
-function setupCollapsiblePrices(){
-  if(_collapseInit) return; // chỉ gắn sự kiện 1 lần
-  _collapseInit=true;
-  const panel=$('pg-prices');
-  if(!panel) return;
-  const shs=panel.querySelectorAll('.sh');
-  shs.forEach((sh,i)=>{
-    const gr=sh.nextElementSibling;
-    if(!gr||!gr.classList.contains('gr')) return;
-    sh.classList.add('sh-collapse');
-    const chev=document.createElement('span');
-    chev.className='sh-chevron'+(i<2?' open':'');
-    chev.textContent='▾';
-    sh.appendChild(chev);
-    if(i>=2) gr.classList.add('collapsed');
-    sh.addEventListener('click', ()=>{
-      gr.classList.toggle('collapsed');
-      chev.classList.toggle('open');
+// Thu gọn/mở rộng từng nhóm — áp dụng cho MỌI tab (không chỉ Giá tiêu dùng), vì tab nào
+// cũng có thể dài trên mobile. Mặc định mở 2 nhóm đầu của MỖI tab, còn lại thu gọn sẵn.
+// Chạy 1 lần duy nhất lúc khởi tạo — toàn bộ .sh đều là HTML tĩnh nên không cần chạy lại mỗi lần đổi tab.
+function setupCollapsibleSections(){
+  document.querySelectorAll('.pg').forEach(panel=>{
+    if(panel.id==='pg-overview') return; // Tổng quan luôn mở hết, không thu gọn — đây là trang xem nhanh tổng thể
+    let i=0;
+    panel.querySelectorAll('.sh').forEach(sh=>{
+      const gr=sh.nextElementSibling;
+      if(!gr||!gr.classList.contains('gr')) return; // chỉ áp dụng cho .sh đứng trước .gr (lưới dữ liệu)
+      sh.classList.add('sh-collapse');
+      const chev=document.createElement('span');
+      chev.className='sh-chevron'+(i<2?' open':'');
+      chev.textContent='▾';
+      sh.appendChild(chev);
+      if(i>=2) gr.classList.add('collapsed');
+      sh.addEventListener('click', ()=>{
+        gr.classList.toggle('collapsed');
+        chev.classList.toggle('open');
+      });
+      i++;
     });
   });
 }
@@ -1787,6 +1786,7 @@ function loadTab(tab){
 async function init(){
   await fetchFX();
   loadTab('overview');
+  setupCollapsibleSections(); // chạy 1 lần cho toàn bộ trang — mọi tab đều có thể thu gọn
 }
 init();
 
