@@ -592,8 +592,12 @@ footer a:hover{color:#F5EFE6}
   </div>
   <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">⛽</div><div class="sht">Nhiên liệu &amp; Vàng</div><div class="shl"></div></div>
   <div class="gr" id="domFuel"></div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏗️</div><div class="sht">Vật liệu xây dựng</div><div class="shl"></div></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏗️</div><div class="sht">Vật liệu xây dựng · phần thô</div><div class="shl"></div></div>
   <div class="gr" id="domMaterial"></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏭</div><div class="sht">Vật liệu kết cấu</div><div class="shl"></div></div>
+  <div class="gr" id="domMaterialStruct"></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🚪</div><div class="sht">Vật liệu hoàn thiện <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
+  <div class="gr" id="domMaterialFinish"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🐖</div><div class="sht">Gia súc, gia cầm (giá hơi/sống)</div><div class="shl"></div></div>
   <div class="gr" id="domLive"></div>
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🥩</div><div class="sht">Thịt bán lẻ tại chợ/siêu thị <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
@@ -1146,9 +1150,20 @@ const DOM_FUEL=[
 const DOM_MATERIAL=[
   {sym:'THEP',    nm:'Thép CB240 Hoà Phát',  base:15430,    unit:'đ/kg',         ic:'🔩'},
   {sym:'XIMANG',  nm:'Xi măng PCB40',        base:1450,     unit:'đ/kg',         ic:'🏗️'},
-  {sym:'CAOSU',   nm:'Cao su mủ nước loại 1',base:452,      unit:'đ/độ TSC/kg',  ic:'🌳'},
-  {sym:'CAT-XD',  nm:'Cát xây dựng',         base:280000,   unit:'đ/m³',         ic:'🏖️'},
   {sym:'GACH',    nm:'Gạch xây tuynel',      base:1350,     unit:'đ/viên',       ic:'🧱'},
+  {sym:'CAT-XD',  nm:'Cát xây dựng (cát vàng)',base:280000, unit:'đ/m³',         ic:'🏖️'},
+  {sym:'DA-XD',   nm:'Đá xây dựng 1x2',      base:320000,   unit:'đ/m³',         ic:'🪨'},
+];
+const DOM_MATERIAL_STRUCT=[
+  {sym:'BETONG',  nm:'Bê tông tươi mác 250', base:1450000,  unit:'đ/m³',         ic:'🏭'},
+  {sym:'VUAXAY',  nm:'Vữa xây/trát trộn sẵn',base:1650000,  unit:'đ/m³',         ic:'🪣'},
+];
+const DOM_MATERIAL_FINISH=[
+  {sym:'GACHLAT', nm:'Gạch ốp lát (ceramic)', base:180000,  unit:'đ/m²',         ic:'◻️'},
+  {sym:'SONNUOC', nm:'Sơn nước ngoại thất',  base:850000,   unit:'đ/thùng 18L',  ic:'🎨'},
+  {sym:'BONCAU',  nm:'Bồn cầu 1 khối',       base:2800000,  unit:'đ/bộ',         ic:'🚽'},
+  {sym:'TRANTHACH',nm:'Trần thạch cao',      base:165000,   unit:'đ/m²',         ic:'⬜'},
+  {sym:'CUANHOM', nm:'Cửa nhôm kính',        base:1850000,  unit:'đ/m²',         ic:'🚪'},
 ];
 const DOM_LIVE=[
   {sym:'HEO-HOI', nm:'Heo hơi bình quân',    base:63000,    unit:'đ/kg',         ic:'🐖'},
@@ -1287,6 +1302,8 @@ function mkDomestic(d){
 function renderDomestic(){
   html('domFuel',     DOM_FUEL.map(mkDomestic).join(''));
   html('domMaterial', DOM_MATERIAL.map(mkDomestic).join(''));
+  html('domMaterialStruct', DOM_MATERIAL_STRUCT.map(mkDomestic).join(''));
+  html('domMaterialFinish', DOM_MATERIAL_FINISH.map(mkDomestic).join(''));
   html('domLive',     DOM_LIVE.map(mkDomestic).join(''));
   html('domRetail',   DOM_RETAIL.map(mkDomestic).join(''));
   html('domEgg',      DOM_EGG.map(mkDomestic).join(''));
