@@ -1531,13 +1531,9 @@ function renderCryptoAssets(assets, source){
     const e=$('ovEth');if(e)e.textContent='$'+Math.round(eth.price).toLocaleString();
     const c=$('ovEthC');if(c){c.textContent=(u?'▲ +':'▼ ')+Math.abs(eth.pct).toFixed(2)+'%';c.style.color=u?'var(--gn)':'var(--rd)';}
   }
-  // Fear & Greed (simulated)
-  const fg=Math.floor(Math.random()*100);
-  const fLabels=['Sợ hãi cực độ','Sợ hãi','Trung lập','Tham lam','Tham lam cực độ'];
-  const fCol=fg<25?'var(--rd)':fg<45?'#ff9800':fg<55?'var(--go)':fg<75?'#8bc34a':'var(--gn)';
-  const fIdx=fg<25?0:fg<45?1:fg<55?2:fg<75?3:4;
-  const fe=$('ovFng');if(fe){fe.textContent=fg+'/100';fe.style.color=fCol;}
-  const fl2=$('ovFngL');if(fl2){fl2.textContent=fLabels[fIdx];fl2.style.color=fCol;}
+  // Fear & Greed — hiện placeholder "đang tải", giá trị thật sẽ do updateFearGreed() ghi đè ngay sau (gọi trong renderCrypto)
+  const fe=$('ovFng');if(fe){fe.textContent='--';fe.style.color='var(--sub)';}
+  const fl2=$('ovFngL');if(fl2){fl2.textContent='Đang tải…';fl2.style.color='var(--sub)';}
 
   function mkCrCard(a){
     const p=a.price, pct=a.pct, abs=Math.abs(p*pct/100);
@@ -1560,8 +1556,34 @@ function renderCryptoAssets(assets, source){
   }).join(''));
 }
 
+// Fear & Greed Index — dữ liệu thật từ alternative.me (API công khai, miễn phí)
+// Điều khoản dùng: phải ghi rõ nguồn ngay cạnh số liệu — đã thêm ở phần "m2" của overview card.
+async function updateFearGreed(){
+  const fLabels={
+    'Extreme Fear':'Sợ hãi cực độ','Fear':'Sợ hãi','Neutral':'Trung lập',
+    'Greed':'Tham lam','Extreme Greed':'Tham lam cực độ'
+  };
+  try{
+    const r = await fetchT('https://api.alternative.me/fng/?limit=1', 6000);
+    if(!r.ok) throw new Error('alternative.me HTTP '+r.status);
+    const j = await r.json();
+    const d = j.data && j.data[0];
+    if(!d) throw new Error('Không có dữ liệu trả về');
+    const fg = parseInt(d.value, 10);
+    const label = fLabels[d.value_classification] || d.value_classification;
+    const fCol = fg<25?'var(--rd)':fg<45?'#ff9800':fg<55?'var(--go)':fg<75?'#8bc34a':'var(--gn)';
+    const fe=$('ovFng'); if(fe){ fe.textContent=fg+'/100'; fe.style.color=fCol; }
+    const fl=$('ovFngL'); if(fl){ fl.textContent=label+' · alternative.me'; fl.style.color=fCol; }
+  }catch(err){
+    console.warn('Fear & Greed API lỗi, giữ giá trị trung lập mặc định:', err.message);
+    const fe=$('ovFng'); if(fe){ fe.textContent='50/100'; fe.style.color='var(--go)'; }
+    const fl=$('ovFngL'); if(fl){ fl.textContent='Không tải được dữ liệu'; fl.style.color='var(--sub)'; }
+  }
+}
+
 async function renderCrypto(){
   html('crCards','<div class="ld2">Đang tải dữ liệu crypto từ Binance…</div>');
+  updateFearGreed(); // độc lập với Binance — không đợi, không phụ thuộc kết quả bên dưới
 
   const COINS = [
     {id:'bitcoin',    sym:'BTCUSDT', name:'Bitcoin',        rank:1,  ic:'₿'},
@@ -1628,13 +1650,7 @@ async function renderCrypto(){
       const ec=$('ovEthC');if(ec){ec.textContent=(u?'▲ +':'▼ ')+Math.abs(eth.pct).toFixed(2)+'%';ec.style.color=u?'var(--gn)':'var(--rd)';}
     }
 
-    // Fear & Greed simulated
-    const fg=Math.floor(Math.random()*100);
-    const fLabels=['Sợ hãi cực độ','Sợ hãi','Trung lập','Tham lam','Tham lam cực độ'];
-    const fCol=fg<25?'var(--rd)':fg<45?'#ff9800':fg<55?'var(--go)':fg<75?'#8bc34a':'var(--gn)';
-    const fIdx=fg<25?0:fg<45?1:fg<55?2:fg<75?3:4;
-    const fe=$('ovFng');if(fe){fe.textContent=fg+'/100';fe.style.color=fCol;}
-    const fl2=$('ovFngL');if(fl2){fl2.textContent=fLabels[fIdx];fl2.style.color=fCol;}
+    // (Fear & Greed đã gọi độc lập ở đầu hàm renderCrypto, không lặp lại ở đây)
 
     function mkCrCard(a){
       const p=a.price;
