@@ -57,19 +57,23 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .tnav{flex:1;padding:11px 16px;border-radius:100px;border:none;font-family:"Be Vietnam Pro",sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .25s;color:rgba(245,239,230,.55);background:transparent}
 .tnav.on{background:var(--grad);color:#fff}
 
-.g-wrap{max-width:640px;margin:0 auto;padding:44px 32px 16px}
+.g-wrap{max-width:860px;margin:0 auto;padding:44px 32px 16px}
 .tab-panel{display:none}
 .tab-panel.on{display:block}
 
-.step-row{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid var(--rim)}
+.step-row{display:flex;gap:22px;align-items:flex-start;padding:26px 0;border-bottom:1px solid var(--rim)}
 .step-row:last-of-type{border-bottom:none}
 .step-badge{flex-shrink:0;width:52px;height:52px;border-radius:16px;background:var(--s2);border:1px solid var(--rim2);display:flex;align-items:center;justify-content:center;position:relative}
 .step-badge svg{width:24px;height:24px}
 .step-badge-num{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;background:var(--grad);color:#fff;font-family:'Playfair Display',serif;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step-content{flex:1;min-width:0}
 .step-content h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:8px}
 .step-content p{font-size:14.5px;font-weight:300;color:var(--i2);line-height:1.7;margin-bottom:12px}
 .step-note{display:inline-flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--i3);background:var(--s2);border-radius:9px;padding:8px 12px;line-height:1.55}
 .step-note::before{content:"💡";flex-shrink:0;font-size:12px;line-height:1.6}
+.step-mock{flex-shrink:0;width:148px;filter:drop-shadow(0 10px 24px rgba(26,21,16,.14))}
+.step-mock svg{width:100%;height:auto;display:block}
+@media(max-width:760px){.step-mock{display:none}}
 
 .g-cta{max-width:640px;margin:20px auto 0;padding:0 32px}
 .g-cta-inner{background:radial-gradient(ellipse 90% 100% at 15% 0%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 55%),radial-gradient(ellipse 90% 100% at 100% 100%,color-mix(in srgb,var(--a2) 18%,transparent),transparent 55%),#17120D;border:1px solid rgba(240,234,225,.12);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);position:relative;overflow:hidden}
@@ -165,6 +169,43 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Đăng ký hồ sơ Chủ xị</span><span class="en">Register as a Host</span></h3>
       <p><span class="vi">Vào <strong>keo.social</strong>, chọn "Tôi là Chủ xị" và điền thông tin cơ bản — tên, số Zalo, thành phố và loại sự kiện bạn muốn tổ chức.</span><span class="en">Go to <strong>keo.social</strong>, choose "I'm a Host" and fill in basic info — name, Zalo number, city and event type.</span></p>
       <div class="step-note"><span class="vi">Kèo sẽ liên hệ qua Zalo để xác nhận trong 24 giờ</span><span class="en">Kèo will contact you via Zalo within 24 hours</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-h1"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-h1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-h1)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="150" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="150" fill="url(#grad-h1)" opacity=".1"/>
+<text x="24" y="46" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">KÈO.SOCIAL</text>
+<text x="24" y="76" font-family="Playfair Display" font-size="21" font-weight="600" fill="#F5EFE6">Gặp gỡ có</text>
+<text x="24" y="102" font-family="Playfair Display" font-style="italic" font-size="21" font-weight="600" fill="url(#grad-h1)">chiều sâu</text>
+<text x="24" y="128" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.55)">Sài Gòn · Hà Nội · Đà Nẵng</text>
+<rect x="24" y="176" width="176" height="46" rx="23" fill="url(#grad-h1)"/>
+<text x="112.0" y="204" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="600" fill="#fff">🌿 Đăng ký làm Chủ xị</text>
+<rect x="24" y="234" width="176" height="42" rx="21" fill="none" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="112.0" y="260" text-anchor="middle" font-family="Be Vietnam Pro" font-size="11.5" font-weight="500" fill="#1A1510">Tìm hiểu thêm</text>
+<line x1="24" y1="300" x2="200" y2="300" stroke="#E8E2DC" stroke-width="1"/>
+<text x="24" y="330" font-family="Playfair Display" font-size="20" font-weight="700" fill="#D65F35">300k</text>
+<text x="24" y="346" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">Thu nhập / buổi</text>
+<text x="132.0" y="330" font-family="Playfair Display" font-size="20" font-weight="700" fill="#D65F35">24h</text>
+<text x="132.0" y="346" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">Thời gian match</text>
+<text x="24" y="382" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">NGƯỜI ĐỒNG HÀNH NỔI BẬT</text>
+<rect x="20" y="392" width="184" height="74" rx="16" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<circle cx="46" cy="424" r="16" fill="url(#grad-h1)"/>
+<text x="46" y="429" text-anchor="middle" font-family="Playfair Display" font-size="13.6" font-weight="700" fill="#fff">L</text>
+<text x="70" y="420" font-family="Playfair Display" font-size="11.5" font-weight="600" fill="#1A1510">Lan Anh</text>
+<text x="70" y="434" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">UX Designer · Sài Gòn</text>
+<rect x="34" y="446" width="60" height="26" rx="13" fill="none"/>
+<text x="64.0" y="463" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" font-weight="600" fill="#D65F35">300k</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -177,6 +218,38 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Nhận link &amp; tạo Kèo</span><span class="en">Get Link &amp; Create Your Kèo</span></h3>
       <p><span class="vi">Sau khi được duyệt, Kèo gửi link tạo buổi gặp qua Zalo. Bạn điền địa điểm, ngày giờ, loại sự kiện và mô tả người đồng hành lý tưởng.</span><span class="en">After approval, Kèo sends a session link via Zalo. Fill in venue, date/time, and describe your ideal companion.</span></p>
       <div class="step-note"><span class="vi">Chỉ Chủ xị đã được duyệt mới nhận link này</span><span class="en">Only approved Hosts receive this link</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-h2"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-h2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-h2)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="118" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="118" fill="url(#grad-h2)" opacity=".1"/>
+<text x="24" y="46" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">CHỦ XỊ · TẠO BUỔI GẶP GỠ</text>
+<text x="24" y="76" font-family="Playfair Display" font-size="19" font-weight="600" fill="#F5EFE6">Tạo Kèo mới</text>
+<text x="24" y="98" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">Kèo sẽ tìm người phù hợp trong 24h</text>
+<text x="24" y="142" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">TÊN ĐỊA ĐIỂM</text>
+<rect x="24" y="150" width="176" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="34" y="167" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">Nhà hàng, quán cà phê...</text>
+<text x="24" y="200" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">ĐỊA CHỈ ĐẦY ĐỦ</text>
+<rect x="24" y="208" width="176" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="34" y="225" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">Số nhà, đường, quận...</text>
+<text x="24" y="272" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">NGÀY &amp; GIỜ</text>
+<rect x="24" y="280" width="98" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="34" y="302" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">Thứ 7, 12/7</text>
+<rect x="130" y="280" width="86" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="140" y="302" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">10:00</text>
+<rect x="24" y="420" width="176" height="46" rx="23" fill="url(#grad-h2)"/>
+<text x="112.0" y="448" text-anchor="middle" font-family="Playfair Display" font-size="12.5" font-weight="600" fill="#fff">Tiếp tục →</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -189,6 +262,38 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Chuyển khoản thù lao</span><span class="en">Transfer the Fee</span></h3>
       <p><span class="vi">Sau khi tạo Kèo, bạn chuyển khoản thù lao cho Kèo giữ. Kèo sẽ match người đồng hành phù hợp trong 24 giờ và liên hệ xác nhận qua Zalo.</span><span class="en">After creating your Kèo, transfer the fee to Kèo for safekeeping. We'll match a companion within 24 hours and confirm via Zalo.</span></p>
       <div class="step-note"><span class="vi">Hoàn 100% nếu không match được hoặc người đồng hành không xuất hiện</span><span class="en">100% refund if no match is found or the companion no-shows</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-h3"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-h3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-h3)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="140" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="140" fill="url(#grad-h3)" opacity=".1"/>
+<text x="24" y="42" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">CHUYỂN KHOẢN THÙ LAO</text>
+<text x="24" y="82" font-family="Playfair Display" font-size="30" font-weight="700" fill="url(#grad-h3)">500.000đ</text>
+<text x="24" y="108" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">Kèo giữ an toàn · Giải ngân sau buổi gặp</text>
+<rect x="20" y="156" width="184" height="88" rx="16" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<circle cx="46" cy="190" r="16" fill="url(#grad-h3)"/>
+<text x="46" y="195" text-anchor="middle" font-family="Playfair Display" font-size="13.6" font-weight="700" fill="#fff">K</text>
+<text x="70" y="186" font-family="Playfair Display" font-size="12" font-weight="600" fill="#1A1510">Kèo</text>
+<text x="70" y="200" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">Trung gian thanh toán</text>
+<line x1="34" y1="212" x2="190" y2="212" stroke="#F2EDE8" stroke-width="1"/>
+<text x="34" y="232" font-family="Be Vietnam Pro" font-size="10" fill="#4A4A44">Thù lao</text>
+<text x="190" y="232" text-anchor="end" font-family="Be Vietnam Pro" font-size="10" font-weight="700" fill="#1A1510">500.000đ</text>
+<rect x="20" y="262" width="184" height="56" rx="12" fill="#FBF3E5" stroke="#E8A22B" stroke-width="1.2" stroke-opacity=".3"/>
+<text x="32" y="284" font-family="Be Vietnam Pro" font-size="9" fill="#4A4A44">Hoàn 100% nếu không match</text>
+<text x="32" y="298" font-family="Be Vietnam Pro" font-size="9" fill="#4A4A44">hoặc người đồng hành không đến.</text>
+<rect x="24" y="420" width="176" height="46" rx="23" fill="url(#grad-h3)"/>
+<text x="112.0" y="448" text-anchor="middle" font-family="Playfair Display" font-size="12.5" font-weight="600" fill="#fff">Xác nhận chuyển khoản</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -200,6 +305,40 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
     <div class="step-content">
       <h3><span class="vi">Gặp gỡ &amp; trò chuyện</span><span class="en">Meet &amp; Connect</span></h3>
       <p><span class="vi">Đến địa điểm đã chọn, gặp người đồng hành và có một buổi thật sự đáng nhớ. Sau buổi, Kèo giải ngân thù lao và gửi bạn form feedback.</span><span class="en">Go to your chosen venue and have a truly memorable session. Afterward, Kèo pays out the companion and sends you a feedback form.</span></p>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-h4"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-h4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-h4)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="150" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="150" fill="url(#grad-h4)" opacity=".1"/>
+<text x="24" y="42" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">BUỔI KÈO · HÔM NAY</text>
+<text x="24" y="70" font-family="Playfair Display" font-size="17" font-weight="600" fill="#F5EFE6">The Workshop</text>
+<text x="24" y="88" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">27 Ngô Đức Kế, Quận 1</text>
+<rect x="24" y="104" width="60" height="26" rx="13" fill="rgba(240,234,225,.1)"/>
+<text x="54.0" y="121" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" font-weight="600" fill="#F5EFE6">10:00</text>
+<rect x="90" y="104" width="66" height="26" rx="13" fill="rgba(240,234,225,.1)"/>
+<text x="123.0" y="121" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" font-weight="600" fill="#F5EFE6">Thứ 7</text>
+<rect x="162" y="104" width="54" height="26" rx="13" fill="none"/>
+<text x="189.0" y="121" text-anchor="middle" font-family="Be Vietnam Pro" font-size="9" font-weight="600" fill="#E8A22B">500k</text>
+<rect x="20" y="176" width="184" height="72" rx="16" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<circle cx="46" cy="208" r="17" fill="url(#grad-h4)"/>
+<text x="46" y="213" text-anchor="middle" font-family="Playfair Display" font-size="14.45" font-weight="700" fill="#fff">K</text>
+<text x="72" y="204" font-family="Playfair Display" font-size="11.5" font-weight="600" fill="#1A1510">Người đồng hành #025</text>
+<text x="72" y="218" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">Hương học &amp; Tâm lý</text>
+<circle cx="43" cy="241" r="9" fill="url(#grad-h4)"/><path d="M39 241 L42 244 L48 237" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="60" y="246" font-family="Be Vietnam Pro" font-size="10.5" fill="#1A1510">Đã xác nhận</text>
+<rect x="24" y="420" width="176" height="46" rx="23" fill="url(#grad-h4)"/>
+<text x="112.0" y="448" text-anchor="middle" font-family="Playfair Display" font-size="12" font-weight="600" fill="#fff">Đến địa điểm gặp gỡ →</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -228,6 +367,40 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Điền hồ sơ của bạn</span><span class="en">Fill In Your Profile</span></h3>
       <p><span class="vi">Vào <strong>keo.social</strong>, chọn "Tôi là Người đồng hành". Chia sẻ lĩnh vực chuyên môn, mô tả bản thân, và tạo gói dịch vụ với thù lao rõ ràng.</span><span class="en">Go to <strong>keo.social</strong>, choose "I'm a Companion". Share your expertise and create service packages with clear fees.</span></p>
       <div class="step-note"><span class="vi">Quote càng cụ thể và thú vị, cơ hội được match càng cao</span><span class="en">The more specific and interesting your quote, the higher your match rate</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-c1"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-c1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-c1)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="150" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="150" fill="url(#grad-c1)" opacity=".1"/>
+<text x="24" y="42" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">ĐĂNG KÝ THAM GIA</text>
+<text x="24" y="70" font-family="Playfair Display" font-size="18" font-weight="600" fill="#F5EFE6">Bạn là ai trong Kèo?</text>
+<text x="24" y="90" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">Chọn vai trò để bắt đầu</text>
+<rect x="20" y="112" width="184" height="40" rx="20" fill="rgba(240,234,225,.08)"/>
+<rect x="24" y="116" width="88.0" height="32" rx="16" fill="url(#grad-c1)"/>
+<text x="68.0" y="137" text-anchor="middle" font-family="Be Vietnam Pro" font-size="10" font-weight="700" fill="#fff">🌟 Đồng hành</text>
+<text x="156.0" y="137" text-anchor="middle" font-family="Be Vietnam Pro" font-size="10" font-weight="600" fill="rgba(240,234,225,.5)">👑 Chủ xị</text>
+<text x="24" y="176" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">HỌ TÊN</text>
+<rect x="24" y="184" width="176" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="34" y="201" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">Nguyễn Thị A</text>
+<text x="24" y="234" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">SỐ ZALO</text>
+<rect x="24" y="242" width="176" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="34" y="259" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">09xxxxxxxx</text>
+<text x="24" y="292" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing=".6" fill="#8A8577">NĂM SINH</text>
+<rect x="24" y="300" width="176" height="34" rx="9" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<text x="34" y="317" font-family="Be Vietnam Pro" font-size="10" fill="#C4BCA8">--</text>
+<rect x="24" y="420" width="176" height="46" rx="23" fill="url(#grad-c1)"/>
+<text x="112.0" y="448" text-anchor="middle" font-family="Playfair Display" font-size="12.5" font-weight="600" fill="#fff">Tiếp tục →</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -240,6 +413,46 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Kèo duyệt hồ sơ</span><span class="en">Kèo Reviews Your Profile</span></h3>
       <p><span class="vi">Kèo xem xét hồ sơ và liên hệ qua Zalo trong 24 giờ. Có thể mình sẽ hỏi thêm vài câu để hiểu bạn hơn trước khi match.</span><span class="en">Kèo reviews your profile and contacts you via Zalo within 24 hours. We may ask a few questions before matching.</span></p>
       <div class="step-note"><span class="vi">Hoàn toàn miễn phí — không phí đăng ký hay phí ẩn</span><span class="en">Completely free — no registration fee or hidden charges</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-c2"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-c2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-c2)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="118" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="118" fill="url(#grad-c2)" opacity=".1"/>
+<text x="24" y="46" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">TRẠNG THÁI HỒ SƠ</text>
+<text x="24" y="76" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F5EFE6">Đang xem xét</text>
+<text x="24" y="98" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">Kèo sẽ liên hệ trong 24 giờ</text>
+<rect x="20" y="140" width="184" height="98" rx="16" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<circle cx="46" cy="172" r="17" fill="url(#grad-c2)"/>
+<text x="46" y="177" text-anchor="middle" font-family="Playfair Display" font-size="14.45" font-weight="700" fill="#fff">K</text>
+<text x="72" y="168" font-family="Playfair Display" font-size="12" font-weight="600" fill="#1A1510">Người đồng hành</text>
+<text x="72" y="182" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">Tâm lý &amp; Phát triển bản thân</text>
+<circle cx="43" cy="209" r="9" fill="url(#grad-c2)"/><path d="M39 209 L42 212 L48 205" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="60" y="214" font-family="Be Vietnam Pro" font-size="10.5" fill="#1A1510">Hồ sơ đầy đủ thông tin</text>
+<circle cx="43" cy="231" r="9" fill="url(#grad-c2)"/><path d="M39 231 L42 234 L48 227" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="60" y="236" font-family="Be Vietnam Pro" font-size="10.5" fill="#1A1510">Đã chọn khung giờ rảnh</text>
+<rect x="20" y="256" width="184" height="72" rx="16" fill="#17120D"/>
+<circle cx="42" cy="282" r="12" fill="url(#grad-c2)"/>
+<text x="42" y="287" text-anchor="middle" font-family="Playfair Display" font-size="10.2" font-weight="700" fill="#fff">K</text>
+<text x="62" y="278" font-family="Be Vietnam Pro" font-size="8" font-weight="600" letter-spacing=".6" fill="rgba(240,234,225,.4)">TIN NHẮN TỪ KÈO</text>
+<text x="34" y="300" font-family="Be Vietnam Pro" font-size="9.5" fill="#F5EFE6">Chào bạn! Mình đã nhận hồ sơ</text>
+<text x="34" y="314" font-family="Be Vietnam Pro" font-size="9.5" fill="#F5EFE6">và sẽ liên hệ sớm nhé 🌿</text>
+<rect x="20" y="344" width="184" height="106" rx="14" fill="#FBF3E5"/>
+<rect x="20" y="344" width="4" height="106" rx="2" fill="url(#grad-c2)"/>
+<text x="34" y="370" font-family="Be Vietnam Pro" font-size="9" font-weight="600" fill="#8a6a00">TRONG LÚC CHỜ</text>
+<text x="34" y="392" font-family="Be Vietnam Pro" font-size="9.5" fill="#4A4A44">Bạn có thể cập nhật thêm</text>
+<text x="34" y="406" font-family="Be Vietnam Pro" font-size="9.5" fill="#4A4A44">hồ sơ để tăng cơ hội</text>
+<text x="34" y="420" font-family="Be Vietnam Pro" font-size="9.5" fill="#4A4A44">được match nhé.</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -252,6 +465,44 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Được match &amp; xác nhận</span><span class="en">Get Matched &amp; Confirm</span></h3>
       <p><span class="vi">Khi có Chủ xị phù hợp, Kèo nhắn Zalo giới thiệu và hỏi bạn có muốn tham gia không. Bạn hoàn toàn có quyền từ chối nếu không phù hợp.</span><span class="en">When a suitable Host appears, Kèo messages you on Zalo. You always have the right to decline.</span></p>
       <div class="step-note"><span class="vi">Bạn tự quyết lịch — không bị ép nhận Kèo nào cả</span><span class="en">You control your schedule — never forced to accept any Kèo</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-c3"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-c3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-c3)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="118" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="118" fill="url(#grad-c3)" opacity=".1"/>
+<text x="24" y="46" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">KÈO ĐÃ MATCH</text>
+<text x="24" y="76" font-family="Playfair Display" font-size="20" font-weight="600" fill="#F5EFE6">Bạn có Kèo mới!</text>
+<text x="24" y="98" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">Chủ xị đang chờ xác nhận</text>
+<rect x="20" y="140" width="184" height="90" rx="16" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<circle cx="46" cy="172" r="17" fill="url(#grad-c3)"/>
+<text x="46" y="177" text-anchor="middle" font-family="Playfair Display" font-size="14.45" font-weight="700" fill="#fff">N</text>
+<text x="72" y="168" font-family="Playfair Display" font-size="12" font-weight="600" fill="#1A1510">Nam, 34 tuổi · Sài Gòn</text>
+<text x="72" y="182" font-family="Be Vietnam Pro" font-size="8.5" fill="#8A8577">Muốn đi cà phê &amp; trò chuyện</text>
+<rect x="34" y="198" width="56" height="26" rx="13" fill="#F2EDE8"/>
+<text x="62.0" y="215" text-anchor="middle" font-family="Be Vietnam Pro" font-size="8" font-weight="600" fill="#1A1510">Cà phê</text>
+<rect x="96" y="198" width="52" height="26" rx="13" fill="#F2EDE8"/>
+<text x="122.0" y="215" text-anchor="middle" font-family="Be Vietnam Pro" font-size="8" font-weight="600" fill="#1A1510">Q.1</text>
+<rect x="154" y="198" width="50" height="26" rx="13" fill="none"/>
+<text x="179.0" y="215" text-anchor="middle" font-family="Be Vietnam Pro" font-size="8" font-weight="600" fill="#D65F35">300k</text>
+<rect x="20" y="246" width="184" height="56" rx="14" fill="#17120D"/>
+<text x="34" y="266" font-family="Be Vietnam Pro" font-size="8" font-weight="600" letter-spacing=".6" fill="rgba(240,234,225,.4)">KÈO HỎI QUA ZALO</text>
+<text x="34" y="284" font-family="Be Vietnam Pro" font-size="9" font-style="italic" fill="#F5EFE6">"Cà phê sáng thứ 7 tại Q.1,</text>
+<text x="34" y="296" font-family="Be Vietnam Pro" font-size="9" font-style="italic" fill="#F5EFE6">bạn nhận Kèo này nhé?"</text>
+<rect x="24" y="420" width="83.0" height="46" rx="23" fill="url(#grad-c3)"/>
+<text x="65.5" y="448" text-anchor="middle" font-family="Playfair Display" font-size="11.5" font-weight="600" fill="#fff">Nhận Kèo ✓</text>
+<rect x="117.0" y="420" width="83.0" height="46" rx="23" fill="#F2EDE8"/>
+<text x="158.5" y="448" text-anchor="middle" font-family="Be Vietnam Pro" font-size="10.5" font-weight="600" fill="#8A8577">Từ chối</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
@@ -264,6 +515,37 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
       <h3><span class="vi">Gặp gỡ &amp; nhận thù lao</span><span class="en">Meet &amp; Get Paid</span></h3>
       <p><span class="vi">Đến địa điểm công cộng đã chọn, đồng hành cùng Chủ xị. Sau buổi, Kèo giải ngân thù lao cho bạn ngay — trừ phí dịch vụ 12%.</span><span class="en">Go to the agreed public venue and accompany the Host. Afterward, Kèo pays you out immediately — minus a 12% service fee.</span></p>
       <div class="step-note"><span class="vi">Ví dụ: thù lao 500k → bạn nhận 440k sau khi trừ phí 12%</span><span class="en">Example: 500k fee → you receive 440k after the 12% fee</span></div>
+    <div class="step-mock"><svg viewBox="0 0 240 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-c4"><rect x="0" y="0" width="224" height="484" rx="22"/></clipPath>
+    <linearGradient id="grad-c4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8A22B"/><stop offset="50%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="#0D0B09"/>
+  <rect x="8" y="8" width="224" height="484" rx="22" fill="#FAFAF5"/>
+  <g clip-path="url(#clip-c4)" transform="translate(8,8)">
+<rect x="0" y="0" width="224" height="130" fill="#17120D"/>
+<rect x="0" y="0" width="224" height="130" fill="url(#grad-c4)" opacity=".1"/>
+<text x="24" y="42" font-family="Be Vietnam Pro" font-size="9" font-weight="600" letter-spacing="1" fill="rgba(240,234,225,.4)">ĐÃ NHẬN ĐƯỢC</text>
+<text x="24" y="78" font-family="Playfair Display" font-size="28" font-weight="700" fill="url(#grad-c4)">440.000đ</text>
+<text x="24" y="102" font-family="Be Vietnam Pro" font-size="9.5" fill="rgba(240,234,225,.5)">Thù lao 500k · Phí dịch vụ 12% = 60k</text>
+<rect x="20" y="146" width="184" height="112" rx="16" fill="#fff" stroke="#E8E2DC" stroke-width="1.5"/>
+<circle cx="43" cy="175" r="9" fill="url(#grad-c4)"/><path d="M39 175 L42 178 L48 171" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="60" y="180" font-family="Be Vietnam Pro" font-size="10.5" fill="#1A1510">Buổi Kèo hoàn thành</text>
+<circle cx="43" cy="207" r="9" fill="url(#grad-c4)"/><path d="M39 207 L42 210 L48 203" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="60" y="212" font-family="Be Vietnam Pro" font-size="10.5" fill="#1A1510">Chủ xị xác nhận</text>
+<circle cx="43" cy="239" r="9" fill="url(#grad-c4)"/><path d="M39 239 L42 242 L48 235" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="60" y="244" font-family="Be Vietnam Pro" font-size="10.5" fill="#1A1510">Tiền đã chuyển vào tài khoản</text>
+<rect x="20" y="270" width="184" height="56" rx="12" fill="#EEF7EE" stroke="#7BAE7F" stroke-width="1" stroke-opacity=".3"/>
+<text x="32" y="292" font-family="Be Vietnam Pro" font-size="9.5" font-weight="600" fill="#2E7D32">Thù lao đã giải ngân</text>
+<text x="32" y="306" font-family="Be Vietnam Pro" font-size="8.5" fill="#4A4A44">Cảm ơn vì buổi Kèo tuyệt vời 🌿</text>
+<rect x="24" y="420" width="176" height="46" rx="23" fill="url(#grad-c4)"/>
+<text x="112.0" y="448" text-anchor="middle" font-family="Playfair Display" font-size="12.5" font-weight="600" fill="#fff">Xem lịch sử Kèo</text>
+  </g>
+  <rect x="90" y="16" width="60" height="14" rx="7" fill="#0D0B09"/>
+  <rect x="0" y="0" width="240" height="500" rx="32" fill="none" stroke="#0D0B09" stroke-width="8"/>
+</svg></div>
     </div>
   </div>
 
