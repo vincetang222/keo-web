@@ -1,129 +1,374 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#1A3A28">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-<title>Omakase và nghệ thuật phó thác — bài học từ văn hóa Nhật | Kèo</title>
-<meta name="description" content="Omakase — "tôi để bạn quyết định" — là triết lý về sự tin tưởng và lý do tại sao phó thác thường cho kết quả tốt hơn tự kiểm soát."Tôi để bạn quyết định." Omakase không chỉ là cách gọi món — đó là triết lý về sự tin tưởng và lý do tại sao phó thác thường cho kết quả tốt hơn tự kiểm soát.">
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Omakase và nghệ thuật phó thác | Kèo</title>
+<meta name="description" content="Omakase dạy điều gì về sự tin tưởng? Barry Schwartz và nghịch lý của sự lựa chọn.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/omakase-va-nghe-thuat-pho-thac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Omakase và nghệ thuật phó thác — bài học từ văn hóa Nhật">
-<meta property="og:description" content="Tại sao phó thác thường cho kết quả tốt hơn tự kiểm soát.">
+<meta property="og:title" content="Omakase và nghệ thuật phó thác">
+<meta property="og:description" content="Đôi khi trải nghiệm tốt nhất là trải nghiệm bạn mở lòng đón nhận.">
 <meta property="og:url" content="https://keo.social/omakase-va-nghe-thuat-pho-thac">
 <meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
-<link rel="stylesheet" href="/style.css"></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+
+.zone-dark{background:#17120D;border-radius:0 0 36px 36px;position:relative;overflow:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:720px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6;display:flex;align-items:center;gap:8px}
+.nav-mark{width:15px;height:20px}
+.nav-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.nav-back:hover{gap:10px;color:var(--a)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;transition:all .25s;cursor:pointer;font-family:"Be Vietnam Pro",sans-serif}
+.lb.on{background:var(--grad);color:#fff}
+
+.article-hero{max-width:720px;margin:0 auto;padding:44px 32px 30px;position:relative;overflow:hidden}
+.article-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 50% 20%,color-mix(in srgb,var(--a) 22%,transparent),transparent 60%)}
+.breadcrumb{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.breadcrumb::before{content:"";width:16px;height:2px;background:var(--a)}
+h1.art-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:600;letter-spacing:-.012em;line-height:1.24;color:#F5EFE6;margin-bottom:18px}
+h1.art-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.art-meta{position:relative;z-index:2;display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(245,239,230,.42)}
+.art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(245,239,230,.3)}
+.tags{position:relative;z-index:2;margin-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14);border-radius:100px;padding:4px 12px;font-size:11px;color:rgba(245,239,230,.55)}
+
+.art-illo{max-width:760px;margin:32px auto 0;padding:0 32px}
+.art-illo-frame{background:var(--s2);border-radius:18px;overflow:hidden;border:1px solid var(--rim2)}
+.art-illo-frame svg{width:100%;height:auto;display:block}
+.art-illo-cap{font-size:11px;color:var(--i3);text-align:center;margin-top:10px;margin-bottom:8px;font-style:italic}
+
+.art-body{max-width:640px;margin:0 auto;padding:32px 32px 8px}
+.art-body p{font-size:16px;font-weight:300;line-height:1.85;color:var(--i2);margin-bottom:22px}
+.art-body p.lead{font-size:18px;color:var(--ink);padding-left:20px;border-left:3px solid var(--a)}
+.art-body h2{font-family:'Playfair Display',serif;font-size:23px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.art-body h2::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--a);flex-shrink:0}
+.art-body h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--ink);margin:26px 0 12px}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-pull{position:relative;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;font-weight:600;line-height:1.5;color:var(--ink);padding:8px 26px 8px 54px;margin:32px 0;background:color-mix(in srgb,var(--a) 6%,transparent);border-radius:14px}
+.art-pull::before{content:"\201C";position:absolute;top:-8px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:700;font-style:normal;color:var(--a);opacity:.7;line-height:1}
+.art-pull span{position:relative;z-index:2}
+
+/* COMPARE TABLE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.comp-col{border-radius:16px;padding:22px}
+.comp-col.no{background:var(--s2);border:1px solid var(--rim2)}
+.comp-col.yes{background:#17120D;border:1px solid rgba(240,234,225,.1)}
+.comp-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.comp-col.no .comp-title{color:var(--i3)}
+.comp-col.yes .comp-title{color:var(--gold)}
+.comp-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.comp-col li{font-size:13.5px;line-height:1.5;padding-left:16px;position:relative}
+.comp-col.no li{color:var(--i2)}
+.comp-col.yes li{color:rgba(245,239,230,.8)}
+.comp-col li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%}
+.comp-col.no li::before{background:var(--i3)}
+.comp-col.yes li::before{background:var(--gold)}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+.sources{border-top:1px solid var(--rim);margin-top:48px;padding-top:24px}
+.sources h4{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:14px}
+.sources ol{padding-left:18px;display:flex;flex-direction:column;gap:10px}
+.sources li{font-size:12px;color:var(--i3);line-height:1.65}
+.sources li em{font-style:italic}
+
+.art-cta{max-width:640px;margin:24px auto 0;padding:0 32px}
+.art-cta-inner{background:radial-gradient(ellipse 90% 100% at 15% 0%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 55%),radial-gradient(ellipse 90% 100% at 100% 100%,color-mix(in srgb,var(--a2) 18%,transparent),transparent 55%),#17120D;border:1px solid rgba(240,234,225,.12);border-radius:16px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.art-cta-inner h3{position:relative;z-index:2;color:#F5EFE6;font-family:'Playfair Display',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.art-cta-inner p{position:relative;z-index:2;color:rgba(245,239,230,.6);font-size:13px;margin-bottom:18px}
+.art-cta-inner strong{color:#F5EFE6}
+.art-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:12px 26px;border-radius:100px;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;position:relative;z-index:2}
+
+.related-section{max-width:760px;margin:8px auto 0;padding:36px 32px 8px}
+.related-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.related-eyebrow::before{content:"";width:16px;height:2px;background:var(--a)}
+.related-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rel-card{background:var(--s1);border:1px solid var(--rim);border-radius:14px;overflow:hidden;transition:all .22s;display:block}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,21,16,.09);border-color:var(--rim2)}
+.rel-cover{height:100px;position:relative;overflow:hidden;padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.rel-cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.rel-cover-ket-noi{background:linear-gradient(135deg,var(--gold),var(--a) 55%,var(--a2))}
+.rel-cover-kynang{background:linear-gradient(135deg,color-mix(in srgb,#6C63C4 75%,var(--gold) 25%),#6C63C4 55%,color-mix(in srgb,#6C63C4 65%,#000 35%))}
+.rel-cover-nghi-thuc{background:linear-gradient(135deg,color-mix(in srgb,#2E9E8C 75%,var(--gold) 25%),#2E9E8C 55%,color-mix(in srgb,#2E9E8C 65%,#000 35%))}
+.rel-cover-dothi{background:linear-gradient(135deg,color-mix(in srgb,#C08A2E 80%,var(--gold) 20%),#C08A2E 55%,color-mix(in srgb,#C08A2E 65%,#000 30%))}
+.rel-illo{position:absolute;bottom:0;right:4px;width:56px;height:56px;pointer-events:none;z-index:1}
+.rel-illo svg{width:100%;height:100%}
+.rel-cat{position:relative;z-index:2;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rel-title{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25);max-width:75%}
+
+.faq-section{max-width:640px;margin:24px auto 0;padding:40px 32px 8px}
+.faq-section-inner{background:linear-gradient(160deg,var(--s2),color-mix(in srgb,var(--a) 4%,var(--s2)));border-radius:20px;padding:32px}
+.faq-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.faq-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:22px}
+.faq{border:1px solid var(--rim2);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--s1);transition:border-color .2s}
+.faq:last-child{margin-bottom:0}
+.faq.open{border-color:color-mix(in srgb,var(--a) 35%,transparent);box-shadow:0 4px 16px rgba(26,21,16,.06)}
+.faq-q{padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.faq-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#fff;background:var(--a);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:600;flex:1}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--rim2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:13px;color:var(--i2)}
+.faq.open .faq-ic{background:var(--a);border-color:transparent;color:#fff;transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-a-in{padding:0 18px 18px 58px;font-size:13.5px;font-weight:300;color:var(--i2);line-height:1.7}
+
+footer{background:#17120D;padding:56px 32px 32px;margin-top:48px}
+.foot-in{max-width:760px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-brand .nav-logo{color:#F5EFE6}
+.foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
+.foot-social{display:flex;gap:10px}
+.fsoc{width:36px;height:36px;border-radius:10px;background:rgba(240,234,225,.06);border:1px solid rgba(240,234,225,.12);display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.65);transition:all .25s}
+.fsoc svg{width:17px;height:17px}
+.fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
+.foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-link:hover{color:var(--a)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:640px){
+  .nav-in,.article-hero,.art-illo,.art-body,.faq-section,.art-cta,.related-section{padding-left:20px;padding-right:20px}
+  .related-grid{grid-template-columns:1fr}
+  .nav-back .vi,.nav-back .en{display:none}
+  .nav-back::before{content:"←";display:block;font-size:16px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="zone-dark">
 <nav>
-  <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r">
-    <a href="/blog" class="back"><span class="vi">← Blog</span><span class="en">← Blog</span></a>
-    <button class="lang-toggle" id="lang-toggle">EN</button>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
-<div class="hero">
-  <div class="cat"><span class="vi">Nghi thức · Văn hóa Nhật</span><span class="en">Ritual · Japanese Culture</span></div>
-  <h1><span class="vi">Omakase và<br><em>nghệ thuật phó thác</em> —<br>bài học từ văn hóa Nhật</span><span class="en">Omakase and<br><em>the Art of Entrusting</em> —<br>A Lesson from Japanese Culture</span></h1>
-  <div class="hero-meta"><span class="vi">Kèo · 5 phút đọc</span><span class="en">Kèo · 5 min read</span></div>
-</div>
-<div class="wrap">
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">Nghi thức · Văn hóa</span><span class="en">Rituals · Culture</span></div>
+  <h1 class="art-title"><span class="vi">Omakase và <em>nghệ thuật phó thác</em></span><span class="en">Omakase and <em>the Art of Entrusting</em></span></h1>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">4 phút đọc</span><span class="en">4 min read</span>
+  </div>
   <div class="tags">
-    <span class="tag"><span class="vi">omakase</span><span class="en">omakase</span></span>
     <span class="tag"><span class="vi">văn hóa Nhật</span><span class="en">Japanese culture</span></span>
     <span class="tag"><span class="vi">tin tưởng</span><span class="en">trust</span></span>
-    <span class="tag"><span class="vi">ẩm thực</span><span class="en">dining</span></span>
   </div>
+</div>
+</div>
 
-  <p><span class="vi">Omakase (おまかせ) trong tiếng Nhật có nghĩa đơn giản là "tôi để bạn quyết định" hay "tôi phó thác cho bạn." Khi bạn gọi omakase tại một nhà hàng Nhật, bạn không chọn món — bạn trao toàn quyền quyết định cho đầu bếp. Họ sẽ phục vụ bạn những gì họ cho là tốt nhất trong ngày hôm đó, theo cách họ cho là đúng nhất.</span><span class="en">Omakase (おまかせ) in Japanese simply means "I'll leave it to you" or "I entrust you." When you order omakase at a Japanese restaurant, you don't choose dishes — you give full decision-making authority to the chef. They'll serve you what they believe is best that day, in the way they think is right.</span></p>
+<div class="art-illo">
+  <div class="art-illo-frame">
+<svg viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
+<path d="M284 230 Q284 195 300 195 Q316 195 316 230Z" fill="url(#d1)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="300" cy="176" r="21" fill="url(#d1)" stroke="var(--illo-ink)" stroke-width="3.2"/>
+<circle cx="294" cy="172" r="2.2" fill="#1A1510"/><circle cx="306" cy="172" r="2.2" fill="#1A1510"/>
+<path d="M294 181 Q300 186 306 181" stroke="#1A1510" stroke-width="2" stroke-linecap="round" fill="none"/>
+<rect x="400" y="180" width="70" height="8" rx="4" fill="var(--rim2)"/>
+<circle cx="420" cy="165" r="12" fill="none" stroke="var(--gold)" stroke-width="2" opacity=".8"/>
+<circle cx="450" cy="170" r="9" fill="none" stroke="var(--a2)" stroke-width="1.8" opacity=".6"/>
+</svg>
+  </div>
+  <div class="art-illo-cap"><span class="vi">Minh hoạ: một người, một đĩa ăn được chuẩn bị sẵn — không cần chọn.</span><span class="en">Illustration: a person, a dish already prepared — no choosing needed.</span></div>
+</div>
 
-  <p><span class="vi">Đây không chỉ là cách gọi món. Đây là một triết lý về sự tin tưởng — và nó dạy điều gì đó quan trọng hơn ẩm thực rất nhiều.</span><span class="en">This isn't just a way of ordering food. It's a philosophy of trust — and it teaches something far more important than cuisine.</span></p>
+<div class="art-body">
 
+  <p class="lead"><span class="vi">Omakase (おまかせ) trong tiếng Nhật có nghĩa đơn giản là "tôi để bạn quyết định." Khi gọi omakase, bạn không chọn món — bạn trao toàn quyền cho đầu bếp. Đây không chỉ là cách gọi món. Đây là triết lý về sự tin tưởng.</span><span class="en">Omakase (おまかせ) simply means "I'll leave it to you." When you order omakase, you give full authority to the chef. This is a philosophy of trust.</span></p>
   <h2><span class="vi">Nghịch lý của sự lựa chọn</span><span class="en">The Paradox of Choice</span></h2>
-
-  <p><span class="vi">Nhà tâm lý học Barry Schwartz trong cuốn <em>The Paradox of Choice</em> lập luận rằng việc có quá nhiều lựa chọn không làm chúng ta hạnh phúc hơn — mà thường làm chúng ta kém hạnh phúc hơn. Khi có quá nhiều lựa chọn, chúng ta lo lắng rằng mình sẽ chọn sai, và ngay cả khi đã chọn xong, chúng ta vẫn tự hỏi liệu có lựa chọn nào tốt hơn không.</span><span class="en">Psychologist Barry Schwartz in <em>The Paradox of Choice</em> argues that having too many options doesn't make us happier — it often makes us less happy. With too many choices, we worry about choosing wrong, and even after choosing, we keep wondering whether another option might have been better.</span></p>
-
-  <p><span class="vi">Omakase giải quyết vấn đề này bằng cách loại bỏ hoàn toàn sự lựa chọn — và điều thú vị là, kết quả thường tốt hơn nhiều so với khi bạn tự chọn. Không phải vì đầu bếp biết khẩu vị của bạn tốt hơn bạn, mà vì họ biết những gì tươi nhất hôm nay, biết những gì ghép cặp tốt nhất với nhau, và quan trọng hơn — họ được trao quyền để sáng tạo.</span><span class="en">Omakase solves this by eliminating choice entirely — and interestingly, the result is often far better than when you choose yourself. Not because the chef knows your palate better than you do, but because they know what's freshest today, know what pairs best together, and most importantly — they've been given the freedom to create.</span></p>
-
+  <p><span class="vi">Nhà tâm lý học Barry Schwartz trong <em>The Paradox of Choice</em> lập luận rằng quá nhiều lựa chọn không làm chúng ta hạnh phúc hơn — mà thường kém hạnh phúc hơn. Omakase giải quyết vấn đề này bằng cách loại bỏ hoàn toàn sự lựa chọn.</span><span class="en">Psychologist Barry Schwartz in <em>The Paradox of Choice</em> argues too many options make us less happy. Omakase solves this by eliminating choice entirely.</span></p>
   <h2><span class="vi">Tin tưởng như một kỹ năng có thể học</span><span class="en">Trust as a Learnable Skill</span></h2>
-
-  <p><span class="vi">Để thật sự thưởng thức omakase, bạn phải từ bỏ sự kiểm soát. Điều này nghe đơn giản nhưng thực tế khó hơn bạn nghĩ — đặc biệt với những người quen kiểm soát mọi thứ trong cuộc sống. Bạn không biết món tiếp theo là gì. Bạn không biết sẽ có dị ứng không. Bạn không biết liệu mình có thích không.</span><span class="en">To truly enjoy omakase, you have to relinquish control. This sounds simple but is harder than you'd think — especially for people used to controlling everything in their lives. You don't know what the next dish will be. You don't know if there'll be anything you're allergic to. You don't know whether you'll like it.</span></p>
-
-  <p><span class="vi">Và đó chính là điểm quan trọng: sự tin tưởng thật sự luôn đi kèm với sự không chắc chắn. Bạn không thể "tin tưởng" ai đó khi bạn đã biết trước kết quả sẽ ra sao. Tin tưởng là hành động chấp nhận rủi ro — và khi người được tin tưởng xứng đáng với điều đó, kết quả thường vượt xa những gì bạn có thể tự tạo ra.</span><span class="en">And that's precisely the point: real trust always comes with uncertainty. You can't "trust" someone when you already know what the outcome will be. Trust is the act of accepting risk — and when the person trusted is worthy of it, the result usually far exceeds what you could have created yourself.</span></p>
-
+  <p><span class="vi">Để thật sự thưởng thức omakase, bạn phải từ bỏ quyền kiểm soát. Sự tin tưởng thật sự luôn đi kèm với sự không chắc chắn — và khi người được tin tưởng xứng đáng, kết quả thường vượt xa những gì bạn có thể tự tạo ra.</span><span class="en">To enjoy omakase, you relinquish control. Real trust always comes with uncertainty — and when trust is well-placed, the result often exceeds what you could create yourself.</span></p>
   <h2><span class="vi">Omakase và văn hóa phó thác của người Nhật</span><span class="en">Omakase and the Japanese Culture of Entrusting</span></h2>
-
-  <p><span class="vi">Omakase không chỉ tồn tại trong ẩm thực. Trong văn hóa Nhật Bản, khái niệm phó thác cho chuyên gia — dù là đầu bếp, thợ thủ công, hay bác sĩ — là một phần của đạo đức nghề nghiệp. Người thợ Nhật không chỉ thực hiện công việc; họ coi đó là bổn phận danh dự để không phụ lòng người đã tin tưởng họ.</span><span class="en">Omakase doesn't only exist in cuisine. In Japanese culture, the concept of entrusting to an expert — whether chef, craftsman, or doctor — is part of professional ethics. The Japanese artisan doesn't just do their job; they see it as an honor-bound duty not to disappoint those who have trusted them.</span></p>
-
-  <p><span class="vi">Điều này tạo ra một vòng tròn: sự tin tưởng của khách hàng tạo ra áp lực danh dự cho người thợ, áp lực đó tạo ra chất lượng vượt trội, chất lượng đó củng cố sự tin tưởng. Hệ thống này chỉ hoạt động khi cả hai phía đều nghiêm túc với vai trò của mình.</span><span class="en">This creates a cycle: the customer's trust creates a sense of honorable obligation for the craftsman, that obligation produces superior quality, and that quality reinforces trust. The system only works when both sides take their role seriously.</span></p>
-
-  <h2><span class="vi">Bài học omakase trong cuộc sống</span><span class="en">The Omakase Lesson for Life</span></h2>
-
-  <p><span class="vi">Nhiều điều đáng giá nhất trong cuộc sống đến khi chúng ta bỏ quyền kiểm soát xuống và tin tưởng ai đó có chuyên môn hơn mình. Bài học của omakase không phải là "hãy để người khác quyết định mọi thứ." Mà là: <strong>hãy chọn người bạn tin tưởng thật cẩn thận — rồi thật sự tin tưởng họ.</strong></span><span class="en">Many of the most valuable things in life come when we put down control and trust someone with greater expertise. The omakase lesson isn't "let others decide everything." It's this: <strong>choose who you trust very carefully — then truly trust them.</strong></span></p>
-
-  <blockquote><p><span class="vi">Omakase dạy chúng ta rằng đôi khi trải nghiệm tốt nhất không phải là trải nghiệm bạn tự thiết kế — mà là trải nghiệm bạn mở lòng đón nhận.</span><span class="en">Omakase teaches us that sometimes the best experience isn't the one you design yourself — it's the one you open yourself to receive.</span></p></blockquote>
-
+  <p><span class="vi">Trong văn hóa Nhật, phó thác cho chuyên gia là một phần đạo đức nghề nghiệp. Sự tin tưởng của khách hàng tạo ra áp lực danh dự cho người thợ, áp lực đó tạo ra chất lượng vượt trội, chất lượng đó củng cố sự tin tưởng.</span><span class="en">In Japanese culture, entrusting an expert is part of professional ethics. Customer trust creates honorable obligation, which produces superior quality, which reinforces trust.</span></p>
+  <div class="art-pull"><span><span class="vi">Omakase dạy chúng ta rằng đôi khi trải nghiệm tốt nhất không phải là trải nghiệm bạn tự thiết kế — mà là trải nghiệm bạn mở lòng đón nhận.</span><span class="en">Omakase teaches us that sometimes the best experience isn't the one you design — it's the one you open yourself to receive.</span></span></div>
   <div class="sources">
     <h4><span class="vi">Nguồn tham khảo</span><span class="en">References</span></h4>
     <ol>
-      <li>Barry Schwartz, <em>The Paradox of Choice: Why More Is Less</em> — HarperCollins, 2004. Nghiên cứu về tác động tâm lý của việc có quá nhiều lựa chọn và khái niệm "choice overload".</li>
-      <li>Về khái niệm <em>omakase</em> và văn hóa phó thác Nhật Bản: Tham khảo từ các nghiên cứu nhân chủng học về <em>shokunin kishitsu</em> (tinh thần thợ thủ công Nhật) và các tài liệu về văn hóa dịch vụ Nhật Bản.</li>
+      <li>Barry Schwartz, <em>The Paradox of Choice: Why More Is Less</em> — HarperCollins, 2004.</li>
+      <li><span class="vi">Về khái niệm omakase và <em>shokunin kishitsu</em> (tinh thần thợ thủ công Nhật): tham khảo các nghiên cứu nhân chủng học về văn hóa dịch vụ Nhật Bản.</span><span class="en">On omakase and <em>shokunin kishitsu</em> (Japanese craftsman spirit): drawn from anthropological research on Japanese service culture.</span></li>
     </ol>
-    <p style="font-size:12px;color:var(--t3);margin-top:12px"><span class="vi">Bài viết tổng hợp từ các nghiên cứu học thuật đã được bình duyệt. Vui lòng truy cập nguồn gốc để đọc đầy đủ.</span><span class="en">This article synthesizes peer-reviewed academic research. Please visit original sources for full reading.</span></p>
   </div>
 
-  <div class="divider"></div>
-  <div class="cta-box">
-    <h3><span class="vi">Thử một buổi Kèo — phó thác cho chúng tôi tìm người phù hợp</span><span class="en">Try a Kèo Session — Entrust Us to Find the Right Person</span></h3>
+</div>
+
+<div class="art-cta">
+  <div class="art-cta-inner">
+    <h3><span class="vi">Thử một buổi Kèo — phó thác cho chúng tôi tìm người phù hợp</span><span class="en">Try a Kèo — Entrust Us to Find the Right Person</span></h3>
     <p><span class="vi">Mô tả buổi tối bạn muốn — Kèo lo phần còn lại. Giống omakase, nhưng cho cuộc trò chuyện.</span><span class="en">Describe the evening you want — Kèo handles the rest. Like omakase, but for conversation.</span></p>
-    <a href="/chu-xi"><span class="vi">Đặt Kèo ngay 🌿</span><span class="en">Book a Kèo 🌿</span></a>
+    <a href="/chu-xi" class="art-cta-btn">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
   </div>
+</div>
 
-  <p style="font-size:14px;color:var(--t3);text-align:center">
-    <span class="vi">Xem thêm: <a href="/bua-an-la-nghi-thuc-ket-noi" style="color:var(--g)">Bữa ăn là nghi thức kết nối</a> · <a href="/nguoi-thanh-cong-an-toi-voi-nguoi-la" style="color:var(--g)">Tại sao người thành công hay ăn tối với người lạ</a></span>
-    <span class="en">Read more: <a href="/bua-an-la-nghi-thuc-ket-noi" style="color:var(--g)">The shared meal as ritual</a> · <a href="/nguoi-thanh-cong-an-toi-voi-nguoi-la" style="color:var(--g)">Why successful people dine with strangers</a></span>
-  </p>
-<div class="related">
-  <div class="related-head">
-    <div class="related-title"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></div>
-    <a href="/khoa-hoc-ket-noi" style="font-size:12px;color:var(--t3);text-decoration:none"><span class="vi">Xem tất cả →</span><span class="en">View all →</span></a>
-  </div>
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Also recommended</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related Articles</span></h2>
   <div class="related-grid">
-    <a href="/van-hoa-tra-va-su-cham-rai-trong-ket-noi" class="related-card featured">
-      <div class="related-pill"><span class="vi">Nghi thức</span><span class="en">Rituals</span></div>
-      <div class="related-card-title"><span class="vi">Văn hóa trà và sự chậm rãi trong kết nối</span><span class="en">Tea Culture and the Slowness of Connection</span></div>
-    </a><a href="/tai-sao-nguoi-phap-an-toi-3-tieng" class="related-card ">
-      <div class="related-pill"><span class="vi">Nghi thức</span><span class="en">Rituals</span></div>
-      <div class="related-card-title"><span class="vi">Tại sao người Pháp ăn tối 3 tiếng</span><span class="en">Why the French Take 3 Hours for Dinner</span></div>
-    </a><a href="/hieu-ung-guong-va-khoa-hoc-cua-su-gan-gui" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Hiệu ứng gương và khoa học của sự gần gũi</span><span class="en">The Mirroring Effect and the Science of Closeness</span></div>
-    </a><a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="related-card ">
-      <div class="related-pill"><span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
-      <div class="related-card-title"><span class="vi">Sự im lặng thoải mái là dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence Is the Sign of Genuine Connection</span></div>
-    </a><a href="/nguoi-thanh-cong-an-toi-voi-nguoi-la" class="related-card ">
-      <div class="related-pill"><span class="vi">Kết nối</span><span class="en">Connection</span></div>
-      <div class="related-card-title"><span class="vi">Tại sao người thành công hay ăn tối với người lạ</span><span class="en">Why Successful People Often Dine With Strangers</span></div>
+    <a href="/bua-an-la-nghi-thuc-ket-noi" class="rel-card rv">
+      <div class="rel-cover rel-cover-nghi-thuc">
+        <span class="rel-cat"><span class="vi">Nghi thức</span><span class="en">Rituals</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M28 76 Q28 58 39 58 Q50 58 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="39" cy="46" r="13" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="34" cy="44" r="1.5" fill="#fff"/><circle cx="44" cy="44" r="1.5" fill="#fff"/><path d="M33 51 Q39 56 45 51" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M56 60 L56 68 Q56 72 60 72 L64 72 Q68 72 68 68 L68 60Z" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M68 63 Q73 63 73 66.5 Q73 70 68 70" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao bữa ăn là nghi thức kết nối quan trọng nhất</span><span class="en">Why the Shared Meal Is the Most Important Ritual</span></div>
+      </div>
+    </a>
+    <a href="/tai-sao-nguoi-phap-an-toi-3-tieng" class="rel-card rv">
+      <div class="rel-cover rel-cover-nghi-thuc">
+        <span class="rel-cat"><span class="vi">Nghi thức</span><span class="en">Rituals</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M28 76 Q28 58 39 58 Q50 58 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="39" cy="46" r="13" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="34" cy="44" r="1.5" fill="#fff"/><circle cx="44" cy="44" r="1.5" fill="#fff"/><path d="M33 51 Q39 56 45 51" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M56 60 L56 68 Q56 72 60 72 L64 72 Q68 72 68 68 L68 60Z" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M68 63 Q73 63 73 66.5 Q73 70 68 70" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao người Pháp ăn tối 3 tiếng</span><span class="en">Why the French Take 3 Hours for Dinner</span></div>
+      </div>
+    </a>
+    <a href="/hieu-ung-guong-va-khoa-hoc-cua-su-gan-gui" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Hiệu ứng gương và khoa học của sự gần gũi</span><span class="en">The Mirroring Effect and the Science of Closeness</span></div>
+      </div>
+    </a>
+    <a href="/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su" class="rel-card rv">
+      <div class="rel-cover rel-cover-kynang">
+        <span class="rel-cat"><span class="vi">Kỹ năng</span><span class="en">Skills</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M26 76 Q26 56 38 56 Q50 56 50 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="38" cy="44" r="14" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="33" cy="42" r="1.6" fill="#fff"/><circle cx="43" cy="42" r="1.6" fill="#fff"/><path d="M32 49 Q38 54 44 49" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="62" cy="20" r="6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M62 8 L62 12 M62 28 L62 32 M50 20 L54 20 M70 20 L74 20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="rel-title"><span class="vi">Sự im lặng thoải mái — dấu hiệu của kết nối thật sự</span><span class="en">Comfortable Silence — A Sign of Genuine Connection</span></div>
+      </div>
+    </a>
+    <a href="/nguoi-thanh-cong-an-toi-voi-nguoi-la" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Tại sao người thành công hay ăn tối với người lạ</span><span class="en">Why Successful People Often Dine With Strangers</span></div>
+      </div>
+    </a>
+    <a href="/keo-khac-gi-dating-app" class="rel-card rv">
+      <div class="rel-cover rel-cover-ket-noi">
+        <span class="rel-cat"><span class="vi">Kết nối</span><span class="en">Connection</span></span>
+        <div class="rel-illo"><svg viewBox="0 0 80 80" fill="none"><path d="M14 74 Q14 56 24 56 Q34 56 34 74Z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="24" cy="46" r="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><circle cx="20" cy="44" r="1.4" fill="#fff"/><circle cx="28" cy="44" r="1.4" fill="#fff"/><path d="M44 74 Q44 58 53 58 Q62 58 62 74Z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="53" cy="49" r="10.5" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/><circle cx="50" cy="47" r="1.2" fill="#fff"/><circle cx="56" cy="47" r="1.2" fill="#fff"/><path d="M35 60 Q39 55 43 60" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="rel-title"><span class="vi">Kèo khác gì dating app?</span><span class="en">How Is Kèo Different From a Dating App?</span></div>
+      </div>
     </a>
   </div>
 </div>
+
+
+<div class="faq-section">
+  <div class="faq-section-inner">
+  <div class="faq-eyebrow">FAQ</div>
+  <h2 class="faq-h2"><span class="vi">Câu hỏi thường gặp</span><span class="en">Frequently Asked Questions</span></h2>
+
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">1</span><span class="faq-q-text"><span class="vi">Omakase nghĩa là gì?</span><span class="en">What does omakase mean?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Omakase (おまかせ) nghĩa là "tôi để bạn quyết định" — bạn trao toàn quyền chọn món cho đầu bếp.</span><span class="en">Omakase (おまかせ) means "I'll leave it to you" — you give full decision-making authority to the chef.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">2</span><span class="faq-q-text"><span class="vi">Nghịch lý của sự lựa chọn là gì?</span><span class="en">What is the paradox of choice?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Barry Schwartz lập luận quá nhiều lựa chọn không làm ta hạnh phúc hơn — mà thường kém hạnh phúc hơn vì lo sợ chọn sai.</span><span class="en">Barry Schwartz argues too many choices make us less happy — we worry about choosing wrong.</span></div></div>
+  </div>
+  <div class="faq rv">
+    <div class="faq-q"><span class="faq-num">3</span><span class="faq-q-text"><span class="vi">Bài học omakase áp dụng vào đời sống thế nào?</span><span class="en">How does the omakase lesson apply to life?</span></span><span class="faq-ic">+</span></div>
+    <div class="faq-a"><div class="faq-a-in"><span class="vi">Hãy chọn người bạn tin tưởng thật cẩn thận — rồi thật sự tin tưởng họ, chấp nhận sự không chắc chắn đi kèm.</span><span class="en">Choose who you trust carefully — then truly trust them, accepting the uncertainty that comes with it.</span></div></div>
+  </div>
+  </div>
 </div>
+
 <footer>
-  <div class="fl">Kèo<span>.</span></div>
-  <div style="font-size:11px;color:var(--t3);margin-top:4px"><span class="vi">Gặp gỡ có chiều sâu · keo.social</span><span class="en">Meaningful connection · keo.social</span></div>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <div class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</span><span class="en">Connections that go deeper. A marketplace of expert companions in Vietnam.</span></div>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+          <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://zalo.me/0902755265" class="fsoc" aria-label="Zalo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5c-5 0-8.5 3.3-8.5 7.6 0 2.8 1.5 5.2 3.9 6.6-.15.9-.6 2.2-1.2 3 1.4-.2 2.9-.9 3.9-1.6.9.25 1.9.4 2.9.4 5 0 8.5-3.3 8.5-7.6s-3.5-7.6-8.5-7.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.8 13.2V9.8h2.6M8.8 11.4h2.4M13 9.8v3.4M15.2 9.8v3.4h1.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
+        <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
+        <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title"><span class="vi">Thành phố</span><span class="en">Cities</span></div>
+        <a href="/nguoidonghanh" class="foot-link">Sài Gòn</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
 </footer>
+
 <script>
-var isEN=false;
-document.addEventListener('DOMContentLoaded',function(){
-  var btn=document.getElementById('lang-toggle');
-  if(btn){btn.addEventListener('click',function(){
-    isEN=!isEN;
-    btn.textContent=isEN?'VI':'EN';
-    document.querySelectorAll('.vi').forEach(function(el){el.style.display=isEN?'none':'inline';});
-    document.querySelectorAll('.en').forEach(function(el){el.style.display=isEN?'inline':'none';});
-  });}
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
 });
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-</body></html>
+</body>
+</html>
