@@ -1558,77 +1558,6 @@ const CICO={
   'wrapped-bitcoin':'🟠','staked-ether':'🔹',
 };
 
-// Normalise a raw asset from either API into a common shape
-function normAsset(a, source){
-  if(source==='coincap'){
-    return {
-      id:   a.id,
-      sym:  a.symbol,         // already uppercase in CoinCap
-      name: a.name,
-      price: parseFloat(a.priceUsd)||0,
-      pct:   parseFloat(a.changePercent24Hr)||0,
-      mcap:  parseFloat(a.marketCapUsd)||0,
-      rank:  parseInt(a.rank)||0,
-    };
-  }
-  // coingecko
-  return {
-    id:   a.id,
-    sym:  (a.symbol||'').toUpperCase(),
-    name: a.name,
-    price: a.current_price||0,
-    pct:   a.price_change_percentage_24h||0,
-    mcap:  a.market_cap||0,
-    rank:  a.market_cap_rank||0,
-  };
-}
-
-function renderCryptoAssets(assets, source){
-  // Status bar: BTC dominance + total mcap
-  const totalMcap = assets.reduce((s,a)=>s+a.mcap, 0);
-  const btcMcap   = assets.find(a=>a.id==='bitcoin')?.mcap || 0;
-  if(totalMcap>0){
-    const e1=$('stBd');if(e1)e1.textContent=(btcMcap/totalMcap*100).toFixed(1)+'%';
-    const e2=$('stGm');if(e2)e2.textContent='$'+(totalMcap/1e12).toFixed(2)+'T';
-  }
-  // Overview BTC / ETH
-  const btc=assets.find(a=>a.id==='bitcoin');
-  if(btc){
-    const u=btc.pct>=0;
-    const e=$('ovBtc');if(e)e.textContent='$'+Math.round(btc.price).toLocaleString();
-    const c=$('ovBtcC');if(c){c.textContent=(u?'▲ +':'▼ ')+Math.abs(btc.pct).toFixed(2)+'%';c.style.color=u?'var(--gn)':'var(--rd)';}
-  }
-  const eth=assets.find(a=>a.id==='ethereum'||a.id==='eth');
-  if(eth){
-    const u=eth.pct>=0;
-    const e=$('ovEth');if(e)e.textContent='$'+Math.round(eth.price).toLocaleString();
-    const c=$('ovEthC');if(c){c.textContent=(u?'▲ +':'▼ ')+Math.abs(eth.pct).toFixed(2)+'%';c.style.color=u?'var(--gn)':'var(--rd)';}
-  }
-  // Fear & Greed — hiện placeholder "đang tải", giá trị thật sẽ do updateFearGreed() ghi đè ngay sau (gọi trong renderCrypto)
-  const fe=$('ovFng');if(fe){fe.textContent='--';fe.style.color='var(--sub)';}
-  const fl2=$('ovFngL');if(fl2){fl2.textContent='Đang tải…';fl2.style.color='var(--sub)';}
-
-  function mkCrCard(a){
-    const p=a.price, pct=a.pct, abs=Math.abs(p*pct/100);
-    const mcap=a.mcap>=1e9?'$'+(a.mcap/1e9).toFixed(1)+'B':'$'+(a.mcap/1e6).toFixed(0)+'M';
-    const ps=p>=1000?'$'+Math.round(p).toLocaleString():p>=1?'$'+p.toFixed(3):'$'+p.toFixed(6);
-    return card({sym:a.sym,nm:a.name,ic:CICO[a.id]||'🔷',pr:ps,usd:p,pct,
-      abs:(pct>=0?'+':'')+'$'+(abs>=1?abs.toFixed(2):abs.toFixed(4)),
-      m1:'MCap:'+mcap,m2:'#'+a.rank},'cr','var(--pu)');
-  }
-
-  html('crCards', assets.map(mkCrCard).join('')+
-    `<div style="grid-column:1/-1;font-family:var(--mono);font-size:9px;color:var(--mu);padding:8px 2px">Nguồn: ${source}</div>`);
-
-  html('ovCrPrev', assets.slice(0,5).map(a=>{
-    const p=a.price, pct=a.pct, abs=Math.abs(p*pct/100);
-    const ps=p>=1000?'$'+Math.round(p).toLocaleString():p>=1?'$'+p.toFixed(2):'$'+p.toFixed(5);
-    return card({sym:a.sym,nm:a.name,ic:CICO[a.id]||'🔷',pr:ps,usd:p,pct,
-      abs:(pct>=0?'+':'')+'$'+(abs>=1?abs.toFixed(2):abs.toFixed(3)),
-      m1:'Rank #'+a.rank,m2:''},'cr','var(--pu)');
-  }).join(''));
-}
-
 // Fear & Greed Index — dữ liệu thật từ alternative.me (API công khai, miễn phí)
 // Điều khoản dùng: phải ghi rõ nguồn ngay cạnh số liệu — đã thêm ở phần "m2" của overview card.
 async function updateFearGreed(){
@@ -1651,6 +1580,21 @@ async function updateFearGreed(){
     console.warn('Fear & Greed API lỗi, giữ giá trị trung lập mặc định:', err.message);
     const fe=$('ovFng'); if(fe){ fe.textContent='50/100'; fe.style.color='var(--go)'; }
     const fl=$('ovFngL'); if(fl){ fl.textContent='Không tải được dữ liệu'; fl.style.color='var(--sub)'; }
+  }
+}
+
+// Lấy lịch sử giá THẬT từ Binance (klines/nến) — cùng domain đang dùng cho giá, public, không cần key.
+// Dùng khung 1h x 20 nến gần nhất để vẽ đúng sparkline theo diễn biến thật, thay vì bịa.
+async function fetchKlines(sym){
+  try{
+    const r = await fetchT(`https://api.binance.com/api/v3/klines?symbol=${sym}&interval=1h&limit=20`, 5000);
+    if(!r.ok) return null;
+    const data = await r.json();
+    if(!Array.isArray(data)||!data.length) return null;
+    return data.map(k=>parseFloat(k[4])); // giá đóng cửa (close) của từng nến
+  }catch(err){
+    console.warn('Binance klines lỗi cho '+sym+':', err.message);
+    return null;
   }
 }
 
@@ -1709,6 +1653,11 @@ async function renderCrypto(){
       };
     }).sort((a,b)=>a.rank-b.rank);
 
+    // Lấy lịch sử giá thật (song song, không chờ tuần tự) để sparkline phản ánh đúng diễn biến,
+    // không phải đường bịa hay đường phẳng do thiếu dữ liệu.
+    const klinesResults = await Promise.all(assets.map(a=>fetchKlines(a.sym+'USDT')));
+    assets.forEach((a,i)=>{ a.hist = klinesResults[i] || [a.price*0.995, a.price*1.005, a.price]; });
+
     // Update overview BTC/ETH
     const btc = assets.find(a=>a.id==='bitcoin');
     if(btc){
@@ -1730,7 +1679,7 @@ async function renderCrypto(){
       const ps=p>=1000?'$'+Math.round(p).toLocaleString():p>=1?'$'+p.toFixed(3):p>=0.0001?'$'+p.toFixed(6):'$'+p.toFixed(8);
       const abs=Math.abs(p*a.pct/100);
       const volStr=a.vol>=1e9?'Vol:$'+(a.vol/1e9).toFixed(1)+'B':a.vol>=1e6?'Vol:$'+(a.vol/1e6).toFixed(0)+'M':'';
-      return card({sym:a.sym,nm:a.name,ic:a.ic,pr:ps,usd:p,pct:a.pct,
+      return card({sym:a.sym,nm:a.name,ic:a.ic,pr:ps,usd:p,pct:a.pct,hist:a.hist,
         abs:(a.pct>=0?'+':'')+'$'+(abs>=1?abs.toFixed(2):abs.toFixed(4)),
         m1:volStr,m2:'#'+a.rank},'cr','var(--pu)');
     }
