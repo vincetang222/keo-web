@@ -246,7 +246,6 @@ footer a:hover{color:#F5EFE6}
   <div class="si"><div class="dt" id="d3"></div><span class="sn">NASDAQ</span><span class="sv" id="l3">--</span></div>
   <div class="si"><div class="dt on"></div><span class="sn">CRYPTO</span><span class="sv">24/7</span></div>
   <div class="sp1"></div>
-  <div class="si" style="gap:4px"><span class="sn">VNINDEX</span><span class="sv" id="stVni">--</span></div>
   <div class="si" style="gap:4px"><span class="sn">USD/VND</span><span class="sv" id="stFx">--</span></div>
   <div class="si" style="gap:4px"><span class="sn">BTC DOM</span><span class="sv" id="stBd">--</span></div>
   <div class="si" style="gap:4px"><span class="sn">G.MCAP</span><span class="sv" id="stGm">--</span></div>
@@ -269,16 +268,15 @@ footer a:hover{color:#F5EFE6}
 
 <!-- PAGE: OVERVIEW -->
 <div class="pg on" id="pg-overview">
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🇻🇳</div><div class="sht">Chỉ số thị trường Việt Nam</div><div class="shl"></div><span style="font-family:var(--sans);font-size:9px;color:var(--mu)">Widget thật từ DNSE</span></div>
+  <div id="dnse-market-index" class="dnse-market-index" style="margin-bottom:18px;border-radius:14px;overflow:hidden"><script src="https://cdn.dnse.com.vn/dnse-price/_embed/embed-widget-1.2.4.js">{"indexes":["VNINDEX","VN30","HNX30","HNX","UPCOM"],"width":"100%","height":400,"theme":"dark"}</script></div>
   <div class="ov4">
-    <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">🇻🇳 VN-INDEX</div><div class="ovv" id="ovVni">--</div><div class="ovc2" id="ovVniC">--</div></div>
     <div class="ovc"><div class="ovl">Vàng / Gold</div><div class="ovv" id="ovGold">--</div><div class="ovc2" id="ovGoldC">--</div></div>
     <div class="ovc"><div class="ovl">Bạc / Silver</div><div class="ovv" id="ovSilver">--</div><div class="ovc2" id="ovSilverC">--</div></div>
+    <div class="ovc"><div class="ovl">Bạch kim / Plat.</div><div class="ovv" id="ovPlat">--</div><div class="ovc2" id="ovPlatC">--</div></div>
     <div class="ovc"><div class="ovl">Bitcoin</div><div class="ovv" id="ovBtc">--</div><div class="ovc2" id="ovBtcC">--</div></div>
   </div>
   <div class="ova" style="margin-bottom:18px">
-    <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">HNX-INDEX</div><div class="ovv" id="ovHnx">--</div><div class="ovc2" id="ovHnxC">--</div></div>
-    <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">UPCOM</div><div class="ovv" id="ovUpcom">--</div><div class="ovc2" id="ovUpcomC">--</div></div>
-    <div class="ovc"><div class="ovl">Bạch kim / Plat.</div><div class="ovv" id="ovPlat">--</div><div class="ovc2" id="ovPlatC">--</div></div>
     <div class="ovc"><div class="ovl">💱 USD/VND <span id="fxB" style="font-size:8px;color:var(--sub)">~EST</span></div><div class="ovv" id="ovFx">--</div><div class="ovc2" id="ovFxC">--</div></div>
     <div class="ovc"><div class="ovl">Ethereum</div><div class="ovv" id="ovEth">--</div><div class="ovc2" id="ovEthC">--</div></div>
     <div class="ovc"><div class="ovl">Fear &amp; Greed</div><div class="ovv" id="ovFng">--</div><div class="ovc2" id="ovFngL">--</div></div>
@@ -1164,23 +1162,12 @@ function setupCollapsibleSections(){
 // thêm 1 dòng vào đây với giá thật gần nhất — code sẽ ưu tiên dùng ngay, có nhãn báo minh bạch
 // cho người xem biết đây là số liệu cập nhật tay theo sự kiện, không phải API tự động.
 // Ví dụ: 'PNJ': {price: 45000, note: 'Điều chỉnh theo tin scandal 07/2026', date: '08/07/2026'},
-async function renderVNIndices(){
-  let vni=null,hnx=null,up=null;
-  try{
-    const [r1,r2,r3]=await Promise.all([
-      fetchT('https://apipubaws.tcbs.com.vn/stock-insight/v1/market/index?indexId=VNINDEX', 4000),
-      fetchT('https://apipubaws.tcbs.com.vn/stock-insight/v1/market/index?indexId=HNX', 4000),
-      fetchT('https://apipubaws.tcbs.com.vn/stock-insight/v1/market/index?indexId=UPCOM', 4000),
-    ]);
-    if(r1.ok){const d=await r1.json();vni=d.data||d;}
-    if(r2.ok){const d=await r2.json();hnx=d.data||d;}
-    if(r3.ok){const d=await r3.json();up=d.data||d;}
-  }catch{}
-  const vSt=sim('VNINDEX',1280,1), vV=+(vni?.indexValue)||vSt.price, vP=+(vni?.changePercent)||vSt.pct;
-  const hSt=sim('HNXINDEX',225,1), hV=+(hnx?.indexValue)||hSt.price, hP=+(hnx?.changePercent)||hSt.pct;
-  const uSt=sim('UPCOMINDEX',93,1), uV=+(up?.indexValue)||uSt.price, uP=+(up?.changePercent)||uSt.pct;
-  ov('ovVni',vV.toFixed(2),vP); ov('ovHnx',hV.toFixed(2),hP); ov('ovUpcom',uV.toFixed(2),uP);
-  const e=$('stVni'); if(e) e.textContent=vV.toFixed(2);
+function renderVNIndices(){
+  // Đã gỡ bỏ gọi TCBS — xác nhận đây là API nội bộ của họ, không dành cho bên thứ 3,
+  // và đã bị họ chặn (404) sau khi phát hiện lạm dụng. VN-Index/HNX/UPCOM thật giờ hiển thị
+  // qua widget DNSE (mục riêng phía trên) — vẫn giữ sim() ở đây vì key 'VNINDEX' còn được
+  // dùng làm nền cho vài chỗ khác trong trang (ticker...).
+  sim('VNINDEX',1280,1); sim('HNXINDEX',225,1); sim('UPCOMINDEX',93,1);
 }
 
 // ─── CRYPTO ────────────────────────────────
