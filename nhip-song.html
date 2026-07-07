@@ -112,36 +112,38 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .dot-live{background:var(--rd);animation:pulse 1.6s infinite}
 .dot-done{background:var(--gn)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-.match-card{position:relative;background:var(--s1);border:1px solid var(--rim2);border-radius:14px;padding:14px 16px 14px 18px;margin-bottom:10px;box-shadow:0 2px 8px rgba(26,21,16,.05);transition:transform .2s,box-shadow .2s;overflow:hidden}
-.match-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,21,16,.09)}
-.match-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rim2)}
-.match-card.is-live::before{background:var(--a);animation:railPulse 1.6s infinite}
-.match-card.is-upcoming::before{background:var(--gold)}
 @keyframes railPulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-.match-comp{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--a);margin-bottom:10px}
-.match-comp img{width:14px;height:14px;border-radius:3px;object-fit:contain;flex-shrink:0}
-.match-comp span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* ─── GOM THEO GIẢI ĐẤU (giống cấu trúc trang gốc SportScore) ──────────────── */
+.comp-group{margin-bottom:18px}
+.comp-head{display:flex;align-items:center;gap:8px;padding:2px 4px 8px}
+.comp-logo{width:18px;height:18px;border-radius:4px;object-fit:contain;flex-shrink:0;background:var(--s2)}
+.comp-logo-fallback{width:18px;height:18px;border-radius:4px;background:var(--s2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px}
+.comp-name{font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.comp-region{font-family:var(--sans);font-size:10.5px;color:var(--i3);margin-left:auto;white-space:nowrap;flex-shrink:0;padding-left:8px}
 
-.match-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
-.match-team{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--ink);min-width:0}
-.match-team span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.25}
-.match-team.away{justify-content:flex-end;text-align:right}
-.match-team.away .nm{order:1}
-.match-badge{width:30px;height:30px;border-radius:50%;background:var(--s2);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;overflow:hidden;box-shadow:0 2px 5px rgba(26,21,16,.06)}
-.match-badge img{width:100%;height:100%;object-fit:contain;padding:3px}
-.match-score{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);white-space:nowrap;padding:0 4px;text-align:center}
-.match-score .w{color:var(--a)}
-.match-score .l{color:var(--i3);font-weight:600}
-.match-vs{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--i3);text-align:center;letter-spacing:.05em}
-.match-time{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--a);text-align:center;white-space:nowrap}
+.comp-matches{background:var(--s1);border:1px solid var(--rim2);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(26,21,16,.05)}
+.m-row{display:grid;grid-template-columns:52px 1fr auto 1fr;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--rim);position:relative;cursor:pointer;transition:background .15s}
+.m-row:last-child{border-bottom:none}
+.m-row:hover{background:var(--s2)}
+.m-row.is-live{background:linear-gradient(90deg,rgba(214,95,53,.07),transparent 45%)}
+.m-row.is-live::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--a);animation:railPulse 1.6s infinite}
+.m-time{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--i2);text-align:center;line-height:1.3}
+.m-time .live-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--a);margin-right:3px;animation:pulse 1.6s infinite}
+.m-time .live-lbl{color:var(--a)}
+.m-team{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink);min-width:0}
+.m-team .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.25}
+.m-team.away{justify-content:flex-end;text-align:right}
+.m-team.away .nm{order:1}
+.m-badge{width:24px;height:24px;border-radius:50%;background:var(--s2);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;overflow:hidden}
+.m-badge img{width:100%;height:100%;object-fit:contain;padding:2px}
+.m-score{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap;padding:0 2px;text-align:center}
+.m-score .w{color:var(--a)}
+.m-score .l{color:var(--i3);font-weight:600}
+.m-score .vs{font-family:var(--sans);font-size:10.5px;font-weight:700;color:var(--i3);letter-spacing:.04em}
 
-.match-meta{display:flex;align-items:center;justify-content:center;gap:6px;font-size:10.5px;color:var(--i3);margin-top:10px;padding-top:9px;border-top:1px solid var(--rim)}
-.match-meta .live-tag{display:inline-flex;align-items:center;gap:4px;color:var(--a);font-weight:700}
-.match-meta .live-tag .pdot{width:5px;height:5px;border-radius:50%;background:var(--a);animation:pulse 1.6s infinite}
-.match-link{margin-left:auto;color:var(--i3);font-weight:600;transition:color .2s}
-.match-card:hover .match-link{color:var(--a)}
+.comp-more{width:100%;text-align:center;padding:9px;font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--a);background:var(--s2);border:none;border-top:1px solid var(--rim2);cursor:pointer;transition:background .15s}
+.comp-more:hover{background:var(--s3)}
 
 .ld{text-align:center;padding:30px;color:var(--i3);font-size:13px}
 .err{text-align:center;padding:20px;color:var(--i3);font-size:12.5px;line-height:1.6}
@@ -430,18 +432,19 @@ function applyFilters(sport){
     if(f.status==='finished' && !m._finished) return false;
     return true;
   });
-  const liveUp = filtered.filter(m=>!m._finished).slice(0,10);
-  const done = filtered.filter(m=>m._finished).slice(0,10);
+  // Giới hạn tổng số trận hiển thị (thay vì giới hạn số giải) — 1 giải có nhiều trận vẫn gom
+  // chung 1 nhóm, không bị cắt ngang giữa chừng theo kiểu đếm phẳng cũ.
+  const liveUp = filtered.filter(m=>!m._finished).slice(0,18);
+  const done = filtered.filter(m=>m._finished).slice(0,18);
 
-  html(px+'-live', liveUp.length ? liveUp.map(m=>mkMatchCard(m,m._live)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
-  html(px+'-done', done.length ? done.map(m=>mkMatchCard(m,false)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
+  html(px+'-live', liveUp.length ? groupByCompetition(liveUp).map((g,i)=>mkCompGroup(g,px+'-live-'+i)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
+  html(px+'-done', done.length ? groupByCompetition(done).map((g,i)=>mkCompGroup(g,px+'-done-'+i)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
 }
 
 function html(id,h){ const e=$(id); if(e) e.innerHTML=h; }
 
 // Định dạng giờ theo múi giờ Việt Nam, ưu tiên tương đối (Hôm nay/Hôm qua) khi trong vòng 2 ngày —
 // dễ đọc hơn nhiều so với chỉ in thẳng chuỗi ISO gốc.
-const WD=['CN','Th 2','Th 3','Th 4','Th 5','Th 6','Th 7'];
 function fmtTime(iso){
   if(!iso) return '';
   const d = new Date(iso);
@@ -463,47 +466,86 @@ function fmtTime(iso){
 // luôn có phương án lùi: chữ cái đầu tên trên nền màu, không để vỡ ảnh xấu xí giữa trang.
 function imgFallback(el, initial){
   const span = document.createElement('span');
-  span.className = 'match-badge';
+  span.className = 'm-badge';
   span.style.cssText = 'font-family:var(--serif);font-weight:700;color:var(--i3)';
   span.textContent = initial;
   el.parentElement.replaceWith(span);
 }
 function badge(url, name){
   const initial = (name||'?').trim().charAt(0).toUpperCase();
-  if(!url) return `<span class="match-badge" style="font-family:var(--serif);font-weight:700;color:var(--i3)">${initial}</span>`;
-  return `<span class="match-badge"><img src="${url}" alt="" loading="lazy" onerror="imgFallback(this,'${initial.replace(/'/g,"")}')"></span>`;
+  if(!url) return `<span class="m-badge" style="font-family:var(--serif);font-weight:700;color:var(--i3)">${initial}</span>`;
+  return `<span class="m-badge"><img src="${url}" alt="" loading="lazy" onerror="imgFallback(this,'${initial.replace(/'/g,"")}')"></span>`;
 }
 
-function mkMatchCard(m, forceLive){
+// ─── GOM THEO GIẢI ĐẤU (giống cấu trúc trang gốc SportScore: mỗi giải 1 nhóm,
+// có dòng tiêu đề riêng, thay vì để card rời rạc trôi nổi lẫn lộn giữa các giải) ───
+function groupByCompetition(matches){
+  const groups={}, order=[];
+  matches.forEach(m=>{
+    const key = m.competition || 'Khác';
+    if(!groups[key]){ groups[key]=[]; order.push(key); }
+    groups[key].push(m);
+  });
+  return order.map(key=>({
+    name:key,
+    logo:groups[key].find(m=>m.competition_logo)?.competition_logo || null,
+    region:groups[key][0]._region,
+    matches:groups[key],
+  }));
+}
+
+const COMP_MATCH_CAP=4; // hiện tối đa 4 trận/giải trước khi phải bấm "xem thêm" — giống "+N more matches" ở trang gốc
+function mkCompGroup(g, gid){
+  const shown = g.matches.slice(0,COMP_MATCH_CAP);
+  const rest = g.matches.slice(COMP_MATCH_CAP);
+  const compLogoHtml = g.logo
+    ? `<img class="comp-logo" src="${g.logo}" alt="" loading="lazy" onerror="this.outerHTML='<span class=comp-logo-fallback>${g.region.flag}</span>'">`
+    : `<span class="comp-logo-fallback">${g.region.flag}</span>`;
+  const moreBtn = rest.length
+    ? `<button class="comp-more" data-label="+ ${rest.length} trận nữa trong ${g.name} ›" onclick="toggleCompMore('${gid}',this)">+ ${rest.length} trận nữa trong ${g.name} ›</button>`
+    : '';
+  return `<div class="comp-group">
+    <div class="comp-head">${compLogoHtml}<span class="comp-name" title="${g.name}">${g.name}</span><span class="comp-region">${g.region.flag} ${g.region.label}</span></div>
+    <div class="comp-matches" id="${gid}">
+      ${shown.map(mkMatchRow).join('')}
+      ${rest.length?`<div class="comp-rest" style="display:none">${rest.map(mkMatchRow).join('')}</div>`:''}
+    </div>
+    ${moreBtn}
+  </div>`;
+}
+
+function toggleCompMore(gid, btn){
+  const restEl = document.querySelector('#'+gid+' .comp-rest');
+  if(!restEl) return;
+  const willShow = restEl.style.display==='none';
+  restEl.style.display = willShow ? 'contents' : 'none';
+  btn.textContent = willShow ? 'Thu gọn ‹' : btn.dataset.label;
+}
+
+function mkMatchRow(m){
   // SportScore trả field PHẲNG (chuỗi trực tiếp, không lồng object) — đã xác nhận qua gọi API thật 07/2026.
   const homeName = m.home || 'Đội nhà';
   const awayName = m.away || 'Đội khách';
   const homeScore = m.home_score, awayScore = m.away_score;
-  const compName = m.competition || '';
-  const statusRaw = (m.status||'').toLowerCase();
-  const isFinished = statusRaw.includes('fin')||statusRaw.includes('end');
-  const isLive = !!forceLive;
   const hasScore = homeScore!==undefined && homeScore!==null && awayScore!==undefined && awayScore!==null;
-
   const homeWin = hasScore && +homeScore > +awayScore;
   const awayWin = hasScore && +awayScore > +homeScore;
-  const scoreOrTime = hasScore
-    ? `<div class="match-score"><span class="${homeWin?'w':awayWin?'l':''}">${homeScore}</span> – <span class="${awayWin?'w':homeWin?'l':''}">${awayScore}</span></div>`
-    : `<div class="match-time">${fmtTime(m.time).split(' · ')[1]||'--:--'}</div><div class="match-vs">VS</div>`;
+  const isLive = m._live, isFinished = m._finished;
 
-  const metaHtml = isLive
-    ? `<span class="live-tag"><span class="pdot"></span>${m.status_text||'Đang diễn ra'}</span>`
-    : `<span>${isFinished?(m.status_text||'Kết thúc'):fmtTime(m.time)}</span>`;
-  const linkHtml = m.url ? `<a class="match-link" href="https://sportscore.com${m.url}" target="_blank" rel="noopener nofollow">Chi tiết →</a>` : '';
+  const centerHtml = hasScore
+    ? `<span class="${homeWin?'w':awayWin?'l':''}">${homeScore}</span>–<span class="${awayWin?'w':homeWin?'l':''}">${awayScore}</span>`
+    : `<span class="vs">vs</span>`;
+  const timeHtml = isLive
+    ? `<span class="live-dot"></span><span class="live-lbl">${m.status_text||'LIVE'}</span>`
+    : isFinished ? (m.status_text||'KT') : (fmtTime(m.time).split(' · ')[1]||'--:--');
+  const openUrl = m.url ? `https://sportscore.com${m.url}` : '';
+  const clickAttr = openUrl ? ` onclick="window.open('${openUrl}','_blank','noopener')"` : '';
 
-  return `<div class="match-card ${isLive?'is-live':(!isFinished?'is-upcoming':'')}">
-    ${compName?`<div class="match-comp">${m.competition_logo?`<img src="${m.competition_logo}" alt="" loading="lazy" onerror="this.remove()">`:''}<span class="nm">${compName}</span></div>`:''}
-    <div class="match-row">
-      <div class="match-team">${badge(m.home_logo,homeName)}<span class="nm" title="${homeName}">${homeName}</span></div>
-      ${scoreOrTime}
-      <div class="match-team away"><span class="nm" title="${awayName}">${awayName}</span>${badge(m.away_logo,awayName)}</div>
-    </div>
-    <div class="match-meta">${metaHtml}${linkHtml}</div>
+  return `<div class="m-row ${isLive?'is-live':''}"${clickAttr}>
+    <div class="m-time">${timeHtml}</div>
+    <div class="m-team home">${badge(m.home_logo,homeName)}<span class="nm" title="${homeName}">${homeName}</span></div>
+    <div class="m-score">${centerHtml}</div>
+    <div class="m-team away"><span class="nm" title="${awayName}">${awayName}</span>${badge(m.away_logo,awayName)}</div>
   </div>`;
 }
 
