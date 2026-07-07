@@ -98,6 +98,11 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 /* PAGES */
 .pg{display:none;}
 .pg.on{display:block;animation:fi .16s ease;}
+/* Riêng tab Cổ phiếu VN: dùng visibility thay vì display để widget Simplize luôn có
+   kích thước thật (không phải 0x0) ngay từ lúc script bên ngoài load — vì display:none
+   sẽ khiến widget tự đo/khởi tạo sai kích thước nếu tab chưa từng được mở tới. */
+#pg-vn{display:block;visibility:hidden;position:absolute;left:-99999px;top:0;width:100%;}
+#pg-vn.on{visibility:visible;position:static;left:auto;animation:fi .16s ease;}
 @keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 
 /* SECTION HEADER */
@@ -539,7 +544,7 @@ footer a:hover{color:#F5EFE6}
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">📈</div><div class="sht">8 mã tiêu biểu nhiều ngành</div><div class="shl"></div></div>
   <div class="simplize-widget-chart-overview">
     <script type="text/javascript" src="https://static.simplize.vn/static/widget/simplize-widget-v0.0.2.min.js" async>
-      {"tickers":[{"ticker":"VCB","type":"stock"},{"ticker":"FPT","type":"stock"},{"ticker":"HPG","type":"stock"},{"ticker":"VHM","type":"stock"},{"ticker":"MWG","type":"stock"},{"ticker":"PNJ","type":"stock"},{"ticker":"VNM","type":"stock"},{"ticker":"GAS","type":"stock"}],"default_time_frame":"1M","time_frames":["1D","1M","3M","1Y"],"theme":"dark","size":{"width":"","height":""},"auto_size":true,"font":"Inter","text_color":"#F5EFE6","text_color_chart":"#F5EFE6","background_color":"#17120D","tab_colors":{"active":"#D65F35","default":"#2A241D"},"chart_height":260,"show_price_chart":true,"show_fi":true,"chart_type":"line","chart_line_color":"#D65F35","chart_candle_color":["#00c853","#f5334f"],"fi":["market_cap_vnd","volume","outstanding_shares","pe_ratio","pb_ratio","eps"]}
+      {"tickers":[{"ticker":"VCB","type":"stock"},{"ticker":"FPT","type":"stock"},{"ticker":"HPG","type":"stock"},{"ticker":"VHM","type":"stock"},{"ticker":"MWG","type":"stock"},{"ticker":"PNJ","type":"stock"},{"ticker":"VNM","type":"stock"},{"ticker":"GAS","type":"stock"}],"default_time_frame":"1M","time_frames":["1D","1M","3M","1Y"],"theme":"dark","size":{"width":"800","height":"520"},"auto_size":false,"font":"Inter","text_color":"#F5EFE6","text_color_chart":"#F5EFE6","background_color":"#17120D","tab_colors":{"active":"#D65F35","default":"#2A241D"},"chart_height":260,"show_price_chart":true,"show_fi":true,"chart_type":"line","chart_line_color":"#D65F35","chart_candle_color":["#00c853","#f5334f"],"fi":["market_cap_vnd","volume","outstanding_shares","pe_ratio","pb_ratio","eps"]}
     </script>
   </div>
 </div>
