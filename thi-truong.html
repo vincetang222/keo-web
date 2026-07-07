@@ -700,6 +700,10 @@ function updateFXReal(){
 // rate limit cho mức dùng bình thường, mã nguồn mở. Chỉ gọi 1 lần khi tải trang (không lặp lại mỗi
 // 60s như fetchFX) — sau khi có lịch sử thật làm nền, các lần fetchFX() tiếp theo (qua updateFXReal)
 // sẽ nối thêm điểm mới thật vào ngay phía sau, không phá vỡ chuỗi.
+// LƯU Ý QUAN TRỌNG (rút ra sau khi test trực tiếp 07/2026): response endpoint /v2/rates cho khoảng
+// ngày là MẢNG PHẲNG [{date,base,quote,rate}, ...] — MỖI phần tử là 1 tổ hợp (ngày × 1 đồng tiền),
+// KHÔNG PHẢI object lồng theo ngày như tài liệu mô tả câu chữ khiến dễ hiểu lầm. Bản trước đã đoán
+// sai cấu trúc này nên seed luôn thất bại âm thầm (rơi vào catch, chart không bao giờ hiện).
 async function seedFXHistory(){
   try{
     const vndCcys = [...new Set([...FX_PAIRS.major, ...FX_PAIRS.asia, ...FX_PAIRS.other].map(p=>p.ccy))];
@@ -707,12 +711,19 @@ async function seedFXHistory(){
     const end = new Date(), start = new Date(end.getTime()-45*86400000);
     const fmt = d=>d.toISOString().slice(0,10);
     const url = `https://api.frankfurter.dev/v2/rates?base=USD&from=${fmt(start)}&quotes=${wanted.join(',')}`;
-    const r = await fetchT(url, 8000);
+    const r = await fetchT(url, 10000);
     if(!r.ok) throw new Error('HTTP '+r.status);
-    const j = await r.json();
-    const dates = Object.keys(j.rates||{}).sort();
-    if(dates.length<2) throw new Error('Không đủ dữ liệu time series (cần ≥2 ngày)');
-    const rateAt = (d,ccy)=> ccy==='USD' ? 1 : j.rates[d]?.[ccy];
+    const arr = await r.json();
+    if(!Array.isArray(arr) || arr.length<2) throw new Error('Response rỗng hoặc không phải mảng như kỳ vọng');
+    // Gom mảng phẳng lại thành byDate[ngày][mã tiền] = tỷ giá (so với USD)
+    const byDate = {};
+    arr.forEach(row=>{
+      if(!row || !row.date || !row.quote || !isFinite(row.rate)) return;
+      (byDate[row.date] ||= {})[row.quote] = row.rate;
+    });
+    const dates = Object.keys(byDate).sort();
+    if(dates.length<2) throw new Error('Không đủ ngày dữ liệu (cần ≥2, có '+dates.length+')');
+    const rateAt = (d,ccy)=> ccy==='USD' ? 1 : byDate[d]?.[ccy];
     const seed = (key,histArr)=>{
       if(histArr.length<2) return;
       const h = histArr.slice(-20);
