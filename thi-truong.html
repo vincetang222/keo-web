@@ -685,6 +685,13 @@ function sim(key, base, range){
   if(st.hist.length>20) st.hist.shift(); // giữ đúng 20 điểm gần nhất — đúng lịch sử thật, không bịa
   return st;
 }
+// Đọc trạng thái giá HIỆN TẠI mà KHÔNG tiến thêm bước — dùng cho nơi hiển thị lại cùng 1 mã
+// đã được sim() ở chỗ khác trong CÙNG lần render (VD: dải ticker), để tránh 2 nơi hiển thị
+// lệch nhau chỉ vì gọi sim() 2 lần cho cùng 1 mã trong cùng 1 chu kỳ refresh.
+function peek(key, base, range){
+  if(!_mkt[key]) return sim(key, base, range); // chưa từng có — khởi tạo lần đầu như bình thường
+  return _mkt[key]; // đã có rồi — chỉ đọc, không tiến thêm
+}
 const $ = id => document.getElementById(id);
 const html = (id,h) => { const e=$(id); if(e) e.innerHTML=h; };
 
@@ -697,6 +704,27 @@ function ov(id,val,pct,dec=2){
 // ─── FX LIVE ───────────────────────────────
 let USD_VND=25470, FX_RATES={};
 const FX_FB={USD:1,EUR:.92,CNY:7.24,JPY:154,KRW:1380,SGD:1.35,THB:35,GBP:.79,AUD:1.58,HKD:7.78,CHF:.88,CAD:1.37,INR:83,MYR:4.72,IDR:15600,PHP:58,TWD:32,BRL:5.1,MXN:17.2,AED:3.67,SAR:3.75,ZAR:18.5,TRY:32,NOK:10.6,SEK:10.3,NZD:1.62};
+
+// Giá kim loại quý THẬT từ gold-api.com — API công khai, miễn phí, không cần key, CORS mở
+// (đã xác nhận qua trang chính thức gold-api.com/docs). % thay đổi tự tính từ so sánh
+// với lần fetch trước — vì chưa xác nhận được API có trả sẵn field % hay không.
+const REAL_METAL = {};
+async function fetchMetals(){
+  const syms = ['XAU','XAG','XPT','XPD'];
+  await Promise.all(syms.map(async sym=>{
+    try{
+      const r = await fetchT('https://api.gold-api.com/price/'+sym, 5000);
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const j = await r.json();
+      const price = parseFloat(j.price ?? j.rate ?? j.value ?? j.ask);
+      if(!isFinite(price)) throw new Error('Không parse được giá từ response');
+      const prev = REAL_METAL[sym]?.price;
+      REAL_METAL[sym] = { price, pct: prev ? (price/prev-1)*100 : null };
+    }catch(err){
+      console.warn('gold-api.com lỗi cho '+sym+':', err.message, '— giữ nguyên dữ liệu mô phỏng');
+    }
+  }));
+}
 
 async function fetchFX(){
   try{
@@ -1064,7 +1092,10 @@ const COMM={
 };
 
 function mkComm(c){
-  const st=sim(c.sym,c.base,1.8), p=st.price, pct=st.pct;
+  const st=sim(c.sym,c.base,1.8); // vẫn chạy để có lịch sử hợp lý cho sparkline dù giá dùng là thật
+  const real = REAL_METAL[c.sym];
+  const p = real ? real.price : st.price;
+  const pct = real && real.pct!==null ? real.pct : st.pct; // lần fetch đầu chưa có % thật → tạm dùng mô phỏng
   const abs=(Math.abs(p*pct/100)).toFixed(2);
   // Quy đổi VND đúng theo từng loại đơn vị:
   // - usd:true → giá đã là USD
@@ -1076,7 +1107,8 @@ function mkComm(c){
   else usdVal = p/100;
   const priceLabel = c.ccy ? (p<10?p.toFixed(3):p.toFixed(2))+' '+c.ccy : '$'+(p<10?p.toFixed(3):p.toFixed(2));
   const changeLabel = c.ccy ? (pct>=0?'+':'')+abs+' '+c.ccy : (pct>=0?'+':'')+'$'+abs;
-  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,hist:st.hist,abs:changeLabel,m1:c.unit,m2:''},'cc','var(--a2)');
+  const m2Label = real ? 'gold-api.com · live' : '';
+  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,hist:st.hist,abs:changeLabel,m1:c.unit,m2:m2Label},'cc','var(--a2)');
 }
 
 function renderComm(){
@@ -1752,12 +1784,12 @@ function renderOverviewSim(){
 
 // ─── TICKER ────────────────────────────────
 function renderTicker(){
-  const usdVndSt = sim('USDVNDCHG',100,.25); // dùng đúng 1 lần, tái sử dụng — tránh tiến 2 bước trong cùng 1 dòng
+  const usdVndSt = sim('USDVNDCHG',100,.25); // riêng ticker, không trùng nơi khác — vẫn dùng sim() bình thường
   const items=[
-    ...STOCKS.usTech.slice(0,4).map(s=>{const st=sim(s.sym,s.base,1.5);return{sym:s.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
-    ...COMM.metal.slice(0,2).map(c=>{const st=sim(c.sym,c.base,1.8);return{sym:c.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
+    ...STOCKS.usTech.slice(0,4).map(s=>{const st=peek(s.sym,s.base,1.5);return{sym:s.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
+    ...COMM.metal.slice(0,2).map(c=>{const st=peek(c.sym,c.base,1.8);return{sym:c.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
     {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:usdVndSt.pct>=0,pct:usdVndSt.pct},
-    ...Object.values(VN).flat().slice(0,4).map(s=>{const st=sim(s.sym,s.base,1.5);return{sym:s.sym,pr:(st.price/1000).toFixed(1)+'k₫',u:st.pct>=0,pct:st.pct};}),
+    ...Object.values(VN).flat().slice(0,4).map(s=>{const st=peek(s.sym,s.base,1.5);return{sym:s.sym,pr:(st.price/1000).toFixed(1)+'k₫',u:st.pct>=0,pct:st.pct};}),
   ];
   const h=items.map(i=>`<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span><span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span></div>`).join('');
   html('tkr', h+h);
@@ -1799,13 +1831,13 @@ function loadTab(tab){
 
 // ─── INIT ──────────────────────────────────
 async function init(){
-  await fetchFX();
+  await Promise.all([fetchFX(), fetchMetals()]);
   loadTab('overview');
   setupCollapsibleSections(); // chạy 1 lần cho toàn bộ trang — mọi tab đều có thể thu gọn
 }
 init();
 
-setInterval(async()=>{ await fetchFX(); loadTab(curTab); }, 60000);
+setInterval(async()=>{ await Promise.all([fetchFX(), fetchMetals()]); loadTab(curTab); }, 60000);
 </script>
 </body>
 </html>
