@@ -90,6 +90,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .sp{display:none}
 .sp.on{display:block}
 .sp-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sp-cols>div{min-width:0}
 @media(max-width:760px){.sp-cols{grid-template-columns:1fr}}
 .col-title{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--i3);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .col-title .dot{width:6px;height:6px;border-radius:50%}
@@ -118,6 +119,8 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .sidebar-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:8px;background:none;border:none;font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--i2);cursor:pointer;text-align:left;transition:background .15s,color .15s;width:100%}
 .sidebar-item:hover{background:var(--s1)}
 .sidebar-item.on{background:var(--grad);color:#fff;box-shadow:0 3px 10px rgba(214,95,53,.28)}
+.sidebar-item.is-empty{opacity:.42}
+.sidebar-item.is-empty.on{opacity:1}
 .sidebar-item .cnt{font-size:10.5px;opacity:.6;font-weight:400;flex-shrink:0}
 .sidebar-item.on .cnt{opacity:.85}
 
@@ -361,6 +364,20 @@ function detectGender(compName){
   return /women|ladies|female|\bw-league\b|\bnữ\b/.test(s) ? 'F' : 'M';
 }
 
+// Khu vực "yêu thích" của người xem thể thao VN — dựa trên nghiên cứu thực tế 07/2026: Anh/Tây
+// Ban Nha là 2 giải nước ngoài được xem nhiều nhất nhiều năm qua (EPL từng phát VTV3 miễn phí
+// 20+ năm, sau đó K+/FPT Play tranh bản quyền độc quyền gay gắt); Mỹ vì NBA; Đức/Ý/Pháp là nhóm
+// giải lớn châu Âu tiếp theo; Nhật/Hàn/Trung Quốc vì gần gũi khu vực châu Á; Việt Nam dĩ nhiên
+// luôn ưu tiên nếu xuất hiện; Quốc tế giữ lại vì đây là nơi World Cup/Champions League/Asian Cup
+// được gắn thẻ khu vực (đội tuyển thi đấu World Cup có thể đến từ BẤT KỲ đâu, không riêng gì các
+// nước trong danh sách — giữ "Quốc tế" đảm bảo các giải này không bị loại nhầm).
+// Dùng CHUNG cho 2 việc: (1) loadSport() dùng để LOẠI HẲN trận không thuộc danh sách này (trừ khi
+// match._topComp có giá trị — 1 giải nổi bật như World Cup vẫn giữ dù đội thi đấu không thuộc
+// khu vực yêu thích, vì bản thân giải đấu đã đủ liên quan); (2) renderRegionSidebar() dùng để sắp
+// xếp thứ tự hiển thị trong sidebar.
+const FAVORITE_REGIONS=['Anh','Tây Ban Nha','Quốc tế','Mỹ','Đức','Ý','Pháp','Việt Nam','Nhật Bản','Hàn Quốc','Trung Quốc'];
+function regionRank(label){ const i=FAVORITE_REGIONS.indexOf(label); return i===-1?FAVORITE_REGIONS.length:i; }
+
 // ─── GIẢI NỔI BẬT (quick-filter) — dùng đúng tên giải người dùng cung cấp từ menu điều hướng
 // thật của SportScore. Suy luận khớp bằng từ khoá trên tên giải trả về (giống cơ chế Khu vực) vì
 // /matches/ không có tham số lọc theo giải cụ thể, và /standings/ (vốn có thể tra theo slug) đã
@@ -406,15 +423,14 @@ async function loadSport(sport){
   if(loadedSports[sport]) return; // chỉ fetch 1 lần mỗi môn — các lần lọc sau chỉ lọc lại dữ liệu đã có, không gọi API nữa
   loadedSports[sport]=true;
   try{
-    // limit=50 (mức tối đa API cho phép/lần gọi — không liên quan giới hạn ngày) — lấy tối đa để
-    // tăng khả năng có giải lớn xuất hiện trong đợt tải, vì /matches/ trả về ngẫu nhiên bất kỳ
-    // trận nào đang live/gần đây, không có tham số lọc theo giải cụ thể.
+    // limit=50 (mức tối đa API cho phép/lần gọi — không liên quan giới hạn ngày, xem ghi chú
+    // FAVORITE_REGIONS bên dưới) — lấy tối đa để có nhiều dữ liệu thô nhất trước khi lọc bớt.
     const r=await fetchT(`https://sportscore.com/api/widget/matches/?sport=${sport}&limit=50&src=keo.social`,8000);
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data=await r.json();
-    const matches=data.matches||[];
-    if(!matches.length) throw new Error('Không có trận đấu nào trả về');
-    matches.forEach(m=>{
+    const rawMatches=data.matches||[];
+    if(!rawMatches.length) throw new Error('Không có trận đấu nào trả về');
+    rawMatches.forEach(m=>{
       const status=(m.status||'').toLowerCase();
       m._finished = status.includes('fin')||status.includes('end');
       m._live = !m._finished && (status.includes('live')||status.includes('play')||status.includes('progress')||status.includes('half'));
@@ -422,6 +438,15 @@ async function loadSport(sport){
       m._gender = detectGender(m.competition);
       m._topComp = detectTopComp(m.competition, sport);
     });
+    // Loại hẳn trận không liên quan người xem VN — giữ lại nếu (a) thuộc khu vực yêu thích
+    // (FAVORITE_REGIONS) HOẶC (b) thuộc 1 giải nổi bật đã nhận diện (World Cup/Champions League...
+    // luôn giữ dù đội thi đấu đến từ quốc gia không trong danh sách yêu thích, vì bản thân giải
+    // đấu đã đủ liên quan). Đây là loại bỏ THẬT (không hiển thị ở đâu cả), không phải chỉ sắp
+    // xếp lại thứ tự như "Giải nổi bật" trước đây — đúng yêu cầu, không phải để tiết kiệm quota
+    // (quota tính theo SỐ LẦN gọi, không theo số trận mỗi lần, xem ghi chú fetch phía trên).
+    const matches = rawMatches.filter(m=> FAVORITE_REGIONS.includes(m._region.label) || m._topComp);
+    console.info(`[${sport}] Đã lọc: ${rawMatches.length} trận thô → ${matches.length} trận thuộc khu vực/giải liên quan VN (loại ${rawMatches.length-matches.length})`);
+    if(!matches.length) throw new Error('Không có trận nào thuộc khu vực/giải liên quan VN trong đợt tải này');
     sportData[sport] = {all:matches, filters:{status:'all',gender:'all',region:'all',comp:'all'}};
   }catch(err){
     console.warn('SportScore lỗi ('+sport+'):', err.message);
@@ -443,13 +468,9 @@ function setFilter(sport,group,val){
 // Sidebar dọc — Giải nổi bật (quick-filter theo tên giải thật) + Khu vực. Nhiều lựa chọn hơn
 // hẳn Trạng thái/Giới tính nên hợp danh sách dọc cuộn được, giống đúng bố cục sidebar
 // quốc gia/giải đấu ở trang gốc SportScore.
-// Thứ tự ưu tiên khu vực theo mức độ liên quan tới người xem thể thao tại VN (dựa trên nghiên cứu
-// thực tế 07/2026: Anh/Tây Ban Nha là 2 giải nước ngoài được xem nhiều nhất qua nhiều năm; Mỹ vì
-// NBA; Đức/Ý/Pháp là nhóm giải lớn châu Âu tiếp theo; Nhật/Hàn/Trung Quốc vì gần gũi khu vực châu
-// Á). KHÔNG ẩn hẳn khu vực ngoài danh sách này — chỉ đẩy xuống dưới, vì dữ liệu ngẫu nhiên nên ẩn
-// hẳn dễ gây trống trang giống vấn đề đã gặp với "Giải nổi bật".
-const REGION_PRIORITY=['Anh','Tây Ban Nha','Quốc tế','Mỹ','Đức','Ý','Pháp','Việt Nam','Nhật Bản','Hàn Quốc','Trung Quốc'];
-function regionRank(label){ const i=REGION_PRIORITY.indexOf(label); return i===-1?REGION_PRIORITY.length:i; }
+// (Dùng lại FAVORITE_REGIONS + regionRank() đã định nghĩa phía trên — giờ danh sách Khu vực ở
+// đây thực ra CHỈ còn chứa các khu vực yêu thích, vì loadSport() đã loại hẳn phần còn lại rồi;
+// vẫn giữ sắp theo regionRank() để thứ tự hiển thị ổn định, không đổi loạn theo số trận mỗi lần.)
 
 function renderRegionSidebar(sport){
   const d=sportData[sport];
@@ -457,15 +478,22 @@ function renderRegionSidebar(sport){
   const f=d.filters;
   const item=(group,val,label,active)=>`<button class="sidebar-item ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
 
-  // Giải nổi bật: đếm số trận khớp mỗi giải trong TOP_COMPS[sport] — chỉ hiện giải nào thực sự
-  // có ≥1 trận trong dữ liệu đã tải (không hiện sẵn giải rỗng gây hiểu lầm là có dữ liệu).
+  // Giải nổi bật: LUÔN hiện đủ danh sách cố định từ TOP_COMPS[sport] (kể cả đang 0 trận) — làm
+  // filter ổn định, người dùng biết chắc giải nào luôn có mặt để bấm vào, thay vì danh sách
+  // thất thường tuỳ may rủi đợt tải có match hay không (VD World Cup vẫn hiện dù lúc tải trúng
+  // đợt không có trận nào của giải đó). Giải đang có trận hiện số đếm thật; 0 trận thì hiện "0"
+  // và làm mờ nhẹ để phân biệt, bấm vẫn được — sẽ thấy thông báo trung thực "hiện không có trận".
   const compCounts={};
   d.all.forEach(m=>{ if(m._topComp) compCounts[m._topComp]=(compCounts[m._topComp]||0)+1; });
-  const topComps=Object.keys(compCounts).sort((a,b)=>compCounts[b]-compCounts[a]);
-  const compSection = topComps.length ? `
+  const allTopComps = TOP_COMPS[sport]||[];
+  const compSection = allTopComps.length ? `
     <div class="sidebar-title">Giải nổi bật</div>
     ${item('comp','all',`Tất cả`,f.comp==='all')}
-    ${topComps.map(c=>item('comp',c,`${c} <span class="cnt">${compCounts[c]}</span>`,f.comp===c)).join('')}
+    ${allTopComps
+      .map(c=>({name:c.label, n:compCounts[c.label]||0}))
+      .sort((a,b)=>b.n-a.n)
+      .map(c=>`<button class="sidebar-item ${f.comp===c.name?'on':''} ${c.n===0?'is-empty':''}" onclick="setFilter('${sport}','comp','${c.name}')">${c.name} <span class="cnt">${c.n}</span></button>`)
+      .join('')}
   ` : '';
 
   // Khu vực: liệt kê mọi vùng THỰC SỰ có mặt trong dữ liệu đã tải (không ẩn), nhưng ưu tiên
