@@ -260,7 +260,6 @@ footer a:hover{color:#F5EFE6}
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">🥇 Kim loại quý</button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto</button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá</button>
-  <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Cổ phiếu VN</button>
 </nav>
 <div class="tnav-fade tnav-fade-l"></div>
 <div class="tnav-fade tnav-fade-r"></div>
@@ -527,51 +526,6 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="fxOther"></div>
   <div class="sh"><div class="shi" style="background:rgba(214,95,53,.12)">💱</div><div class="sht">Cặp tiền tệ chéo (Forex)</div><div class="shl"></div><div class="shb" style="background:rgba(214,95,53,.1);color:var(--a)">Không qua VND</div></div>
   <div class="gr" id="fxCross"></div>
-</div>
-
-<!-- PAGE: VN STOCKS (TradingView widget — chính thức, có điều khoản rõ ràng cho embed) -->
-<div class="pg" id="pg-vn">
-  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
-    🇻🇳 Giá cổ phiếu Việt Nam thật, theo thời gian thực — widget nhúng chính thức từ TradingView.
-  </div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">📈</div><div class="sht">8 mã tiêu biểu nhiều ngành</div><div class="shl"></div></div>
-  <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container" style="border-radius:14px;overflow:hidden;background:#17120D">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright" style="padding:8px 12px;font-family:var(--sans);font-size:10px;background:#17120D">
-      <a href="https://www.tradingview.com/symbols/HOSE-PNJ/" rel="noopener nofollow" target="_blank" style="color:var(--a)"><span>Cổ phiếu Việt Nam</span></a><span style="color:var(--mu)"> · dữ liệu bởi TradingView</span>
-    </div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-      {
-        "symbols": [["VCB","HOSE:VCB|12M"],["FPT","HOSE:FPT|12M"],["HPG","HOSE:HPG|12M"],["VHM","HOSE:VHM|12M"],["MWG","HOSE:MWG|12M"],["PNJ","HOSE:PNJ|12M"],["VNM","HOSE:VNM|12M"],["GAS","HOSE:GAS|12M"]],
-        "chartOnly": false,
-        "width": "100%",
-        "height": "520",
-        "locale": "vi_VN",
-        "colorTheme": "dark",
-        "autosize": false,
-        "showVolume": true,
-        "showMA": false,
-        "hideDateRanges": false,
-        "hideMarketStatus": false,
-        "hideSymbolLogo": false,
-        "scalePosition": "right",
-        "scaleMode": "Normal",
-        "fontFamily": "Be Vietnam Pro, -apple-system, sans-serif",
-        "backgroundColor": "#17120D",
-        "gridLineColor": "rgba(240,234,225,0.06)",
-        "widgetFontColor": "#F5EFE6",
-        "upColor": "#00c853",
-        "downColor": "#f5334f",
-        "borderUpColor": "#00c853",
-        "borderDownColor": "#f5334f",
-        "wickUpColor": "#00c853",
-        "wickDownColor": "#f5334f",
-        "isTransparent": false
-      }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
 </div>
 
 <!-- PAGE: PRICES -->
