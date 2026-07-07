@@ -671,6 +671,68 @@ function peek(key, base, range){
   if(!_mkt[key]) return sim(key, base, range); // chưa từng có — khởi tạo lần đầu như bình thường
   return _mkt[key]; // đã có rồi — chỉ đọc, không tiến thêm
 }
+
+// ─── FX REAL TRACKING ──────────────────────
+// Khác hẳn sim()/peek() ở trên (random-walk giả) — đây là theo dõi giá trị THẬT, tích luỹ dần
+// từ mỗi lần fetchFX() thành công (mỗi 60s). % thay đổi = so với lần fetch thật trước đó
+// (không phải % theo ngày, vì open.er-api.com không cung cấp — nhưng là số THẬT, không bịa).
+// Lịch sử chart cũng tích luỹ từ các lần fetch thật này — bắt đầu mỏng (1 điểm), dày dần theo
+// thời gian mở trang, thay vì vẽ 20 điểm giả ngay từ đầu.
+const FX_REAL = {};
+function trackFX(key, price){
+  const prev = FX_REAL[key];
+  if(!prev){ FX_REAL[key] = {price, pct:null, hist:[price]}; return; }
+  const pct = (price/prev.price - 1)*100;
+  const hist = prev.hist.concat([price]); if(hist.length>20) hist.shift();
+  FX_REAL[key] = {price, pct, hist};
+}
+function peekFX(key, price){
+  return FX_REAL[key] || {price, pct:null, hist:[price]};
+}
+function updateFXReal(){
+  [...FX_PAIRS.major, ...FX_PAIRS.asia, ...FX_PAIRS.other].forEach(p=>trackFX(p.sym, xrate(p.ccy)));
+  FX_PAIRS.cross.forEach(p=>trackFX(p.base+'/'+p.quote, crossRate(p.base,p.quote)));
+}
+
+// Lịch sử FX THẬT 45 ngày — nguồn Frankfurter.dev (api.frankfurter.dev/v2), khác hẳn open.er-api.com
+// (chỉ có giá hiện tại). Đã xác nhận qua trang chính thức frankfurter.dev/currencies: VND được hỗ trợ
+// đầy đủ ("Vietnamese Đồng — 1998–present, 20 providers"), miễn phí, không cần key, không giới hạn
+// rate limit cho mức dùng bình thường, mã nguồn mở. Chỉ gọi 1 lần khi tải trang (không lặp lại mỗi
+// 60s như fetchFX) — sau khi có lịch sử thật làm nền, các lần fetchFX() tiếp theo (qua updateFXReal)
+// sẽ nối thêm điểm mới thật vào ngay phía sau, không phá vỡ chuỗi.
+async function seedFXHistory(){
+  try{
+    const vndCcys = [...new Set([...FX_PAIRS.major, ...FX_PAIRS.asia, ...FX_PAIRS.other].map(p=>p.ccy))];
+    const wanted = [...new Set([...vndCcys, ...FX_PAIRS.cross.flatMap(p=>[p.base,p.quote]), 'VND'])].filter(c=>c!=='USD');
+    const end = new Date(), start = new Date(end.getTime()-45*86400000);
+    const fmt = d=>d.toISOString().slice(0,10);
+    const url = `https://api.frankfurter.dev/v2/rates?base=USD&from=${fmt(start)}&quotes=${wanted.join(',')}`;
+    const r = await fetchT(url, 8000);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const j = await r.json();
+    const dates = Object.keys(j.rates||{}).sort();
+    if(dates.length<2) throw new Error('Không đủ dữ liệu time series (cần ≥2 ngày)');
+    const rateAt = (d,ccy)=> ccy==='USD' ? 1 : j.rates[d]?.[ccy];
+    const seed = (key,histArr)=>{
+      if(histArr.length<2) return;
+      const h = histArr.slice(-20);
+      const pct = (h[h.length-1]/h[h.length-2]-1)*100; // % thật ngày cuối so với ngày trước đó trong lịch sử — có ngay, không cần chờ chu kỳ fetch sau
+      FX_REAL[key] = {price:h[h.length-1], pct, hist:h};
+    };
+    vndCcys.forEach(ccy=>{
+      const hist = dates.map(d=>{ const v=rateAt(d,'VND'), c=rateAt(d,ccy); return (v&&c)?v/c:null; }).filter(x=>x&&isFinite(x));
+      seed(ccy+'/VND', hist);
+    });
+    FX_PAIRS.cross.forEach(p=>{
+      const hist = dates.map(d=>{ const b=rateAt(d,p.base), q=rateAt(d,p.quote); return (b&&q)?q/b:null; }).filter(x=>x&&isFinite(x));
+      seed(p.base+'/'+p.quote, hist);
+    });
+    console.info('Đã seed lịch sử FX thật ('+dates.length+' ngày, nguồn Frankfurter.dev) cho '+(vndCcys.length+FX_PAIRS.cross.length)+' cặp');
+  }catch(err){
+    console.warn('Frankfurter.dev seed lịch sử FX lỗi:', err.message, '— chart FX sẽ tích luỹ dần từ phiên hiện tại thay vì có sẵn lịch sử ngay từ đầu');
+  }
+}
+
 const $ = id => document.getElementById(id);
 const html = (id,h) => { const e=$(id); if(e) e.innerHTML=h; };
 
@@ -690,7 +752,7 @@ const FX_FB={USD:1,EUR:.92,CNY:7.24,JPY:154,KRW:1380,SGD:1.35,THB:35,GBP:.79,AUD
 // với lần fetch trước — vì chưa xác nhận được API có trả sẵn field % hay không.
 const REAL_METAL = {};
 async function fetchMetals(){
-  const syms = ['XAU','XAG','XPT','XPD'];
+  const syms = ['XAU','XAG','XPT','XPD','HG']; // HG = Đồng (Copper) — đã xác nhận qua gold-api.com/assets, cùng endpoint free/không-key như 4 mã kia
   await Promise.all(syms.map(async sym=>{
     try{
       const r = await fetchT('https://api.gold-api.com/price/'+sym, 5000);
@@ -710,33 +772,17 @@ async function fetchMetals(){
 // (khác hẳn endpoint giá hiện tại, không giới hạn). CHIA ĐỀU quota: mỗi 8 phút chỉ fetch lịch sử
 // cho ĐÚNG 1 mã (mã lâu chưa cập nhật nhất), xoay vòng qua cả 4 mã — tổng cộng ~7-8 request/giờ,
 // an toàn dưới hạn mức, thay vì fetch cả 4 mã cùng lúc mỗi phút (sẽ vượt quota rất nhanh).
-// LƯU Ý: chưa xác nhận được 100% định dạng endpoint chính xác (trang docs dùng tab JS, không
-// lấy được qua công cụ nghiên cứu) — code phòng thủ, tự lùi về lịch sử mô phỏng nếu gọi lỗi.
-const REAL_METAL_HIST = {};
-const _metalHistLastFetch = {};
-async function fetchOneMetalHistory(){
-  const syms = ['XAU','XAG','XPT','XPD'];
-  // Chọn mã lâu chưa được cập nhật lịch sử nhất (hoặc chưa từng có)
-  const target = syms.reduce((oldest, s) => {
-    const t = _metalHistLastFetch[s] || 0;
-    return t < (_metalHistLastFetch[oldest] || 0) ? s : oldest;
-  }, syms[0]);
-  _metalHistLastFetch[target] = Date.now(); // đánh dấu ngay cả khi fetch lỗi, để không thử lại liên tục cùng 1 mã
-  try{
-    const r = await fetchT(`https://api.gold-api.com/price/${target}/history?days=45`, 6000);
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const j = await r.json();
-    // Đọc linh hoạt nhiều khả năng cấu trúc response khác nhau, vì chưa xác nhận được schema chính xác
-    const arr = Array.isArray(j) ? j : (j.data || j.history || j.prices || null);
-    if(!Array.isArray(arr) || !arr.length) throw new Error('Không đọc được mảng lịch sử từ response');
-    const closes = arr.map(x => typeof x === 'number' ? x : parseFloat(x.close ?? x.price ?? x.value)).filter(isFinite);
-    if(closes.length < 2) throw new Error('Dữ liệu lịch sử không đủ điểm');
-    REAL_METAL_HIST[target] = closes;
-    console.info('Đã lấy lịch sử thật cho '+target+': '+closes.length+' điểm');
-  }catch(err){
-    console.warn('gold-api.com history lỗi cho '+target+':', err.message, '— tiếp tục dùng chart mô phỏng cho mã này');
-  }
-}
+// LỊCH SỬ GIÁ KIM LOẠI QUÝ — CHƯA CÓ, cần API key + Worker proxy (xem chi tiết dưới)
+// Đã xác nhận qua tài liệu chính thức gold-api.com/llms.txt (07/2026):
+//   - Endpoint ĐÚNG là GET /history (không phải /price/{sym}/history đã đoán sai và bị 404 trước đây)
+//     tham số: symbol, startTimestamp, endTimestamp, groupBy (year/month/week/day), aggregation (max/min/avg)
+//   - NHƯNG endpoint này (khác hẳn /price hiện đang dùng) yêu cầu API key qua header x-api-key,
+//     free tier giới hạn 10 request/giờ — không gọi thẳng từ trình duyệt được (lộ key công khai).
+//   - Cùng dạng bài toán với EIA/USDA (xem worker.js đã viết, chưa deploy) — có thể gộp chung 1 Worker:
+//     lấy key free tại gold-api.com → wrangler secret put GOLD_API_KEY → thêm route /gold-history
+//     vào worker.js hiện có → deploy → gọi vào đó thay vì gọi thẳng gold-api.com/history.
+// Cho tới khi deploy xong: KHÔNG vẽ chart mô phỏng giả cho kim loại quý (xem mkComm — noChart:true),
+// đúng nguyên tắc "không có dữ liệu thật thì không giả vờ".
 
 async function fetchFX(){
   try{
@@ -749,6 +795,7 @@ async function fetchFX(){
     if(_prevRealVnd) USD_VND_PCT = (newRate/_prevRealVnd-1)*100; // delta thật so với lần fetch thật trước (open.er-api không cung cấp % ngày, nên đây là cách duy nhất lấy được số thật)
     _prevRealVnd = newRate;
     USD_VND = newRate;
+    updateFXReal(); // cập nhật giá/%/chart THẬT cho toàn bộ cặp FX (major/asia/other/cross) — thay sim() giả
     ['fxB','fxB2'].forEach(id=>{const e=$(id);if(e){e.textContent='✓ LIVE';e.style.color='var(--gn)';}});
   }catch{
     ['fxB','fxB2'].forEach(id=>{const e=$(id);if(e){e.textContent='~EST';e.style.color='var(--go)';}});
@@ -811,17 +858,19 @@ function spark(hist,col){
 
 // ─── CARD ──────────────────────────────────
 function card(d,cls,spkCol,noChart){
-  const flat=d.pct===0;
-  const u=d.pct>=0,col=flat?'var(--mu)':(u?'var(--gn)':'var(--rd)'),arr=flat?'—':(u?'▲':'▼');
+  const noData = d.pct===null;           // chưa đủ dữ liệu thật (mới fetch lần đầu) — khác hẳn "đứng yên thật"
+  const flat = d.pct===0;                // đứng yên thật (giá niêm yết/nhà nước điều hành)
+  const u=d.pct>=0, col=(noData||flat)?'var(--mu)':(u?'var(--gn)':'var(--rd)'), arr=noData?'—':flat?'—':(u?'▲':'▼');
+  const pctLabel = noData?'Đang lấy dữ liệu':flat?'Không đổi':Math.abs(d.pct).toFixed(2)+'%';
   const vnd=d.usd!=null?`<div class="cv2">${toVND(d.usd)}</div>`:'';
   const histArr = d.hist || [50,50]; // dự phòng nếu caller quên truyền — tránh vỡ giao diện
-  const chartHtml = noChart ? '' : `<div class="csp">${spark(histArr,col)}</div>`;
+  const chartHtml = (noChart||histArr.length<2) ? '' : `<div class="csp">${spark(histArr,col)}</div>`;
   return `<div class="cd ${cls}">` +
     `<div class="ct"><div><div class="cy">${d.sym}</div><div class="cn" title="${d.nm}">${d.nm}</div></div>` +
     `<div class="co">${d.ic}</div></div>` +
     `<div class="cp">${d.pr}</div>` +
     `${vnd}` +
-    `<div class="cch" style="color:${col}">${arr} ${flat?'Không đổi':Math.abs(d.pct).toFixed(2)+'%'} <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
+    `<div class="cch" style="color:${col}">${arr} ${pctLabel} ${d.abs?`<span style="color:var(--sub);font-weight:400">(${d.abs})</span>`:''}</div>` +
     `${chartHtml}` +
     `<div class="cm"><span>${d.m1||''}</span><span>${d.m2||''}</span></div>` +
     `</div>`;
@@ -838,15 +887,20 @@ const COMM={
     {sym:'XAG',nm:'Bạc (Silver)',    base:33.2,ic:'🥈',unit:'$/oz',  usd:true},
     {sym:'XPT',nm:'Bạch kim (Plat)',base:970, ic:'⬜',unit:'$/oz',  usd:true},
     {sym:'XPD',nm:'Palladium',       base:1020,ic:'🔘',unit:'$/oz',  usd:true},
+    // HG = mã COMEX chuẩn cho Đồng (Copper), đã xác nhận có thật trên gold-api.com/assets — cùng
+    // endpoint free/không-key như 4 mã trên. Đơn vị quy ước quốc tế cho HG là USD/pound (không phải
+    // troy ounce như kim loại quý) — CHƯA kiểm tra được response thực tế trả về đơn vị gì (endpoint
+    // không nằm trong kết quả tìm kiếm để test trực tiếp), nên sau khi deploy cần xem qua 1 lần xem
+    // số hiện ra có hợp lý không (đồng hiện dao động quanh $4-5/lb), báo lại nếu sai đơn vị.
+    {sym:'HG', nm:'Đồng (Copper)',   base:4.5, ic:'🔶',unit:'$/lb',  usd:true},
   ]
 };
 
 function mkComm(c){
-  const st=sim(c.sym,c.base,1.8); // vẫn chạy để có lịch sử dự phòng cho sparkline
   const real = REAL_METAL[c.sym];
-  const p = real ? real.price : st.price;
-  const pct = real && real.pct!==null ? real.pct : st.pct; // lần fetch đầu chưa có % thật → tạm dùng mô phỏng
-  const abs=(Math.abs(p*pct/100)).toFixed(2);
+  const p = real ? real.price : c.base; // dự phòng nếu gold-api.com lỗi hoàn toàn: hiện giá gốc tĩnh, KHÔNG mô phỏng dao động giả
+  const pct = real ? real.pct : null;   // null = chưa fetch được, hoặc mới fetch lần đầu (cần lần 2 mới tính % thật)
+  const abs = pct===null ? '' : (Math.abs(p*pct/100)).toFixed(2);
   // Quy đổi VND đúng theo từng loại đơn vị:
   // - usd:true → giá đã là USD
   // - có ccy riêng (CAD/MYR...) → đổi qua tỷ giá thật trước khi ra USD
@@ -856,10 +910,12 @@ function mkComm(c){
   else if(c.ccy){ const r=FX_RATES[c.ccy]||FX_FB[c.ccy]||1; usdVal = p/r; }
   else usdVal = p/100;
   const priceLabel = c.ccy ? (p<10?p.toFixed(3):p.toFixed(2))+' '+c.ccy : '$'+(p<10?p.toFixed(3):p.toFixed(2));
-  const changeLabel = c.ccy ? (pct>=0?'+':'')+abs+' '+c.ccy : (pct>=0?'+':'')+'$'+abs;
+  const changeLabel = abs==='' ? '' : (c.ccy ? (pct>=0?'+':'')+abs+' '+c.ccy : (pct>=0?'+':'')+'$'+abs);
   const m2Label = real ? 'gold-api.com · live' : '';
-  const histArr = REAL_METAL_HIST[c.sym] || st.hist; // ưu tiên lịch sử thật (45 ngày) nếu đã lấy được
-  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,hist:histArr,abs:changeLabel,m1:c.unit,m2:m2Label},'cc','var(--a2)');
+  // noChart:true — CHƯA có nguồn lịch sử thật đang hoạt động (endpoint /history của gold-api.com cần
+  // API key + proxy qua Cloudflare Worker, chưa deploy — xem mục 4.2 handoff). Tắt hẳn chart thay vì
+  // vẽ random-walk giả, để không tạo cảm giác biểu đồ real-time trong khi thực ra không phải.
+  return card({sym:c.sym,nm:c.nm,ic:c.ic,pr:priceLabel,usd:usdVal,pct,hist:[],abs:changeLabel,m1:c.unit,m2:m2Label},'cc','var(--a2)',true);
 }
 
 function renderComm(){
@@ -918,17 +974,17 @@ const FX_PAIRS={
 };
 
 function mkFX(p){
-  const rate=xrate(p.ccy), st=sim(p.sym,rate,.15), pr=st.price, pct=st.pct;
-  const abs=Math.abs(pr*pct/100);
+  const rate=xrate(p.ccy), rf=peekFX(p.sym,rate), pr=rf.price, pct=rf.pct;
+  const abs = pct===null ? '' : (pct>=0?'+':'')+Math.round(Math.abs(pr*pct/100)).toLocaleString('vi-VN')+'₫';
   const fmt=v=>v>=1000?Math.round(v).toLocaleString('vi-VN'):v.toFixed(v<10?2:1);
-  return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+Math.round(abs)+'₫',m1:p.m1,m2:'Liên ngân hàng'},'cfx','var(--gn)');
+  return card({sym:p.sym,nm:p.nm,ic:p.ic,pr:fmt(pr)+' ₫',usd:null,pct,hist:rf.hist,abs,m1:p.m1,m2:'Liên ngân hàng · open.er-api.com'},'cfx','var(--gn)');
 }
 
 function mkFXCross(p){
-  const rate=crossRate(p.base,p.quote), key=p.base+'/'+p.quote, st=sim(key,rate,.2), pr=st.price, pct=st.pct;
-  const abs=Math.abs(pr*pct/100);
+  const key=p.base+'/'+p.quote, rate=crossRate(p.base,p.quote), rf=peekFX(key,rate), pr=rf.price, pct=rf.pct;
   const dp = pr>=10?2:4; // Yên Nhật quy ước 2 số thập phân, còn lại 4 số
-  return card({sym:key,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+abs.toFixed(dp),m1:'Cặp chéo',m2:'Forex'},'cfx','var(--gn)');
+  const abs = pct===null ? '' : (pct>=0?'+':'')+Math.abs(pr*pct/100).toFixed(dp);
+  return card({sym:key,nm:p.nm,ic:p.ic,pr:pr.toFixed(dp),usd:null,pct,hist:rf.hist,abs,m1:'Cặp chéo',m2:'Forex · open.er-api.com'},'cfx','var(--gn)');
 }
 
 function renderFX(){
@@ -1169,20 +1225,7 @@ function setupCollapsibleSections(){
   });
 }
 
-// ─── DATA: VN ──────────────────────────────
-// Ghi đè thủ công khi có SỰ KIỆN THỰC xảy ra với 1 mã cụ thể (scandal, sáp nhập, tin lớn...) —
-// vì mô phỏng random-walk không thể tự biết những sự kiện này, sẽ mãi dao động quanh giá cũ
-// vô nghĩa nếu không có ai chỉnh lại. Khi có tin thị trường thật ảnh hưởng mạnh đến 1 mã,
-// thêm 1 dòng vào đây với giá thật gần nhất — code sẽ ưu tiên dùng ngay, có nhãn báo minh bạch
-// cho người xem biết đây là số liệu cập nhật tay theo sự kiện, không phải API tự động.
-// Ví dụ: 'PNJ': {price: 45000, note: 'Điều chỉnh theo tin scandal 07/2026', date: '08/07/2026'},
-function renderVNIndices(){
-  // Đã gỡ bỏ gọi TCBS — xác nhận đây là API nội bộ của họ, không dành cho bên thứ 3,
-  // và đã bị họ chặn (404) sau khi phát hiện lạm dụng. VN-Index/HNX/UPCOM thật giờ hiển thị
-  // qua widget DNSE (mục riêng phía trên) — vẫn giữ sim() ở đây vì key 'VNINDEX' còn được
-  // dùng làm nền cho vài chỗ khác trong trang (ticker...).
-  sim('VNINDEX',1280,1); sim('HNXINDEX',225,1); sim('UPCOMINDEX',93,1);
-}
+
 
 // ─── CRYPTO ────────────────────────────────
 // ─── CRYPTO ICONS (shared) ────────────────
@@ -1337,20 +1380,14 @@ async function renderCrypto(){
 
 // ─── OVERVIEW ──────────────────────────────
 function renderOverviewSim(){
-  const g=COMM.metal.find(m=>m.sym==='XAU'), gSt=sim(g.sym,g.base,1.8), gReal=REAL_METAL[g.sym];
-  const gp=gReal?gReal.price:gSt.price, gpct=gReal&&gReal.pct!==null?gReal.pct:gSt.pct;
+  const g=COMM.metal.find(m=>m.sym==='XAU'), gReal=REAL_METAL[g.sym];
+  const gp=gReal?gReal.price:g.base, gpct=gReal?gReal.pct:null; // null = chưa fetch xong / chưa đủ 2 lần fetch — KHÔNG trộn số giả
   const e1=$('ovGold');if(e1)e1.textContent='$'+gp.toFixed(2);
-  const e2=$('ovGoldC');if(e2){e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%';e2.style.color=gpct>=0?'var(--gn)':'var(--rd)';}
-
-  const s=COMM.metal.find(m=>m.sym==='XAG'), sSt=sim(s.sym,s.base,1.8), sReal=REAL_METAL[s.sym];
-  const sp=sReal?sReal.price:sSt.price, spct=sReal&&sReal.pct!==null?sReal.pct:sSt.pct;
-  const e5=$('ovSilver');if(e5)e5.textContent='$'+sp.toFixed(2);
-  const e6=$('ovSilverC');if(e6){e6.textContent=(spct>=0?'▲ +':'▼ ')+Math.abs(spct).toFixed(2)+'%';e6.style.color=spct>=0?'var(--gn)':'var(--rd)';}
-
-  const pl=COMM.metal.find(m=>m.sym==='XPT'), plSt=sim(pl.sym,pl.base,1.8), plReal=REAL_METAL[pl.sym];
-  const plp=plReal?plReal.price:plSt.price, plpct=plReal&&plReal.pct!==null?plReal.pct:plSt.pct;
-  const e7=$('ovPlat');if(e7)e7.textContent='$'+plp.toFixed(2);
-  const e8=$('ovPlatC');if(e8){e8.textContent=(plpct>=0?'▲ +':'▼ ')+Math.abs(plpct).toFixed(2)+'%';e8.style.color=plpct>=0?'var(--gn)':'var(--rd)';}
+  const e2=$('ovGoldC');
+  if(e2){
+    if(gpct===null){ e2.textContent='— Đang lấy dữ liệu'; e2.style.color='var(--mu)'; }
+    else { e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%'; e2.style.color=gpct>=0?'var(--gn)':'var(--rd)'; }
+  }
 
   // Giá tiêu dùng preview (6 mặt hàng đại diện nhiều nhóm) — giữ làm tham khảo
   const domPicks=[
@@ -1401,7 +1438,7 @@ function refreshCurrent(){ loadTab(curTab); }
 
 function loadTab(tab){
   try{
-    if(tab==='overview'){ renderOverviewSim(); renderFX(); renderVNIndices(); renderCrypto(); }
+    if(tab==='overview'){ renderOverviewSim(); renderFX(); renderCrypto(); }
     else if(tab==='comm')  { renderComm(); }
     else if(tab==='crypto'){ renderCrypto(); }
     else if(tab==='fx')    { renderFX(); }
@@ -1418,19 +1455,13 @@ async function init(){
   await Promise.all([fetchFX(), fetchMetals()]);
   loadTab('overview');
   setupCollapsibleSections(); // chạy 1 lần cho toàn bộ trang — mọi tab đều có thể thu gọn
-  // Đã xác nhận endpoint /price/{sym}/history trả 404 thật (không phải đoán) — tạm tắt gọi,
-  // tránh gọi lặp lại 1 endpoint đã biết chắc là sai cho tới khi tìm ra định dạng đúng.
-  // fetchOneMetalHistory().then(()=>{ if(curTab==='comm') renderComm(); });
+  seedFXHistory().then(()=>{ if(curTab==='fx') renderFX(); }); // chạy nền — không chặn tải trang ban đầu
+  // Lịch sử giá kim loại quý: xem ghi chú đầy đủ phía trên fetchMetals() — cần Worker proxy,
+  // chưa deploy. Khi deploy xong, gọi fetch tới Worker ở đây rồi renderComm() nếu đang ở tab đó.
 }
 init();
 
 setInterval(async()=>{ await Promise.all([fetchFX(), fetchMetals()]); loadTab(curTab); mkStatus(); }, 60000);
-
-// Tạm tắt vòng lặp lịch sử kim loại — endpoint đoán (/history?days=45) đã xác nhận 404 thật.
-// setInterval(async()=>{
-//   await fetchOneMetalHistory();
-//   if(curTab==='comm') renderComm();
-// }, 8*60000);
 </script>
 </body>
 </html>
