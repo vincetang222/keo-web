@@ -85,68 +85,89 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .sport-tab.on{color:var(--a);border-bottom-color:var(--a)}
 .sport-tab:hover:not(.on){color:var(--ink)}
 
-/* ─── FILTER BAR (trạng thái / giới tính / khu vực — suy luận từ tên giải, không phải field
-   thật SportScore cung cấp, nên khu vực chỉ liệt kê đúng những gì THỰC SỰ có trong dữ liệu
-   đã tải, tránh bộ lọc rỗng vô nghĩa) ─────────────────────────── */
-.filters-wrap{max-width:1100px;margin:0 auto;padding:16px 32px 2px;display:flex;flex-direction:column;gap:9px}
-.filter-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.filter-lbl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--i3);width:70px;flex-shrink:0}
-.fchip{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--i2);background:var(--s1);border:1px solid var(--rim2);border-radius:100px;padding:6px 13px;cursor:pointer;transition:all .16s;white-space:nowrap;flex-shrink:0}
-.fchip:hover{border-color:var(--a);color:var(--a)}
-.fchip.on{background:var(--ink);color:#F5EFE6;border-color:var(--ink)}
-.fchip .cnt{opacity:.55;font-weight:400}
-@media(max-width:640px){
-  .filter-row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -32px;padding:0 32px}
-  .filter-row::-webkit-scrollbar{display:none}
-  .filter-lbl{display:none}
-}
-
 /* ─── MAIN CONTENT ────────────────────────────────────────────── */
 main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .sp{display:none}
 .sp.on{display:block}
-.sp-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sp-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:760px){.sp-cols{grid-template-columns:1fr}}
-.col-title{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--i3);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.col-title{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--d-i3);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .col-title .dot{width:6px;height:6px;border-radius:50%}
 .dot-live{background:var(--rd);animation:pulse 1.6s infinite}
 .dot-done{background:var(--gn)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes railPulse{0%,100%{opacity:1}50%{opacity:.35}}
 
+/* ─── VÙNG THỂ THAO: DARK THEME (tách khỏi bảng màu sáng chung của trang), có sidebar khu vực
+   bên trái + topbar trạng thái/giới tính bên trên — giống bố cục 2 tầng filter của trang gốc ── */
+.sport-wrap{
+  --d-bg:#17120D;--d-s1:#1F1912;--d-s2:#241D15;--d-s3:#2C2319;
+  --d-ink:#F5EFE6;--d-i2:rgba(240,234,225,.72);--d-i3:rgba(240,234,225,.45);--d-mu:rgba(240,234,225,.28);
+  --d-rim:rgba(240,234,225,.09);--d-rim2:rgba(240,234,225,.17);
+  background:var(--d-bg);border-radius:20px;display:flex;overflow:hidden;
+  box-shadow:0 10px 34px rgba(23,18,13,.14);margin-top:2px;
+}
+.region-sidebar{flex:0 0 188px;padding:18px 12px;border-right:1px solid var(--d-rim);display:flex;flex-direction:column;gap:1px;max-height:760px;overflow-y:auto}
+.region-sidebar::-webkit-scrollbar{width:5px}
+.region-sidebar::-webkit-scrollbar-thumb{background:var(--d-rim2);border-radius:3px}
+.sidebar-title{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--d-i3);padding:6px 10px 10px}
+.sidebar-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:8px;background:none;border:none;font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--d-i2);cursor:pointer;text-align:left;transition:background .15s,color .15s;width:100%}
+.sidebar-item:hover{background:var(--d-s2);color:var(--d-ink)}
+.sidebar-item.on{background:var(--grad);color:#fff}
+.sidebar-item .cnt{font-size:10.5px;opacity:.6;font-weight:400;flex-shrink:0}
+.sidebar-item.on .cnt{opacity:.85}
+
+.sport-main{flex:1;min-width:0;padding:18px 22px 22px}
+.status-topbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--d-rim)}
+.tchip{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--d-i2);background:var(--d-s1);border:1px solid var(--d-rim2);border-radius:100px;padding:6px 13px;cursor:pointer;transition:all .16s;white-space:nowrap}
+.tchip:hover{border-color:var(--a);color:var(--a)}
+.tchip.on{background:var(--grad);color:#fff;border-color:transparent}
+.tchip .cnt{opacity:.6;font-weight:400}
+
+@media(max-width:860px){
+  .sport-wrap{flex-direction:column;border-radius:16px}
+  .region-sidebar{flex:none;width:100%;max-height:none;flex-direction:row;overflow-x:auto;overflow-y:visible;border-right:none;border-bottom:1px solid var(--d-rim);padding:12px 10px;scrollbar-width:none}
+  .region-sidebar::-webkit-scrollbar{display:none}
+  .sidebar-title{display:none}
+  .sidebar-item{flex-shrink:0;white-space:nowrap;width:auto}
+  .sport-main{padding:14px 14px 16px}
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes railPulse{0%,100%{opacity:1}50%{opacity:.35}}
+
 /* ─── GOM THEO GIẢI ĐẤU (giống cấu trúc trang gốc SportScore) ──────────────── */
 .comp-group{margin-bottom:18px}
 .comp-head{display:flex;align-items:center;gap:8px;padding:2px 4px 8px}
-.comp-logo{width:18px;height:18px;border-radius:4px;object-fit:contain;flex-shrink:0;background:var(--s2)}
-.comp-logo-fallback{width:18px;height:18px;border-radius:4px;background:var(--s2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px}
-.comp-name{font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.comp-region{font-family:var(--sans);font-size:10.5px;color:var(--i3);margin-left:auto;white-space:nowrap;flex-shrink:0;padding-left:8px}
+.comp-logo{width:18px;height:18px;border-radius:4px;object-fit:contain;flex-shrink:0;background:var(--d-s2)}
+.comp-logo-fallback{width:18px;height:18px;border-radius:4px;background:var(--d-s2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px}
+.comp-name{font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--d-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.comp-region{font-family:var(--sans);font-size:10.5px;color:var(--d-i3);margin-left:auto;white-space:nowrap;flex-shrink:0;padding-left:8px}
 
-.comp-matches{background:var(--s1);border:1px solid var(--rim2);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(26,21,16,.05)}
-.m-row{display:grid;grid-template-columns:52px 1fr auto 1fr;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--rim);position:relative;cursor:pointer;transition:background .15s}
+.comp-matches{background:var(--d-s1);border:1px solid var(--d-rim2);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(26,21,16,.05)}
+.m-row{display:grid;grid-template-columns:52px 1fr auto 1fr;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--d-rim);position:relative;cursor:pointer;transition:background .15s}
 .m-row:last-child{border-bottom:none}
-.m-row:hover{background:var(--s2)}
+.m-row:hover{background:var(--d-s2)}
 .m-row.is-live{background:linear-gradient(90deg,rgba(214,95,53,.07),transparent 45%)}
 .m-row.is-live::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--a);animation:railPulse 1.6s infinite}
-.m-time{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--i2);text-align:center;line-height:1.3}
+.m-time{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--d-i2);text-align:center;line-height:1.3}
 .m-time .live-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--a);margin-right:3px;animation:pulse 1.6s infinite}
 .m-time .live-lbl{color:var(--a)}
-.m-team{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink);min-width:0}
+.m-team{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--d-ink);min-width:0}
 .m-team .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.25}
 .m-team.away{justify-content:flex-end;text-align:right}
 .m-team.away .nm{order:1}
-.m-badge{width:24px;height:24px;border-radius:50%;background:var(--s2);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;overflow:hidden}
+.m-badge{width:24px;height:24px;border-radius:50%;background:var(--d-s2);border:1px solid var(--d-rim);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;overflow:hidden}
 .m-badge img{width:100%;height:100%;object-fit:contain;padding:2px}
-.m-score{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap;padding:0 2px;text-align:center}
+.m-score{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--d-ink);white-space:nowrap;padding:0 2px;text-align:center}
 .m-score .w{color:var(--a)}
-.m-score .l{color:var(--i3);font-weight:600}
-.m-score .vs{font-family:var(--sans);font-size:10.5px;font-weight:700;color:var(--i3);letter-spacing:.04em}
+.m-score .l{color:var(--d-i3);font-weight:600}
+.m-score .vs{font-family:var(--sans);font-size:10.5px;font-weight:700;color:var(--d-i3);letter-spacing:.04em}
 
-.comp-more{width:100%;text-align:center;padding:9px;font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--a);background:var(--s2);border:none;border-top:1px solid var(--rim2);cursor:pointer;transition:background .15s}
-.comp-more:hover{background:var(--s3)}
+.comp-more{width:100%;text-align:center;padding:9px;font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--a);background:var(--d-s2);border:none;border-top:1px solid var(--d-rim2);cursor:pointer;transition:background .15s}
+.comp-more:hover{background:var(--d-s3)}
 
-.ld{text-align:center;padding:30px;color:var(--i3);font-size:13px}
-.err{text-align:center;padding:20px;color:var(--i3);font-size:12.5px;line-height:1.6}
+.ld{text-align:center;padding:30px;color:var(--d-i3);font-size:13px}
+.err{text-align:center;padding:20px;color:var(--d-i3);font-size:12.5px;line-height:1.6}
 
 .attrib a{color:var(--a);font-weight:600}
 
@@ -206,40 +227,46 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="sport-tab" data-sport="cricket" onclick="switchSport('cricket',this)">🏏 Cricket</div>
 </div>
 
-<div class="filters-wrap" id="filters"></div>
-
 <main>
-  <div class="sp on" id="sp-football">
-    <div class="sp-cols">
-      <div>
-        <div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div>
-        <div id="fb-live" class="ld">Đang tải…</div>
+  <div class="sport-wrap">
+    <aside class="region-sidebar" id="regionSidebar"></aside>
+    <div class="sport-main">
+      <div class="status-topbar" id="statusTopbar"></div>
+
+      <div class="sp on" id="sp-football">
+        <div class="sp-cols">
+          <div>
+            <div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div>
+            <div id="fb-live" class="ld">Đang tải…</div>
+          </div>
+          <div>
+            <div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div>
+            <div id="fb-done" class="ld">Đang tải…</div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div>
-        <div id="fb-done" class="ld">Đang tải…</div>
+      <div class="sp" id="sp-basketball">
+        <div class="sp-cols">
+          <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="bb-live" class="ld">Đang tải…</div></div>
+          <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="bb-done" class="ld">Đang tải…</div></div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="sp" id="sp-basketball">
-    <div class="sp-cols">
-      <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="bb-live" class="ld">Đang tải…</div></div>
-      <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="bb-done" class="ld">Đang tải…</div></div>
-    </div>
-  </div>
-  <div class="sp" id="sp-tennis">
-    <div class="sp-cols">
-      <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="tn-live" class="ld">Đang tải…</div></div>
-      <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="tn-done" class="ld">Đang tải…</div></div>
-    </div>
-  </div>
-  <div class="sp" id="sp-cricket">
-    <div class="sp-cols">
-      <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="cr-live" class="ld">Đang tải…</div></div>
-      <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="cr-done" class="ld">Đang tải…</div></div>
+      <div class="sp" id="sp-tennis">
+        <div class="sp-cols">
+          <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="tn-live" class="ld">Đang tải…</div></div>
+          <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="tn-done" class="ld">Đang tải…</div></div>
+        </div>
+      </div>
+      <div class="sp" id="sp-cricket">
+        <div class="sp-cols">
+          <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="cr-live" class="ld">Đang tải…</div></div>
+          <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="cr-done" class="ld">Đang tải…</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
+
 
 <footer>
   <div class="foot-in">
@@ -340,6 +367,54 @@ function detectGender(compName){
   return /women|ladies|female|\bw-league\b|\bnữ\b/.test(s) ? 'F' : 'M';
 }
 
+// ─── GIẢI NỔI BẬT (quick-filter) — dùng đúng tên giải người dùng cung cấp từ menu điều hướng
+// thật của SportScore. Suy luận khớp bằng từ khoá trên tên giải trả về (giống cơ chế Khu vực) vì
+// /matches/ không có tham số lọc theo giải cụ thể, và /standings/ (vốn có thể tra theo slug) đã
+// xác nhận trả lỗi 404 ngay cả với đúng ví dụ chính thức trong tài liệu của họ (07/2026) — nên
+// đây là quick-filter TRONG SỐ TRẬN ĐÃ TẢI, không phải tra cứu toàn bộ giải như trang gốc.
+const TOP_COMPS={
+  football:[
+    {label:'FIFA World Cup', match:s=>s.includes('fifa world cup')||(s.includes('world cup')&&!s.includes('club')&&!/u-?1[79]|u-?2[013]|women/.test(s))},
+    {label:'UEFA European Championship', match:s=>s.includes('european championship')||s.includes('uefa euro')},
+    {label:'UEFA Nations League', match:s=>s.includes('nations league')&&s.includes('uefa')},
+    {label:'CONCACAF Gold Cup', match:s=>s.includes('gold cup')},
+    {label:'AFC Asian Cup', match:s=>s.includes('asian cup')},
+    {label:'UEFA Champions League', match:s=>s.includes('champions league')&&!s.includes('afc')&&!s.includes('caf')&&!s.includes('women')},
+    {label:'UEFA Europa League', match:s=>s.includes('europa league')&&!s.includes('conference')},
+    {label:'UEFA Europa Conference League', match:s=>s.includes('conference league')},
+    {label:'UEFA Super Cup', match:s=>s.includes('uefa super cup')},
+    {label:'FIFA Club World Cup', match:s=>s.includes('club world cup')},
+    {label:'English Premier League', match:s=>s.includes('premier league')&&!/australia|india|scottish|wales/.test(s)},
+    {label:'Spanish La Liga', match:s=>s.includes('la liga')||s.includes('laliga')},
+  ],
+  basketball:[
+    {label:'NBA', match:s=>/\bnba\b/.test(s)&&!s.includes('g league')},
+    {label:'EuroLeague', match:s=>s.includes('euroleague')},
+    {label:'ACB Spain', match:s=>/\bacb\b/.test(s)},
+    {label:'NBB Brazil', match:s=>/\bnbb\b/.test(s)},
+    {label:'CBA China', match:s=>/\bcba\b/.test(s)},
+  ],
+  cricket:[
+    {label:'IPL', match:s=>/\bipl\b/.test(s)||s.includes('indian premier league')},
+    {label:'ICC World Cup', match:s=>s.includes('icc')&&s.includes('world cup')},
+    {label:'T20 World Cup', match:s=>s.includes('t20 world cup')||s.includes('t20i world cup')},
+    {label:'Big Bash League', match:s=>s.includes('big bash')},
+    {label:'Pakistan Super League', match:s=>s.includes('pakistan super league')||/\bpsl\b/.test(s)},
+  ],
+  tennis:[
+    {label:'ATP Tour', match:s=>s.includes('atp')&&!s.includes('wta')},
+    {label:'WTA Tour', match:s=>s.includes('wta')},
+    {label:'Grand Slams', match:s=>['wimbledon','us open','french open','australian open','roland garros'].some(k=>s.includes(k))},
+    {label:'Davis Cup', match:s=>s.includes('davis cup')},
+  ],
+};
+function detectTopComp(compName, sport){
+  const s=(compName||'').toLowerCase();
+  const list = TOP_COMPS[sport]||[];
+  const hit = list.find(c=>c.match(s));
+  return hit ? hit.label : null;
+}
+
 async function loadSport(sport){
   if(loadedSports[sport]) return; // chỉ fetch 1 lần mỗi môn — các lần lọc sau chỉ lọc lại dữ liệu đã có, không gọi API nữa
   loadedSports[sport]=true;
@@ -357,29 +432,66 @@ async function loadSport(sport){
       m._live = !m._finished && (status.includes('live')||status.includes('play')||status.includes('progress')||status.includes('half'));
       m._region = detectRegion(m.competition);
       m._gender = detectGender(m.competition);
+      m._topComp = detectTopComp(m.competition, sport);
     });
-    sportData[sport] = {all:matches, filters:{status:'all',gender:'all',region:'all'}};
+    sportData[sport] = {all:matches, filters:{status:'all',gender:'all',region:'all',comp:'all'}};
   }catch(err){
     console.warn('SportScore lỗi ('+sport+'):', err.message);
-    sportData[sport] = {all:[], filters:{status:'all',gender:'all',region:'all'}, error:err.message};
+    sportData[sport] = {all:[], filters:{status:'all',gender:'all',region:'all',comp:'all'}, error:err.message};
   }
 }
 
 function showSport(sport){
-  loadSport(sport).then(()=>{ renderFilterBar(sport); applyFilters(sport); });
+  loadSport(sport).then(()=>{ renderRegionSidebar(sport); renderStatusTopbar(sport); applyFilters(sport); });
 }
 
 function setFilter(sport,group,val){
   sportData[sport].filters[group]=val;
-  renderFilterBar(sport);
+  renderRegionSidebar(sport);
+  renderStatusTopbar(sport);
   applyFilters(sport);
 }
 
-function renderFilterBar(sport){
+// Sidebar dọc — Giải nổi bật (quick-filter theo tên giải thật) + Khu vực. Nhiều lựa chọn hơn
+// hẳn Trạng thái/Giới tính nên hợp danh sách dọc cuộn được, giống đúng bố cục sidebar
+// quốc gia/giải đấu ở trang gốc SportScore.
+function renderRegionSidebar(sport){
   const d=sportData[sport];
-  if(!d || d.error || !d.all.length){ html('filters',''); return; }
+  if(!d || d.error || !d.all.length){ html('regionSidebar',''); return; }
   const f=d.filters;
-  const chip=(group,val,label,active)=>`<button class="fchip ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
+  const item=(group,val,label,active)=>`<button class="sidebar-item ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
+
+  // Giải nổi bật: đếm số trận khớp mỗi giải trong TOP_COMPS[sport] — chỉ hiện giải nào thực sự
+  // có ≥1 trận trong dữ liệu đã tải (không hiện sẵn giải rỗng gây hiểu lầm là có dữ liệu).
+  const compCounts={};
+  d.all.forEach(m=>{ if(m._topComp) compCounts[m._topComp]=(compCounts[m._topComp]||0)+1; });
+  const topComps=Object.keys(compCounts).sort((a,b)=>compCounts[b]-compCounts[a]);
+  const compSection = topComps.length ? `
+    <div class="sidebar-title">Giải nổi bật</div>
+    ${item('comp','all',`Tất cả`,f.comp==='all')}
+    ${topComps.map(c=>item('comp',c,`${c} <span class="cnt">${compCounts[c]}</span>`,f.comp===c)).join('')}
+  ` : '';
+
+  // Khu vực: chỉ liệt kê những vùng THỰC SỰ có mặt trong dữ liệu đã tải, sắp theo số trận giảm dần —
+  // tránh bộ lọc rỗng vô nghĩa (VD hiện toàn bộ 200 quốc gia dù chỉ 6-7 nước có trận thật).
+  const counts={}, flags={};
+  d.all.forEach(m=>{ const k=m._region.label; counts[k]=(counts[k]||0)+1; flags[k]=m._region.flag; });
+  const regions=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+
+  html('regionSidebar', `
+    ${compSection}
+    <div class="sidebar-title">Khu vực</div>
+    ${item('region','all',`Tất cả <span class="cnt">${d.all.length}</span>`,f.region==='all')}
+    ${regions.map(r=>item('region',r,`${flags[r]} ${r} <span class="cnt">${counts[r]}</span>`,f.region===r)).join('')}
+  `);
+}
+
+// Topbar ngang — Trạng thái + Giới tính. Ít lựa chọn cố định (3-4 nút), hợp thanh ngang hơn.
+function renderStatusTopbar(sport){
+  const d=sportData[sport];
+  if(!d || d.error || !d.all.length){ html('statusTopbar',''); return; }
+  const f=d.filters;
+  const chip=(group,val,label,active)=>`<button class="tchip ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
 
   const nLive=d.all.filter(m=>m._live).length, nUp=d.all.filter(m=>!m._live&&!m._finished).length, nDone=d.all.filter(m=>m._finished).length;
   const statusRow = [
@@ -390,27 +502,13 @@ function renderFilterBar(sport){
   ].join('');
 
   const nM=d.all.filter(m=>m._gender==='M').length, nF=d.all.filter(m=>m._gender==='F').length;
-  const genderRow = [
+  const genderRow = nF>0 ? [
     chip('gender','all','Tất cả',f.gender==='all'),
     chip('gender','M',`Nam <span class="cnt">${nM}</span>`,f.gender==='M'),
-    ...(nF>0?[chip('gender','F',`Nữ <span class="cnt">${nF}</span>`,f.gender==='F')]:[]),
-  ].join('');
+    chip('gender','F',`Nữ <span class="cnt">${nF}</span>`,f.gender==='F'),
+  ].join('') : '';
 
-  // Khu vực: chỉ liệt kê những vùng THỰC SỰ có mặt trong dữ liệu đã tải, sắp theo số trận giảm dần —
-  // tránh bộ lọc rỗng vô nghĩa (VD hiện toàn bộ 200 quốc gia dù chỉ 6-7 nước có trận thật).
-  const counts={}, flags={};
-  d.all.forEach(m=>{ const k=m._region.label; counts[k]=(counts[k]||0)+1; flags[k]=m._region.flag; });
-  const regions=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
-  const regionRow = [
-    chip('region','all','Tất cả',f.region==='all'),
-    ...regions.map(r=>chip('region',r,`${flags[r]} ${r} <span class="cnt">${counts[r]}</span>`,f.region===r)),
-  ].join('');
-
-  html('filters', `
-    <div class="filter-row"><span class="filter-lbl">Trạng thái</span>${statusRow}</div>
-    <div class="filter-row"><span class="filter-lbl">Giới tính</span>${genderRow}</div>
-    <div class="filter-row"><span class="filter-lbl">Khu vực</span>${regionRow}</div>
-  `);
+  html('statusTopbar', statusRow + (genderRow?`<span style="width:1px;background:var(--d-rim);margin:0 4px"></span>${genderRow}`:''));
 }
 
 function applyFilters(sport){
@@ -427,6 +525,7 @@ function applyFilters(sport){
   const filtered = d.all.filter(m=>{
     if(f.gender!=='all' && m._gender!==f.gender) return false;
     if(f.region!=='all' && m._region.label!==f.region) return false;
+    if(f.comp!=='all' && m._topComp!==f.comp) return false;
     if(f.status==='live' && !m._live) return false;
     if(f.status==='upcoming' && (m._live||m._finished)) return false;
     if(f.status==='finished' && !m._finished) return false;
@@ -436,9 +535,14 @@ function applyFilters(sport){
   // chung 1 nhóm, không bị cắt ngang giữa chừng theo kiểu đếm phẳng cũ.
   const liveUp = filtered.filter(m=>!m._finished).slice(0,18);
   const done = filtered.filter(m=>m._finished).slice(0,18);
+  // Thông báo rỗng nêu rõ tên giải đang chọn (nếu có) — trung thực rằng đây là "không có trong
+  // dữ liệu ĐÃ TẢI", không phải "giải này không tồn tại".
+  const emptyMsg = f.comp!=='all'
+    ? `<div class="err">Hiện không có trận nào của <strong>${f.comp}</strong> trong dữ liệu đang tải (~40 trận/môn). Giải vẫn tồn tại — chỉ là không có mặt trong đợt tải này.</div>`
+    : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>';
 
-  html(px+'-live', liveUp.length ? groupByCompetition(liveUp).map((g,i)=>mkCompGroup(g,px+'-live-'+i)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
-  html(px+'-done', done.length ? groupByCompetition(done).map((g,i)=>mkCompGroup(g,px+'-done-'+i)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
+  html(px+'-live', liveUp.length ? groupByCompetition(liveUp).map((g,i)=>mkCompGroup(g,px+'-live-'+i)).join('') : emptyMsg);
+  html(px+'-done', done.length ? groupByCompetition(done).map((g,i)=>mkCompGroup(g,px+'-done-'+i)).join('') : emptyMsg);
 }
 
 function html(id,h){ const e=$(id); if(e) e.innerHTML=h; }
@@ -467,13 +571,13 @@ function fmtTime(iso){
 function imgFallback(el, initial){
   const span = document.createElement('span');
   span.className = 'm-badge';
-  span.style.cssText = 'font-family:var(--serif);font-weight:700;color:var(--i3)';
+  span.style.cssText = 'font-family:var(--serif);font-weight:700;color:var(--d-i3)';
   span.textContent = initial;
   el.parentElement.replaceWith(span);
 }
 function badge(url, name){
   const initial = (name||'?').trim().charAt(0).toUpperCase();
-  if(!url) return `<span class="m-badge" style="font-family:var(--serif);font-weight:700;color:var(--i3)">${initial}</span>`;
+  if(!url) return `<span class="m-badge" style="font-family:var(--serif);font-weight:700;color:var(--d-i3)">${initial}</span>`;
   return `<span class="m-badge"><img src="${url}" alt="" loading="lazy" onerror="imgFallback(this,'${initial.replace(/'/g,"")}')"></span>`;
 }
 
