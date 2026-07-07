@@ -268,6 +268,7 @@ footer a:hover{color:#F5EFE6}
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">🥇 Kim loại quý</button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto</button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá</button>
+  <button class="tb"     id="btn-intl"     onclick="go('intl',this)">🌐 Chỉ số Quốc tế</button>
 </nav>
 <div class="tnav-fade tnav-fade-l"></div>
 <div class="tnav-fade tnav-fade-r"></div>
@@ -540,6 +541,51 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="fxCross"></div>
 </div>
 
+<!-- PAGE: INTERNATIONAL INDICES (TradingView widget — Mỹ/Âu/Á, khác hẳn HOSE nên KHÔNG bị chặn permission) -->
+<div class="pg" id="pg-intl">
+  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
+    🌐 Chỉ số chứng khoán các sàn lớn thế giới — widget nhúng chính thức từ TradingView. Mỹ/Âu/Á đều nằm trong danh sách sàn TradingView cấp phép hiển thị qua widget (khác với HOSE Việt Nam).
+  </div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">📈</div><div class="sht">8 chỉ số tiêu biểu — Mỹ · Âu · Á</div><div class="shl"></div></div>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container" style="border-radius:14px;overflow:hidden;background:#17120D">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright" style="padding:8px 12px;font-family:var(--sans);font-size:10px;background:#17120D">
+      <a href="https://www.tradingview.com/markets/indices/" rel="noopener nofollow" target="_blank" style="color:var(--a)"><span>Chỉ số quốc tế</span></a><span style="color:var(--mu)"> · dữ liệu bởi TradingView</span>
+    </div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+      {
+        "symbols": [["S&P 500","FOREXCOM:SPXUSD|12M"],["Nasdaq 100","FOREXCOM:NSXUSD|12M"],["Dow Jones","FOREXCOM:DJI|12M"],["FTSE 100","TVC:UKX|12M"],["DAX","TVC:DAX|12M"],["Nikkei 225","TVC:NI225|12M"],["Hang Seng","HSI:HSI|12M"],["KOSPI","TVC:KOSPI|12M"]],
+        "chartOnly": false,
+        "width": "100%",
+        "height": "520",
+        "locale": "vi_VN",
+        "colorTheme": "dark",
+        "autosize": false,
+        "showVolume": false,
+        "showMA": false,
+        "hideDateRanges": false,
+        "hideMarketStatus": false,
+        "hideSymbolLogo": false,
+        "scalePosition": "right",
+        "scaleMode": "Normal",
+        "fontFamily": "Be Vietnam Pro, -apple-system, sans-serif",
+        "backgroundColor": "#17120D",
+        "gridLineColor": "rgba(240,234,225,0.06)",
+        "widgetFontColor": "#F5EFE6",
+        "upColor": "#00c853",
+        "downColor": "#f5334f",
+        "borderUpColor": "#00c853",
+        "borderDownColor": "#f5334f",
+        "wickUpColor": "#00c853",
+        "wickDownColor": "#f5334f",
+        "isTransparent": false
+      }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+</div>
+
 <!-- PAGE: PRICES -->
 <div class="pg" id="pg-prices">
   <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
@@ -781,18 +827,19 @@ function spark(hist,col){
 }
 
 // ─── CARD ──────────────────────────────────
-function card(d,cls,spkCol){
+function card(d,cls,spkCol,noChart){
   const flat=d.pct===0;
   const u=d.pct>=0,col=flat?'var(--mu)':(u?'var(--gn)':'var(--rd)'),arr=flat?'—':(u?'▲':'▼');
   const vnd=d.usd!=null?`<div class="cv2">${toVND(d.usd)}</div>`:'';
   const histArr = d.hist || [50,50]; // dự phòng nếu caller quên truyền — tránh vỡ giao diện
+  const chartHtml = noChart ? '' : `<div class="csp">${spark(histArr,col)}</div>`;
   return `<div class="cd ${cls}">` +
     `<div class="ct"><div><div class="cy">${d.sym}</div><div class="cn" title="${d.nm}">${d.nm}</div></div>` +
     `<div class="co">${d.ic}</div></div>` +
     `<div class="cp">${d.pr}</div>` +
     `${vnd}` +
     `<div class="cch" style="color:${col}">${arr} ${flat?'Không đổi':Math.abs(d.pct).toFixed(2)+'%'} <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
-    `<div class="csp">${spark(histArr,col)}</div>` +
+    `${chartHtml}` +
     `<div class="cm"><span>${d.m1||''}</span><span>${d.m2||''}</span></div>` +
     `</div>`;
 }
@@ -1079,12 +1126,14 @@ function mkDomestic(d){
     // Giá niêm yết / Nhà nước điều hành theo kỳ — đứng yên thật giữa các lần cập nhật giá chính
     // thức ngoài đời (xăng dầu ~10 ngày/lần, VLXD/hàng đóng gói vài tuần-tháng/lần), nên KHÔNG
     // mô phỏng dao động giả — hiện đúng giá niêm yết + mốc thời gian.
+    // noChart:true — không có lịch sử giá thật để vẽ chart, tránh gây cảm giác "biểu đồ real-time" giả.
     return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(d.base)+' ₫',usd:null,pct:0,hist:[d.base,d.base],
-      abs:'giá niêm yết',m1:d.unit,m2:'Cập nhật '+d.asOf},'cc','var(--mu)');
+      abs:'giá niêm yết',m1:d.unit,m2:'Cập nhật '+d.asOf},'cc','var(--mu)',true);
   }
   const st=sim(d.sym,d.base,1.3), p=st.price, pct=st.pct;
   const abs=Math.abs(p*pct/100);
-  return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)');
+  // noChart:true — giá tham khảo mô phỏng, không phải dữ liệu thị trường thật, nên không vẽ chart để tránh gây hiểu lầm.
+  return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)',true);
 }
 
 function renderDomestic(){
