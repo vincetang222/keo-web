@@ -258,10 +258,7 @@ footer a:hover{color:#F5EFE6}
   <button class="tb on"  id="btn-overview" onclick="go('overview',this)">📊 Tổng quan</button>
   <button class="tb tb-hl" id="btn-prices"   onclick="go('prices',this)">🛒 Giá tiêu dùng</button>
   <button class="tb"     id="btn-outlook"  onclick="go('outlook',this)">🎯 Nhận định</button>
-  <button class="tb"     id="btn-vn"       onclick="go('vn',this)">🇻🇳 Việt Nam</button>
-  <button class="tb"     id="btn-global"   onclick="go('global',this)">📈 Cổ phiếu QT</button>
-  <button class="tb"     id="btn-bonds"    onclick="go('bonds',this)">🏛️ Trái phiếu</button>
-  <button class="tb"     id="btn-comm"     onclick="go('comm',this)">⚡ Hàng hóa</button>
+  <button class="tb"     id="btn-comm"     onclick="go('comm',this)">🥇 Kim loại quý</button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto</button>
   <button class="tb"     id="btn-fx"       onclick="go('fx',this)">💱 Tỷ giá</button>
 </nav>
@@ -272,32 +269,25 @@ footer a:hover{color:#F5EFE6}
 <!-- PAGE: OVERVIEW -->
 <div class="pg on" id="pg-overview">
   <div class="ov4">
-    <div class="ovc"><div class="ovl">S&amp;P 500</div><div class="ovv" id="ovSp">--</div><div class="ovc2" id="ovSpC">--</div></div>
     <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">🇻🇳 VN-INDEX</div><div class="ovv" id="ovVni">--</div><div class="ovc2" id="ovVniC">--</div></div>
     <div class="ovc"><div class="ovl">Vàng / Gold</div><div class="ovv" id="ovGold">--</div><div class="ovc2" id="ovGoldC">--</div></div>
+    <div class="ovc"><div class="ovl">Bạc / Silver</div><div class="ovv" id="ovSilver">--</div><div class="ovc2" id="ovSilverC">--</div></div>
     <div class="ovc"><div class="ovl">Bitcoin</div><div class="ovv" id="ovBtc">--</div><div class="ovc2" id="ovBtcC">--</div></div>
   </div>
   <div class="ova" style="margin-bottom:18px">
-    <div class="ovc"><div class="ovl">NASDAQ 100</div><div class="ovv" id="ovNdx">--</div><div class="ovc2" id="ovNdxC">--</div></div>
     <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">HNX-INDEX</div><div class="ovv" id="ovHnx">--</div><div class="ovc2" id="ovHnxC">--</div></div>
     <div class="ovc" style="border-color:rgba(232,51,74,.3)"><div class="ovl" style="color:var(--vn)">UPCOM</div><div class="ovv" id="ovUpcom">--</div><div class="ovc2" id="ovUpcomC">--</div></div>
-    <div class="ovc"><div class="ovl">Dầu WTI</div><div class="ovv" id="ovWti">--</div><div class="ovc2" id="ovWtiC">--</div></div>
-    <div class="ovc"><div class="ovl">US 10Y Yield</div><div class="ovv" id="ovT10">--</div><div class="ovc2" id="ovT10C">--</div></div>
+    <div class="ovc"><div class="ovl">Bạch kim / Plat.</div><div class="ovv" id="ovPlat">--</div><div class="ovc2" id="ovPlatC">--</div></div>
     <div class="ovc"><div class="ovl">💱 USD/VND <span id="fxB" style="font-size:8px;color:var(--sub)">~EST</span></div><div class="ovv" id="ovFx">--</div><div class="ovc2" id="ovFxC">--</div></div>
     <div class="ovc"><div class="ovl">Ethereum</div><div class="ovv" id="ovEth">--</div><div class="ovc2" id="ovEthC">--</div></div>
     <div class="ovc"><div class="ovl">Fear &amp; Greed</div><div class="ovv" id="ovFng">--</div><div class="ovc2" id="ovFngL">--</div></div>
   </div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🇻🇳</div><div class="sht">Top VN hôm nay</div><div class="shl"></div><button class="ib" onclick="go('vn',document.getElementById('btn-vn'))">Xem tất cả →</button></div>
-  <div class="gr" id="ovVnPrev"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">📈</div><div class="sht">Cổ phiếu nổi bật</div><div class="shl"></div><button class="ib" onclick="go('global',document.getElementById('btn-global'))">Xem tất cả →</button></div>
-  <div class="gr" id="ovStPrev"></div>
   <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">₿</div><div class="sht">Crypto top 5</div><div class="shl"></div><button class="ib" onclick="go('crypto',document.getElementById('btn-crypto'))">Xem tất cả →</button></div>
   <div class="gr" id="ovCrPrev"><div class="ld2">Đang tải…</div></div>
-  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🛒</div><div class="sht">Giá tiêu dùng hôm nay</div><div class="shl"></div><button class="ib" onclick="go('prices',document.getElementById('btn-prices'))">Xem tất cả →</button></div>
+  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🛒</div><div class="sht">Giá tiêu dùng hôm nay <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div><button class="ib" onclick="go('prices',document.getElementById('btn-prices'))">Xem tất cả →</button></div>
   <div class="gr" id="ovDomPrev"></div>
 </div>
 
-<!-- PAGE: VN -->
 <!-- PAGE: OUTLOOK -->
 <div class="pg" id="pg-outlook">
 
@@ -516,59 +506,10 @@ footer a:hover{color:#F5EFE6}
 
 </div>
 
-<div class="pg" id="pg-vn">
-  <div class="ig" id="idxCards"></div>
-  <div class="chips" id="chips"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🏦</div><div class="sht">Ngân hàng</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">BANKING</div></div>
-  <div class="gr grsm" id="vnBank"><div class="ld2">Đang tải…</div></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🏠</div><div class="sht">Bất động sản</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">REAL ESTATE</div></div>
-  <div class="gr grsm" id="vnRe"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">💻</div><div class="sht">Công nghệ · Viễn thông · Bán lẻ</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">TECH & RETAIL</div></div>
-  <div class="gr grsm" id="vnTech"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🏭</div><div class="sht">Công nghiệp · Năng lượng</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">INDUSTRIAL</div></div>
-  <div class="gr grsm" id="vnInd"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🛒</div><div class="sht">Tiêu dùng · Thực phẩm · Y tế</div><div class="shl"></div><div class="shb" style="background:rgba(232,51,74,.1);color:var(--vn)">CONSUMER</div></div>
-  <div class="gr grsm" id="vnCons"></div>
-  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">📊</div><div class="sht">Chứng khoán · Bảo hiểm</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">FINANCE</div></div>
-  <div class="gr grsm" id="vnFin"></div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">📦</div><div class="sht">Chứng chỉ quỹ ETF</div><div class="shl"></div><div class="shb" style="background:rgba(156,127,232,.1);color:var(--pu)">FUND</div></div>
-  <div class="gr grsm" id="vnFund"></div>
-</div>
-
-<!-- PAGE: GLOBAL -->
-<div class="pg" id="pg-global">
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🇺🇸</div><div class="sht">Mỹ — Công nghệ</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">US TECH</div></div>
-  <div class="gr" id="stUsTech"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🏦</div><div class="sht">Mỹ — Tài chính · Năng lượng · Tiêu dùng</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">US OTHER</div></div>
-  <div class="gr" id="stUsOther"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🌏</div><div class="sht">Châu Á</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">ASIA</div></div>
-  <div class="gr" id="stAsia"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🌍</div><div class="sht">Châu Âu</div><div class="shl"></div><div class="shb" style="background:rgba(0,200,224,.1);color:var(--a)">EUROPE</div></div>
-  <div class="gr" id="stEurope"></div>
-</div>
-
-<!-- PAGE: BONDS -->
-<div class="pg" id="pg-bonds">
-  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🇺🇸</div><div class="sht">US Treasuries</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">UST</div></div>
-  <div class="gr" id="bondUs"></div>
-  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🌏</div><div class="sht">Châu Á — Chính phủ</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">ASIA GOVT</div></div>
-  <div class="gr" id="bondAsia"></div>
-  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🌍</div><div class="sht">Châu Âu — Chính phủ</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">EU GOVT</div></div>
-  <div class="gr" id="bondEu"></div>
-  <div class="sh"><div class="shi" style="background:rgba(245,166,35,.1)">🏢</div><div class="sht">Doanh nghiệp</div><div class="shl"></div><div class="shb" style="background:rgba(245,166,35,.1);color:var(--go)">CORPORATE</div></div>
-  <div class="gr" id="bondCorp"></div>
-</div>
-
-<!-- PAGE: COMM -->
+<!-- PAGE: COMM (chỉ giữ kim loại quý — 4 mã có giá thật từ gold-api.com) -->
 <div class="pg" id="pg-comm">
   <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🥇</div><div class="sht">Kim loại quý</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">PRECIOUS</div></div>
   <div class="gr" id="cmMetal"></div>
-  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🛢️</div><div class="sht">Năng lượng</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">ENERGY</div></div>
-  <div class="gr" id="cmEnergy"></div>
-  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🔶</div><div class="sht">Kim loại công nghiệp</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">BASE METALS</div></div>
-  <div class="gr" id="cmBase"></div>
-  <div class="sh"><div class="shi" style="background:rgba(255,107,53,.1)">🌽</div><div class="sht">Nông sản</div><div class="shl"></div><div class="shb" style="background:rgba(255,107,53,.1);color:var(--a2)">AGRI</div></div>
-  <div class="gr" id="cmAgri"></div>
 </div>
 
 <!-- PAGE: CRYPTO -->
@@ -802,242 +743,8 @@ function card(d,cls,spkCol){
 }
 
 // ─── DATA: STOCKS ──────────────────────────
-const STOCKS={
-  usTech:[
-    {sym:'AAPL',nm:'Apple',          base:211, ic:'🍎',ccy:'USD'},
-    {sym:'MSFT',nm:'Microsoft',      base:418, ic:'🪟',ccy:'USD'},
-    {sym:'NVDA',nm:'NVIDIA',         base:875, ic:'🎮',ccy:'USD'},
-    {sym:'GOOGL',nm:'Alphabet',      base:172, ic:'🔍',ccy:'USD'},
-    {sym:'META',nm:'Meta Platforms', base:555, ic:'📘',ccy:'USD'},
-    {sym:'AMZN',nm:'Amazon',         base:196, ic:'📦',ccy:'USD'},
-    {sym:'TSLA',nm:'Tesla',          base:168, ic:'🚗',ccy:'USD'},
-    {sym:'AMD', nm:'AMD',            base:108, ic:'💾',ccy:'USD'},
-    {sym:'NFLX',nm:'Netflix',        base:1098,ic:'🎬',ccy:'USD'},
-    {sym:'ORCL',nm:'Oracle',         base:188, ic:'🗄️',ccy:'USD'},
-    {sym:'CRM', nm:'Salesforce',     base:295, ic:'☁️',ccy:'USD'},
-    {sym:'UBER',nm:'Uber',           base:82,  ic:'🚕',ccy:'USD'},
-    {sym:'SNOW',nm:'Snowflake',      base:162, ic:'❄️',ccy:'USD'},
-    {sym:'PLTR',nm:'Palantir',       base:98,  ic:'🔭',ccy:'USD'},
-    {sym:'INTC',nm:'Intel',          base:32,  ic:'🔲',ccy:'USD'},
-    {sym:'IBM', nm:'IBM',            base:198, ic:'🖥️',ccy:'USD'},
-    {sym:'ADBE',nm:'Adobe',          base:512, ic:'🎨',ccy:'USD'},
-    {sym:'NOW', nm:'ServiceNow',     base:928, ic:'⚙️',ccy:'USD'},
-    {sym:'PANW',nm:'Palo Alto Networks',base:352,ic:'🛡️',ccy:'USD'},
-    {sym:'CSCO',nm:'Cisco Systems',  base:58,  ic:'🔌',ccy:'USD'},
-    {sym:'QCOM',nm:'Qualcomm',       base:162, ic:'📶',ccy:'USD'},
-    {sym:'TXN', nm:'Texas Instruments',base:198,ic:'🔧',ccy:'USD'},
-    {sym:'AVGO',nm:'Broadcom',       base:1680,ic:'📡',ccy:'USD'},
-    {sym:'MU',  nm:'Micron Tech',    base:112, ic:'💽',ccy:'USD'},
-    {sym:'ARM', nm:'Arm Holdings',   base:142, ic:'🦾',ccy:'USD'},
-    {sym:'SHOP',nm:'Shopify',        base:82,  ic:'🛍️',ccy:'USD'},
-    {sym:'SPOT',nm:'Spotify',        base:452, ic:'🎧',ccy:'USD'},
-    {sym:'ABNB',nm:'Airbnb',         base:132, ic:'🏠',ccy:'USD'},
-    {sym:'DDOG',nm:'Datadog',        base:118, ic:'🐕',ccy:'USD'},
-    {sym:'CRWD',nm:'CrowdStrike',    base:342, ic:'🦅',ccy:'USD'},
-    {sym:'PYPL',nm:'PayPal',         base:78,  ic:'💰',ccy:'USD'},
-    {sym:'SQ',  nm:'Block Inc.',     base:82,  ic:'⬛',ccy:'USD'},
-  ],
-  usOther:[
-    {sym:'JPM', nm:'JPMorgan Chase', base:241, ic:'🏦',ccy:'USD'},
-    {sym:'GS',  nm:'Goldman Sachs',  base:622, ic:'💼',ccy:'USD'},
-    {sym:'V',   nm:'Visa',           base:354, ic:'💳',ccy:'USD'},
-    {sym:'BRK.B',nm:'Berkshire',     base:534, ic:'🧢',ccy:'USD'},
-    {sym:'XOM', nm:'ExxonMobil',     base:108, ic:'🛢️',ccy:'USD'},
-    {sym:'CVX', nm:'Chevron',        base:152, ic:'⛽',ccy:'USD'},
-    {sym:'JNJ', nm:'Johnson & Johnson',base:146,ic:'💊',ccy:'USD'},
-    {sym:'PG',  nm:'Procter & Gamble',base:172,ic:'🧴',ccy:'USD'},
-    {sym:'KO',  nm:'Coca-Cola',      base:72,  ic:'🥤',ccy:'USD'},
-    {sym:'MCD', nm:"McDonald's",     base:312, ic:'🍔',ccy:'USD'},
-    {sym:'WMT', nm:'Walmart',        base:98,  ic:'🛒',ccy:'USD'},
-    {sym:'BAC', nm:'Bank of America',base:42,  ic:'🏛️',ccy:'USD'},
-    {sym:'DIS', nm:'Walt Disney',    base:112, ic:'🏰',ccy:'USD'},
-    {sym:'NKE', nm:'Nike',           base:78,  ic:'👟',ccy:'USD'},
-    {sym:'SBUX',nm:'Starbucks',      base:92,  ic:'☕',ccy:'USD'},
-    {sym:'COST',nm:'Costco',         base:912, ic:'📦',ccy:'USD'},
-    {sym:'HD',  nm:'Home Depot',     base:398, ic:'🔨',ccy:'USD'},
-    {sym:'UNH', nm:'UnitedHealth',   base:512, ic:'⚕️',ccy:'USD'},
-    {sym:'PFE', nm:'Pfizer',         base:28,  ic:'💉',ccy:'USD'},
-    {sym:'MRK', nm:'Merck & Co',     base:98,  ic:'🧪',ccy:'USD'},
-    {sym:'LLY', nm:'Eli Lilly',      base:892, ic:'💊',ccy:'USD'},
-    {sym:'T',   nm:'AT&T',           base:22,  ic:'📞',ccy:'USD'},
-    {sym:'VZ',  nm:'Verizon',        base:42,  ic:'📱',ccy:'USD'},
-    {sym:'F',   nm:'Ford Motor',     base:11,  ic:'🚙',ccy:'USD'},
-    {sym:'GM',  nm:'General Motors', base:48,  ic:'🚘',ccy:'USD'},
-    {sym:'BA',  nm:'Boeing',         base:182, ic:'✈️',ccy:'USD'},
-    {sym:'CAT', nm:'Caterpillar',    base:382, ic:'🚜',ccy:'USD'},
-    {sym:'HON', nm:'Honeywell',      base:212, ic:'⚙️',ccy:'USD'},
-    {sym:'GE',  nm:'GE Aerospace',   base:182, ic:'✈️',ccy:'USD'},
-    {sym:'UPS', nm:'United Parcel',  base:132, ic:'📦',ccy:'USD'},
-  ],
-  asia:[
-    {sym:'TSM',   nm:'TSMC (ADR)',      base:185,  ic:'🇹🇼',ccy:'USD',ex:'NYSE'},
-    {sym:'005930',nm:'Samsung Elec.',   base:58000, ic:'📱',ccy:'KRW',ex:'KRX'},
-    {sym:'7203',  nm:'Toyota Motor',   base:3050,  ic:'🚙',ccy:'JPY',ex:'TSE'},
-    {sym:'9984',  nm:'SoftBank',       base:11200, ic:'📡',ccy:'JPY',ex:'TSE'},
-    {sym:'6758',  nm:'Sony Group',     base:3180,  ic:'🎵',ccy:'JPY',ex:'TSE'},
-    {sym:'700',   nm:'Tencent',        base:430,   ic:'🎯',ccy:'HKD',ex:'HKEX'},
-    {sym:'9988',  nm:'Alibaba HK',     base:72,    ic:'🛍️',ccy:'HKD',ex:'HKEX'},
-    {sym:'1810',  nm:'Xiaomi',         base:44,    ic:'📱',ccy:'HKD',ex:'HKEX'},
-    {sym:'BYD',   nm:'BYD Company',    base:28,    ic:'🔋',ccy:'HKD',ex:'HKEX'},
-    {sym:'INFY',  nm:'Infosys (ADR)',  base:22,    ic:'💻',ccy:'USD',ex:'NYSE'},
-    {sym:'RELIANCE',nm:'Reliance Ind.',base:2950,  ic:'🇮🇳',ccy:'INR',ex:'NSE'},
-    {sym:'ASML',  nm:'ASML Holding',   base:782,   ic:'🔬',ccy:'USD',ex:'NASDAQ'},
-    {sym:'6501',  nm:'Hitachi',        base:3420,  ic:'⚡',ccy:'JPY',ex:'TSE'},
-    {sym:'8306',  nm:'Mitsubishi UFJ', base:1820,  ic:'🏦',ccy:'JPY',ex:'TSE'},
-    {sym:'6098',  nm:'Recruit Holdings',base:7420, ic:'💼',ccy:'JPY',ex:'TSE'},
-    {sym:'000660',nm:'SK Hynix',       base:198000,ic:'💾',ccy:'KRW',ex:'KRX'},
-    {sym:'035420',nm:'Naver Corp',     base:182000,ic:'🔍',ccy:'KRW',ex:'KRX'},
-    {sym:'3690',  nm:'Meituan',        base:98,    ic:'🥡',ccy:'HKD',ex:'HKEX'},
-    {sym:'1211',  nm:'BYD Electronic', base:32,    ic:'🔋',ccy:'HKD',ex:'HKEX'},
-    {sym:'2318',  nm:'Ping An Insurance',base:42,  ic:'🏥',ccy:'HKD',ex:'HKEX'},
-    {sym:'941',   nm:'China Mobile',   base:78,    ic:'📶',ccy:'HKD',ex:'HKEX'},
-    {sym:'TCS',   nm:'Tata Consultancy',base:4150, ic:'💻',ccy:'INR',ex:'NSE'},
-    {sym:'HDFCBANK',nm:'HDFC Bank',    base:1680,  ic:'🏦',ccy:'INR',ex:'NSE'},
-    {sym:'2330',  nm:'TSMC (Taiwan)',  base:998,   ic:'🇹🇼',ccy:'USD',ex:'TWSE'},
-    {sym:'2317',  nm:'Foxconn',        base:198,   ic:'🏭',ccy:'USD',ex:'TWSE'},
-    {sym:'D05',   nm:'DBS Group',      base:42,    ic:'🏦',ccy:'USD',ex:'SGX'},
-    {sym:'BABA',  nm:'Alibaba (ADR)',  base:92,    ic:'🛍️',ccy:'USD',ex:'NYSE'},
-    {sym:'JD',    nm:'JD.com',         base:38,    ic:'📦',ccy:'USD',ex:'NASDAQ'},
-    {sym:'PDD',   nm:'PDD Holdings',   base:112,   ic:'🛒',ccy:'USD',ex:'NASDAQ'},
-    {sym:'NTES',  nm:'NetEase',        base:98,    ic:'🎮',ccy:'USD',ex:'NASDAQ'},
-    {sym:'GRAB',  nm:'Grab Holdings',  base:5.2,   ic:'🛵',ccy:'USD',ex:'NASDAQ'},
-  ],
-  europe:[
-    {sym:'SAP',  nm:'SAP SE',        base:244, ic:'🗄️',ccy:'USD',ex:'NYSE'},
-    {sym:'NVO',  nm:'Novo Nordisk',  base:98,  ic:'💊',ccy:'USD',ex:'NYSE'},
-    {sym:'SHEL', nm:'Shell plc',     base:34,  ic:'🐚',ccy:'USD',ex:'NYSE'},
-    {sym:'AZN',  nm:'AstraZeneca',  base:78,  ic:'🧬',ccy:'USD',ex:'NASDAQ'},
-    {sym:'LVMH', nm:'LVMH',         base:730, ic:'👜',ccy:'EUR',ex:'EPA'},
-    {sym:'NESN', nm:'Nestlé SA',    base:82,  ic:'🍫',ccy:'CHF',ex:'SIX'},
-    {sym:'ROG',  nm:'Roche Holding',base:248, ic:'🔬',ccy:'CHF',ex:'SIX'},
-    {sym:'SIE',  nm:'Siemens AG',   base:182, ic:'⚙️',ccy:'EUR',ex:'XETRA'},
-    {sym:'MC',   nm:'Louis Vuitton', base:730, ic:'💎',ccy:'EUR',ex:'EPA'},
-    {sym:'SAN',  nm:'Santander',    base:5.2, ic:'🏦',ccy:'EUR',ex:'BME'},
-    {sym:'HSBA', nm:'HSBC Holdings',base:8.4, ic:'🏦',ccy:'USD',ex:'LSE'},
-    {sym:'BP',   nm:'BP plc',       base:5.8, ic:'⛽',ccy:'USD',ex:'NYSE'},
-    {sym:'UL',   nm:'Unilever',     base:62,  ic:'🧴',ccy:'USD',ex:'NYSE'},
-    {sym:'DEO',  nm:'Diageo',       base:128, ic:'🥃',ccy:'USD',ex:'NYSE'},
-    {sym:'GSK',  nm:'GSK plc',      base:42,  ic:'💊',ccy:'USD',ex:'NYSE'},
-    {sym:'BTI',  nm:'British American Tobacco',base:38,ic:'🚬',ccy:'USD',ex:'NYSE'},
-    {sym:'RIO',  nm:'Rio Tinto',    base:62,  ic:'⛏️',ccy:'USD',ex:'NYSE'},
-    {sym:'BHP',  nm:'BHP Group',    base:52,  ic:'⛏️',ccy:'USD',ex:'NYSE'},
-    {sym:'TTE',  nm:'TotalEnergies',base:62,  ic:'⛽',ccy:'USD',ex:'NYSE'},
-    {sym:'ALV',  nm:'Allianz SE',   base:298, ic:'🛡️',ccy:'EUR',ex:'XETRA'},
-    {sym:'BAS',  nm:'BASF SE',      base:48,  ic:'🧪',ccy:'EUR',ex:'XETRA'},
-    {sym:'BMW',  nm:'BMW AG',       base:82,  ic:'🚗',ccy:'EUR',ex:'XETRA'},
-    {sym:'VOW3', nm:'Volkswagen',   base:102, ic:'🚗',ccy:'EUR',ex:'XETRA'},
-    {sym:'AIR',  nm:'Airbus SE',    base:168, ic:'✈️',ccy:'EUR',ex:'EPA'},
-    {sym:'OR',   nm:"L'Oréal",      base:392, ic:'💄',ccy:'EUR',ex:'EPA'},
-    {sym:'BN',   nm:'Danone',       base:62,  ic:'🥛',ccy:'EUR',ex:'EPA'},
-    {sym:'ENEL', nm:'Enel SpA',     base:7.2, ic:'⚡',ccy:'EUR',ex:'BIT'},
-    {sym:'ISP',  nm:'Intesa Sanpaolo',base:4.2,ic:'🏦',ccy:'EUR',ex:'BIT'},
-    {sym:'INGA', nm:'ING Group',    base:16,  ic:'🏦',ccy:'EUR',ex:'AEX'},
-    {sym:'NOVN', nm:'Novartis AG',  base:102, ic:'💊',ccy:'CHF',ex:'SIX'},
-  ]
-};
-
-function mkSt(s){
-  const st=sim(s.sym,s.base,1.5), p=st.price, pct=st.pct;
-  const r=FX_RATES[s.ccy]||FX_FB[s.ccy]||1;
-  const usd=s.ccy==='USD'?p:p/r;
-  const sym2={USD:'$',EUR:'€',KRW:'₩',JPY:'¥',HKD:'HK$',CHF:'Fr',INR:'₹',AUD:'A$'}[s.ccy]||'';
-  const pf=s.ccy==='KRW'||s.ccy==='JPY'||s.ccy==='INR'?Math.round(p).toLocaleString():p.toFixed(2);
-  return card({sym:s.sym,nm:s.nm,ic:s.ic,pr:sym2+pf,usd,pct,hist:st.hist,abs:(pct>=0?'+':'')+sym2+(Math.abs(p*pct/100)).toFixed(2),m1:(s.ex||'')+' · '+s.ccy,m2:'Vol:'+(Math.random()*80+10).toFixed(0)+'M'},'cs','var(--a)');
-}
-
-function renderGlobal(){
-  html('stUsTech', STOCKS.usTech.map(mkSt).join(''));
-  html('stUsOther', STOCKS.usOther.map(mkSt).join(''));
-  html('stAsia', STOCKS.asia.map(mkSt).join(''));
-  html('stEurope', STOCKS.europe.map(mkSt).join(''));
-}
 
 // ─── DATA: BONDS ───────────────────────────
-const BONDS={
-  us:[
-    {sym:'US01M',nm:'US 1M T-Bill',  base:5.28,ic:'🏛️',m1:'1 tháng'},
-    {sym:'US03M',nm:'US 3M T-Bill',  base:5.22,ic:'🏛️',m1:'3 tháng'},
-    {sym:'US06M',nm:'US 6M T-Bill',  base:5.05,ic:'🏛️',m1:'6 tháng'},
-    {sym:'US01Y',nm:'US 1Y Treasury',base:4.94,ic:'📜',m1:'1 năm'},
-    {sym:'US02Y',nm:'US 2Y Treasury',base:4.82,ic:'📜',m1:'2 năm'},
-    {sym:'US03Y',nm:'US 3Y Treasury',base:4.68,ic:'📜',m1:'3 năm'},
-    {sym:'US05Y',nm:'US 5Y Treasury',base:4.44,ic:'📜',m1:'5 năm'},
-    {sym:'US07Y',nm:'US 7Y Treasury',base:4.36,ic:'📜',m1:'7 năm'},
-    {sym:'US10Y',nm:'US 10Y Treasury',base:4.28,ic:'📜',m1:'Benchmark'},
-    {sym:'US20Y',nm:'US 20Y Treasury',base:4.58,ic:'📜',m1:'20 năm'},
-    {sym:'US30Y',nm:'US 30Y Treasury',base:4.62,ic:'📜',m1:'30 năm'},
-    {sym:'TIP05',nm:'US 5Y TIPS',    base:2.02,ic:'🛡️',m1:'Chống lạm phát'},
-    {sym:'TIP10',nm:'US 10Y TIPS',   base:2.08,ic:'🛡️',m1:'Chống lạm phát'},
-    {sym:'TIP30',nm:'US 30Y TIPS',   base:2.22,ic:'🛡️',m1:'Chống lạm phát'},
-    {sym:'MBS',  nm:'US MBS 30Y',    base:5.42,ic:'🏠',m1:'Mortgage-Backed'},
-  ],
-  asia:[
-    {sym:'VN05Y',nm:'VN 5Y Gov Bond', base:2.68,ic:'🇻🇳',m1:'HNX'},
-    {sym:'VN10Y',nm:'VN 10Y Gov Bond',base:2.92,ic:'🇻🇳',m1:'HNX'},
-    {sym:'VN15Y',nm:'VN 15Y Gov Bond',base:3.18,ic:'🇻🇳',m1:'HNX'},
-    {sym:'VN20Y',nm:'VN 20Y Gov Bond',base:3.42,ic:'🇻🇳',m1:'HNX'},
-    {sym:'JP02Y',nm:'Japan 2Y JGB',   base:0.42,ic:'🇯🇵',m1:'BoJ'},
-    {sym:'JP10Y',nm:'Japan 10Y JGB',  base:1.52,ic:'🇯🇵',m1:'BoJ'},
-    {sym:'JP30Y',nm:'Japan 30Y JGB',  base:2.42,ic:'🇯🇵',m1:'BoJ'},
-    {sym:'CN02Y',nm:'China 2Y Govt',  base:1.32,ic:'🇨🇳',m1:'PBOC'},
-    {sym:'CN10Y',nm:'China 10Y Govt', base:1.68,ic:'🇨🇳',m1:'PBOC'},
-    {sym:'KR03Y',nm:'Korea 3Y KTB',   base:2.98,ic:'🇰🇷',m1:'BOK'},
-    {sym:'KR10Y',nm:'Korea 10Y KTB',  base:3.42,ic:'🇰🇷',m1:'BOK'},
-    {sym:'IN10Y',nm:'India 10Y Govt', base:6.88,ic:'🇮🇳',m1:'RBI'},
-    {sym:'ID10Y',nm:'Indonesia 10Y',  base:6.72,ic:'🇮🇩',m1:'BI'},
-    {sym:'TH10Y',nm:'Thailand 10Y',   base:2.38,ic:'🇹🇭',m1:'BOT'},
-    {sym:'MY10Y',nm:'Malaysia 10Y',   base:3.72,ic:'🇲🇾',m1:'BNM'},
-    {sym:'PH10Y',nm:'Philippines 10Y',base:6.12,ic:'🇵🇭',m1:'BSP'},
-    {sym:'SG10Y',nm:'Singapore 10Y',  base:2.72,ic:'🇸🇬',m1:'MAS'},
-    {sym:'TW10Y',nm:'Taiwan 10Y',     base:1.62,ic:'🇹🇼',m1:'CBC'},
-    {sym:'HK10Y',nm:'Hong Kong 10Y',  base:3.22,ic:'🇭🇰',m1:'HKMA'},
-    {sym:'AU10Y',nm:'Australia 10Y',  base:4.32,ic:'🇦🇺',m1:'RBA'},
-  ],
-  eu:[
-    {sym:'DE02Y',nm:'Germany 2Y Schatz',base:2.28,ic:'🇩🇪',m1:'Bundesbank'},
-    {sym:'DE10Y',nm:'Germany 10Y Bund',base:2.48,ic:'🇩🇪',m1:'Benchmark EU'},
-    {sym:'DE30Y',nm:'Germany 30Y Bund',base:2.82,ic:'🇩🇪',m1:'30 năm'},
-    {sym:'FR10Y',nm:'France 10Y OAT',  base:2.98,ic:'🇫🇷',m1:'Trésor'},
-    {sym:'IT10Y',nm:'Italy 10Y BTP',   base:3.82,ic:'🇮🇹',m1:'Tesoro'},
-    {sym:'GB02Y',nm:'UK 2Y Gilt',      base:4.02,ic:'🇬🇧',m1:'DMO'},
-    {sym:'GB10Y',nm:'UK 10Y Gilt',     base:4.28,ic:'🇬🇧',m1:'DMO'},
-    {sym:'GB30Y',nm:'UK 30Y Gilt',     base:4.72,ic:'🇬🇧',m1:'30 năm'},
-    {sym:'ES10Y',nm:'Spain 10Y Bono',  base:3.22,ic:'🇪🇸',m1:'Tesoro'},
-    {sym:'NL10Y',nm:'Netherlands 10Y', base:2.62,ic:'🇳🇱',m1:'DSTA'},
-    {sym:'CH10Y',nm:'Switzerland 10Y', base:0.62,ic:'🇨🇭',m1:'SNB'},
-    {sym:'SE10Y',nm:'Sweden 10Y',      base:2.18,ic:'🇸🇪',m1:'Riksbank'},
-    {sym:'NO10Y',nm:'Norway 10Y',      base:3.62,ic:'🇳🇴',m1:'Norges'},
-    {sym:'PL10Y',nm:'Poland 10Y',      base:5.42,ic:'🇵🇱',m1:'NBP'},
-    {sym:'PT10Y',nm:'Portugal 10Y',    base:2.82,ic:'🇵🇹',m1:'IGCP'},
-    {sym:'GR10Y',nm:'Greece 10Y',      base:3.42,ic:'🇬🇷',m1:'PDMA'},
-  ],
-  corp:[
-    {sym:'IG-US',nm:'US Corp IG',    base:4.88,ic:'🏢',m1:'Investment Grade'},
-    {sym:'HY-US',nm:'US High Yield', base:7.22,ic:'⚡',m1:'High Yield'},
-    {sym:'EM-BD',nm:'EM Bond ETF',   base:5.62,ic:'🌍',m1:'Emerging Markets'},
-    {sym:'IG-EU',nm:'EU Corp IG',    base:3.42,ic:'🏢',m1:'Investment Grade EU'},
-    {sym:'HY-EU',nm:'EU High Yield', base:5.92,ic:'⚡',m1:'High Yield EU'},
-    {sym:'FIN-B',nm:'Financials Bond',base:5.12,ic:'🏦',m1:'Ngành ngân hàng'},
-    {sym:'TECH-B',nm:'Tech Corp Bond',base:4.62,ic:'💻',m1:'Ngành công nghệ'},
-    {sym:'ENE-B',nm:'Energy Corp Bond',base:5.82,ic:'🛢️',m1:'Ngành năng lượng'},
-    {sym:'MUNI', nm:'US Muni Bond',  base:3.42,ic:'🏛️',m1:'Trái phiếu địa phương'},
-    {sym:'CONV', nm:'Convertible Bond',base:4.22,ic:'🔄',m1:'Trái phiếu chuyển đổi'},
-    {sym:'VN-CB',nm:'VN Corp Bond',  base:8.42,ic:'🇻🇳',m1:'Doanh nghiệp VN'},
-  ]
-};
-
-function mkBond(b){
-  const st=sim(b.sym,b.base,.4), p=st.price, pct=st.pct;
-  const abs=Math.abs(p*pct/100).toFixed(3);
-  return card({sym:b.sym,nm:b.nm,ic:b.ic,pr:p.toFixed(2)+'%',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+abs+'%',m1:b.m1,m2:''},'cb','var(--go)');
-}
-
-function renderBonds(){
-  html('bondUs', BONDS.us.map(mkBond).join(''));
-  html('bondAsia', BONDS.asia.map(mkBond).join(''));
-  html('bondEu', BONDS.eu.map(mkBond).join(''));
-  html('bondCorp', BONDS.corp.map(mkBond).join(''));
-}
 
 // ─── DATA: COMMODITIES ─────────────────────
 const COMM={
@@ -1046,48 +753,6 @@ const COMM={
     {sym:'XAG',nm:'Bạc (Silver)',    base:33.2,ic:'🥈',unit:'$/oz',  usd:true},
     {sym:'XPT',nm:'Bạch kim (Plat)',base:970, ic:'⬜',unit:'$/oz',  usd:true},
     {sym:'XPD',nm:'Palladium',       base:1020,ic:'🔘',unit:'$/oz',  usd:true},
-    {sym:'XRH',nm:'Rhodium',         base:4850,ic:'⚪',unit:'$/oz',  usd:true},
-    {sym:'URAN',nm:'Uranium (U3O8)', base:78.5,ic:'☢️',unit:'$/lb', usd:true},
-  ],
-  energy:[
-    {sym:'WTI',  nm:'Dầu WTI',      base:61.5,ic:'🛢️',unit:'$/bbl',usd:true},
-    {sym:'BRENT',nm:'Dầu Brent',    base:65.2,ic:'⛽',unit:'$/bbl',usd:true},
-    {sym:'RBOB', nm:'Xăng RBOB',    base:2.28,ic:'⛽',unit:'$/gal',usd:true},
-    {sym:'NG',   nm:'Khí tự nhiên', base:3.28,ic:'🔥',unit:'$/MMBtu',usd:true},
-    {sym:'HO',   nm:'Dầu nhiệt',    base:2.14,ic:'🌡️',unit:'$/gal',usd:true},
-    {sym:'PROP', nm:'Propane',      base:0.92,ic:'🔥',unit:'$/gal',usd:true},
-    {sym:'COAL', nm:'Than nhiệt điện',base:118,ic:'⚫',unit:'$/t',  usd:true},
-    {sym:'DUBAI',nm:'Dầu Dubai',    base:63.8,ic:'🛢️',unit:'$/bbl',usd:true},
-  ],
-  base:[
-    {sym:'CU',nm:'Đồng (Copper)',   base:4.72,ic:'🔶',unit:'$/lb',usd:true},
-    {sym:'AL',nm:'Nhôm (Aluminium)',base:1.12,ic:'🔷',unit:'$/lb',usd:true},
-    {sym:'ZN',nm:'Kẽm (Zinc)',      base:1.28,ic:'🪤',unit:'$/lb',usd:true},
-    {sym:'NI',nm:'Niken (Nickel)',  base:7.42,ic:'🔩',unit:'$/lb',usd:true},
-    {sym:'FE',nm:'Quặng sắt',       base:98.4,ic:'⚙️',unit:'$/t', usd:true},
-    {sym:'PB',nm:'Chì (Lead)',      base:0.92,ic:'⚫',unit:'$/lb',usd:true},
-    {sym:'SN',nm:'Thiếc (Tin)',     base:14.8,ic:'🥫',unit:'$/lb',usd:true},
-    {sym:'CO',nm:'Coban (Cobalt)',  base:16.2,ic:'🔷',unit:'$/lb',usd:true},
-    {sym:'LI',nm:'Lithium Carbonate',base:11.4,ic:'🔋',unit:'$/kg',usd:true},
-  ],
-  agri:[
-    {sym:'CORN', nm:'Ngô (Corn)',    base:462, ic:'🌽',unit:'¢/bu',usd:false},
-    {sym:'WHEAT',nm:'Lúa mì',       base:538, ic:'🌾',unit:'¢/bu',usd:false},
-    {sym:'SOYA', nm:'Đậu tương',    base:1082,ic:'🫘',unit:'¢/bu',usd:false},
-    {sym:'SUGAR',nm:'Đường',        base:19.8,ic:'🍬',unit:'¢/lb',usd:false},
-    {sym:'COFFE',nm:'Cà phê Arabica',base:3.18,ic:'☕',unit:'$/lb',usd:true},
-    {sym:'COCOA',nm:'Cacao',        base:8420,ic:'🍫',unit:'$/t', usd:true},
-    {sym:'CTTN', nm:'Bông (Cotton)',base:82.4,ic:'🌸',unit:'¢/lb',usd:false},
-    {sym:'RICE', nm:'Gạo (Rice)',   base:14.8,ic:'🍚',unit:'$/cwt',usd:true},
-    {sym:'OATS', nm:'Yến mạch',     base:342, ic:'🌾',unit:'¢/bu',usd:false},
-    {sym:'OJ',   nm:'Nước cam (OJ)',base:342, ic:'🍊',unit:'¢/lb',usd:false},
-    {sym:'LUMBER',nm:'Gỗ xẻ',       base:582, ic:'🪵',unit:'$/1000ft²',usd:true},
-    {sym:'MILK', nm:'Sữa (Class III)',base:18.2,ic:'🥛',unit:'$/cwt',usd:true},
-    {sym:'CATTLE',nm:'Bò thịt (Live Cattle)',base:198,ic:'🐄',unit:'¢/lb',usd:false},
-    {sym:'HOGS', nm:'Heo nạc (Lean Hogs)',base:88.4,ic:'🐖',unit:'¢/lb',usd:false},
-    {sym:'CANOLA',nm:'Cải dầu (Canola)',base:612,ic:'🌻',unit:'CAD/t',usd:false,ccy:'CAD'},
-    {sym:'PALM', nm:'Dầu cọ (Palm Oil)',base:3820,ic:'🌴',unit:'MYR/t',usd:false,ccy:'MYR'},
-    {sym:'RUBB', nm:'Cao su (Rubber)', base:172,ic:'🌳',unit:'¢/kg', usd:false},
   ]
 };
 
@@ -1113,9 +778,6 @@ function mkComm(c){
 
 function renderComm(){
   html('cmMetal', COMM.metal.map(mkComm).join(''));
-  html('cmEnergy', COMM.energy.map(mkComm).join(''));
-  html('cmBase', COMM.base.map(mkComm).join(''));
-  html('cmAgri', COMM.agri.map(mkComm).join(''));
 }
 
 // ─── DATA: FX ──────────────────────────────
@@ -1410,110 +1072,12 @@ function setupCollapsibleSections(){
 }
 
 // ─── DATA: VN ──────────────────────────────
-const VN={
-  bank:[
-    {sym:'VCB',nm:'Vietcombank',       base:86500, ic:'🏦'},
-    {sym:'BID',nm:'BIDV',              base:42500, ic:'🏦'},
-    {sym:'CTG',nm:'VietinBank',        base:35200, ic:'🏦'},
-    {sym:'TCB',nm:'Techcombank',       base:21800, ic:'🏦'},
-    {sym:'MBB',nm:'MB Bank',           base:22400, ic:'🏦'},
-    {sym:'ACB',nm:'ACB',               base:24100, ic:'🏦'},
-    {sym:'VPB',nm:'VPBank',            base:19500, ic:'🏦'},
-    {sym:'HDB',nm:'HDBank',            base:18200, ic:'🏦'},
-    {sym:'LPB',nm:'LienVietPostBank',  base:14800, ic:'🏦'},
-    {sym:'STB',nm:'Sacombank',         base:28600, ic:'🏦'},
-    {sym:'EIB',nm:'Eximbank',          base:18500, ic:'🏦'},
-    {sym:'NAB',nm:'Nam A Bank',        base:11200, ic:'🏦'},
-  ],
-  re:[
-    {sym:'VIC',nm:'Vingroup',          base:34500, ic:'🏙️'},
-    {sym:'VHM',nm:'Vinhomes',          base:28700, ic:'🏠'},
-    {sym:'NVL',nm:'Novaland',          base:10200, ic:'🏗️'},
-    {sym:'KDH',nm:'Khang Điền',        base:24600, ic:'🏘️'},
-    {sym:'DIG',nm:'DIC Corp',          base:14800, ic:'🏢'},
-    {sym:'PDR',nm:'Phát Đạt',          base:16200, ic:'🏬'},
-    {sym:'VRE',nm:'Vincom Retail',     base:22100, ic:'🏪'},
-    {sym:'CEO',nm:'CEO Group',         base:9800,  ic:'🏨'},
-  ],
-  tech:[
-    {sym:'FPT',nm:'FPT Corporation',  base:128000,ic:'💻'},
-    {sym:'VGI',nm:'Viettel Global',   base:37200, ic:'📡'},
-    {sym:'CMG',nm:'CMC Corp',         base:32000, ic:'☁️'},
-    {sym:'MWG',nm:'Thế Giới Di Động', base:48000, ic:'📱'},
-    {sym:'FRT',nm:'FPT Retail',       base:89000, ic:'🖥️'},
-    {sym:'PNJ',nm:'PNJ',              base:92000, ic:'💍'},
-    {sym:'DGW',nm:'Digiworld',        base:42000, ic:'📦'},
-  ],
-  ind:[
-    {sym:'HPG',nm:'Hòa Phát Group',  base:22400, ic:'🏭'},
-    {sym:'HSG',nm:'Hoa Sen Group',   base:12800, ic:'🔧'},
-    {sym:'NKG',nm:'Nam Kim Steel',   base:16500, ic:'⚙️'},
-    {sym:'GAS',nm:'PV Gas',          base:55000, ic:'⛽'},
-    {sym:'PLX',nm:'Petrolimex',      base:38500, ic:'🛢️'},
-    {sym:'PVD',nm:'PV Drilling',     base:18600, ic:'🔩'},
-    {sym:'REE',nm:'REE Corp',        base:58000, ic:'⚡'},
-    {sym:'PC1',nm:'PC1 Group',       base:21000, ic:'🔌'},
-    {sym:'BSR',nm:'Bình Sơn Refin.', base:14200, ic:'🏗️'},
-  ],
-  cons:[
-    {sym:'VNM',nm:'Vinamilk',         base:72000, ic:'🥛'},
-    {sym:'MSN',nm:'Masan Group',      base:61000, ic:'🛒'},
-    {sym:'SAB',nm:'Sabeco',           base:58000, ic:'🍺'},
-    {sym:'VCF',nm:'Vinacafe',         base:185000,ic:'☕'},
-    {sym:'DHG',nm:'DHG Pharma',       base:98000, ic:'💊'},
-    {sym:'DMC',nm:'Domesco',          base:78000, ic:'🏥'},
-    {sym:'IMP',nm:'Imexpharm',        base:64000, ic:'💉'},
-  ],
-  fin:[
-    {sym:'SSI',nm:'SSI Securities',   base:28600, ic:'📊'},
-    {sym:'VCI',nm:'Viet Capital Sec.',base:22100, ic:'📈'},
-    {sym:'HCM',nm:'HSC',              base:24800, ic:'💹'},
-    {sym:'BMP',nm:'Bảo Minh',         base:42000, ic:'🛡️'},
-    {sym:'PVI',nm:'PVI Holdings',     base:34000, ic:'🔐'},
-  ],
-  fund:[
-    {sym:'E1VFVN30',nm:'ETF DCVFMVN30 (VN30)',  base:35870, ic:'📦'},
-    {sym:'FUEVFVND',nm:'ETF VFM VN Diamond',    base:28500, ic:'💎'},
-    {sym:'FUESSVFL',nm:'ETF SSIAM VNFIN LEAD',  base:16200, ic:'🏦'},
-    {sym:'FUEVN100',nm:'ETF SSIAM VN100',       base:13800, ic:'📦'},
-    {sym:'FUEMAV30',nm:'ETF MAFM VN30',         base:19600, ic:'📦'},
-  ]
-};
-
-function mkVN(s, api){
-  let price, pct;
-  const st=sim(s.sym,s.base,1.5); // luôn gọi để có lịch sử hist nhất quán cho sparkline
-  if(api&&api[s.sym]){ price=api[s.sym].close||s.base; pct=api[s.sym].changePercent||rp(2); }
-  else{ price=st.price; pct=st.pct; }
-  const abs=Math.abs(price*pct/100);
-  const usdEq=price/USD_VND;
-  const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
-  return `<div class="cd cv">` +
-    `<div class="ct"><div><div class="cy">${s.sym}</div><div class="cn" title="${s.nm}">${s.nm}</div></div><div class="co">${s.ic}</div></div>` +
-    `<div class="cp">${(price/1000).toFixed(1)}k ₫</div>` +
-    `<div class="cv2">$${usdEq.toFixed(2)}</div>` +
-    `<div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div>` +
-    `<div class="csp">${spark(st.hist,col)}</div>` +
-    `<div class="cm"><span>HOSE</span></div>` +
-    `</div>`;
-}
-
-async function renderVN(){
-  const allSyms = Object.values(VN).flat().map(s=>s.sym).join(',');
-  let api = null;
-  try{
-    const r=await fetchT(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price?tickers=${allSyms}`, 5000);
-    if(r.ok){ const j=await r.json(); api={}; (j.data||[]).forEach(d=>{api[d.ticker]=d;}); }
-  }catch{}
-  html('vnBank', VN.bank.map(s=>mkVN(s,api)).join(''));
-  html('vnRe',   VN.re.map(s=>mkVN(s,api)).join(''));
-  html('vnTech', VN.tech.map(s=>mkVN(s,api)).join(''));
-  html('vnInd',  VN.ind.map(s=>mkVN(s,api)).join(''));
-  html('vnCons', VN.cons.map(s=>mkVN(s,api)).join(''));
-  html('vnFin',  VN.fin.map(s=>mkVN(s,api)).join(''));
-  html('vnFund', VN.fund.map(s=>mkVN(s,api)).join(''));
-}
-
+// Ghi đè thủ công khi có SỰ KIỆN THỰC xảy ra với 1 mã cụ thể (scandal, sáp nhập, tin lớn...) —
+// vì mô phỏng random-walk không thể tự biết những sự kiện này, sẽ mãi dao động quanh giá cũ
+// vô nghĩa nếu không có ai chỉnh lại. Khi có tin thị trường thật ảnh hưởng mạnh đến 1 mã,
+// thêm 1 dòng vào đây với giá thật gần nhất — code sẽ ưu tiên dùng ngay, có nhãn báo minh bạch
+// cho người xem biết đây là số liệu cập nhật tay theo sự kiện, không phải API tự động.
+// Ví dụ: 'PNJ': {price: 45000, note: 'Điều chỉnh theo tin scandal 07/2026', date: '08/07/2026'},
 async function renderVNIndices(){
   let vni=null,hnx=null,up=null;
   try{
@@ -1529,21 +1093,8 @@ async function renderVNIndices(){
   const vSt=sim('VNINDEX',1280,1), vV=+(vni?.indexValue)||vSt.price, vP=+(vni?.changePercent)||vSt.pct;
   const hSt=sim('HNXINDEX',225,1), hV=+(hnx?.indexValue)||hSt.price, hP=+(hnx?.changePercent)||hSt.pct;
   const uSt=sim('UPCOMINDEX',93,1), uV=+(up?.indexValue)||uSt.price, uP=+(up?.changePercent)||uSt.pct;
-  const gt=(Math.random()*14000+7000).toFixed(0)+'tỷ';
-  const kl=(Math.random()*600+200).toFixed(0)+'M';
-  function mi(l,v,p,bc){const u=p>=0,c=u?'var(--gn)':'var(--rd)';return`<div class="ic" style="border-top-color:${bc}"><div class="il">${l}</div><div class="iv">${typeof v==='number'?v.toFixed(2):v}</div><div class="ip" style="color:${c}">${u?'▲+':'▼'}${typeof p==='number'?p.toFixed(2):p}%</div></div>`;}
-  function ms(l,v,s,bc){return`<div class="ic" style="border-top-color:${bc}"><div class="il">${l}</div><div class="iv" style="font-size:13px">${v}</div><div class="ip" style="color:var(--sub)">${s}</div></div>`;}
-  html('idxCards', mi('VNINDEX',vV,vP,'var(--vn)')+mi('HNX-INDEX',hV,hP,'var(--go)')+mi('UPCOM',uV,uP,'var(--a2)')+ms('GT KHỚP',gt,'tỷ đồng','var(--a)')+ms('KL KHỚP',kl,'cổ phiếu','var(--sub)'));
   ov('ovVni',vV.toFixed(2),vP); ov('ovHnx',hV.toFixed(2),hP); ov('ovUpcom',uV.toFixed(2),uP);
   const e=$('stVni'); if(e) e.textContent=vV.toFixed(2);
-}
-
-function renderSectorChips(){
-  const s=['Ngân hàng','BĐS','Thép','Bán lẻ','Công nghệ','Điện','Dầu khí','Thực phẩm','Y tế','Chứng khoán'];
-  html('chips', s.map(n=>{
-    const st=sim('SECTOR-'+n,100,2.5), u=st.pct>=0,c=u?'var(--gn)':'var(--rd)',bg=u?'rgba(0,200,83,.07)':'rgba(245,51,79,.07)';
-    return `<div class="chip" style="background:${bg};border-color:${c}30;color:${c}"><span style="color:var(--ink-sub)">${n}</span><b>${u?'+':''}${st.pct.toFixed(2)}%</b></div>`;
-  }).join(''));
 }
 
 // ─── CRYPTO ────────────────────────────────
@@ -1698,28 +1249,22 @@ async function renderCrypto(){
 
 // ─── OVERVIEW ──────────────────────────────
 function renderOverviewSim(){
-  const spSt=sim('SP500SIM',5570,1); ov('ovSp', spSt.price.toFixed(2), spSt.pct);
-  const ndxSt=sim('NASDAQSIM',19200,1); ov('ovNdx', ndxSt.price.toFixed(2), ndxSt.pct);
-  const g=COMM.metal[0], gSt=sim(g.sym,g.base,1.8), gp=gSt.price, gpct=gSt.pct;
+  const g=COMM.metal.find(m=>m.sym==='XAU'), gSt=sim(g.sym,g.base,1.8), gReal=REAL_METAL[g.sym];
+  const gp=gReal?gReal.price:gSt.price, gpct=gReal&&gReal.pct!==null?gReal.pct:gSt.pct;
   const e1=$('ovGold');if(e1)e1.textContent='$'+gp.toFixed(2);
   const e2=$('ovGoldC');if(e2){e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%';e2.style.color=gpct>=0?'var(--gn)':'var(--rd)';}
-  const w=COMM.energy[0], wSt=sim(w.sym,w.base,1.8), wp=wSt.price, wpct=wSt.pct;
-  const e3=$('ovWti');if(e3)e3.textContent='$'+wp.toFixed(2);
-  const e4=$('ovWtiC');if(e4){e4.textContent=(wpct>=0?'▲ +':'▼ ')+Math.abs(wpct).toFixed(2)+'%';e4.style.color=wpct>=0?'var(--gn)':'var(--rd)';}
-  const b=BONDS.us[6], bSt=sim(b.sym,b.base,.4), bp=bSt.price, bpct=bSt.pct;
-  ov('ovT10', bp.toFixed(2)+'%', bpct, 3);
-  // VN preview (6 stocks)
-  const picks=['VCB','FPT','HPG','VHM','MWG','TCB'];
-  html('ovVnPrev', picks.map(sym=>{
-    const s=Object.values(VN).flat().find(x=>x.sym===sym);
-    if(!s) return '';
-    const st=sim(s.sym,s.base,1.5), p=st.price, pct=st.pct, abs=Math.abs(p*pct/100);
-    const u=pct>=0, col=u?'var(--gn)':'var(--rd)';
-    return `<div class="cd cv"><div class="ct"><div><div class="cy">${s.sym}</div><div class="cn">${s.nm}</div></div><div class="co">${s.ic}</div></div><div class="cp">${(p/1000).toFixed(1)}k ₫</div><div class="cv2">$${(p/USD_VND).toFixed(2)}</div><div class="cch" style="color:${col}">${u?'▲':'▼'} ${Math.abs(pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${Math.round(abs).toLocaleString('vi-VN')}₫)</span></div><div class="csp">${spark(st.hist,col)}</div><div class="cm"><span>HOSE</span></div></div>`;
-  }).join(''));
-  // Global preview (6 stocks)
-  html('ovStPrev', STOCKS.usTech.slice(0,6).map(mkSt).join(''));
-  // Giá tiêu dùng preview (6 mặt hàng đại diện nhiều nhóm)
+
+  const s=COMM.metal.find(m=>m.sym==='XAG'), sSt=sim(s.sym,s.base,1.8), sReal=REAL_METAL[s.sym];
+  const sp=sReal?sReal.price:sSt.price, spct=sReal&&sReal.pct!==null?sReal.pct:sSt.pct;
+  const e5=$('ovSilver');if(e5)e5.textContent='$'+sp.toFixed(2);
+  const e6=$('ovSilverC');if(e6){e6.textContent=(spct>=0?'▲ +':'▼ ')+Math.abs(spct).toFixed(2)+'%';e6.style.color=spct>=0?'var(--gn)':'var(--rd)';}
+
+  const pl=COMM.metal.find(m=>m.sym==='XPT'), plSt=sim(pl.sym,pl.base,1.8), plReal=REAL_METAL[pl.sym];
+  const plp=plReal?plReal.price:plSt.price, plpct=plReal&&plReal.pct!==null?plReal.pct:plSt.pct;
+  const e7=$('ovPlat');if(e7)e7.textContent='$'+plp.toFixed(2);
+  const e8=$('ovPlatC');if(e8){e8.textContent=(plpct>=0?'▲ +':'▼ ')+Math.abs(plpct).toFixed(2)+'%';e8.style.color=plpct>=0?'var(--gn)':'var(--rd)';}
+
+  // Giá tiêu dùng preview (6 mặt hàng đại diện nhiều nhóm) — giữ làm tham khảo
   const domPicks=[
     ...DOM_FUEL.filter(d=>d.sym==='XANG-E5'),
     ...DOM_FUEL.filter(d=>d.sym==='VANG-SJC'),
@@ -1735,10 +1280,13 @@ function renderOverviewSim(){
 function renderTicker(){
   const usdVndSt = sim('USDVNDCHG',100,.25); // riêng ticker, không trùng nơi khác — vẫn dùng sim() bình thường
   const items=[
-    ...STOCKS.usTech.slice(0,4).map(s=>{const st=peek(s.sym,s.base,1.5);return{sym:s.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
-    ...COMM.metal.slice(0,2).map(c=>{const st=peek(c.sym,c.base,1.8);return{sym:c.sym,pr:'$'+st.price.toFixed(2),u:st.pct>=0,pct:st.pct};}),
+    ...COMM.metal.map(c=>{
+      const real=REAL_METAL[c.sym];
+      const st=peek(c.sym,c.base,1.8);
+      const p=real?real.price:st.price, pct=real&&real.pct!==null?real.pct:st.pct;
+      return {sym:c.sym,pr:'$'+p.toFixed(2),u:pct>=0,pct};
+    }),
     {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:usdVndSt.pct>=0,pct:usdVndSt.pct},
-    ...Object.values(VN).flat().slice(0,4).map(s=>{const st=peek(s.sym,s.base,1.5);return{sym:s.sym,pr:(st.price/1000).toFixed(1)+'k₫',u:st.pct>=0,pct:st.pct};}),
   ];
   const h=items.map(i=>`<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span><span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span></div>`).join('');
   html('tkr', h+h);
@@ -1764,9 +1312,6 @@ function refreshCurrent(){ loadTab(curTab); }
 function loadTab(tab){
   try{
     if(tab==='overview'){ renderOverviewSim(); renderFX(); renderVNIndices(); renderCrypto(); }
-    else if(tab==='vn')  { renderSectorChips(); renderVNIndices(); renderVN(); }
-    else if(tab==='global'){ renderGlobal(); }
-    else if(tab==='bonds') { renderBonds(); }
     else if(tab==='comm')  { renderComm(); }
     else if(tab==='crypto'){ renderCrypto(); }
     else if(tab==='fx')    { renderFX(); }
