@@ -116,6 +116,14 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 /* OVERVIEW CARDS */
 .ov4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:9px;}
 .ova{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
+
+/* VN INDEX SPLIT: DNSE bên trái, card giá bên phải */
+.vn-split{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;align-items:start;margin-bottom:18px;}
+.vn-split-right{display:flex;flex-direction:column;gap:9px;}
+.vn-split-right .ov4{grid-template-columns:repeat(2,1fr);margin-bottom:0;}
+.vn-split-right .ova{margin-bottom:0;}
+#dnse-market-index{margin-bottom:0 !important;}
+@media(max-width:900px){.vn-split{grid-template-columns:1fr;}}
 .ovc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 15px;box-shadow:var(--sh1);transition:background var(--tr),box-shadow var(--tr),transform var(--tr);}
 .ovc:hover{transform:translateY(-2px);box-shadow:var(--sh2);}
 .ovl{font-size:9px;color:var(--sub);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
@@ -268,17 +276,21 @@ footer a:hover{color:#F5EFE6}
 <!-- PAGE: OVERVIEW -->
 <div class="pg on" id="pg-overview">
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🇻🇳</div><div class="sht">Chỉ số thị trường Việt Nam</div><div class="shl"></div><span style="font-family:var(--sans);font-size:9px;color:var(--mu)">Widget thật từ DNSE</span></div>
-  <div id="dnse-market-index" class="dnse-market-index" style="margin-bottom:18px;border-radius:14px;overflow:hidden"><script src="https://cdn.dnse.com.vn/dnse-price/_embed/embed-widget-1.2.4.js">{"indexes":["VNINDEX","VN30","HNX30","HNX","UPCOM"],"width":"100%","height":400,"theme":"dark"}</script></div>
-  <div class="ov4">
-    <div class="ovc"><div class="ovl">Vàng / Gold</div><div class="ovv" id="ovGold">--</div><div class="ovc2" id="ovGoldC">--</div></div>
-    <div class="ovc"><div class="ovl">Bạc / Silver</div><div class="ovv" id="ovSilver">--</div><div class="ovc2" id="ovSilverC">--</div></div>
-    <div class="ovc"><div class="ovl">Bạch kim / Plat.</div><div class="ovv" id="ovPlat">--</div><div class="ovc2" id="ovPlatC">--</div></div>
-    <div class="ovc"><div class="ovl">Bitcoin</div><div class="ovv" id="ovBtc">--</div><div class="ovc2" id="ovBtcC">--</div></div>
-  </div>
-  <div class="ova" style="margin-bottom:18px">
-    <div class="ovc"><div class="ovl">💱 USD/VND <span id="fxB" style="font-size:8px;color:var(--sub)">~EST</span></div><div class="ovv" id="ovFx">--</div><div class="ovc2" id="ovFxC">--</div></div>
-    <div class="ovc"><div class="ovl">Ethereum</div><div class="ovv" id="ovEth">--</div><div class="ovc2" id="ovEthC">--</div></div>
-    <div class="ovc"><div class="ovl">Fear &amp; Greed</div><div class="ovv" id="ovFng">--</div><div class="ovc2" id="ovFngL">--</div></div>
+  <div class="vn-split">
+    <div id="dnse-market-index" class="dnse-market-index" style="border-radius:14px;overflow:hidden"><script src="https://cdn.dnse.com.vn/dnse-price/_embed/embed-widget-1.2.4.js">{"indexes":["VNINDEX","VN30","HNX30","HNX","UPCOM"],"width":"100%","height":400,"theme":"dark"}</script></div>
+    <div class="vn-split-right">
+      <div class="ov4">
+        <div class="ovc"><div class="ovl">Vàng / Gold</div><div class="ovv" id="ovGold">--</div><div class="ovc2" id="ovGoldC">--</div></div>
+        <div class="ovc"><div class="ovl">Bạc / Silver</div><div class="ovv" id="ovSilver">--</div><div class="ovc2" id="ovSilverC">--</div></div>
+        <div class="ovc"><div class="ovl">Bạch kim / Plat.</div><div class="ovv" id="ovPlat">--</div><div class="ovc2" id="ovPlatC">--</div></div>
+        <div class="ovc"><div class="ovl">Bitcoin</div><div class="ovv" id="ovBtc">--</div><div class="ovc2" id="ovBtcC">--</div></div>
+      </div>
+      <div class="ova">
+        <div class="ovc"><div class="ovl">💱 USD/VND <span id="fxB" style="font-size:8px;color:var(--sub)">~EST</span></div><div class="ovv" id="ovFx">--</div><div class="ovc2" id="ovFxC">--</div></div>
+        <div class="ovc"><div class="ovl">Ethereum</div><div class="ovv" id="ovEth">--</div><div class="ovc2" id="ovEthC">--</div></div>
+        <div class="ovc"><div class="ovl">Fear &amp; Greed</div><div class="ovv" id="ovFng">--</div><div class="ovc2" id="ovFngL">--</div></div>
+      </div>
+    </div>
   </div>
   <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">₿</div><div class="sht">Crypto top 5</div><div class="shl"></div><button class="ib" onclick="go('crypto',document.getElementById('btn-crypto'))">Xem tất cả →</button></div>
   <div class="gr" id="ovCrPrev"><div class="ld2">Đang tải…</div></div>
@@ -641,6 +653,7 @@ function ov(id,val,pct,dec=2){
 
 // ─── FX LIVE ───────────────────────────────
 let USD_VND=25470, FX_RATES={};
+let USD_VND_PCT=null, _prevRealVnd=null; // % thay đổi THẬT so với lần fetch trước trong phiên — null cho tới khi có ≥2 lần fetch thật (tránh so với giá trị fallback ban đầu)
 const FX_FB={USD:1,EUR:.92,CNY:7.24,JPY:154,KRW:1380,SGD:1.35,THB:35,GBP:.79,AUD:1.58,HKD:7.78,CHF:.88,CAD:1.37,INR:83,MYR:4.72,IDR:15600,PHP:58,TWD:32,BRL:5.1,MXN:17.2,AED:3.67,SAR:3.75,ZAR:18.5,TRY:32,NOK:10.6,SEK:10.3,NZD:1.62};
 
 // Giá kim loại quý THẬT từ gold-api.com — API công khai, miễn phí, không cần key, CORS mở
@@ -702,7 +715,11 @@ async function fetchFX(){
     if(!r.ok) throw 0;
     const d=await r.json();
     if(d.result!=='success') throw 0;
-    FX_RATES=d.rates; USD_VND=d.rates.VND||USD_VND;
+    FX_RATES=d.rates;
+    const newRate = d.rates.VND||USD_VND;
+    if(_prevRealVnd) USD_VND_PCT = (newRate/_prevRealVnd-1)*100; // delta thật so với lần fetch thật trước (open.er-api không cung cấp % ngày, nên đây là cách duy nhất lấy được số thật)
+    _prevRealVnd = newRate;
+    USD_VND = newRate;
     ['fxB','fxB2'].forEach(id=>{const e=$(id);if(e){e.textContent='✓ LIVE';e.style.color='var(--gn)';}});
   }catch{
     ['fxB','fxB2'].forEach(id=>{const e=$(id);if(e){e.textContent='~EST';e.style.color='var(--go)';}});
@@ -724,13 +741,21 @@ function toVND(usd){
 }
 
 // ─── MARKET STATUS ─────────────────────────
+// Dùng Intl API với timeZone thật (Asia/Ho_Chi_Minh, America/New_York) thay vì cộng trừ offset tay,
+// để tự động đúng quanh năm kể cả khi Mỹ chuyển giờ DST (EDT tháng 3-11 / EST tháng 11-3).
+function zonedParts(date, timeZone){
+  const parts = new Intl.DateTimeFormat('en-US',{timeZone,hour12:false,hour:'2-digit',minute:'2-digit',weekday:'short'}).formatToParts(date);
+  const o={}; parts.forEach(p=>o[p.type]=p.value);
+  const wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+  return {day:wd, mins:parseInt(o.hour)*60+parseInt(o.minute)};
+}
 function mkStatus(){
-  const now=new Date(), utc=now.getTime()+now.getTimezoneOffset()*60000;
-  const vn=new Date(utc+7*3600000), vm=vn.getHours()*60+vn.getMinutes(), vd=vn.getDay();
+  const now=new Date();
+  const vn=zonedParts(now,'Asia/Ho_Chi_Minh'), vm=vn.mins, vd=vn.day;
   const vo=vd>=1&&vd<=5&&((vm>=540&&vm<690)||(vm>=780&&vm<900));
   $('d0').className='dt '+(vo?'on':'off'); $('l0').textContent=vo?'MỞ':'ĐÓNG';
   $('d1').className='dt '+(vo?'on':'off'); $('l1').textContent=vo?'MỞ':'ĐÓNG';
-  const ny=new Date(utc-4*3600000), nm=ny.getHours()*60+ny.getMinutes(), nd=ny.getDay();
+  const ny=zonedParts(now,'America/New_York'), nm=ny.mins, nd=ny.day;
   const no=nd>=1&&nd<=5&&nm>=570&&nm<960;
   $('d2').className='dt '+(no?'on':'off'); $('l2').textContent=no?'MỞ':'ĐÓNG';
   $('d3').className='dt '+(no?'on':'off'); $('l3').textContent=no?'MỞ':'ĐÓNG';
@@ -883,10 +908,13 @@ function renderFX(){
   html('fxCross', FX_PAIRS.cross.map(mkFXCross).join(''));
   // update status bar + overview
   const usdRate=xrate('USD'), fmt=v=>Math.round(v).toLocaleString('vi-VN');
-  const fxSt=sim('USDVNDCHG',100,.25), pct=fxSt.pct;
   const e=$('stFx'); if(e) e.textContent=fmt(usdRate)+'₫';
   const ov1=$('ovFx'); if(ov1) ov1.textContent=fmt(usdRate)+' ₫';
-  const ov2=$('ovFxC'); if(ov2){ov2.textContent=(pct>=0?'▲ +':'▼ ')+Math.abs(pct).toFixed(3)+'%';ov2.style.color=pct>=0?'var(--gn)':'var(--rd)';}
+  const ov2=$('ovFxC');
+  if(ov2){
+    if(USD_VND_PCT===null){ ov2.textContent='— Đang lấy giá tham chiếu'; ov2.style.color='var(--mu)'; }
+    else{ ov2.textContent=(USD_VND_PCT>=0?'▲ +':'▼ ')+Math.abs(USD_VND_PCT).toFixed(3)+'%'; ov2.style.color=USD_VND_PCT>=0?'var(--gn)':'var(--rd)'; }
+  }
 }
 
 // ─── DATA: HÀNG HOÁ TIÊU DÙNG TRONG NƯỚC ──────
@@ -1306,7 +1334,6 @@ function renderOverviewSim(){
 
 // ─── TICKER ────────────────────────────────
 function renderTicker(){
-  const usdVndSt = sim('USDVNDCHG',100,.25); // riêng ticker, không trùng nơi khác — vẫn dùng sim() bình thường
   const items=[
     ...COMM.metal.map(c=>{
       const real=REAL_METAL[c.sym];
@@ -1314,9 +1341,12 @@ function renderTicker(){
       const p=real?real.price:st.price, pct=real&&real.pct!==null?real.pct:st.pct;
       return {sym:c.sym,pr:'$'+p.toFixed(2),u:pct>=0,pct};
     }),
-    {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:usdVndSt.pct>=0,pct:usdVndSt.pct},
+    {sym:'USD/VND',pr:Math.round(USD_VND).toLocaleString('vi-VN')+'₫',u:USD_VND_PCT===null?null:USD_VND_PCT>=0,pct:USD_VND_PCT},
   ];
-  const h=items.map(i=>`<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span><span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span></div>`).join('');
+  const h=items.map(i=>{
+    const chg = i.pct===null ? `<span style="color:var(--mu)">—</span>` : `<span class="${i.u?'up':'dn'}">${i.u?'▲':'▼'} ${Math.abs(i.pct).toFixed(2)}%</span>`;
+    return `<div class="ti"><span class="s">${i.sym}</span><span>${i.pr}</span>${chg}</div>`;
+  }).join('');
   html('tkr', h+h);
 }
 
@@ -1362,7 +1392,7 @@ async function init(){
 }
 init();
 
-setInterval(async()=>{ await Promise.all([fetchFX(), fetchMetals()]); loadTab(curTab); }, 60000);
+setInterval(async()=>{ await Promise.all([fetchFX(), fetchMetals()]); loadTab(curTab); mkStatus(); }, 60000);
 
 // Tạm tắt vòng lặp lịch sử kim loại — endpoint đoán (/history?days=45) đã xác nhận 404 thật.
 // setInterval(async()=>{
