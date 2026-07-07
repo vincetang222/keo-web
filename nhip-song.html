@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nhịp Sống — Kèo</title>
-<meta name="description" content="Thể thao, du lịch, văn hoá — những chủ đề để bắt đầu một cuộc trò chuyện. Tỷ số trực tiếp bóng đá, bóng rổ, tennis, cricket.">
+<meta name="description" content="Thể thao, du lịch, văn hoá — những chủ đề để bắt đầu một cuộc trò chuyện. Tỷ số trực tiếp bóng đá, bóng rổ, tennis.">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#FAFAF5">
 <link rel="canonical" href="https://keo.social/nhip-song">
@@ -225,7 +225,6 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="sport-tab on" data-sport="football" onclick="switchSport('football',this)">⚽ Bóng đá</div>
   <div class="sport-tab" data-sport="basketball" onclick="switchSport('basketball',this)">🏀 Bóng rổ</div>
   <div class="sport-tab" data-sport="tennis" onclick="switchSport('tennis',this)">🎾 Tennis</div>
-  <div class="sport-tab" data-sport="cricket" onclick="switchSport('cricket',this)">🏏 Cricket</div>
 </div>
 
 <main>
@@ -256,12 +255,6 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
         <div class="sp-cols">
           <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="tn-live" class="ld">Đang tải…</div></div>
           <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="tn-done" class="ld">Đang tải…</div></div>
-        </div>
-      </div>
-      <div class="sp" id="sp-cricket">
-        <div class="sp-cols">
-          <div><div class="col-title"><span class="dot dot-live"></span>Trực tiếp &amp; sắp diễn ra</div><div id="cr-live" class="ld">Đang tải…</div></div>
-          <div><div class="col-title"><span class="dot dot-done"></span>Kết quả gần đây</div><div id="cr-done" class="ld">Đang tải…</div></div>
         </div>
       </div>
     </div>
@@ -322,7 +315,7 @@ function switchSport(sport,el){
   showSport(sport);
 }
 
-const SPORT_PREFIX={football:'fb',basketball:'bb',tennis:'tn',cricket:'cr'};
+const SPORT_PREFIX={football:'fb',basketball:'bb',tennis:'tn'};
 const loadedSports={};
 const sportData={}; // sportData[sport] = {all:[...trận đã gắn tag], filters:{status,gender,region}, error?}
 
@@ -395,13 +388,6 @@ const TOP_COMPS={
     {label:'NBB Brazil', match:s=>/\bnbb\b/.test(s)},
     {label:'CBA China', match:s=>/\bcba\b/.test(s)},
   ],
-  cricket:[
-    {label:'IPL', match:s=>/\bipl\b/.test(s)||s.includes('indian premier league')},
-    {label:'ICC World Cup', match:s=>s.includes('icc')&&s.includes('world cup')},
-    {label:'T20 World Cup', match:s=>s.includes('t20 world cup')||s.includes('t20i world cup')},
-    {label:'Big Bash League', match:s=>s.includes('big bash')},
-    {label:'Pakistan Super League', match:s=>s.includes('pakistan super league')||/\bpsl\b/.test(s)},
-  ],
   tennis:[
     {label:'ATP Tour', match:s=>s.includes('atp')&&!s.includes('wta')},
     {label:'WTA Tour', match:s=>s.includes('wta')},
@@ -457,6 +443,14 @@ function setFilter(sport,group,val){
 // Sidebar dọc — Giải nổi bật (quick-filter theo tên giải thật) + Khu vực. Nhiều lựa chọn hơn
 // hẳn Trạng thái/Giới tính nên hợp danh sách dọc cuộn được, giống đúng bố cục sidebar
 // quốc gia/giải đấu ở trang gốc SportScore.
+// Thứ tự ưu tiên khu vực theo mức độ liên quan tới người xem thể thao tại VN (dựa trên nghiên cứu
+// thực tế 07/2026: Anh/Tây Ban Nha là 2 giải nước ngoài được xem nhiều nhất qua nhiều năm; Mỹ vì
+// NBA; Đức/Ý/Pháp là nhóm giải lớn châu Âu tiếp theo; Nhật/Hàn/Trung Quốc vì gần gũi khu vực châu
+// Á). KHÔNG ẩn hẳn khu vực ngoài danh sách này — chỉ đẩy xuống dưới, vì dữ liệu ngẫu nhiên nên ẩn
+// hẳn dễ gây trống trang giống vấn đề đã gặp với "Giải nổi bật".
+const REGION_PRIORITY=['Anh','Tây Ban Nha','Quốc tế','Mỹ','Đức','Ý','Pháp','Việt Nam','Nhật Bản','Hàn Quốc','Trung Quốc'];
+function regionRank(label){ const i=REGION_PRIORITY.indexOf(label); return i===-1?REGION_PRIORITY.length:i; }
+
 function renderRegionSidebar(sport){
   const d=sportData[sport];
   if(!d || d.error || !d.all.length){ html('regionSidebar',''); return; }
@@ -474,11 +468,14 @@ function renderRegionSidebar(sport){
     ${topComps.map(c=>item('comp',c,`${c} <span class="cnt">${compCounts[c]}</span>`,f.comp===c)).join('')}
   ` : '';
 
-  // Khu vực: chỉ liệt kê những vùng THỰC SỰ có mặt trong dữ liệu đã tải, sắp theo số trận giảm dần —
-  // tránh bộ lọc rỗng vô nghĩa (VD hiện toàn bộ 200 quốc gia dù chỉ 6-7 nước có trận thật).
+  // Khu vực: liệt kê mọi vùng THỰC SỰ có mặt trong dữ liệu đã tải (không ẩn), nhưng ưu tiên
+  // khu vực liên quan tới người xem VN lên đầu trước, còn lại sắp theo số trận giảm dần.
   const counts={}, flags={};
   d.all.forEach(m=>{ const k=m._region.label; counts[k]=(counts[k]||0)+1; flags[k]=m._region.flag; });
-  const regions=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  const regions=Object.keys(counts).sort((a,b)=>{
+    const rankDiff = regionRank(a)-regionRank(b);
+    return rankDiff!==0 ? rankDiff : counts[b]-counts[a];
+  });
 
   html('regionSidebar', `
     ${compSection}
