@@ -472,23 +472,42 @@ function setFilter(sport,group,val){
 // đây thực ra CHỈ còn chứa các khu vực yêu thích, vì loadSport() đã loại hẳn phần còn lại rồi;
 // vẫn giữ sắp theo regionRank() để thứ tự hiển thị ổn định, không đổi loạn theo số trận mỗi lần.)
 
+// Áp dụng mọi filter đang chọn NGOẠI TRỪ 1 chiều (dùng để tính số đếm hiển thị cho CHÍNH chiều
+// đó — VD: đếm "Giải nổi bật" phải tôn trọng Trạng thái/Giới tính/Khu vực đang chọn, nhưng bỏ
+// qua chính bộ lọc Giải đang chọn, vì đang tính "nếu bấm giải X thì còn lại bao nhiêu trận").
+// Đây chính là gốc rễ bug số đếm sidebar/topbar không khớp với kết quả thật hiển thị bên dưới.
+function applyFiltersExcept(sport, except){
+  const d=sportData[sport], f=d.filters;
+  return d.all.filter(m=>{
+    if(except!=='gender' && f.gender!=='all' && m._gender!==f.gender) return false;
+    if(except!=='region' && f.region!=='all' && m._region.label!==f.region) return false;
+    if(except!=='comp' && f.comp!=='all' && m._topComp!==f.comp) return false;
+    if(except!=='status'){
+      if(f.status==='live' && !m._live) return false;
+      if(f.status==='upcoming' && (m._live||m._finished)) return false;
+      if(f.status==='finished' && !m._finished) return false;
+    }
+    return true;
+  });
+}
+
 function renderRegionSidebar(sport){
   const d=sportData[sport];
   if(!d || d.error || !d.all.length){ html('regionSidebar',''); return; }
   const f=d.filters;
   const item=(group,val,label,active)=>`<button class="sidebar-item ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
 
-  // Giải nổi bật: LUÔN hiện đủ danh sách cố định từ TOP_COMPS[sport] (kể cả đang 0 trận) — làm
-  // filter ổn định, người dùng biết chắc giải nào luôn có mặt để bấm vào, thay vì danh sách
-  // thất thường tuỳ may rủi đợt tải có match hay không (VD World Cup vẫn hiện dù lúc tải trúng
-  // đợt không có trận nào của giải đó). Giải đang có trận hiện số đếm thật; 0 trận thì hiện "0"
-  // và làm mờ nhẹ để phân biệt, bấm vẫn được — sẽ thấy thông báo trung thực "hiện không có trận".
+  // Giải nổi bật: đếm trên dữ liệu đã áp dụng Trạng thái/Giới tính/Khu vực đang chọn (bỏ qua
+  // chính bộ lọc Giải) — số hiện ra LUÔN khớp với số trận thật sẽ thấy nếu bấm vào, kể cả khi
+  // đang có filter khác đang bật. LUÔN hiện đủ danh sách cố định từ TOP_COMPS[sport] (kể cả 0
+  // trận) — filter ổn định, không thất thường theo may rủi đợt tải.
+  const forComp = applyFiltersExcept(sport,'comp');
   const compCounts={};
-  d.all.forEach(m=>{ if(m._topComp) compCounts[m._topComp]=(compCounts[m._topComp]||0)+1; });
+  forComp.forEach(m=>{ if(m._topComp) compCounts[m._topComp]=(compCounts[m._topComp]||0)+1; });
   const allTopComps = TOP_COMPS[sport]||[];
   const compSection = allTopComps.length ? `
     <div class="sidebar-title">Giải nổi bật</div>
-    ${item('comp','all',`Tất cả`,f.comp==='all')}
+    ${item('comp','all',`Tất cả <span class="cnt">${forComp.length}</span>`,f.comp==='all')}
     ${allTopComps
       .map(c=>({name:c.label, n:compCounts[c.label]||0}))
       .sort((a,b)=>b.n-a.n)
@@ -496,10 +515,12 @@ function renderRegionSidebar(sport){
       .join('')}
   ` : '';
 
-  // Khu vực: liệt kê mọi vùng THỰC SỰ có mặt trong dữ liệu đã tải (không ẩn), nhưng ưu tiên
-  // khu vực liên quan tới người xem VN lên đầu trước, còn lại sắp theo số trận giảm dần.
+  // Khu vực: đếm trên dữ liệu đã áp dụng Trạng thái/Giới tính/Giải đang chọn (bỏ qua chính bộ
+  // lọc Khu vực) — cùng nguyên tắc "số hiện = số thật sẽ thấy". Ưu tiên khu vực liên quan VN lên
+  // đầu, còn lại sắp theo số trận giảm dần.
+  const forRegion = applyFiltersExcept(sport,'region');
   const counts={}, flags={};
-  d.all.forEach(m=>{ const k=m._region.label; counts[k]=(counts[k]||0)+1; flags[k]=m._region.flag; });
+  forRegion.forEach(m=>{ const k=m._region.label; counts[k]=(counts[k]||0)+1; flags[k]=m._region.flag; });
   const regions=Object.keys(counts).sort((a,b)=>{
     const rankDiff = regionRank(a)-regionRank(b);
     return rankDiff!==0 ? rankDiff : counts[b]-counts[a];
@@ -508,7 +529,7 @@ function renderRegionSidebar(sport){
   html('regionSidebar', `
     ${compSection}
     <div class="sidebar-title">Khu vực</div>
-    ${item('region','all',`Tất cả <span class="cnt">${d.all.length}</span>`,f.region==='all')}
+    ${item('region','all',`Tất cả <span class="cnt">${forRegion.length}</span>`,f.region==='all')}
     ${regions.map(r=>item('region',r,`${flags[r]} ${r} <span class="cnt">${counts[r]}</span>`,f.region===r)).join('')}
   `);
 }
@@ -520,17 +541,23 @@ function renderStatusTopbar(sport){
   const f=d.filters;
   const chip=(group,val,label,active)=>`<button class="tchip ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
 
-  const nLive=d.all.filter(m=>m._live).length, nUp=d.all.filter(m=>!m._live&&!m._finished).length, nDone=d.all.filter(m=>m._finished).length;
+  // Trạng thái: đếm trên dữ liệu đã áp dụng Giới tính/Khu vực/Giải đang chọn (bỏ qua chính bộ
+  // lọc Trạng thái) — cùng nguyên tắc "số hiện = số thật sẽ thấy" như sidebar.
+  const forStatus = applyFiltersExcept(sport,'status');
+  const nLive=forStatus.filter(m=>m._live).length, nUp=forStatus.filter(m=>!m._live&&!m._finished).length, nDone=forStatus.filter(m=>m._finished).length;
   const statusRow = [
-    chip('status','all','Tất cả',f.status==='all'),
+    chip('status','all',`Tất cả <span class="cnt">${forStatus.length}</span>`,f.status==='all'),
     chip('status','live',`🔴 Trực tiếp <span class="cnt">${nLive}</span>`,f.status==='live'),
     chip('status','upcoming',`Sắp diễn ra <span class="cnt">${nUp}</span>`,f.status==='upcoming'),
     chip('status','finished',`Đã kết thúc <span class="cnt">${nDone}</span>`,f.status==='finished'),
   ].join('');
 
-  const nM=d.all.filter(m=>m._gender==='M').length, nF=d.all.filter(m=>m._gender==='F').length;
+  // Giới tính: đếm trên dữ liệu đã áp dụng Trạng thái/Khu vực/Giải đang chọn (bỏ qua chính bộ
+  // lọc Giới tính).
+  const forGender = applyFiltersExcept(sport,'gender');
+  const nM=forGender.filter(m=>m._gender==='M').length, nF=forGender.filter(m=>m._gender==='F').length;
   const genderRow = nF>0 ? [
-    chip('gender','all','Tất cả',f.gender==='all'),
+    chip('gender','all',`Tất cả <span class="cnt">${forGender.length}</span>`,f.gender==='all'),
     chip('gender','M',`Nam <span class="cnt">${nM}</span>`,f.gender==='M'),
     chip('gender','F',`Nữ <span class="cnt">${nF}</span>`,f.gender==='F'),
   ].join('') : '';
@@ -567,10 +594,18 @@ function applyFilters(sport){
   // chung 1 nhóm, không bị cắt ngang giữa chừng theo kiểu đếm phẳng cũ.
   const liveUp = prioritized.filter(m=>!m._finished).slice(0,18);
   const done = prioritized.filter(m=>m._finished).slice(0,18);
-  // Thông báo rỗng nêu rõ tên giải đang chọn (nếu có) — trung thực rằng đây là "không có trong
-  // dữ liệu ĐÃ TẢI", không phải "giải này không tồn tại".
-  const emptyMsg = f.comp!=='all'
-    ? `<div class="err">Hiện không có trận nào của <strong>${f.comp}</strong> trong dữ liệu đang tải (~40 trận/môn). Giải vẫn tồn tại — chỉ là không có mặt trong đợt tải này.</div>`
+  // Thông báo rỗng: liệt kê ĐÚNG và ĐỦ các filter đang bật (không chỉ đổ lỗi riêng cho Giải, vì
+  // Trạng thái/Khu vực/Giới tính đang chọn cùng lúc cũng có thể là lý do không có trận nào khớp —
+  // đây chính là nguyên nhân gây hiểu lầm ở bug sidebar/topbar vừa sửa phía trên).
+  const activeFilterLabels = [];
+  if(f.comp!=='all') activeFilterLabels.push(`giải <strong>${f.comp}</strong>`);
+  if(f.region!=='all') activeFilterLabels.push(`khu vực <strong>${f.region}</strong>`);
+  if(f.status==='live') activeFilterLabels.push('trạng thái <strong>Trực tiếp</strong>');
+  else if(f.status==='upcoming') activeFilterLabels.push('trạng thái <strong>Sắp diễn ra</strong>');
+  else if(f.status==='finished') activeFilterLabels.push('trạng thái <strong>Đã kết thúc</strong>');
+  if(f.gender!=='all') activeFilterLabels.push(`giới tính <strong>${f.gender==='M'?'Nam':'Nữ'}</strong>`);
+  const emptyMsg = activeFilterLabels.length
+    ? `<div class="err">Hiện không có trận nào khớp ĐỒNG THỜI: ${activeFilterLabels.join(' + ')} — trong ${d.all.length} trận đang tải. Thử bỏ bớt 1 điều kiện lọc.</div>`
     : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>';
 
   html(px+'-live', liveUp.length ? groupByCompetition(liveUp).map((g,i)=>mkCompGroup(g,px+'-live-'+i)).join('') : emptyMsg);
