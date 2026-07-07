@@ -98,10 +98,6 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 /* PAGES */
 .pg{display:none;}
 .pg.on{display:block;animation:fi .16s ease;}
-/* Riêng tab Cổ phiếu VN: dùng visibility thay vì display để widget TradingView luôn có
-   kích thước thật ngay từ lúc script ngoài load (rút kinh nghiệm từ lần Simplize trước). */
-#pg-vn{display:block;visibility:hidden;position:absolute;left:-99999px;top:0;width:100%;}
-#pg-vn.on{visibility:visible;position:static;left:auto;animation:fi .16s ease;}
 @keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 
 /* SECTION HEADER */
@@ -1419,18 +1415,19 @@ async function init(){
   await Promise.all([fetchFX(), fetchMetals()]);
   loadTab('overview');
   setupCollapsibleSections(); // chạy 1 lần cho toàn bộ trang — mọi tab đều có thể thu gọn
-  fetchOneMetalHistory().then(()=>{ if(curTab==='comm') renderComm(); }); // lấy trước 1 mã ngay lúc mở trang
+  // Đã xác nhận endpoint /price/{sym}/history trả 404 thật (không phải đoán) — tạm tắt gọi,
+  // tránh gọi lặp lại 1 endpoint đã biết chắc là sai cho tới khi tìm ra định dạng đúng.
+  // fetchOneMetalHistory().then(()=>{ if(curTab==='comm') renderComm(); });
 }
 init();
 
 setInterval(async()=>{ await Promise.all([fetchFX(), fetchMetals()]); loadTab(curTab); }, 60000);
 
-// Riêng lịch sử kim loại: chu kỳ 8 phút, tách khỏi vòng lặp giá 60s — để tôn trọng quota
-// 10 request/giờ của gold-api.com (xoay vòng 4 mã ≈ 7-8 request/giờ, an toàn dưới hạn mức)
-setInterval(async()=>{
-  await fetchOneMetalHistory();
-  if(curTab==='comm') renderComm(); // chỉ vẽ lại nếu người dùng đang thực sự xem tab này
-}, 8*60000);
+// Tạm tắt vòng lặp lịch sử kim loại — endpoint đoán (/history?days=45) đã xác nhận 404 thật.
+// setInterval(async()=>{
+//   await fetchOneMetalHistory();
+//   if(curTab==='comm') renderComm();
+// }, 8*60000);
 </script>
 </body>
 </html>
