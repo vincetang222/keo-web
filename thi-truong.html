@@ -728,7 +728,8 @@ function spark(hist,col){
 
 // ─── CARD ──────────────────────────────────
 function card(d,cls,spkCol){
-  const u=d.pct>=0,col=u?'var(--gn)':'var(--rd)',arr=u?'▲':'▼';
+  const flat=d.pct===0;
+  const u=d.pct>=0,col=flat?'var(--mu)':(u?'var(--gn)':'var(--rd)'),arr=flat?'—':(u?'▲':'▼');
   const vnd=d.usd!=null?`<div class="cv2">${toVND(d.usd)}</div>`:'';
   const histArr = d.hist || [50,50]; // dự phòng nếu caller quên truyền — tránh vỡ giao diện
   return `<div class="cd ${cls}">` +
@@ -736,7 +737,7 @@ function card(d,cls,spkCol){
     `<div class="co">${d.ic}</div></div>` +
     `<div class="cp">${d.pr}</div>` +
     `${vnd}` +
-    `<div class="cch" style="color:${col}">${arr} ${Math.abs(d.pct).toFixed(2)}% <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
+    `<div class="cch" style="color:${col}">${arr} ${flat?'Không đổi':Math.abs(d.pct).toFixed(2)+'%'} <span style="color:var(--sub);font-weight:400">(${d.abs})</span></div>` +
     `<div class="csp">${spark(histArr,col)}</div>` +
     `<div class="cm"><span>${d.m1||''}</span><span>${d.m2||''}</span></div>` +
     `</div>`;
@@ -860,11 +861,11 @@ function renderFX(){
 
 // ─── DATA: HÀNG HOÁ TIÊU DÙNG TRONG NƯỚC ──────
 const DOM_FUEL=[
-  {sym:'XANG-E5', nm:'Xăng E5 RON92',        base:19730,    unit:'đ/lít',        ic:'⛽'},
-  {sym:'XANG-E10',nm:'Xăng E10 RON95-III',   base:20415,    unit:'đ/lít',        ic:'⛽'},
-  {sym:'DIESEL',  nm:'Dầu Diesel',           base:21176,    unit:'đ/lít',        ic:'🛢️'},
-  {sym:'MAZUT',   nm:'Dầu Mazut',            base:14053,    unit:'đ/kg',         ic:'🛢️'},
-  {sym:'GAS',     nm:'Gas LPG bình 12kg',    base:420000,   unit:'đ/bình',       ic:'🔥'},
+  {sym:'XANG-E5', nm:'Xăng E5 RON92',        base:19730,    unit:'đ/lít',        ic:'⛽', fixed:true, asOf:'02/07/2026'},
+  {sym:'XANG-E10',nm:'Xăng E10 RON95-III',   base:20415,    unit:'đ/lít',        ic:'⛽', fixed:true, asOf:'02/07/2026'},
+  {sym:'DIESEL',  nm:'Dầu Diesel',           base:21176,    unit:'đ/lít',        ic:'🛢️', fixed:true, asOf:'02/07/2026'},
+  {sym:'MAZUT',   nm:'Dầu Mazut',            base:14053,    unit:'đ/kg',         ic:'🛢️', fixed:true, asOf:'02/07/2026'},
+  {sym:'GAS',     nm:'Gas LPG bình 12kg',    base:420000,   unit:'đ/bình',       ic:'🔥', fixed:true, asOf:'01/07/2026'},
   {sym:'VANG-SJC',nm:'Vàng miếng SJC',       base:151400000,unit:'đ/lượng',      ic:'🥇'},
   {sym:'VANG-NHAN',nm:'Vàng nhẫn 24K',       base:149800000,unit:'đ/lượng',      ic:'💍'},
 ];
@@ -1015,9 +1016,15 @@ const DOM_MUSHROOM=[
 ];
 
 function mkDomestic(d){
+  const fmt=v=>v>=1e6?(v/1e6).toFixed(2)+'tr':v>=1000?Math.round(v).toLocaleString('vi-VN'):Math.round(v).toString();
+  if(d.fixed){
+    // Giá Nhà nước điều hành theo kỳ (xăng dầu ~10 ngày/lần, gas hàng tháng) — đứng yên tuyệt đối
+    // giữa 2 kỳ điều chỉnh ngoài đời thật, nên KHÔNG mô phỏng dao động giả — hiện đúng giá + ngày chốt.
+    return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(d.base)+' ₫',usd:null,pct:0,hist:[d.base,d.base],
+      abs:'theo kỳ điều hành',m1:d.unit,m2:'Chốt '+d.asOf},'cc','var(--mu)');
+  }
   const st=sim(d.sym,d.base,1.3), p=st.price, pct=st.pct;
   const abs=Math.abs(p*pct/100);
-  const fmt=v=>v>=1e6?(v/1e6).toFixed(2)+'tr':v>=1000?Math.round(v).toLocaleString('vi-VN'):Math.round(v).toString();
   return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)');
 }
 
