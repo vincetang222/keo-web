@@ -351,12 +351,25 @@ const REGION_KEYWORDS=[
   [['netherlands','dutch','eredivisie'],'Hà Lan','🇳🇱'],
   [['canada'],'Canada','🇨🇦'],
   [['world cup','uefa','fifa','conmebol','concacaf','international club'],'Quốc tế','🌍'],
-  // Fallback tên giải nổi tiếng không lẫn quốc gia khác — kiểm tra sau cùng
-  [['bundesliga'],'Đức','🇩🇪'],[['la liga'],'Tây Ban Nha','🇪🇸'],[['ligue 1'],'Pháp','🇫🇷'],[['premier league'],'Anh','🏴'],[['ligapro'],'Ecuador','🇪🇨'],[['eredivisie'],'Hà Lan','🇳🇱'],[['serie a','serie b','serie c'],'Ý','🇮🇹'],
+  // Fallback tên giải nổi tiếng không lẫn quốc gia khác — kiểm tra sau cùng. KHÔNG có "premier
+  // league"/"bundesliga" ở đây nữa — xem EXACT_NAME_FALLBACK bên dưới. Lý do: rất nhiều nước dùng
+  // đúng cụm "[Tên nước] Premier League" cho giải VĐQG của họ (Bhutan, Zambia, Uganda, Hong
+  // Kong...), và Áo cũng gọi giải của họ là "Austrian Bundesliga" — nếu chỉ kiểm tra "có chứa
+  // chuỗi con" thì các giải này bị vơ nhầm vào Anh/Đức (lỗi thật đã xảy ra với Bhutan Premier
+  // League, người dùng phát hiện 07/2026).
+  [['la liga'],'Tây Ban Nha','🇪🇸'],[['ligue 1'],'Pháp','🇫🇷'],[['ligapro'],'Ecuador','🇪🇨'],[['eredivisie'],'Hà Lan','🇳🇱'],[['serie a','serie b','serie c'],'Ý','🇮🇹'],
+];
+// Tên giải TRÙNG Y HỆT nhiều nước dùng chung — chỉ nhận khi tên giải đấu ĐÚNG NGUYÊN VĂN cụm này
+// (không kèm chữ nào khác, kể cả tên nước ở đầu/cuối). "Premier League" (y hệt) → Anh, nhưng
+// "Bhutan Premier League" thì KHÔNG khớp nữa.
+const EXACT_NAME_FALLBACK=[
+  ['premier league','Anh','🏴'],
+  ['bundesliga','Đức','🇩🇪'],
 ];
 function detectRegion(compName){
-  const s=(compName||'').toLowerCase();
+  const s=(compName||'').toLowerCase().trim();
   for(const [keys,label,flag] of REGION_KEYWORDS){ if(keys.some(k=>s.includes(k))) return {label,flag}; }
+  for(const [exact,label,flag] of EXACT_NAME_FALLBACK){ if(s===exact) return {label,flag}; }
   return {label:'Khác',flag:'🏳️'};
 }
 function detectGender(compName){
@@ -395,7 +408,7 @@ const TOP_COMPS={
     {label:'UEFA Europa Conference League', match:s=>s.includes('conference league')},
     {label:'UEFA Super Cup', match:s=>s.includes('uefa super cup')},
     {label:'FIFA Club World Cup', match:s=>s.includes('club world cup')},
-    {label:'English Premier League', match:s=>s.includes('premier league')&&!/australia|india|scottish|wales/.test(s)},
+    {label:'English Premier League', match:s=>s.trim()==='premier league'}, // khớp NGUYÊN VĂN — an toàn hơn hẳn cách loại trừ từng nước cũ (từng bỏ sót Bhutan, có thể còn thiếu nước khác chưa biết)
     {label:'Spanish La Liga', match:s=>s.includes('la liga')||s.includes('laliga')},
   ],
   basketball:[
