@@ -438,15 +438,14 @@ async function loadSport(sport){
       m._gender = detectGender(m.competition);
       m._topComp = detectTopComp(m.competition, sport);
     });
-    // Loại hẳn trận không liên quan người xem VN — giữ lại nếu (a) thuộc khu vực yêu thích
-    // (FAVORITE_REGIONS) HOẶC (b) thuộc 1 giải nổi bật đã nhận diện (World Cup/Champions League...
-    // luôn giữ dù đội thi đấu đến từ quốc gia không trong danh sách yêu thích, vì bản thân giải
-    // đấu đã đủ liên quan). Đây là loại bỏ THẬT (không hiển thị ở đâu cả), không phải chỉ sắp
-    // xếp lại thứ tự như "Giải nổi bật" trước đây — đúng yêu cầu, không phải để tiết kiệm quota
-    // (quota tính theo SỐ LẦN gọi, không theo số trận mỗi lần, xem ghi chú fetch phía trên).
-    const matches = rawMatches.filter(m=> FAVORITE_REGIONS.includes(m._region.label) || m._topComp);
-    console.info(`[${sport}] Đã lọc: ${rawMatches.length} trận thô → ${matches.length} trận thuộc khu vực/giải liên quan VN (loại ${rawMatches.length-matches.length})`);
-    if(!matches.length) throw new Error('Không có trận nào thuộc khu vực/giải liên quan VN trong đợt tải này');
+    // Chỉ giữ trận thuộc 1 "Giải nổi bật" đã nhận diện (World Cup, Champions League, Premier
+    // League...) — ĐÃ BỎ fallback "khu vực yêu thích" trước đây (trước còn giữ thêm trận từ Anh/
+    // Mỹ/Đức... dù không thuộc giải nào cụ thể). Đánh đổi: khi đúng lúc không giải lớn nào có trận
+    // trong 50 trận tải về, cột đó sẽ trống — chấp nhận đánh đổi này theo đúng yêu cầu, không tự ý
+    // giữ lại gì thêm để "cho có nội dung".
+    const matches = rawMatches.filter(m=> m._topComp);
+    console.info(`[${sport}] Đã lọc: ${rawMatches.length} trận thô → ${matches.length} trận thuộc giải nổi bật (loại ${rawMatches.length-matches.length})`);
+    if(!matches.length) throw new Error('Không có trận nào thuộc giải nổi bật trong đợt tải này');
     sportData[sport] = {all:matches, filters:{status:'all',gender:'all',region:'all',comp:'all'}};
   }catch(err){
     console.warn('SportScore lỗi ('+sport+'):', err.message);
