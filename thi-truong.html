@@ -98,9 +98,8 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 /* PAGES */
 .pg{display:none;}
 .pg.on{display:block;animation:fi .16s ease;}
-/* Riêng tab Cổ phiếu VN: dùng visibility thay vì display để widget Simplize luôn có
-   kích thước thật (không phải 0x0) ngay từ lúc script bên ngoài load — vì display:none
-   sẽ khiến widget tự đo/khởi tạo sai kích thước nếu tab chưa từng được mở tới. */
+/* Riêng tab Cổ phiếu VN: dùng visibility thay vì display để widget TradingView luôn có
+   kích thước thật ngay từ lúc script ngoài load (rút kinh nghiệm từ lần Simplize trước). */
 #pg-vn{display:block;visibility:hidden;position:absolute;left:-99999px;top:0;width:100%;}
 #pg-vn.on{visibility:visible;position:static;left:auto;animation:fi .16s ease;}
 @keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
@@ -536,17 +535,49 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="fxCross"></div>
 </div>
 
-<!-- PAGE: VN STOCKS (Simplize widget — dữ liệu thật, công khai, không cần đăng nhập) -->
+<!-- PAGE: VN STOCKS (TradingView widget — chính thức, có điều khoản rõ ràng cho embed) -->
 <div class="pg" id="pg-vn">
   <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
-    🇻🇳 Giá cổ phiếu Việt Nam thật, theo thời gian thực — widget nhúng công khai từ <a href="https://simplize.vn" target="_blank" style="color:var(--a);font-weight:600">Simplize</a>, không qua mô phỏng.
+    🇻🇳 Giá cổ phiếu Việt Nam thật, theo thời gian thực — widget nhúng chính thức từ TradingView.
   </div>
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">📈</div><div class="sht">8 mã tiêu biểu nhiều ngành</div><div class="shl"></div></div>
-  <div class="simplize-widget-chart-overview">
-    <script type="text/javascript" src="https://static.simplize.vn/static/widget/simplize-widget-v0.0.2.min.js" async>
-      {"tickers":[{"ticker":"VCB","type":"stock"},{"ticker":"FPT","type":"stock"},{"ticker":"HPG","type":"stock"},{"ticker":"VHM","type":"stock"},{"ticker":"MWG","type":"stock"},{"ticker":"PNJ","type":"stock"},{"ticker":"VNM","type":"stock"},{"ticker":"GAS","type":"stock"}],"default_time_frame":"1M","time_frames":["1D","1M","3M","1Y"],"theme":"dark","size":{"width":"800","height":"520"},"auto_size":false,"font":"Inter","text_color":"#F5EFE6","text_color_chart":"#F5EFE6","background_color":"#17120D","tab_colors":{"active":"#D65F35","default":"#2A241D"},"chart_height":260,"show_price_chart":true,"show_fi":true,"chart_type":"line","chart_line_color":"#D65F35","chart_candle_color":["#00c853","#f5334f"],"fi":["market_cap_vnd","volume","outstanding_shares","pe_ratio","pb_ratio","eps"]}
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container" style="border-radius:14px;overflow:hidden;background:#17120D">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright" style="padding:8px 12px;font-family:var(--sans);font-size:10px;background:#17120D">
+      <a href="https://www.tradingview.com/symbols/HOSE-PNJ/" rel="noopener nofollow" target="_blank" style="color:var(--a)"><span>Cổ phiếu Việt Nam</span></a><span style="color:var(--mu)"> · dữ liệu bởi TradingView</span>
+    </div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+      {
+        "symbols": [["VCB","HOSE:VCB|12M"],["FPT","HOSE:FPT|12M"],["HPG","HOSE:HPG|12M"],["VHM","HOSE:VHM|12M"],["MWG","HOSE:MWG|12M"],["PNJ","HOSE:PNJ|12M"],["VNM","HOSE:VNM|12M"],["GAS","HOSE:GAS|12M"]],
+        "chartOnly": false,
+        "width": "100%",
+        "height": "520",
+        "locale": "vi_VN",
+        "colorTheme": "dark",
+        "autosize": false,
+        "showVolume": true,
+        "showMA": false,
+        "hideDateRanges": false,
+        "hideMarketStatus": false,
+        "hideSymbolLogo": false,
+        "scalePosition": "right",
+        "scaleMode": "Normal",
+        "fontFamily": "Be Vietnam Pro, -apple-system, sans-serif",
+        "backgroundColor": "#17120D",
+        "gridLineColor": "rgba(240,234,225,0.06)",
+        "widgetFontColor": "#F5EFE6",
+        "upColor": "#00c853",
+        "downColor": "#f5334f",
+        "borderUpColor": "#00c853",
+        "borderDownColor": "#f5334f",
+        "wickUpColor": "#00c853",
+        "wickDownColor": "#f5334f",
+        "isTransparent": false
+      }
     </script>
   </div>
+  <!-- TradingView Widget END -->
 </div>
 
 <!-- PAGE: PRICES -->
