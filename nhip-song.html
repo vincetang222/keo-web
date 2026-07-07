@@ -47,7 +47,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:var(--serif);font-size:13px;font-weight:600}
 
 /* ─── HERO ────────────────────────────────────────────────── */
-.hero{padding:44px 32px 36px;position:relative;overflow:hidden;background:#17120D}
+.hero{padding:44px 32px 48px;position:relative;overflow:hidden;background:#17120D}
 .hero-in{max-width:1100px;margin:0 auto;position:relative;z-index:2}
 .hero-embers{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
 .ember{position:absolute;bottom:-20px;width:4px;height:4px;border-radius:50%;background:var(--grad);opacity:0;animation:emberRise linear infinite}
@@ -69,19 +69,37 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .hero h1 em{font-family:var(--serif);font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{font-size:15px;font-weight:300;color:rgba(245,239,230,.68);line-height:1.75;max-width:540px}
 
-/* ─── PILLAR NAV (3 trụ: Thể thao / Du lịch / Văn hoá) ──────── */
-.pillars{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+/* ─── PILLAR NAV (3 trụ: Thể thao / Du lịch / Văn hoá) — card nổi, kéo lên chồng mép hero ── */
+.pillars-wrap{max-width:1100px;margin:-32px auto 4px;padding:0 32px;position:relative;z-index:5}
+.pillars{background:var(--s2);border:1px solid var(--rim);border-radius:18px;box-shadow:0 22px 48px rgba(23,18,13,.18),0 3px 10px rgba(23,18,13,.07);padding:10px;display:flex;gap:8px;flex-wrap:wrap}
 .pillar{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:100px;border:1px solid var(--rim2);background:var(--s1);font-size:13.5px;font-weight:600;color:var(--i2);transition:all .2s;cursor:pointer}
 .pillar.active{background:var(--ink);color:#F5EFE6;border-color:var(--ink)}
 .pillar.soon{opacity:.5;cursor:default}
 .pillar-badge{font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:20px;background:var(--s2);color:var(--i3)}
 .pillar.active .pillar-badge{background:rgba(245,239,230,.15);color:#F5EFE6}
+@media(max-width:640px){.pillars-wrap{margin-top:-24px;padding:0 16px}.pillars{padding:8px;gap:6px}.pillar{padding:9px 14px;font-size:12.5px}}
 
 /* ─── SPORT SUB-TABS ─────────────────────────────────────────── */
 .sport-tabs{max-width:1100px;margin:0 auto;padding:24px 32px 0;display:flex;gap:6px;border-bottom:1px solid var(--rim2);flex-wrap:wrap}
 .sport-tab{padding:10px 16px;font-size:13.5px;font-weight:600;color:var(--i3);border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
 .sport-tab.on{color:var(--a);border-bottom-color:var(--a)}
 .sport-tab:hover:not(.on){color:var(--ink)}
+
+/* ─── FILTER BAR (trạng thái / giới tính / khu vực — suy luận từ tên giải, không phải field
+   thật SportScore cung cấp, nên khu vực chỉ liệt kê đúng những gì THỰC SỰ có trong dữ liệu
+   đã tải, tránh bộ lọc rỗng vô nghĩa) ─────────────────────────── */
+.filters-wrap{max-width:1100px;margin:0 auto;padding:16px 32px 2px;display:flex;flex-direction:column;gap:9px}
+.filter-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.filter-lbl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--i3);width:70px;flex-shrink:0}
+.fchip{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--i2);background:var(--s1);border:1px solid var(--rim2);border-radius:100px;padding:6px 13px;cursor:pointer;transition:all .16s;white-space:nowrap;flex-shrink:0}
+.fchip:hover{border-color:var(--a);color:var(--a)}
+.fchip.on{background:var(--ink);color:#F5EFE6;border-color:var(--ink)}
+.fchip .cnt{opacity:.55;font-weight:400}
+@media(max-width:640px){
+  .filter-row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -32px;padding:0 32px}
+  .filter-row::-webkit-scrollbar{display:none}
+  .filter-lbl{display:none}
+}
 
 /* ─── MAIN CONTENT ────────────────────────────────────────────── */
 main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
@@ -171,10 +189,12 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   </div>
 </div>
 
+<div class="pillars-wrap">
 <div class="pillars">
   <div class="pillar active">⚽ Thể thao <span class="pillar-badge">TRỰC TIẾP</span></div>
   <div class="pillar soon">✈️ Du lịch <span class="pillar-badge">SẮP RA MẮT</span></div>
   <div class="pillar soon">🎭 Văn hoá <span class="pillar-badge">SẮP RA MẮT</span></div>
+</div>
 </div>
 
 <div class="sport-tabs">
@@ -183,6 +203,8 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="sport-tab" data-sport="tennis" onclick="switchSport('tennis',this)">🎾 Tennis</div>
   <div class="sport-tab" data-sport="cricket" onclick="switchSport('cricket',this)">🏏 Cricket</div>
 </div>
+
+<div class="filters-wrap" id="filters"></div>
 
 <main>
   <div class="sp on" id="sp-football">
@@ -267,47 +289,152 @@ function switchSport(sport,el){
   el.classList.add('on');
   document.querySelectorAll('.sp').forEach(p=>p.classList.remove('on'));
   $('sp-'+sport).classList.add('on');
-  loadSport(sport);
+  showSport(sport);
 }
 
 const SPORT_PREFIX={football:'fb',basketball:'bb',tennis:'tn',cricket:'cr'};
 const loadedSports={};
+const sportData={}; // sportData[sport] = {all:[...trận đã gắn tag], filters:{status,gender,region}, error?}
+
+// ─── SUY LUẬN KHU VỰC / GIỚI TÍNH TỪ TÊN GIẢI ──────────────────
+// SportScore KHÔNG cung cấp field quốc gia/giới tính riêng — đây là suy luận bằng từ khoá trên
+// tên giải đấu, không phải dữ liệu chính xác 100%. Thứ tự trong bảng QUAN TRỌNG: tên quốc gia cụ
+// thể luôn kiểm tra TRƯỚC tên giải chung chung dễ nhầm (VD "Australia National Premier Leagues"
+// phải khớp "australia" trước khi có cơ hội bị vơ vào nhóm "premier league" kiểu Anh).
+const REGION_KEYWORDS=[
+  [['australia'],'Úc','🇦🇺'],
+  [['brazil','brazilian','brasil'],'Brazil','🇧🇷'],
+  [['argentin'],'Argentina','🇦🇷'],
+  [['ecuador'],'Ecuador','🇪🇨'],
+  [['vietnam','v-league','v.league'],'Việt Nam','🇻🇳'],
+  [['usa','united states','american'],'Mỹ','🇺🇸'],
+  [['mexic'],'Mexico','🇲🇽'],
+  [['english','england'],'Anh','🏴'],
+  [['german'],'Đức','🇩🇪'],
+  [['french','france'],'Pháp','🇫🇷'],
+  [['spain','spanish'],'Tây Ban Nha','🇪🇸'],
+  [['italian','italy'],'Ý','🇮🇹'],
+  [['chinese','china','cfa member'],'Trung Quốc','🇨🇳'],
+  [['japan'],'Nhật Bản','🇯🇵'],
+  [['korea'],'Hàn Quốc','🇰🇷'],
+  [['new zealand'],'New Zealand','🇳🇿'],
+  [['indonesia'],'Indonesia','🇮🇩'],
+  [['thailand'],'Thái Lan','🇹🇭'],
+  [['india'],'Ấn Độ','🇮🇳'],
+  [['portugal','portuguese'],'Bồ Đào Nha','🇵🇹'],
+  [['netherlands','dutch','eredivisie'],'Hà Lan','🇳🇱'],
+  [['canada'],'Canada','🇨🇦'],
+  [['world cup','uefa','fifa','conmebol','concacaf','international club'],'Quốc tế','🌍'],
+  // Fallback tên giải nổi tiếng không lẫn quốc gia khác — kiểm tra sau cùng
+  [['bundesliga'],'Đức','🇩🇪'],[['la liga'],'Tây Ban Nha','🇪🇸'],[['ligue 1'],'Pháp','🇫🇷'],[['premier league'],'Anh','🏴'],[['ligapro'],'Ecuador','🇪🇨'],[['eredivisie'],'Hà Lan','🇳🇱'],[['serie a','serie b','serie c'],'Ý','🇮🇹'],
+];
+function detectRegion(compName){
+  const s=(compName||'').toLowerCase();
+  for(const [keys,label,flag] of REGION_KEYWORDS){ if(keys.some(k=>s.includes(k))) return {label,flag}; }
+  return {label:'Khác',flag:'🏳️'};
+}
+function detectGender(compName){
+  const s=(compName||'').toLowerCase();
+  return /women|ladies|female|\bw-league\b|\bnữ\b/.test(s) ? 'F' : 'M';
+}
 
 async function loadSport(sport){
-  if(loadedSports[sport]) return; // chỉ tải 1 lần mỗi môn khi vào tab
+  if(loadedSports[sport]) return; // chỉ fetch 1 lần mỗi môn — các lần lọc sau chỉ lọc lại dữ liệu đã có, không gọi API nữa
   loadedSports[sport]=true;
-  const px=SPORT_PREFIX[sport];
   try{
-    // limit=40 (tối đa API cho phép 50) — lấy nhiều hơn để có đủ trận thật phân loại vào 2 cột,
+    // limit=40 (tối đa API cho phép 50) — lấy nhiều hơn để bộ lọc khu vực/giới tính có đủ lựa chọn thật,
     // vì dữ liệu trả về xen kẽ rất nhiều giải khác nhau, không phải cứ 20 trận đầu là đủ đa dạng.
     const r=await fetchT(`https://sportscore.com/api/widget/matches/?sport=${sport}&limit=40&src=keo.social`,8000);
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data=await r.json();
     const matches=data.matches||[];
     if(!matches.length) throw new Error('Không có trận đấu nào trả về');
-
-    const live=[], upcoming=[], done=[];
     matches.forEach(m=>{
       const status=(m.status||'').toLowerCase();
-      if(status.includes('fin')||status.includes('end')) done.push(m);
-      else if(status.includes('live')||status.includes('play')||status.includes('progress')||status.includes('half')) live.push(m);
-      else upcoming.push(m);
+      m._finished = status.includes('fin')||status.includes('end');
+      m._live = !m._finished && (status.includes('live')||status.includes('play')||status.includes('progress')||status.includes('half'));
+      m._region = detectRegion(m.competition);
+      m._gender = detectGender(m.competition);
     });
-    // Trực tiếp lên đầu (đáng chú ý nhất), rồi tới sắp diễn ra
-    const liveAndUpcoming = [...live, ...upcoming].slice(0,10);
-
-    html(px+'-live', liveAndUpcoming.length
-      ? liveAndUpcoming.map(m=>mkMatchCard(m, live.includes(m))).join('')
-      : '<div class="err">Không có trận trực tiếp hoặc sắp diễn ra trong dữ liệu trả về lúc này.</div>');
-    html(px+'-done', done.length
-      ? done.slice(0,10).map(m=>mkMatchCard(m,false)).join('')
-      : '<div class="err">Chưa có kết quả gần đây.</div>');
+    sportData[sport] = {all:matches, filters:{status:'all',gender:'all',region:'all'}};
   }catch(err){
     console.warn('SportScore lỗi ('+sport+'):', err.message);
-    const msg=`<div class="err">Không tải được dữ liệu trực tiếp lúc này (${err.message}).<br>Thử tải lại trang sau ít phút.</div>`;
-    html(px+'-live', msg);
-    html(px+'-done', msg);
+    sportData[sport] = {all:[], filters:{status:'all',gender:'all',region:'all'}, error:err.message};
   }
+}
+
+function showSport(sport){
+  loadSport(sport).then(()=>{ renderFilterBar(sport); applyFilters(sport); });
+}
+
+function setFilter(sport,group,val){
+  sportData[sport].filters[group]=val;
+  renderFilterBar(sport);
+  applyFilters(sport);
+}
+
+function renderFilterBar(sport){
+  const d=sportData[sport];
+  if(!d || d.error || !d.all.length){ html('filters',''); return; }
+  const f=d.filters;
+  const chip=(group,val,label,active)=>`<button class="fchip ${active?'on':''}" onclick="setFilter('${sport}','${group}','${val}')">${label}</button>`;
+
+  const nLive=d.all.filter(m=>m._live).length, nUp=d.all.filter(m=>!m._live&&!m._finished).length, nDone=d.all.filter(m=>m._finished).length;
+  const statusRow = [
+    chip('status','all','Tất cả',f.status==='all'),
+    chip('status','live',`🔴 Trực tiếp <span class="cnt">${nLive}</span>`,f.status==='live'),
+    chip('status','upcoming',`Sắp diễn ra <span class="cnt">${nUp}</span>`,f.status==='upcoming'),
+    chip('status','finished',`Đã kết thúc <span class="cnt">${nDone}</span>`,f.status==='finished'),
+  ].join('');
+
+  const nM=d.all.filter(m=>m._gender==='M').length, nF=d.all.filter(m=>m._gender==='F').length;
+  const genderRow = [
+    chip('gender','all','Tất cả',f.gender==='all'),
+    chip('gender','M',`Nam <span class="cnt">${nM}</span>`,f.gender==='M'),
+    ...(nF>0?[chip('gender','F',`Nữ <span class="cnt">${nF}</span>`,f.gender==='F')]:[]),
+  ].join('');
+
+  // Khu vực: chỉ liệt kê những vùng THỰC SỰ có mặt trong dữ liệu đã tải, sắp theo số trận giảm dần —
+  // tránh bộ lọc rỗng vô nghĩa (VD hiện toàn bộ 200 quốc gia dù chỉ 6-7 nước có trận thật).
+  const counts={}, flags={};
+  d.all.forEach(m=>{ const k=m._region.label; counts[k]=(counts[k]||0)+1; flags[k]=m._region.flag; });
+  const regions=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  const regionRow = [
+    chip('region','all','Tất cả',f.region==='all'),
+    ...regions.map(r=>chip('region',r,`${flags[r]} ${r} <span class="cnt">${counts[r]}</span>`,f.region===r)),
+  ].join('');
+
+  html('filters', `
+    <div class="filter-row"><span class="filter-lbl">Trạng thái</span>${statusRow}</div>
+    <div class="filter-row"><span class="filter-lbl">Giới tính</span>${genderRow}</div>
+    <div class="filter-row"><span class="filter-lbl">Khu vực</span>${regionRow}</div>
+  `);
+}
+
+function applyFilters(sport){
+  const px=SPORT_PREFIX[sport];
+  const d=sportData[sport];
+  if(!d || d.error){
+    const msg = d?.error
+      ? `<div class="err">Không tải được dữ liệu trực tiếp lúc này (${d.error}).<br>Thử tải lại trang sau ít phút.</div>`
+      : '<div class="ld">Đang tải…</div>';
+    html(px+'-live', msg); html(px+'-done', msg);
+    return;
+  }
+  const f=d.filters;
+  const filtered = d.all.filter(m=>{
+    if(f.gender!=='all' && m._gender!==f.gender) return false;
+    if(f.region!=='all' && m._region.label!==f.region) return false;
+    if(f.status==='live' && !m._live) return false;
+    if(f.status==='upcoming' && (m._live||m._finished)) return false;
+    if(f.status==='finished' && !m._finished) return false;
+    return true;
+  });
+  const liveUp = filtered.filter(m=>!m._finished).slice(0,10);
+  const done = filtered.filter(m=>m._finished).slice(0,10);
+
+  html(px+'-live', liveUp.length ? liveUp.map(m=>mkMatchCard(m,m._live)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
+  html(px+'-done', done.length ? done.map(m=>mkMatchCard(m,false)).join('') : '<div class="err">Không có trận nào khớp bộ lọc hiện tại.</div>');
 }
 
 function html(id,h){ const e=$(id); if(e) e.innerHTML=h; }
@@ -380,7 +507,7 @@ function mkMatchCard(m, forceLive){
   </div>`;
 }
 
-loadSport('football');
+showSport('football');
 </script>
 </body>
 </html>
