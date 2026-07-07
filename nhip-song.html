@@ -95,22 +95,36 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .dot-done{background:var(--gn)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-.match-card{background:var(--s1);border:1px solid var(--rim2);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(26,21,16,.05);transition:transform .2s,box-shadow .2s}
-.match-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,21,16,.08)}
-.match-comp{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
-.match-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
-.match-team{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink);min-width:0}
-.match-team span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.match-card{position:relative;background:var(--s1);border:1px solid var(--rim2);border-radius:14px;padding:14px 16px 14px 18px;margin-bottom:10px;box-shadow:0 2px 8px rgba(26,21,16,.05);transition:transform .2s,box-shadow .2s;overflow:hidden}
+.match-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,21,16,.09)}
+.match-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rim2)}
+.match-card.is-live::before{background:var(--a);animation:railPulse 1.6s infinite}
+.match-card.is-upcoming::before{background:var(--gold)}
+@keyframes railPulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.match-comp{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+.match-comp img{width:14px;height:14px;border-radius:3px;object-fit:contain;flex-shrink:0}
+.match-comp span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.match-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.match-team{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--ink);min-width:0}
+.match-team span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.25}
 .match-team.away{justify-content:flex-end;text-align:right}
-.match-badge{width:22px;height:22px;border-radius:50%;background:var(--s2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
-.match-score{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);white-space:nowrap;padding:0 6px}
+.match-team.away .nm{order:1}
+.match-badge{width:30px;height:30px;border-radius:50%;background:var(--s2);border:1px solid var(--rim);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;overflow:hidden;box-shadow:0 2px 5px rgba(26,21,16,.06)}
+.match-badge img{width:100%;height:100%;object-fit:contain;padding:3px}
+.match-score{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);white-space:nowrap;padding:0 4px;text-align:center}
 .match-score .w{color:var(--a)}
-.match-meta{text-align:center;font-size:10.5px;color:var(--i3);margin-top:8px}
-.match-prob{display:flex;height:5px;border-radius:3px;overflow:hidden;margin-top:10px;background:var(--s2)}
-.match-prob div:nth-child(1){background:var(--a)}
-.match-prob div:nth-child(2){background:var(--i3);opacity:.4}
-.match-prob div:nth-child(3){background:var(--gold)}
-.match-problabel{display:flex;justify-content:space-between;font-size:9.5px;color:var(--i3);margin-top:5px}
+.match-score .l{color:var(--i3);font-weight:600}
+.match-vs{font-family:var(--sans);font-size:11px;font-weight:700;color:var(--i3);text-align:center;letter-spacing:.05em}
+.match-time{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--a);text-align:center;white-space:nowrap}
+
+.match-meta{display:flex;align-items:center;justify-content:center;gap:6px;font-size:10.5px;color:var(--i3);margin-top:10px;padding-top:9px;border-top:1px solid var(--rim)}
+.match-meta .live-tag{display:inline-flex;align-items:center;gap:4px;color:var(--a);font-weight:700}
+.match-meta .live-tag .pdot{width:5px;height:5px;border-radius:50%;background:var(--a);animation:pulse 1.6s infinite}
+.match-link{margin-left:auto;color:var(--i3);font-weight:600;transition:color .2s}
+.match-card:hover .match-link{color:var(--a)}
+
 .ld{text-align:center;padding:30px;color:var(--i3);font-size:13px}
 .err{text-align:center;padding:20px;color:var(--i3);font-size:12.5px;line-height:1.6}
 
@@ -264,21 +278,30 @@ async function loadSport(sport){
   loadedSports[sport]=true;
   const px=SPORT_PREFIX[sport];
   try{
-    const r=await fetchT(`https://sportscore.com/api/widget/matches/?sport=${sport}&limit=20`,8000);
+    // limit=40 (tối đa API cho phép 50) — lấy nhiều hơn để có đủ trận thật phân loại vào 2 cột,
+    // vì dữ liệu trả về xen kẽ rất nhiều giải khác nhau, không phải cứ 20 trận đầu là đủ đa dạng.
+    const r=await fetchT(`https://sportscore.com/api/widget/matches/?sport=${sport}&limit=40&src=keo.social`,8000);
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data=await r.json();
-    const matches=data.matches||data.data||[];
+    const matches=data.matches||[];
     if(!matches.length) throw new Error('Không có trận đấu nào trả về');
 
-    const live=[], done=[];
+    const live=[], upcoming=[], done=[];
     matches.forEach(m=>{
-      const status=(m.status||m.state||'').toLowerCase();
-      if(status.includes('fin')||status.includes('end')||status.includes('done')) done.push(m);
-      else live.push(m);
+      const status=(m.status||'').toLowerCase();
+      if(status.includes('fin')||status.includes('end')) done.push(m);
+      else if(status.includes('live')||status.includes('play')||status.includes('progress')||status.includes('half')) live.push(m);
+      else upcoming.push(m);
     });
+    // Trực tiếp lên đầu (đáng chú ý nhất), rồi tới sắp diễn ra
+    const liveAndUpcoming = [...live, ...upcoming].slice(0,10);
 
-    html(px+'-live', live.length? live.slice(0,8).map(mkMatchCard).join('') : '<div class="err">Không có trận sắp diễn ra trong dữ liệu trả về.</div>');
-    html(px+'-done', done.length? done.slice(0,8).map(mkMatchCard).join('') : '<div class="err">Chưa có kết quả gần đây.</div>');
+    html(px+'-live', liveAndUpcoming.length
+      ? liveAndUpcoming.map(m=>mkMatchCard(m, live.includes(m))).join('')
+      : '<div class="err">Không có trận trực tiếp hoặc sắp diễn ra trong dữ liệu trả về lúc này.</div>');
+    html(px+'-done', done.length
+      ? done.slice(0,10).map(m=>mkMatchCard(m,false)).join('')
+      : '<div class="err">Chưa có kết quả gần đây.</div>');
   }catch(err){
     console.warn('SportScore lỗi ('+sport+'):', err.message);
     const msg=`<div class="err">Không tải được dữ liệu trực tiếp lúc này (${err.message}).<br>Thử tải lại trang sau ít phút.</div>`;
@@ -289,38 +312,71 @@ async function loadSport(sport){
 
 function html(id,h){ const e=$(id); if(e) e.innerHTML=h; }
 
-// Đọc linh hoạt nhiều kiểu tên field khác nhau — vì chưa xác nhận được cấu trúc JSON
-// chính xác của SportScore, tránh vỡ giao diện nếu tên field khác giả định.
-function pick(obj, keys, fallback){
-  for(const k of keys){ if(obj && obj[k]!==undefined && obj[k]!==null) return obj[k]; }
-  return fallback;
+// Định dạng giờ theo múi giờ Việt Nam, ưu tiên tương đối (Hôm nay/Hôm qua) khi trong vòng 2 ngày —
+// dễ đọc hơn nhiều so với chỉ in thẳng chuỗi ISO gốc.
+const WD=['CN','Th 2','Th 3','Th 4','Th 5','Th 6','Th 7'];
+function fmtTime(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  const parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Ho_Chi_Minh',hour12:false,hour:'2-digit',minute:'2-digit',weekday:'short',day:'2-digit',month:'2-digit'}).formatToParts(d);
+  const o={}; parts.forEach(p=>o[p.type]=p.value);
+  const now = new Date();
+  const todayVN = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh'}).format(now);
+  const thatDayVN = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh'}).format(d);
+  const diffDays = Math.round((new Date(todayVN)-new Date(thatDayVN))/86400000);
+  const hm = o.hour+':'+o.minute;
+  if(diffDays===0) return 'Hôm nay · '+hm;
+  if(diffDays===1) return 'Hôm qua · '+hm;
+  if(diffDays===-1) return 'Ngày mai · '+hm;
+  return o.day+'/'+o.month+' · '+hm;
 }
 
-function mkMatchCard(m){
-  const home = pick(m,['home','home_team','homeTeam'],{});
-  const away = pick(m,['away','away_team','awayTeam'],{});
-  const homeName = pick(home,['name','short_name'], pick(m,['home_name'],'Đội nhà'));
-  const awayName = pick(away,['name','short_name'], pick(m,['away_name'],'Đội khách'));
-  const homeScore = pick(m,['home_score','homeScore'], pick(home,['score'],null));
-  const awayScore = pick(m,['away_score','awayScore'], pick(away,['score'],null));
-  const comp = pick(m,['competition','league','tournament'],{});
-  const compName = typeof comp==='string'? comp : pick(comp,['name'],'');
-  const status = pick(m,['status','state'],'');
-  const time = pick(m,['start_time','date','kickoff'],'');
-  const hasScore = homeScore!==null && homeScore!==undefined;
+// Ảnh phù hiệu (logo đội/giải) là hotlink từ img.thesports.com — có thể lỗi vài mã hiếm, nên
+// luôn có phương án lùi: chữ cái đầu tên trên nền màu, không để vỡ ảnh xấu xí giữa trang.
+function imgFallback(el, initial){
+  const span = document.createElement('span');
+  span.className = 'match-badge';
+  span.style.cssText = 'font-family:var(--serif);font-weight:700;color:var(--i3)';
+  span.textContent = initial;
+  el.parentElement.replaceWith(span);
+}
+function badge(url, name){
+  const initial = (name||'?').trim().charAt(0).toUpperCase();
+  if(!url) return `<span class="match-badge" style="font-family:var(--serif);font-weight:700;color:var(--i3)">${initial}</span>`;
+  return `<span class="match-badge"><img src="${url}" alt="" loading="lazy" onerror="imgFallback(this,'${initial.replace(/'/g,"")}')"></span>`;
+}
 
-  const scoreHtml = hasScore
-    ? `<div class="match-score"><span class="${+homeScore>+awayScore?'w':''}">${homeScore}</span> — <span class="${+awayScore>+homeScore?'w':''}">${awayScore}</span></div>`
-    : `<div class="match-score" style="font-size:14px;color:var(--i3)">VS</div>`;
+function mkMatchCard(m, forceLive){
+  // SportScore trả field PHẲNG (chuỗi trực tiếp, không lồng object) — đã xác nhận qua gọi API thật 07/2026.
+  const homeName = m.home || 'Đội nhà';
+  const awayName = m.away || 'Đội khách';
+  const homeScore = m.home_score, awayScore = m.away_score;
+  const compName = m.competition || '';
+  const statusRaw = (m.status||'').toLowerCase();
+  const isFinished = statusRaw.includes('fin')||statusRaw.includes('end');
+  const isLive = !!forceLive;
+  const hasScore = homeScore!==undefined && homeScore!==null && awayScore!==undefined && awayScore!==null;
 
-  return `<div class="match-card">
-    ${compName?`<div class="match-comp">${compName}</div>`:''}
+  const homeWin = hasScore && +homeScore > +awayScore;
+  const awayWin = hasScore && +awayScore > +homeScore;
+  const scoreOrTime = hasScore
+    ? `<div class="match-score"><span class="${homeWin?'w':awayWin?'l':''}">${homeScore}</span> – <span class="${awayWin?'w':homeWin?'l':''}">${awayScore}</span></div>`
+    : `<div class="match-time">${fmtTime(m.time).split(' · ')[1]||'--:--'}</div><div class="match-vs">VS</div>`;
+
+  const metaHtml = isLive
+    ? `<span class="live-tag"><span class="pdot"></span>${m.status_text||'Đang diễn ra'}</span>`
+    : `<span>${isFinished?(m.status_text||'Kết thúc'):fmtTime(m.time)}</span>`;
+  const linkHtml = m.url ? `<a class="match-link" href="https://sportscore.com${m.url}" target="_blank" rel="noopener nofollow">Chi tiết →</a>` : '';
+
+  return `<div class="match-card ${isLive?'is-live':(!isFinished?'is-upcoming':'')}">
+    ${compName?`<div class="match-comp">${m.competition_logo?`<img src="${m.competition_logo}" alt="" loading="lazy" onerror="this.remove()">`:''}<span class="nm">${compName}</span></div>`:''}
     <div class="match-row">
-      <div class="match-team"><span class="match-badge">🏳️</span><span class="nm">${homeName}</span></div>
-      ${scoreHtml}
-      <div class="match-team away"><span class="nm">${awayName}</span><span class="match-badge">🏳️</span></div>
+      <div class="match-team">${badge(m.home_logo,homeName)}<span class="nm" title="${homeName}">${homeName}</span></div>
+      ${scoreOrTime}
+      <div class="match-team away"><span class="nm" title="${awayName}">${awayName}</span>${badge(m.away_logo,awayName)}</div>
     </div>
-    <div class="match-meta">${status||''}${time?' · '+time:''}</div>
+    <div class="match-meta">${metaHtml}${linkHtml}</div>
   </div>`;
 }
 
