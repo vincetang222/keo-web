@@ -106,7 +106,7 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 .sh-collapse:hover .sht{color:var(--a);}
 .sh-chevron{margin-left:4px;font-size:9px;color:var(--ink-mu);transition:transform .2s;flex-shrink:0;}
 .sh-chevron.open{transform:rotate(180deg);}
-.gr.collapsed{display:none;}
+.gr.collapsed,.ed-grid.collapsed,.ed-grid-3.collapsed,.ed-collapse-group.collapsed{display:none;}
 .sh:first-child{margin-top:0;}
 .shi{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:var(--shi);}
 .sht{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-sub);}
@@ -206,6 +206,53 @@ header{background:var(--hbg);border-bottom:1px solid rgba(240,234,225,.08);paddi
 /* LOADING / ERROR */
 .ld2{color:var(--sub);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
 .err{color:var(--rd);font-family:var(--mono);font-size:11px;padding:16px;grid-column:1/-1;}
+
+/* ─── EDITORIAL GRID (tab Nhận định) — thay thế card full-width nằm ngang dài ─────── */
+.ed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:6px;}
+.ed-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:6px;}
+.ed-collapse-group{margin-bottom:6px;}
+@media(max-width:900px){.ed-grid,.ed-grid-3{grid-template-columns:1fr;}}
+@media(min-width:901px) and (max-width:1180px){.ed-grid-3{grid-template-columns:repeat(2,1fr);}}
+
+/* Card: vùng ĐẦU (--sf2, sáng hơn) và vùng THÂN (--sf, tối hơn) tách biệt rõ + viền màu trên theo chủ đề */
+.ed-card{background:var(--sf);border:1px solid var(--bd);border-top:3px solid var(--eda,var(--a));border-radius:14px;box-shadow:var(--sh1);display:flex;flex-direction:column;overflow:hidden;}
+.ed-card-head{background:var(--sf2);padding:12px 17px 11px;}
+.ed-eyebrow{display:flex;align-items:center;gap:6px;font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--eda,var(--a));margin-bottom:5px;}
+.ed-title{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--tx);line-height:1.28;}
+.ed-card-body{padding:13px 17px 15px;display:flex;flex-direction:column;flex:1;}
+.ed-stats{margin-bottom:11px;display:flex;flex-direction:column;gap:5px;}
+/* Ô số liệu: nền --sf2 tương phản với thân card --sf, bo góc riêng từng ô thay vì gạch chấm ngăn cách */
+.ed-stat{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:7px 10px;background:var(--sf2);border-radius:8px;font-family:var(--sans);font-size:10.5px;}
+.ed-stat-l{color:var(--sub);}
+.ed-stat-v{font-family:var(--mono);font-weight:700;color:var(--tx);white-space:nowrap;text-align:right;}
+.ed-stat-v.up{color:var(--gn);}
+.ed-stat-v.down{color:var(--rd);}
+.ed-stat-v.hl{color:var(--go);}
+.ed-body{font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.68;margin-bottom:10px;flex:1;}
+.ed-src{font-family:var(--mono);font-size:9px;color:var(--mu);padding-top:8px;border-top:1px solid var(--bd);margin-top:auto;}
+
+.ed-card-sm .ed-card-head{padding:11px 15px 10px;}
+.ed-card-sm .ed-card-body{padding:10px 15px 12px;}
+.ed-card-sm .ed-figure{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;}
+.ed-fig-l{font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:.04em;color:var(--sub);margin-bottom:2px;}
+.ed-fig-v{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--tx);line-height:1.15;}
+.ed-fig-sub{text-align:right;}
+.ed-fig-sub .ed-fig-v{font-size:15px;color:var(--gn);}
+.ed-card-sm .ed-body{font-size:11px;margin-bottom:8px;}
+
+.ed-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.ed-tag{border-radius:100px;padding:4px 10px;font-family:var(--sans);font-size:10.5px;font-weight:600;border:1px solid;white-space:nowrap;}
+
+/* Mobile: gọn hơn hẳn để đỡ dài — kết hợp với cơ chế thu gọn theo mục (xem setupCollapsibleSections) */
+@media(max-width:640px){
+  .ed-card-head{padding:10px 14px 8px;}
+  .ed-card-body{padding:10px 14px 12px;}
+  .ed-title{font-size:13.5px;}
+  .ed-body{font-size:10.5px;line-height:1.6;}
+  .ed-stat{padding:6px 9px;font-size:9.5px;}
+  .ed-card-sm .ed-fig-v{font-size:17px;}
+}
+
 
 main{max-width:1440px;margin:0 auto;padding:18px;position:relative;z-index:1;}
 footer{background:#17120D;text-align:center;padding:28px 20px 22px;font-family:var(--sans);font-size:11.5px;color:rgba(240,234,225,.4);margin-top:28px;line-height:2;}
@@ -333,213 +380,309 @@ footer a:hover{color:#F5EFE6}
     ⚠️ Đây là <strong style="color:var(--tx)">tổng hợp quan điểm công khai</strong> từ các tổ chức tài chính — không phải khuyến nghị đầu tư của Kèo. Mỗi dự báo đều có nguồn cụ thể kèm theo. Luôn tự nghiên cứu hoặc hỏi ý kiến chuyên gia trước khi quyết định.
   </div>
 
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.25),rgba(0,140,58,.18))">🇻🇳</div><div class="sht">Lạm phát &amp; CPI Việt Nam — Cục Thống kê</div><div class="shl"></div></div>
-  <div class="cd" style="margin-bottom:14px">
-    <div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub);margin-bottom:10px">CPI BÌNH QUÂN THEO KỲ (% so với cùng kỳ năm trước)</div>
-    <div class="cbar-row">
-      <div class="cbar-label">CPI T6 (so T5)</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:8%;background:var(--gn)"></div></div>
-      <div class="cbar-value" style="color:var(--gn)">-0,39%</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">Lạm phát cơ bản</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:78%;background:var(--go)"></div></div>
-      <div class="cbar-value" style="color:var(--go)">+4,12%</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">CPI 6 tháng</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:83%;background:var(--go)"></div></div>
-      <div class="cbar-value" style="color:var(--go)">+4,38%</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">CPI Quý II</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:100%;background:var(--rd)"></div></div>
-      <div class="cbar-value" style="color:var(--rd)">+5,25%</div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:12px;line-height:1.7">CPI tháng 6 giảm nhờ giá xăng dầu hạ, nhưng bình quân 6 tháng vẫn tăng 4,38% — hàng ăn/dịch vụ ăn uống (+5,04%) và nhà ở/điện nước/VLXD (+7,77%) là 2 nhóm kéo CPI tăng mạnh nhất. Mục tiêu cả năm: 4,5-5,5%. Đáng chú ý: giá vàng trong nước bình quân 6 tháng tăng tới <strong style="color:var(--tx)">58,12%</strong> so với cùng kỳ. <span style="color:var(--sub);opacity:.7">— Nguồn: Cục Thống kê (Bộ Tài chính), công bố 03/07/2026</span></p>
-  </div>
+  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.2);color:var(--a)">📊</div><div class="sht">Kinh tế vĩ mô — trong nước &amp; quốc tế</div><div class="shl"></div></div>
+  <div class="ed-grid">
 
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(214,95,53,.22),rgba(209,64,96,.18));color:var(--a)">🇺🇸</div><div class="sht">Chứng khoán Mỹ — Goldman Sachs</div><div class="shl"></div></div>
-  <div class="cd" style="margin-bottom:14px">
-    <div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub);margin-bottom:10px">S&amp;P 500 — HIỆN TẠI SO VỚI MỤC TIÊU CUỐI 2026</div>
-    <div class="cbar-row">
-      <div class="cbar-label">Hiện tại</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:94%;background:var(--sub)"></div></div>
-      <div class="cbar-value">7,519</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">Mục tiêu GS</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:100%;background:var(--gn)"><span class="cbar-fill-label">+6,4%</span></div></div>
-      <div class="cbar-value" style="color:var(--gn)">8,000</div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:12px;line-height:1.7">EPS dự phóng 340 USD (+24%), đầu tư hạ tầng AI đóng góp khoảng một nửa mức tăng trưởng lợi nhuận. <span style="color:var(--sub);opacity:.7">— Nguồn: Goldman Sachs Research, 27/05/2026</span></p>
-  </div>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,162,43,.22),rgba(184,120,26,.16));color:var(--go)">🥇</div><div class="sht">Vàng — J.P. Morgan</div><div class="shl"></div></div>
-  <div class="cd" style="margin-bottom:14px">
-    <div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub);margin-bottom:10px">GIÁ VÀNG THẾ GIỚI — LỘ TRÌNH DỰ BÁO ($/oz)</div>
-    <div class="cbar-row">
-      <div class="cbar-label">Hiện tại</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:70%;background:var(--sub)"></div></div>
-      <div class="cbar-value">$4,200</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">Q3 2026</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:72%;background:var(--go)"></div></div>
-      <div class="cbar-value" style="color:var(--go)">$4,300</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">Q4 2026</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:75%;background:var(--go)"></div></div>
-      <div class="cbar-value" style="color:var(--go)">$4,500</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">Mục tiêu xa</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:100%;background:var(--gn)"><span class="cbar-fill-label">+43%</span></div></div>
-      <div class="cbar-value" style="color:var(--gn)">$6,000</div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:12px;line-height:1.7">Hạ dự báo ngắn hạn do nhu cầu đầu tư yếu, nhưng vẫn kỳ vọng phục hồi Q4/2026 nhờ ngân hàng trung ương mua vào. <span style="color:var(--sub);opacity:.7">— Nguồn: J.P. Morgan Global Research, 05-06/2026</span></p>
-  </div>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(232,51,74,.22),rgba(184,40,60,.16));color:var(--vn)">🇻🇳</div><div class="sht">VN-Index — VNDirect &amp; SSI</div><div class="shl"></div></div>
-  <div class="cd" style="margin-bottom:14px">
-    <div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub);margin-bottom:10px">VN-INDEX — HIỆN TẠI SO VỚI 2 KỊCH BẢN DỰ BÁO</div>
-    <div class="cbar-row">
-      <div class="cbar-label">Hiện tại</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:92%;background:var(--sub)"></div></div>
-      <div class="cbar-value">1,860</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">SSI (thận trọng)</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:89%;background:var(--go)"></div></div>
-      <div class="cbar-value" style="color:var(--go)">1,750-1,800</div>
-    </div>
-    <div class="cbar-row">
-      <div class="cbar-label">VNDirect (cơ sở)</div>
-      <div class="cbar-track"><div class="cbar-fill" style="width:100%;background:var(--gn)"><span class="cbar-fill-label">+8,3%</span></div></div>
-      <div class="cbar-value" style="color:var(--gn)">2,014</div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:12px;line-height:1.7">Cả hai đều nhấn mạnh FTSE Russell nâng hạng thị trường VN lên Mới nổi thứ cấp (9/2026) là động lực cấu trúc quan trọng nhất. <span style="color:var(--sub);opacity:.7">— Nguồn: VNDIRECT Research &amp; SSI Research, 07/2026</span></p>
-  </div>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(156,127,232,.22),rgba(122,95,208,.16));color:var(--pu)">🏭</div><div class="sht">Ngành được ưu tiên tại VN (SSI · Vietcap)</div><div class="shl"></div></div>
-  <div class="cd">
-    <div class="chips">
-      <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🏦 Ngân hàng</div>
-      <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🛒 Bán lẻ</div>
-      <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🛢️ Dầu khí</div>
-      <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏗️ Xây dựng &amp; VLXD</div>
-      <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏠 Bất động sản</div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Cổ phiếu tiêu biểu SSI gọi tên: HPG, DGW, POW, VCB, FPT, DCM, TNG, PVT. <span style="color:var(--sub);opacity:.7">— Nguồn: SSI Research &amp; Vietcap, 07/2026</span></p>
-  </div>
-
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(214,95,53,.28),rgba(209,64,96,.22))">🏛️</div><div class="sht">Ngành hưởng lợi từ chính sách Nhà nước</div><div class="shl"></div></div>
-
-  <div class="policy-card">
-    <div class="policy-head">
-      <div class="policy-icon" style="background:linear-gradient(135deg,rgba(156,127,232,.25),rgba(122,95,208,.15))">🔬</div>
-      <div>
-        <div class="policy-tag">CHÍNH SÁCH ƯU TIÊN QUỐC GIA 2026</div>
-        <div class="policy-title">Công nghiệp bán dẫn &amp; công nghệ số</div>
+    <div class="ed-card" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-eyebrow">🇻🇳 Cục Thống kê</div>
+        <div class="ed-title">Lạm phát &amp; CPI Việt Nam</div>
+      </div>
+      <div class="ed-card-body">
+        <div class="ed-stats">
+          <div class="ed-stat"><span class="ed-stat-l">CPI T6 (so T5)</span><span class="ed-stat-v down">-0,39%</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">Lạm phát cơ bản</span><span class="ed-stat-v up">+4,12%</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">CPI 6 tháng</span><span class="ed-stat-v up">+4,38%</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">CPI Quý II</span><span class="ed-stat-v up">+5,25%</span></div>
+        </div>
+        <p class="ed-body">CPI T6 giảm nhờ giá xăng dầu hạ, nhưng bình quân 6 tháng vẫn tăng 4,38% — hàng ăn/dịch vụ ăn uống (+5,04%) và nhà ở/điện nước/VLXD (+7,77%) kéo CPI mạnh nhất. Mục tiêu cả năm: 4,5-5,5%. Giá vàng trong nước bình quân 6 tháng tăng <strong style="color:var(--tx)">58,12%</strong> so cùng kỳ.</p>
+        <div class="ed-src">Cục Thống kê (Bộ Tài chính), 03/07/2026</div>
       </div>
     </div>
-    <div class="policy-stats">
-      <div class="policy-stat"><div class="policy-stat-v">14,2 tỷ USD</div><div class="policy-stat-l">FDI bán dẫn / 241 dự án</div></div>
-      <div class="policy-stat"><div class="policy-stat-v">50+</div><div class="policy-stat-l">Doanh nghiệp thiết kế chip</div></div>
-      <div class="policy-stat"><div class="policy-stat-v">16/1</div><div class="policy-stat-l">Khởi công nhà máy chip đầu tiên</div></div>
-    </div>
-    <p class="policy-body">Viettel khởi công nhà máy chip đầu tiên của VN (16/1), FPT lập nhà máy đóng gói riêng. Hưởng lợi: FPT, Viettel, BĐS khu công nghiệp, giáo dục vi mạch.</p>
-    <div class="policy-src">Nguồn: Bộ KH&amp;CN, Cổng TTĐT Chính phủ · 01-04/2026</div>
-  </div>
 
-  <div class="policy-card">
-    <div class="policy-head">
-      <div class="policy-icon" style="background:linear-gradient(135deg,rgba(232,162,43,.25),rgba(184,120,26,.15))">🏗️</div>
-      <div>
-        <div class="policy-tag">ĐỘT PHÁ CHIẾN LƯỢC HẠ TẦNG 2026-2030</div>
-        <div class="policy-title">Xây dựng &amp; đầu tư công hạ tầng giao thông</div>
+    <div class="ed-card" style="--eda:var(--a)">
+      <div class="ed-card-head">
+        <div class="ed-eyebrow">🇺🇸 Goldman Sachs</div>
+        <div class="ed-title">Chứng khoán Mỹ — S&amp;P 500</div>
+      </div>
+      <div class="ed-card-body">
+        <div class="ed-stats">
+          <div class="ed-stat"><span class="ed-stat-l">Hiện tại</span><span class="ed-stat-v">7.519</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">Mục tiêu cuối 2026</span><span class="ed-stat-v up">8.000 (+6,4%)</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">EPS dự phóng</span><span class="ed-stat-v hl">$340 (+24%)</span></div>
+        </div>
+        <p class="ed-body">Đầu tư hạ tầng AI đóng góp khoảng một nửa mức tăng trưởng lợi nhuận dự phóng cho S&amp;P 500 tới cuối năm.</p>
+        <div class="ed-src">Goldman Sachs Research, 27/05/2026</div>
       </div>
     </div>
-    <div class="policy-stats">
-      <div class="policy-stat"><div class="policy-stat-v">8,22 triệu tỷ</div><div class="policy-stat-l">Tổng vốn đầu tư công 2026-30</div></div>
-      <div class="policy-stat"><div class="policy-stat-v">67 tỷ USD</div><div class="policy-stat-l">Đường sắt tốc độ cao Bắc-Nam</div></div>
-      <div class="policy-stat"><div class="policy-stat-v">5.000km</div><div class="policy-stat-l">Mục tiêu cao tốc đến 2030</div></div>
+
+    <div class="ed-card" style="--eda:var(--go)">
+      <div class="ed-card-head">
+        <div class="ed-eyebrow">🥇 J.P. Morgan</div>
+        <div class="ed-title">Vàng thế giới — lộ trình dự báo</div>
+      </div>
+      <div class="ed-card-body">
+        <div class="ed-stats">
+          <div class="ed-stat"><span class="ed-stat-l">Hiện tại</span><span class="ed-stat-v">$4.200/oz</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">Q3 2026</span><span class="ed-stat-v up">$4.300</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">Q4 2026</span><span class="ed-stat-v up">$4.500</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">Mục tiêu xa</span><span class="ed-stat-v hl">$6.000 (+43%)</span></div>
+        </div>
+        <p class="ed-body">Hạ dự báo ngắn hạn do nhu cầu đầu tư yếu, nhưng vẫn kỳ vọng phục hồi Q4/2026 nhờ ngân hàng trung ương mua vào.</p>
+        <div class="ed-src">J.P. Morgan Global Research, 05-06/2026</div>
+      </div>
     </div>
-    <p class="policy-body">Đường sắt tốc độ cao Bắc-Nam hoàn thiện báo cáo khả thi 7/2026. Hưởng lợi: thép xây dựng (HPG), xi măng, nhà thầu hạ tầng, BĐS dọc tuyến.</p>
-    <div class="policy-src">Nguồn: Báo Chính Phủ, Nhân Dân điện tử · 02-04/2026</div>
+
+    <div class="ed-card" style="--eda:var(--vn)">
+      <div class="ed-card-head">
+        <div class="ed-eyebrow">🇻🇳 VNDirect &amp; SSI</div>
+        <div class="ed-title">VN-Index — 2 kịch bản dự báo</div>
+      </div>
+      <div class="ed-card-body">
+        <div class="ed-stats">
+          <div class="ed-stat"><span class="ed-stat-l">Hiện tại</span><span class="ed-stat-v">1.860</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">SSI (thận trọng)</span><span class="ed-stat-v up">1.750-1.800</span></div>
+          <div class="ed-stat"><span class="ed-stat-l">VNDirect (cơ sở)</span><span class="ed-stat-v hl">2.014 (+8,3%)</span></div>
+        </div>
+        <p class="ed-body">Cả hai đều nhấn mạnh FTSE Russell nâng hạng thị trường VN lên Mới nổi thứ cấp (9/2026) là động lực cấu trúc quan trọng nhất.</p>
+        <div class="ed-src">VNDIRECT Research &amp; SSI Research, 07/2026</div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="sh"><div class="shi" style="background:linear-gradient(135deg,rgba(0,200,83,.22),rgba(0,140,58,.16))">🌾</div><div class="sht">Hàng hoá xuất khẩu Việt Nam</div><div class="shl"></div></div>
+  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.2);color:var(--pu)">🏭</div><div class="sht">Ngành &amp; chính sách trong nước</div><div class="shl"></div></div>
+  <div class="ed-collapse-group">
 
-  <div class="cd" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">☕ CÀ PHÊ · XK 2025</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">8,9 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VN ĐỨNG THỨ</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">#2 TG</div></div>
+    <div class="cd" style="margin-bottom:14px">
+      <div style="font-family:var(--sans);font-weight:700;font-size:12.5px;color:var(--tx);margin-bottom:10px">🎯 Ngành được ưu tiên tại VN <span style="font-weight:400;color:var(--sub);font-size:10.5px">— SSI · Vietcap</span></div>
+      <div class="chips">
+        <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🏦 Ngân hàng</div>
+        <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🛒 Bán lẻ</div>
+        <div class="chip" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🛢️ Dầu khí</div>
+        <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏗️ Xây dựng &amp; VLXD</div>
+        <div class="chip" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🏠 Bất động sản</div>
+      </div>
+      <p style="font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.7">Cổ phiếu tiêu biểu SSI gọi tên: HPG, DGW, POW, VCB, FPT, DCM, TNG, PVT. <span style="color:var(--sub);opacity:.7">— SSI Research &amp; Vietcap, 07/2026</span></p>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Kỷ lục 8,9 tỷ USD (sau Brazil), nhưng 2026 khó vượt do nguồn cung robusta toàn cầu tăng 10,9%. <span style="color:var(--sub);opacity:.7">— VietnamBiz, USDA, 01/2026</span></p>
+
+    <div class="ed-grid">
+      <div class="policy-card" style="margin-bottom:0">
+        <div class="policy-head">
+          <div class="policy-icon" style="background:linear-gradient(135deg,rgba(156,127,232,.25),rgba(122,95,208,.15))">🔬</div>
+          <div>
+            <div class="policy-tag">CHÍNH SÁCH ƯU TIÊN QUỐC GIA 2026</div>
+            <div class="policy-title">Bán dẫn &amp; công nghệ số</div>
+          </div>
+        </div>
+        <div class="policy-stats">
+          <div class="policy-stat"><div class="policy-stat-v">14,2 tỷ USD</div><div class="policy-stat-l">FDI bán dẫn / 241 dự án</div></div>
+          <div class="policy-stat"><div class="policy-stat-v">50+</div><div class="policy-stat-l">DN thiết kế chip</div></div>
+          <div class="policy-stat"><div class="policy-stat-v">16/1</div><div class="policy-stat-l">Khởi công nhà máy chip đầu tiên</div></div>
+        </div>
+        <p class="policy-body">Viettel khởi công nhà máy chip đầu tiên của VN (16/1), FPT lập nhà máy đóng gói riêng. Hưởng lợi: FPT, Viettel, BĐS KCN, giáo dục vi mạch.</p>
+        <div class="policy-src">Bộ KH&amp;CN, Cổng TTĐT Chính phủ · 01-04/2026</div>
+      </div>
+
+      <div class="policy-card" style="margin-bottom:0">
+        <div class="policy-head">
+          <div class="policy-icon" style="background:linear-gradient(135deg,rgba(232,162,43,.25),rgba(184,120,26,.15))">🏗️</div>
+          <div>
+            <div class="policy-tag">ĐỘT PHÁ HẠ TẦNG 2026-2030</div>
+            <div class="policy-title">Xây dựng &amp; đầu tư công giao thông</div>
+          </div>
+        </div>
+        <div class="policy-stats">
+          <div class="policy-stat"><div class="policy-stat-v">8,22 triệu tỷ</div><div class="policy-stat-l">Vốn đầu tư công 2026-30</div></div>
+          <div class="policy-stat"><div class="policy-stat-v">67 tỷ USD</div><div class="policy-stat-l">ĐS tốc độ cao Bắc-Nam</div></div>
+          <div class="policy-stat"><div class="policy-stat-v">5.000km</div><div class="policy-stat-l">Mục tiêu cao tốc 2030</div></div>
+        </div>
+        <p class="policy-body">Đường sắt tốc độ cao Bắc-Nam hoàn thiện báo cáo khả thi 7/2026. Hưởng lợi: thép xây dựng (HPG), xi măng, nhà thầu hạ tầng, BĐS dọc tuyến.</p>
+        <div class="policy-src">Báo Chính Phủ, Nhân Dân điện tử · 02-04/2026</div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="cd" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌾 GẠO · XK NỬA ĐẦU 2026</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">2,36 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">GẠO JASMINE</div>
-      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">$516-520/tấn</div></div>
+  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.2);color:var(--gn)">🌾</div><div class="sht">Hàng hoá xuất khẩu Việt Nam</div><div class="shl"></div></div>
+  <div class="ed-grid-3">
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">☕ CÀ PHÊ · XK 2025</div><div class="ed-fig-v">8,9 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">VN ĐỨNG THỨ</div><div class="ed-fig-v">#2 TG</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Kỷ lục sau Brazil, nhưng 2026 khó vượt do nguồn cung robusta toàn cầu tăng 10,9%.</p>
+        <div class="ed-src">VietnamBiz, USDA, 01/2026</div>
+      </div>
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Dư cung từ Ấn Độ ép giá gạo phổ thông, nhưng gạo thơm Jasmine vẫn bán cao hơn Thái Lan, Pakistan. <span style="color:var(--sub);opacity:.7">— VFA, USDA, 07/2026</span></p>
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">🌾 GẠO · XK NỬA ĐẦU 2026</div><div class="ed-fig-v">2,36 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">GẠO JASMINE</div><div class="ed-fig-v" style="font-size:13px">$516-520/tấn</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Dư cung từ Ấn Độ ép giá gạo phổ thông, nhưng gạo thơm Jasmine vẫn cao hơn Thái Lan, Pakistan.</p>
+        <div class="ed-src">VFA, USDA, 07/2026</div>
+      </div>
+    </div>
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">🥜 HẠT ĐIỀU · MỤC TIÊU 2026</div><div class="ed-fig-v">5 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">VN ĐỨNG THỨ</div><div class="ed-fig-v">#1 TG</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Số 1 thế giới, nhưng phụ thuộc 50%+ nguyên liệu thô nhập từ châu Phi.</p>
+        <div class="ed-src">Vinacas, 03/2026</div>
+      </div>
+    </div>
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">🌶️ HỒ TIÊU · XK 2025</div><div class="ed-fig-v">1,66 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">TĂNG GIÁ TRỊ</div><div class="ed-fig-v">+26,3%</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Kỷ lục dù sản lượng giảm — giá cao gấp 2,5 lần cuối 2022, động lực chính từ Mỹ (+30%).</p>
+        <div class="ed-src">Hải quan, TTXVN, 07/2026</div>
+      </div>
+    </div>
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">🥭 RAU QUẢ · XK 2025</div><div class="ed-fig-v">8,5 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">RIÊNG SẦU RIÊNG</div><div class="ed-fig-v">3,8 tỷ USD</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Sầu riêng chiếm 45% kim ngạch; dừa lần đầu vượt thanh long lên vị trí thứ 2.</p>
+        <div class="ed-src">Hải quan, VnExpress, 2026</div>
+      </div>
+    </div>
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">🦐 THUỶ SẢN · XK 6T/2026</div><div class="ed-fig-v">5,8 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">DỰ BÁO CẢ NĂM</div><div class="ed-fig-v">&gt;12 tỷ USD</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Tôm (2,3 tỷ, 40,5%) và cá tra (1,1 tỷ) dẫn đầu; Trung Quốc tăng mạnh nhất (+37,9%).</p>
+        <div class="ed-src">VASEP, 07/2026</div>
+      </div>
+    </div>
+
+    <div class="ed-card ed-card-sm" style="--eda:var(--gn)">
+      <div class="ed-card-head">
+        <div class="ed-figure">
+          <div><div class="ed-fig-l">🌳 CAO SU · XK 2025</div><div class="ed-fig-v">~3,3 tỷ USD</div></div>
+          <div class="ed-fig-sub"><div class="ed-fig-l">THỊ TRƯỜNG CHÍNH</div><div class="ed-fig-v" style="font-size:14px">Trung Quốc</div></div>
+        </div>
+      </div>
+      <div class="ed-card-body">
+        <p class="ed-body">Top 3 thế giới về xuất khẩu, chủ yếu phục vụ ngành lốp xe toàn cầu.</p>
+        <div class="ed-src">VRA, ước tính 2025</div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="cd" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🥜 HẠT ĐIỀU · MỤC TIÊU 2026</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">5 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">VN ĐỨNG THỨ</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">#1 TG</div></div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Số 1 thế giới, nhưng phụ thuộc 50%+ nguyên liệu thô nhập từ châu Phi. <span style="color:var(--sub);opacity:.7">— Vinacas, 03/2026</span></p>
-  </div>
+  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.2);color:var(--a2)">🌐</div><div class="sht">Thị trường quốc tế cho Việt Nam</div><div class="shl"></div></div>
+  <div class="ed-collapse-group">
 
-  <div class="cd" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌶️ HỒ TIÊU · XK 2025</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">1,66 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">TĂNG GIÁ TRỊ</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">+26,3%</div></div>
+    <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--go);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.65">
+      💡 Mỹ chiếm khoảng <strong style="color:var(--tx)">32% tổng kim ngạch xuất khẩu VN năm 2025</strong> — tương đương giá trị cộng gộp của 5 thị trường lớn tiếp theo. UOB gọi đa dạng hoá thị trường là <strong style="color:var(--tx)">"không còn là lựa chọn, mà là mục tiêu chiến lược"</strong> cho Việt Nam. 4 mục dưới đây tổng hợp các hướng mở rộng đang được nhắc tới nhiều nhất.
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Kỷ lục dù sản lượng giảm — giá cao gấp 2,5 lần cuối 2022, động lực chính từ Mỹ (+30%). <span style="color:var(--sub);opacity:.7">— Hải quan, TTXVN, 07/2026</span></p>
-  </div>
 
-  <div class="cd" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🥭 RAU QUẢ · XK 2025</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">8,5 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">RIÊNG SẦU RIÊNG</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">3,8 tỷ USD</div></div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Sầu riêng chiếm 45% kim ngạch; dừa lần đầu vượt thanh long lên vị trí thứ 2. <span style="color:var(--sub);opacity:.7">— Hải quan, VnExpress, 2026</span></p>
-  </div>
+    <div class="ed-grid">
 
-  <div class="cd" style="margin-bottom:14px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🦐 THUỶ SẢN · XK 6T/2026</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">5,8 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">DỰ BÁO CẢ NĂM</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gn)">&gt;12 tỷ USD</div></div>
-    </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Tôm (2,3 tỷ, 40,5%) và cá tra (1,1 tỷ) dẫn đầu; Trung Quốc là thị trường tăng mạnh nhất (+37,9%). <span style="color:var(--sub);opacity:.7">— VASEP, 07/2026</span></p>
-  </div>
+      <div class="ed-card" style="--eda:var(--gn)">
+        <div class="ed-card-head">
+          <div class="ed-eyebrow">🌏 Cục Hải quan · UOB</div>
+          <div class="ed-title">ASEAN — thị trường xuất khẩu lớn thứ 4</div>
+        </div>
+        <div class="ed-card-body">
+          <div class="ed-stats">
+            <div class="ed-stat"><span class="ed-stat-l">KN 2 chiều 2025</span><span class="ed-stat-v">91 tỷ USD</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">XK sang ASEAN 2025</span><span class="ed-stat-v up">38,4 tỷ USD (+3,8%)</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">XK đầu 2026 (T1)</span><span class="ed-stat-v up">+24,4% so cùng kỳ</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">Thuế nội khối (AFTA/RCEP)</span><span class="ed-stat-v hl">0-5%</span></div>
+          </div>
+          <p class="ed-body">Sau Mỹ, Trung Quốc, Hàn Quốc — từ mức trao đổi hơn 3 tỷ USD khi mới gia nhập (1995), tăng gần 30 lần. Thị trường chủ lực: Thái Lan (8,7 tỷ), Singapore (5,8 tỷ), Indonesia (5,7 tỷ). Tăng nhanh nhất: Brunei (+30%), Myanmar (+21%). VN có vị trí địa lý để trở thành trung tâm logistics khu vực, nằm giữa ASEAN và Trung Quốc.</p>
+          <div class="ed-src">Cục Hải quan (Bộ Tài chính), UOB Global Economics, 2025-2026</div>
+        </div>
+      </div>
 
-  <div class="cd">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px">
-      <div><div style="font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.04em;color:var(--sub)">🌳 CAO SU · XK 2025</div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--tx)">~3,3 tỷ USD</div></div>
-      <div style="text-align:right"><div style="font-family:var(--sans);font-weight:600;font-size:10px;color:var(--sub)">THỊ TRƯỜNG CHÍNH</div>
-      <div style="font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gn)">Trung Quốc</div></div>
+      <div class="ed-card" style="--eda:var(--pu)">
+        <div class="ed-card-head">
+          <div class="ed-eyebrow">🇪🇺 Bộ Công Thương</div>
+          <div class="ed-title">EU — EVFTA, thị trường XK lớn thứ 3</div>
+        </div>
+        <div class="ed-card-body">
+          <div class="ed-stats">
+            <div class="ed-stat"><span class="ed-stat-l">XK sang EU (9T/2025)</span><span class="ed-stat-v up">41,7 tỷ USD (+9,5%)</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">Xuất siêu (9T/2025)</span><span class="ed-stat-v hl">28,86 tỷ USD</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">Tỷ trọng tổng KNXK</span><span class="ed-stat-v">12%</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">Xoá thuế theo lộ trình (7 năm)</span><span class="ed-stat-v up">99,7% kim ngạch</span></div>
+          </div>
+          <p class="ed-body">VN là đối tác thương mại lớn nhất của EU trong khối ASEAN. Ngành hưởng lợi rõ nhất từ EVFTA: dệt may, da giày, thuỷ sản, đồ gỗ, điện thoại. Tỷ lệ doanh nghiệp tận dụng ưu đãi thuế quan EVFTA (C/O mẫu EUR.1) vẫn còn nhiều dư địa tăng thêm so với tổng kim ngạch đủ điều kiện.</p>
+          <div class="ed-src">Bộ Công Thương, Tổng cục Hải quan, 2025-2026</div>
+        </div>
+      </div>
+
+      <div class="ed-card" style="--eda:var(--go)">
+        <div class="ed-card-head">
+          <div class="ed-eyebrow">🕌 CEPA · Thị trường Halal</div>
+          <div class="ed-title">Trung Đông — cửa vừa mở, tiềm năng còn lớn</div>
+        </div>
+        <div class="ed-card-body">
+          <div class="ed-stats">
+            <div class="ed-stat"><span class="ed-stat-l">XK sang UAE (11T/2025)</span><span class="ed-stat-v">5,4 tỷ USD</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">XK sang Ả Rập Saudi</span><span class="ed-stat-v">1,9 tỷ USD</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">CEPA hiệu lực</span><span class="ed-stat-v hl">3/2/2026 · xoá 94,9% dòng thuế</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">XK đạt chuẩn Halal hiện nay</span><span class="ed-stat-v down">~700 triệu USD</span></div>
+          </div>
+          <p class="ed-body">CEPA là FTA đầu tiên VN ký với 1 nước Ả Rập — cửa ngõ vào Trung Đông, Bắc Phi và một phần châu Phi cận Sahara. Thị trường Halal toàn cầu đã vượt 2.700 tỷ USD (2024), tăng 8-9%/năm, hướng tới ~10.000 tỷ USD trước 2028 — nhưng hàng Việt đạt chuẩn Halal mới chiếm phần rất nhỏ. Bắt buộc: chứng nhận Halal được GCC công nhận (qua HCA Việt Nam).</p>
+          <div class="ed-src">ITPC TP.HCM, VTV, VPSA, 2025-2026</div>
+        </div>
+      </div>
+
+      <div class="ed-card" style="--eda:var(--a2)">
+        <div class="ed-card-head">
+          <div class="ed-eyebrow">🧭 UOB · Cục Thống kê</div>
+          <div class="ed-title">VN nên mở rộng vào đâu tiếp theo?</div>
+        </div>
+        <div class="ed-card-body">
+          <div class="ed-tags">
+            <div class="ed-tag" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🔌 Điện tử &amp; bán dẫn</div>
+            <div class="ed-tag" style="background:rgba(0,200,83,.1);border-color:rgba(0,200,83,.25);color:var(--gn)">🌾 Nông-thuỷ sản chuẩn Halal/xanh</div>
+            <div class="ed-tag" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">🧵 Dệt may &amp; da giày</div>
+            <div class="ed-tag" style="background:rgba(232,162,43,.1);border-color:rgba(232,162,43,.25);color:var(--go)">☀️ Năng lượng tái tạo</div>
+          </div>
+          <div class="ed-stats">
+            <div class="ed-stat"><span class="ed-stat-l">VN xếp hạng XK điện tử</span><span class="ed-stat-v hl">#8 thế giới</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">FDI đăng ký mới (6T/2026)</span><span class="ed-stat-v up">34,65 tỷ USD (+61%)</span></div>
+            <div class="ed-stat"><span class="ed-stat-l">Chế biến chế tạo hút vốn</span><span class="ed-stat-v">10,76 tỷ USD (~62%)</span></div>
+          </div>
+          <p class="ed-body">170+ dự án FDI bán dẫn là nền tảng để tiến sâu hơn vào khâu giá trị cao (đóng gói/kiểm định chip). Hướng mở rộng địa lý: châu Phi, Mỹ Latinh, Nam Á (Ấn Độ +28% quý I/2026) — đi kèm yêu cầu riêng về tiêu chuẩn, không thể "đánh nhanh rút gọn".</p>
+          <div class="ed-src">UOB "The Year Ahead 2026", Cục Thống kê, 04-07/2026</div>
+        </div>
+      </div>
+
     </div>
-    <p style="font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7">Top 3 thế giới về xuất khẩu, chủ yếu phục vụ ngành lốp xe toàn cầu. <span style="color:var(--sub);opacity:.7">— VRA, ước tính 2025</span></p>
   </div>
 
 </div>
@@ -774,7 +917,7 @@ async function fetchMetals(){
       const prev = REAL_METAL[sym]?.price;
       REAL_METAL[sym] = { price, pct: prev ? (price/prev-1)*100 : null };
     }catch(err){
-      console.warn('gold-api.com lỗi cho '+sym+':', err.message, '— giữ nguyên dữ liệu mô phỏng');
+      console.warn('gold-api.com lỗi cho '+sym+':', err.message, '— giữ nguyên giá lần fetch thành công gần nhất (không có dữ liệu mô phỏng nào cả)');
     }
   }));
 }
@@ -1217,7 +1360,7 @@ function setupCollapsibleSections(){
     let i=0;
     shList.forEach(sh=>{
       const gr=sh.nextElementSibling;
-      if(!gr||!gr.classList.contains('gr')) return; // chỉ áp dụng cho .sh đứng trước .gr (lưới dữ liệu)
+      if(!gr||!(gr.classList.contains('gr')||gr.classList.contains('ed-grid')||gr.classList.contains('ed-grid-3')||gr.classList.contains('ed-collapse-group'))) return; // chỉ áp dụng cho .sh đứng trước khối có thể thu gọn
       sh.classList.add('sh-collapse');
       // Nếu tab có đánh dấu data-open riêng (VD: Giá tiêu dùng) → dùng đúng nhóm đó.
       // Nếu không → mặc định mở 2 nhóm đầu như trước.
