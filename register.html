@@ -1,53 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#1A3A28">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#17120D">
 <title>Tham gia Kèo — Chủ xị hay Người đồng hành?</title>
 <meta name="description" content="Tham gia Kèo — đăng ký làm Chủ xị để tìm người đồng hành, hoặc đăng ký làm Người đồng hành để kiếm thêm thu nhập.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://keo.social/register">
+<meta property="og:image" content="https://keo.social/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--g:#1A3A28;--g2:#2D5A3D;--cr:#F5F0E8;--cr2:#EAE3D5;--go:#C9A84C;--w:#FDFAF5;--t1:#1C1C1A;--t2:#4A4A44;--t3:#8A8A80}
+:root{
+  --bg:#17120D; --bg2:#1F1712;
+  --gold:#E8A22B; --a:#D65F35; --a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6; --cr2:rgba(245,239,230,.62); --cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1); --rim2:rgba(245,239,230,.18);
+  --serif:'Playfair Display',serif; --sans:'Be Vietnam Pro',sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:var(--g);min-height:100vh;display:flex;flex-direction:column}
-nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--cr);text-decoration:none}
-.logo span{color:var(--go)}
-.back{font-size:12px;color:rgba(245,240,232,.45);text-decoration:none}
-.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px 60px}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:5px 16px;font-size:11px;font-weight:500;color:var(--go);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
-h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--cr);line-height:1.2;text-align:center;margin-bottom:12px}
-h1 em{font-style:italic;color:var(--go)}
-.sub{font-size:15px;color:rgba(245,240,232,.5);text-align:center;margin-bottom:48px;line-height:1.6}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;width:100%}
-.card{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:20px;padding:36px 32px;text-decoration:none;display:flex;flex-direction:column;gap:0;transition:all .2s;cursor:pointer}
-.card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-3px)}
-.card.host{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.08)}
-.card.host:hover{background:rgba(201,168,76,.14);border-color:rgba(201,168,76,.5)}
-.card-icon{font-size:36px;margin-bottom:16px}
-.card-role{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.host .card-role{color:var(--go)}
-.companion .card-role{color:rgba(168,196,176,.8)}
-.card-title{font-family:'Lora',serif;font-size:24px;font-weight:700;color:var(--cr);margin-bottom:12px;line-height:1.2}
-.card-desc{font-size:14px;color:rgba(245,240,232,.55);line-height:1.7;margin-bottom:24px;flex:1}
-.card-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;border-radius:100px;padding:11px 22px;transition:all .2s}
-.host .card-cta{background:var(--go);color:var(--g)}
-.companion .card-cta{background:rgba(255,255,255,.12);color:var(--cr);border:1px solid rgba(255,255,255,.2)}
-.card-perks{display:flex;flex-direction:column;gap:7px;margin-bottom:24px}
-.perk{font-size:13px;color:rgba(245,240,232,.6);display:flex;align-items:center;gap:8px}
-.perk::before{content:'✓';color:var(--go);font-weight:700;font-size:12px}
-.companion .perk::before{color:rgba(168,196,176,.8)}
-.divider{height:1px;background:rgba(255,255,255,.08);margin:32px 0}
-.note{font-size:13px;color:rgba(245,240,232,.35);text-align:center}
-footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,.06)}
-.fl{font-family:'Lora',serif;font-size:16px;font-weight:700;color:rgba(245,240,232,.4)}
-.fl span{color:rgba(201,168,76,.5)}
-@media(max-width:600px){nav{padding:16px 18px}.cards{grid-template-columns:1fr}.card{padding:28px 24px}}
-</style>  <meta property="og:image" content="https://keo.social/og-image.png">
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh;display:flex;flex-direction:column;position:relative}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* Kết cấu nền — lưới chấm bi mờ (đúng công thức dùng xuyên suốt các trang khác) + vầng sáng góc */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.09) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.6;mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 40%,transparent 100%)}
+body::after{content:"";position:fixed;top:-140px;left:50%;transform:translateX(-50%);width:640px;height:420px;border-radius:50%;background:radial-gradient(ellipse,var(--a) 0%,transparent 68%);opacity:.16;z-index:0;pointer-events:none;filter:blur(50px)}
+nav,.main,footer{position:relative;z-index:1}
+
+nav{padding:22px 40px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800;color:var(--cream);letter-spacing:-.02em}
+.logo span{color:var(--gold)}
+.back{font-size:12.5px;color:var(--cr3);transition:color .2s}
+.back:hover{color:var(--cream)}
+
+.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px 60px}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(232,162,43,.12);border:1px solid rgba(232,162,43,.3);border-radius:100px;padding:6px 16px;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,50px);font-weight:800;color:var(--cream);line-height:1.15;text-align:center;margin-bottom:14px;letter-spacing:-.01em}
+h1 em{font-style:italic;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-family:var(--sans);font-size:15.5px;color:var(--cr2);text-align:center;margin-bottom:44px;line-height:1.6}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;width:100%}
+.card{position:relative;border-radius:22px;padding:34px 30px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.card:hover{transform:translateY(-4px)}
+
+/* Signature: chia đôi gradient thương hiệu cho 2 vai trò — Chủ xị nghiêng vàng-cam (khởi đầu/
+   chủ động), Người đồng hành nghiêng hồng-đỏ (kết nối/ấm áp). 2 nửa của cùng 1 gradient thương
+   hiệu, khác biệt rõ mà vẫn thuộc về nhau — không phải 2 màu ngẫu nhiên. */
+.card.host{background:linear-gradient(160deg, rgba(232,162,43,.14) 0%, var(--bg2) 65%);border:1.5px solid rgba(232,162,43,.35);box-shadow:0 8px 28px rgba(232,162,43,.08)}
+.card.host:hover{border-color:rgba(232,162,43,.6);box-shadow:0 16px 40px rgba(232,162,43,.16)}
+.card.companion{background:linear-gradient(160deg, rgba(209,64,96,.14) 0%, var(--bg2) 65%);border:1.5px solid rgba(209,64,96,.35);box-shadow:0 8px 28px rgba(209,64,96,.08)}
+.card.companion:hover{border-color:rgba(209,64,96,.6);box-shadow:0 16px 40px rgba(209,64,96,.16)}
+
+.card-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:18px}
+.host .card-icon{background:linear-gradient(160deg,#E8A22B 0%,#D65F35 100%);box-shadow:0 4px 14px rgba(232,162,43,.3)}
+.companion .card-icon{background:linear-gradient(160deg,#D65F35 0%,#D14060 100%);box-shadow:0 4px 14px rgba(209,64,96,.3)}
+
+.card-role{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+.host .card-role{color:var(--gold)}
+.companion .card-role{color:#F0A0B4}
+.card-title{font-family:var(--serif);font-size:23px;font-weight:800;color:var(--cream);margin-bottom:14px;line-height:1.25}
+
+.card-perks{display:flex;flex-direction:column;gap:9px;margin-bottom:26px;flex:1}
+.perk{font-size:13.5px;color:var(--cr2);display:flex;align-items:flex-start;gap:9px;line-height:1.5}
+.perk::before{content:'✓';font-weight:700;font-size:12px;flex-shrink:0;margin-top:1px}
+.host .perk::before{color:var(--gold)}
+.companion .perk::before{color:#F0A0B4}
+
+.card-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-size:14.5px;font-weight:700;border-radius:100px;padding:13px 22px;transition:all .2s}
+.host .card-cta{background:linear-gradient(135deg,#E8A22B 0%,#D65F35 100%);color:#1A1006}
+.host:hover .card-cta{box-shadow:0 6px 18px rgba(232,162,43,.4)}
+.companion .card-cta{background:rgba(245,239,230,.1);color:var(--cream);border:1px solid var(--rim2)}
+.companion:hover .card-cta{background:rgba(245,239,230,.16);border-color:rgba(245,239,230,.35)}
+
+.divider{height:1px;background:var(--rim);margin:38px 0 26px;max-width:800px;width:100%}
+.existing{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.note{font-family:var(--sans);font-size:13.5px;color:var(--cr3)}
+.login-link{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gold);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.login-link:hover{gap:9px}
+
+footer{text-align:center;padding:22px;border-top:1px solid var(--rim)}
+.fl{font-family:var(--serif);font-size:16px;font-weight:800;color:var(--cr3)}
+.fl span{color:rgba(232,162,43,.5)}
+
+@media(max-width:640px){
+  nav{padding:18px 20px}
+  .cards{grid-template-columns:1fr}
+  .card{padding:28px 24px}
+}
+</style>
 </head><body>
 
 <nav>
@@ -70,7 +115,7 @@ footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,.06)
         <div class="perk">Kèo match người phù hợp trong 24h</div>
         <div class="perk">Hoàn tiền 100% nếu không match</div>
       </div>
-      <div class="card-cta">Đặt Kèo ngay →</div>
+      <div class="card-cta">Đăng ký làm Chủ xị →</div>
     </a>
 
     <a href="/nguoi-dong-hanh-dang-ky" class="card companion">
@@ -82,12 +127,15 @@ footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,.06)
         <div class="perk">200–500k mỗi buổi cà phê / ăn tối</div>
         <div class="perk">Miễn phí đăng ký</div>
       </div>
-      <div class="card-cta">Đăng ký ngay →</div>
+      <div class="card-cta">Đăng ký làm Người đồng hành →</div>
     </a>
   </div>
 
-  <div class="divider" style="max-width:760px;width:100%"></div>
-  <p class="note">Đã là thành viên? Nhắn Kèo qua Zalo để được hỗ trợ 🌿</p>
+  <div class="divider"></div>
+  <div class="existing">
+    <p class="note">Đã là thành viên?</p>
+    <a href="https://zalo.me/keosocial" target="_blank" rel="noopener" class="login-link">Nhắn Kèo qua Zalo để được hỗ trợ 🌿</a>
+  </div>
 </div>
 
 <footer>
