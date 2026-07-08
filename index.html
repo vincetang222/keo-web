@@ -435,6 +435,8 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
 .foot-link{display:block;font-size:13px;color:var(--fx-i2);padding:6px 0;transition:color .2s}
 .foot-link:hover{color:var(--a)}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12px;color:var(--fx-i3);flex-wrap:wrap;gap:12px}
+.foot-legal{display:flex;gap:16px}
+.foot-legal .foot-link{display:inline;padding:0;font-size:12px}
 
 @media(max-width:960px){
   .prob-intro{grid-template-columns:1fr;text-align:center}
@@ -569,7 +571,7 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       <a href="/nguoidonghanh" class="nav-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
       <a href="/khoa-hoc-ket-noi" class="nav-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="/register#host" class="nav-cta"><span class="vi">Đặt Kèo</span><span class="en">Book a Kèo</span></a>
+      <a href="/register" class="nav-cta"><span class="vi">Đăng ký ngay</span><span class="en">Register now</span></a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -596,7 +598,7 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       </h1>
       <p class="hero-sub"><span class="vi">Bạn quen biết đã nhiều. Thứ còn thiếu, có lẽ, là một buổi trò chuyện thật sự — với người hiểu điều bạn đang đi tìm.</span><span class="en">You already know enough people. What's missing are meetups that actually matter — with someone who truly understands what you're looking for.</span></p>
       <div class="hero-actions">
-        <a href="/register#host" class="btn-primary">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
+        <a href="/chu-xi" class="btn-primary">🌿 <span class="vi">Đặt Kèo ngay</span><span class="en">Book a Kèo</span></a>
         <a href="#model" class="btn-soft" data-scroll><span class="vi">Kèo hoạt động thế nào?</span><span class="en">How does it work?</span></a>
       </div>
     </div>
@@ -1053,7 +1055,7 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
     <h2><span class="vi">Một buổi hẹn tử tế<br><em>đang đợi bạn.</em></span><span class="en">A meetup worth having<br><em>is waiting for you.</em></span></h2>
     <p><span class="vi">Thêm một tối nữa trôi qua giữa phố đông mà vẫn thấy trống trải — hay bắt đầu một cuộc trò chuyện đáng nhớ. Bạn chọn đi.</span><span class="en">Another empty evening in a crowded city — or the start of a conversation you'll remember. Your call.</span></p>
     <div class="cta-final-actions">
-      <a href="/register#host" class="btn-primary">🌿 <span class="vi">Đặt Kèo đầu tiên</span><span class="en">Book your first Kèo</span></a>
+      <a href="/chu-xi" class="btn-primary">🌿 <span class="vi">Đặt Kèo đầu tiên</span><span class="en">Book your first Kèo</span></a>
       <a href="/nguoi-dong-hanh-dang-ky" class="btn-soft"><span class="vi">Tôi muốn làm người đồng hành</span><span class="en">I'd like to be a companion</span></a>
     </div>
   </div>
@@ -1082,8 +1084,9 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       </div>
       <div class="foot-col">
         <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
-        <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
-        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/chu-xi" class="foot-link"><span class="vi">Đăng ký Chủ xị</span><span class="en">Register as Host</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký làm Người đồng hành</span><span class="en">Register as Companion</span></a>
+        <a href="/taokeo" class="foot-link"><span class="vi">Tạo Kèo (đã đăng ký)</span><span class="en">Create a Kèo (registered)</span></a>
         <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
       </div>
       <div class="foot-col">
@@ -1095,6 +1098,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
     </div>
     <div class="foot-bot">
       <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div class="foot-legal">
+        <a href="/terms" class="foot-link"><span class="vi">Điều khoản</span><span class="en">Terms</span></a>
+        <a href="/privacy" class="foot-link"><span class="vi">Quyền riêng tư</span><span class="en">Privacy</span></a>
+      </div>
       <div>keo.social · @keosocialvn</div>
     </div>
   </div>
