@@ -31,7 +31,12 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh;position:relative}
+/* Nền hết phẳng: lưới chấm bi mờ toàn trang (công thức từ index.html) + vầng sáng gradient nhẹ
+   ở 2 góc. Cố định (fixed) nên không cuộn theo, chỉ làm texture nền dịu mắt. */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(var(--rim2) 1.3px,transparent 1.3px);background-size:24px 24px;opacity:.5;mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
+body::after{content:"";position:fixed;top:-120px;right:-100px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 40%,transparent) 0%,transparent 68%);opacity:.35;z-index:0;pointer-events:none;filter:blur(40px)}
+.nav,.pillars-wrap,main{position:relative;z-index:1}
 a{text-decoration:none;color:inherit}
 :focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
 
@@ -73,10 +78,11 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .pillars-wrap{max-width:1100px;margin:-32px auto 4px;padding:0 32px;position:relative;z-index:5}
 .pillars{background:var(--s2);border:1px solid var(--rim);border-radius:18px;box-shadow:0 22px 48px rgba(23,18,13,.18),0 3px 10px rgba(23,18,13,.07);padding:10px;display:flex;gap:8px;flex-wrap:wrap}
 .pillar{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:100px;border:1px solid var(--rim2);background:var(--s1);font-size:13.5px;font-weight:600;color:var(--i2);transition:all .2s;cursor:pointer}
-.pillar.active{background:var(--ink);color:#F5EFE6;border-color:var(--ink)}
+.pillar:hover:not(.active):not(.soon){border-color:var(--a);color:var(--a);transform:translateY(-1px)}
+.pillar.active{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(214,95,53,.35)}
 .pillar.soon{opacity:.5;cursor:default}
 .pillar-badge{font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:20px;background:var(--s2);color:var(--i3)}
-.pillar.active .pillar-badge{background:rgba(245,239,230,.15);color:#F5EFE6}
+.pillar.active .pillar-badge{background:rgba(255,255,255,.22);color:#fff}
 @media(max-width:640px){.pillars-wrap{margin-top:-24px;padding:0 16px}.pillars{padding:8px;gap:6px}.pillar{padding:9px 14px;font-size:12.5px}}
 
 /* ─── PILLAR PANEL TOGGLE (Thể thao / Du lịch) ──────────────────── */
@@ -95,46 +101,61 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .travel-title{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .travel-sub{font-family:var(--sans);font-size:13px;color:var(--i3)}
 
-/* Card giàu thông tin, 1 thành phố/card — nền + màu chữ đổi theo NHÓM THỜI TIẾT thật (nắng/mây/
-   mưa/dông) qua các biến --wx-bg/--wx-tx/--wx-sub set inline bằng JS theo icon trả về từ API.
-   Dông bão tự nhiên ra nền tối (đúng ý "dark theme khi mưa bão") mà không cần công tắc riêng —
-   đây là kiểu mã hoá thông tin thật vào màu sắc, không phải chọn ngẫu nhiên. */
-.travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:18px}
-.wx-card{position:relative;border-radius:20px;padding:20px;overflow:hidden;background:var(--wx-bg);color:var(--wx-tx);box-shadow:0 4px 18px rgba(26,21,16,.08);transition:transform .2s,box-shadow .2s}
-.wx-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(26,21,16,.14)}
-.wx-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px}
-.wx-city{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--wx-tx)}
-.wx-cond{font-family:var(--sans);font-size:12px;color:var(--wx-sub);text-transform:capitalize;margin-top:2px}
-.wx-avatar{width:64px;height:64px;flex-shrink:0;margin:-6px -4px 0 0}
-.wx-temp-row{display:flex;align-items:baseline;gap:10px;margin:4px 0 14px}
-.wx-temp{font-family:var(--serif);font-size:44px;font-weight:700;color:var(--wx-tx);line-height:1}
-.wx-feels{font-family:var(--sans);font-size:11.5px;color:var(--wx-sub)}
+/* Card 4 VÙNG phân tách rõ, mỗi vùng 1 sắc độ riêng (set qua biến inline theo nhóm thời tiết):
+   (1) City header nền tối brand · (2) 24h nền đậm · (3) 5 ngày nền nhạt hơn · (4) footer nền riêng.
+   Dông bão → cả 4 vùng tông tối (dark theme tự động theo thời tiết thật). */
+.travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;margin-top:18px}
+.wx-card{border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(26,21,16,.1);transition:transform .2s,box-shadow .2s}
+.wx-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(26,21,16,.16)}
 
-.wx-section-lbl{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wx-sub);margin-bottom:7px}
-.wx-hourly{display:flex;gap:2px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px}
-.wx-hour{flex:1;min-width:38px;text-align:center;font-family:var(--sans)}
-.wx-hour-t{font-size:9.5px;color:var(--wx-sub)}
-.wx-hour-icon{width:26px;height:26px}
-.wx-hour-v{font-size:11px;font-weight:700;color:var(--wx-tx)}
+/* VÙNG 1 — City header: nền tối brand, có vầng sáng gradient góc phải */
+.wx-city-zone{position:relative;background:linear-gradient(135deg,#241813 0%,#3A1E1E 100%);padding:18px 20px 20px;overflow:hidden}
+.wx-city-glow{position:absolute;top:-60px;right:-50px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--a2) 0%,transparent 68%);opacity:.4;pointer-events:none}
+.wx-city-row{position:relative;display:flex;align-items:flex-start;justify-content:space-between;z-index:1}
+.wx-city{font-family:var(--serif);font-size:20px;font-weight:700;color:#FDF8F0}
+.wx-cond{font-family:var(--sans);font-size:12px;color:rgba(253,248,240,.6);text-transform:capitalize;margin-top:3px}
+.wx-avatar{width:66px;height:66px;flex-shrink:0;margin:-4px -4px 0 0}
+.wx-temp-row{position:relative;display:flex;align-items:center;gap:10px;margin-top:6px;z-index:1}
+.wx-temp{font-family:var(--serif);font-size:46px;font-weight:700;color:#FDF8F0;line-height:.9}
+.wx-feels{font-family:var(--sans);font-size:11px;color:rgba(253,248,240,.55);line-height:1.3}
 
-.wx-daily{display:flex;flex-direction:column;gap:1px;margin-bottom:14px;background:rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
-.wx-day-row{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--wx-bg)}
-.wx-day-name{font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--wx-tx);width:34px;flex-shrink:0}
-.wx-day-icon{width:22px;height:22px;flex-shrink:0}
-.wx-day-bar-wrap{flex:1;height:4px;background:rgba(0,0,0,.08);border-radius:3px;overflow:hidden;margin:0 2px}
-.wx-day-bar{height:100%;border-radius:3px}
-.wx-day-range{font-family:var(--sans);font-size:11px;color:var(--wx-sub);flex-shrink:0;width:64px;text-align:right}
+.wx-section-lbl{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--wx-sub);margin-bottom:9px}
 
-.wx-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
-.wx-aqi{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:100px;font-family:var(--sans);font-size:11px;font-weight:700;color:#fff}
+/* VÙNG 2 — 24 giờ: nền ĐẬM hơn vùng 5 ngày */
+.wx-24-zone{background:var(--wx-24);padding:14px 16px}
+.wx-hourly{display:flex;gap:1px;overflow-x:auto;scrollbar-width:none}
+.wx-hourly::-webkit-scrollbar{display:none}
+.wx-hour{flex:1;min-width:40px;text-align:center;font-family:var(--sans)}
+.wx-hour-t{font-size:9.5px;color:var(--wx-sub);font-weight:600}
+.wx-hour-icon{width:30px;height:30px}
+.wx-hour-v{font-size:12px;font-weight:700;color:var(--wx-tx)}
+
+/* VÙNG 3 — 5 ngày: nền nhạt hơn, thanh nhiệt độ gradient nổi bật (min→max theo vị trí thật) */
+.wx-5d-zone{background:var(--wx-5d);padding:14px 16px}
+.wx-daily{display:flex;flex-direction:column;gap:8px}
+.wx-day-row{display:flex;align-items:center;gap:10px}
+.wx-day-name{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--wx-tx);width:30px;flex-shrink:0}
+.wx-day-icon{width:26px;height:26px;flex-shrink:0}
+.wx-day-track{position:relative;flex:1;height:6px;background:rgba(0,0,0,.09);border-radius:4px;overflow:hidden}
+.wx-day-fill{position:absolute;top:0;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--wx-accent),color-mix(in srgb,var(--wx-accent) 55%,#fff))}
+.wx-day-range{font-family:var(--sans);font-size:11.5px;flex-shrink:0;width:62px;text-align:right}
+.wx-dmin{color:var(--wx-sub)}
+.wx-dmax{color:var(--wx-tx);font-weight:700}
+
+/* VÙNG 4 — Footer: nền riêng, AQI badge tự đổi màu, 2 ô ẩm/gió được highlight thành box nổi */
+.wx-foot-zone{background:var(--wx-foot);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.wx-aqi{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:100px;font-family:var(--sans);font-size:11px;font-weight:700;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .wx-aqi .pm{opacity:.85;font-weight:400;font-size:9.5px}
-.wx-stat{display:flex;gap:12px;font-family:var(--sans);font-size:11px;color:var(--wx-sub)}
+.wx-stats{display:flex;gap:8px}
+.wx-stat-box{display:flex;flex-direction:column;align-items:center;gap:0;padding:5px 11px;background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.06);border-radius:12px;min-width:52px}
+.wx-stat-ic{font-size:13px;line-height:1.4}
+.wx-stat-v{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--wx-tx);line-height:1}
+.wx-stat-l{font-family:var(--sans);font-size:8.5px;color:var(--wx-sub);text-transform:uppercase;letter-spacing:.03em;margin-top:2px}
 
 .travel-attr{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:22px 0 6px}
 .travel-attr a{color:var(--a);text-decoration:none}
 .travel-attr a:hover{text-decoration:underline}
-@media(max-width:640px){.travel-grid-cards{grid-template-columns:1fr;gap:12px}.wx-card{padding:16px}.wx-temp{font-size:36px}}
-@media(max-width:640px){.travel-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}.travel-card{padding:14px}.travel-temp{font-size:30px}}
+@media(max-width:640px){.travel-grid-cards{grid-template-columns:1fr;gap:14px}.wx-temp{font-size:40px}}
 
 /* ─── SPORT SUB-TABS ─────────────────────────────────────────── */
 .sport-tabs{max-width:1100px;margin:0 auto;padding:24px 32px 0;display:flex;gap:6px;border-bottom:1px solid var(--rim2);flex-wrap:wrap}
@@ -411,7 +432,7 @@ async function loadTravel(){
     const data = await r.json();
     const cities = data.cities||[];
     if(!cities.length) throw new Error('Không có dữ liệu thành phố nào trả về');
-    html('travel-grid', `<div class="travel-grid-cards">${cities.map(mkWeatherCard).join('')}</div>`);
+    html('travel-grid', `<div class="travel-grid-cards">${cities.map((c,i)=>mkWeatherCard(c,i)).join('')}</div>`);
   }catch(err){
     console.warn('Lỗi tải thời tiết:', err.message);
     html('travel-grid', `<div class="err">Không tải được dữ liệu thời tiết lúc này (${err.message}). Thử tải lại trang sau ít phút.</div>`);
@@ -430,80 +451,70 @@ function weatherCategory(icon){
   if(code==='11') return 'storm';
   return 'cloudy'; // 02,03,04,13,50
 }
+// Mỗi nhóm thời tiết có 1 BỘ sắc độ phân tầng cho 4 vùng của card (yêu cầu người dùng): city
+// header dùng nền tối brand (bg-city/tx-city), vùng 24h đậm hơn vùng 5 ngày (bg-24h vs bg-5d,
+// cùng tông thời tiết nhưng khác độ đậm), footer có nền riêng (bg-foot). accent = màu nhấn dùng
+// cho thanh nhiệt độ + chi tiết. Dông bão vốn đã tối nên các vùng vẫn giữ tông tối nhất quán.
 const WEATHER_THEME = {
-  sunny:  {bg:'linear-gradient(160deg,#FFF6E4 0%,#FFE2AC 100%)', tx:'#4A3418', sub:'rgba(74,52,24,.62)', accent:'#E8A22B'},
-  cloudy: {bg:'linear-gradient(160deg,#F3F2EF 0%,#DFE2E2 100%)', tx:'#2E332F', sub:'rgba(46,51,47,.6)',  accent:'#7C8A94'},
-  rainy:  {bg:'linear-gradient(160deg,#E7F0F6 0%,#B9D3E3 100%)', tx:'#1E3A4C', sub:'rgba(30,58,76,.62)', accent:'#3E7C99'},
-  storm:  {bg:'linear-gradient(160deg,#3B4050 0%,#1C1F29 100%)', tx:'#F5EFE6', sub:'rgba(245,239,230,.6)', accent:'#8B9BB4'},
+  sunny:  {tx:'#4A3418', sub:'rgba(74,52,24,.62)', accent:'#E8A22B',
+           bg24:'linear-gradient(160deg,#FFE9BE 0%,#FFD98A 100%)', bg5d:'#FFF6E4', bgFoot:'#FBEFD6'},
+  cloudy: {tx:'#2E332F', sub:'rgba(46,51,47,.6)',  accent:'#7C8A94',
+           bg24:'linear-gradient(160deg,#DDE2E3 0%,#C7CFD1 100%)', bg5d:'#F3F2EF', bgFoot:'#E9EAE8'},
+  rainy:  {tx:'#1E3A4C', sub:'rgba(30,58,76,.62)', accent:'#3E7C99',
+           bg24:'linear-gradient(160deg,#C5DCEA 0%,#9EC1D6 100%)', bg5d:'#E7F0F6', bgFoot:'#DAE9F1'},
+  storm:  {tx:'#F5EFE6', sub:'rgba(245,239,230,.6)', accent:'#A9B8D0',
+           bg24:'linear-gradient(160deg,#2C303C 0%,#191C24 100%)', bg5d:'#333848', bgFoot:'#2A2E3A'},
 };
+// Nền tối brand cho vùng tên thành phố — dùng chung mọi nhóm thời tiết (yêu cầu: "dark theme
+// giống brand"). Đúng gradient thương hiệu vàng-cam-hồng trên nền tối.
+const CITY_HEADER_BG = 'linear-gradient(135deg,#241813 0%,#3A1E1E 100%)';
 
 // Nhân vật vẽ bằng SVG nguyên bản (không dùng ảnh/nhân vật có sẵn) — phần THÂN NGƯỜI dùng
 // currentColor để tự đổi theo màu chữ của từng thẻ (--wx-tx), còn phần phụ kiện/môi trường
 // (mặt trời, mây, mưa, sét) giữ màu cố định vì bản thân chúng đã mang đúng sắc thái riêng.
-function weatherAvatar(cat){
-  const head = `<circle cx="50" cy="30" r="12"/>`;
-  const body = `<rect x="39" y="42" width="22" height="26" rx="11"/>`;
-  const legs = `<line x1="47" y1="66" x2="38" y2="94"/><line x1="53" y1="66" x2="62" y2="94"/>`;
-  const person = `<g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">`;
+// Nhân vật theo ĐÚNG phong cách minh hoạ trang index (index.html): thân hình chuông/váy vẽ bằng
+// đường cong Q mềm mại, tô gradient thương hiệu vàng→hồng, viền đậm --illo-ink, có mắt + miệng
+// cười. Mỗi kiểu thời tiết thêm phụ kiện/tư thế riêng + môi trường xung quanh (mặt trời, dù, mái
+// che, mây). Mỗi card cần 1 gradient id riêng (idSuffix) vì nhiều SVG trên cùng trang không được
+// trùng id — nếu trùng, mọi nhân vật sẽ ăn chung 1 gradient, dễ lỗi màu.
+function weatherAvatar(cat, idSuffix){
+  const gid = 'wxg'+idSuffix;
+  const grad = `<defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>`;
+  // Khuôn mặt sát index: 2 mắt chấm biết chớp + miệng cười cong. Toạ độ tính quanh tâm đầu (cx,cy).
+  const face = (cx,cy)=>`<circle class="wxa-blink" cx="${cx-5}" cy="${cy-2}" r="2" fill="#1A1510"/><circle class="wxa-blink" cx="${cx+5}" cy="${cy-2}" r="2" fill="#1A1510"/><path d="M${cx-6} ${cy+4} Q${cx} ${cy+9} ${cx+6} ${cy+4}" stroke="var(--illo-ink)" stroke-width="2" stroke-linecap="round" fill="none"/>`;
+  // Thân teardrop mềm giống hệt index (path Q cong từ đỉnh eo xuống đáy loe), đầu tròn to cân đối.
+  const bodyHead = (gid)=>`<path d="M34 92 Q34 60 50 60 Q66 60 66 92 Z" fill="url(#${gid})" stroke="var(--illo-ink)" stroke-width="3.5"/><circle cx="50" cy="44" r="17" fill="url(#${gid})" stroke="var(--illo-ink)" stroke-width="3.5"/>`;
 
+  let inner;
   if(cat==='sunny'){
-    return `<svg class="wx-avatar" viewBox="0 0 100 100">
-      <g fill="#F4B942">
-        <circle cx="80" cy="18" r="9"/>
-        ${[0,45,90,135,180,225,270,315].map(a=>{const r1=13,r2=19,x1=80+r1*Math.cos(a*Math.PI/180),y1=18+r1*Math.sin(a*Math.PI/180),x2=80+r2*Math.cos(a*Math.PI/180),y2=18+r2*Math.sin(a*Math.PI/180);return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#F4B942" stroke-width="2.5" stroke-linecap="round"/>`}).join('')}
+    // Phơi nắng: đeo kính râm, mặt trời toả tia phía trên góc phải
+    inner = `<g fill="#F4B942"><circle cx="80" cy="18" r="8"/>
+        ${[0,45,90,135,180,225,270,315].map(a=>{const r1=12,r2=17,x1=80+r1*Math.cos(a*Math.PI/180),y1=18+r1*Math.sin(a*Math.PI/180),x2=80+r2*Math.cos(a*Math.PI/180),y2=18+r2*Math.sin(a*Math.PI/180);return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#F4B942" stroke-width="2.5" stroke-linecap="round"/>`}).join('')}
       </g>
-      ${person}
-        <circle cx="50" cy="30" r="12" fill="currentColor" stroke="none"/>
-        <line x1="40" y1="46" x2="20" y2="26"/>
-        <line x1="60" y1="46" x2="80" y2="30"/>
-        ${legs}
-      </g>
-      <rect x="41" y="27" width="18" height="5" rx="2.5" fill="#2A2118"/>
-      <rect x="39" y="42" width="22" height="26" rx="11" fill="currentColor"/>
-    </svg>`;
+      ${bodyHead(gid)}
+      <rect x="40" y="41" width="20" height="5.5" rx="2.75" fill="#2A2118"/>
+      <path d="M43 50 Q50 54 57 50" stroke="var(--illo-ink)" stroke-width="2" stroke-linecap="round" fill="none"/>`;
+  } else if(cat==='rainy'){
+    // Che dù: dù nghiêng phía trên, giọt mưa rơi bên trái
+    inner = `<g stroke="#3E7C99" stroke-width="2.5" stroke-linecap="round"><line x1="14" y1="60" x2="10" y2="72"/><line x1="24" y1="66" x2="20" y2="78"/><line x1="10" y1="50" x2="7" y2="60"/></g>
+      <path d="M34 22 Q60 0 86 22 Z" fill="url(#${gid})" stroke="var(--illo-ink)" stroke-width="2.5"/>
+      <line x1="60" y1="22" x2="60" y2="50" stroke="var(--illo-ink)" stroke-width="2.5" stroke-linecap="round"/>
+      ${bodyHead(gid)}
+      ${face(50,44)}`;
+  } else if(cat==='storm'){
+    // Trú mưa dưới mái nhà: mái che phía trên, sét + mưa NGOÀI mái
+    inner = `<polygon points="82,4 73,22 80,22 71,40 86,18 79,18" fill="#F4B942"/>
+      <g stroke="#8B9BB4" stroke-width="2" stroke-linecap="round"><line x1="8" y1="46" x2="5" y2="55"/><line x1="16" y1="52" x2="13" y2="61"/></g>
+      <path d="M18 48 L50 26 L82 48" fill="none" stroke="var(--illo-ink)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${bodyHead(gid)}
+      ${face(50,44)}`;
+  } else {
+    // cloudy: mây phía trên góc trái
+    inner = `<g fill="#B8C0C4"><ellipse cx="24" cy="20" rx="14" ry="9"/><ellipse cx="36" cy="15" rx="10" ry="7"/><ellipse cx="14" cy="17" rx="9" ry="6"/></g>
+      ${bodyHead(gid)}
+      ${face(50,44)}`;
   }
-  if(cat==='rainy'){
-    return `<svg class="wx-avatar" viewBox="0 0 100 100">
-      <g stroke="#3E7C99" stroke-width="2.5" stroke-linecap="round">
-        <line x1="14" y1="58" x2="10" y2="70"/><line x1="24" y1="64" x2="20" y2="76"/><line x1="10" y1="48" x2="7" y2="58"/>
-      </g>
-      <path d="M40,20 Q66,-2 92,20 Z" fill="#3E7C99"/>
-      <line x1="66" y1="20" x2="66" y2="44" stroke="#3E7C99" stroke-width="3" stroke-linecap="round"/>
-      ${person}
-        <line x1="40" y1="46" x2="30" y2="66"/>
-        <line x1="60" y1="46" x2="66" y2="24"/>
-        ${legs}
-      </g>
-      <circle cx="50" cy="30" r="12" fill="currentColor"/>
-      <rect x="39" y="42" width="22" height="26" rx="11" fill="currentColor"/>
-    </svg>`;
-  }
-  if(cat==='storm'){
-    return `<svg class="wx-avatar" viewBox="0 0 100 100">
-      <path d="M8,36 L50,8 L92,36" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
-      <line x1="15" y1="96" x2="85" y2="96" stroke="currentColor" stroke-width="3" opacity=".4"/>
-      <polygon points="83,4 74,20 80,20 72,36 86,16 79,16" fill="#F4B942"/>
-      <g stroke="#8B9BB4" stroke-width="2" stroke-linecap="round"><line x1="6" y1="44" x2="3" y2="53"/><line x1="14" y1="50" x2="11" y2="59"/></g>
-      ${person}
-        <path d="M40,46 Q50,60 58,52"/>
-        <path d="M60,46 Q50,60 42,52"/>
-        ${legs}
-      </g>
-      <circle cx="50" cy="30" r="12" fill="currentColor"/>
-      <rect x="39" y="42" width="22" height="26" rx="11" fill="currentColor"/>
-    </svg>`;
-  }
-  // cloudy (mặc định)
-  return `<svg class="wx-avatar" viewBox="0 0 100 100">
-    <g fill="#B8C0C4"><ellipse cx="20" cy="20" rx="13" ry="9"/><ellipse cx="30" cy="16" rx="10" ry="7"/><ellipse cx="11" cy="17" rx="8" ry="6"/></g>
-    ${person}
-      <line x1="40" y1="46" x2="31" y2="65"/>
-      <line x1="60" y1="46" x2="69" y2="65"/>
-      ${legs}
-    </g>
-    <circle cx="50" cy="30" r="12" fill="currentColor"/>
-    <rect x="39" y="42" width="22" height="26" rx="11" fill="currentColor"/>
-  </svg>`;
+  return `<svg class="wx-avatar" viewBox="0 0 100 100">${grad}${inner}</svg>`;
 }
 
 const WD_SHORT=['CN','T2','T3','T4','T5','T6','T7'];
@@ -520,64 +531,84 @@ function iconImg(icon, cls){
   return icon ? `<img class="${cls}" src="https://openweathermap.org/img/wn/${icon}.png" alt="" loading="lazy">` : '';
 }
 
-function mkWeatherCard(c){
+function mkWeatherCard(c, idx){
   const cat = weatherCategory(c.icon);
   const theme = WEATHER_THEME[cat];
-  const styleVars = `--wx-bg:${theme.bg};--wx-tx:${theme.tx};--wx-sub:${theme.sub}`;
+  const styleVars = `--wx-tx:${theme.tx};--wx-sub:${theme.sub};--wx-24:${theme.bg24};--wx-5d:${theme.bg5d};--wx-foot:${theme.bgFoot};--wx-accent:${theme.accent}`;
 
   if(c.error){
-    return `<div class="wx-card" style="${styleVars}"><div class="wx-city">${c.name}</div><div style="font-family:var(--sans);font-size:12px;color:var(--wx-sub);margin-top:10px">Không lấy được dữ liệu lúc này</div></div>`;
+    return `<div class="wx-card" style="${styleVars}">
+      <div class="wx-city-zone"><div class="wx-city">${c.name}</div></div>
+      <div style="font-family:var(--sans);font-size:12px;color:var(--i3);padding:18px">Không lấy được dữ liệu lúc này</div>
+    </div>`;
   }
 
+  const windKmh = c.wind_speed!=null ? Math.round(c.wind_speed*3.6) : null;
+
+  // ── VÙNG 1 — City header (nền tối brand, avatar + nhiệt độ hiện tại) ──
+  const cityZone = `<div class="wx-city-zone">
+    <div class="wx-city-glow"></div>
+    <div class="wx-city-row">
+      <div>
+        <div class="wx-city">${c.name}</div>
+        <div class="wx-cond">${c.condition||''}</div>
+      </div>
+      ${weatherAvatar(cat, idx)}
+    </div>
+    <div class="wx-temp-row">
+      <span class="wx-temp">${c.temp!=null?c.temp+'°':'—'}</span>
+      ${c.feels_like!=null?`<span class="wx-feels">cảm giác<br>như ${c.feels_like}°</span>`:''}
+    </div>
+  </div>`;
+
+  // ── VÙNG 2 — 24 giờ tới (nền đậm hơn vùng 5 ngày, cùng tông thời tiết) ──
   const hourlyHtml = (c.hourly||[]).map(h=>`
     <div class="wx-hour">
       <div class="wx-hour-t">${fmtHour(h.time)}</div>
       ${iconImg(h.icon,'wx-hour-icon')}
       <div class="wx-hour-v">${h.temp!=null?h.temp+'°':'—'}</div>
     </div>`).join('');
+  const hourZone = hourlyHtml ? `<div class="wx-24-zone">
+    <div class="wx-section-lbl">24 giờ tới</div>
+    <div class="wx-hourly">${hourlyHtml}</div>
+  </div>` : '';
 
-  // Thanh nhiệt độ mini cho mỗi ngày dự báo — độ dài thanh tỉ lệ theo nhiệt độ cao nhất trong
-  // tuần (so sánh nhanh ngày nào nóng hơn), không phải trang trí ngẫu nhiên.
+  // ── VÙNG 3 — 5 ngày tới (thanh nhiệt độ gradient nổi bật hơn, có chấm min/max) ──
   const allMax = (c.forecast||[]).map(f=>f.temp_max).filter(v=>v!=null);
+  const allMin = (c.forecast||[]).map(f=>f.temp_min).filter(v=>v!=null);
   const weekMax = allMax.length ? Math.max(...allMax) : 40;
-  const weekMin = allMax.length ? Math.min(...(c.forecast||[]).map(f=>f.temp_min).filter(v=>v!=null)) : 15;
+  const weekMin = allMin.length ? Math.min(...allMin) : 15;
+  const span = (weekMax-weekMin)||1;
   const dailyHtml = (c.forecast||[]).map(f=>{
-    const pct = f.temp_max!=null ? Math.max(15, Math.round(((f.temp_max-weekMin)/((weekMax-weekMin)||1))*100)) : 0;
+    // Thanh nằm đúng vị trí min→max trong khoảng nhiệt cả tuần — nhìn phát thấy ngày nào nóng/mát
+    // hơn và biên độ ngày rộng/hẹp, ấn tượng hơn thanh flat từ 0 cũ.
+    const left = f.temp_min!=null ? Math.round(((f.temp_min-weekMin)/span)*100) : 0;
+    const width = (f.temp_min!=null&&f.temp_max!=null) ? Math.max(12, Math.round(((f.temp_max-f.temp_min)/span)*100)) : 0;
     return `<div class="wx-day-row">
       <div class="wx-day-name">${fmtDayHeader(f.date)}</div>
       ${iconImg(f.icon,'wx-day-icon')}
-      <div class="wx-day-bar-wrap"><div class="wx-day-bar" style="width:${pct}%;background:${theme.accent}"></div></div>
-      <div class="wx-day-range">${f.temp_min!=null?f.temp_min+'°–'+f.temp_max+'°':'—'}</div>
+      <div class="wx-day-track"><div class="wx-day-fill" style="left:${left}%;width:${width}%"></div></div>
+      <div class="wx-day-range"><span class="wx-dmin">${f.temp_min!=null?f.temp_min+'°':''}</span> <span class="wx-dmax">${f.temp_max!=null?f.temp_max+'°':'—'}</span></div>
     </div>`;
   }).join('');
+  const dayZone = dailyHtml ? `<div class="wx-5d-zone">
+    <div class="wx-section-lbl">5 ngày tới</div>
+    <div class="wx-daily">${dailyHtml}</div>
+  </div>` : '';
 
+  // ── VÙNG 4 — Footer (nền riêng, AQI đổi màu theo chất lượng, highlight ẩm + gió) ──
   const aqiHtml = c.aqi_label
     ? `<span class="wx-aqi" style="background:${c.aqi_color}">${c.aqi_label}${c.pm25!=null?` <span class="pm">PM2.5 ${c.pm25}</span>`:''}</span>`
     : `<span style="font-size:11px;color:var(--wx-sub)">Chưa có dữ liệu không khí</span>`;
-
-  const windKmh = c.wind_speed!=null ? Math.round(c.wind_speed*3.6) : null;
-
-  return `<div class="wx-card" style="${styleVars}">
-    <div class="wx-head">
-      <div>
-        <div class="wx-city">${c.name}</div>
-        <div class="wx-cond">${c.condition||''}</div>
-      </div>
-      ${weatherAvatar(cat)}
-    </div>
-    <div class="wx-temp-row">
-      <span class="wx-temp">${c.temp!=null?c.temp+'°':'—'}</span>
-      ${c.feels_like!=null?`<span class="wx-feels">cảm giác như ${c.feels_like}°</span>`:''}
-    </div>
-
-    ${hourlyHtml?`<div class="wx-section-lbl">24 giờ tới</div><div class="wx-hourly">${hourlyHtml}</div>`:''}
-    ${dailyHtml?`<div class="wx-section-lbl">5 ngày tới</div><div class="wx-daily">${dailyHtml}</div>`:''}
-
-    <div class="wx-footer">
-      ${aqiHtml}
-      <div class="wx-stat">${c.humidity!=null?`<span>💧 ${c.humidity}%</span>`:''}${windKmh!=null?`<span>🌬️ ${windKmh} km/h</span>`:''}</div>
+  const footZone = `<div class="wx-foot-zone">
+    ${aqiHtml}
+    <div class="wx-stats">
+      ${c.humidity!=null?`<div class="wx-stat-box"><span class="wx-stat-ic">💧</span><span class="wx-stat-v">${c.humidity}%</span><span class="wx-stat-l">Độ ẩm</span></div>`:''}
+      ${windKmh!=null?`<div class="wx-stat-box"><span class="wx-stat-ic">🌬️</span><span class="wx-stat-v">${windKmh}</span><span class="wx-stat-l">km/h</span></div>`:''}
     </div>
   </div>`;
+
+  return `<div class="wx-card" style="${styleVars}">${cityZone}${hourZone}${dayZone}${footZone}</div>`;
 }
 
 function switchSport(sport,el){
