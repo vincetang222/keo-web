@@ -94,29 +94,30 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .travel-intro{padding:18px 0 4px}
 .travel-title{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .travel-sub{font-family:var(--sans);font-size:13px;color:var(--i3)}
-.travel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:18px}
 
-/* Card có viền màu trên + glow tròn phía sau icon, đổi theo nhóm nhiệt độ qua biến --tc set
-   inline bằng JS (Nóng=cam-đỏ, Ấm=cam thương hiệu, Mát=xanh) — vừa tạo khác biệt thị giác giữa
-   các thẻ (không còn đồng loạt trắng phẳng), vừa mã hoá đúng 1 thông tin thật (mức nhiệt độ),
-   không phải trang trí ngẫu nhiên. */
-.travel-card{position:relative;background:var(--s1);border:1px solid var(--rim2);border-radius:16px;padding:18px;padding-top:20px;overflow:hidden;box-shadow:0 2px 10px rgba(26,21,16,.05);transition:transform .2s,box-shadow .2s}
-.travel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tc,var(--a))}
-.travel-card::after{content:'';position:absolute;top:-32px;right:-28px;width:110px;height:110px;border-radius:50%;background:var(--tc,var(--a));opacity:.07}
-.travel-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(26,21,16,.1)}
-.travel-card-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2px;position:relative;z-index:1}
-.travel-city{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);line-height:1.25}
-.travel-tag{display:inline-block;margin-top:5px;font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tc,var(--a))}
-.travel-icon{width:56px;height:56px;margin:-10px -8px -6px 0;position:relative;z-index:1}
-.travel-temp-row{display:flex;align-items:baseline;gap:8px;margin:4px 0 6px;position:relative;z-index:1}
-.travel-temp{font-family:var(--serif);font-size:38px;font-weight:700;color:var(--tc,var(--a));line-height:1}
-.travel-feels{font-family:var(--sans);font-size:11.5px;color:var(--i3)}
-.travel-cond{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--i2);text-transform:capitalize;margin-bottom:12px;position:relative;z-index:1}
-.travel-stats{display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--rim);position:relative;z-index:1}
-.travel-stat{display:flex;align-items:center;gap:5px;font-family:var(--sans);font-size:11.5px;color:var(--i3)}
+/* Bảng gọn thay cho card to — 1 dòng/thành phố, đủ Hiện tại + 5 ngày dự báo + AQI trong 1 màn
+   hình, không cần cuộn dài như trước. Cuộn ngang trên mobile vì bảng khá rộng (8 cột). */
+.travel-table-wrap{margin-top:16px;overflow-x:auto;border:1px solid var(--rim2);border-radius:16px;box-shadow:0 2px 10px rgba(26,21,16,.05)}
+.travel-table{width:100%;border-collapse:collapse;background:var(--s1);font-family:var(--sans);white-space:nowrap}
+.travel-table th{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--i3);text-align:left;padding:12px 14px;background:var(--s2);border-bottom:1px solid var(--rim2)}
+.travel-table td{padding:12px 14px;border-bottom:1px solid var(--rim);vertical-align:middle}
+.travel-table tr:last-child td{border-bottom:none}
+.travel-table tr:hover td{background:var(--s2)}
+.tt-city{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--ink);position:sticky;left:0;background:var(--s1);z-index:1}
+.travel-table tr:hover .tt-city{background:var(--s2)}
+.tt-cell{display:flex;align-items:center;gap:6px}
+.tt-icon{width:26px;height:26px;flex-shrink:0}
+.tt-temp{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--tc,var(--a))}
+.tt-temp-range{font-family:var(--sans);font-size:11.5px;color:var(--i2);white-space:nowrap}
+.tt-tag{font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tc,var(--a));margin-left:2px}
+.tt-current .tt-temp{font-size:19px}
+.aqi-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;color:#fff;background:var(--ac,var(--i3))}
+.aqi-badge .pm{opacity:.85;font-weight:400;font-size:10px}
+
 .travel-attr{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:22px 0 6px}
 .travel-attr a{color:var(--a);text-decoration:none}
 .travel-attr a:hover{text-decoration:underline}
+@media(max-width:640px){.travel-table th,.travel-table td{padding:10px 10px;font-size:12px}.tt-city{font-size:13px}}
 @media(max-width:640px){.travel-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}.travel-card{padding:14px}.travel-temp{font-size:30px}}
 
 /* ─── SPORT SUB-TABS ─────────────────────────────────────────── */
@@ -311,18 +312,18 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 <div id="pillar-travel" class="pillar-panel">
   <main>
     <div class="travel-tabs">
-      <div class="travel-tab on" onclick="switchTravelTab('weather',this)">🌤️ Thời tiết</div>
-      <div class="travel-tab soon">📅 Dự báo 5 ngày <span class="soon-tag">SẮP CÓ</span></div>
-      <div class="travel-tab soon">🌬️ Chất lượng không khí <span class="soon-tag">SẮP CÓ</span></div>
+      <div class="travel-tab on">🌤️ Thời tiết &amp; không khí</div>
+      <div class="travel-tab soon">🎪 Sự kiện <span class="soon-tag">CHƯA CÓ NGUỒN DỮ LIỆU</span></div>
+      <div class="travel-tab soon">📍 Điểm đến <span class="soon-tag">SẮP CÓ</span></div>
     </div>
     <div class="travel-intro">
-      <div class="travel-title">Thời tiết 10 điểm đến được tìm kiếm nhiều nhất</div>
+      <div class="travel-title">Thời tiết &amp; chất lượng không khí — 10 điểm đến phổ biến</div>
       <p class="travel-sub">Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Đà Lạt / Phú Quốc thế nào nhỉ?"</p>
     </div>
-    <div id="travel-grid" class="travel-grid">
+    <div id="travel-grid">
       <div class="ld">Đang tải thời tiết…</div>
     </div>
-    <div class="travel-attr">Dữ liệu thời tiết từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a></div>
+    <div class="travel-attr">Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a></div>
   </main>
 </div>
 
@@ -387,12 +388,6 @@ function switchPillar(pillar, el){
 // Tab con trong Du lịch — hiện chỉ "Thời tiết" hoạt động, 2 tab còn lại đánh dấu "sắp có" (không
 // có onclick, xem CSS .travel-tab.soon). Hàm này viết sẵn khung để khi có tab #2/#3 chỉ cần thêm
 // đúng 1 dòng if, không phải dựng lại cơ chế chuyển tab từ đầu.
-function switchTravelTab(tab, el){
-  document.querySelectorAll('.travel-tab').forEach(t=>t.classList.remove('on'));
-  el.classList.add('on');
-  // Hiện tại chỉ có 'weather' — chỗ này sẽ mở rộng thêm khi có tab mới
-}
-
 async function loadTravel(){
   try{
     const r = await fetchT(WORKER_BASE+'/weather/vn-cities', 10000);
@@ -400,7 +395,7 @@ async function loadTravel(){
     const data = await r.json();
     const cities = data.cities||[];
     if(!cities.length) throw new Error('Không có dữ liệu thành phố nào trả về');
-    html('travel-grid', cities.map(mkTravelCard).join(''));
+    html('travel-grid', mkTravelTable(cities));
   }catch(err){
     console.warn('Lỗi tải thời tiết:', err.message);
     html('travel-grid', `<div class="err">Không tải được dữ liệu thời tiết lúc này (${err.message}). Thử tải lại trang sau ít phút.</div>`);
@@ -412,34 +407,62 @@ async function loadTravel(){
 // 30-35°C (Ấm — vẫn dùng màu cam thương hiệu làm mặc định), chỉ Đà Lạt/Sa Pa (cao nguyên/núi)
 // thấp hơn hẳn (Mát — xanh), và các ngày nắng gắt bất thường ≥33°C nổi bật riêng (Nóng — đỏ cam).
 function tempCategory(temp){
-  if(temp==null) return {cls:'',label:'',color:'var(--a)'};
+  if(temp==null) return {label:'', color:'var(--a)'};
   if(temp>=33) return {label:'Nóng', color:'var(--a2)'};
   if(temp<25) return {label:'Mát', color:'var(--sky)'};
   return {label:'Ấm', color:'var(--a)'};
 }
 
-function mkTravelCard(c){
-  if(c.error){
-    return `<div class="travel-card"><div class="travel-city">${c.name}</div><div style="font-family:var(--sans);font-size:12px;color:var(--i3);margin-top:8px">Không lấy được dữ liệu lúc này</div></div>`;
-  }
-  const iconUrl = c.icon ? `https://openweathermap.org/img/wn/${c.icon}@2x.png` : '';
-  const windKmh = c.wind_speed!=null ? Math.round(c.wind_speed*3.6) : null; // m/s → km/h cho dễ hình dung
-  const cat = tempCategory(c.temp);
-  return `<div class="travel-card" style="--tc:${cat.color}">
-    <div class="travel-card-head">
-      <div><div class="travel-city">${c.name}</div>${cat.label?`<span class="travel-tag">${cat.label}</span>`:''}</div>
-      ${iconUrl?`<img class="travel-icon" src="${iconUrl}" alt="" loading="lazy">`:''}
-    </div>
-    <div class="travel-temp-row">
-      <span class="travel-temp">${c.temp!=null?c.temp+'°':'—'}</span>
-      ${c.feels_like!=null?`<span class="travel-feels">cảm giác như ${c.feels_like}°</span>`:''}
-    </div>
-    <div class="travel-cond">${c.condition||''}</div>
-    <div class="travel-stats">
-      ${c.humidity!=null?`<span class="travel-stat">💧 ${c.humidity}%</span>`:''}
-      ${windKmh!=null?`<span class="travel-stat">🌬️ ${windKmh} km/h</span>`:''}
-    </div>
-  </div>`;
+const WD_SHORT=['CN','T2','T3','T4','T5','T6','T7'];
+function fmtDayHeader(dateStr){
+  const d = new Date(dateStr+'T12:00:00'); // gắn giờ trưa tránh lệch ngày do múi giờ
+  if(isNaN(d)) return dateStr;
+  const [,, day] = dateStr.split('-');
+  return `${WD_SHORT[d.getDay()]} ${day}/${dateStr.split('-')[1]}`;
+}
+
+function iconImg(icon, size){
+  return icon ? `<img class="tt-icon" style="width:${size}px;height:${size}px" src="https://openweathermap.org/img/wn/${icon}.png" alt="" loading="lazy">` : '';
+}
+
+// Xây cả bảng 1 lần (thay vì map từng dòng độc lập) vì cần lấy NGÀY tiêu đề cột dự báo từ thành
+// phố đầu tiên có dữ liệu hợp lệ — mọi thành phố dùng chung 1 khung 5 ngày nên chỉ cần lấy 1 lần.
+function mkTravelTable(cities){
+  const withForecast = cities.find(c=>c.forecast && c.forecast.length);
+  const fcDates = withForecast ? withForecast.forecast.map(f=>f.date) : [];
+
+  const head = `<tr>
+    <th>Thành phố</th>
+    <th>Hiện tại</th>
+    ${fcDates.map(d=>`<th>${fmtDayHeader(d)}</th>`).join('')}
+    <th>Không khí</th>
+  </tr>`;
+
+  const rows = cities.map(c=>{
+    if(c.error){
+      return `<tr><td class="tt-city">${c.name}</td><td colspan="${2+fcDates.length}" style="color:var(--i3);font-size:12px">Không lấy được dữ liệu lúc này</td></tr>`;
+    }
+    const cat = tempCategory(c.temp);
+    const curCell = `<div class="tt-cell tt-current" style="--tc:${cat.color}">${iconImg(c.icon,30)}<span class="tt-temp">${c.temp!=null?c.temp+'°':'—'}</span>${cat.label?`<span class="tt-tag">${cat.label}</span>`:''}</div>`;
+
+    const fcCells = (c.forecast||fcDates.map(()=>({}))).map(f=>{
+      const fcat = tempCategory(f.temp_max);
+      return `<td><div class="tt-cell" style="--tc:${fcat.color}">${iconImg(f.icon,22)}<span class="tt-temp-range">${f.temp_min!=null?f.temp_min+'–'+f.temp_max+'°':'—'}</span></div></td>`;
+    }).join('');
+
+    const aqiCell = c.aqi_label
+      ? `<span class="aqi-badge" style="--ac:${c.aqi_color}">${c.aqi_label}${c.pm25!=null?` <span class="pm">PM2.5 ${c.pm25}</span>`:''}</span>`
+      : `<span style="color:var(--i3);font-size:11px">—</span>`;
+
+    return `<tr>
+      <td class="tt-city">${c.name}</td>
+      <td>${curCell}</td>
+      ${fcCells}
+      <td>${aqiCell}</td>
+    </tr>`;
+  }).join('');
+
+  return `<div class="travel-table-wrap"><table class="travel-table"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function switchSport(sport,el){
