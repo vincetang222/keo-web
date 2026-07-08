@@ -27,6 +27,7 @@
   --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
   --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
   --gn:#00A047;--rd:#D14060;--sky:#3E7C99;
+  --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
   --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -101,56 +102,50 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .travel-title{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .travel-sub{font-family:var(--sans);font-size:13px;color:var(--i3)}
 
-/* Card 4 VÙNG phân tách rõ, mỗi vùng 1 sắc độ riêng (set qua biến inline theo nhóm thời tiết):
-   (1) City header nền tối brand · (2) 24h nền đậm · (3) 5 ngày nền nhạt hơn · (4) footer nền riêng.
-   Dông bão → cả 4 vùng tông tối (dark theme tự động theo thời tiết thật). */
-.travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;margin-top:18px}
-.wx-card{border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(26,21,16,.1);transition:transform .2s,box-shadow .2s}
-.wx-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(26,21,16,.16)}
+/* Card kiểu APPLE WEATHER — 1 gradient liền mạch cho toàn card (đậm + sang trọng, vừa là dark
+   theme vừa tinh tế), phân cấp thông tin bằng CỠ CHỮ và khoảng trắng thay vì nhiều khối màu nền.
+   Số nhiệt độ dùng font-weight nhẹ (200) — đặc trưng nhận diện ngay của app Weather thật. */
+.travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:18px}
+.wx-card{position:relative;border-radius:26px;padding:22px 22px 18px;overflow:hidden;background:var(--wx-grad);box-shadow:0 10px 30px rgba(26,21,16,.18);transition:transform .25s,box-shadow .25s;color:#fff}
+.wx-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,21,16,.24)}
+.wx-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, rgba(255,255,255,.14) 0%, transparent 55%);pointer-events:none}
 
-/* VÙNG 1 — City header: nền tối brand, có vầng sáng gradient góc phải */
-.wx-city-zone{position:relative;background:linear-gradient(135deg,#241813 0%,#3A1E1E 100%);padding:18px 20px 20px;overflow:hidden}
-.wx-city-glow{position:absolute;top:-60px;right:-50px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--a2) 0%,transparent 68%);opacity:.4;pointer-events:none}
-.wx-city-row{position:relative;display:flex;align-items:flex-start;justify-content:space-between;z-index:1}
-.wx-city{font-family:var(--serif);font-size:20px;font-weight:700;color:#FDF8F0}
-.wx-cond{font-family:var(--sans);font-size:12px;color:rgba(253,248,240,.6);text-transform:capitalize;margin-top:3px}
-.wx-avatar{width:66px;height:66px;flex-shrink:0;margin:-4px -4px 0 0}
-.wx-temp-row{position:relative;display:flex;align-items:center;gap:10px;margin-top:6px;z-index:1}
-.wx-temp{font-family:var(--serif);font-size:46px;font-weight:700;color:#FDF8F0;line-height:.9}
-.wx-feels{font-family:var(--sans);font-size:11px;color:rgba(253,248,240,.55);line-height:1.3}
+.wx-head-row{position:relative;display:flex;align-items:flex-start;justify-content:space-between;z-index:1}
+.wx-city{font-family:var(--sans);font-size:17px;font-weight:600;color:#fff;letter-spacing:-.01em}
+.wx-cond{font-family:var(--sans);font-size:12.5px;color:rgba(255,255,255,.7);text-transform:capitalize;margin-top:2px}
+.wx-avatar{width:52px;height:52px;flex-shrink:0;opacity:.92}
+.wx-temp-row{position:relative;display:flex;align-items:baseline;gap:10px;margin-top:2px;z-index:1}
+.wx-temp{font-family:var(--sans);font-size:64px;font-weight:200;color:#fff;line-height:1;letter-spacing:-.02em}
+.wx-feels{font-family:var(--sans);font-size:12.5px;color:rgba(255,255,255,.65)}
 
-.wx-section-lbl{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--wx-sub);margin-bottom:9px}
+/* Dải phân cách MẢNH thay cho khối màu riêng — đúng cách Apple Weather ngăn cách các mục */
+.wx-divider{height:1px;background:rgba(255,255,255,.16);margin:16px 0 14px}
 
-/* VÙNG 2 — 24 giờ: nền ĐẬM hơn vùng 5 ngày */
-.wx-24-zone{background:var(--wx-24);padding:14px 16px}
-.wx-hourly{display:flex;gap:1px;overflow-x:auto;scrollbar-width:none}
+.wx-hourly{position:relative;z-index:1;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .wx-hourly::-webkit-scrollbar{display:none}
-.wx-hour{flex:1;min-width:40px;text-align:center;font-family:var(--sans)}
-.wx-hour-t{font-size:9.5px;color:var(--wx-sub);font-weight:600}
-.wx-hour-icon{width:30px;height:30px}
-.wx-hour-v{font-size:12px;font-weight:700;color:var(--wx-tx)}
+.wx-hour{flex:1;min-width:38px;text-align:center;font-family:var(--sans)}
+.wx-hour-t{font-size:10px;color:rgba(255,255,255,.6);font-weight:500}
+.wx-hour-icon{width:26px;height:26px;margin:2px 0}
+.wx-hour-v{font-size:13px;font-weight:600;color:#fff}
 
-/* VÙNG 3 — 5 ngày: nền nhạt hơn, thanh nhiệt độ gradient nổi bật (min→max theo vị trí thật) */
-.wx-5d-zone{background:var(--wx-5d);padding:14px 16px}
-.wx-daily{display:flex;flex-direction:column;gap:8px}
+.wx-daily{position:relative;z-index:1;display:flex;flex-direction:column;gap:9px}
 .wx-day-row{display:flex;align-items:center;gap:10px}
-.wx-day-name{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--wx-tx);width:30px;flex-shrink:0}
-.wx-day-icon{width:26px;height:26px;flex-shrink:0}
-.wx-day-track{position:relative;flex:1;height:6px;background:rgba(0,0,0,.09);border-radius:4px;overflow:hidden}
-.wx-day-fill{position:absolute;top:0;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--wx-accent),color-mix(in srgb,var(--wx-accent) 55%,#fff))}
-.wx-day-range{font-family:var(--sans);font-size:11.5px;flex-shrink:0;width:62px;text-align:right}
-.wx-dmin{color:var(--wx-sub)}
-.wx-dmax{color:var(--wx-tx);font-weight:700}
+.wx-day-name{font-family:var(--sans);font-size:13px;font-weight:600;color:#fff;width:28px;flex-shrink:0}
+.wx-day-icon{width:22px;height:22px;flex-shrink:0}
+.wx-day-track{position:relative;flex:1;height:4px;background:rgba(255,255,255,.16);border-radius:3px;overflow:hidden}
+.wx-day-fill{position:absolute;top:0;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--wx-accent),color-mix(in srgb,var(--wx-accent) 60%,#fff))}
+.wx-day-range{font-family:var(--sans);font-size:12.5px;flex-shrink:0;width:60px;text-align:right}
+.wx-dmin{color:rgba(255,255,255,.55)}
+.wx-dmax{color:#fff;font-weight:600}
 
-/* VÙNG 4 — Footer: nền riêng, AQI badge tự đổi màu, 2 ô ẩm/gió được highlight thành box nổi */
-.wx-foot-zone{background:var(--wx-foot);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.wx-aqi{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:100px;font-family:var(--sans);font-size:11px;font-weight:700;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
-.wx-aqi .pm{opacity:.85;font-weight:400;font-size:9.5px}
-.wx-stats{display:flex;gap:8px}
-.wx-stat-box{display:flex;flex-direction:column;align-items:center;gap:0;padding:5px 11px;background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.06);border-radius:12px;min-width:52px}
-.wx-stat-ic{font-size:13px;line-height:1.4}
-.wx-stat-v{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--wx-tx);line-height:1}
-.wx-stat-l{font-family:var(--sans);font-size:8.5px;color:var(--wx-sub);text-transform:uppercase;letter-spacing:.03em;margin-top:2px}
+/* Footer — AQI hiện đúng số + chấm màu đổi theo mức thật (0-50 xanh/51-100 vàng/101-150 cam/
+   151+ đỏ), không còn badge nền phẳng 1 màu cố định như trước */
+.wx-foot-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.wx-aqi{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;color:#fff}
+.wx-aqi-dot{width:8px;height:8px;border-radius:50%;background:var(--aqic);box-shadow:0 0 6px var(--aqic)}
+.wx-aqi .pm{opacity:.65;font-weight:400}
+.wx-stats{display:flex;gap:12px}
+.wx-stat{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.75)}
 
 .travel-attr{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:22px 0 6px}
 .travel-attr a{color:var(--a);text-decoration:none}
@@ -167,19 +162,28 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .topic-intro{padding:0 0 20px}
 
-/* Nội dung 6 chủ đề thể thao — thẻ lưới 2 cột, 2 thẻ đầu (Thế giới/Việt Nam) chiếm trọn hàng vì
-   nội dung dài hơn, 3 thẻ còn lại (Cách chơi/Chơi ở đâu/Hội nhóm) xếp lưới đều. */
+/* Nội dung 6 chủ đề thể thao — DARK THEME, sang trọng hơn hẳn bản sáng phẳng trước. Thẻ lưới 2
+   cột, 2 thẻ đầu (Thế giới/Việt Nam) chiếm trọn hàng vì nội dung dài hơn. */
 .topic-hero{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.topic-icon{font-size:40px;line-height:1;width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:var(--s1);border:1px solid var(--rim2);border-radius:18px;box-shadow:0 3px 12px rgba(26,21,16,.06)}
+.topic-icon{font-size:40px;line-height:1;width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#241813 0%,#3A1E1E 100%);border-radius:18px;box-shadow:0 4px 16px rgba(26,21,16,.18)}
 .topic-name{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink)}
 .topic-name-en{font-family:var(--sans);font-size:12px;color:var(--i3);letter-spacing:.02em}
 .topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.topic-card{background:var(--s1);border:1px solid var(--rim2);border-radius:16px;padding:18px 20px;box-shadow:0 2px 10px rgba(26,21,16,.05)}
+.topic-card{position:relative;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:18px;padding:20px 22px;overflow:hidden;box-shadow:0 8px 24px rgba(26,21,16,.16)}
+.topic-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, rgba(232,162,43,.1) 0%, transparent 55%);pointer-events:none}
 .topic-card.wide{grid-column:1/-1}
-.topic-card.accent{background:linear-gradient(160deg,var(--s1) 0%,#FBF3E7 100%);border-color:color-mix(in srgb,var(--gold) 35%,var(--rim2))}
-.topic-card-title{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--i3);margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.topic-card-body{font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--i2)}
-.topic-card-body b{color:var(--ink);font-weight:700}
+.topic-card.accent{background:linear-gradient(160deg,#2A1F16 0%,#1D140F 100%)}
+.topic-card-title{position:relative;z-index:1;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,239,230,.5);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.topic-card-body{position:relative;z-index:1;font-family:var(--sans);font-size:13.5px;line-height:1.65;color:rgba(245,239,230,.82)}
+.topic-card-body b{color:#F5EFE6;font-weight:700}
+
+/* Chip thông tin nhanh — hiện SỐ LIỆU cốt lõi (kích thước sân, cách tính điểm...) dưới dạng thẻ
+   trực quan, đọc lướt 3 giây thay vì phải đọc hết đoạn văn — đoạn văn phía dưới chỉ để bổ sung
+   ngữ cảnh cho ai muốn đọc sâu hơn. */
+.topic-facts{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.topic-fact{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:8px 13px;min-width:78px}
+.topic-fact-v{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--gold)}
+.topic-fact-l{font-family:var(--sans);font-size:9px;color:rgba(245,239,230,.5);text-transform:uppercase;letter-spacing:.04em}
 @media(max-width:700px){.topic-grid{grid-template-columns:1fr}}
 
 .ld{text-align:center;padding:30px;color:var(--i3);font-size:13px}
@@ -250,6 +254,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     <div class="sport-tab" data-t="shooting" onclick="switchTopic('shooting',this)">🎯 Bắn súng</div>
     <div class="sport-tab" data-t="taekwondo" onclick="switchTopic('taekwondo',this)">🥋 Taekwondo</div>
     <div class="sport-tab" data-t="swimming" onclick="switchTopic('swimming',this)">🏊 Bơi lội</div>
+    <div class="sport-tab" data-t="running" onclick="switchTopic('running',this)">🏃 Chạy bộ</div>
   </div>
 
   <div id="topic-content"></div>
@@ -361,23 +366,18 @@ function weatherCategory(icon){
   if(code==='11') return 'storm';
   return 'cloudy'; // 02,03,04,13,50
 }
-// Mỗi nhóm thời tiết có 1 BỘ sắc độ phân tầng cho 4 vùng của card (yêu cầu người dùng): city
-// header dùng nền tối brand (bg-city/tx-city), vùng 24h đậm hơn vùng 5 ngày (bg-24h vs bg-5d,
-// cùng tông thời tiết nhưng khác độ đậm), footer có nền riêng (bg-foot). accent = màu nhấn dùng
-// cho thanh nhiệt độ + chi tiết. Dông bão vốn đã tối nên các vùng vẫn giữ tông tối nhất quán.
+// ─── THEME KIỂU APPLE WEATHER — 1 gradient liền mạch cho toàn card (không tách 4 khối màu riêng
+// như bản trước), đậm và sang trọng để vừa là "dark theme" vừa đủ tinh tế kiểu Apple. Chữ luôn
+// sáng nhất quán (không đổi màu theo từng vùng) — đơn giản hoá, giống app Weather thật của Apple:
+// hệ thống phân cấp bằng TYPOGRAPHY (cỡ chữ, độ đậm) và khoảng trắng, không phải nhiều màu nền.
 const WEATHER_THEME = {
-  sunny:  {tx:'#4A3418', sub:'rgba(74,52,24,.62)', accent:'#E8A22B',
-           bg24:'linear-gradient(160deg,#FFE9BE 0%,#FFD98A 100%)', bg5d:'#FFF6E4', bgFoot:'#FBEFD6'},
-  cloudy: {tx:'#2E332F', sub:'rgba(46,51,47,.6)',  accent:'#7C8A94',
-           bg24:'linear-gradient(160deg,#DDE2E3 0%,#C7CFD1 100%)', bg5d:'#F3F2EF', bgFoot:'#E9EAE8'},
-  rainy:  {tx:'#1E3A4C', sub:'rgba(30,58,76,.62)', accent:'#3E7C99',
-           bg24:'linear-gradient(160deg,#C5DCEA 0%,#9EC1D6 100%)', bg5d:'#E7F0F6', bgFoot:'#DAE9F1'},
-  storm:  {tx:'#F5EFE6', sub:'rgba(245,239,230,.6)', accent:'#A9B8D0',
-           bg24:'linear-gradient(160deg,#2C303C 0%,#191C24 100%)', bg5d:'#333848', bgFoot:'#2A2E3A'},
+  sunny:  {grad:'linear-gradient(160deg,#C9782F 0%,#A83F4A 60%,#7A2E4E 100%)', accent:'#FFC372'},
+  cloudy: {grad:'linear-gradient(160deg,#4A525C 0%,#333A42 60%,#22262C 100%)', accent:'#B8C4CE'},
+  rainy:  {grad:'linear-gradient(160deg,#2E5C78 0%,#1F3F54 60%,#152A38 100%)', accent:'#8FCBEA'},
+  storm:  {grad:'linear-gradient(160deg,#3A3550 0%,#242038 60%,#141220 100%)', accent:'#B0A8D8'},
 };
-// Nền tối brand cho vùng tên thành phố — dùng chung mọi nhóm thời tiết (yêu cầu: "dark theme
+
 // giống brand"). Đúng gradient thương hiệu vàng-cam-hồng trên nền tối.
-const CITY_HEADER_BG = 'linear-gradient(135deg,#241813 0%,#3A1E1E 100%)';
 
 // Nhân vật vẽ bằng SVG nguyên bản (không dùng ảnh/nhân vật có sẵn) — phần THÂN NGƯỜI dùng
 // currentColor để tự đổi theo màu chữ của từng thẻ (--wx-tx), còn phần phụ kiện/môi trường
@@ -444,54 +444,48 @@ function iconImg(icon, cls){
 function mkWeatherCard(c, idx){
   const cat = weatherCategory(c.icon);
   const theme = WEATHER_THEME[cat];
-  const styleVars = `--wx-tx:${theme.tx};--wx-sub:${theme.sub};--wx-24:${theme.bg24};--wx-5d:${theme.bg5d};--wx-foot:${theme.bgFoot};--wx-accent:${theme.accent}`;
+  const styleVars = `--wx-grad:${theme.grad};--wx-accent:${theme.accent}`;
 
   if(c.error){
     return `<div class="wx-card" style="${styleVars}">
-      <div class="wx-city-zone"><div class="wx-city">${c.name}</div></div>
-      <div style="font-family:var(--sans);font-size:12px;color:var(--i3);padding:18px">Không lấy được dữ liệu lúc này</div>
+      <div class="wx-city">${c.name}</div>
+      <div style="font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.55);margin-top:10px">Không lấy được dữ liệu lúc này</div>
     </div>`;
   }
 
   const windKmh = c.wind_speed!=null ? Math.round(c.wind_speed*3.6) : null;
 
-  // ── VÙNG 1 — City header (nền tối brand, avatar + nhiệt độ hiện tại) ──
-  const cityZone = `<div class="wx-city-zone">
-    <div class="wx-city-glow"></div>
-    <div class="wx-city-row">
-      <div>
-        <div class="wx-city">${c.name}</div>
-        <div class="wx-cond">${c.condition||''}</div>
-      </div>
-      ${weatherAvatar(cat, idx)}
+  // Header: tên thành phố + avatar + nhiệt độ khổng lồ chữ MẢNH (font-weight nhẹ) — đúng đặc
+  // trưng nhận diện app Weather của Apple, phân cấp bằng cỡ chữ thay vì nhiều màu nền.
+  const header = `<div class="wx-head-row">
+    <div>
+      <div class="wx-city">${c.name}</div>
+      <div class="wx-cond">${c.condition||''}</div>
     </div>
-    <div class="wx-temp-row">
-      <span class="wx-temp">${c.temp!=null?c.temp+'°':'—'}</span>
-      ${c.feels_like!=null?`<span class="wx-feels">cảm giác<br>như ${c.feels_like}°</span>`:''}
-    </div>
+    ${weatherAvatar(cat, idx)}
+  </div>
+  <div class="wx-temp-row">
+    <span class="wx-temp">${c.temp!=null?c.temp+'°':'—'}</span>
+    ${c.feels_like!=null?`<span class="wx-feels">cảm giác như ${c.feels_like}°</span>`:''}
   </div>`;
 
-  // ── VÙNG 2 — 24 giờ tới (nền đậm hơn vùng 5 ngày, cùng tông thời tiết) ──
+  // 24 giờ tới — nằm trực tiếp trên gradient chung, chỉ có 1 dải phân cách mảnh phía trên/dưới
+  // (không còn khối nền riêng) — giống hệt cách Apple Weather trình bày dải giờ ngang.
   const hourlyHtml = (c.hourly||[]).map(h=>`
     <div class="wx-hour">
       <div class="wx-hour-t">${fmtHour(h.time)}</div>
       ${iconImg(h.icon,'wx-hour-icon')}
       <div class="wx-hour-v">${h.temp!=null?h.temp+'°':'—'}</div>
     </div>`).join('');
-  const hourZone = hourlyHtml ? `<div class="wx-24-zone">
-    <div class="wx-section-lbl">24 giờ tới</div>
-    <div class="wx-hourly">${hourlyHtml}</div>
-  </div>` : '';
+  const hourZone = hourlyHtml ? `<div class="wx-divider"></div><div class="wx-hourly">${hourlyHtml}</div>` : '';
 
-  // ── VÙNG 3 — 5 ngày tới (thanh nhiệt độ gradient nổi bật hơn, có chấm min/max) ──
+  // 5 ngày tới — thanh nhiệt độ gradient đặt đúng vị trí min→max trong khoảng nhiệt cả tuần.
   const allMax = (c.forecast||[]).map(f=>f.temp_max).filter(v=>v!=null);
   const allMin = (c.forecast||[]).map(f=>f.temp_min).filter(v=>v!=null);
   const weekMax = allMax.length ? Math.max(...allMax) : 40;
   const weekMin = allMin.length ? Math.min(...allMin) : 15;
   const span = (weekMax-weekMin)||1;
   const dailyHtml = (c.forecast||[]).map(f=>{
-    // Thanh nằm đúng vị trí min→max trong khoảng nhiệt cả tuần — nhìn phát thấy ngày nào nóng/mát
-    // hơn và biên độ ngày rộng/hẹp, ấn tượng hơn thanh flat từ 0 cũ.
     const left = f.temp_min!=null ? Math.round(((f.temp_min-weekMin)/span)*100) : 0;
     const width = (f.temp_min!=null&&f.temp_max!=null) ? Math.max(12, Math.round(((f.temp_max-f.temp_min)/span)*100)) : 0;
     return `<div class="wx-day-row">
@@ -501,24 +495,21 @@ function mkWeatherCard(c, idx){
       <div class="wx-day-range"><span class="wx-dmin">${f.temp_min!=null?f.temp_min+'°':''}</span> <span class="wx-dmax">${f.temp_max!=null?f.temp_max+'°':'—'}</span></div>
     </div>`;
   }).join('');
-  const dayZone = dailyHtml ? `<div class="wx-5d-zone">
-    <div class="wx-section-lbl">5 ngày tới</div>
-    <div class="wx-daily">${dailyHtml}</div>
-  </div>` : '';
+  const dayZone = dailyHtml ? `<div class="wx-divider"></div><div class="wx-daily">${dailyHtml}</div>` : '';
 
-  // ── VÙNG 4 — Footer (nền riêng, AQI đổi màu theo chất lượng, highlight ẩm + gió) ──
+  // Footer — AQI hiện ĐÚNG SỐ cụ thể (không chỉ nhãn) theo đúng thang bạn mô tả, cùng ẩm/gió.
   const aqiHtml = c.aqi_label
-    ? `<span class="wx-aqi" style="background:${c.aqi_color}">${c.aqi_label}${c.pm25!=null?` <span class="pm">PM2.5 ${c.pm25}</span>`:''}</span>`
-    : `<span style="font-size:11px;color:var(--wx-sub)">Chưa có dữ liệu không khí</span>`;
-  const footZone = `<div class="wx-foot-zone">
+    ? `<span class="wx-aqi" style="--aqic:${c.aqi_color}"><span class="wx-aqi-dot"></span>AQI ${c.aqi} · ${c.aqi_label}${c.pm25!=null?` <span class="pm">· PM2.5 ${c.pm25}</span>`:''}</span>`
+    : `<span style="font-size:11px;color:rgba(255,255,255,.5)">Chưa có dữ liệu không khí</span>`;
+  const footZone = `<div class="wx-divider"></div><div class="wx-foot-row">
     ${aqiHtml}
     <div class="wx-stats">
-      ${c.humidity!=null?`<div class="wx-stat-box"><span class="wx-stat-ic">💧</span><span class="wx-stat-v">${c.humidity}%</span><span class="wx-stat-l">Độ ẩm</span></div>`:''}
-      ${windKmh!=null?`<div class="wx-stat-box"><span class="wx-stat-ic">🌬️</span><span class="wx-stat-v">${windKmh}</span><span class="wx-stat-l">km/h</span></div>`:''}
+      ${c.humidity!=null?`<span class="wx-stat">💧 ${c.humidity}%</span>`:''}
+      ${windKmh!=null?`<span class="wx-stat">🌬️ ${windKmh} km/h</span>`:''}
     </div>
   </div>`;
 
-  return `<div class="wx-card" style="${styleVars}">${cityZone}${hourZone}${dayZone}${footZone}</div>`;
+  return `<div class="wx-card" style="${styleVars}">${header}${hourZone}${dayZone}${footZone}</div>`;
 }
 
 // ─── 6 CHỦ ĐỀ THỂ THAO OLYMPIC — nội dung biên tập tĩnh, không gọi API nào ──────────────────
@@ -531,17 +522,31 @@ const TOPIC_CONTENT = {
     icon:'♟️', name:'Cờ vua', nameEn:'Chess',
     world:`Magnus Carlsen (Na Uy) vẫn là cái tên biểu tượng nhất làng cờ dù đã rời top đầu bảng xếp hạng cá nhân gần đây. Ở xếp hạng quốc gia theo elo trung bình, Trung Quốc hiện dẫn đầu, theo sau là Ấn Độ và Mỹ — 3 cường quốc cờ vua lớn nhất hiện tại.`,
     vn:`Việt Nam xếp hạng 35-36/204 quốc gia theo FIDE (elo trung bình ~2331) — đứng trên cả Na Uy, quê hương của Magnus Carlsen. Ngôi sao sáng nhất là <b>Lê Quang Liêm</b>, từng vào top 20 thế giới cá nhân (elo 2731). Thế hệ kế cận đáng chú ý: Nguyễn Ngọc Trường Sơn, Đậu Khương Duy, Bành Gia Huy. Ở nữ, Phạm Lê Thảo Nguyên là gương mặt nổi bật nhất.`,
-    how:`Hai người chơi, mỗi bên 16 quân trên bàn cờ 8×8 ô. Mục tiêu: chiếu bí (khiến vua đối phương không còn nước đi nào an toàn). Mỗi loại quân di chuyển theo luật riêng — dễ học, khó tinh thông.`,
+    facts:[{v:'8×8',l:'Ô bàn cờ'},{v:'16',l:'Quân/bên'},{v:'FIDE',l:'Luật chuẩn'}],
+    how:`Hai người chơi, mỗi bên 16 quân trên bàn cờ 8×8 ô, mục tiêu chiếu bí vua đối phương. Theo luật FIDE chính thức: <b>chạm quân là phải đi</b> (touch-move) — nếu chạm vào quân của mình mà còn nước đi hợp lệ, bắt buộc phải đi quân đó. 2 nước đặc biệt hay gây nhầm cho người mới: <b>nhập thành</b> (di chuyển Vua và Xe cùng lúc, ký hiệu 0-0 nhập thành gần/0-0-0 nhập thành xa — chỉ được làm khi Vua và Xe liên quan chưa từng di chuyển và không đang bị chiếu) và <b>bắt Tốt qua đường</b> (en passant — bắt Tốt đối phương vừa đi 2 ô ngay lượt kế tiếp, bỏ lỡ là mất quyền). Khi Tốt đi tới hàng cuối phải phong cấp thành quân khác (thường chọn Hậu).`,
     where:`Có mặt ở hầu hết các trung tâm cờ vua tại Hà Nội và TP.HCM, nhiều quán cà phê cờ vua cũng mở bàn cho khách chơi tự do.`,
+    technique:`Người mới nên học theo thứ tự: (1) <b>Nguyên tắc khai cuộc</b> — kiểm soát trung tâm, phát triển quân nhẹ trước, nhập thành sớm để bảo vệ Vua; (2) <b>Giải bài tập chiến thuật</b> (tactics puzzle) hàng ngày trên Lichess hoặc Chess.com — cách luyện phản xạ bắt quân/chiếu bí nhanh nhất; (3) <b>Cờ tàn cơ bản</b> — thắng bằng Vua+Hậu, Vua+Xe là nền tảng bắt buộc trước khi học sâu hơn. Chơi cờ chớp nhoáng (blitz, 3-5 phút/ván) giúp quen áp lực thời gian, nhưng nên dành phần lớn thời gian tập cho cờ tiêu chuẩn để tư duy sâu hơn.`,
     community:`CLB Kiện Tướng Tương Lai (Hà Nội, nhiều cơ sở) chuyên đào tạo; nhóm Facebook "CỜ VUA TP.HCM" và "HCM CHESS" quy tụ người chơi tự do tại TP.HCM.`,
   },
   badminton: {
     icon:'🏸', name:'Cầu lông', nameEn:'Badminton',
     world:`Kunlavut Vitidsarn (Thái Lan) đang giữ ngôi số 1 đơn nam thế giới, An Se Young (Hàn Quốc) thống trị đơn nữ. Ở đôi nam, cặp Kim Won-ho/Seo Seung-jae (Hàn Quốc) dẫn đầu.`,
     vn:`<b>Nguyễn Tiến Minh</b> là tượng đài của cầu lông Việt Nam — từng đạt hạng 5 thế giới, cột mốc cao nhất một tay vợt Việt Nam từng chạm tới. Thế hệ mới như Nguyễn Hải Đăng, Lê Đức Phát đang nhắm mục tiêu lọt top 50 thế giới. Ở nữ, Trần Thị Phương Thúy, Vũ Thị Trang, Nguyễn Thùy Linh là những cái tên hàng đầu trong nước.`,
-    how:`Đánh đơn hoặc đôi, giao cầu chéo sân, mỗi ván 21 điểm (thắng cách biệt 2 điểm), thắng 2/3 ván. Cầu không được chạm đất bên sân mình.`,
-    where:`Môn thể thao phong trào phổ biến bậc nhất Việt Nam sau bóng đá — sân cầu lông có ở hầu hết khu dân cư, trung tâm thể thao tại mọi thành phố lớn.`,
+    facts:[{v:'21',l:'Điểm/ván'},{v:'13,4m',l:'Sân đơn'},{v:'1,524m',l:'Cao lưới'},{v:'BO3',l:'Thể thức'}],
+    how:`Sân đơn 13,4m × 5,18m, sân đôi rộng hơn (6,1m), lưới cao 1,524m. Tính điểm theo hệ rally-point: mỗi pha cầu đều ra điểm bất kể ai giao cầu, thắng 21 điểm trước (cách biệt tối thiểu 2 điểm, hòa 20-20 thì ai hơn 2 điểm trước thắng, tới 29-29 thì điểm thứ 30 quyết định), đấu 3 ván thắng 2. Giao cầu phải chéo sân, vợt chạm cầu ở độ cao dưới 1,15m, cả 2 chân người giao và người nhận phải chạm đất. <b>Tin thời sự đáng chú ý:</b> BWF vừa bỏ phiếu (25/4/2026) thông qua đổi hệ thống tính điểm từ 21 xuống còn <b>15 điểm/ván</b>, áp dụng từ đầu 2027 — hết năm 2026 các giải vẫn thi đấu theo luật 21 điểm cũ.`,
+    where:`Môn thể thao phong trào phổ biến bậc nhất Việt Nam sau bóng đá — sân cầu lông có ở hầu hết khu dân cư, trung tâm thể thao tại mọi thành phố lớn. Giá thuê sân giờ vàng (tối, cuối tuần) thường cao hơn ban ngày — nên đặt sân trước nếu chơi buổi tối.`,
+    technique:`3 nhóm kỹ thuật nên tập theo thứ tự: (1) <b>Di chuyển chân (footwork)</b> — bài tập bật cầu 4 góc sân, nền tảng quan trọng hơn cả lực đánh; (2) <b>Giao cầu ngắn/dài</b> — giao cầu ngắn sát lưới để hạn chế đối thủ tấn công, giao dài để đẩy đối thủ về cuối sân; (3) <b>Smash (đập cầu)</b> — cần vung vợt từ vai, tiếp xúc cầu ở điểm cao nhất phía trước mặt, không phải sức tay mà là lực xoay hông+vai. Người mới hay mắc lỗi giao cầu quá cao (trên 1,15m) — nên tập giao cầu chuẩn trước khi tập tấn công.`,
     community:`Aurora Badminton Hà Nội tổ chức giải đấu định kỳ (Aurora Cup); nhóm Facebook "Giao Lưu Cầu Lông Hà Nội" kết nối người chơi mọi trình độ.`,
+  },
+  running: {
+    icon:'🏃', name:'Chạy bộ', nameEn:'Running',
+    world:`6 giải marathon danh giá nhất thế giới (World Marathon Majors) gồm Boston, London, Berlin, Chicago, New York và Tokyo — hoàn thành đủ 6 giải là cột mốc mơ ước của cộng đồng chạy bộ toàn cầu.`,
+    vn:`Phong trào chạy bộ Việt Nam đang bùng nổ thật sự — riêng năm 2026 có hơn 50 giải trải khắp 20+ tỉnh thành. Giải lớn nhất là <b>Techcombank TP.HCM International Marathon</b> — nằm trong hệ thống Abbott World Marathon Majors (AWMM) và đạt chuẩn World Athletics Gold Label, mùa gần nhất thu hút hơn 23.000 VĐV từ 81 quốc gia. Các giải lớn khác: HCMC Marathon (từ 1992, lâu đời nhất VN), VIHM Hà Nội (giải bán marathon quốc tế duy nhất được Hiệp hội Điền kinh châu Á cấp phép), Techcombank Hà Nội Marathon, hệ thống VnExpress Marathon (nhiều tỉnh), và Vietnam Mountain Marathon (VMM) — giải trail lâu đời nhất, được mệnh danh "ngôi đền trail chạy châu Á".`,
+    facts:[{v:'5-42km',l:'Cự ly'},{v:'50+',l:'Giải/năm'},{v:'23K+',l:'VĐV/giải lớn'}],
+    how:`4 cự ly chuẩn quốc tế: 5km, 10km, 21,0975km (bán marathon/half marathon), 42,195km (marathon đầy đủ). Các giải lớn đều có giới hạn thời gian (cut-off time) — ví dụ HCMC Marathon quy định 42km phải về đích trong 6 giờ, 21km trong 3 giờ 30, 10km trong 2 giờ, tính từ lúc xuất phát. Giải tại TP.HCM thường xuất phát rất sớm (2-4h sáng) để tránh nắng nóng ban ngày.`,
+    where:`Không cần "địa điểm cố định" như các môn khác — công viên, hồ, vỉa hè rộng ở bất kỳ thành phố nào đều tập được. Cung đường quen thuộc với runner Hà Nội: quanh Hồ Tây, Hồ Gươm; TP.HCM: công viên Tao Đàn, khu đô thị Phú Mỹ Hưng. Muốn thi đấu thật thì đăng ký 1 trong hơn 50 giải kể trên.`,
+    technique:`Lộ trình khuyến nghị cho người mới: <b>4-6 tuần đầu</b> tập nền, hoàn thành 1 giải 5km nhẹ nhàng, ưu tiên giải phong trào giá mềm, áp lực thấp. <b>Sau đó</b> nâng dần lên 10km tại giải đường bằng phẳng. <b>Muốn thử 21km lần đầu</b> nên chọn giải có cộng đồng hỗ trợ tốt, không chọn trail hay giải nhiều dốc. Nguyên tắc chung: cần tối thiểu 8-12 tuần tập luyện bài bản trước 1 giải đấu thật, tăng dần quãng đường (không tăng quá 10%/tuần), ưu tiên chạy dài (long run) vào cuối tuần để xây nền, và nạp gel năng lượng hoặc trái cây cho cự ly trên 21km.`,
+    community:`Sunrise Events (đơn vị tổ chức Techcombank Marathon cả 2 miền + Ironman Việt Nam) là nhà tổ chức giải lớn nhất. Ngoài giải chính thức, xu hướng 2026 cho thấy nhiều doanh nghiệp tại Việt Nam tự tổ chức giải chạy nội bộ hoặc lập câu lạc bộ chạy bộ công ty — cách dễ nhất để bắt đầu là tìm nhóm "chạy bộ + tên thành phố" trên Facebook, nơi runner thường rủ nhau chạy chung cuối tuần trước mùa giải.`,
   },
   tabletennis: {
     icon:'🏓', name:'Bóng bàn', nameEn:'Table Tennis',
@@ -602,12 +607,17 @@ function renderTopic(t){
       </div>
       <div class="topic-card">
         <div class="topic-card-title">📖 Cách chơi</div>
+        ${d.facts?`<div class="topic-facts">${d.facts.map(f=>`<div class="topic-fact"><span class="topic-fact-v">${f.v}</span><span class="topic-fact-l">${f.l}</span></div>`).join('')}</div>`:''}
         <div class="topic-card-body">${d.how}</div>
       </div>
       <div class="topic-card">
         <div class="topic-card-title">📍 Chơi ở đâu</div>
         <div class="topic-card-body">${d.where}</div>
       </div>
+      ${d.technique?`<div class="topic-card wide">
+        <div class="topic-card-title">💪 Cải thiện kỹ thuật</div>
+        <div class="topic-card-body">${d.technique}</div>
+      </div>`:''}
       <div class="topic-card">
         <div class="topic-card-title">👥 Hội nhóm tại Việt Nam</div>
         <div class="topic-card-body">${d.community}</div>
