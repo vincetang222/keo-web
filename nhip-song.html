@@ -170,8 +170,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 .topic-name-en{font-family:var(--sans);font-size:12px;color:var(--i3);letter-spacing:.02em}
 .topic-grid{display:flex;flex-direction:column;gap:14px}
 .topic-card{position:relative;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:18px;padding:20px 22px;overflow:hidden;box-shadow:0 8px 24px rgba(26,21,16,.16)}
-.topic-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, rgba(232,162,43,.1) 0%, transparent 55%);pointer-events:none}
-.topic-card.wide{grid-column:1/-1}
+.topic-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--tc, var(--gold)) 55%, transparent) 0%, transparent 55%);pointer-events:none}
 .topic-card.accent{background:linear-gradient(160deg,#2A1F16 0%,#1D140F 100%)}
 .topic-card-title{position:relative;z-index:1;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,239,230,.5);margin-bottom:10px;display:flex;align-items:center;gap:6px}
 .topic-card-body{position:relative;z-index:1;font-family:var(--sans);font-size:13.5px;line-height:1.65;color:rgba(245,239,230,.82)}
@@ -181,7 +180,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
    vì dấu bullet mặc định của trình duyệt (nhìn tinh tế hơn trên nền tối). */
 .topic-list{list-style:none;display:flex;flex-direction:column;gap:9px}
 .topic-list li{position:relative;padding-left:16px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:rgba(245,239,230,.82)}
-.topic-list li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.topic-list li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--tc, var(--gold))}
 .topic-list b{color:var(--gold);font-weight:700}
 
 /* Bảng trong card (VD lịch giải chạy) — nền trong suốt hoà vào card, viền mảnh phân dòng */
@@ -205,7 +204,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
    ngữ cảnh cho ai muốn đọc sâu hơn. */
 .topic-facts{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .topic-fact{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:8px 13px;min-width:78px}
-.topic-fact-v{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--gold)}
+.topic-fact-v{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--tc, var(--gold))}
 .topic-fact-l{font-family:var(--sans);font-size:9px;color:rgba(245,239,230,.5);text-transform:uppercase;letter-spacing:.04em}
 @media(max-width:700px){.topic-grid{grid-template-columns:1fr}}
 
@@ -271,7 +270,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   </div>
 
   <div class="sport-tabs">
-    <div class="sport-tab on" data-t="chess" onclick="switchTopic('chess',this)">♟️ Cờ vua</div>
+    <div class="sport-tab on" data-t="chess" onclick="switchTopic('chess',this)">♔ Cờ vua</div>
     <div class="sport-tab" data-t="badminton" onclick="switchTopic('badminton',this)">🏸 Cầu lông</div>
     <div class="sport-tab" data-t="tabletennis" onclick="switchTopic('tabletennis',this)">🏓 Bóng bàn</div>
     <div class="sport-tab" data-t="shooting" onclick="switchTopic('shooting',this)">🎯 Bắn súng</div>
@@ -545,6 +544,7 @@ function mkWeatherCard(c, idx){
 // vì xếp hạng thể thao thay đổi theo thời gian, không phải dữ liệu tĩnh vĩnh viễn.
 const TOPIC_CONTENT = {
   chess: {
+    color:'#9B7FC4',
     icon:'♔', name:'Cờ vua', nameEn:'Chess',
     world:`Magnus Carlsen (Na Uy) vẫn là cái tên biểu tượng nhất làng cờ dù đã rời top đầu bảng xếp hạng cá nhân gần đây. Ở xếp hạng quốc gia theo elo trung bình, Trung Quốc hiện dẫn đầu, theo sau là Ấn Độ và Mỹ — 3 cường quốc cờ vua lớn nhất hiện tại.`,
     vn:`Việt Nam xếp hạng 35-36/204 quốc gia theo FIDE (elo trung bình ~2331) — đứng trên cả Na Uy, quê hương của Magnus Carlsen. Ngôi sao sáng nhất là <b>Lê Quang Liêm</b>, từng vào top 20 thế giới cá nhân (elo 2731). Thế hệ kế cận đáng chú ý: Nguyễn Ngọc Trường Sơn, Đậu Khương Duy, Bành Gia Huy. Ở nữ, Phạm Lê Thảo Nguyên là gương mặt nổi bật nhất.`,
@@ -566,10 +566,11 @@ const TOPIC_CONTENT = {
     community:[
       `<b>CLB Kiện Tướng Tương Lai</b> — Hà Nội, nhiều cơ sở (Bạch Mai, Hà Đông), chuyên đào tạo trẻ em và người mới`,
       `<b>Nhóm "CỜ VUA TP.HCM"</b> — nhóm Facebook quy tụ người chơi tự do, giao lưu offline định kỳ tại TP.HCM`,
-      `<b>Nhóm "HCM CHESS"</b> — cộng đồng cờ vua TP.HCM khác, tập trung chia sẻ ván đấu và học thuật`,
+      `<b>CLB Cờ vua Athena</b> — Đà Nẵng, 3 cơ sở tại Hải Châu và Cẩm Lệ`,
     ],
   },
   badminton: {
+    color:'#5B9BD5',
     icon:'🏸', name:'Cầu lông', nameEn:'Badminton',
     world:`Kunlavut Vitidsarn (Thái Lan) đang giữ ngôi số 1 đơn nam thế giới, An Se Young (Hàn Quốc) thống trị đơn nữ. Ở đôi nam, cặp Kim Won-ho/Seo Seung-jae (Hàn Quốc) dẫn đầu.`,
     vn:`<b>Nguyễn Tiến Minh</b> là tượng đài của cầu lông Việt Nam — từng đạt hạng 5 thế giới, cột mốc cao nhất một tay vợt Việt Nam từng chạm tới. Thế hệ mới như Nguyễn Hải Đăng, Lê Đức Phát đang nhắm mục tiêu lọt top 50 thế giới. Ở nữ, Trần Thị Phương Thúy, Vũ Thị Trang, Nguyễn Thùy Linh là những cái tên hàng đầu trong nước.`,
@@ -596,6 +597,7 @@ const TOPIC_CONTENT = {
     ],
   },
   running: {
+    color:'#E8A22B',
     icon:'🏃', name:'Chạy bộ', nameEn:'Running',
     world:`6 giải marathon danh giá nhất thế giới (World Marathon Majors) gồm Boston, London, Berlin, Chicago, New York và Tokyo — hoàn thành đủ 6 giải là cột mốc mơ ước của cộng đồng chạy bộ toàn cầu.`,
     vn:`Phong trào chạy bộ Việt Nam đang bùng nổ thật sự — riêng năm 2026 có hơn 50 giải trải khắp 20+ tỉnh thành. Giải lớn nhất là <b>Techcombank TP.HCM International Marathon</b> — nằm trong hệ thống Abbott World Marathon Majors (AWMM) và đạt chuẩn World Athletics Gold Label, mùa gần nhất thu hút hơn 23.000 VĐV từ 81 quốc gia.`,
@@ -646,6 +648,7 @@ const TOPIC_CONTENT = {
     ],
   },
   tabletennis: {
+    color:'#4FB8AC',
     icon:'🏓', name:'Bóng bàn', nameEn:'Table Tennis',
     world:`Trung Quốc thống trị bóng bàn thế giới suốt nhiều thập kỷ, gần như độc chiếm các vị trí đầu bảng xếp hạng cả nam lẫn nữ — đây vẫn là cường quốc số 1 tuyệt đối của môn này.`,
     vn:`Bóng bàn Việt Nam góp mặt đều đặn ở đấu trường khu vực qua đội tuyển nam đồng đội (gồm Nguyễn Anh Tú, Đinh Anh Hoàng, Trần Đức Tuân tại SEA Games gần nhất) và nội dung đơn nam. Đây là môn có nền tảng phong trào tốt nhưng khoảng cách với đỉnh cao thế giới (Trung Quốc) vẫn còn rất xa.`,
@@ -670,6 +673,7 @@ const TOPIC_CONTENT = {
     ],
   },
   shooting: {
+    color:'#7C8A94',
     icon:'🎯', name:'Bắn súng', nameEn:'Shooting',
     world:`Môn thi đấu kỹ thuật cao, đòi hỏi trường bắn đạt chuẩn quốc tế — các cường quốc truyền thống gồm Trung Quốc, Hàn Quốc, Ấn Độ, các nước Đông Âu.`,
     vn:`<b>Hoàng Xuân Vinh</b> mang về tấm HCV Olympic đầu tiên và duy nhất trong lịch sử thể thao Việt Nam (Rio 2016, nội dung 10m súng ngắn hơi, kèm HCB 50m súng ngắn). Hiện tại, <b>Trịnh Thu Vinh</b> là gương mặt sáng giá nhất — giành 4 HCV tại SEA Games 33 và thi đấu World Cup bắn súng 2026 tại Đức, được đánh giá tiệm cận chuẩn Olympic.`,
@@ -693,6 +697,7 @@ const TOPIC_CONTENT = {
     ],
   },
   taekwondo: {
+    color:'#D65F5F',
     icon:'🥋', name:'Taekwondo', nameEn:'Taekwondo',
     world:`Hàn Quốc là quê hương và vẫn là cường quốc số 1 của môn võ này, dù taekwondo đã phổ biến và cạnh tranh khốc liệt trên toàn cầu qua nhiều thập kỷ là môn thi đấu Olympic.`,
     vn:`<b>Trần Hiếu Ngân</b> giành HCB Olympic Sydney 2000 — tấm huy chương Olympic đầu tiên trong lịch sử thể thao Việt Nam ở bất kỳ môn nào, mở đường cho cả nền thể thao nước nhà. Hiện tại, Trương Thị Kim Tuyền và Trần Thị Ánh Tuyết là những gương mặt taekwondo nổi bật nhất, thường xuyên có huy chương tại SEA Games.`,
@@ -717,6 +722,7 @@ const TOPIC_CONTENT = {
     ],
   },
   swimming: {
+    color:'#4A90C4',
     icon:'🏊', name:'Bơi lội', nameEn:'Swimming',
     world:`Mỹ và Úc là 2 cường quốc bơi lội truyền thống mạnh nhất, thống trị phần lớn nội dung tại Olympic và giải vô địch thế giới qua nhiều thế hệ vận động viên.`,
     vn:`<b>Nguyễn Huy Hoàng</b> là lá cờ đầu hiện tại của bơi lội Việt Nam, chuyên các cự ly trung-dài (400m, 800m, 1.500m tự do) — sở hữu 11 HCV SEA Games qua 4 kỳ liên tiếp, từng có huy chương ASIAD. Trần Hưng Nguyên, Phạm Thanh Bảo, Võ Thị Mỹ Tiên cũng là những gương mặt SEA Games quen thuộc. Trước đó, Nguyễn Thị Ánh Viên (đã giải nghệ) từng là ngôi sao lớn nhất lịch sử bơi lội nữ Việt Nam — và vẫn thường xuất hiện cổ vũ tại các giải bơi biển phong trào gần đây.`,
@@ -741,12 +747,13 @@ const TOPIC_CONTENT = {
       `Nếu hướng tới bơi biển/open water: cần tập thêm kỹ năng "sighting" (ngẩng đầu định hướng khi bơi tự do) — khác hẳn bơi trong bể có vạch line dưới đáy`,
     ],
     community:[
-      `Các trung tâm thể thao dưới nước cấp tỉnh/thành thường có lớp dạy bơi cho mọi lứa tuổi`,
+      `<b>Cung Thể thao dưới nước Mỹ Đình</b> — Hà Nội, nơi tổ chức các nội dung bơi SEA Games 31, cũng mở lớp dạy bơi phong trào`,
       `<b>CLB Khánh Hòa Ocean Swimming</b> — cộng đồng bơi biển tại Nha Trang, thường xuất hiện hỗ trợ/cổ vũ tại các giải bơi biển địa phương`,
       `Nhóm "bơi lội + tên thành phố" trên Facebook thường có cộng đồng người tập bơi giao lưu, đặc biệt sôi động quanh mùa giải bơi biển (hè)`,
     ],
   },
   tennis: {
+    color:'#9ACD5F',
     icon:'🎾', name:'Quần vợt', nameEn:'Tennis',
     world:`Làng banh nỉ thế giới vẫn xoay quanh cuộc đua giữa các tay vợt hàng đầu ở cả 4 Grand Slam (Úc Mở rộng, Roland Garros, Wimbledon, US Open) — đấu trường khắc nghiệt bậc nhất thể thao cá nhân.`,
     vn:`<b>Lý Hoàng Nam</b> là tượng đài lớn nhất của quần vợt Việt Nam — vô địch quốc gia năm 15 tuổi (2012), vô địch đôi nam trẻ Wimbledon 2015 (cùng Sumit Nagal, Ấn Độ), đạt hạng <b>231 ATP</b> (11/2022) — thứ hạng ATP cao nhất một tay vợt Việt Nam từng chạm tới, cùng 2 HCV SEA Games liên tiếp (2019, 2022). Từ 2025, Hoàng Nam chuyển hẳn sang thi đấu pickleball chuyên nghiệp (xem thêm ở tab Pickleball) — vẫn được xem là biểu tượng lớn nhất của tennis Việt Nam dù không còn thi đấu nhà nghề.`,
@@ -766,11 +773,12 @@ const TOPIC_CONTENT = {
     ],
     community:[
       `<b>CLB Infinity Tennis & Pickleball</b> — TP.HCM, cụm sân tổ chức cả giải tennis lẫn pickleball chuyên nghiệp và phong trào`,
-      `<b>Lý Hoàng Nam Sport Club</b> — tổ hợp sân do chính Lý Hoàng Nam phát triển, cả tennis và pickleball`,
+      `<b>Lý Hoàng Nam Sport Club</b> — Bình Tân, TP.HCM (khai trương 1/2026), tổ hợp sân do chính Lý Hoàng Nam phát triển, cả tennis và pickleball`,
       `Trung tâm thể thao quận/thành phố tại hầu hết tỉnh thành đều có sân tennis cho thuê theo giờ, nhiều nơi có lớp dạy cơ bản`,
     ],
   },
   pickleball: {
+    color:'#D4C24A',
     icon:'🥒', name:'Pickleball', nameEn:'Pickleball',
     world:`Môn thể thao tăng trưởng nhanh nhất nước Mỹ những năm gần đây, dùng vợt gỗ/composite và bóng nhựa có lỗ trên sân nhỏ hơn tennis. Ben Johns là cái tên thống trị làng pickleball chuyên nghiệp thế giới (PPA Tour) nhiều năm qua.`,
     vn:`Câu chuyện đáng chú ý nhất thể thao Việt Nam gần đây: <b>Lý Hoàng Nam</b> — huyền thoại tennis — chuyển hẳn sang pickleball chuyên nghiệp từ 2025, và chỉ hơn 1 năm đã vươn lên <b>top 14-20 thế giới</b> (PPA Tour) cùng ngôi <b>số 1 châu Á</b> (DUPR). Ấn tượng hơn: Việt Nam có tới <b>5 tay vợt trong top 10 châu Á</b> đơn nam (Lý Hoàng Nam, Phúc Huỳnh, Lực Phạm, Trương Vinh Hiển, Nguyễn Việt Hoàng) — Trương Vinh Hiển từng hạ cả tay vợt hạng 2 thế giới. Việt Nam sẽ đăng cai <b>Pickleball World Cup 2026</b> tại Đà Nẵng (30/8-6/9/2026).`,
@@ -792,11 +800,12 @@ const TOPIC_CONTENT = {
     ],
     community:[
       `<b>Liên đoàn Quần vợt Pickleball TP.HCM</b> — tổ chức giải chính thức, phối hợp CLB Infinity tổ chức Babolat Open Cup 2026`,
-      `<b>Lý Hoàng Nam Sport Club</b> — cả sân tập lẫn cộng đồng phong trào, hướng tới người mới lẫn thi đấu`,
+      `<b>Lý Hoàng Nam Sport Club</b> — Bình Tân, TP.HCM, 9 sân pickleball chuẩn thi đấu, hướng tới người mới lẫn thi đấu`,
       `Giải phong trào cấp xã/quận (VD Giải Pickleball Củ Chi mở rộng, 300 VĐV) cho thấy phong trào đã lan tới cả các quận vùng ven, không chỉ trung tâm thành phố`,
     ],
   },
   cycling: {
+    color:'#5FA854',
     icon:'🚴', name:'Đạp xe', nameEn:'Cycling',
     world:`Xe đạp đường trường (road racing) là nội dung Olympic lâu đời, với các giải Grand Tour (Tour de France, Giro d'Italia, Vuelta a España) là đỉnh cao danh vọng của làng đua xe đạp chuyên nghiệp thế giới.`,
     vn:`<b>Nguyễn Thị Thật</b> là cái tên lớn nhất của xe đạp Việt Nam — xếp hạng top 40 thế giới theo UCI, tay đua châu Á có thứ hạng cao nhất hiện nay. 3 lần vô địch xe đạp đường trường châu Á (2018, 2022, 2023), và là <b>VĐV Việt Nam đầu tiên</b> giành vé chính thức dự Olympic (Paris 2024) ở môn xe đạp đường trường — cũng là cua-rơ đầu tiên trong lịch sử xe đạp Việt Nam dự Olympic. Từng thi đấu cho các đội chuyên nghiệp châu Âu (Lotto-Soudal Ladies, Israel Premier Tech Roland — đội thuộc nhóm UCI Women World Team, đẳng cấp cao nhất thế giới).`,
@@ -882,12 +891,13 @@ function renderRacesTable(rows){
 function renderTopic(t){
   const d = TOPIC_CONTENT[t];
   if(!d) return;
+  const c = d.color || 'var(--gold)';
   html('topic-content', `
     <div class="topic-hero">
-      <div class="topic-icon">${d.icon}</div>
+      <div class="topic-icon" style="box-shadow:0 4px 16px rgba(26,21,16,.18),0 0 0 2px ${c}55">${d.icon}</div>
       <div><div class="topic-name">${d.name}</div><div class="topic-name-en">${d.nameEn}</div></div>
     </div>
-    <div class="topic-grid">
+    <div class="topic-grid" style="--tc:${c}">
       <div class="topic-card wide">
         <div class="topic-card-title">🌍 Xếp hạng thế giới</div>
         <div class="topic-card-body">${d.world}</div>
