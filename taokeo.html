@@ -63,6 +63,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 
 .field{margin-bottom:18px}
 .field:last-child{margin-bottom:0}
+#sport-field{overflow:hidden;max-height:0;opacity:0;margin-bottom:0;transition:max-height .35s ease,opacity .3s ease,margin-bottom .35s ease}
+#sport-field.show{max-height:110px;opacity:1;margin-bottom:18px}
 .field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .field label .req{color:var(--a)}
 .field input,.field select,.field textarea{width:100%;border:1.5px solid var(--rim2);border-radius:10px;padding:11px 14px;font-size:14px;font-family:'Be Vietnam Pro',sans-serif;color:var(--ink);background:var(--bg);transition:border-color .15s,box-shadow .15s;outline:none}
@@ -210,9 +212,35 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--rim);background
         <label class="check-item"><input type="checkbox" value="Spa & Wellness"><span>💆 Spa &amp; Wellness</span></label>
         <label class="check-item"><input type="checkbox" value="Dã ngoại"><span>🌿 <span class="vi">Dã ngoại</span><span class="en">Outdoors</span></span></label>
         <label class="check-item"><input type="checkbox" value="Sự kiện"><span>🎪 <span class="vi">Sự kiện</span><span class="en">Event</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Du lịch"><span>🧳 <span class="vi">Du lịch</span><span class="en">Travel</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Đám cưới"><span>💍 <span class="vi">Đám cưới</span><span class="en">Wedding</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Bảo tàng"><span>🏛 <span class="vi">Bảo tàng</span><span class="en">Museum</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Chụp ảnh"><span>📷 <span class="vi">Chụp ảnh</span><span class="en">Photography</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Leo núi"><span>🥾 <span class="vi">Leo núi</span><span class="en">Hiking</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Đạp xe"><span>🚴 <span class="vi">Đạp xe</span><span class="en">Biking</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Tập gym"><span>💪 <span class="vi">Tập gym</span><span class="en">Workout</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Hài kịch"><span>😂 <span class="vi">Hài kịch</span><span class="en">Comedy show</span></span></label>
+        <label class="check-item"><input type="checkbox" value="Bowling"><span>🎳 Bowling</span></label>
+        <label class="check-item"><input type="checkbox" value="Học cùng"><span>📚 <span class="vi">Học cùng</span><span class="en">Study buddy</span></span></label>
         <label class="check-item"><input type="checkbox" value="Khác"><span>✨ <span class="vi">Khác</span><span class="en">Other</span></span></label>
       </div>
       <p class="field hint" style="margin-top:8px;margin-bottom:0"><span class="vi">Có thể chọn nhiều</span><span class="en">Multiple choices allowed</span></p>
+
+      <div class="field" id="sport-field">
+        <label><span class="vi">Môn thể thao</span><span class="en">Sport</span> <span class="req">*</span></label>
+        <select id="f-sport">
+          <option value="" data-vi="Chọn môn" data-en="Select sport">Chọn môn</option>
+          <option value="Cầu lông" data-vi="Cầu lông" data-en="Badminton">Cầu lông</option>
+          <option value="Tennis" data-vi="Tennis" data-en="Tennis">Tennis</option>
+          <option value="Pickleball" data-vi="Pickleball" data-en="Pickleball">Pickleball</option>
+          <option value="Bóng bàn" data-vi="Bóng bàn" data-en="Table tennis">Bóng bàn</option>
+          <option value="Gym / Yoga" data-vi="Gym / Yoga" data-en="Gym / Yoga">Gym / Yoga</option>
+          <option value="Bơi" data-vi="Bơi" data-en="Swimming">Bơi</option>
+          <option value="Golf" data-vi="Golf" data-en="Golf">Golf</option>
+          <option value="Chạy bộ" data-vi="Chạy bộ" data-en="Running">Chạy bộ</option>
+          <option value="Khác" data-vi="Khác" data-en="Other">Khác</option>
+        </select>
+      </div>
     </div>
 
     <div class="form-box">
@@ -245,7 +273,7 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--rim);background
       <div class="row">
         <div class="field">
           <label><span class="vi">Thù lao cho Người đồng hành (VND)</span><span class="en">Companion fee (VND)</span> <span class="req">*</span></label>
-          <input type="text" name="thu_lao" id="f-fee" placeholder="300,000" required>
+          <input type="text" inputmode="numeric" name="thu_lao" id="f-fee" placeholder="300,000" required>
           <p class="hint"><span class="vi">Từ 200k đến 20 triệu hoặc hơn.</span><span class="en">From 200k to 20M or more.</span></p>
         </div>
         <div class="field">
@@ -260,12 +288,17 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--rim);background
 
       <div class="preview-box" id="preview">
         <div class="preview-title">📋 <span class="vi">Xem lại Kèo của bạn</span><span class="en">Review your Kèo</span></div>
+        <div class="preview-row"><strong><span class="vi">Họ tên:</span><span class="en">Name:</span></strong><span id="pv-name">—</span></div>
+        <div class="preview-row"><strong><span class="vi">Zalo:</span><span class="en">Zalo:</span></strong><span id="pv-zalo">—</span></div>
         <div class="preview-row"><strong><span class="vi">Địa điểm:</span><span class="en">Venue:</span></strong><span id="pv-venue">—</span></div>
         <div class="preview-row"><strong><span class="vi">Địa chỉ:</span><span class="en">Address:</span></strong><span id="pv-addr">—</span></div>
         <div class="preview-row"><strong><span class="vi">Thời gian:</span><span class="en">Time:</span></strong><span id="pv-time">—</span></div>
         <div class="preview-row"><strong><span class="vi">Loại:</span><span class="en">Type:</span></strong><span id="pv-type">—</span></div>
+        <div class="preview-row" id="pv-sport-row" style="display:none"><strong><span class="vi">Môn thể thao:</span><span class="en">Sport:</span></strong><span id="pv-sport">—</span></div>
         <div class="preview-row"><strong><span class="vi">Yêu cầu:</span><span class="en">Requirements:</span></strong><span id="pv-req">—</span></div>
         <div class="preview-row"><strong><span class="vi">Thù lao:</span><span class="en">Fee:</span></strong><span id="pv-fee">—</span></div>
+        <div class="preview-row"><strong><span class="vi">Số lượng:</span><span class="en">Count:</span></strong><span id="pv-num">—</span></div>
+        <div class="preview-row" id="pv-note-row" style="display:none"><strong><span class="vi">Ghi chú:</span><span class="en">Notes:</span></strong><span id="pv-note">—</span></div>
       </div>
 
       <button type="button" class="btn-preview" id="btn-preview"><span class="vi">Xem lại Kèo →</span><span class="en">Review Kèo →</span></button>
@@ -278,6 +311,7 @@ footer{text-align:center;padding:24px;border-top:1px solid var(--rim);background
     <div class="success-ic">🎉</div>
     <h2><span class="vi">Kèo đã được tạo!</span><span class="en">Kèo Created!</span></h2>
     <p><span class="vi">Mình sẽ tìm Người đồng hành phù hợp nhất và liên hệ bạn qua Zalo trong 24 giờ nhé.</span><span class="en">We'll find the best companion and reach out via Zalo within 24 hours.</span></p>
+    <a href="/taokeo" style="display:inline-block;margin-top:22px;padding:12px 26px;border-radius:100px;background:var(--grad);color:#fff;font-weight:700;font-size:14px;font-family:'Be Vietnam Pro',sans-serif"><span class="vi">Tạo thêm Kèo khác →</span><span class="en">Create another Kèo →</span></a>
   </div>
 </div>
 
@@ -291,6 +325,9 @@ function setEN(g){
   document.body.classList.toggle('lang-en',g);
   document.getElementById('lang-vi').classList.toggle('on',!g);
   document.getElementById('lang-en').classList.toggle('on',g);
+  document.querySelectorAll('#f-sport option').forEach(function(o){
+    o.textContent=g?o.getAttribute('data-en'):o.getAttribute('data-vi');
+  });
 }
 
 function fmtDate(d){
@@ -307,6 +344,8 @@ function getTypes(){
 
 function updatePreview(){
   var isEN=document.body.classList.contains('lang-en');
+  var n=document.getElementById('f-name').value;
+  var z=document.getElementById('f-zalo').value;
   var v=document.getElementById('f-venue').value;
   var a=document.getElementById('f-addr').value;
   var d=document.getElementById('f-date').value;
@@ -315,12 +354,33 @@ function updatePreview(){
   var ty=getTypes();
   var r=document.getElementById('f-req').value;
   var f=document.getElementById('f-fee').value;
+  var num=document.getElementById('f-num').value;
+  var note=document.getElementById('f-note').value;
+  document.getElementById('pv-name').textContent=n||'—';
+  document.getElementById('pv-zalo').textContent=z||'—';
   document.getElementById('pv-venue').textContent=v||'—';
   document.getElementById('pv-addr').textContent=a||'—';
   document.getElementById('pv-time').textContent=(d?fmtDate(d):'—')+(t?' '+(isEN?'at ':'lúc ')+t:'')+(dur?' ('+dur+')':'');
   document.getElementById('pv-type').textContent=ty||'—';
   document.getElementById('pv-req').textContent=r||'—';
   document.getElementById('pv-fee').textContent=f||'—';
+  document.getElementById('pv-num').textContent=num||'1';
+
+  var sportRow=document.getElementById('pv-sport-row');
+  if(document.getElementById('sport-field').classList.contains('show')){
+    sportRow.style.display='flex';
+    document.getElementById('pv-sport').textContent=document.getElementById('f-sport').value||'—';
+  } else {
+    sportRow.style.display='none';
+  }
+
+  var noteRow=document.getElementById('pv-note-row');
+  if(note.trim()){
+    noteRow.style.display='flex';
+    document.getElementById('pv-note').textContent=note;
+  } else {
+    noteRow.style.display='none';
+  }
 }
 
 document.getElementById('btn-preview').addEventListener('click',function(){
@@ -331,6 +391,11 @@ document.getElementById('btn-preview').addEventListener('click',function(){
     if(!el.value.trim()){ok=false;el.classList.add('err-border');}
     else{el.classList.remove('err-border');}
   });
+  var sportEl=document.getElementById('f-sport');
+  if(document.getElementById('sport-field').classList.contains('show')){
+    if(!sportEl.value){ok=false;sportEl.classList.add('err-border');}
+    else{sportEl.classList.remove('err-border');}
+  }
   if(!ok)return;
   updatePreview();
   var pv=document.getElementById('preview');
@@ -340,7 +405,7 @@ document.getElementById('btn-preview').addEventListener('click',function(){
   pv.scrollIntoView({behavior:'smooth',block:'center'});
 });
 
-['f-venue','f-addr','f-date','f-time','f-dur','f-req','f-fee'].forEach(function(id){
+['f-name','f-zalo','f-venue','f-addr','f-date','f-time','f-dur','f-req','f-fee','f-num','f-note','f-sport'].forEach(function(id){
   var el=document.getElementById(id);
   el.addEventListener('input',function(){
     if(document.getElementById('preview').classList.contains('show')) updatePreview();
@@ -348,9 +413,29 @@ document.getElementById('btn-preview').addEventListener('click',function(){
 });
 document.querySelectorAll('#type-grid input').forEach(function(el){
   el.addEventListener('change',function(){
+    updateSportField();
     if(document.getElementById('preview').classList.contains('show')) updatePreview();
   });
 });
+
+// Hiện trường "Môn thể thao" khi có chọn checkbox Thể thao — đúng hành vi đã có ở chu-xi.html,
+// trước đây taokeo.html thiếu hẳn dù cùng có checkbox này.
+function updateSportField(){
+  var hasSports=false;
+  document.querySelectorAll('#type-grid input:checked').forEach(function(el){
+    if(el.value==='Thể thao')hasSports=true;
+  });
+  var field=document.getElementById('sport-field');
+  var sel=document.getElementById('f-sport');
+  if(hasSports){
+    field.classList.add('show');
+    sel.setAttribute('required','required');
+  } else {
+    field.classList.remove('show');
+    sel.removeAttribute('required');
+    sel.value='';
+  }
+}
 
 document.getElementById('taokeo-form').addEventListener('submit',function(e){
   e.preventDefault();
@@ -375,6 +460,9 @@ document.getElementById('taokeo-form').addEventListener('submit',function(e){
     ghi_chu: document.getElementById('f-note').value,
     vai_tro: 'Chu xi - Tao Keo'
   };
+  if(document.getElementById('sport-field').classList.contains('show')){
+    data.mon_the_thao=document.getElementById('f-sport').value;
+  }
 
   fetch('https://formspree.io/f/xjgpdwwl',{
     method:'POST',
@@ -393,6 +481,8 @@ document.getElementById('taokeo-form').addEventListener('submit',function(e){
 
 var today=new Date().toISOString().split('T')[0];
 document.getElementById('f-date').min=today;
+var maxD=new Date(); maxD.setMonth(maxD.getMonth()+6);
+document.getElementById('f-date').max=maxD.toISOString().split('T')[0];
 </script>
 </body>
 </html>
