@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#17120D">
+<title>Chính sách quyền riêng tư | Kèo</title>
+<meta name="description" content="Chính sách quyền riêng tư của Kèo — cách chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/privacy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7}
+a{text-decoration:none;color:var(--a)}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:820px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6}
+.nav-logo span{color:var(--gold)}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;cursor:pointer;font-family:var(--sans)}
+.lb.on{background:var(--grad);color:#fff}
+
+.hero{background:linear-gradient(160deg,#1F1712 0%,#17120D 100%);padding:52px 32px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 50% 10%,color-mix(in srgb,var(--a) 24%,transparent),transparent 65%)}
+.hero-glow{position:absolute;width:180px;height:180px;border-radius:50%;filter:blur(50px);opacity:.3;pointer-events:none}
+.hero-glow.g1{background:var(--gold);top:-30px;left:10%}
+.hero-glow.g2{background:var(--a2);bottom:-20px;right:8%}
+.hero-in{max-width:820px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(232,162,43,.12);border:1px solid rgba(232,162,43,.3);border-radius:100px;padding:5px 14px;font-size:10.5px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:700;color:#F5EFE6;margin-bottom:10px}
+.updated{font-size:13px;color:rgba(245,239,230,.5)}
+
+.wrap{max-width:820px;margin:0 auto;padding:32px 32px 80px;display:grid;grid-template-columns:200px 1fr;gap:40px}
+.toc{position:sticky;top:80px;align-self:start}
+.toc-title{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--i3);margin-bottom:12px}
+.toc a{display:block;font-size:12.5px;color:var(--i2);padding:5px 0;line-height:1.4}
+.toc a:hover{color:var(--a);text-decoration:none}
+
+.doc h2{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);margin:36px 0 12px;scroll-margin-top:80px}
+.doc h2:first-child{margin-top:0}
+.doc h3{font-family:var(--sans);font-size:14.5px;font-weight:700;color:var(--ink);margin:20px 0 8px}
+.doc p{font-size:14.5px;color:var(--i2);margin-bottom:12px}
+.doc ul,.doc ol{margin:0 0 12px 22px;font-size:14.5px;color:var(--i2)}
+.doc li{margin-bottom:6px}
+.doc strong{color:var(--ink)}
+.legal-cite{font-size:12.5px;color:var(--i3);font-style:italic}
+.placeholder{background:rgba(214,95,53,.1);color:var(--a);padding:1px 6px;border-radius:4px;font-weight:600;font-size:.95em}
+
+.dtable{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:13.5px}
+.dtable th{text-align:left;padding:9px 12px;background:var(--s2);color:var(--i3);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--rim2)}
+.dtable td{padding:10px 12px;border-bottom:1px solid var(--rim);color:var(--i2);vertical-align:top}
+
+footer{background:#17120D;padding:32px;text-align:center}
+.fl{font-family:var(--serif);font-size:15px;font-weight:700;color:rgba(245,239,230,.4)}
+.fl span{color:rgba(232,162,43,.5)}
+
+@media(max-width:760px){
+  .wrap{grid-template-columns:1fr;padding:24px 20px 60px}
+  .toc{position:static;border-bottom:1px solid var(--rim2);padding-bottom:20px;margin-bottom:8px}
+  .nav-in{padding:0 20px}
+  .hero{padding:36px 20px 32px}
+  .dtable{font-size:12px}
+  .dtable th,.dtable td{padding:7px 8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="nav-logo">Kèo<span>.</span></a>
+    <div class="nav-r">
+      <a href="/" class="nav-back"><span class="vi">← Trang chủ</span><span class="en">← Home</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-in">
+    <div class="eyebrow"><span class="vi">Văn bản pháp lý</span><span class="en">Legal</span></div>
+    <h1><span class="vi">Chính sách quyền riêng tư</span><span class="en">Privacy Policy</span></h1>
+    <div class="updated"><span class="vi">Bản dự thảo — ngày hiệu lực sẽ cập nhật khi công bố chính thức</span><span class="en">Draft — effective date to be set upon official publication</span> · <span class="vi">Phiên bản 1.0</span><span class="en">Version 1.0</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <aside class="toc">
+    <div class="toc-title"><span class="vi">Mục lục</span><span class="en">Contents</span></div>
+    <a href="#thu-thap"><span class="vi">1. Thông tin thu thập</span><span class="en">1. Data Collected</span></a>
+    <a href="#muc-dich"><span class="vi">2. Mục đích xử lý</span><span class="en">2. Purpose</span></a>
+    <a href="#chia-se"><span class="vi">3. Chia sẻ với bên thứ ba</span><span class="en">3. Third-Party Sharing</span></a>
+    <a href="#chuyen-quoc-te"><span class="vi">4. Chuyển dữ liệu quốc tế</span><span class="en">4. Cross-Border Transfer</span></a>
+    <a href="#bao-mat"><span class="vi">5. Bảo mật dữ liệu</span><span class="en">5. Data Security</span></a>
+    <a href="#luu-tru"><span class="vi">6. Thời gian lưu trữ</span><span class="en">6. Retention</span></a>
+    <a href="#quyen"><span class="vi">7. Quyền của bạn</span><span class="en">7. Your Rights</span></a>
+    <a href="#tre-em"><span class="vi">8. Dữ liệu trẻ em</span><span class="en">8. Children's Data</span></a>
+    <a href="#thay-doi"><span class="vi">9. Thay đổi chính sách</span><span class="en">9. Changes</span></a>
+    <a href="#lien-he"><span class="vi">10. Liên hệ</span><span class="en">10. Contact</span></a>
+  </aside>
+
+  <div class="doc">
+    <h2 id="thu-thap"><span class="vi">1. Thông tin chúng tôi thu thập</span><span class="en">1. Information We Collect</span></h2>
+    <p><span class="vi">Khi bạn đăng ký hoặc tạo Kèo, chúng tôi thu thập:</span><span class="en">When you register or create a Kèo, we collect:</span></p>
+    <table class="dtable">
+      <tr><th><span class="vi">Loại dữ liệu</span><span class="en">Data type</span></th><th><span class="vi">Ví dụ</span><span class="en">Example</span></th></tr>
+      <tr><td><span class="vi">Thông tin định danh</span><span class="en">Identity info</span></td><td><span class="vi">Họ tên, số Zalo</span><span class="en">Full name, Zalo number</span></td></tr>
+      <tr><td><span class="vi">Thông tin buổi gặp</span><span class="en">Session info</span></td><td><span class="vi">Thành phố, địa điểm, thời gian, loại sự kiện</span><span class="en">City, venue, time, event type</span></td></tr>
+      <tr><td><span class="vi">Sở thích cá nhân</span><span class="en">Personal preferences</span></td><td><span class="vi">Giới tính, giới tính mong muốn gặp, yêu cầu về người đồng hành</span><span class="en">Gender, preferred companion gender, companion requirements</span></td></tr>
+      <tr><td><span class="vi">Thông tin thanh toán</span><span class="en">Payment info</span></td><td><span class="vi">Mức thù lao đã thỏa thuận</span><span class="en">Agreed fee amount</span></td></tr>
+    </table>
+    <p><span class="vi">Chúng tôi <strong>không</strong> chủ động thu thập dữ liệu sinh trắc học, tôn giáo, tình trạng sức khỏe, hay các dữ liệu nhạy cảm khác ngoài phạm vi cần thiết để kết nối Chủ xị với Người đồng hành.</span><span class="en">We do <strong>not</strong> actively collect biometric, religious, health, or other sensitive data beyond what's needed to connect Hosts with Companions.</span></p>
+    <p><span class="vi">Thông tin cơ bản của Người đồng hành — tên và lĩnh vực quan tâm — có thể hiển thị trên trang danh sách Người đồng hành để Chủ xị dễ dàng lựa chọn. Thông tin liên hệ trực tiếp, như số Zalo, luôn được giữ kín cho tới khi match thành công.</span><span class="en">Basic Companion information — name and areas of interest — may appear on the Companion listing page to help Hosts choose. Direct contact information, such as Zalo numbers, always stays private until a match is confirmed.</span></p>
+
+    <h2 id="muc-dich"><span class="vi">2. Mục đích xử lý dữ liệu</span><span class="en">2. Purpose of Processing</span></h2>
+    <ul>
+      <li><span class="vi">Kết nối Chủ xị với Người đồng hành phù hợp</span><span class="en">Matching Hosts with suitable Companions</span></li>
+      <li><span class="vi">Liên hệ xác nhận buổi gặp qua Zalo</span><span class="en">Confirming sessions via Zalo</span></li>
+      <li><span class="vi">Xử lý thanh toán và tính phí dịch vụ</span><span class="en">Processing payment and service fees</span></li>
+      <li><span class="vi">Đảm bảo an toàn, xử lý khiếu nại hoặc vi phạm</span><span class="en">Ensuring safety, handling complaints or violations</span></li>
+    </ul>
+    <p class="legal-cite"><span class="vi">Cơ sở pháp lý: sự đồng ý của chủ thể dữ liệu, theo Điều 11 Nghị định 13/2023/NĐ-CP.</span><span class="en">Legal basis: data subject consent, per Article 11 of Decree 13/2023/ND-CP.</span></p>
+
+    <h2 id="chia-se"><span class="vi">3. Chia sẻ thông tin với bên thứ ba</span><span class="en">3. Third-Party Sharing</span></h2>
+    <p><span class="vi">Kèo hiện sử dụng các dịch vụ bên thứ ba sau để vận hành:</span><span class="en">Kèo currently uses the following third-party services to operate:</span></p>
+    <table class="dtable">
+      <tr><th><span class="vi">Bên thứ ba</span><span class="en">Third party</span></th><th><span class="vi">Vai trò</span><span class="en">Role</span></th></tr>
+      <tr><td>Formspree</td><td><span class="vi">Xử lý biểu mẫu đăng ký / tạo Kèo</span><span class="en">Processes registration / Kèo-creation forms</span></td></tr>
+      <tr><td>Zalo (VNG Corporation)</td><td><span class="vi">Kênh liên lạc chính giữa Kèo và người dùng</span><span class="en">Primary communication channel between Kèo and users</span></td></tr>
+    </table>
+    <p><span class="vi">Chúng tôi <strong>không bán</strong> dữ liệu cá nhân của bạn cho bên thứ ba vì mục đích quảng cáo hay thương mại khác. Thông tin liên hệ của Người đồng hành chỉ được chia sẻ với Chủ xị tương ứng sau khi đã match thành công, và ngược lại.</span><span class="en">We do <strong>not sell</strong> your personal data to third parties for advertising or other commercial purposes. A Companion's contact info is only shared with their matched Host after a successful match, and vice versa.</span></p>
+
+    <h2 id="chuyen-quoc-te"><span class="vi">4. Chuyển dữ liệu ra nước ngoài</span><span class="en">4. Cross-Border Data Transfer</span></h2>
+    <p><span class="vi">Formspree — dịch vụ xử lý biểu mẫu Kèo đang sử dụng — có máy chủ đặt tại Hoa Kỳ. Điều này đồng nghĩa một phần dữ liệu cá nhân của bạn có thể được xử lý ngoài lãnh thổ Việt Nam. Kèo cam kết tuân thủ các yêu cầu về chuyển dữ liệu cá nhân ra nước ngoài theo Điều 25 Nghị định 13/2023/NĐ-CP, bao gồm việc lập hồ sơ đánh giá tác động khi pháp luật yêu cầu.</span><span class="en">Formspree — the form-processing service Kèo uses — has servers located in the United States. This means part of your personal data may be processed outside Vietnam. Kèo is committed to complying with cross-border personal data transfer requirements under Article 25 of Decree 13/2023/ND-CP, including filing an impact assessment where required by law.</span></p>
+
+    <h2 id="bao-mat"><span class="vi">5. Bảo mật dữ liệu</span><span class="en">5. Data Security</span></h2>
+    <p><span class="vi">Chúng tôi áp dụng các biện pháp hợp lý để bảo vệ dữ liệu cá nhân khỏi truy cập, sử dụng hoặc tiết lộ trái phép. Tuy nhiên, không có phương thức truyền tải hay lưu trữ điện tử nào an toàn tuyệt đối 100%.</span><span class="en">We apply reasonable measures to protect personal data from unauthorized access, use, or disclosure. However, no method of electronic transmission or storage is 100% secure.</span></p>
+    <ul>
+      <li><span class="vi"><strong>Ẩn danh trước khi match</strong> — số Zalo của Người đồng hành và Chủ xị chỉ được tiết lộ cho nhau sau khi Kèo xác nhận match thành công, không hiển thị công khai trước đó.</span><span class="en"><strong>Anonymity before matching</strong> — Zalo numbers of Hosts and Companions are only revealed to each other after Kèo confirms a successful match, never displayed publicly beforehand.</span></li>
+    </ul>
+
+    <h2 id="luu-tru"><span class="vi">6. Thời gian lưu trữ</span><span class="en">6. Retention Period</span></h2>
+    <p><span class="vi">Dữ liệu được lưu trữ trong <strong>24 tháng</strong> kể từ lần tương tác gần nhất, trừ khi bạn yêu cầu xóa sớm hơn hoặc pháp luật yêu cầu lưu trữ lâu hơn (VD hồ sơ giao dịch tài chính).</span><span class="en">Data is retained for <strong>24 months</strong> from your last interaction, unless you request earlier deletion or law requires longer retention (e.g. financial transaction records).</span></p>
+
+    <h2 id="quyen"><span class="vi">7. Quyền của bạn</span><span class="en">7. Your Rights</span></h2>
+    <p><span class="vi">Theo Nghị định 13/2023/NĐ-CP, bạn có các quyền sau đối với dữ liệu cá nhân của mình:</span><span class="en">Under Decree 13/2023/ND-CP, you have the following rights over your personal data:</span></p>
+    <ul>
+      <li><span class="vi"><strong>Quyền được biết</strong> — biết Kèo xử lý dữ liệu gì, vì mục đích gì</span><span class="en"><strong>Right to be informed</strong> — know what data Kèo processes and why</span></li>
+      <li><span class="vi"><strong>Quyền truy cập</strong> — yêu cầu xem dữ liệu Kèo đang lưu về bạn</span><span class="en"><strong>Right to access</strong> — request to see data Kèo holds about you</span></li>
+      <li><span class="vi"><strong>Quyền rút lại sự đồng ý</strong> — bất kỳ lúc nào</span><span class="en"><strong>Right to withdraw consent</strong> — at any time</span></li>
+      <li><span class="vi"><strong>Quyền xóa dữ liệu</strong> — yêu cầu xóa dữ liệu cá nhân khỏi hệ thống</span><span class="en"><strong>Right to erasure</strong> — request deletion of your personal data</span></li>
+      <li><span class="vi"><strong>Quyền khiếu nại, khởi kiện</strong> — theo quy định pháp luật</span><span class="en"><strong>Right to complain or sue</strong> — as provided by law</span></li>
+    </ul>
+    <p><span class="vi">Để thực hiện các quyền trên, liên hệ qua <a href="#lien-he">thông tin liên hệ</a> bên dưới.</span><span class="en">To exercise these rights, contact us via the <a href="#lien-he">contact information</a> below.</span></p>
+
+    <h2 id="tre-em"><span class="vi">8. Dữ liệu trẻ em</span><span class="en">8. Children's Data</span></h2>
+    <p><span class="vi">Kèo chỉ phục vụ người dùng từ đủ 18 tuổi trở lên và không chủ động thu thập dữ liệu của người dưới 18 tuổi. Nếu phát hiện tài khoản thuộc về người dưới 18 tuổi, Kèo sẽ xóa dữ liệu liên quan ngay khi xác minh được.</span><span class="en">Kèo only serves users aged 18 and above and does not knowingly collect data from anyone under 18. If an account is found to belong to someone under 18, Kèo will delete the related data as soon as this is verified.</span></p>
+
+    <h2 id="thay-doi"><span class="vi">9. Thay đổi chính sách</span><span class="en">9. Changes to This Policy</span></h2>
+    <p><span class="vi">Chính sách này có thể được cập nhật theo thời gian để phản ánh thay đổi trong cách vận hành hoặc quy định pháp luật. Thay đổi quan trọng sẽ được thông báo qua website hoặc Zalo.</span><span class="en">This Policy may be updated over time to reflect changes in operations or legal requirements. Material changes will be announced via the website or Zalo.</span></p>
+
+    <h2 id="lien-he"><span class="vi">10. Liên hệ</span><span class="en">10. Contact</span></h2>
+    <p><span class="vi">Mọi câu hỏi hoặc yêu cầu liên quan tới dữ liệu cá nhân, vui lòng liên hệ:</span><span class="en">For any questions or requests related to personal data, please contact:</span></p>
+    <ul>
+      <li>Email: <strong>hello@keo.social</strong></li>
+      <li>Zalo: <strong>0902755265</strong></li>
+      <li><span class="vi">Bên kiểm soát dữ liệu:</span><span class="en">Data controller:</span> Kèo</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+</footer>
+
+<script>
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+</script>
+</body>
+</html>
