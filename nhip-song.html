@@ -165,17 +165,40 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 /* Nội dung 6 chủ đề thể thao — DARK THEME, sang trọng hơn hẳn bản sáng phẳng trước. Thẻ lưới 2
    cột, 2 thẻ đầu (Thế giới/Việt Nam) chiếm trọn hàng vì nội dung dài hơn. */
 .topic-hero{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.topic-icon{font-size:40px;line-height:1;width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#241813 0%,#3A1E1E 100%);border-radius:18px;box-shadow:0 4px 16px rgba(26,21,16,.18)}
+.topic-icon{font-size:40px;line-height:1;width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#241813 0%,#3A1E1E 100%);border-radius:18px;box-shadow:0 4px 16px rgba(26,21,16,.18);color:#F5EFE6}
 .topic-name{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink)}
 .topic-name-en{font-family:var(--sans);font-size:12px;color:var(--i3);letter-spacing:.02em}
-.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.topic-grid{display:flex;flex-direction:column;gap:14px}
 .topic-card{position:relative;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:18px;padding:20px 22px;overflow:hidden;box-shadow:0 8px 24px rgba(26,21,16,.16)}
 .topic-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, rgba(232,162,43,.1) 0%, transparent 55%);pointer-events:none}
 .topic-card.wide{grid-column:1/-1}
 .topic-card.accent{background:linear-gradient(160deg,#2A1F16 0%,#1D140F 100%)}
 .topic-card-title{position:relative;z-index:1;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,239,230,.5);margin-bottom:10px;display:flex;align-items:center;gap:6px}
 .topic-card-body{position:relative;z-index:1;font-family:var(--sans);font-size:13.5px;line-height:1.65;color:rgba(245,239,230,.82)}
-.topic-card-body b{color:#F5EFE6;font-weight:700}
+.topic-card-body b{color:var(--gold);font-weight:700}
+
+/* Danh sách bullet trong card — mỗi ý xuống dòng riêng, dấu chấm tròn màu vàng thương hiệu thay
+   vì dấu bullet mặc định của trình duyệt (nhìn tinh tế hơn trên nền tối). */
+.topic-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.topic-list li{position:relative;padding-left:16px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:rgba(245,239,230,.82)}
+.topic-list li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.topic-list b{color:var(--gold);font-weight:700}
+
+/* Bảng trong card (VD lịch giải chạy) — nền trong suốt hoà vào card, viền mảnh phân dòng */
+.topic-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:12.5px}
+.topic-table th{text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(245,239,230,.45);padding:0 8px 8px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.topic-table td{padding:8px 8px 8px 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(245,239,230,.82);vertical-align:top}
+.topic-table tr:last-child td{border-bottom:none}
+.topic-table .tt-name{color:#F5EFE6;font-weight:600}
+.topic-table .tt-tag{display:inline-block;font-size:9.5px;font-weight:700;color:var(--gold);background:rgba(232,162,43,.12);padding:2px 7px;border-radius:20px;margin-top:3px}
+
+/* Biểu đồ phát triển theo năm — 2 biểu đồ/hàng trên desktop, xếp dọc trên mobile */
+.topic-charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.topic-chart{background:linear-gradient(160deg,#211A22 0%,#171219 100%);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px}
+.topic-chart-title{font-family:var(--sans);font-size:12px;font-weight:700;color:#F5EFE6;margin-bottom:8px}
+.topic-chart-svg{width:100%;height:auto;aspect-ratio:400/150;display:block;min-height:120px}
+.topic-chart-src{font-family:var(--sans);font-size:9.5px;color:rgba(245,239,230,.4);margin-top:6px}
+@media(max-width:700px){.topic-charts{grid-template-columns:1fr}}
 
 /* Chip thông tin nhanh — hiện SỐ LIỆU cốt lõi (kích thước sân, cách tính điểm...) dưới dạng thẻ
    trực quan, đọc lướt 3 giây thay vì phải đọc hết đoạn văn — đoạn văn phía dưới chỉ để bổ sung
@@ -228,13 +251,13 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="hero-in">
     <div class="hero-ey">Chủ đề để bắt đầu trò chuyện</div>
     <h1>Nhịp Sống — <em>thể thao</em>, du lịch & văn hoá</h1>
-    <p>Tỷ số trực tiếp, lịch thi đấu, tỷ lệ thắng — mọi thứ để có chuyện nói khi gặp gỡ. Bắt đầu với Thể thao, phần Du lịch và Văn hoá sẽ sớm ra mắt.</p>
+    <p>Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu cho 10 môn thể thao phổ biến — cùng thời tiết thời gian thực cho 10 điểm đến được tìm kiếm nhiều nhất. Mọi thứ để có chuyện nói khi gặp gỡ.</p>
   </div>
 </div>
 
 <div class="pillars-wrap">
 <div class="pillars">
-  <div class="pillar active" id="pillar-sports-btn" onclick="switchPillar('sports',this)">⚽ Thể thao <span class="pillar-badge">TRỰC TIẾP</span></div>
+  <div class="pillar active" id="pillar-sports-btn" onclick="switchPillar('sports',this)">⚽ Thể thao <span class="pillar-badge">10 MÔN</span></div>
   <div class="pillar" id="pillar-travel-btn" onclick="switchPillar('travel',this)">✈️ Du lịch <span class="pillar-badge">10 ĐIỂM ĐẾN</span></div>
   <div class="pillar soon">🎭 Văn hoá <span class="pillar-badge">SẮP RA MẮT</span></div>
 </div>
@@ -243,8 +266,8 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 <div id="pillar-sports" class="pillar-panel on">
 <main>
   <div class="topic-intro">
-    <div class="travel-title">6 môn Olympic — chiều sâu hơn tỉ số</div>
-    <p class="travel-sub">Xếp hạng thế giới, vị trí Việt Nam, cách chơi và nơi bắt đầu — chủ đề để bắt đầu trò chuyện, không phải chuyện cá cược.</p>
+    <div class="travel-title">Thể thao phổ biến tại Việt Nam</div>
+    <p class="travel-sub">Xếp hạng thế giới, vị trí Việt Nam, cách chơi và nơi bắt đầu — chủ đề để bắt đầu trò chuyện.</p>
   </div>
 
   <div class="sport-tabs">
@@ -255,6 +278,9 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     <div class="sport-tab" data-t="taekwondo" onclick="switchTopic('taekwondo',this)">🥋 Taekwondo</div>
     <div class="sport-tab" data-t="swimming" onclick="switchTopic('swimming',this)">🏊 Bơi lội</div>
     <div class="sport-tab" data-t="running" onclick="switchTopic('running',this)">🏃 Chạy bộ</div>
+    <div class="sport-tab" data-t="tennis" onclick="switchTopic('tennis',this)">🎾 Quần vợt</div>
+    <div class="sport-tab" data-t="pickleball" onclick="switchTopic('pickleball',this)">🥒 Pickleball</div>
+    <div class="sport-tab" data-t="cycling" onclick="switchTopic('cycling',this)">🚴 Đạp xe</div>
   </div>
 
   <div id="topic-content"></div>
@@ -519,66 +545,279 @@ function mkWeatherCard(c, idx){
 // vì xếp hạng thể thao thay đổi theo thời gian, không phải dữ liệu tĩnh vĩnh viễn.
 const TOPIC_CONTENT = {
   chess: {
-    icon:'♟️', name:'Cờ vua', nameEn:'Chess',
+    icon:'♔', name:'Cờ vua', nameEn:'Chess',
     world:`Magnus Carlsen (Na Uy) vẫn là cái tên biểu tượng nhất làng cờ dù đã rời top đầu bảng xếp hạng cá nhân gần đây. Ở xếp hạng quốc gia theo elo trung bình, Trung Quốc hiện dẫn đầu, theo sau là Ấn Độ và Mỹ — 3 cường quốc cờ vua lớn nhất hiện tại.`,
     vn:`Việt Nam xếp hạng 35-36/204 quốc gia theo FIDE (elo trung bình ~2331) — đứng trên cả Na Uy, quê hương của Magnus Carlsen. Ngôi sao sáng nhất là <b>Lê Quang Liêm</b>, từng vào top 20 thế giới cá nhân (elo 2731). Thế hệ kế cận đáng chú ý: Nguyễn Ngọc Trường Sơn, Đậu Khương Duy, Bành Gia Huy. Ở nữ, Phạm Lê Thảo Nguyên là gương mặt nổi bật nhất.`,
     facts:[{v:'8×8',l:'Ô bàn cờ'},{v:'16',l:'Quân/bên'},{v:'FIDE',l:'Luật chuẩn'}],
-    how:`Hai người chơi, mỗi bên 16 quân trên bàn cờ 8×8 ô, mục tiêu chiếu bí vua đối phương. Theo luật FIDE chính thức: <b>chạm quân là phải đi</b> (touch-move) — nếu chạm vào quân của mình mà còn nước đi hợp lệ, bắt buộc phải đi quân đó. 2 nước đặc biệt hay gây nhầm cho người mới: <b>nhập thành</b> (di chuyển Vua và Xe cùng lúc, ký hiệu 0-0 nhập thành gần/0-0-0 nhập thành xa — chỉ được làm khi Vua và Xe liên quan chưa từng di chuyển và không đang bị chiếu) và <b>bắt Tốt qua đường</b> (en passant — bắt Tốt đối phương vừa đi 2 ô ngay lượt kế tiếp, bỏ lỡ là mất quyền). Khi Tốt đi tới hàng cuối phải phong cấp thành quân khác (thường chọn Hậu).`,
+    how:[
+      `Bàn cờ 8×8 ô, mỗi bên 16 quân, mục tiêu <b>chiếu bí</b> Vua đối phương`,
+      `<b>Chạm quân là phải đi</b> (touch-move) — chạm quân mình mà còn nước hợp lệ thì bắt buộc đi quân đó`,
+      `<b>Nhập thành</b> (0-0 gần / 0-0-0 xa) — di chuyển Vua+Xe cùng lúc, chỉ được làm khi cả 2 chưa từng di chuyển và không đang bị chiếu`,
+      `<b>Bắt Tốt qua đường</b> (en passant) — bắt Tốt đối phương vừa đi 2 ô, chỉ thực hiện được ngay lượt kế tiếp, bỏ lỡ là mất quyền`,
+      `Tốt đi tới hàng cuối phải <b>phong cấp</b> thành quân khác (thường chọn Hậu)`,
+    ],
     where:`Có mặt ở hầu hết các trung tâm cờ vua tại Hà Nội và TP.HCM, nhiều quán cà phê cờ vua cũng mở bàn cho khách chơi tự do.`,
-    technique:`Người mới nên học theo thứ tự: (1) <b>Nguyên tắc khai cuộc</b> — kiểm soát trung tâm, phát triển quân nhẹ trước, nhập thành sớm để bảo vệ Vua; (2) <b>Giải bài tập chiến thuật</b> (tactics puzzle) hàng ngày trên Lichess hoặc Chess.com — cách luyện phản xạ bắt quân/chiếu bí nhanh nhất; (3) <b>Cờ tàn cơ bản</b> — thắng bằng Vua+Hậu, Vua+Xe là nền tảng bắt buộc trước khi học sâu hơn. Chơi cờ chớp nhoáng (blitz, 3-5 phút/ván) giúp quen áp lực thời gian, nhưng nên dành phần lớn thời gian tập cho cờ tiêu chuẩn để tư duy sâu hơn.`,
-    community:`CLB Kiện Tướng Tương Lai (Hà Nội, nhiều cơ sở) chuyên đào tạo; nhóm Facebook "CỜ VUA TP.HCM" và "HCM CHESS" quy tụ người chơi tự do tại TP.HCM.`,
+    technique:[
+      `<b>Nguyên tắc khai cuộc</b> — kiểm soát trung tâm, phát triển quân nhẹ trước, nhập thành sớm để bảo vệ Vua`,
+      `<b>Giải bài tập chiến thuật</b> (tactics puzzle) hàng ngày trên Lichess hoặc Chess.com — cách luyện phản xạ bắt quân/chiếu bí nhanh nhất`,
+      `<b>Cờ tàn cơ bản</b> — thắng bằng Vua+Hậu, Vua+Xe là nền tảng bắt buộc trước khi học sâu hơn`,
+      `Chơi cờ chớp nhoáng (blitz, 3-5 phút/ván) để quen áp lực thời gian, nhưng dành phần lớn thời gian tập cho cờ tiêu chuẩn để tư duy sâu hơn`,
+    ],
+    community:[
+      `<b>CLB Kiện Tướng Tương Lai</b> — Hà Nội, nhiều cơ sở (Bạch Mai, Hà Đông), chuyên đào tạo trẻ em và người mới`,
+      `<b>Nhóm "CỜ VUA TP.HCM"</b> — nhóm Facebook quy tụ người chơi tự do, giao lưu offline định kỳ tại TP.HCM`,
+      `<b>Nhóm "HCM CHESS"</b> — cộng đồng cờ vua TP.HCM khác, tập trung chia sẻ ván đấu và học thuật`,
+    ],
   },
   badminton: {
     icon:'🏸', name:'Cầu lông', nameEn:'Badminton',
     world:`Kunlavut Vitidsarn (Thái Lan) đang giữ ngôi số 1 đơn nam thế giới, An Se Young (Hàn Quốc) thống trị đơn nữ. Ở đôi nam, cặp Kim Won-ho/Seo Seung-jae (Hàn Quốc) dẫn đầu.`,
     vn:`<b>Nguyễn Tiến Minh</b> là tượng đài của cầu lông Việt Nam — từng đạt hạng 5 thế giới, cột mốc cao nhất một tay vợt Việt Nam từng chạm tới. Thế hệ mới như Nguyễn Hải Đăng, Lê Đức Phát đang nhắm mục tiêu lọt top 50 thế giới. Ở nữ, Trần Thị Phương Thúy, Vũ Thị Trang, Nguyễn Thùy Linh là những cái tên hàng đầu trong nước.`,
     facts:[{v:'21',l:'Điểm/ván'},{v:'13,4m',l:'Sân đơn'},{v:'1,524m',l:'Cao lưới'},{v:'BO3',l:'Thể thức'}],
-    how:`Sân đơn 13,4m × 5,18m, sân đôi rộng hơn (6,1m), lưới cao 1,524m. Tính điểm theo hệ rally-point: mỗi pha cầu đều ra điểm bất kể ai giao cầu, thắng 21 điểm trước (cách biệt tối thiểu 2 điểm, hòa 20-20 thì ai hơn 2 điểm trước thắng, tới 29-29 thì điểm thứ 30 quyết định), đấu 3 ván thắng 2. Giao cầu phải chéo sân, vợt chạm cầu ở độ cao dưới 1,15m, cả 2 chân người giao và người nhận phải chạm đất. <b>Tin thời sự đáng chú ý:</b> BWF vừa bỏ phiếu (25/4/2026) thông qua đổi hệ thống tính điểm từ 21 xuống còn <b>15 điểm/ván</b>, áp dụng từ đầu 2027 — hết năm 2026 các giải vẫn thi đấu theo luật 21 điểm cũ.`,
+    how:[
+      `Sân đơn <b>13,4m × 5,18m</b>, sân đôi rộng hơn (6,1m), lưới cao <b>1,524m</b>`,
+      `Tính điểm <b>rally-point</b> — mọi pha cầu đều ra điểm bất kể ai giao cầu`,
+      `Thắng ván khi đạt <b>21 điểm</b> trước, cách biệt tối thiểu 2 điểm (hòa 20-20 thì ai hơn 2 điểm trước thắng, tới 29-29 thì điểm thứ 30 quyết định)`,
+      `Đấu <b>3 ván thắng 2</b> (best-of-3)`,
+      `Giao cầu: chéo sân, vợt chạm cầu ở độ cao dưới 1,15m, cả 2 chân người giao và nhận phải chạm đất`,
+      `<b>Tin mới:</b> BWF vừa bỏ phiếu (25/4/2026) đổi luật xuống còn <b>15 điểm/ván</b> từ đầu 2027 — hết 2026 vẫn thi đấu theo luật 21 điểm cũ`,
+    ],
     where:`Môn thể thao phong trào phổ biến bậc nhất Việt Nam sau bóng đá — sân cầu lông có ở hầu hết khu dân cư, trung tâm thể thao tại mọi thành phố lớn. Giá thuê sân giờ vàng (tối, cuối tuần) thường cao hơn ban ngày — nên đặt sân trước nếu chơi buổi tối.`,
-    technique:`3 nhóm kỹ thuật nên tập theo thứ tự: (1) <b>Di chuyển chân (footwork)</b> — bài tập bật cầu 4 góc sân, nền tảng quan trọng hơn cả lực đánh; (2) <b>Giao cầu ngắn/dài</b> — giao cầu ngắn sát lưới để hạn chế đối thủ tấn công, giao dài để đẩy đối thủ về cuối sân; (3) <b>Smash (đập cầu)</b> — cần vung vợt từ vai, tiếp xúc cầu ở điểm cao nhất phía trước mặt, không phải sức tay mà là lực xoay hông+vai. Người mới hay mắc lỗi giao cầu quá cao (trên 1,15m) — nên tập giao cầu chuẩn trước khi tập tấn công.`,
-    community:`Aurora Badminton Hà Nội tổ chức giải đấu định kỳ (Aurora Cup); nhóm Facebook "Giao Lưu Cầu Lông Hà Nội" kết nối người chơi mọi trình độ.`,
+    technique:[
+      `<b>Di chuyển chân (footwork)</b> — bài tập bật cầu 4 góc sân, nền tảng quan trọng hơn cả lực đánh`,
+      `<b>Giao cầu ngắn/dài</b> — giao ngắn sát lưới để hạn chế đối thủ tấn công, giao dài để đẩy đối thủ về cuối sân`,
+      `<b>Smash (đập cầu)</b> — vung vợt từ vai, tiếp xúc cầu ở điểm cao nhất phía trước mặt, lực đến từ xoay hông+vai chứ không phải sức tay`,
+      `Lỗi phổ biến của người mới: giao cầu quá cao (trên 1,15m) — nên tập giao cầu chuẩn trước khi tập tấn công`,
+    ],
+    community:[
+      `<b>Aurora Badminton Hà Nội</b> — tổ chức giải nội bộ định kỳ (Aurora Cup), nhận người chơi trình độ trung bình trở lên`,
+      `<b>CLB cầu lông Hunter (Hòa Khánh Nam)</b> — Đà Nẵng, 4 sân đôi, nhận cả người mới lẫn người chơi nâng cao`,
+      `<b>Nhóm "Cộng đồng cầu lông Đà Nẵng"</b> — nhóm Facebook kết nối người chơi khu vực Đà Nẵng`,
+    ],
   },
   running: {
     icon:'🏃', name:'Chạy bộ', nameEn:'Running',
     world:`6 giải marathon danh giá nhất thế giới (World Marathon Majors) gồm Boston, London, Berlin, Chicago, New York và Tokyo — hoàn thành đủ 6 giải là cột mốc mơ ước của cộng đồng chạy bộ toàn cầu.`,
-    vn:`Phong trào chạy bộ Việt Nam đang bùng nổ thật sự — riêng năm 2026 có hơn 50 giải trải khắp 20+ tỉnh thành. Giải lớn nhất là <b>Techcombank TP.HCM International Marathon</b> — nằm trong hệ thống Abbott World Marathon Majors (AWMM) và đạt chuẩn World Athletics Gold Label, mùa gần nhất thu hút hơn 23.000 VĐV từ 81 quốc gia. Các giải lớn khác: HCMC Marathon (từ 1992, lâu đời nhất VN), VIHM Hà Nội (giải bán marathon quốc tế duy nhất được Hiệp hội Điền kinh châu Á cấp phép), Techcombank Hà Nội Marathon, hệ thống VnExpress Marathon (nhiều tỉnh), và Vietnam Mountain Marathon (VMM) — giải trail lâu đời nhất, được mệnh danh "ngôi đền trail chạy châu Á".`,
+    vn:`Phong trào chạy bộ Việt Nam đang bùng nổ thật sự — riêng năm 2026 có hơn 50 giải trải khắp 20+ tỉnh thành. Giải lớn nhất là <b>Techcombank TP.HCM International Marathon</b> — nằm trong hệ thống Abbott World Marathon Majors (AWMM) và đạt chuẩn World Athletics Gold Label, mùa gần nhất thu hút hơn 23.000 VĐV từ 81 quốc gia.`,
     facts:[{v:'5-42km',l:'Cự ly'},{v:'50+',l:'Giải/năm'},{v:'23K+',l:'VĐV/giải lớn'}],
-    how:`4 cự ly chuẩn quốc tế: 5km, 10km, 21,0975km (bán marathon/half marathon), 42,195km (marathon đầy đủ). Các giải lớn đều có giới hạn thời gian (cut-off time) — ví dụ HCMC Marathon quy định 42km phải về đích trong 6 giờ, 21km trong 3 giờ 30, 10km trong 2 giờ, tính từ lúc xuất phát. Giải tại TP.HCM thường xuất phát rất sớm (2-4h sáng) để tránh nắng nóng ban ngày.`,
-    where:`Không cần "địa điểm cố định" như các môn khác — công viên, hồ, vỉa hè rộng ở bất kỳ thành phố nào đều tập được. Cung đường quen thuộc với runner Hà Nội: quanh Hồ Tây, Hồ Gươm; TP.HCM: công viên Tao Đàn, khu đô thị Phú Mỹ Hưng. Muốn thi đấu thật thì đăng ký 1 trong hơn 50 giải kể trên.`,
-    technique:`Lộ trình khuyến nghị cho người mới: <b>4-6 tuần đầu</b> tập nền, hoàn thành 1 giải 5km nhẹ nhàng, ưu tiên giải phong trào giá mềm, áp lực thấp. <b>Sau đó</b> nâng dần lên 10km tại giải đường bằng phẳng. <b>Muốn thử 21km lần đầu</b> nên chọn giải có cộng đồng hỗ trợ tốt, không chọn trail hay giải nhiều dốc. Nguyên tắc chung: cần tối thiểu 8-12 tuần tập luyện bài bản trước 1 giải đấu thật, tăng dần quãng đường (không tăng quá 10%/tuần), ưu tiên chạy dài (long run) vào cuối tuần để xây nền, và nạp gel năng lượng hoặc trái cây cho cự ly trên 21km.`,
-    community:`Sunrise Events (đơn vị tổ chức Techcombank Marathon cả 2 miền + Ironman Việt Nam) là nhà tổ chức giải lớn nhất. Ngoài giải chính thức, xu hướng 2026 cho thấy nhiều doanh nghiệp tại Việt Nam tự tổ chức giải chạy nội bộ hoặc lập câu lạc bộ chạy bộ công ty — cách dễ nhất để bắt đầu là tìm nhóm "chạy bộ + tên thành phố" trên Facebook, nơi runner thường rủ nhau chạy chung cuối tuần trước mùa giải.`,
+    how:[
+      `4 cự ly chuẩn quốc tế: <b>5km, 10km, 21,0975km</b> (bán marathon), <b>42,195km</b> (marathon đầy đủ)`,
+      `Mỗi giải đều có <b>giới hạn thời gian</b> (cut-off) — VD HCMC Marathon: 42km/6 giờ, 21km/3 giờ 30, 10km/2 giờ`,
+      `Giải tại TP.HCM thường xuất phát rất sớm (2-4h sáng) để tránh nắng nóng ban ngày`,
+    ],
+    // 2 biểu đồ phát triển — số liệu thật, có nguồn rõ ràng, không suy đoán. Biểu đồ 1 dùng trực
+    // tiếp số liệu giải chạy; biểu đồ 2 dùng thị trường giày chạy bộ làm chỉ dấu gián tiếp cho độ
+    // lớn phong trào (chính báo VnExpress cũng nêu đây là hệ quả trực tiếp của phong trào chạy bộ).
+    charts:[
+      {title:'Quy mô giải chạy lớn nhất Việt Nam', unit:'Số VĐV/giải', source:'VnExpress, VnEconomy',
+       points:[{x:'2021',y:13000},{x:'2022',y:12000},{x:'2023',y:15000},{x:'2025',y:17700},{x:'2026',y:23000}]},
+      {title:'Doanh thu thị trường giày chạy bộ VN', unit:'Triệu USD', source:'Statista, qua VnExpress',
+       points:[{x:'2021',y:192},{x:'2022',y:258},{x:'2023',y:332}]},
+    ],
+    // Bảng lịch giải — đúng ý "nhiều giải lắm", chọn đại diện trải đều 12 tháng thay vì liệt kê
+    // hết 50+ giải (sẽ quá tải). Cột "Chuẩn" CHỈ ghi khi có xác nhận thật cụ thể (không bịa) —
+    // nhiều giải "tự nhận chuẩn quốc tế" nhưng không nêu rõ tổ chức nào cấp thì để trống, trung
+    // thực hơn là đoán. Cột "Trình độ" giúp chọn đúng giải theo năng lực, đúng yêu cầu.
+    racesTable:[
+      {m:'T1', name:'VIHM Hà Nội', dist:'5-21km', level:'Mọi trình độ', cert:'AAA cấp phép'},
+      {m:'T1', name:'HCMC Marathon', dist:'5-42km', level:'Mọi trình độ', cert:'—'},
+      {m:'T3', name:'Danang International', dist:'5-42km', level:'Trung bình+', cert:'—'},
+      {m:'T4', name:'Tây Hồ Half Marathon', dist:'5-21km', level:'Người mới', cert:'—'},
+      {m:'T7', name:'Vietnam Gold HCM', dist:'5-42km', level:'Nâng cao', cert:'—'},
+      {m:'T9', name:'Vietnam Mountain Marathon', dist:'Trail', level:'Nâng cao', cert:'World Trail Majors'},
+      {m:'T10', name:'Techcombank Hà Nội', dist:'5-42km', level:'Mọi trình độ', cert:'World Athletics'},
+      {m:'T11', name:'Standard Chartered Di Sản', dist:'5-10km', level:'Người mới', cert:'—'},
+      {m:'T12', name:'Techcombank TP.HCM', dist:'5-42km', level:'Mọi trình độ', cert:'AWMM · Gold Label'},
+    ],
+    where:`Không cần "địa điểm cố định" — công viên, hồ, vỉa hè rộng ở bất kỳ thành phố nào đều tập được. Cung đường quen thuộc: Hồ Tây/Hồ Gươm (Hà Nội), công viên Tao Đàn/Phú Mỹ Hưng (TP.HCM).`,
+    technique:[
+      `<b>4-6 tuần đầu:</b> tập nền, hoàn thành 1 giải 5km nhẹ nhàng, ưu tiên giải phong trào giá mềm`,
+      `<b>Giai đoạn sau:</b> nâng dần lên 10km tại giải đường bằng phẳng`,
+      `<b>Lần đầu thử 21km:</b> chọn giải có cộng đồng hỗ trợ tốt, tránh trail hay giải nhiều dốc`,
+      `Nguyên tắc chung: tối thiểu <b>8-12 tuần</b> tập bài bản trước 1 giải thật, tăng quãng đường không quá <b>10%/tuần</b>`,
+      `Ưu tiên chạy dài (long run) cuối tuần để xây nền; nạp gel năng lượng hoặc trái cây cho cự ly trên 21km`,
+    ],
+    community:[
+      `<b>Sunday Running Club (SRC)</b> — TP.HCM, tập sáng Chủ Nhật tại SVĐ Hoa Lư (Q1)`,
+      `<b>LDR — Hội những người thích chạy đường dài</b> — Hà Nội, cộng đồng lâu đời, hàng chục nghìn thành viên`,
+      `<b>DaNang Runners</b> — cộng đồng chạy bộ lớn nhất khu vực Đà Nẵng`,
+      `<b>MDRs (Mekong Delta Runners)</b> — Cần Thơ, kết nối runner khu vực miền Tây`,
+      `<b>VBRC (Vũng Tàu Beach Running Club)</b> — CLB chạy lớn nhất Vũng Tàu, có chương trình huấn luyện nâng thành tích`,
+    ],
   },
   tabletennis: {
     icon:'🏓', name:'Bóng bàn', nameEn:'Table Tennis',
     world:`Trung Quốc thống trị bóng bàn thế giới suốt nhiều thập kỷ, gần như độc chiếm các vị trí đầu bảng xếp hạng cả nam lẫn nữ — đây vẫn là cường quốc số 1 tuyệt đối của môn này.`,
     vn:`Bóng bàn Việt Nam góp mặt đều đặn ở đấu trường khu vực qua đội tuyển nam đồng đội (gồm Nguyễn Anh Tú, Đinh Anh Hoàng, Trần Đức Tuân tại SEA Games gần nhất) và nội dung đơn nam. Đây là môn có nền tảng phong trào tốt nhưng khoảng cách với đỉnh cao thế giới (Trung Quốc) vẫn còn rất xa.`,
-    how:`Đánh đơn hoặc đôi trên bàn có lưới, giao bóng luân phiên, mỗi ván 11 điểm, thắng cách biệt 2 điểm, thắng 4/7 ván ở đấu trường chuyên nghiệp.`,
-    where:`Bàn bóng bàn có ở hầu hết nhà văn hoá, trung tâm thể thao quận/huyện, và nhiều công ty tại Việt Nam làm khu sinh hoạt chung.`,
-    community:`Các trung tâm thể thao quận thường có lớp bóng bàn phong trào; tìm nhóm theo tên "bóng bàn + tên quận/thành phố" trên Facebook thường ra kết quả nhóm giao lưu tại chỗ.`,
+    facts:[{v:'2,74m',l:'Dài bàn'},{v:'15,25cm',l:'Cao lưới'},{v:'11',l:'Điểm/ván'}],
+    how:[
+      `Bàn dài <b>2,74m</b>, rộng 1,525m, cao 76cm; lưới cao <b>15,25cm</b>`,
+      `Mỗi ván đến <b>11 điểm</b>, thắng cách biệt tối thiểu 2 (hòa 10-10 thì đấu tới khi ai hơn 2 điểm)`,
+      `Trận đấu thường <b>4/7 ván</b> (thắng 4) ở đấu trường chuyên nghiệp, có thể 3/5 tùy giải`,
+      `Giao bóng: tung bóng thẳng đứng cao tối thiểu <b>16cm</b>, không xoáy, đánh khi bóng rơi xuống — bóng phải chạm bàn mình trước rồi mới qua lưới sang bàn đối phương`,
+      `Mỗi lượt giao 2 quả rồi đổi người giao — riêng khi hòa 10-10 thì đổi giao sau mỗi điểm`,
+    ],
+    where:`Bàn bóng bàn có ở hầu hết nhà văn hoá, trung tâm thể thao quận/huyện, và nhiều công ty tại Việt Nam làm khu sinh hoạt chung — chi phí thấp nhất trong các môn vợt vì không cần thuê sân riêng.`,
+    technique:[
+      `<b>Cầm vợt (grip)</b> — 2 kiểu chính: cầm ngang (shakehand, phổ biến ở người mới) và cầm dọc (penhold, phổ biến ở VĐV châu Á đỉnh cao)`,
+      `<b>Giao bóng xoáy</b> — kỹ thuật khó nhất, cần tiếp xúc bóng "cực mỏng" để tạo xoáy, nên học sau khi đã vững giao bóng thẳng`,
+      `Người mới hay mắc lỗi tung bóng không đủ 16cm khi giao — trọng tài quốc tế sẽ bắt lỗi này, nên tập đúng ngay từ đầu`,
+    ],
+    community:[
+      `Trung tâm thể thao quận/huyện tại hầu hết tỉnh thành đều có bàn bóng bàn phong trào, phí thuê giờ rẻ`,
+      `Nhiều công ty tại Hà Nội, TP.HCM đặt bàn bóng bàn làm khu sinh hoạt chung — cách dễ nhất để tìm bạn chơi cùng`,
+      `Tìm nhóm theo tên "bóng bàn + tên quận/thành phố" trên Facebook thường ra kết quả nhóm giao lưu tại chỗ`,
+    ],
   },
   shooting: {
     icon:'🎯', name:'Bắn súng', nameEn:'Shooting',
     world:`Môn thi đấu kỹ thuật cao, đòi hỏi trường bắn đạt chuẩn quốc tế — các cường quốc truyền thống gồm Trung Quốc, Hàn Quốc, Ấn Độ, các nước Đông Âu.`,
     vn:`<b>Hoàng Xuân Vinh</b> mang về tấm HCV Olympic đầu tiên và duy nhất trong lịch sử thể thao Việt Nam (Rio 2016, nội dung 10m súng ngắn hơi, kèm HCB 50m súng ngắn). Hiện tại, <b>Trịnh Thu Vinh</b> là gương mặt sáng giá nhất — giành 4 HCV tại SEA Games 33 và thi đấu World Cup bắn súng 2026 tại Đức, được đánh giá tiệm cận chuẩn Olympic.`,
-    how:`Thi bắn súng ngắn hoặc súng trường vào bia ở cự ly cố định (10m, 25m, 50m tuỳ nội dung), tính điểm theo độ chính xác vào tâm bia.`,
-    where:`Cần trường bắn đạt chuẩn an toàn — phổ biến nhất tại các trung tâm huấn luyện thể thao quốc gia/tỉnh, không phải môn dễ tiếp cận tự do như cầu lông hay cờ vua.`,
-    community:`Liên đoàn Bắn súng Việt Nam quản lý các trung tâm đào tạo chính thức tại Hà Nội, TP.HCM và một số tỉnh có phong trào mạnh — phù hợp người muốn theo đuổi nghiêm túc hơn là chơi giải trí.`,
+    facts:[{v:'10m',l:'Cự ly (súng hơi)'},{v:'10,9',l:'Điểm tối đa/viên'},{v:'60+24',l:'Viên (vòng loại+CK)'}],
+    how:[
+      `Nội dung 10m súng ngắn/súng trường hơi: vòng loại bắn <b>60 viên</b>, chọn 8 VĐV điểm cao nhất vào chung kết bắn thêm <b>24 viên</b>`,
+      `Bia điểm chia <b>10 vòng</b> (1-10, tâm là 10), riêng vòng tâm lại chia nhỏ thành 10 phần — đạn càng sát tâm tuyệt đối càng được cộng thêm số phẩy, điểm tối đa/viên là <b>10,9</b> (đúng viên đạn vàng của Hoàng Xuân Vinh tại Rio 2016)`,
+      `Nội dung 50m súng trường 3 tư thế: bắn đủ <b>3 tư thế</b> nằm — quỳ — đứng, mỗi tư thế 40 viên`,
+      `Bắn trước hiệu lệnh hoặc sau hiệu lệnh dừng đều bị phạt trừ điểm hoặc tính 0 điểm viên đó`,
+    ],
+    where:`Cần trường bắn đạt chuẩn an toàn — phổ biến nhất tại các trung tâm huấn luyện thể thao quốc gia/tỉnh, không phải môn dễ tiếp cận tự do như cầu lông hay cờ vua. Một số nơi có dịch vụ bắn súng hơi giải trí (không phải chuẩn thi đấu) cho người mới trải nghiệm.`,
+    technique:[
+      `<b>Tư thế đứng ổn định</b> — nền tảng quan trọng nhất, trọng tâm cơ thể phải vững trước khi tập ngắm bắn`,
+      `<b>Kiểm soát hơi thở</b> — bắn đúng lúc giữa nhịp thở ra, không nín thở quá lâu gây run tay`,
+      `Đây là môn cần huấn luyện viên ngay từ đầu vì liên quan an toàn vũ khí — không phải môn tự học qua video như các môn khác`,
+    ],
+    community:[
+      `Liên đoàn Bắn súng Việt Nam quản lý các trung tâm đào tạo chính thức tại Hà Nội, TP.HCM và một số tỉnh có phong trào mạnh`,
+      `Trung tâm Huấn luyện Thể thao Quốc gia (Hà Nội, TP.HCM, Đà Nẵng, Cần Thơ) đều có bộ môn bắn súng — nơi các tuyển thủ đội tuyển quốc gia tập luyện`,
+      `Phù hợp người muốn theo đuổi nghiêm túc hơn là chơi giải trí — nên liên hệ trực tiếp trung tâm tỉnh/thành để được hướng dẫn nhập môn đúng cách`,
+    ],
   },
   taekwondo: {
     icon:'🥋', name:'Taekwondo', nameEn:'Taekwondo',
     world:`Hàn Quốc là quê hương và vẫn là cường quốc số 1 của môn võ này, dù taekwondo đã phổ biến và cạnh tranh khốc liệt trên toàn cầu qua nhiều thập kỷ là môn thi đấu Olympic.`,
     vn:`<b>Trần Hiếu Ngân</b> giành HCB Olympic Sydney 2000 — tấm huy chương Olympic đầu tiên trong lịch sử thể thao Việt Nam ở bất kỳ môn nào, mở đường cho cả nền thể thao nước nhà. Hiện tại, Trương Thị Kim Tuyền và Trần Thị Ánh Tuyết là những gương mặt taekwondo nổi bật nhất, thường xuyên có huy chương tại SEA Games.`,
-    how:`Thi đấu đối kháng tính điểm qua đòn đá/đấm trúng đích hợp lệ trên giáp bảo hộ, hoặc thi quyền (biểu diễn kỹ thuật) chấm điểm bởi trọng tài.`,
-    where:`Trung tâm võ thuật dạy taekwondo có ở hầu hết các quận/huyện tại Việt Nam, phổ biến cho cả trẻ em và người lớn mới bắt đầu.`,
-    community:`Liên đoàn Taekwondo Việt Nam quản lý hệ thống câu lạc bộ theo tỉnh/thành; các trung tâm võ thuật tư nhân tại Hà Nội, TP.HCM đều có lớp cho người mới.`,
+    facts:[{v:'3×2 phút',l:'3 hiệp'},{v:'1-4',l:'Điểm/đòn trúng'},{v:'8m',l:'Sân bát giác'}],
+    how:[
+      `Sân thi đấu bát giác đường kính 8m (hoặc sân vuông 8×8m), khu vực an toàn bao quanh rộng 2m`,
+      `<b>3 hiệp, mỗi hiệp 2 phút</b>, nghỉ 1 phút giữa hiệp — hòa sau 3 hiệp thì đấu thêm hiệp phụ "cái chết bất ngờ" (điểm đầu tiên thắng)`,
+      `Tính điểm theo đòn trúng đích hợp lệ: <b>1 điểm</b> đá/đấm vào thân, <b>2 điểm</b> đá xoay vào thân, <b>3 điểm</b> đá vào đầu, <b>4 điểm</b> đá xoay vào đầu — đấm vào đầu KHÔNG được tính điểm`,
+      `Giáp điện tử (PSS) tự động ghi điểm ở vùng thân khi lực đá đủ mạnh — giảm tranh cãi trọng tài`,
+      `Vi phạm luật (gam-jeom) bị trừ, mỗi lỗi cộng 1 điểm cho đối thủ; đủ 2 điểm trừ thì xử thua`,
+    ],
+    where:`Trung tâm võ thuật dạy taekwondo có ở hầu hết các quận/huyện tại Việt Nam, phổ biến cho cả trẻ em và người lớn mới bắt đầu — thường tổ chức theo hệ thống đai (10 cấp gup, 9 đẳng dan) nên dễ theo dõi tiến bộ.`,
+    technique:[
+      `Người mới bắt đầu từ <b>Poomsae (bài quyền)</b> trước — rèn tư thế, độ chính xác động tác trước khi vào đối kháng thật (Kyorugi)`,
+      `<b>Đá xoay (spin kick)</b> — kỹ thuật ghi điểm cao nhất (2-4 điểm) nhưng khó và dễ mất thăng bằng, chỉ nên tập khi đã vững đòn cơ bản`,
+      `Tập phản xạ né/đỡ trước khi tập tấn công — taekwondo đối kháng thật đòi hỏi kiểm soát khoảng cách tốt hơn là ra đòn mạnh`,
+    ],
+    community:[
+      `Liên đoàn Taekwondo Việt Nam quản lý hệ thống câu lạc bộ theo tỉnh/thành, có thi lên đai định kỳ`,
+      `Các trung tâm võ thuật tư nhân tại Hà Nội, TP.HCM đều có lớp cho người mới, thường chia lớp theo độ tuổi`,
+      `Trung tâm Huấn luyện Thể thao Quốc gia tại nhiều tỉnh thành cũng nhận học viên phong trào bên cạnh đào tạo VĐV chuyên nghiệp`,
+    ],
   },
   swimming: {
     icon:'🏊', name:'Bơi lội', nameEn:'Swimming',
     world:`Mỹ và Úc là 2 cường quốc bơi lội truyền thống mạnh nhất, thống trị phần lớn nội dung tại Olympic và giải vô địch thế giới qua nhiều thế hệ vận động viên.`,
-    vn:`<b>Nguyễn Huy Hoàng</b> là lá cờ đầu hiện tại của bơi lội Việt Nam, chuyên các cự ly trung-dài (400m, 800m, 1.500m tự do) — sở hữu 11 HCV SEA Games qua 4 kỳ liên tiếp, từng có huy chương ASIAD. Trần Hưng Nguyên, Phạm Thanh Bảo, Võ Thị Mỹ Tiên cũng là những gương mặt SEA Games quen thuộc. Trước đó, Nguyễn Thị Ánh Viên (đã giải nghệ) từng là ngôi sao lớn nhất lịch sử bơi lội nữ Việt Nam.`,
-    how:`Thi đấu theo 4 kiểu bơi chính (tự do, ếch, bướm, ngửa) trên các cự ly khác nhau, tính thời gian hoàn thành đường bơi.`,
-    where:`Hồ bơi công cộng và trung tâm thể thao có bể bơi phổ biến ở hầu hết các thành phố lớn tại Việt Nam, dễ tiếp cận cho người mới tập.`,
-    community:`Các trung tâm thể thao dưới nước cấp tỉnh/thành thường có lớp dạy bơi cho mọi lứa tuổi; nhóm "bơi lội + tên thành phố" trên Facebook thường có cộng đồng người tập bơi giao lưu.`,
+    vn:`<b>Nguyễn Huy Hoàng</b> là lá cờ đầu hiện tại của bơi lội Việt Nam, chuyên các cự ly trung-dài (400m, 800m, 1.500m tự do) — sở hữu 11 HCV SEA Games qua 4 kỳ liên tiếp, từng có huy chương ASIAD. Trần Hưng Nguyên, Phạm Thanh Bảo, Võ Thị Mỹ Tiên cũng là những gương mặt SEA Games quen thuộc. Trước đó, Nguyễn Thị Ánh Viên (đã giải nghệ) từng là ngôi sao lớn nhất lịch sử bơi lội nữ Việt Nam — và vẫn thường xuất hiện cổ vũ tại các giải bơi biển phong trào gần đây.`,
+    facts:[{v:'4',l:'Kiểu bơi chính'},{v:'15m',l:'Được lặn ngầm tối đa'},{v:'2 tay',l:'Chạm thành/về đích'}],
+    // Số HCV của CẢ ĐỘI TUYỂN (không phải 1 cá nhân) qua 3 kỳ SEA Games gần nhất — tự nhiên phản
+    // ánh giai đoạn chuyển giao sau khi Ánh Viên giải nghệ (2021) mà không phải "chart về riêng cô".
+    charts:[
+      {title:'HCV bơi lội Việt Nam qua các kỳ SEA Games', unit:'Tổng HCV đội tuyển/kỳ', source:'VnExpress, Dân Việt',
+       points:[{x:'2019',y:10},{x:'2022',y:9},{x:'2025',y:7}]},
+    ],
+    how:[
+      `4 kiểu bơi chính: <b>tự do, ếch, bướm, ngửa</b> — thi cá nhân từng kiểu hoặc phối hợp (hỗn hợp cá nhân/tiếp sức)`,
+      `Được phép lặn hoàn toàn dưới nước tối đa <b>15m</b> sau xuất phát hoặc sau mỗi lượt quay vòng, sau đó bắt buộc phải nổi lên`,
+      `Bơi ếch/bướm: <b>2 tay phải chạm thành bể đồng thời</b> khi quay vòng hoặc về đích — chạm 1 tay bị loại`,
+      `Bơi ếch: 2 tay và 2 chân phải chuyển động đồng thời, không được luân phiên kiểu tự do`,
+      `Xuất phát: đứng trên bục, tối thiểu 1 chân ở mép trước, chỉ nhảy khi có tín hiệu — xuất phát sớm bị loại`,
+    ],
+    where:`Hồ bơi công cộng và trung tâm thể thao có bể bơi phổ biến ở hầu hết các thành phố lớn tại Việt Nam, dễ tiếp cận cho người mới tập. Ngoài bể bơi, phong trào bơi biển (open water) đang phát triển mạnh với các giải như SeaStar Nha Trang Bay, Lý Sơn Cross Island.`,
+    technique:[
+      `Người mới nên học <b>bơi tự do và bơi ếch trước</b> — 2 kiểu dễ tiếp cận nhất, bướm và ngửa đòi hỏi kỹ thuật cao hơn`,
+      `<b>Kỹ thuật thở</b> — nguyên nhân số 1 khiến người mới đuối sức nhanh, nên tập thở đều trước khi tập tốc độ`,
+      `Nếu hướng tới bơi biển/open water: cần tập thêm kỹ năng "sighting" (ngẩng đầu định hướng khi bơi tự do) — khác hẳn bơi trong bể có vạch line dưới đáy`,
+    ],
+    community:[
+      `Các trung tâm thể thao dưới nước cấp tỉnh/thành thường có lớp dạy bơi cho mọi lứa tuổi`,
+      `<b>CLB Khánh Hòa Ocean Swimming</b> — cộng đồng bơi biển tại Nha Trang, thường xuất hiện hỗ trợ/cổ vũ tại các giải bơi biển địa phương`,
+      `Nhóm "bơi lội + tên thành phố" trên Facebook thường có cộng đồng người tập bơi giao lưu, đặc biệt sôi động quanh mùa giải bơi biển (hè)`,
+    ],
+  },
+  tennis: {
+    icon:'🎾', name:'Quần vợt', nameEn:'Tennis',
+    world:`Làng banh nỉ thế giới vẫn xoay quanh cuộc đua giữa các tay vợt hàng đầu ở cả 4 Grand Slam (Úc Mở rộng, Roland Garros, Wimbledon, US Open) — đấu trường khắc nghiệt bậc nhất thể thao cá nhân.`,
+    vn:`<b>Lý Hoàng Nam</b> là tượng đài lớn nhất của quần vợt Việt Nam — vô địch quốc gia năm 15 tuổi (2012), vô địch đôi nam trẻ Wimbledon 2015 (cùng Sumit Nagal, Ấn Độ), đạt hạng <b>231 ATP</b> (11/2022) — thứ hạng ATP cao nhất một tay vợt Việt Nam từng chạm tới, cùng 2 HCV SEA Games liên tiếp (2019, 2022). Từ 2025, Hoàng Nam chuyển hẳn sang thi đấu pickleball chuyên nghiệp (xem thêm ở tab Pickleball) — vẫn được xem là biểu tượng lớn nhất của tennis Việt Nam dù không còn thi đấu nhà nghề.`,
+    facts:[{v:'6 game',l:'Thắng 1 set'},{v:'3-5 set',l:'Thắng trận'},{v:'6-6',l:'Vào tie-break'}],
+    how:[
+      `Tính điểm mỗi game: <b>15-30-40-Game</b>, hòa 40-40 gọi là "deuce" — phải hơn 2 điểm liên tiếp mới thắng game`,
+      `Thắng 6 game trước (cách biệt tối thiểu 2 game) thì thắng 1 set; hòa 6-6 thường đấu tie-break (điểm 7 trước, cách biệt 2)`,
+      `Đấu nam Grand Slam: <b>5 set thắng 3</b>; hầu hết giải khác và đấu nữ: <b>3 set thắng 2</b>`,
+      `Giao bóng chéo sân, mỗi điểm được giao 2 lần (lỗi lần 1 vẫn còn lần 2 "second serve")`,
+    ],
+    where:`Sân tennis có ở các trung tâm thể thao lớn, khu đô thị cao cấp, và ngày càng nhiều CLB tư nhân tại Hà Nội, TP.HCM — chi phí thuê sân cao hơn cầu lông/bóng bàn do diện tích sân lớn hơn nhiều.`,
+    technique:[
+      `<b>Forehand/backhand cơ bản</b> — trọng tâm thấp, xoay hông trước khi vung vợt, tiếp xúc bóng phía trước thân người`,
+      `<b>Giao bóng (serve)</b> — kỹ thuật khó nhất với người mới, nên tập riêng trước khi vào trận đấu thật`,
+      `<b>Di chuyển chân (footwork)</b> — luôn trở về vị trí trung tâm sân sau mỗi cú đánh`,
+      `Người mới nên học tại CLB có HLV trước khi tự tập — sân tennis lớn hơn nhiều môn khác, sai tư thế dễ chấn thương vai/khuỷu tay`,
+    ],
+    community:[
+      `<b>CLB Infinity Tennis & Pickleball</b> — TP.HCM, cụm sân tổ chức cả giải tennis lẫn pickleball chuyên nghiệp và phong trào`,
+      `<b>Lý Hoàng Nam Sport Club</b> — tổ hợp sân do chính Lý Hoàng Nam phát triển, cả tennis và pickleball`,
+      `Trung tâm thể thao quận/thành phố tại hầu hết tỉnh thành đều có sân tennis cho thuê theo giờ, nhiều nơi có lớp dạy cơ bản`,
+    ],
+  },
+  pickleball: {
+    icon:'🥒', name:'Pickleball', nameEn:'Pickleball',
+    world:`Môn thể thao tăng trưởng nhanh nhất nước Mỹ những năm gần đây, dùng vợt gỗ/composite và bóng nhựa có lỗ trên sân nhỏ hơn tennis. Ben Johns là cái tên thống trị làng pickleball chuyên nghiệp thế giới (PPA Tour) nhiều năm qua.`,
+    vn:`Câu chuyện đáng chú ý nhất thể thao Việt Nam gần đây: <b>Lý Hoàng Nam</b> — huyền thoại tennis — chuyển hẳn sang pickleball chuyên nghiệp từ 2025, và chỉ hơn 1 năm đã vươn lên <b>top 14-20 thế giới</b> (PPA Tour) cùng ngôi <b>số 1 châu Á</b> (DUPR). Ấn tượng hơn: Việt Nam có tới <b>5 tay vợt trong top 10 châu Á</b> đơn nam (Lý Hoàng Nam, Phúc Huỳnh, Lực Phạm, Trương Vinh Hiển, Nguyễn Việt Hoàng) — Trương Vinh Hiển từng hạ cả tay vợt hạng 2 thế giới. Việt Nam sẽ đăng cai <b>Pickleball World Cup 2026</b> tại Đà Nẵng (30/8-6/9/2026).`,
+    facts:[{v:'11',l:'Điểm/ván'},{v:'2',l:'Lần nảy bắt buộc'},{v:'2026',l:'World Cup tại ĐN'}],
+    how:[
+      `Sân nhỏ hơn tennis nhiều (~1/3 diện tích), đánh đơn hoặc đôi, dùng vợt đặc (không căng lưới như tennis) và bóng nhựa có lỗ`,
+      `<b>Luật 2 lần nảy bắt buộc</b> (two-bounce rule) — cú giao bóng phải nảy 1 lần bên sân người nhận, cú trả giao bóng phải nảy 1 lần bên sân người giao; chỉ sau 2 lần nảy này mới được đánh bóng bay (volley). Đây là 1 trong 2 luật quan trọng nhất, cùng với luật kitchen`,
+      `<b>Vùng "kitchen"</b> (non-volley zone) — khu vực 7 feet sát lưới, cấm đánh volley khi đang đứng trong đó`,
+      `Giao bóng bắt buộc đánh <b>từ dưới lên (underhand)</b>, điểm tiếp xúc bóng dưới thắt lưng`,
+      `<b>Cách tính điểm truyền thống (side-out scoring):</b> chỉ bên đang giao bóng mới được ghi điểm — bên nhận thắng pha bóng thì chỉ giành lại quyền giao bóng (side-out), không được cộng điểm. Thắng ván khi đạt 11 điểm trước, cách biệt tối thiểu 2`,
+      `<b>Cập nhật luật 2026:</b> USA Pickleball chính thức hoá thêm hình thức "rally scoring" (ai thắng pha bóng cũng được tính điểm, giống bóng chuyền) làm lựa chọn thay thế cho ban tổ chức — nhưng side-out vẫn là luật mặc định phổ biến nhất`,
+    ],
+    where:`Sân pickleball đang mọc nhanh tại các thành phố lớn — nhiều sân tennis/cầu lông cũ được kẻ vạch thêm để chơi được cả pickleball. Ví dụ sân AK Hub (Củ Chi, TP.HCM) từng tổ chức giải mở rộng thu hút 300 VĐV.`,
+    technique:[
+      `Người từng chơi tennis hoặc cầu lông học pickleball rất nhanh — kỹ năng di chuyển và cảm giác vợt chuyển giao tốt (chính là con đường của Lý Hoàng Nam)`,
+      `<b>Dink shot</b> (đánh nhẹ sát lưới trong vùng kitchen) — kỹ thuật đặc trưng nhất của môn này, cần luyện riêng vì khác hẳn cú đập mạnh`,
+      `Người mới nên tập giao bóng underhand đúng luật trước — đây là lỗi phổ biến nhất khi mới chuyển từ tennis sang`,
+      `Lỗi phổ biến khác: quên luật 2 lần nảy, xông lên volley ngay khi bóng chưa nảy đủ 2 lần — nên nhắc nhau trong lúc mới tập`,
+    ],
+    community:[
+      `<b>Liên đoàn Quần vợt Pickleball TP.HCM</b> — tổ chức giải chính thức, phối hợp CLB Infinity tổ chức Babolat Open Cup 2026`,
+      `<b>Lý Hoàng Nam Sport Club</b> — cả sân tập lẫn cộng đồng phong trào, hướng tới người mới lẫn thi đấu`,
+      `Giải phong trào cấp xã/quận (VD Giải Pickleball Củ Chi mở rộng, 300 VĐV) cho thấy phong trào đã lan tới cả các quận vùng ven, không chỉ trung tâm thành phố`,
+    ],
+  },
+  cycling: {
+    icon:'🚴', name:'Đạp xe', nameEn:'Cycling',
+    world:`Xe đạp đường trường (road racing) là nội dung Olympic lâu đời, với các giải Grand Tour (Tour de France, Giro d'Italia, Vuelta a España) là đỉnh cao danh vọng của làng đua xe đạp chuyên nghiệp thế giới.`,
+    vn:`<b>Nguyễn Thị Thật</b> là cái tên lớn nhất của xe đạp Việt Nam — xếp hạng top 40 thế giới theo UCI, tay đua châu Á có thứ hạng cao nhất hiện nay. 3 lần vô địch xe đạp đường trường châu Á (2018, 2022, 2023), và là <b>VĐV Việt Nam đầu tiên</b> giành vé chính thức dự Olympic (Paris 2024) ở môn xe đạp đường trường — cũng là cua-rơ đầu tiên trong lịch sử xe đạp Việt Nam dự Olympic. Từng thi đấu cho các đội chuyên nghiệp châu Âu (Lotto-Soudal Ladies, Israel Premier Tech Roland — đội thuộc nhóm UCI Women World Team, đẳng cấp cao nhất thế giới).`,
+    facts:[{v:'Top 40',l:'UCI thế giới'},{v:'2024',l:'Olympic đầu tiên'},{v:'5 VĐV',l:'Mỗi đội đua'}],
+    how:[
+      `2 hình thức chính: <b>đường trường (road)</b> — đua trên đường nhựa cự ly dài, và <b>địa hình (MTB/cross-country)</b> — đua trên đường mòn/núi nhiều chướng ngại`,
+      `Đua đường trường theo <b>Luật UCI</b>: mỗi đội đăng ký tối đa 5 VĐV chính thức, về đích tính theo thời gian hoặc thứ hạng cá nhân tuỳ thể thức`,
+      `<b>Đồng đội tính giờ (team time trial)</b>: thời gian hoàn thành của cả đội tính theo người về thứ 3 trong đội — không phải người nhanh nhất`,
+      `Các giải phong trào tại VN thường chia cự ly theo nội dung: cá nhân nam/nữ, đồng đội nam/nữ, dao động 24-64km tuỳ giải`,
+    ],
+    where:`Đường ven đô, công viên lớn, hoặc khu đô thị có làn riêng là nơi tập phổ biến nhất. Xe đạp địa hình cần đường mòn/núi — các điểm nổi tiếng gồm Hầm Đá, Đà Lạt, Sa Pa. Nhiều giải phong trào cấp tỉnh (An Giang, Lâm Đồng, Quảng Nam...) mở cho người ngoài tỉnh đăng ký.`,
+    technique:[
+      `<b>Tư thế đạp (cadence)</b> — giữ nhịp chân đều 80-100 vòng/phút hiệu quả hơn đạp nặng nhịp chậm, nền tảng đầu tiên cần luyện`,
+      `<b>Đi theo tốp (drafting)</b> — đạp sau xe khác để giảm sức cản gió, kỹ thuật quan trọng trong đua đồng đội nhưng cần tập an toàn trước (dễ va chạm)`,
+      `Người mới nên tập trên đường bằng phẳng, ít xe cộ trước khi thử địa hình hoặc đua tốc độ`,
+    ],
+    community:[
+      `<b>CLB Xe đạp Thể thao Trung Thành Hà Nội</b> — thành viên Liên đoàn Xe đạp - Mô tô Thể thao Việt Nam, thường xuyên tổ chức/tham gia giải`,
+      `Gần 40 CLB xe đạp tại TP.HCM từng cùng tham gia 1 giải phong trào duy nhất — cho thấy mật độ CLB rất dày ở khu vực này`,
+      `Liên đoàn Xe đạp - Mô tô Thể thao Việt Nam quản lý hệ thống các giải phong trào cấp tỉnh, nhiều giải mở cho cả người ngoài tỉnh đăng ký tham gia`,
+    ],
   },
 };
 
@@ -586,6 +825,58 @@ function switchTopic(t, el){
   document.querySelectorAll('.sport-tab').forEach(x=>x.classList.remove('on'));
   el.classList.add('on');
   renderTopic(t);
+}
+
+// Hiện nội dung dạng bullet nếu dữ liệu là mảng (môn đã đào sâu), hoặc đoạn văn thường nếu là
+// chuỗi (5 môn chưa cập nhật) — 1 hàm dùng chung, không cần sửa gì thêm khi đào sâu môn mới.
+function renderBody(content){
+  if(Array.isArray(content)) return `<ul class="topic-list">${content.map(li=>`<li>${li}</li>`).join('')}</ul>`;
+  return `<div class="topic-card-body">${content}</div>`;
+}
+// Biểu đồ đường SVG đơn giản, tự co giãn trục Y theo min/max dữ liệu — dùng chung cho mọi môn khi
+// có dữ liệu phát triển qua năm thật (không vẽ nếu không có số liệu, đúng yêu cầu "nếu có số liệu").
+function mkLineChart(title, unit, points, source, invert){
+  const W=400, H=150, padL=44, padR=16, padT=14, padB=28;
+  const vals = points.map(p=>p.y);
+  const minV = Math.min(...vals), maxV = Math.max(...vals);
+  const span = (maxV-minV)||1;
+  const stepX = (W-padL-padR)/(points.length-1);
+  const xy = points.map((p,i)=>{
+    // Bình thường: giá trị LỚN nằm cao. invert=true (VD hạng thi đấu, nhỏ=tốt): đảo lại cho đúng
+    // trực quan — giá trị NHỎ (tốt hơn) nằm cao hơn trên biểu đồ.
+    const norm = (p.y-minV)/span;
+    const normPos = invert ? norm : (1-norm);
+    return {
+      x: padL + i*stepX,
+      y: padT + (H-padT-padB) * normPos,
+      label: p.x, val: p.y,
+    };
+  });
+  const pathD = xy.map((p,i)=>`${i===0?'M':'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  const areaD = pathD + ` L${xy[xy.length-1].x.toFixed(1)},${H-padB} L${xy[0].x.toFixed(1)},${H-padB} Z`;
+  return `<div class="topic-chart">
+    <div class="topic-chart-title">${title}</div>
+    <svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" class="topic-chart-svg">
+      <defs><linearGradient id="cg${title.length}${points.length}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--gold)" stop-opacity=".28"/>
+        <stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/>
+      </linearGradient></defs>
+      <path d="${areaD}" fill="url(#cg${title.length}${points.length})"/>
+      <path d="${pathD}" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      ${xy.map(p=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.5" fill="var(--gold)"/>`).join('')}
+      ${xy.map(p=>`<text x="${p.x.toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="9" fill="rgba(245,239,230,.5)">${p.label}</text>`).join('')}
+      ${xy.map(p=>`<text x="${p.x.toFixed(1)}" y="${(p.y-10).toFixed(1)}" text-anchor="middle" font-size="9" font-weight="700" fill="#F5EFE6">${p.val.toLocaleString('vi-VN')}</text>`).join('')}
+    </svg>
+    <div class="topic-chart-src">${unit}${source?` · Nguồn: ${source}`:''}</div>
+  </div>`;
+}
+
+function renderRacesTable(rows){
+  if(!rows) return '';
+  return `<table class="topic-table">
+    <thead><tr><th>Tháng</th><th>Giải</th><th>Cự ly</th><th>Trình độ</th><th>Chuẩn</th></tr></thead>
+    <tbody>${rows.map(r=>`<tr><td>${r.m}</td><td class="tt-name">${r.name}</td><td>${r.dist}</td><td>${r.level}</td><td>${r.cert&&r.cert!=='—'?`<span class="tt-tag">${r.cert}</span>`:'<span style="color:rgba(245,239,230,.35)">—</span>'}</td></tr>`).join('')}</tbody>
+  </table>`;
 }
 
 function renderTopic(t){
@@ -605,22 +896,24 @@ function renderTopic(t){
         <div class="topic-card-title">🇻🇳 Việt Nam trên bản đồ thế giới</div>
         <div class="topic-card-body">${d.vn}</div>
       </div>
-      <div class="topic-card">
+      ${d.charts?`<div class="topic-charts" style="${d.charts.length===1?'grid-template-columns:1fr':''}">${d.charts.map(c=>mkLineChart(c.title,c.unit,c.points,c.source,c.invert)).join('')}</div>`:''}
+      <div class="topic-card wide">
         <div class="topic-card-title">📖 Cách chơi</div>
         ${d.facts?`<div class="topic-facts">${d.facts.map(f=>`<div class="topic-fact"><span class="topic-fact-v">${f.v}</span><span class="topic-fact-l">${f.l}</span></div>`).join('')}</div>`:''}
-        <div class="topic-card-body">${d.how}</div>
+        ${renderBody(d.how)}
       </div>
       <div class="topic-card">
         <div class="topic-card-title">📍 Chơi ở đâu</div>
-        <div class="topic-card-body">${d.where}</div>
+        ${d.racesTable?renderRacesTable(d.racesTable):''}
+        <div class="topic-card-body" style="${d.racesTable?'margin-top:12px':''}">${d.where}</div>
       </div>
-      ${d.technique?`<div class="topic-card wide">
+      ${d.technique?`<div class="topic-card">
         <div class="topic-card-title">💪 Cải thiện kỹ thuật</div>
-        <div class="topic-card-body">${d.technique}</div>
+        ${renderBody(d.technique)}
       </div>`:''}
       <div class="topic-card">
         <div class="topic-card-title">👥 Hội nhóm tại Việt Nam</div>
-        <div class="topic-card-body">${d.community}</div>
+        ${renderBody(d.community)}
       </div>
     </div>
   `);
