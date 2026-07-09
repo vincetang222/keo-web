@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /events.json
 
 Sitemap: https://keo.social/sitemap.xml
