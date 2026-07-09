@@ -282,12 +282,102 @@
       "desc": "Đề cao giá trị gia đình trong đời sống người Việt."
     },
     {
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show | Tháng 7-2026",
+      "venue": "",
+      "desc": "Chương trình sân khấu định kỳ suốt tháng 7."
+    },
+    {
       "start": "2026-07-02",
       "end": "2026-07-02",
       "city": "hcm",
       "title": "Kỷ niệm 328 năm Sài Gòn & 50 năm mang tên Bác",
       "type": "Kỷ niệm",
       "desc": "328 năm hình thành Sài Gòn - Chợ Lớn - Gia Định - TP.HCM (1698-2026) và 50 năm chính thức mang tên Chủ tịch Hồ Chí Minh (2/7/1976)."
+    },
+    {
+      "start": "2026-07-04",
+      "end": "2026-08-29",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Chuỗi đêm lễ hội Ẩm thực & Bia B'estival",
+      "venue": "Quảng trường Du Dôme, Bà Nà",
+      "desc": "Trình diễn nhạc Rock ngoài trời hằng tuần từ tháng 7 đến tháng 8/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
+    },
+    {
+      "start": "2026-07-05",
+      "end": "2026-12-27",
+      "city": "hcm",
+      "type": "Thể thao",
+      "title": "Chuỗi giải thể thao phong trào thành phố (đua xe đạp, Futsal, Yoga)",
+      "venue": "Nhà thi đấu Hồ Xuân Hương & Phú Thọ",
+      "desc": "Luân phiên các ngày Chủ nhật từ tháng 7 đến tháng 12/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
+    },
+    {
+      "start": "2026-07-05",
+      "end": "2026-10-25",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Chuỗi đêm nhạc đường phố và Hòa tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Diễn ra định kỳ vào tối Chủ nhật hằng tuần từ tháng 7 đến tháng 10/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
+    },
+    {
+      "start": "2026-07-09",
+      "end": "2026-07-12",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Việt Nam - Nhật Bản 2026",
+      "venue": "Công viên Biển Đông",
+      "desc": "Lễ hội giao lưu văn hoá Việt-Nhật thường niên tại Đà Nẵng."
+    },
+    {
+      "start": "2026-07-09",
+      "end": "2026-07-09",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Đỗ Hoàng Hiệp - Hà Lê - Huy R",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-10",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Hà Trần - Nguyễn Đình Tuấn Dũng",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-10",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] THÀNH VÁ",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-10",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "[Sân Khấu Quốc Thảo] CÁNH ĐỒNG RỰC LỬA",
+      "venue": "Sân khấu Quốc Thảo",
+      "desc": "Với Quốc Thảo, NSƯT Minh Nhí, NSƯT Tuyết Thu, Hữu Nghĩa."
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-14",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Chuỗi Workshop nghệ thuật Garden Art (vẽ tranh, terrarium, thêu)",
+      "venue": "Garden Art",
+      "desc": "Nhiều lựa chọn workshop vẽ tranh acrylic/màu nước, làm terrarium cake, thêu túi — diễn ra rải rác 10-14/7, có thể chọn 1 trong nhiều buổi."
     },
     {
       "start": "2026-07-11",
@@ -299,6 +389,303 @@
       "venue": "Cảng sông Hàn, đường Trần Hưng Đạo"
     },
     {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải chạy chân trần trên cát \"Barefoot Run Danang\"",
+      "venue": "Bãi biển Mỹ Khê",
+      "desc": "Giải chạy chân trần trên cát."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc live Hoàng Hải & Lâm Bảo Ngọc",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc trữ tình tại phòng trà live music nổi tiếng TP.HCM."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Sự kiện âm nhạc điện tử Luu Club: Minh, Dane, Maham",
+      "venue": "Luu Bar, Phạm Viết Chánh",
+      "desc": "Đêm nhạc điện tử tại Luu Bar."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "LIVESHOW SECRET GARDEN - HÀ NHI",
+      "venue": "",
+      "desc": "Liveshow của ca sĩ Hà Nhi."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] TRUNG QUÂN + MYRA TRẦN",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Phương Anh - Phương Ý - Special Guest: Trần Anh Tiến",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Nhà Hát Kịch IDECAF: NXNX37 - Học Viện Phép Thuật",
+      "venue": "Nhà hát Kịch IDECAF",
+      "desc": "Vở kịch tại IDECAF."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Sân Khấu Hồng Vân: Vở Kịch Gã Thợ May",
+      "venue": "Sân khấu Hồng Vân",
+      "desc": "Vở kịch tại Sân khấu Hồng Vân."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "SÂN KHẤU THIÊN ĐĂNG: CHUYẾN ĐÒ ĐỊNH MỆNH",
+      "venue": "Sân khấu Thiên Đăng",
+      "desc": "Vở kịch tại Sân khấu Thiên Đăng."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Hài kịch",
+      "title": "Đêm Hài mở: ỦA?",
+      "venue": "",
+      "desc": "Đêm hài kịch mở."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Fan meeting",
+      "title": "Faye Atom 1st Fan Meeting in Ho Chi Minh",
+      "venue": "",
+      "desc": "Fan meeting lần đầu tại TP.HCM."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-12",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Chuỗi Workshop thủ công Flower 1969's (nước hoa, xà phòng, nến thơm)",
+      "venue": "Flower 1969's",
+      "desc": "Nhiều lựa chọn workshop trải nghiệm làm nước hoa lăn/xịt/khô, xà phòng thủ công, nến thơm — diễn ra rải rác trong 2 ngày 11-12/7, có thể chọn 1 trong nhiều buổi."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-12",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Lễ hội K-pop Lovers Festival 2026",
+      "venue": "Không gian đi bộ Hồ Gươm",
+      "desc": "Lễ hội dành cho fan K-pop."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-29",
+      "city": "hn",
+      "type": "Trải nghiệm văn hoá",
+      "title": "Đêm Văn Miếu — Van Mieu Night Tour (Tháng 7/2026)",
+      "venue": "Văn Miếu - Quốc Tử Giám",
+      "desc": "Tour đêm trải nghiệm Văn Miếu, diễn ra định kỳ suốt tháng 7."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Ngày hội Yoga quốc tế hưởng ứng sức khỏe cộng đồng",
+      "venue": "Công viên Biển Đông",
+      "desc": "Ngày hội yoga quốc tế."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "[Hà Nội] Những Thành Phố Mơ Màng Summer 2026",
+      "venue": "",
+      "desc": "Lễ hội âm nhạc indie, 16h-22h30."
+    },
+    {
+      "start": "2026-07-14",
+      "end": "2026-07-16",
+      "city": "hcm",
+      "type": "Sự kiện thể thao",
+      "title": "Bán kết - VTV Fanzone World Cup 2026",
+      "venue": "",
+      "desc": "Xem bán kết World Cup 2026 tại Fanzone TP.HCM."
+    },
+    {
+      "start": "2026-07-14",
+      "end": "2026-07-14",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm Nhạc Neko Lê - Cheng",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-14",
+      "end": "2026-07-14",
+      "city": "hn",
+      "type": "Giao lưu",
+      "title": "Bastille Day 2026",
+      "venue": "",
+      "desc": "Sự kiện mừng Quốc khánh Pháp, cộng đồng người Pháp/quốc tế tại Hà Nội."
+    },
+    {
+      "start": "2026-07-16",
+      "end": "2026-07-16",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Nhà Hát Kịch IDECAF: TẤM CÁM ĐẠI CHIẾN!",
+      "venue": "Nhà hát Kịch IDECAF",
+      "desc": "Vở kịch tại IDECAF."
+    },
+    {
+      "start": "2026-07-16",
+      "end": "2026-07-16",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Duy Khánh - Will",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-17",
+      "end": "2026-07-17",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] THANH DUY",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-17",
+      "end": "2026-07-17",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Đinh Mạnh Ninh - Hà An Huy",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-17",
+      "end": "2026-07-17",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "[SÂN KHẤU THIÊN ĐĂNG] VỞ KỊCH - LỘ HÀNG (LEAKED)",
+      "venue": "Sân khấu Thiên Đăng",
+      "desc": "Vở kịch tại Sân khấu Thiên Đăng."
+    },
+    {
+      "start": "2026-07-17",
+      "end": "2026-07-17",
+      "city": "hcm",
+      "type": "Hài kịch",
+      "title": "Một show hài chở muối về biển",
+      "venue": "",
+      "desc": "Show hài kịch."
+    },
+    {
+      "start": "2026-07-17",
+      "end": "2026-07-17",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Điện tử Quốc tế TRANNSCEND pres. JakoJako",
+      "venue": "Unmute Hanoi, Phố Phúc Tân",
+      "desc": "Đêm nhạc điện tử quốc tế."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic bãi biển \"Giai điệu hoàng hôn biển xanh\"",
+      "venue": "Phố du lịch An Thượng",
+      "desc": "Đêm nhạc acoustic bãi biển."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-19",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Lễ hội Giao lưu Văn hóa và Ẩm thực các nước ASEAN",
+      "venue": "Công viên Lê Văn Tám",
+      "desc": "Giao lưu văn hoá, ẩm thực các nước Đông Nam Á."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[HBSO] Đêm nhạc: A Night of Vivaldi, Mozart & Saint-Saens",
+      "venue": "Nhà hát Giao hưởng Nhạc Vũ Kịch TP.HCM (HBSO)",
+      "desc": "Đêm nhạc cổ điển hoà tấu."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] VĂN MAI HƯƠNG + VƯƠNG BÌNH",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Sân Khấu Hồng Vân: Kỳ Án 292",
+      "venue": "Sân khấu Hồng Vân",
+      "desc": "Vở kịch tại Sân khấu Hồng Vân."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "SÂN KHẤU THIÊN ĐĂNG: NHỮNG CON MA NHÀ HÁT",
+      "venue": "Sân khấu Thiên Đăng",
+      "desc": "Vở kịch tại Sân khấu Thiên Đăng."
+    },
+    {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Esport",
+      "title": "Bán kết & Chung kết Arena of Valor Premier League 2026 (APL 2026)",
+      "venue": "",
+      "desc": "Vòng bán kết và chung kết giải đấu Liên Quân Mobile chuyên nghiệp."
+    },
+    {
       "start": "2026-07-19",
       "end": "2026-07-19",
       "city": "dn",
@@ -308,12 +695,543 @@
       "venue": "Các bãi biển & cây cầu biểu tượng Đà Nẵng"
     },
     {
+      "start": "2026-07-19",
+      "end": "2026-07-19",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Sân Khấu Hồng Vân: Ngôi Nhà Hoang (Người Vợ Ma phần 2)",
+      "venue": "Sân khấu Hồng Vân",
+      "desc": "Vở kịch tại Sân khấu Hồng Vân."
+    },
+    {
+      "start": "2026-07-19",
+      "end": "2026-07-19",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Kịch: Vương Quốc Những Người Xấu Xí",
+      "venue": "Sân khấu 5B, Võ Văn Tần",
+      "desc": "Vở kịch tại Sân khấu 5B."
+    },
+    {
+      "start": "2026-07-19",
+      "end": "2026-07-19",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "SÂN KHẤU THIÊN ĐĂNG: NGŨ QUÝ TƯƠNG PHÙNG",
+      "venue": "Sân khấu Thiên Đăng",
+      "desc": "Vở kịch tại Sân khấu Thiên Đăng."
+    },
+    {
+      "start": "2026-07-19",
+      "end": "2026-07-19",
+      "city": "hcm",
+      "type": "Fan meeting",
+      "title": "Ngọc Thanh Tâm's Birthday Fan Meeting",
+      "venue": "",
+      "desc": "Fan meeting sinh nhật diễn viên Ngọc Thanh Tâm."
+    },
+    {
+      "start": "2026-07-19",
+      "end": "2026-07-20",
+      "city": "hcm",
+      "type": "Sự kiện thể thao",
+      "title": "Chung kết - VTV Fanzone World Cup 2026",
+      "venue": "",
+      "desc": "Xem chung kết World Cup 2026 tại Fanzone TP.HCM."
+    },
+    {
+      "start": "2026-07-22",
+      "end": "2026-07-26",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Tận hưởng Đà Nẵng (Enjoy Danang Festival)",
+      "venue": "Các bãi biển du lịch Đà Nẵng",
+      "desc": "Siêu lễ hội mùa hè thường niên của Đà Nẵng."
+    },
+    {
+      "start": "2026-07-24",
+      "end": "2026-07-26",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Đại nhạc hội EDM bãi biển đêm — chuỗi Tận hưởng Đà Nẵng",
+      "venue": "Bãi biển Phạm Văn Đồng",
+      "desc": "Đại nhạc hội EDM bãi biển, nằm trong chuỗi Enjoy Danang Festival."
+    },
+    {
+      "start": "2026-07-24",
+      "end": "2026-07-24",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Mini-concert Quốc Thiên + Bảo Yến Rosie",
+      "venue": "Cat&Mouse Live Music, Q.1",
+      "desc": "Đêm nhạc mini tại phòng trà."
+    },
+    {
+      "start": "2026-07-24",
+      "end": "2026-07-24",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Phương Thanh - Nguyễn Kiều Oanh",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Ngày hội Trình diễn Diều nghệ thuật khổng lồ trên không bãi biển",
+      "venue": "Công viên Biển Đông",
+      "desc": "Trình diễn diều nghệ thuật khổng lồ."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải đua thuyền SUP chèo mở rộng toàn quốc — chuỗi Tận hưởng",
+      "venue": "Bãi biển Mân Thái",
+      "desc": "Giải đua thuyền SUP mở rộng, nằm trong chuỗi Enjoy Danang Festival."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-26",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Comic Con HCMC — Ngày hội Truyện tranh & Văn hoá đại chúng",
+      "venue": "Nhà thi đấu Nguyễn Du (chưa xác nhận — các năm trước tổ chức tại Sky Expo/NTĐ Rạch Miễu)",
+      "desc": "Lễ hội truyện tranh, cosplay, manga, anime quy mô lớn dành cho giới trẻ."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[L'AMOUR NIGHTS] MYSTIC NIGHTS — Tăng Phúc x Kay Trần",
+      "venue": "",
+      "desc": "Đêm nhạc chuỗi L'Amour Nights."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Tái hiện ký ức tuổi thơ cùng Vạn Phúc Water Show",
+      "venue": "Vạn Phúc, TP. Thủ Đức",
+      "desc": "Show nước tái hiện ký ức tuổi thơ."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] HÀ NHI",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Sân khấu 5B: Kịch thiếu nhi 'Bộ Lạc Nanh Trắng'",
+      "venue": "Sân khấu 5B",
+      "desc": "Kịch thiếu nhi tại Sân khấu 5B."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Sân Khấu Hồng Vân: Vở Kịch Người Vợ Ma",
+      "venue": "Sân khấu Hồng Vân",
+      "desc": "Vở kịch tại Sân khấu Hồng Vân."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hn",
+      "type": "Nhạc kịch",
+      "title": "Đêm nhạc kịch đương đại \"Khát Vọng Thanh Xuân\"",
+      "venue": "Nhà hát Lớn Hà Nội",
+      "desc": "Nhạc kịch đương đại."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Indian Food Festival tại Hà Nội",
+      "venue": "",
+      "desc": "Lễ hội ẩm thực Ấn Độ."
+    },
+    {
+      "start": "2026-07-26",
+      "end": "2026-07-26",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Không gian Lễ hội Ẩm thực Hương vị Đà thành",
+      "venue": "Bãi biển Mỹ Khê",
+      "desc": "Lễ hội ẩm thực, trải nghiệm làm bánh dân gian."
+    },
+    {
+      "start": "2026-07-26",
+      "end": "2026-07-26",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Minh Tốc - Lam - Swan",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-26",
+      "end": "2026-07-26",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] BÙI DUY NGỌC + PHẠM ĐÌNH THÁI NGÂN",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-26",
+      "end": "2026-07-26",
+      "city": "hcm",
+      "type": "Fan meeting",
+      "title": "HOMIES - Forcebook Fan Meeting in Ho Chi Minh",
+      "venue": "",
+      "desc": "Fan meeting nhóm Forcebook."
+    },
+    {
       "start": "2026-07-27",
       "end": "2026-07-27",
       "city": "holiday",
       "title": "Ngày Thương binh Liệt sĩ",
       "type": "Lễ Việt Nam",
       "desc": "Ngày tưởng niệm, tri ân — thắp nến tại các nghĩa trang liệt sĩ trên cả nước."
+    },
+    {
+      "start": "2026-07-30",
+      "end": "2026-07-30",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Đinh Mạnh Ninh - Trịnh Thăng Bình — DAY 1",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành, ngày 1."
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-07-31",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[BẾN THÀNH] Đêm nhạc Đinh Mạnh Ninh - Trịnh Thăng Bình — DAY 2",
+      "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
+      "desc": "Đêm nhạc tại phòng trà Bến Thành, ngày 2."
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-07-31",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] ONLY C + LOU HOÀNG",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-07-31",
+      "end": "2026-07-31",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[THE BLUEVERSE] MIDNIGHT — Hà An Huy, Hồ Đông Quan, SWAN, lighT",
+      "venue": "",
+      "desc": "Đêm nhạc chuỗi The Blueverse."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-02",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Liên hoan Vũ điệu Đường phố Quốc tế \"Danang International Dance Fest\"",
+      "venue": "Quảng trường 29 Tháng 3",
+      "desc": "Liên hoan vũ điệu đường phố quốc tế."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-11-29",
+      "city": "dn",
+      "type": "Nghệ thuật truyền thống",
+      "title": "Chuỗi đêm hội Vũ hội Đường phố và Nghệ thuật Bài Chòi",
+      "venue": "Bờ tây sông Hàn (đường Bạch Đằng)",
+      "desc": "Diễn ra định kỳ tối thứ Bảy và Chủ nhật cách tuần từ tháng 8 đến tháng 11/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-02",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Lễ hội Kem Quốc tế và Trải nghiệm Không gian mát lạnh mùa hè",
+      "venue": "Công viên Đầm Sen",
+      "desc": "Không gian trải nghiệm kem mùa hè."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] HOÀI LÂM + ĐÌNH DŨNG",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "MẮT NHẮM MẮT MỞ CONCERT",
+      "venue": "",
+      "desc": "Concert âm nhạc."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "Sân khấu 5B: BẾN LỬA LÒNG",
+      "venue": "Sân khấu 5B",
+      "desc": "Vở kịch tại Sân khấu 5B."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Lắng nghe điểm chạm",
+      "venue": "Phường Xuân Hòa, TP.HCM",
+      "desc": "Đêm nhạc trải nghiệm."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hcm",
+      "type": "Fan meeting",
+      "title": "2026 HYERI Asia Tour Fanmeeting in Ho Chi Minh City",
+      "venue": "",
+      "desc": "Fanmeeting nữ diễn viên/ca sĩ Hàn Quốc Hyeri, 11h Thứ Bảy."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Live Concert \"Phao Cứu Sinh\" - Hương Tràm",
+      "venue": "Cung Thể Thao Điền Kinh",
+      "desc": "Live concert Hương Tràm."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "TRÚ:BÃO HÀ NỘI",
+      "venue": "",
+      "desc": "Đêm nhạc."
+    },
+    {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hn",
+      "type": "Hài kịch",
+      "title": "Live show Thanh Duy - Duy Khánh \"Hài Nhạc, Nhạc Hài\"",
+      "venue": "",
+      "desc": "Liveshow kết hợp hài kịch và âm nhạc."
+    },
+    {
+      "start": "2026-08-02",
+      "end": "2026-08-02",
+      "city": "hcm",
+      "type": "Kịch nói",
+      "title": "SÂN KHẤU 5B: Kịch thiếu nhi - Ảo thuật NÁO ĐỘNG RỪNG CỔ TÍCH",
+      "venue": "Sân khấu 5B",
+      "desc": "Kịch thiếu nhi kết hợp ảo thuật."
+    },
+    {
+      "start": "2026-08-02",
+      "end": "2026-08-02",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "LIVESHOW SECRET GARDEN — THE GATE: Quốc Thiên, Lân Nhã, Phương Linh",
+      "venue": "",
+      "desc": "Liveshow Secret Garden."
+    },
+    {
+      "start": "2026-08-07",
+      "end": "2026-08-07",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "129BPM",
+      "venue": "",
+      "desc": "Sự kiện âm nhạc điện tử."
+    },
+    {
+      "start": "2026-08-08",
+      "end": "2026-08-09",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải chạy địa hình \"Danang Trail Marathon 2026\"",
+      "venue": "Bán đảo Sơn Trà",
+      "desc": "Giải chạy địa hình núi rừng bán đảo Sơn Trà."
+    },
+    {
+      "start": "2026-08-08",
+      "end": "2026-08-08",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Độc lập Indy Music Show \"Sài Gòn Đêm Thứ Bảy\"",
+      "venue": "Nhà hát Hòa Bình",
+      "desc": "Đêm nhạc indie."
+    },
+    {
+      "start": "2026-08-08",
+      "end": "2026-08-08",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] SAU TẤT CẢ — ERIK",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-08-08",
+      "end": "2026-08-09",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Ẩm thực Đường phố Hà Thành và Thức quà Hà Nội",
+      "venue": "Phố đi bộ Trần Nhân Tông",
+      "desc": "Lễ hội ẩm thực đường phố Hà Nội."
+    },
+    {
+      "start": "2026-08-08",
+      "end": "2026-08-08",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "2026 Ash Island Asia Tour Hanoi",
+      "venue": "",
+      "desc": "Concert rapper Hàn Quốc Ash Island."
+    },
+    {
+      "start": "2026-08-08",
+      "end": "2026-08-08",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "'Giữa Một Vạn Tour' — Phùng Khánh Linh | Chapter 3: Live Experience in Hà Nội",
+      "venue": "",
+      "desc": "Chặng Hà Nội trong tour 'Giữa Một Vạn'."
+    },
+    {
+      "start": "2026-08-09",
+      "end": "2026-08-09",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "[CAT&MOUSE] VẾT XƯỚC & ÁNH SÁNG — WILL, 14 Casper, Bon Nghiêm",
+      "venue": "Cat&Mouse Live Music, 37B Phạm Ngọc Thạch, Q.3",
+      "desc": "Đêm nhạc tại Cat&Mouse Live Music."
+    },
+    {
+      "start": "2026-08-09",
+      "end": "2026-08-09",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "'Giữa Một Vạn Tour' — Phùng Khánh Linh | Chapter 4: Live Experience in Hà Nội",
+      "venue": "",
+      "desc": "Chặng Hà Nội trong tour 'Giữa Một Vạn'."
+    },
+    {
+      "start": "2026-08-14",
+      "end": "2026-08-14",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "LEGACY OF LOVE — 10 năm tưởng nhớ nhạc sĩ Thanh Tùng",
+      "venue": "",
+      "desc": "Đêm nhạc tưởng nhớ nhạc sĩ Thanh Tùng."
+    },
+    {
+      "start": "2026-08-14",
+      "end": "2026-08-14",
+      "city": "hcm",
+      "type": "Nghệ thuật",
+      "title": "Conviction",
+      "venue": "",
+      "desc": "Sự kiện nghệ thuật/biểu diễn."
+    },
+    {
+      "start": "2026-08-15",
+      "end": "2026-08-15",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Đêm hội Giao lưu văn hóa âm nhạc các nước Tiểu vùng sông Mê Kông",
+      "venue": "Quảng trường sảnh Nam sông Hàn",
+      "desc": "Giao lưu văn hoá âm nhạc Mekong."
+    },
+    {
+      "start": "2026-08-15",
+      "end": "2026-08-16",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Saigon Street Food Festival",
+      "venue": "Sân vận động Thống Nhất",
+      "desc": "Lễ hội ẩm thực đường phố quy mô lớn."
+    },
+    {
+      "start": "2026-08-15",
+      "end": "2026-08-15",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "E LÀ KHÔNG THỂ — Vicky Nhung & Chu Thúy Quỳnh",
+      "venue": "",
+      "desc": "Đêm nhạc song ca."
+    },
+    {
+      "start": "2026-08-15",
+      "end": "2026-08-15",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Show Hòa nhạc Giao hưởng ngoài trời \"Vietnam Airlines Classic - Hanoi Concert\"",
+      "venue": "Vườn hoa Lý Thái Tổ",
+      "desc": "Hoà nhạc giao hưởng ngoài trời."
+    },
+    {
+      "start": "2026-08-22",
+      "end": "2026-08-22",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc thính phòng đương đại \"Giai điệu Mùa thu\"",
+      "venue": "Nhà hát Thành phố",
+      "desc": "Đêm nhạc thính phòng."
+    },
+    {
+      "start": "2026-08-22",
+      "end": "2026-08-22",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Concert Tổ Quốc Trong Tim TP.HCM 2026",
+      "venue": "Phường Hiệp Bình, TP.HCM",
+      "desc": "Concert chủ đề yêu nước, miễn phí."
+    },
+    {
+      "start": "2026-08-22",
+      "end": "2026-08-22",
+      "city": "hn",
+      "type": "Thể thao",
+      "title": "Giải chạy Marathon Đêm Hà Nội \"Hanoi Midnight Run 2026\"",
+      "venue": "Bờ Hồ Hoàn Kiếm",
+      "desc": "Giải chạy đêm quanh Hồ Hoàn Kiếm."
+    },
+    {
+      "start": "2026-08-23",
+      "end": "2026-08-23",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải bơi biển việt dã quốc tế \"Danang Swim Open 2026\"",
+      "venue": "Bãi biển Phạm Văn Đồng",
+      "desc": "Giải bơi biển việt dã quốc tế."
     },
     {
       "start": "2026-08-27",
@@ -333,12 +1251,192 @@
       "desc": "Rằm tháng 7 âm lịch — lễ báo hiếu cha mẹ, một trong những ngày lễ Phật giáo quan trọng nhất."
     },
     {
+      "start": "2026-08-28",
+      "end": "2026-08-28",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "HBAShow: \"Mùa Nhớ\" — Nguyễn Đình Tuấn Dũng",
+      "venue": "",
+      "desc": "Liveshow Nguyễn Đình Tuấn Dũng."
+    },
+    {
+      "start": "2026-08-28",
+      "end": "2026-08-30",
+      "city": "hcm",
+      "type": "Hội chợ",
+      "title": "InterPet Expo & InterPetFest Việt Nam 2026",
+      "venue": "SECC — 799 Nguyễn Văn Linh, Q.7",
+      "desc": "Triển lãm & lễ hội quốc tế thú cưng — hợp cho những ai nuôi thú cưng đi cùng nhau."
+    },
+    {
+      "start": "2026-08-29",
+      "end": "2026-08-29",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Lễ hội Âm nhạc Hip-hop và Vũ đạo Đường phố Nam Bộ",
+      "venue": "Công viên 23/9",
+      "desc": "Lễ hội hip-hop, vũ đạo đường phố."
+    },
+    {
+      "start": "2026-08-29",
+      "end": "2026-08-29",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Indie Việt \"Tháng Tám Mùa Thu Hà Nội\"",
+      "venue": "Trung tâm Chiếu phim Quốc gia",
+      "desc": "Đêm nhạc indie Việt."
+    },
+    {
       "start": "2026-08-29",
       "end": "2026-09-02",
       "city": "holiday",
       "title": "Quốc khánh",
       "type": "Lễ Việt Nam",
       "desc": "Kỳ nghỉ 5 ngày liên tục, ngày lễ chính thức 2/9 nối liền cuối tuần liền trước."
+    },
+    {
+      "start": "2026-09-01",
+      "end": "2026-09-01",
+      "city": "hcm",
+      "type": "Cộng đồng",
+      "title": "Huyền Thoại Việt Qua Lăng Kính AI",
+      "venue": "",
+      "desc": "Sự kiện cộng đồng kết hợp văn hoá và công nghệ AI."
+    },
+    {
+      "start": "2026-09-02",
+      "end": "2026-09-02",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Chương trình Nghệ thuật chào mừng Quốc khánh và Bắn pháo hoa tầm cao",
+      "venue": "Khu vực cầu sông Hàn",
+      "desc": "Bắn pháo hoa tầm cao mừng Quốc khánh."
+    },
+    {
+      "start": "2026-09-02",
+      "end": "2026-09-02",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Giải Đua thuyền truyền thống trên sông Hàn mừng Quốc khánh",
+      "venue": "Bờ sông đường Bạch Đằng",
+      "desc": "Đua thuyền truyền thống mừng Quốc khánh."
+    },
+    {
+      "start": "2026-09-02",
+      "end": "2026-09-02",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Chương trình Nghệ thuật Đặc biệt mừng Quốc khánh và Bắn pháo hoa tầm cao",
+      "venue": "Đầu đường hầm sông Sài Gòn",
+      "desc": "Bắn pháo hoa tầm cao mừng Quốc khánh."
+    },
+    {
+      "start": "2026-09-02",
+      "end": "2026-09-02",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Chương trình Nghệ thuật chào mừng Quốc khánh và Hòa nhạc Đất nước",
+      "venue": "Quảng trường Ba Đình",
+      "desc": "Chương trình nghệ thuật mừng Quốc khánh tại Ba Đình."
+    },
+    {
+      "start": "2026-09-05",
+      "end": "2026-11-28",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Chuỗi đêm nhạc Acoustic & Lân Sư Rồng định kỳ",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Diễn ra tối thứ Bảy hằng tuần từ tháng 9 đến tháng 11/2026. Đây là chuỗi sự kiện định kỳ nên khoảng ngày chỉ mang tính bao quát cả mùa, không phải diễn ra liên tục mỗi ngày."
+    },
+    {
+      "start": "2026-09-05",
+      "end": "2026-11-28",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Chuỗi show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, biểu diễn tối thứ Bảy hằng tuần từ tháng 9 đến tháng 11/2026. Đây là show đã tồn tại nhiều năm, chuỗi sự kiện định kỳ nên khoảng ngày mang tính bao quát cả mùa."
+    },
+    {
+      "start": "2026-09-06",
+      "end": "2026-09-06",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Văn hóa truyền thống và Giao lưu nghệ thuật các Làng nghề Hà Nội",
+      "venue": "Hoàng thành Thăng Long",
+      "desc": "Giao lưu văn hoá làng nghề truyền thống."
+    },
+    {
+      "start": "2026-09-12",
+      "end": "2026-09-12",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Đêm hội Trăng rằm và Diễu hành Đèn lồng Trung thu Phố Chợ Lớn",
+      "venue": "Quận 5",
+      "desc": "Diễu hành đèn lồng Trung thu tại khu Chợ Lớn."
+    },
+    {
+      "start": "2026-09-13",
+      "end": "2026-09-13",
+      "city": "dn",
+      "type": "Thể thao điện tử",
+      "title": "Ngày hội Thể thao điện tử Danang Esport Cup",
+      "venue": "Nhà thi đấu Tiên Sơn",
+      "desc": "Giải đấu thể thao điện tử."
+    },
+    {
+      "start": "2026-09-13",
+      "end": "2026-09-13",
+      "city": "hn",
+      "type": "Thể thao",
+      "title": "Giải chạy Marathon Cộng đồng Pocari Sweat Run 2026",
+      "venue": "Tuyến phố Hà Nội",
+      "desc": "Giải chạy cộng đồng quy mô lớn."
+    },
+    {
+      "start": "2026-09-17",
+      "end": "2026-09-17",
+      "city": "hn",
+      "type": "Giao lưu",
+      "title": "Cocktail de Rentrée 2026 — Hà Nội",
+      "venue": "",
+      "desc": "Sự kiện giao lưu cocktail đầu mùa thu."
+    },
+    {
+      "start": "2026-09-18",
+      "end": "2026-09-18",
+      "city": "hcm",
+      "type": "Giao lưu",
+      "title": "Cocktail de Rentrée 2026 — TP.HCM",
+      "venue": "",
+      "desc": "Sự kiện giao lưu cocktail đầu mùa thu, cộng đồng người Pháp/quốc tế."
+    },
+    {
+      "start": "2026-09-19",
+      "end": "2026-09-20",
+      "city": "hcm",
+      "type": "Thể thao",
+      "title": "HDBank Green Marathon 2026",
+      "venue": "Huyện Cần Giờ",
+      "desc": "Giải chạy cộng đồng bảo vệ môi trường, đường chạy AIMS chuẩn quốc tế qua vùng ven biển Cần Giờ."
+    },
+    {
+      "start": "2026-09-19",
+      "end": "2026-09-19",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Đêm hội Rước đèn Trung thu và Múa Sư tử truyền thống Bờ Hồ",
+      "venue": "Phố cổ Hà Nội",
+      "desc": "Rước đèn Trung thu, múa sư tử tại phố cổ."
+    },
+    {
+      "start": "2026-09-20",
+      "end": "2026-09-20",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Đêm hội rước đèn và Diễu hành múa lân sư rồng Tết Trung thu Đà Nẵng",
+      "venue": "Công viên 29/3",
+      "desc": "Rước đèn, múa lân sư rồng Trung thu."
     },
     {
       "start": "2026-09-25",
@@ -349,12 +1447,111 @@
       "desc": "Rằm tháng 8 âm lịch — Tết Đoàn viên, rước đèn, phá cỗ, dành cho thiếu nhi."
     },
     {
+      "start": "2026-09-26",
+      "end": "2026-09-26",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Lễ hội Âm nhạc Học sinh Sinh viên TP.HCM \"Saigon Student Fest\"",
+      "venue": "Khu đô thị Đại học Quốc gia",
+      "desc": "Lễ hội âm nhạc dành cho học sinh, sinh viên."
+    },
+    {
+      "start": "2026-09-26",
+      "end": "2026-09-26",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Musicaland Festival",
+      "venue": "",
+      "desc": "Lễ hội âm nhạc."
+    },
+    {
+      "start": "2026-09-27",
+      "end": "2026-09-27",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải đua xe đạp địa hình \"Chinh phục đỉnh Sơn Trà\"",
+      "venue": "Công viên Biển Đông",
+      "desc": "Giải đua xe đạp địa hình phong trào."
+    },
+    {
+      "start": "2026-10-03",
+      "end": "2026-10-04",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Ngày hội Sách và Không gian Trải nghiệm Văn hóa Đọc",
+      "venue": "Đường sách Nguyễn Văn Bình",
+      "desc": "Ngày hội sách và văn hoá đọc."
+    },
+    {
+      "start": "2026-10-04",
+      "end": "2026-10-04",
+      "city": "hn",
+      "type": "Thể thao",
+      "title": "Giải chạy Quốc tế Techcombank Hanoi International Marathon 2026",
+      "venue": "Phố cổ Hà Nội",
+      "desc": "Giải marathon quốc tế thường niên tại Hà Nội."
+    },
+    {
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "city": "hcm",
+      "type": "Thời trang",
+      "title": "Show diễn Thời trang Xu hướng Mùa đông \"Saigon Fashion Night\"",
+      "venue": "Phố đi bộ Nguyễn Huệ",
+      "desc": "Show thời trang mùa đông."
+    },
+    {
       "start": "2026-10-10",
       "end": "2026-10-10",
       "city": "hn",
       "title": "Ngày Giải phóng Thủ đô",
       "type": "Kỷ niệm",
       "desc": "Kỷ niệm ngày Hà Nội được giải phóng (10/10/1954) — riêng của Hà Nội, không phải ngày nghỉ lễ toàn quốc."
+    },
+    {
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Văn hóa \"Ký ức Hà Nội\" chào mừng ngày Giải phóng Thủ đô",
+      "venue": "Không gian đi bộ Hồ Gươm",
+      "desc": "Lễ hội văn hoá kỷ niệm ngày Giải phóng Thủ đô (10/10/1954)."
+    },
+    {
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải chạy bộ phong trào sinh viên và thanh niên miền Trung",
+      "venue": "Phố đi bộ Bạch Đằng",
+      "desc": "Giải chạy bộ phong trào dành cho sinh viên, thanh niên."
+    },
+    {
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Rock Việt \"Ngọn Lửa Cao Nguyên & Đô Thị\"",
+      "venue": "Sân vận động Quân khu 7",
+      "desc": "Đêm nhạc rock Việt."
+    },
+    {
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "city": "hn",
+      "type": "Thời trang",
+      "title": "Show thời trang Tôn vinh Lụa tơ tằm Việt Nam \"Hương Sắc Thăng Long\"",
+      "venue": "Văn Miếu - Quốc Tử Giám",
+      "desc": "Show thời trang tôn vinh lụa tơ tằm."
+    },
+    {
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "city": "hn",
+      "type": "Thể thao",
+      "title": "VPBank Hanoi International Marathon 2026",
+      "venue": "",
+      "desc": "Giải marathon quốc tế tại Hà Nội (khác với Techcombank Hanoi International Marathon đã có, tổ chức bởi VPBank)."
     },
     {
       "start": "2026-10-20",
@@ -365,12 +1562,111 @@
       "desc": "Ngày lễ riêng của Việt Nam (không phải ngày quốc tế), kỷ niệm thành lập Hội Liên hiệp Phụ nữ VN."
     },
     {
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Halloween — Đêm hội phù thủy hóa trang công khai",
+      "venue": "Công viên Châu Á - Asia Park",
+      "desc": "Lễ hội hoá trang Halloween."
+    },
+    {
+      "start": "2026-10-24",
+      "end": "2026-10-25",
+      "city": "hcm",
+      "type": "Thể thao",
+      "title": "GEMADEPT RUN HCMC 2026",
+      "venue": "Lõi đô thị TP.HCM",
+      "desc": "Giải chạy marathon phong trào đô thị."
+    },
+    {
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Ngày hội Sách và Không gian Sáng tạo Trẻ Thủ đô",
+      "venue": "Phố sách 19/12",
+      "desc": "Ngày hội sách và sáng tạo dành cho giới trẻ."
+    },
+    {
+      "start": "2026-10-25",
+      "end": "2026-10-25",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải quần vợt phong trào các CLB miền Trung mở rộng",
+      "venue": "Cụm sân tennis Xuân Hà",
+      "desc": "Giải quần vợt phong trào mở rộng."
+    },
+    {
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Lễ hội Hóa trang Đêm Halloween \"Cơn Ác Mộng Sài Gòn\"",
+      "venue": "Phố Tây Bùi Viện",
+      "desc": "Lễ hội hoá trang Halloween tại khu phố Tây."
+    },
+    {
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Đêm hội Hóa trang và Canaval Halloween Phố đi bộ",
+      "venue": "Phố đi bộ Trần Nhân Tông",
+      "desc": "Canaval hoá trang Halloween."
+    },
+    {
       "start": "2026-10-31",
       "end": "2026-10-31",
       "city": "holiday",
       "title": "Halloween",
       "type": "Lễ quốc tế",
       "desc": "Không phải lễ truyền thống nhưng ngày càng phổ biến ở quán bar, cà phê, khu vui chơi."
+    },
+    {
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Liên hoan Đờn ca tài tử và Bản sắc Âm nhạc Dân gian Nam Bộ",
+      "venue": "Trung tâm Ca nhạc nhẹ TP.HCM",
+      "desc": "Liên hoan đờn ca tài tử Nam Bộ."
+    },
+    {
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "city": "hn",
+      "type": "Nghệ thuật truyền thống",
+      "title": "Liên hoan Sân khấu Chèo và Nghệ thuật Tuồng cổ Hà Nội mở rộng",
+      "venue": "Nhà hát Đại Nam",
+      "desc": "Liên hoan chèo, tuồng cổ."
+    },
+    {
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Ngày hội Khiêu vũ thể thao và Aerobic thể hình cộng đồng",
+      "venue": "Cung thể thao Tiên Sơn",
+      "desc": "Ngày hội khiêu vũ thể thao, aerobic."
+    },
+    {
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "city": "hcm",
+      "type": "Thể thao điện tử",
+      "title": "Ngày hội Thể thao Điện tử Phong trào \"Saigon Esport King\"",
+      "venue": "Nhà thi đấu Hồ Xuân Hương",
+      "desc": "Giải đấu thể thao điện tử phong trào."
+    },
+    {
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "city": "hn",
+      "type": "Thể thao",
+      "title": "Giải đấu Marathon Quốc tế Di sản \"Hanoi Marathon Heritage 2026\"",
+      "venue": "Bờ Hồ Hoàn Kiếm",
+      "desc": "Giải marathon quốc tế chủ đề di sản."
     },
     {
       "start": "2026-11-19",
@@ -383,10 +1679,28 @@
     {
       "start": "2026-11-20",
       "end": "2026-11-20",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Chương trình Nghệ thuật Ca múa nhạc đặc biệt tri ân ngày Nhà giáo",
+      "venue": "Nhà hát Trưng Vương",
+      "desc": "Chương trình nghệ thuật tri ân Ngày Nhà giáo."
+    },
+    {
+      "start": "2026-11-20",
+      "end": "2026-11-20",
       "city": "holiday",
       "title": "Ngày Nhà giáo Việt Nam",
       "type": "Lễ Việt Nam",
       "desc": "Ngày tri ân thầy cô — một trong những ngày lễ được hưởng ứng rộng rãi nhất trong năm."
+    },
+    {
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đại nhạc hội Giao lưu Âm nhạc Việt - Hàn \"V-Heartbeat Live\"",
+      "venue": "Sân vận động Quân khu 7",
+      "desc": "Đại nhạc hội giao lưu văn hoá Việt-Hàn."
     },
     {
       "start": "2026-11-21",
@@ -398,6 +1712,15 @@
       "venue": "Khu vực Hồ Hoàn Kiếm (Tượng đài Lý Thái Tổ, Quảng trường Đông Kinh Nghĩa Thục)"
     },
     {
+      "start": "2026-11-22",
+      "end": "2026-11-22",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải bóng chuyền bãi biển nam nữ",
+      "venue": "Bãi biển Mỹ An, Ngũ Hành Sơn",
+      "desc": "Giải bóng chuyền bãi biển nam nữ."
+    },
+    {
       "start": "2026-11-24",
       "end": "2026-11-24",
       "city": "holiday",
@@ -406,12 +1729,58 @@
       "desc": "Ngày lễ MỚI, lần đầu tổ chức toàn quốc — Quốc hội thông qua 24/4/2026, hiệu lực từ 1/7/2026."
     },
     {
+      "start": "2026-11-28",
+      "end": "2026-11-28",
+      "city": "hcm",
+      "type": "Thời trang",
+      "title": "Show trình diễn Nghệ thuật Áo dài truyền thống qua các thời kỳ",
+      "venue": "Bảo tàng Áo Dài",
+      "desc": "Trình diễn áo dài qua các thời kỳ."
+    },
+    {
+      "start": "2026-11-28",
+      "end": "2026-11-28",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Pop Ballad \"Mùa Đông Hà Nội\"",
+      "venue": "Cung Văn hóa Hữu nghị Việt Xô",
+      "desc": "Đêm nhạc pop ballad."
+    },
+    {
       "start": "2026-12-04",
       "end": "2026-12-12",
       "city": "hcm",
       "title": "Tuần lễ Du lịch TP.HCM",
       "type": "Lễ hội",
-      "desc": "Lần thứ 6 — chuỗi sự kiện mở đầu mùa lễ hội cuối năm, kết hợp du lịch, thể thao, âm nhạc, mua sắm."
+      "desc": "Lần thứ 6 — chuỗi sự kiện mở đầu mùa lễ hội cuối năm, kết hợp du lịch, thể thao, âm nhạc, mua sắm.",
+      "venue": "Bến Bạch Đằng (+ không gian âm nhạc cộng đồng toàn thành phố)"
+    },
+    {
+      "start": "2026-12-05",
+      "end": "2026-12-06",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Siêu Đại nhạc hội Quốc tế HOZO 2026 [Điện ảnh & Âm nhạc]",
+      "venue": "Phố đi bộ Nguyễn Huệ",
+      "desc": "Đại nhạc hội quốc tế kết hợp điện ảnh và âm nhạc."
+    },
+    {
+      "start": "2026-12-05",
+      "end": "2026-12-06",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Lễ hội Văn hóa Dân gian đương đại và Triển lãm Thiết kế Sáng tạo Hà Nội",
+      "venue": "Bảo tàng Hà Nội",
+      "desc": "Lễ hội văn hoá dân gian kết hợp triển lãm thiết kế sáng tạo."
+    },
+    {
+      "start": "2026-12-06",
+      "end": "2026-12-06",
+      "city": "dn",
+      "type": "Thể thao",
+      "title": "Giải chạy bộ bán marathon mùa đông \"Danang Winter Run\"",
+      "venue": "Cung đường ven sông Hàn",
+      "desc": "Giải bán marathon mùa đông."
     },
     {
       "start": "2026-12-10",
@@ -424,12 +1793,102 @@
       "starring": "Dự kiến có trình diễn bay của đội bay quốc tế (đang nghiên cứu mời Nga, Hàn Quốc, Trung Quốc, Ấn Độ, Anh)"
     },
     {
+      "start": "2026-12-12",
+      "end": "2026-12-12",
+      "city": "hcm",
+      "type": "Thể thao",
+      "title": "Giải chạy Bán Marathon Quốc tế Techcombank HCMC International Marathon",
+      "venue": "Quận 1 - Quận 7",
+      "desc": "Giải bán marathon quốc tế thường niên tại TP.HCM."
+    },
+    {
+      "start": "2026-12-12",
+      "end": "2026-12-12",
+      "city": "hn",
+      "type": "Thể thao",
+      "title": "Ngày hội Yoga Thủ đô vì sức khỏe cộng đồng",
+      "venue": "Sân vận động Mỹ Đình",
+      "desc": "Ngày hội yoga cộng đồng."
+    },
+    {
+      "start": "2026-12-19",
+      "end": "2026-12-19",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Lễ hội Canaval Đường phố và Trình diễn Vũ đạo Ánh sáng cuối năm",
+      "venue": "Phố đi bộ Nguyễn Huệ",
+      "desc": "Canaval đường phố cuối năm."
+    },
+    {
+      "start": "2026-12-19",
+      "end": "2026-12-19",
+      "city": "hn",
+      "type": "Nghệ thuật truyền thống",
+      "title": "Liên hoan Lân Sư Rồng và Võ thuật cổ truyền Thủ đô mở rộng",
+      "venue": "Công viên Thống Nhất",
+      "desc": "Liên hoan lân sư rồng, võ thuật cổ truyền."
+    },
+    {
+      "start": "2026-12-20",
+      "end": "2026-12-20",
+      "city": "dn",
+      "type": "Thể thao điện tử",
+      "title": "Giải Thể thao điện tử học đường miền Trung",
+      "venue": "Nhà thi đấu Tiên Sơn",
+      "desc": "Giải đấu esport học đường."
+    },
+    {
+      "start": "2026-12-24",
+      "end": "2026-12-24",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Da Nang Christmas Market 2026",
+      "venue": "Công viên Biển Đông",
+      "desc": "Không gian chợ Giáng sinh bãi biển."
+    },
+    {
+      "start": "2026-12-24",
+      "end": "2026-12-25",
+      "city": "dn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc hội Giáng sinh \"Winter Wonderland\"",
+      "venue": "Quảng trường sảnh Sun World Bà Nà Hills",
+      "desc": "Đêm nhạc hội Giáng sinh tại Bà Nà Hills."
+    },
+    {
+      "start": "2026-12-24",
+      "end": "2026-12-24",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Đêm hội Nhạc Thánh ca và Không gian Đón Giáng sinh Công khai",
+      "venue": "Khu vực Nhà thờ Đức Bà",
+      "desc": "Đêm nhạc thánh ca Giáng sinh công khai."
+    },
+    {
+      "start": "2026-12-24",
+      "end": "2026-12-24",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Hòa tấu Giáng sinh công khai \"Hanoi Christmas Concert\"",
+      "venue": "Quảng trường Nhà hát Lớn",
+      "desc": "Hoà nhạc Giáng sinh công khai."
+    },
+    {
       "start": "2026-12-24",
       "end": "2026-12-25",
       "city": "holiday",
       "title": "Giáng sinh",
       "type": "Lễ quốc tế",
       "desc": "Không phải quốc lễ nhưng được đón mừng rộng khắp các thành phố lớn — đêm 24/12 (Noel) thường sôi động hơn cả ngày chính 25/12."
+    },
+    {
+      "start": "2026-12-27",
+      "end": "2026-12-27",
+      "city": "dn",
+      "type": "Nghệ thuật truyền thống",
+      "title": "Ngày hội Võ thuật cổ truyền và giao lưu múa lân sư rồng mừng năm mới",
+      "venue": "Quảng trường sông Hàn",
+      "desc": "Giao lưu võ thuật cổ truyền, lân sư rồng."
     },
     {
       "start": "2026-12-27",
@@ -441,6 +1900,42 @@
       "venue": "Phố đi bộ Nguyễn Huệ, trụ sở UBND TP & Nhà hát Thành phố"
     },
     {
+      "start": "2026-12-27",
+      "end": "2026-12-31",
+      "city": "hcm",
+      "type": "Triển lãm",
+      "title": "Triển Lãm Nghệ Thuật Ánh Sáng Metashow tại Thiso Mall",
+      "venue": "Thiso Mall",
+      "desc": "Triển lãm nghệ thuật ánh sáng."
+    },
+    {
+      "start": "2026-12-31",
+      "end": "2026-12-31",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Đại nhạc hội Đếm ngược Danang Countdown Party 2027",
+      "venue": "Quảng trường 29 Tháng 3",
+      "desc": "Đại nhạc hội đếm ngược chào năm mới."
+    },
+    {
+      "start": "2026-12-31",
+      "end": "2026-12-31",
+      "city": "dn",
+      "type": "Lễ hội",
+      "title": "Màn trình diễn pháo hoa nghệ thuật giao thừa",
+      "venue": "Cầu Nguyễn Văn Trỗi",
+      "desc": "Pháo hoa nghệ thuật đêm giao thừa."
+    },
+    {
+      "start": "2026-12-31",
+      "end": "2026-12-31",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Siêu Đại nhạc hội Đếm ngược Countdown Party 2027",
+      "venue": "Phố đi bộ Nguyễn Huệ",
+      "desc": "Đại nhạc hội đếm ngược, bắn pháo hoa chào năm mới."
+    },
+    {
       "start": "2026-12-31",
       "end": "2026-12-31",
       "city": "hn",
@@ -448,6 +1943,24 @@
       "type": "Lễ hội",
       "desc": "Bắn pháo hoa nghệ thuật tại nhiều điểm quanh phố đi bộ Hồ Hoàn Kiếm, thu hút hàng vạn người.",
       "venue": "Phố đi bộ Hồ Hoàn Kiếm"
+    },
+    {
+      "start": "2026-12-31",
+      "end": "2026-12-31",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Đại nhạc hội Đếm ngược Heineken Countdown Party 2027",
+      "venue": "Quảng trường Cách mạng Tháng Tám",
+      "desc": "Đại nhạc hội đếm ngược chào năm mới."
+    },
+    {
+      "start": "2026-12-31",
+      "end": "2026-12-31",
+      "city": "hn",
+      "type": "Lễ hội",
+      "title": "Chương trình nghệ thuật Đếm ngược đón năm mới phong cách trẻ",
+      "venue": "Quảng trường Đông Kinh Nghĩa Thục",
+      "desc": "Chương trình đếm ngược phong cách trẻ."
     },
     {
       "start": "2026-12-31",
@@ -643,6 +2156,6 @@
     }
   ],
   "lastUpdated": "2026-07-09",
-  "version": 2,
+  "version": 4,
   "_comment": "Dữ liệu sự kiện cho Lịch sự kiện trong nhip-song.html (tab Du lịch > Sự kiện). city: 'holiday' | 'hcm' | 'hn' | 'dn'. start/end dạng YYYY-MM-DD, sự kiện dài ngày mark hết các ngày trong khoảng."
 }
