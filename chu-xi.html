@@ -323,6 +323,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:24px}
           <button type="button" class="event-btn" data-val="Hài kịch"><span class="ico">😂</span><span class="vi">Hài kịch</span><span class="en">Comedy show</span></button>
           <button type="button" class="event-btn" data-val="Bowling"><span class="ico">🎳</span>Bowling</button>
           <button type="button" class="event-btn" data-val="Học cùng"><span class="ico">📚</span><span class="vi">Học cùng</span><span class="en">Study buddy</span></button>
+          <button type="button" class="event-btn" data-val="Biển"><span class="ico">🏖</span><span class="vi">Biển</span><span class="en">Beach</span></button>
           <button type="button" class="event-btn" data-val="Khác"><span class="ico">✨</span><span class="vi">Khác</span><span class="en">Other</span></button>
         </div>
         <input type="hidden" id="event-val">
@@ -579,6 +580,25 @@ document.getElementById('keo-form').addEventListener('submit',function(e){
     });
   },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+
+// Điền sẵn thành phố + loại sự kiện khi tới từ link CTA bên ngoài (VD gợi ý thời tiết đẹp ở
+// nhip-song.html) — ví dụ /chu-xi?city=TP.%20Hồ%20Chí%20Minh&event=Cà%20phê
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var cityParam = params.get('city');
+  var eventParam = params.get('event');
+  if(cityParam){
+    var citySel = document.getElementById('city');
+    for(var i=0; i<citySel.options.length; i++){
+      if(citySel.options[i].value === cityParam){ citySel.selectedIndex = i; break; }
+    }
+  }
+  if(eventParam){
+    document.querySelectorAll('.event-btn').forEach(function(b){
+      if(b.getAttribute('data-val') === eventParam) b.click();
+    });
+  }
 })();
 </script>
 </body>

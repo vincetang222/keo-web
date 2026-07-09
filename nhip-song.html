@@ -109,6 +109,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .wx-card{position:relative;border-radius:26px;padding:22px 22px 18px;overflow:hidden;background:var(--wx-grad);box-shadow:0 10px 30px rgba(26,21,16,.18);transition:transform .25s,box-shadow .25s;color:#fff}
 .wx-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,21,16,.24)}
 .wx-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, rgba(255,255,255,.14) 0%, transparent 55%);pointer-events:none}
+.wx-cta{display:block;margin-top:14px;padding:11px 16px;border-radius:14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);color:#fff;font-family:var(--sans);font-size:12.5px;font-weight:600;text-align:center;text-decoration:none;transition:background .2s,transform .2s;position:relative;z-index:1}
+.wx-cta:hover{background:rgba(255,255,255,.26);transform:translateY(-2px)}
 
 .wx-head-row{position:relative;display:flex;align-items:flex-start;justify-content:space-between;z-index:1}
 .wx-city{font-family:var(--sans);font-size:17px;font-weight:600;color:#fff;letter-spacing:-.01em}
@@ -225,6 +227,8 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 .foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
 .foot-link:hover{color:#F5EFE6}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+.foot-legal{display:flex;gap:16px}
+.foot-legal .foot-link{display:inline;padding:0;font-size:11.5px}
 .sport-attrib{text-align:right;font-family:var(--sans);font-size:10.5px;color:var(--i3);margin:2px 0 8px}
 .sport-attrib a{color:var(--a);font-weight:600;text-decoration:none}
 .sport-attrib a:hover{text-decoration:underline}
@@ -278,7 +282,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     <div class="sport-tab" data-t="swimming" onclick="switchTopic('swimming',this)">🏊 Bơi lội</div>
     <div class="sport-tab" data-t="running" onclick="switchTopic('running',this)">🏃 Chạy bộ</div>
     <div class="sport-tab" data-t="tennis" onclick="switchTopic('tennis',this)">🎾 Quần vợt</div>
-    <div class="sport-tab" data-t="pickleball" onclick="switchTopic('pickleball',this)">🥒 Pickleball</div>
+    <div class="sport-tab" data-t="pickleball" onclick="switchTopic('pickleball',this)">🥎 Pickleball</div>
     <div class="sport-tab" data-t="cycling" onclick="switchTopic('cycling',this)">🚴 Đạp xe</div>
   </div>
 
@@ -333,6 +337,10 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     </div>
     <div class="foot-bot">
       <div>© 2026 Kèo · Gặp gỡ có chiều sâu</div>
+      <div class="foot-legal">
+        <a href="/terms" class="foot-link">Điều khoản</a>
+        <a href="/privacy" class="foot-link">Quyền riêng tư</a>
+      </div>
       <div>keo.social · @keosocialvn</div>
     </div>
   </div>
@@ -390,6 +398,22 @@ function weatherCategory(icon){
   if(code==='09'||code==='10') return 'rainy';
   if(code==='11') return 'storm';
   return 'cloudy'; // 02,03,04,13,50
+}
+
+// 3 thành phố Kèo THẬT SỰ có Chủ xị/Người đồng hành hoạt động (khớp đúng dropdown chu-xi.html).
+// 7 điểm đến du lịch còn lại (Hội An, Đà Lạt, Nha Trang, Phú Quốc, Sa Pa, Huế, Hạ Long) chỉ để
+// xem thời tiết — chưa mở dịch vụ nên KHÔNG hiện CTA, tránh dẫn người dùng tới form không đặt
+// được thành phố đó.
+const KEO_SERVICE_CITIES = {
+  'TP. Hồ Chí Minh': 'Cà phê',
+  'Hà Nội': 'Cà phê',
+  'Đà Nẵng': 'Dã ngoại',
+};
+function weatherCTA(cityName, cat){
+  const event = KEO_SERVICE_CITIES[cityName];
+  if(!event || cat!=='sunny') return '';
+  const url = `/chu-xi?city=${encodeURIComponent(cityName)}&event=${encodeURIComponent(event)}`;
+  return `<a href="${url}" class="wx-cta">🌿 Trời đẹp ở ${cityName} — tìm người đồng hành đi ${event.toLowerCase()}?</a>`;
 }
 // ─── THEME KIỂU APPLE WEATHER — 1 gradient liền mạch cho toàn card (không tách 4 khối màu riêng
 // như bản trước), đậm và sang trọng để vừa là "dark theme" vừa đủ tinh tế kiểu Apple. Chữ luôn
@@ -534,7 +558,8 @@ function mkWeatherCard(c, idx){
     </div>
   </div>`;
 
-  return `<div class="wx-card" style="${styleVars}">${header}${hourZone}${dayZone}${footZone}</div>`;
+  const ctaHtml = weatherCTA(c.name, cat);
+  return `<div class="wx-card" style="${styleVars}">${header}${hourZone}${dayZone}${footZone}${ctaHtml}</div>`;
 }
 
 // ─── 6 CHỦ ĐỀ THỂ THAO OLYMPIC — nội dung biên tập tĩnh, không gọi API nào ──────────────────
@@ -779,7 +804,7 @@ const TOPIC_CONTENT = {
   },
   pickleball: {
     color:'#D4C24A',
-    icon:'🥒', name:'Pickleball', nameEn:'Pickleball',
+    icon:'🥎', name:'Pickleball', nameEn:'Pickleball',
     world:`Môn thể thao tăng trưởng nhanh nhất nước Mỹ những năm gần đây, dùng vợt gỗ/composite và bóng nhựa có lỗ trên sân nhỏ hơn tennis. Ben Johns là cái tên thống trị làng pickleball chuyên nghiệp thế giới (PPA Tour) nhiều năm qua.`,
     vn:`Câu chuyện đáng chú ý nhất thể thao Việt Nam gần đây: <b>Lý Hoàng Nam</b> — huyền thoại tennis — chuyển hẳn sang pickleball chuyên nghiệp từ 2025, và chỉ hơn 1 năm đã vươn lên <b>top 14-20 thế giới</b> (PPA Tour) cùng ngôi <b>số 1 châu Á</b> (DUPR). Ấn tượng hơn: Việt Nam có tới <b>5 tay vợt trong top 10 châu Á</b> đơn nam (Lý Hoàng Nam, Phúc Huỳnh, Lực Phạm, Trương Vinh Hiển, Nguyễn Việt Hoàng) — Trương Vinh Hiển từng hạ cả tay vợt hạng 2 thế giới. Việt Nam sẽ đăng cai <b>Pickleball World Cup 2026</b> tại Đà Nẵng (30/8-6/9/2026).`,
     facts:[{v:'11',l:'Điểm/ván'},{v:'2',l:'Lần nảy bắt buộc'},{v:'2026',l:'World Cup tại ĐN'}],
