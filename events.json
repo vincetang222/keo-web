@@ -6,7 +6,8 @@
       "city": "hn",
       "title": "Lễ hội Thiết kế Sáng tạo Hà Nội — khởi động",
       "type": "Lễ hội",
-      "desc": "\"Tụ hội sáng tạo\" tại Quảng trường Đông Kinh Nghĩa Thục, mở màn mùa lễ hội thiết kế sáng tạo thường niên (Hà Nội là Thành phố Sáng tạo được UNESCO công nhận)."
+      "desc": "\"Tụ hội sáng tạo\" tại Quảng trường Đông Kinh Nghĩa Thục, mở màn mùa lễ hội thiết kế sáng tạo thường niên (Hà Nội là Thành phố Sáng tạo được UNESCO công nhận).",
+      "venue": "Quảng trường Đông Kinh Nghĩa Thục"
     },
     {
       "start": "2026-01-01",
@@ -38,7 +39,8 @@
       "city": "hcm",
       "title": "Đường hoa Nguyễn Huệ & Đường sách Tết",
       "type": "Lễ hội",
-      "desc": "Sự kiện văn hoá-du lịch trọng điểm mỗi dịp Tết, lần thứ 23. Chủ đề 2026 \"Xuân hội tụ - Vững bước vươn mình\", lần đầu có phiên bản ngày/đêm riêng biệt với Mapping AR."
+      "desc": "Sự kiện văn hoá-du lịch trọng điểm mỗi dịp Tết, lần thứ 23. Chủ đề 2026 \"Xuân hội tụ - Vững bước vươn mình\", lần đầu có phiên bản ngày/đêm riêng biệt với Mapping AR.",
+      "venue": "Phố đi bộ Nguyễn Huệ, Công viên Trung tâm & Công viên Quang Trung"
     },
     {
       "start": "2026-02-22",
@@ -46,7 +48,8 @@
       "city": "hn",
       "title": "Khai hội Chùa Hương",
       "type": "Lễ hội",
-      "desc": "Lễ hội hành hương lớn nhất miền Bắc, khai hội đúng mùng 6 Tết, kéo dài đến hết tháng 3 âm lịch."
+      "desc": "Lễ hội hành hương lớn nhất miền Bắc, khai hội đúng mùng 6 Tết, kéo dài đến hết tháng 3 âm lịch.",
+      "venue": "Chùa Hương, huyện Mỹ Đức"
     },
     {
       "start": "2026-02-27",
@@ -78,7 +81,8 @@
       "city": "dn",
       "title": "Danang International Marathon",
       "type": "Thể thao",
-      "desc": "Lần thứ 13 — giải marathon quốc tế uy tín hàng đầu Đông Nam Á, chạy qua các bãi biển và cây cầu biểu tượng của Đà Nẵng."
+      "desc": "Lần thứ 13 — giải marathon quốc tế uy tín hàng đầu Đông Nam Á, chạy qua các bãi biển và cây cầu biểu tượng của Đà Nẵng.",
+      "venue": "Các bãi biển & cây cầu biểu tượng Đà Nẵng"
     },
     {
       "start": "2026-03-26",
@@ -110,7 +114,8 @@
       "city": "hcm",
       "title": "Ngày hội Du lịch TP.HCM",
       "type": "Lễ hội",
-      "desc": "Lần thứ 22, tại Công viên 23/9 — hơn 150 gian hàng du lịch, ẩm thực từ 34 tỉnh thành."
+      "desc": "Lần thứ 22, tại Công viên 23/9 — hơn 150 gian hàng du lịch, ẩm thực từ 34 tỉnh thành.",
+      "venue": "Công viên 23/9"
     },
     {
       "start": "2026-04-04",
@@ -118,7 +123,8 @@
       "city": "dn",
       "title": "Lễ hội Quán Thế Âm — Ngũ Hành Sơn",
       "type": "Lễ hội",
-      "desc": "Lễ hội văn hoá-tâm linh cấp thành phố, chính lễ 6/4. Có đua thuyền trên sông Cổ Cò, diễu hành xe hoa, hội cờ làng, cà kheo."
+      "desc": "Lễ hội văn hoá-tâm linh cấp thành phố, chính lễ 6/4. Có đua thuyền trên sông Cổ Cò, diễu hành xe hoa, hội cờ làng, cà kheo.",
+      "venue": "Chùa Quán Thế Âm, Ngũ Hành Sơn"
     },
     {
       "start": "2026-04-05",
@@ -126,7 +132,9 @@
       "city": "hn",
       "title": "Cúp Truyền hình HTV — chặng qua Hồ Hoàn Kiếm",
       "type": "Thể thao",
-      "desc": "Đoàn đua xe đạp xuyên Việt đi vòng quanh Hồ Hoàn Kiếm, 1 trong 25 chặng của giải HTV Cup lần thứ 38."
+      "desc": "Đoàn đua xe đạp xuyên Việt đi vòng quanh Hồ Hoàn Kiếm, 1 trong 25 chặng của giải HTV Cup lần thứ 38.",
+      "venue": "Hồ Hoàn Kiếm",
+      "starring": "Cúp Truyền hình HTV lần thứ 38, xuyên Việt 25 chặng"
     },
     {
       "start": "2026-04-19",
@@ -174,7 +182,8 @@
       "city": "hcm",
       "title": "Lễ hội đồng diễn mùa hè",
       "type": "Lễ hội",
-      "desc": "Tại phố đi bộ Nguyễn Huệ — chương trình đồng diễn quy mô lớn mở màn mùa hè."
+      "desc": "Tại phố đi bộ Nguyễn Huệ — chương trình đồng diễn quy mô lớn mở màn mùa hè.",
+      "venue": "Phố đi bộ Nguyễn Huệ"
     },
     {
       "start": "2026-05-30",
@@ -182,7 +191,9 @@
       "city": "dn",
       "title": "DIFF — Đêm khai mạc \"Thiên nhiên\"",
       "type": "Lễ hội pháo hoa",
-      "desc": "Đội chủ nhà Đà Nẵng đấu Trung Quốc (đương kim vô địch 2025). Trực tiếp VTV1 20h10."
+      "desc": "Đội chủ nhà Đà Nẵng đấu Trung Quốc (đương kim vô địch 2025). Trực tiếp VTV1 20h10.",
+      "venue": "Cảng sông Hàn, đường Trần Hưng Đạo",
+      "starring": "Đội Đà Nẵng (chủ nhà) đấu Trung Quốc (ĐKVĐ 2025) · Khách mời: Hồ Ngọc Hà, Hoàng Hải, Hà Nhi, Trung Quân"
     },
     {
       "start": "2026-05-31",
@@ -206,7 +217,9 @@
       "city": "dn",
       "title": "DIFF — Đêm 2 \"Di sản\"",
       "type": "Lễ hội pháo hoa",
-      "desc": "Đội Pháp đấu đội Việt Nam (Z121 Vina Pyrotech)."
+      "desc": "Đội Pháp đấu đội Việt Nam (Z121 Vina Pyrotech).",
+      "venue": "Cảng sông Hàn, đường Trần Hưng Đạo",
+      "starring": "Đội Pháp đấu Việt Nam (Z121 Vina Pyrotech)"
     },
     {
       "start": "2026-06-13",
@@ -214,7 +227,8 @@
       "city": "dn",
       "title": "DIFF — Đêm 3 \"Văn hoá\"",
       "type": "Lễ hội pháo hoa",
-      "desc": "Đêm thi thứ 3 trong 6 đêm của DIFF 2026."
+      "desc": "Đêm thi thứ 3 trong 6 đêm của DIFF 2026.",
+      "venue": "Cảng sông Hàn, đường Trần Hưng Đạo"
     },
     {
       "start": "2026-06-19",
@@ -230,7 +244,8 @@
       "city": "dn",
       "title": "DIFF — Đêm 4 \"Sáng tạo\"",
       "type": "Lễ hội pháo hoa",
-      "desc": "Đêm thi thứ 4 trong 6 đêm của DIFF 2026."
+      "desc": "Đêm thi thứ 4 trong 6 đêm của DIFF 2026.",
+      "venue": "Cảng sông Hàn, đường Trần Hưng Đạo"
     },
     {
       "start": "2026-06-21",
@@ -246,7 +261,8 @@
       "city": "hn",
       "title": "Lễ hội Sen Hà Nội",
       "type": "Lễ hội",
-      "desc": "Tại Tây Hồ — tôn vinh hoa sen, diễu hành áo dài \"Sen xuống phố\", các không gian trưng bày và trình diễn nghệ thuật."
+      "desc": "Tại Tây Hồ — tôn vinh hoa sen, diễu hành áo dài \"Sen xuống phố\", các không gian trưng bày và trình diễn nghệ thuật.",
+      "venue": "Tây Hồ (Vườn hoa Lý Tự Trọng & Vườn hoa Lạc Long Quân)"
     },
     {
       "start": "2026-06-27",
@@ -254,7 +270,8 @@
       "city": "dn",
       "title": "DIFF — Đêm 5 \"Tầm nhìn\"",
       "type": "Lễ hội pháo hoa",
-      "desc": "Đêm thi thứ 5, áp chót trước đêm chung kết."
+      "desc": "Đêm thi thứ 5, áp chót trước đêm chung kết.",
+      "venue": "Cảng sông Hàn, đường Trần Hưng Đạo"
     },
     {
       "start": "2026-06-28",
@@ -278,7 +295,8 @@
       "city": "dn",
       "title": "DIFF — Đêm chung kết",
       "type": "Lễ hội pháo hoa",
-      "desc": "2 đội xuất sắc nhất tranh ngôi quán quân DIFF 2026. Trực tiếp VTV1 20h10."
+      "desc": "2 đội xuất sắc nhất tranh ngôi quán quân DIFF 2026. Trực tiếp VTV1 20h10.",
+      "venue": "Cảng sông Hàn, đường Trần Hưng Đạo"
     },
     {
       "start": "2026-07-19",
@@ -286,7 +304,8 @@
       "city": "dn",
       "title": "VnExpress Marathon Đà Nẵng",
       "type": "Thể thao",
-      "desc": "Giải chạy ven biển qua những cây cầu biểu tượng — 1 trong những chặng quy mô nhất hệ thống VnExpress Marathon."
+      "desc": "Giải chạy ven biển qua những cây cầu biểu tượng — 1 trong những chặng quy mô nhất hệ thống VnExpress Marathon.",
+      "venue": "Các bãi biển & cây cầu biểu tượng Đà Nẵng"
     },
     {
       "start": "2026-07-27",
@@ -302,7 +321,8 @@
       "city": "hcm",
       "title": "ITE HCMC — Hội chợ Du lịch Quốc tế TP.HCM",
       "type": "Hội chợ",
-      "desc": "Kỷ niệm 20 năm tổ chức, hội chợ du lịch quốc tế duy nhất tại VN có chương trình Người mua quốc tế. ~500 gian hàng, tại SECC."
+      "desc": "Kỷ niệm 20 năm tổ chức, hội chợ du lịch quốc tế duy nhất tại VN có chương trình Người mua quốc tế. ~500 gian hàng, tại SECC.",
+      "venue": "SECC — 799 Nguyễn Văn Linh, Quận 7"
     },
     {
       "start": "2026-08-27",
@@ -374,7 +394,8 @@
       "city": "hn",
       "title": "Ngày Văn hoá Việt Nam tại Hà Nội",
       "type": "Lễ hội",
-      "desc": "Phiên bản mở rộng của Hà Nội — diễu hành di sản, 3D Mapping Tháp Rùa, ~4.000 nghệ sĩ tham gia, tại khu vực Hồ Hoàn Kiếm."
+      "desc": "Phiên bản mở rộng của Hà Nội — diễu hành di sản, 3D Mapping Tháp Rùa, ~4.000 nghệ sĩ tham gia, tại khu vực Hồ Hoàn Kiếm.",
+      "venue": "Khu vực Hồ Hoàn Kiếm (Tượng đài Lý Thái Tổ, Quảng trường Đông Kinh Nghĩa Thục)"
     },
     {
       "start": "2026-11-24",
@@ -398,7 +419,9 @@
       "city": "hn",
       "title": "Triển lãm Quốc phòng Quốc tế Việt Nam lần 3",
       "type": "Triển lãm",
-      "desc": "Tổ chức tại sân bay Gia Lâm, chủ đề \"Hoà bình - Hữu nghị - Hợp tác cùng phát triển\". Có khu trưng bày ngoài trời mở cửa công khai cho người dân tham quan khí tài quân sự miễn phí (như 2 kỳ trước 2022, 2024)."
+      "desc": "Tổ chức tại sân bay Gia Lâm, chủ đề \"Hoà bình - Hữu nghị - Hợp tác cùng phát triển\". Có khu trưng bày ngoài trời mở cửa công khai cho người dân tham quan khí tài quân sự miễn phí (như 2 kỳ trước 2022, 2024).",
+      "venue": "Sân bay Gia Lâm",
+      "starring": "Dự kiến có trình diễn bay của đội bay quốc tế (đang nghiên cứu mời Nga, Hàn Quốc, Trung Quốc, Ấn Độ, Anh)"
     },
     {
       "start": "2026-12-24",
@@ -414,7 +437,8 @@
       "city": "hcm",
       "title": "Lễ hội TP.HCM đón chào năm mới",
       "type": "Lễ hội",
-      "desc": "Countdown, giải đua xe đạp phong trào, Marathon TP.HCM, trình chiếu 3D mapping lên toà nhà UBND và Nhà hát TP."
+      "desc": "Countdown, giải đua xe đạp phong trào, Marathon TP.HCM, trình chiếu 3D mapping lên toà nhà UBND và Nhà hát TP.",
+      "venue": "Phố đi bộ Nguyễn Huệ, trụ sở UBND TP & Nhà hát Thành phố"
     },
     {
       "start": "2026-12-31",
@@ -422,7 +446,8 @@
       "city": "hn",
       "title": "Countdown Hồ Gươm chào năm mới",
       "type": "Lễ hội",
-      "desc": "Bắn pháo hoa nghệ thuật tại nhiều điểm quanh phố đi bộ Hồ Hoàn Kiếm, thu hút hàng vạn người."
+      "desc": "Bắn pháo hoa nghệ thuật tại nhiều điểm quanh phố đi bộ Hồ Hoàn Kiếm, thu hút hàng vạn người.",
+      "venue": "Phố đi bộ Hồ Hoàn Kiếm"
     },
     {
       "start": "2026-12-31",
@@ -618,6 +643,6 @@
     }
   ],
   "lastUpdated": "2026-07-09",
-  "version": 1,
+  "version": 2,
   "_comment": "Dữ liệu sự kiện cho Lịch sự kiện trong nhip-song.html (tab Du lịch > Sự kiện). city: 'holiday' | 'hcm' | 'hn' | 'dn'. start/end dạng YYYY-MM-DD, sự kiện dài ngày mark hết các ngày trong khoảng."
 }
