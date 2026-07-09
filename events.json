@@ -291,12 +291,12 @@
     },
     {
       "start": "2026-07-01",
-      "end": "2026-07-31",
+      "end": "2026-07-01",
       "city": "hcm",
       "type": "Sân khấu",
-      "title": "Chào Show | Tháng 7-2026",
+      "title": "Chào Show",
       "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
-      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. Diễn định kỳ 19h-21h từ thứ Ba đến Chủ Nhật hàng tuần."
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-02",
@@ -307,31 +307,67 @@
       "desc": "328 năm hình thành Sài Gòn - Chợ Lớn - Gia Định - TP.HCM (1698-2026) và 50 năm chính thức mang tên Chủ tịch Hồ Chí Minh (2/7/1976)."
     },
     {
-      "start": "2026-07-04",
-      "end": "2026-08-29",
-      "city": "dn",
-      "type": "Đêm nhạc",
-      "title": "Chuỗi đêm lễ hội Ẩm thực & Bia B'estival",
-      "venue": "Quảng trường Du Dôme, Bà Nà",
-      "desc": "Trình diễn nhạc Rock ngoài trời hằng tuần từ tháng 7 đến tháng 8/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
-    },
-    {
-      "start": "2026-07-05",
-      "end": "2026-12-27",
+      "start": "2026-07-02",
+      "end": "2026-07-02",
       "city": "hcm",
-      "type": "Thể thao",
-      "title": "Chuỗi giải thể thao phong trào thành phố (đua xe đạp, Futsal, Yoga)",
-      "venue": "Nhà thi đấu Hồ Xuân Hương & Phú Thọ",
-      "desc": "Luân phiên các ngày Chủ nhật từ tháng 7 đến tháng 12/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-03",
+      "end": "2026-07-03",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-04",
+      "end": "2026-07-04",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-05",
-      "end": "2026-10-25",
+      "end": "2026-07-05",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-05",
+      "end": "2026-07-05",
       "city": "hn",
       "type": "Đêm nhạc",
-      "title": "Chuỗi đêm nhạc đường phố và Hòa tấu nhạc cụ dân tộc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
       "venue": "Quanh khu vực Hồ Hoàn Kiếm",
-      "desc": "Diễn ra định kỳ vào tối Chủ nhật hằng tuần từ tháng 7 đến tháng 10/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
+      "start": "2026-07-07",
+      "end": "2026-07-07",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-08",
+      "end": "2026-07-08",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-09",
@@ -353,12 +389,12 @@
     },
     {
       "start": "2026-07-09",
-      "end": "2026-12-31",
+      "end": "2026-07-09",
       "city": "hcm",
-      "type": "Xiếc nghệ thuật",
-      "title": "Vở diễn À Ố Show — Xiếc Tre Việt Nam",
-      "venue": "Nhà hát Thành phố (Saigon Opera House), 07 Công trường Lam Sơn, Q.1",
-      "desc": "Vở xiếc tre nổi tiếng thế giới của Lune Production, diễn từ 2015, từng lưu diễn Sydney Opera House. Diễn thường kỳ 18h. Trải nghiệm văn hoá đặc sắc, phù hợp cho các buổi hẹn."
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-10",
@@ -389,12 +425,21 @@
     },
     {
       "start": "2026-07-10",
-      "end": "2026-07-14",
+      "end": "2026-07-10",
       "city": "hcm",
       "type": "Workshop",
-      "title": "Chuỗi Workshop nghệ thuật Garden Art (vẽ tranh, terrarium, thêu)",
+      "title": "ART WORKSHOP \"Blush & Berries Charlotte\"",
       "venue": "Garden Art",
-      "desc": "Nhiều lựa chọn workshop vẽ tranh acrylic/màu nước, làm terrarium cake, thêu túi — diễn ra rải rác 10-14/7, có thể chọn 1 trong nhiều buổi."
+      "desc": "Workshop vẽ tranh/trang trí chủ đề Blush & Berries Charlotte."
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-10",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-11",
@@ -506,12 +551,66 @@
     },
     {
       "start": "2026-07-11",
-      "end": "2026-07-12",
+      "end": "2026-07-11",
       "city": "hcm",
       "type": "Workshop",
-      "title": "Chuỗi Workshop thủ công Flower 1969's (nước hoa, xà phòng, nến thơm)",
+      "title": "ART WORKSHOP Thêu túi \"Hoa Trong Lòng\"",
+      "venue": "Garden Art",
+      "desc": "Workshop thêu túi thủ công."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Workshop làm nước hoa lăn (Rollerball Perfume)",
       "venue": "Flower 1969's",
-      "desc": "Nhiều lựa chọn workshop trải nghiệm làm nước hoa lăn/xịt/khô, xà phòng thủ công, nến thơm — diễn ra rải rác trong 2 ngày 11-12/7, có thể chọn 1 trong nhiều buổi."
+      "desc": "Trải nghiệm tự tay làm nước hoa lăn."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Workshop Reed Diffuser — tinh dầu khuếch tán",
+      "venue": "Flower 1969's",
+      "desc": "Trải nghiệm tự tay làm tinh dầu khuếch tán."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Workshop làm nước hoa xịt",
+      "venue": "Flower 1969's",
+      "desc": "Trải nghiệm tự tay làm nước hoa xịt."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Workshop Solid Perfume — nước hoa khô",
+      "venue": "Flower 1969's",
+      "desc": "Trải nghiệm tự tay làm nước hoa khô dạng thỏi."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Workshop làm nến thơm handmade",
+      "venue": "Flower 1969's",
+      "desc": "Trải nghiệm tự tay làm nến thơm thủ công."
+    },
+    {
+      "start": "2026-07-11",
+      "end": "2026-07-11",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-11",
@@ -521,15 +620,6 @@
       "title": "Lễ hội K-pop Lovers Festival 2026",
       "venue": "Không gian đi bộ Hồ Gươm",
       "desc": "Lễ hội dành cho fan K-pop."
-    },
-    {
-      "start": "2026-07-11",
-      "end": "2026-07-29",
-      "city": "hn",
-      "type": "Trải nghiệm văn hoá",
-      "title": "Đêm Văn Miếu — Van Mieu Night Tour (Tháng 7/2026)",
-      "venue": "Văn Miếu - Quốc Tử Giám",
-      "desc": "Tour đêm trải nghiệm Văn Miếu, diễn ra định kỳ suốt tháng 7."
     },
     {
       "start": "2026-07-12",
@@ -543,11 +633,56 @@
     {
       "start": "2026-07-12",
       "end": "2026-07-12",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "ART WORKSHOP Vẽ tranh Acrylic \"Hiệu ứng 3D\"",
+      "venue": "Garden Art",
+      "desc": "Workshop vẽ tranh acrylic hiệu ứng 3D."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "ART WORKSHOP Vẽ tranh màu nước \"Hoa Trong Vườn\"",
+      "venue": "Garden Art",
+      "desc": "Workshop vẽ tranh màu nước."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "Workshop làm xà phòng thủ công",
+      "venue": "Flower 1969's",
+      "desc": "Trải nghiệm tự tay làm xà phòng handmade."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
       "city": "hn",
       "type": "Đêm nhạc",
       "title": "[Hà Nội] Những Thành Phố Mơ Màng Summer 2026",
       "venue": "",
       "desc": "Lễ hội âm nhạc indie, 16h-22h30."
+    },
+    {
+      "start": "2026-07-12",
+      "end": "2026-07-12",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-07-14",
@@ -570,11 +705,38 @@
     {
       "start": "2026-07-14",
       "end": "2026-07-14",
+      "city": "hcm",
+      "type": "Workshop",
+      "title": "ART WORKSHOP \"Terrarium Cake\"",
+      "venue": "Garden Art",
+      "desc": "Workshop làm terrarium cake."
+    },
+    {
+      "start": "2026-07-14",
+      "end": "2026-07-14",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-14",
+      "end": "2026-07-14",
       "city": "hn",
       "type": "Giao lưu",
       "title": "Bastille Day 2026",
       "venue": "",
       "desc": "Sự kiện mừng Quốc khánh Pháp, cộng đồng người Pháp/quốc tế tại Hà Nội."
+    },
+    {
+      "start": "2026-07-15",
+      "end": "2026-07-15",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-16",
@@ -593,6 +755,15 @@
       "title": "[BẾN THÀNH] Đêm nhạc Duy Khánh - Will",
       "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
       "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-16",
+      "end": "2026-07-16",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-17",
@@ -629,6 +800,15 @@
       "title": "Một show hài chở muối về biển",
       "venue": "",
       "desc": "Show hài kịch."
+    },
+    {
+      "start": "2026-07-17",
+      "end": "2026-07-17",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-17",
@@ -703,6 +883,15 @@
       "desc": "Vòng bán kết và chung kết giải đấu Liên Quân Mobile chuyên nghiệp."
     },
     {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
       "start": "2026-07-19",
       "end": "2026-07-19",
       "city": "dn",
@@ -757,6 +946,33 @@
       "desc": "Xem chung kết World Cup 2026 tại Fanzone TP.HCM."
     },
     {
+      "start": "2026-07-19",
+      "end": "2026-07-19",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-19",
+      "end": "2026-07-19",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
+      "start": "2026-07-21",
+      "end": "2026-07-21",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
       "start": "2026-07-22",
       "end": "2026-07-26",
       "city": "dn",
@@ -764,6 +980,24 @@
       "title": "Lễ hội Tận hưởng Đà Nẵng (Enjoy Danang Festival)",
       "venue": "Các bãi biển du lịch Đà Nẵng",
       "desc": "Siêu lễ hội mùa hè thường niên của Đà Nẵng."
+    },
+    {
+      "start": "2026-07-22",
+      "end": "2026-07-22",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-23",
+      "end": "2026-07-23",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-24",
@@ -791,6 +1025,15 @@
       "title": "[BẾN THÀNH] Đêm nhạc Phương Thanh - Nguyễn Kiều Oanh",
       "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
       "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-24",
+      "end": "2026-07-24",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-25",
@@ -867,6 +1110,15 @@
     {
       "start": "2026-07-25",
       "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
       "city": "hn",
       "type": "Đêm nhạc",
       "title": "[L'AMOUR NIGHTS] MYSTIC NIGHTS — Tăng Phúc x Kay Trần",
@@ -928,12 +1180,48 @@
       "desc": "Fan meeting nhóm Forcebook."
     },
     {
+      "start": "2026-07-26",
+      "end": "2026-07-26",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-26",
+      "end": "2026-07-26",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
       "start": "2026-07-27",
       "end": "2026-07-27",
       "city": "holiday",
       "title": "Ngày Thương binh Liệt sĩ",
       "type": "Lễ Việt Nam",
       "desc": "Ngày tưởng niệm, tri ân — thắp nến tại các nghĩa trang liệt sĩ trên cả nước."
+    },
+    {
+      "start": "2026-07-28",
+      "end": "2026-07-28",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-29",
+      "end": "2026-07-29",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-30",
@@ -943,6 +1231,15 @@
       "title": "[BẾN THÀNH] Đêm nhạc Đinh Mạnh Ninh - Trịnh Thăng Bình — DAY 1",
       "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
       "desc": "Đêm nhạc tại phòng trà Bến Thành, ngày 1."
+    },
+    {
+      "start": "2026-07-30",
+      "end": "2026-07-30",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
       "start": "2026-07-31",
@@ -972,6 +1269,15 @@
       "desc": "Đêm nhạc chuỗi The Blueverse."
     },
     {
+      "start": "2026-07-31",
+      "end": "2026-07-31",
+      "city": "hcm",
+      "type": "Sân khấu",
+      "title": "Chào Show",
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
       "start": "2026-08-01",
       "end": "2026-08-02",
       "city": "dn",
@@ -979,15 +1285,6 @@
       "title": "Liên hoan Vũ điệu Đường phố Quốc tế \"Danang International Dance Fest\"",
       "venue": "Quảng trường 29 Tháng 3",
       "desc": "Liên hoan vũ điệu đường phố quốc tế."
-    },
-    {
-      "start": "2026-08-01",
-      "end": "2026-11-29",
-      "city": "dn",
-      "type": "Nghệ thuật truyền thống",
-      "title": "Chuỗi đêm hội Vũ hội Đường phố và Nghệ thuật Bài Chòi",
-      "venue": "Bờ tây sông Hàn (đường Bạch Đằng)",
-      "desc": "Diễn ra định kỳ tối thứ Bảy và Chủ nhật cách tuần từ tháng 8 đến tháng 11/2026. Chuỗi sự kiện định kỳ, khoảng ngày mang tính bao quát cả mùa."
     },
     {
       "start": "2026-08-01",
@@ -1107,6 +1404,15 @@
       "desc": "Chuỗi hoà nhạc cổ điển đặt vé trước (Subscription Concert)."
     },
     {
+      "start": "2026-08-02",
+      "end": "2026-08-02",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
       "start": "2026-08-07",
       "end": "2026-08-07",
       "city": "hcm",
@@ -1188,6 +1494,15 @@
       "desc": "Chặng Hà Nội trong tour 'Giữa Một Vạn'."
     },
     {
+      "start": "2026-08-09",
+      "end": "2026-08-09",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
       "start": "2026-08-14",
       "end": "2026-08-14",
       "city": "hcm",
@@ -1242,6 +1557,15 @@
       "desc": "Đêm nhạc tưởng nhớ nhạc sĩ Thanh Tùng, chặng Hà Nội (khác ngày với chặng TP.HCM 14/8)."
     },
     {
+      "start": "2026-08-16",
+      "end": "2026-08-16",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
       "start": "2026-08-21",
       "end": "2026-08-21",
       "city": "hn",
@@ -1285,6 +1609,15 @@
       "title": "Giải bơi biển việt dã quốc tế \"Danang Swim Open 2026\"",
       "venue": "Bãi biển Phạm Văn Đồng",
       "desc": "Giải bơi biển việt dã quốc tế."
+    },
+    {
+      "start": "2026-08-23",
+      "end": "2026-08-23",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-08-27",
@@ -1338,6 +1671,15 @@
       "title": "Đêm nhạc Indie Việt \"Tháng Tám Mùa Thu Hà Nội\"",
       "venue": "Trung tâm Chiếu phim Quốc gia",
       "desc": "Đêm nhạc indie Việt."
+    },
+    {
+      "start": "2026-08-30",
+      "end": "2026-08-30",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-09-01",
@@ -1394,21 +1736,21 @@
     },
     {
       "start": "2026-09-05",
-      "end": "2026-11-28",
+      "end": "2026-09-05",
       "city": "hcm",
       "type": "Đêm nhạc",
-      "title": "Chuỗi đêm nhạc Acoustic & Lân Sư Rồng định kỳ",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
       "venue": "Công viên bến Bạch Đằng",
-      "desc": "Diễn ra tối thứ Bảy hằng tuần từ tháng 9 đến tháng 11/2026. Đây là chuỗi sự kiện định kỳ nên khoảng ngày chỉ mang tính bao quát cả mùa, không phải diễn ra liên tục mỗi ngày."
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
     },
     {
       "start": "2026-09-05",
-      "end": "2026-11-28",
+      "end": "2026-09-05",
       "city": "hn",
       "type": "Show thực cảnh",
-      "title": "Chuỗi show thực cảnh Tinh Hoa Bắc Bộ",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
       "venue": "Sài Sơn, Quốc Oai",
-      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, biểu diễn tối thứ Bảy hằng tuần từ tháng 9 đến tháng 11/2026. Đây là show đã tồn tại nhiều năm, chuỗi sự kiện định kỳ nên khoảng ngày mang tính bao quát cả mùa."
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-09-06",
@@ -1418,6 +1760,15 @@
       "title": "Lễ hội Văn hóa truyền thống và Giao lưu nghệ thuật các Làng nghề Hà Nội",
       "venue": "Hoàng thành Thăng Long",
       "desc": "Giao lưu văn hoá làng nghề truyền thống."
+    },
+    {
+      "start": "2026-09-06",
+      "end": "2026-09-06",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-09-09",
@@ -1438,6 +1789,24 @@
       "desc": "Diễu hành đèn lồng Trung thu tại khu Chợ Lớn."
     },
     {
+      "start": "2026-09-12",
+      "end": "2026-09-12",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-09-12",
+      "end": "2026-09-12",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
+    },
+    {
       "start": "2026-09-13",
       "end": "2026-09-13",
       "city": "dn",
@@ -1454,6 +1823,15 @@
       "title": "Giải chạy Marathon Cộng đồng Pocari Sweat Run 2026",
       "venue": "Tuyến phố Hà Nội",
       "desc": "Giải chạy cộng đồng quy mô lớn."
+    },
+    {
+      "start": "2026-09-13",
+      "end": "2026-09-13",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-09-17",
@@ -1485,11 +1863,29 @@
     {
       "start": "2026-09-19",
       "end": "2026-09-19",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-09-19",
+      "end": "2026-09-19",
       "city": "hn",
       "type": "Lễ hội",
       "title": "Đêm hội Rước đèn Trung thu và Múa Sư tử truyền thống Bờ Hồ",
       "venue": "Phố cổ Hà Nội",
       "desc": "Rước đèn Trung thu, múa sư tử tại phố cổ."
+    },
+    {
+      "start": "2026-09-19",
+      "end": "2026-09-19",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-09-20",
@@ -1499,6 +1895,15 @@
       "title": "Đêm hội rước đèn và Diễu hành múa lân sư rồng Tết Trung thu Đà Nẵng",
       "venue": "Công viên 29/3",
       "desc": "Rước đèn, múa lân sư rồng Trung thu."
+    },
+    {
+      "start": "2026-09-20",
+      "end": "2026-09-20",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-09-25",
@@ -1527,6 +1932,24 @@
       "desc": "Lễ hội âm nhạc."
     },
     {
+      "start": "2026-09-26",
+      "end": "2026-09-26",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-09-26",
+      "end": "2026-09-26",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
+    },
+    {
       "start": "2026-09-27",
       "end": "2026-09-27",
       "city": "dn",
@@ -1534,6 +1957,15 @@
       "title": "Giải đua xe đạp địa hình \"Chinh phục đỉnh Sơn Trà\"",
       "venue": "Công viên Biển Đông",
       "desc": "Giải đua xe đạp địa hình phong trào."
+    },
+    {
+      "start": "2026-09-27",
+      "end": "2026-09-27",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-10-03",
@@ -1545,6 +1977,24 @@
       "desc": "Ngày hội sách và văn hoá đọc."
     },
     {
+      "start": "2026-10-03",
+      "end": "2026-10-03",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-10-03",
+      "end": "2026-10-03",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
+    },
+    {
       "start": "2026-10-04",
       "end": "2026-10-04",
       "city": "hn",
@@ -1554,6 +2004,15 @@
       "desc": "Giải marathon quốc tế thường niên tại Hà Nội."
     },
     {
+      "start": "2026-10-04",
+      "end": "2026-10-04",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
+    },
+    {
       "start": "2026-10-10",
       "end": "2026-10-10",
       "city": "hcm",
@@ -1561,6 +2020,15 @@
       "title": "Show diễn Thời trang Xu hướng Mùa đông \"Saigon Fashion Night\"",
       "venue": "Phố đi bộ Nguyễn Huệ",
       "desc": "Show thời trang mùa đông."
+    },
+    {
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
     },
     {
       "start": "2026-10-10",
@@ -1580,6 +2048,15 @@
       "desc": "Lễ hội văn hoá kỷ niệm ngày Giải phóng Thủ đô (10/10/1954)."
     },
     {
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
+    },
+    {
       "start": "2026-10-11",
       "end": "2026-10-11",
       "city": "dn",
@@ -1587,6 +2064,15 @@
       "title": "Giải chạy bộ phong trào sinh viên và thanh niên miền Trung",
       "venue": "Phố đi bộ Bạch Đằng",
       "desc": "Giải chạy bộ phong trào dành cho sinh viên, thanh niên."
+    },
+    {
+      "start": "2026-10-11",
+      "end": "2026-10-11",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-10-16",
@@ -1609,11 +2095,29 @@
     {
       "start": "2026-10-17",
       "end": "2026-10-17",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-10-17",
+      "end": "2026-10-17",
       "city": "hn",
       "type": "Thời trang",
       "title": "Show thời trang Tôn vinh Lụa tơ tằm Việt Nam \"Hương Sắc Thăng Long\"",
       "venue": "Văn Miếu - Quốc Tử Giám",
       "desc": "Show thời trang tôn vinh lụa tơ tằm."
+    },
+    {
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-10-18",
@@ -1623,6 +2127,15 @@
       "title": "VPBank Hanoi International Marathon 2026",
       "venue": "",
       "desc": "Giải marathon quốc tế tại Hà Nội (khác với Techcombank Hanoi International Marathon đã có, tổ chức bởi VPBank)."
+    },
+    {
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-10-20",
@@ -1653,11 +2166,29 @@
     {
       "start": "2026-10-24",
       "end": "2026-10-24",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-10-24",
+      "end": "2026-10-24",
       "city": "hn",
       "type": "Lễ hội",
       "title": "Ngày hội Sách và Không gian Sáng tạo Trẻ Thủ đô",
       "venue": "Phố sách 19/12",
       "desc": "Ngày hội sách và sáng tạo dành cho giới trẻ."
+    },
+    {
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-10-25",
@@ -1667,6 +2198,15 @@
       "title": "Giải quần vợt phong trào các CLB miền Trung mở rộng",
       "venue": "Cụm sân tennis Xuân Hà",
       "desc": "Giải quần vợt phong trào mở rộng."
+    },
+    {
+      "start": "2026-10-25",
+      "end": "2026-10-25",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc đường phố & Hoà tấu nhạc cụ dân tộc",
+      "venue": "Quanh khu vực Hồ Hoàn Kiếm",
+      "desc": "Chương trình định kỳ tối Chủ nhật hằng tuần (tháng 7-10/2026)."
     },
     {
       "start": "2026-10-31",
@@ -1680,11 +2220,29 @@
     {
       "start": "2026-10-31",
       "end": "2026-10-31",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-10-31",
+      "end": "2026-10-31",
       "city": "hn",
       "type": "Lễ hội",
       "title": "Đêm hội Hóa trang và Canaval Halloween Phố đi bộ",
       "venue": "Phố đi bộ Trần Nhân Tông",
       "desc": "Canaval hoá trang Halloween."
+    },
+    {
+      "start": "2026-10-31",
+      "end": "2026-10-31",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-10-31",
@@ -1706,11 +2264,29 @@
     {
       "start": "2026-11-07",
       "end": "2026-11-07",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-11-07",
+      "end": "2026-11-07",
       "city": "hn",
       "type": "Nghệ thuật truyền thống",
       "title": "Liên hoan Sân khấu Chèo và Nghệ thuật Tuồng cổ Hà Nội mở rộng",
       "venue": "Nhà hát Đại Nam",
       "desc": "Liên hoan chèo, tuồng cổ."
+    },
+    {
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-11-08",
@@ -1732,12 +2308,30 @@
     },
     {
       "start": "2026-11-14",
+      "end": "2026-11-14",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-11-14",
       "end": "2026-11-15",
       "city": "hn",
       "type": "Thể thao",
       "title": "Giải đấu Marathon Quốc tế Di sản \"Hanoi Marathon Heritage 2026\"",
       "venue": "Bờ Hồ Hoàn Kiếm",
       "desc": "Giải marathon quốc tế chủ đề di sản."
+    },
+    {
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-11-19",
@@ -1775,12 +2369,30 @@
     },
     {
       "start": "2026-11-21",
+      "end": "2026-11-21",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-11-21",
       "end": "2026-11-24",
       "city": "hn",
       "title": "Ngày Văn hoá Việt Nam tại Hà Nội",
       "type": "Lễ hội",
       "desc": "Phiên bản mở rộng của Hà Nội — diễu hành di sản, 3D Mapping Tháp Rùa, ~4.000 nghệ sĩ tham gia, tại khu vực Hồ Hoàn Kiếm.",
       "venue": "Khu vực Hồ Hoàn Kiếm (Tượng đài Lý Thái Tổ, Quảng trường Đông Kinh Nghĩa Thục)"
+    },
+    {
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-11-22",
@@ -1811,11 +2423,29 @@
     {
       "start": "2026-11-28",
       "end": "2026-11-28",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Đêm nhạc Acoustic & Lân Sư Rồng",
+      "venue": "Công viên bến Bạch Đằng",
+      "desc": "Chương trình định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026)."
+    },
+    {
+      "start": "2026-11-28",
+      "end": "2026-11-28",
       "city": "hn",
       "type": "Đêm nhạc",
       "title": "Đêm nhạc Pop Ballad \"Mùa Đông Hà Nội\"",
       "venue": "Cung Văn hóa Hữu nghị Việt Xô",
       "desc": "Đêm nhạc pop ballad."
+    },
+    {
+      "start": "2026-11-28",
+      "end": "2026-11-28",
+      "city": "hn",
+      "type": "Show thực cảnh",
+      "title": "Show thực cảnh Tinh Hoa Bắc Bộ",
+      "venue": "Sài Sơn, Quốc Oai",
+      "desc": "Show thực cảnh kết hợp công nghệ ánh sáng, diễn định kỳ tối thứ Bảy hằng tuần (tháng 9-11/2026). Show đã tồn tại nhiều năm."
     },
     {
       "start": "2026-12-04",
@@ -2235,6 +2865,6 @@
     }
   ],
   "lastUpdated": "2026-07-09",
-  "version": 6,
+  "version": 10,
   "_comment": "Dữ liệu sự kiện cho Lịch sự kiện trong nhip-song.html (tab Du lịch > Sự kiện). city: 'holiday' | 'hcm' | 'hn' | 'dn'. start/end dạng YYYY-MM-DD, sự kiện dài ngày mark hết các ngày trong khoảng."
 }
