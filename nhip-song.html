@@ -165,7 +165,17 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .travel-page.on{display:block}
 
 /* ─── LỊCH SỰ KIỆN — dark card thống nhất, beacon phát sáng cho ngày có sự kiện ─────────── */
-.cal-wrap-outer{max-width:640px;margin:0 auto}
+/* Layout 2 cột: calendar cố định bên trái (sticky khi cuộn), chi tiết sự kiện linh hoạt bên
+   phải — tận dụng hết chiều rộng main (1100px) thay vì nhốt mọi thứ trong 1 cột hẹp 640px. */
+.cal-split{display:flex;gap:22px;align-items:flex-start}
+.cal-col-cal{flex:0 0 380px;position:sticky;top:78px}
+.cal-col-ev{flex:1;min-width:0;position:relative;background:linear-gradient(165deg,#211A22 0%,#171219 100%);border-radius:20px;padding:20px 22px;box-shadow:0 14px 34px rgba(26,21,16,.22);overflow:hidden;min-height:420px;isolation:isolate}
+.cal-col-ev::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--mood,var(--c-quiet)) 22%,transparent) 0%,transparent 65%);filter:blur(30px);pointer-events:none;z-index:0;transition:background .6s ease}
+@media(max-width:900px){
+  .cal-split{flex-direction:column}
+  .cal-col-cal{position:static;flex:none;width:100%;max-width:420px;margin:0 auto}
+  .cal-col-ev{width:100%}
+}
 .cal-card{position:relative;background:linear-gradient(165deg,#26191F 0%,#17111A 55%,#130F14 100%);border-radius:24px;padding:18px 18px 6px;box-shadow:0 18px 42px rgba(26,21,16,.28),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden;isolation:isolate}
 .cal-card::before{content:'';position:absolute;top:-35%;right:-20%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--mood,var(--c-quiet)) 42%,transparent) 0%,transparent 65%);filter:blur(28px);pointer-events:none;z-index:0;transition:background .6s ease,opacity .6s ease}
 .cal-card::after{content:'';position:absolute;bottom:10%;left:-18%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--mood,var(--c-quiet)) 26%,transparent) 0%,transparent 65%);filter:blur(32px);pointer-events:none;z-index:0;transition:background .6s ease,opacity .6s ease}
@@ -220,26 +230,45 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .city-pill.on .dot{background:var(--pc);box-shadow:0 0 6px var(--pc)}
 .city-pill:hover{border-color:color-mix(in srgb,var(--pc) 60%,transparent)}
 
-.ev-zone{position:relative;z-index:2;margin-top:8px;padding:14px 0 16px}
-.ev-panel-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:6px}
-.ev-panel-title{font-family:var(--serif);font-size:15px;font-weight:700;color:#F5EFE6}
+.ev-panel-head{position:relative;z-index:2;display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:6px}
+.ev-panel-title{font-family:var(--serif);font-size:16px;font-weight:700;color:#F5EFE6}
 .ev-panel-back{font-family:var(--sans);font-size:10.5px;color:var(--gold);cursor:pointer;font-weight:700;padding:5px 11px;border-radius:100px;background:rgba(232,162,43,.12);transition:background .15s}
 .ev-panel-back:hover{background:rgba(232,162,43,.22)}
-.ev-list{display:flex;flex-direction:column;gap:8px;animation:calFadeUp .3s ease}
+
+/* NGÀY CỤ THỂ — card đầy đủ có mô tả, ít khi quá 2-3 sự kiện/ngày nên grid 2 cột vừa đủ */
+.ev-list{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;animation:calFadeUp .3s ease}
 @keyframes calFadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.ev-item{display:flex;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06);border-left:3px solid var(--ev-c,var(--gold));transition:transform .15s,background .15s}
-.ev-item:hover{transform:translateX(2px);background:rgba(255,255,255,.075)}
-.ev-item-date{font-family:var(--serif);font-weight:700;color:var(--ev-c,var(--gold));line-height:1.15;flex-shrink:0;width:38px;text-align:center;padding-top:2px;font-size:19px}
-.ev-item-date.range{font-size:12px;padding-top:4px}
-.ev-item-body{flex:1;min-width:0}
-.ev-item-title{font-family:var(--sans);font-size:13px;font-weight:700;color:#F5EFE6;margin-bottom:4px}
-.ev-item-meta{display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap}
-.ev-item-city{font-family:var(--sans);font-size:9px;font-weight:700;color:#1A1006;background:var(--ev-c,var(--gold));padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.02em}
+.ev-item{display:flex;flex-direction:column;gap:7px;padding:14px 15px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);border-top:3px solid var(--ev-c,var(--gold));transition:transform .15s,background .15s}
+.ev-item:hover{transform:translateY(-2px);background:rgba(255,255,255,.075)}
+.ev-item-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ev-item-date{font-family:var(--serif);font-weight:700;color:var(--ev-c,var(--gold));font-size:22px;line-height:1}
+.ev-item-title{font-family:var(--sans);font-size:13px;font-weight:700;color:#F5EFE6;line-height:1.35}
+.ev-item-city{font-family:var(--sans);font-size:9px;font-weight:700;color:#1A1006;background:var(--ev-c,var(--gold));padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
 .ev-item-type{font-family:var(--sans);font-size:10px;color:rgba(245,239,230,.4);font-weight:500}
 .ev-item-desc{font-family:var(--sans);font-size:12px;line-height:1.6;color:rgba(245,239,230,.65)}
-.ev-empty{text-align:center;padding:22px 10px;font-family:var(--sans);font-size:12px;color:rgba(245,239,230,.4);animation:calFadeUp .3s ease}
-.ev-empty-icon{font-size:26px;margin-bottom:8px;opacity:.35}
+.ev-empty{position:relative;z-index:2;text-align:center;padding:40px 10px;font-family:var(--sans);font-size:12.5px;color:rgba(245,239,230,.4);animation:calFadeUp .3s ease}
+.ev-empty-icon{font-size:28px;margin-bottom:10px;opacity:.35}
 .cal-foot-note{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:16px 0 6px;line-height:1.6}
+
+/* XEM CẢ THÁNG — số sự kiện có thể không giới hạn (vd 100+): card gọn không mô tả, xếp lưới
+   3 cột trên desktop, 2 cột trên mobile, giới hạn chiều cao với scroll nội bộ thay vì đẩy cả
+   trang dài ra vô tận. Click 1 card nhảy thẳng tới xem chi tiết ngày đó. */
+.ev-list-compact{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;animation:calFadeUp .3s ease;max-height:480px;overflow-y:auto;padding:3px 5px 3px 3px;margin:-3px -5px -3px -3px}
+.ev-list-compact::-webkit-scrollbar{width:5px}
+.ev-list-compact::-webkit-scrollbar-track{background:transparent}
+.ev-list-compact::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:10px}
+.ev-list-compact::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.22)}
+.ev-row{display:flex;flex-direction:column;gap:7px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);border-left:3px solid var(--ev-c,var(--gold));cursor:pointer;transition:transform .15s,background .15s;min-height:72px}
+.ev-row:hover{transform:translateY(-2px);background:rgba(255,255,255,.08)}
+.ev-row-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.ev-row-date{font-family:var(--sans);font-size:10.5px;font-weight:700;color:var(--ev-c,var(--gold))}
+.ev-row-city{font-family:var(--sans);font-size:8px;font-weight:700;color:var(--ev-c,var(--gold));background:color-mix(in srgb,var(--ev-c,var(--gold)) 18%,transparent);padding:2.5px 7px;border-radius:100px;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.ev-row-title{font-family:var(--sans);font-size:11.5px;font-weight:600;color:rgba(245,239,230,.9);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+@media(max-width:900px){
+  .ev-list{grid-template-columns:1fr}
+  .ev-list-compact{grid-template-columns:repeat(2,1fr)}
+}
 
 /* ─── LỊCH THỜI TIẾT THEO MÙA — 3 thành phố, mỗi thành phố có bảng màu riêng theo miền ────── */
 .szn-wrap{margin-top:44px;position:relative}
@@ -624,26 +653,28 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
         <p class="travel-sub">Click 1 ngày để xem sự kiện hôm đó — click lại vào tên tháng để xem cả tháng.</p>
       </div>
 
-      <div class="cal-wrap-outer">
-        <div class="cal-card" id="calCard">
-          <div class="year-switch" id="yearSwitch">
-            <div class="year-slider" id="yearSlider"></div>
-            <div class="year-opt" data-year="2026">2026</div>
-            <div class="year-opt" data-year="2027">2027</div>
+      <div class="cal-split">
+        <div class="cal-col-cal">
+          <div class="cal-card" id="calCard">
+            <div class="year-switch" id="yearSwitch">
+              <div class="year-slider" id="yearSlider"></div>
+              <div class="year-opt" data-year="2026">2026</div>
+              <div class="year-opt" data-year="2027">2027</div>
+            </div>
+
+            <div class="cal-hero">
+              <div class="cal-nav-btn" id="calPrevBtn">‹</div>
+              <div class="cal-hero-center" id="calMonthLabel"></div>
+              <div class="cal-nav-btn" id="calNextBtn">›</div>
+            </div>
+
+            <div class="cal-grid" id="calGrid"></div>
+
+            <div class="filter-row" id="calFilterRow"></div>
           </div>
-
-          <div class="cal-hero">
-            <div class="cal-nav-btn" id="calPrevBtn">‹</div>
-            <div class="cal-hero-center" id="calMonthLabel"></div>
-            <div class="cal-nav-btn" id="calNextBtn">›</div>
-          </div>
-
-          <div class="cal-grid" id="calGrid"></div>
-
-          <div class="filter-row" id="calFilterRow"></div>
-
-          <div class="ev-zone" id="calEvZone"></div>
         </div>
+
+        <div class="cal-col-ev" id="calEvZone"></div>
       </div>
 
       <div class="cal-foot-note">Ngày lễ Việt Nam &amp; quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.</div>
@@ -948,6 +979,7 @@ function renderCal(){
   const card = $('calCard');
   card.style.setProperty('--mood', mood);
   card.classList.toggle('quiet', monthEvents.length===0);
+  $('calEvZone').style.setProperty('--mood', mood);
 
   const sorted = monthEvents.slice().sort((a,b)=>a.start.localeCompare(b.start));
   const statHtml = sorted.length
@@ -1054,28 +1086,34 @@ function renderCalEvZone(monthEvents){
         ? 'Chưa có sự kiện nào được công bố cho tháng này của 2027 — lễ hội/sự kiện địa phương thường chỉ công bố lịch trước vài tháng.'
         : 'Không có sự kiện nào khớp bộ lọc hiện tại — thử bật thêm thành phố ở trên.'}
     </div>`;
-  } else {
+  } else if(dayCtx){
+    // XEM 1 NGÀY — số sự kiện luôn ít (thực tế 1-5), dùng card đầy đủ có mô tả, grid 2 cột
     bodyHtml = `<div class="ev-list">${events.map(e=>{
-      let badgeText, isRange;
-      if(dayCtx){
-        badgeText = parseInt(dayCtx.split('-')[2]);
-        isRange = false;
-      } else {
-        const sd = parseInt(e.start.split('-')[2]);
-        const ed = parseInt(e.end.split('-')[2]);
-        isRange = e.start !== e.end;
-        badgeText = isRange ? `${sd}–${ed}` : `${sd}`;
-      }
+      const badgeText = parseInt(dayCtx.split('-')[2]);
       return `<div class="ev-item" style="--ev-c:${calEventColor(e.city)}">
-        <div class="ev-item-date ${isRange?'range':''}">${badgeText}</div>
-        <div class="ev-item-body">
-          <div class="ev-item-title">${e.title}</div>
-          <div class="ev-item-meta">
-            <span class="ev-item-city" style="background:${calEventColor(e.city)}">${calEventCityLabel(e.city)}</span>
-            <span class="ev-item-type">${e.type}</span>
-          </div>
-          <div class="ev-item-desc">${e.desc}</div>
+        <div class="ev-item-top">
+          <span class="ev-item-date">${badgeText}</span>
+          <span class="ev-item-city" style="background:${calEventColor(e.city)}">${calEventCityLabel(e.city)}</span>
         </div>
+        <div class="ev-item-title">${e.title}</div>
+        <span class="ev-item-type">${e.type}</span>
+        <div class="ev-item-desc">${e.desc}</div>
+      </div>`;
+    }).join('')}</div>`;
+  } else {
+    // XEM CẢ THÁNG — số sự kiện có thể không giới hạn, dùng card gọn dạng lưới 3 cột (2 trên
+    // mobile) + scroll nội bộ thay vì đẩy cả trang dài ra vô tận. Click 1 card sẽ nhảy thẳng
+    // tới xem chi tiết ngày đó.
+    bodyHtml = `<div class="ev-list-compact">${events.map(e=>{
+      const sd = parseInt(e.start.split('-')[2]);
+      const ed = parseInt(e.end.split('-')[2]);
+      const dateLabel = e.start !== e.end ? `${sd}–${ed}` : `${sd}`;
+      return `<div class="ev-row" style="--ev-c:${calEventColor(e.city)}" data-jump="${e.start}">
+        <div class="ev-row-top">
+          <span class="ev-row-date">${dateLabel}</span>
+          <span class="ev-row-city">${calEventCityLabel(e.city)}</span>
+        </div>
+        <span class="ev-row-title">${e.title}</span>
       </div>`;
     }).join('')}</div>`;
   }
@@ -1088,6 +1126,9 @@ function renderCalEvZone(monthEvents){
     ${bodyHtml}
   `);
   if(showBack) $('calBackBtn').onclick = ()=>{ calState.selectedDay=null; calHideTip(); renderCal(); };
+  document.querySelectorAll('.ev-row').forEach(row=>{
+    row.onclick = ()=>{ calState.selectedDay = row.dataset.jump; calHideTip(); renderCal(); };
+  });
 }
 
 // ─── PHÂN LOẠI THỜI TIẾT → MÀU + NHÂN VẬT MINH HOẠ ─────────────────────────
