@@ -7,13 +7,16 @@
     "boat": "⛵ Du thuyền / Tàu sông",
     "walking": "🚶 Đi bộ tự túc",
     "cable_car": "🚡 Cáp treo",
-    "bicycle": "🚴 Xe đạp"
+    "bicycle": "🚴 Xe đạp",
+    "food": "🍜 Ẩm thực",
+    "daytrip": "🌿 Nguyên ngày"
   },
   "tours": [
     {
       "city": "hcm",
       "type": "metro",
       "title": "Metro số 1 — Bến Thành đến Suối Tiên",
+      "time": "Bất kỳ giờ nào, tàu chạy 5h00–23h00",
       "duration": "~30 phút/chiều (14 ga)",
       "price": "6.000–20.000đ/lượt · vé ngày 40.000đ",
       "highlights": [
@@ -22,15 +25,30 @@
         "Ga Ba Son — gần Landmark 81, bến du thuyền Bạch Đằng",
         "Ga Suối Tiên — Công viên Văn hoá Suối Tiên"
       ],
-      "note": "Tuyến metro đầu tiên của TP.HCM, vận hành từ 22/12/2024. Cách di chuyển rẻ và nhanh nhất giữa trung tâm và khu Đông, đồng thời là điểm check-in mới của giới trẻ.",
-      "booking": "Mua vé trực tiếp tại ga hoặc app HCMC Metro HURC"
+      "note": "Tuyến metro đầu tiên của TP.HCM, vận hành từ 22/12/2024. Cách di chuyển rẻ và nhanh nhất giữa trung tâm và khu Đông.",
+      "booking": "Mua vé trực tiếp tại ga hoặc app HCMC Metro HURC",
+      "en": {
+        "title": "Metro Line 1 — Ben Thanh to Suoi Tien",
+        "time": "Anytime, trains run 5:00–23:00",
+        "duration": "~30 min/direction (14 stations)",
+        "price": "6,000–20,000₫/ride · day pass 40,000₫",
+        "highlights": [
+          "Ben Thanh Station (underground, central District 1)",
+          "Opera House Station — near Nguyen Hue Walking Street, Central Post Office, Notre Dame Cathedral",
+          "Ba Son Station — near Landmark 81, Bach Dang riverside dock",
+          "Suoi Tien Station — Suoi Tien Cultural Theme Park"
+        ],
+        "note": "HCMC's first metro line, operating since 22 Dec 2024. The cheapest, fastest way between downtown and the eastern districts.",
+        "booking": "Buy tickets at the station or via the HCMC Metro HURC app"
+      }
     },
     {
       "city": "hcm",
       "type": "bus2tang",
       "title": "Xe bus 2 tầng Hop-On Hop-Off Sài Gòn",
+      "time": "9h00–22h00, chuyến cách nhau ~30 phút",
       "duration": "45–60 phút/vòng, lên xuống tự do",
-      "price": "Từ 150.000đ/chuyến · 500.000đ/24h không giới hạn",
+      "price": "Từ 150.000đ/chuyến · 500.000đ/24h",
       "highlights": [
         "Nhà hát Thành phố",
         "Bến Bạch Đằng",
@@ -42,13 +60,32 @@
         "Phố Tây Bùi Viện"
       ],
       "note": "Xe mui trần 2 tầng màu đỏ, có thuyết minh đa ngôn ngữ. Có thêm bản tour đêm (15h30–22h30) ngắm thành phố lên đèn.",
-      "booking": "Đặt vé tại hopon-hopoff.vn hoặc mua trực tiếp tại các trạm dừng"
+      "booking": "Đặt vé tại hopon-hopoff.vn hoặc mua trực tiếp tại các trạm dừng",
+      "en": {
+        "title": "Saigon Hop-On Hop-Off Double-Decker Bus",
+        "time": "9:00–22:00, buses every ~30 min",
+        "duration": "45–60 min/loop, hop on/off freely",
+        "price": "From 150,000₫/ride · 500,000₫/24h",
+        "highlights": [
+          "Opera House",
+          "Bach Dang Wharf",
+          "Bitexco Skydeck",
+          "Nguyen Hue — City Hall",
+          "Independence Palace",
+          "Notre Dame Cathedral",
+          "Ben Thanh Market",
+          "Bui Vien Walking Street"
+        ],
+        "note": "Red open-top double-decker with multilingual audio guide. A night tour (15:30–22:30) is also available to see the city lit up.",
+        "booking": "Book at hopon-hopoff.vn or directly at bus stops"
+      }
     },
     {
       "city": "hcm",
       "type": "vespa",
       "title": "Vespa cổ khám phá Sài Gòn về đêm",
-      "duration": "~4 tiếng (chiều tối)",
+      "time": "Khởi hành 17h30–18h00",
+      "duration": "~4 tiếng",
       "price": "55–105 USD/người tuỳ tour",
       "highlights": [
         "Ngồi sau Vespa cổ, tài xế + hướng dẫn viên địa phương riêng",
@@ -57,26 +94,55 @@
         "Kết thúc ở khu phố Tây hoặc quán nhạc sống"
       ],
       "note": "Do các công ty như Vespa Adventures, Saigon Vespa Tours vận hành — nổi tiếng với tour ẩm thực đêm, đánh giá rất cao trên TripAdvisor.",
-      "booking": "Đặt trước qua website công ty tour, thường đón tại khách sạn"
+      "booking": "Đặt trước qua website công ty tour, thường đón tại khách sạn",
+      "en": {
+        "title": "Vintage Vespa Night Tour of Saigon",
+        "time": "Departs 17:30–18:00",
+        "duration": "~4 hours",
+        "price": "55–105 USD/person depending on tour",
+        "highlights": [
+          "Ride pillion on a vintage Vespa with your own driver + local guide",
+          "Street food stalls, rooftop bars",
+          "Alleys and markets big vehicles can't reach",
+          "Ends at a nightlife district or live music venue"
+        ],
+        "note": "Run by operators like Vespa Adventures, Saigon Vespa Tours — famous for night food tours with excellent TripAdvisor reviews.",
+        "booking": "Book ahead via the operator's website, usually hotel pickup included"
+      }
     },
     {
       "city": "hcm",
       "type": "boat",
       "title": "Du thuyền sông Sài Gòn — ngắm hoàng hôn/ăn tối",
+      "time": "17h30–19h30 (khung giờ phổ biến)",
       "duration": "~1.5–2 tiếng",
-      "price": "Từ 300.000đ (chỉ ngắm cảnh) · 699.000đ (kèm ăn tối)",
+      "price": "Từ 300.000đ (ngắm cảnh) · 699.000đ (kèm ăn tối)",
       "highlights": [
         "Bến Bạch Đằng",
         "Ngắm Landmark 81, cầu Ba Son, cầu Thủ Thiêm từ mặt sông",
         "Thành phố lên đèn hai bên bờ sông"
       ],
       "note": "Có thể kết hợp cùng vé xe bus 2 tầng thành combo trọn gói buổi tối.",
-      "booking": "Đặt qua các công ty du thuyền tại Bến Bạch Đằng"
+      "booking": "Đặt qua các công ty du thuyền tại Bến Bạch Đằng",
+      "en": {
+        "title": "Saigon River Cruise — Sunset / Dinner",
+        "time": "17:30–19:30 (typical slot)",
+        "duration": "~1.5–2 hours",
+        "price": "From 300,000₫ (sightseeing) · 699,000₫ (with dinner)",
+        "highlights": [
+          "Bach Dang Wharf",
+          "Landmark 81, Ba Son Bridge, Thu Thiem Bridge from the water",
+          "City lights on both riverbanks"
+        ],
+        "note": "Can be combined with the double-decker bus ticket as an evening combo package.",
+        "booking": "Book through cruise operators at Bach Dang Wharf"
+      }
     },
     {
       "city": "hcm",
       "type": "walking",
       "title": "Lộ trình đi bộ Quận 1 tự túc (nửa ngày)",
+      "time": "Gợi ý bắt đầu 8h00 sáng (đỡ nắng)",
       "duration": "~3–4 tiếng đi bộ",
       "price": "Miễn phí (trừ vé vào cửa từng điểm)",
       "highlights": [
@@ -87,13 +153,30 @@
         "Bảo tàng Chứng tích Chiến tranh",
         "Chợ Bến Thành"
       ],
-      "note": "Toàn bộ nằm trong bán kính đi bộ ~1.5km ở trung tâm Q.1 — không cần đặt tour, tự đi theo thứ tự này là hợp lý nhất về khoảng cách.",
-      "booking": "Tự túc — không cần đặt trước"
+      "note": "Toàn bộ nằm trong bán kính đi bộ ~1.5km ở trung tâm Q.1 — thứ tự này hợp lý nhất về khoảng cách.",
+      "booking": "Tự túc — không cần đặt trước",
+      "en": {
+        "title": "Self-Guided District 1 Walking Route (Half-Day)",
+        "time": "Suggested start 8:00 AM (before the heat)",
+        "duration": "~3–4 hours walking",
+        "price": "Free (except entry fees per site)",
+        "highlights": [
+          "Notre Dame Cathedral of Saigon",
+          "Saigon Central Post Office",
+          "Saigon Book Street",
+          "Independence Palace",
+          "War Remnants Museum",
+          "Ben Thanh Market"
+        ],
+        "note": "All within a ~1.5km walking radius in central District 1 — this order is the most efficient route.",
+        "booking": "Self-guided — no booking needed"
+      }
     },
     {
       "city": "hcm",
       "type": "cyclo",
       "title": "Xích lô khám phá Chợ Lớn (Chinatown)",
+      "time": "9h00–11h00 hoặc 15h00–17h00 (tránh nắng gắt)",
       "duration": "~1.5–2 tiếng",
       "price": "150.000–300.000đ/xe (tuỳ thương lượng)",
       "highlights": [
@@ -103,12 +186,143 @@
         "Các con phố buôn bán truyền thống người Hoa"
       ],
       "note": "Xích lô là cách chậm rãi, đặc trưng để khám phá khu Chợ Lớn — nên thương lượng giá rõ trước khi lên xe.",
-      "booking": "Bắt trực tiếp tại khu vực Chợ Lớn hoặc qua khách sạn đặt hộ"
+      "booking": "Bắt trực tiếp tại khu vực Chợ Lớn hoặc qua khách sạn đặt hộ",
+      "en": {
+        "title": "Cyclo Tour of Cho Lon (Chinatown)",
+        "time": "9:00–11:00 or 15:00–17:00 (avoid peak heat)",
+        "duration": "~1.5–2 hours",
+        "price": "150,000–250,000₫/cyclo (negotiable)",
+        "highlights": [
+          "Binh Tay Market",
+          "On Lang Assembly Hall",
+          "Thien Hau Pagoda",
+          "Traditional Chinese-Vietnamese shopping streets"
+        ],
+        "note": "Cyclo is the classic, unhurried way to explore Cho Lon — agree on the price clearly before boarding.",
+        "booking": "Flag one down directly in Cho Lon, or ask your hotel to arrange"
+      }
+    },
+    {
+      "city": "hcm",
+      "type": "food",
+      "title": "Ẩm thực đường phố sáng sớm Sài Gòn",
+      "time": "6h30–9h00",
+      "duration": "~2.5 tiếng",
+      "price": "~150.000–250.000đ (tự chi trả từng điểm)",
+      "highlights": [
+        "Phở/hủ tiếu gõ vỉa hè khu trung tâm",
+        "Cà phê vợt kiểu cũ (cà phê bít tất)",
+        "Bánh mì Sài Gòn xe đẩy",
+        "Xôi/bánh cuốn buổi sáng"
+      ],
+      "note": "Buổi sáng sớm là lúc Sài Gòn 'sống' nhất với ẩm thực đường phố — nên đi trước 9h vì nhiều quán chỉ bán buổi sáng.",
+      "booking": "Tự túc, hoặc đặt tour ẩm thực có hướng dẫn viên qua các app du lịch",
+      "en": {
+        "title": "Early-Morning Saigon Street Food",
+        "time": "6:30–9:00 AM",
+        "duration": "~2.5 hours",
+        "price": "~150,000–250,000₫ (pay per stop)",
+        "highlights": [
+          "Sidewalk pho/hu tieu in the city center",
+          "Old-style 'sock' filter coffee (ca phe vot)",
+          "Banh mi from street carts",
+          "Morning sticky rice / steamed rice rolls"
+        ],
+        "note": "Early morning is when Saigon's street food scene is most alive — go before 9 AM as many stalls only sell in the morning.",
+        "booking": "Self-guided, or book a guided food tour via travel apps"
+      }
+    },
+    {
+      "city": "hcm",
+      "type": "walking",
+      "title": "Ngắm hoàng hôn từ Landmark 81 Skyview",
+      "time": "17h00–19h00 (đón hoàng hôn + lên đèn)",
+      "duration": "~2 tiếng",
+      "price": "300.000–500.000đ vé Skydeck",
+      "highlights": [
+        "Đài quan sát tầng 79–81, Landmark 81",
+        "Toàn cảnh Sài Gòn từ trên cao",
+        "Chuyển cảnh từ hoàng hôn sang thành phố lên đèn"
+      ],
+      "note": "Nên lên trước giờ hoàng hôn (~17h30 theo mùa) để có chỗ đẹp và chứng kiến trọn khoảnh khắc chuyển ngày sang đêm.",
+      "booking": "Mua vé tại quầy Landmark 81 hoặc online",
+      "en": {
+        "title": "Sunset at Landmark 81 Skyview",
+        "time": "17:00–19:00 (sunset + city lights)",
+        "duration": "~2 hours",
+        "price": "300,000–500,000₫ Skydeck ticket",
+        "highlights": [
+          "Observation deck, floors 79–81, Landmark 81",
+          "Panoramic Saigon skyline",
+          "Watch the transition from sunset to city lights"
+        ],
+        "note": "Go up before sunset (~17:30 depending on season) for a good spot and to catch the full day-to-night transition.",
+        "booking": "Buy tickets at Landmark 81 counter or online"
+      }
+    },
+    {
+      "city": "hcm",
+      "type": "walking",
+      "title": "Phố đi bộ Nguyễn Huệ — Bùi Viện về đêm",
+      "time": "19h00–23h00",
+      "duration": "~4 tiếng",
+      "price": "Miễn phí (trừ ăn uống)",
+      "highlights": [
+        "Tượng đài Hồ Chí Minh, Phố đi bộ Nguyễn Huệ",
+        "Nhà hát Thành phố lên đèn",
+        "Phố Tây Bùi Viện — nhạc sống, quán bar"
+      ],
+      "note": "Buổi tối trung tâm Q.1 sôi động nhất — kết hợp được cả dạo phố, ẩm thực và nightlife trong 1 buổi.",
+      "booking": "Tự túc — không cần đặt trước",
+      "en": {
+        "title": "Nguyen Hue — Bui Vien Night Walk",
+        "time": "19:00–23:00",
+        "duration": "~4 hours",
+        "price": "Free (except food/drinks)",
+        "highlights": [
+          "Ho Chi Minh Statue, Nguyen Hue Walking Street",
+          "Opera House lit up at night",
+          "Bui Vien Walking Street — live music, bars"
+        ],
+        "note": "The liveliest evening in central District 1 — combines strolling, food and nightlife in one outing.",
+        "booking": "Self-guided — no booking needed"
+      }
+    },
+    {
+      "city": "hcm",
+      "type": "daytrip",
+      "title": "Rừng ngập mặn Cần Giờ — nguyên ngày",
+      "time": "Xuất phát 7h00, về lại trung tâm ~17h00",
+      "duration": "Cả ngày (~10 tiếng, đi lại ~1.5h/chiều)",
+      "price": "Tự túc ~200.000đ hoặc tour trọn gói 500.000–900.000đ",
+      "highlights": [
+        "Khu dự trữ sinh quyển UNESCO Rừng Sác",
+        "Đảo Khỉ — cho khỉ hoang dã ăn",
+        "Chiến khu Rừng Sác — di tích cách mạng",
+        "Đi thuyền ngắm cò, chim hoang dã"
+      ],
+      "note": "Cách trung tâm TP.HCM ~50km — nên đi tour trọn gói để có thuyền và hướng dẫn viên thay vì tự lái.",
+      "booking": "Đặt qua công ty lữ hành, khởi hành sáng sớm",
+      "en": {
+        "title": "Can Gio Mangrove Forest — Full Day",
+        "time": "Depart 7:00 AM, back downtown ~17:00",
+        "duration": "Full day (~10 hrs, ~1.5h travel each way)",
+        "price": "Self-guided ~200,000₫ or package tour 500,000–900,000₫",
+        "highlights": [
+          "UNESCO Rung Sac Biosphere Reserve",
+          "Monkey Island — feed wild macaques",
+          "Rung Sac revolutionary war base",
+          "Boat ride to see wild birds"
+        ],
+        "note": "~50km from central HCMC — a package tour with boat and guide is recommended over self-driving.",
+        "booking": "Book through a travel agency, early morning departure"
+      }
     },
     {
       "city": "hn",
       "type": "metro",
       "title": "Tàu điện Cát Linh – Hà Đông",
+      "time": "5h00–22h00 (giờ cao điểm 6 phút/chuyến)",
       "duration": "~25 phút toàn tuyến (12 ga)",
       "price": "8.000–15.000đ/lượt · vé ngày 30.000đ",
       "highlights": [
@@ -117,13 +331,28 @@
         "Ga Thái Hà",
         "Ga Hà Đông"
       ],
-      "note": "Tuyến đường sắt đô thị đầu tiên của Hà Nội. Đi qua khu vực Đống Đa, Thanh Xuân, Hà Đông — phù hợp trải nghiệm hơn là tới thẳng khu phố cổ.",
-      "booking": "Mua vé tại ga hoặc thẻ vé tháng"
+      "note": "Tuyến đường sắt đô thị đầu tiên của Hà Nội. Đi qua khu vực Đống Đa, Thanh Xuân, Hà Đông.",
+      "booking": "Mua vé tại ga hoặc thẻ vé tháng",
+      "en": {
+        "title": "Cat Linh – Ha Dong Light Rail",
+        "time": "5:00–22:00 (peak: every 6 min)",
+        "duration": "~25 min end-to-end (12 stations)",
+        "price": "8,000–15,000₫/ride · day pass 30,000₫",
+        "highlights": [
+          "Cat Linh Station",
+          "La Thanh Station",
+          "Thai Ha Station",
+          "Ha Dong Station"
+        ],
+        "note": "Hanoi's first urban rail line, running through Dong Da, Thanh Xuan and Ha Dong districts.",
+        "booking": "Buy tickets at the station or a monthly pass"
+      }
     },
     {
       "city": "hn",
       "type": "bus2tang",
       "title": "Xe bus 2 tầng Hop-On Hop-Off Hà Nội",
+      "time": "9h00–22h00, chuyến cách nhau ~30 phút",
       "duration": "45–60 phút/vòng, lên xuống tự do",
       "price": "Từ 300.000đ/24h",
       "highlights": [
@@ -135,12 +364,29 @@
         "Phố cổ Hà Nội"
       ],
       "note": "Cùng thương hiệu Hop On Hop Off như TP.HCM, tuyến chạy quanh khu phố cổ và các di tích trung tâm Ba Đình.",
-      "booking": "Đặt vé tại hopon-hopoff.vn hoặc các quầy gần Hồ Gươm"
+      "booking": "Đặt vé tại hopon-hopoff.vn hoặc các quầy gần Hồ Gươm",
+      "en": {
+        "title": "Hanoi Hop-On Hop-Off Double-Decker Bus",
+        "time": "9:00–22:00, buses every ~30 min",
+        "duration": "45–60 min/loop, hop on/off freely",
+        "price": "From 300,000₫/24h",
+        "highlights": [
+          "Hoan Kiem Lake — Ngoc Son Temple",
+          "Hanoi Opera House",
+          "Temple of Literature",
+          "Ho Chi Minh Mausoleum",
+          "Imperial Citadel of Thang Long",
+          "Hanoi Old Quarter"
+        ],
+        "note": "Same Hop On Hop Off brand as HCMC, looping through the Old Quarter and central Ba Dinh landmarks.",
+        "booking": "Book at hopon-hopoff.vn or at kiosks near Hoan Kiem Lake"
+      }
     },
     {
       "city": "hn",
       "type": "vespa",
       "title": "Vespa cổ kiểu lính khám phá Hà Nội",
+      "time": "Khởi hành 17h00–17h30",
       "duration": "~4 tiếng",
       "price": "Từ 39 USD/người",
       "highlights": [
@@ -149,13 +395,28 @@
         "Phố đường tàu (Hanoi Train Street)",
         "Quán ăn địa phương, quán bia hơi"
       ],
-      "note": "Các công ty như Hanoi Backstreet Tours, Vespa Adventures chuyên dòng Vespa quân đội cổ — tour nổi bật với trải nghiệm ẩm thực và phố đường tàu.",
-      "booking": "Đặt trước qua website công ty, đón tại khách sạn khu phố cổ"
+      "note": "Các công ty như Hanoi Backstreet Tours, Vespa Adventures chuyên dòng Vespa quân đội cổ — nổi bật với trải nghiệm ẩm thực và phố đường tàu.",
+      "booking": "Đặt trước qua website công ty, đón tại khách sạn khu phố cổ",
+      "en": {
+        "title": "Vintage Army-Style Vespa Tour of Hanoi",
+        "time": "Departs 17:00–17:30",
+        "duration": "~4 hours",
+        "price": "From 39 USD/person",
+        "highlights": [
+          "Old Quarter and its narrow alleys",
+          "Imperial Citadel, Temple of Literature, Tran Quoc Pagoda (drive-by)",
+          "Hanoi Train Street",
+          "Local eateries, bia hoi stalls"
+        ],
+        "note": "Operators like Hanoi Backstreet Tours and Vespa Adventures specialize in vintage army Vespas — known for food and Train Street experiences.",
+        "booking": "Book ahead via the operator's website, Old Quarter hotel pickup"
+      }
     },
     {
       "city": "hn",
       "type": "cyclo",
       "title": "Xích lô Phố cổ Hà Nội (36 phố phường)",
+      "time": "9h00–11h00 hoặc 16h00–18h00",
       "duration": "~45–60 phút",
       "price": "200.000–350.000đ/xe",
       "highlights": [
@@ -165,12 +426,27 @@
         "Ô Quan Chưởng"
       ],
       "note": "Trải nghiệm kinh điển nhất khi tới phố cổ Hà Nội — thong thả ngắm kiến trúc từng phố nghề.",
-      "booking": "Bắt trực tiếp quanh Hồ Gươm, nên hỏi giá rõ trước khi đi"
+      "booking": "Bắt trực tiếp quanh Hồ Gươm, nên hỏi giá rõ trước khi đi",
+      "en": {
+        "title": "Hanoi Old Quarter Cyclo Tour (36 Guild Streets)",
+        "time": "9:00–11:00 or 16:00–18:00",
+        "duration": "~45–60 minutes",
+        "price": "200,000–350,000₫/cyclo",
+        "highlights": [
+          "Hoan Kiem Lake",
+          "Guild streets: Hang Ma, Hang Bac, Hang Gai...",
+          "Dong Xuan Market",
+          "Quan Chuong Gate"
+        ],
+        "note": "The classic way to experience the Old Quarter — a relaxed pace to take in each guild street's architecture.",
+        "booking": "Flag one down around Hoan Kiem Lake, agree on price first"
+      }
     },
     {
       "city": "hn",
       "type": "walking",
       "title": "Lộ trình đi bộ Hồ Gươm — Phố cổ tự túc",
+      "time": "Gợi ý bắt đầu 8h00 sáng",
       "duration": "~3 tiếng đi bộ",
       "price": "Miễn phí (trừ vé vào cửa)",
       "highlights": [
@@ -181,12 +457,28 @@
         "Chợ Đồng Xuân"
       ],
       "note": "Tất cả nằm gọn trong bán kính đi bộ quanh Hồ Gươm — thứ tự này tránh việc đi qua lại nhiều lần.",
-      "booking": "Tự túc — không cần đặt trước"
+      "booking": "Tự túc — không cần đặt trước",
+      "en": {
+        "title": "Self-Guided Hoan Kiem Lake — Old Quarter Walk",
+        "time": "Suggested start 8:00 AM",
+        "duration": "~3 hours walking",
+        "price": "Free (except entry fees)",
+        "highlights": [
+          "Hoan Kiem Lake — Turtle Tower",
+          "Ngoc Son Temple — The Huc Bridge",
+          "St. Joseph's Cathedral",
+          "Old Quarter (Hang Ma, Hang Bac...)",
+          "Dong Xuan Market"
+        ],
+        "note": "Everything fits within walking distance around Hoan Kiem Lake — this order avoids backtracking.",
+        "booking": "Self-guided — no booking needed"
+      }
     },
     {
       "city": "hn",
       "type": "bicycle",
       "title": "Đạp xe quanh Hồ Tây",
+      "time": "Gợi ý 6h00–8h00 sáng hoặc 16h30–18h30 chiều",
       "duration": "~2 tiếng (vòng hồ ~15km)",
       "price": "Thuê xe đạp 50.000–100.000đ/ngày",
       "highlights": [
@@ -195,13 +487,144 @@
         "Thung lũng hoa Hồ Tây",
         "Phủ Tây Hồ"
       ],
-      "note": "Hồ Tây có đường ven hồ khá bằng phẳng, phù hợp đạp xe buổi sáng sớm hoặc chiều mát.",
-      "booking": "Tự túc, thuê xe đạp tại các quán quanh hồ"
+      "note": "Hồ Tây có đường ven hồ khá bằng phẳng, phù hợp đạp xe buổi sáng sớm hoặc chiều mát tránh nắng gắt trưa.",
+      "booking": "Tự túc, thuê xe đạp tại các quán quanh hồ",
+      "en": {
+        "title": "Cycling Around West Lake",
+        "time": "Suggested 6:00–8:00 AM or 16:30–18:30 PM",
+        "duration": "~2 hours (loop ~15km)",
+        "price": "Bike rental 50,000–100,000₫/day",
+        "highlights": [
+          "Tran Quoc Pagoda",
+          "Thanh Nien Road",
+          "West Lake Flower Valley",
+          "Tay Ho Temple"
+        ],
+        "note": "West Lake has a fairly flat lakeside path, good for an early-morning or cooler evening ride.",
+        "booking": "Self-guided, rent a bike from shops around the lake"
+      }
+    },
+    {
+      "city": "hn",
+      "type": "food",
+      "title": "Ẩm thực phố cổ sáng sớm",
+      "time": "6h30–9h00",
+      "duration": "~2.5 tiếng",
+      "price": "~150.000–250.000đ (tự chi trả từng điểm)",
+      "highlights": [
+        "Phở bò/gà gia truyền",
+        "Bún chả (đặc sản trưa nhưng nhiều quán mở sớm)",
+        "Cà phê trứng khu phố cổ",
+        "Bánh cuốn Thanh Trì"
+      ],
+      "note": "Phố cổ buổi sáng sớm ít khách du lịch hơn, dễ tìm chỗ ngồi ở các quán ăn gia truyền lâu đời.",
+      "booking": "Tự túc, hoặc đặt tour ẩm thực có hướng dẫn viên",
+      "en": {
+        "title": "Early-Morning Old Quarter Food Tour",
+        "time": "6:30–9:00 AM",
+        "duration": "~2.5 hours",
+        "price": "~150,000–250,000₫ (pay per stop)",
+        "highlights": [
+          "Traditional beef/chicken pho",
+          "Bun cha (usually a lunch dish, but some open early)",
+          "Egg coffee in the Old Quarter",
+          "Thanh Tri steamed rice rolls"
+        ],
+        "note": "The Old Quarter in early morning has fewer tourists, easier to find seats at long-running family eateries.",
+        "booking": "Self-guided, or book a guided food tour"
+      }
+    },
+    {
+      "city": "hn",
+      "type": "walking",
+      "title": "Di sản Ba Đình buổi sáng",
+      "time": "8h00–11h00 (Lăng Bác chỉ mở sáng, nghỉ T2&T6)",
+      "duration": "~3 tiếng",
+      "price": "Miễn phí đến ~100.000đ tuỳ điểm",
+      "highlights": [
+        "Lăng Chủ tịch Hồ Chí Minh",
+        "Chùa Một Cột",
+        "Hoàng thành Thăng Long",
+        "Văn Miếu — Quốc Tử Giám"
+      ],
+      "note": "Phải đi buổi sáng vì Lăng Bác chỉ mở cửa sáng và nghỉ Thứ Hai, Thứ Sáu — nên kiểm tra lịch trước khi đi.",
+      "booking": "Tự túc — không cần đặt trước, riêng Lăng Bác cần tuân thủ trang phục lịch sự",
+      "en": {
+        "title": "Ba Dinh Heritage Morning Route",
+        "time": "8:00–11:00 AM (Mausoleum mornings only, closed Mon & Fri)",
+        "duration": "~3 hours",
+        "price": "Free to ~100,000₫ depending on site",
+        "highlights": [
+          "Ho Chi Minh Mausoleum",
+          "One Pillar Pagoda",
+          "Imperial Citadel of Thang Long",
+          "Temple of Literature"
+        ],
+        "note": "Must go in the morning — the Mausoleum is morning-only and closed Mondays and Fridays, so check the schedule first.",
+        "booking": "Self-guided — the Mausoleum requires modest dress"
+      }
+    },
+    {
+      "city": "hn",
+      "type": "walking",
+      "title": "Phố đường tàu & cà phê đường tàu",
+      "time": "15h00–17h00 (tàu chạy qua theo giờ cố định)",
+      "duration": "~2 tiếng",
+      "price": "Cà phê ~30.000–50.000đ/ly",
+      "highlights": [
+        "Phố đường tàu Phùng Hưng/Trần Phú",
+        "Các quán cà phê sát đường ray",
+        "Trải nghiệm tàu chạy ngang qua (cách vài mét)"
+      ],
+      "note": "Cần theo dõi giờ tàu chạy thực tế và tuân thủ hướng dẫn an toàn của địa phương khi tàu đi qua.",
+      "booking": "Tự túc — mua đồ uống tại các quán ven đường ray",
+      "en": {
+        "title": "Train Street & Train-Side Coffee",
+        "time": "15:00–17:00 (trains run on a fixed schedule)",
+        "duration": "~2 hours",
+        "price": "Coffee ~30,000–50,000₫/cup",
+        "highlights": [
+          "Phung Hung/Tran Phu Train Street",
+          "Cafes right along the tracks",
+          "Watching the train pass just meters away"
+        ],
+        "note": "Check the actual train schedule and follow local safety guidance when the train passes.",
+        "booking": "Self-guided — buy drinks at trackside cafes"
+      }
+    },
+    {
+      "city": "hn",
+      "type": "daytrip",
+      "title": "Làng gốm Bát Tràng — nửa ngày",
+      "time": "8h00–13h00",
+      "duration": "~5 tiếng (gồm di chuyển ~30 phút/chiều)",
+      "price": "Vé làng nghề ~miễn phí, trải nghiệm làm gốm ~100.000đ",
+      "highlights": [
+        "Làng gốm Bát Tràng — tự tay nặn gốm",
+        "Chợ gốm Bát Tràng — mua đồ gốm sứ",
+        "Đình làng, nhà cổ trong làng"
+      ],
+      "note": "Cách trung tâm Hà Nội ~13km, đi xe buýt hoặc taxi khoảng 30-40 phút — phù hợp buổi sáng để tránh nắng chiều.",
+      "booking": "Tự túc bằng xe máy/taxi, hoặc đặt tour nửa ngày",
+      "en": {
+        "title": "Bat Trang Pottery Village — Half Day",
+        "time": "8:00 AM–1:00 PM",
+        "duration": "~5 hours (incl. ~30 min travel each way)",
+        "price": "Village entry free, pottery-making ~100,000₫",
+        "highlights": [
+          "Bat Trang Pottery Village — try making your own pottery",
+          "Bat Trang Ceramics Market — shop for ceramics",
+          "The village's old communal house and ancient homes"
+        ],
+        "note": "~13km from central Hanoi, about 30–40 min by bus or taxi — best done in the morning to avoid afternoon heat.",
+        "booking": "Self-guided by motorbike/taxi, or book a half-day tour"
+      }
     },
     {
       "city": "dn",
       "type": "boat",
       "title": "Du thuyền sông Hàn về đêm",
+      "time": "4 chuyến: 18h10 / 19h10 / 20h10 / 21h10",
       "duration": "45–90 phút",
       "price": "Từ 130.000đ (ngắm cảnh) · 550.000đ (kèm ăn tối)",
       "highlights": [
@@ -211,13 +634,29 @@
         "Cầu Thuận Phước",
         "Múa Chăm Apsara trên tàu"
       ],
-      "note": "Đà Nẵng hiện có khoảng 11 du thuyền phục vụ tuyến này — nên đặt vé online trước, đặc biệt cuối tuần.",
-      "booking": "Đặt tại bến du thuyền số 22/34 Bạch Đằng hoặc mua online"
+      "note": "Đà Nẵng hiện có khoảng 11 du thuyền phục vụ tuyến này — nên đặt vé online trước, đặc biệt cuối tuần. Chuyến 21h10 (T6-T7-CN) xem được Cầu Rồng phun lửa.",
+      "booking": "Đặt tại bến du thuyền số 22/34 Bạch Đằng hoặc mua online",
+      "en": {
+        "title": "Han River Night Cruise",
+        "time": "4 departures: 18:10 / 19:10 / 20:10 / 21:10",
+        "duration": "45–90 minutes",
+        "price": "From 130,000₫ (sightseeing) · 550,000₫ (with dinner)",
+        "highlights": [
+          "Dragon Bridge — fire/water show Fri-Sat-Sun at 21:00",
+          "Han River Bridge — Vietnam's only swing bridge",
+          "Tran Thi Ly Bridge",
+          "Thuan Phuoc Bridge",
+          "Traditional Cham Apsara dance onboard"
+        ],
+        "note": "Da Nang has around 11 cruise boats on this route — book online ahead, especially on weekends. The 21:10 (Fri-Sat-Sun) departure catches Dragon Bridge's fire show.",
+        "booking": "Book at the cruise dock, 22/34 Bach Dang, or online"
+      }
     },
     {
       "city": "dn",
       "type": "vespa",
       "title": "Vespa/xe máy khám phá Đà Nẵng — Hội An",
+      "time": "Khởi hành 14h00–15h00 (đón hoàng hôn ở Hội An)",
       "duration": "~4–5 tiếng",
       "price": "Từ 50–90 USD/người",
       "highlights": [
@@ -227,12 +666,27 @@
         "Ẩm thực địa phương dọc đường"
       ],
       "note": "Vespa Adventures có chi nhánh tại Đà Nẵng/Hội An, chuyên các tour làng quê và ẩm thực.",
-      "booking": "Đặt trước qua website công ty tour"
+      "booking": "Đặt trước qua website công ty tour",
+      "en": {
+        "title": "Vespa/Motorbike Tour — Da Nang to Hoi An",
+        "time": "Departs 14:00–15:00 (sunset in Hoi An)",
+        "duration": "~4–5 hours",
+        "price": "From 50–90 USD/person",
+        "highlights": [
+          "Coastal fishing villages",
+          "Countryside rice paddies",
+          "Hoi An Old Town at dusk",
+          "Local food along the way"
+        ],
+        "note": "Vespa Adventures has a Da Nang/Hoi An branch, specializing in countryside and food tours.",
+        "booking": "Book ahead via the operator's website"
+      }
     },
     {
       "city": "dn",
       "type": "vespa",
       "title": "Phượt xe máy đèo Hải Vân",
+      "time": "Xuất phát 7h00–8h00 sáng, về trước 15h00",
       "duration": "~4–6 tiếng (khứ hồi)",
       "price": "Tự lái hoặc thuê tài xế ~500.000–800.000đ",
       "highlights": [
@@ -240,28 +694,57 @@
         "Trạm dừng chân đỉnh đèo — toàn cảnh vịnh Lăng Cô",
         "Hầm Hải Vân (đi về có thể chọn hầm cho nhanh)"
       ],
-      "note": "Cung đường đẹp nhưng nhiều cua gấp — nên đi xe số, tay lái vững, hoặc thuê 'easy rider' địa phương chở.",
-      "booking": "Tự lái hoặc thuê xe ôm/easy rider tại Đà Nẵng"
+      "note": "Nên đi sáng sớm để tránh nắng gắt và có tầm nhìn đẹp nhất — cung đường nhiều cua gấp, cần tay lái vững hoặc thuê easy rider.",
+      "booking": "Tự lái hoặc thuê xe ôm/easy rider tại Đà Nẵng",
+      "en": {
+        "title": "Hai Van Pass Motorbike Ride",
+        "time": "Depart 7:00–8:00 AM, back before 15:00",
+        "duration": "~4–6 hours (round trip)",
+        "price": "Self-ride or hire a driver ~500,000–800,000₫",
+        "highlights": [
+          "Hai Van Pass — Central Vietnam's most famous coastal road",
+          "Summit rest stop — panoramic view of Lang Co Bay",
+          "Hai Van Tunnel (option for a faster return)"
+        ],
+        "note": "Best ridden early to beat the heat and get the clearest views — many sharp bends, so go with a steady rider or hire a local 'easy rider'.",
+        "booking": "Self-ride, or hire a motorbike driver/easy rider in Da Nang"
+      }
     },
     {
       "city": "dn",
       "type": "cable_car",
       "title": "Cáp treo Bà Nà Hills — trọn ngày",
+      "time": "Nên đi từ 7h30–8h00 sáng (tránh đông, tránh mây mù trưa)",
       "duration": "Cả ngày (cáp treo ~20 phút/chặng)",
-      "price": "Vé vào cổng + cáp treo trọn gói ~850.000–900.000đ",
+      "price": "Vé trọn gói ~850.000–900.000đ",
       "highlights": [
         "Cầu Vàng (Golden Bridge)",
         "Làng Pháp",
         "Chùa Linh Ứng Bà Nà",
         "Khu vui chơi trong nhà Fantasy Park"
       ],
-      "note": "Giữ kỷ lục tuyến cáp treo dài và có nhiều cáp trung gian nhất Việt Nam — nên đi từ sáng sớm để tránh đông và tránh mây mù buổi trưa.",
-      "booking": "Mua vé online trước hoặc tại cổng Sun World"
+      "note": "Giữ kỷ lục tuyến cáp treo dài và có nhiều cáp trung gian nhất Việt Nam — đi sớm để tránh đông và mây mù buổi trưa.",
+      "booking": "Mua vé online trước hoặc tại cổng Sun World",
+      "en": {
+        "title": "Ba Na Hills Cable Car — Full Day",
+        "time": "Go early, 7:30–8:00 AM (avoid crowds & midday fog)",
+        "duration": "Full day (cable car ~20 min/leg)",
+        "price": "Combo ticket ~850,000–900,000₫",
+        "highlights": [
+          "Golden Bridge",
+          "French Village",
+          "Linh Ung Pagoda at Ba Na",
+          "Fantasy Park indoor amusement"
+        ],
+        "note": "Holds the record for the longest cable car system with the most mid-stations in Vietnam — go early to beat crowds and midday mist.",
+        "booking": "Buy online in advance or at the Sun World gate"
+      }
     },
     {
       "city": "dn",
       "type": "walking",
       "title": "Lộ trình đi bộ bờ sông Hàn tự túc",
+      "time": "Gợi ý 16h30–19h00 (đón hoàng hôn)",
       "duration": "~2–3 tiếng đi bộ",
       "price": "Miễn phí",
       "highlights": [
@@ -271,13 +754,28 @@
         "Chợ Cồn hoặc Bảo tàng Điêu khắc Chăm (gần đó)"
       ],
       "note": "Cung đi bộ dọc bờ sông Hàn buổi chiều mát, ngắm hoàng hôn và chờ Cầu Rồng phun lửa nếu đi vào cuối tuần.",
-      "booking": "Tự túc — không cần đặt trước"
+      "booking": "Tự túc — không cần đặt trước",
+      "en": {
+        "title": "Self-Guided Han Riverside Walk",
+        "time": "Suggested 16:30–19:00 (catch the sunset)",
+        "duration": "~2–3 hours walking",
+        "price": "Free",
+        "highlights": [
+          "Dragon Bridge",
+          "Dragon Bridge West Park",
+          "APEC Park",
+          "Con Market or Museum of Cham Sculpture (nearby)"
+        ],
+        "note": "A pleasant riverside stroll in the late afternoon, ending with sunset and Dragon Bridge's fire show on weekends.",
+        "booking": "Self-guided — no booking needed"
+      }
     },
     {
       "city": "dn",
       "type": "walking",
       "title": "Phố cổ Hội An về đêm — lồng đèn",
-      "duration": "~2–3 tiếng đi bộ (nay thuộc Đà Nẵng)",
+      "time": "Gợi ý 17h30–20h30 (nay thuộc Đà Nẵng)",
+      "duration": "~2–3 tiếng đi bộ",
       "price": "Vé tham quan phố cổ ~120.000đ (gồm 1 số điểm)",
       "highlights": [
         "Chùa Cầu Hội An",
@@ -286,10 +784,140 @@
         "Phố đèn lồng về đêm"
       ],
       "note": "Đẹp nhất vào tối 14 âm lịch hàng tháng khi phố cổ tắt đèn điện, chỉ thắp đèn lồng (Đêm phố cổ).",
-      "booking": "Tự túc — mua vé tham quan tại các quầy trong phố cổ"
+      "booking": "Tự túc — mua vé tham quan tại các quầy trong phố cổ",
+      "en": {
+        "title": "Hoi An Old Town at Night — Lanterns",
+        "time": "Suggested 17:30–20:30 (now part of Da Nang)",
+        "duration": "~2–3 hours walking",
+        "price": "Old town ticket ~120,000₫ (covers some sites)",
+        "highlights": [
+          "Japanese Covered Bridge (Chua Cau)",
+          "Tan Ky / Quan Thang ancient houses",
+          "Floating lanterns on the Hoai River",
+          "Lantern-lit streets at night"
+        ],
+        "note": "Most beautiful on the 14th day of the lunar month, when the old town turns off electric lights and relies only on lanterns (Old Town Night).",
+        "booking": "Self-guided — buy the old town ticket at booths in town"
+      }
+    },
+    {
+      "city": "dn",
+      "type": "walking",
+      "title": "Bình minh biển Mỹ Khê",
+      "time": "5h00–7h00 sáng",
+      "duration": "~2 tiếng",
+      "price": "Miễn phí",
+      "highlights": [
+        "Bãi biển Mỹ Khê lúc mặt trời mọc",
+        "Ngư dân kéo lưới buổi sớm",
+        "Tập thể dục cùng người dân địa phương ven biển"
+      ],
+      "note": "Mỹ Khê từng được Forbes bình chọn 1 trong 6 bãi biển đẹp nhất hành tinh — buổi sáng sớm vắng người, ánh sáng đẹp nhất để chụp ảnh.",
+      "booking": "Tự túc — không cần đặt trước",
+      "en": {
+        "title": "Sunrise at My Khe Beach",
+        "time": "5:00–7:00 AM",
+        "duration": "~2 hours",
+        "price": "Free",
+        "highlights": [
+          "My Khe Beach at sunrise",
+          "Fishermen pulling in early nets",
+          "Exercising alongside locals by the sea"
+        ],
+        "note": "My Khe was once named by Forbes as one of the world's six most beautiful beaches — early morning is quietest and best for photos.",
+        "booking": "Self-guided — no booking needed"
+      }
+    },
+    {
+      "city": "dn",
+      "type": "walking",
+      "title": "Bán đảo Sơn Trà buổi sáng",
+      "time": "7h00–11h00 (tránh nắng gắt buổi trưa)",
+      "duration": "~4 tiếng",
+      "price": "Thuê xe máy ~150.000đ/ngày",
+      "highlights": [
+        "Chùa Linh Ứng Sơn Trà — tượng Phật Bà cao nhất Việt Nam",
+        "Cây đa nghìn năm",
+        "Bãi Bụt, các điểm ngắm toàn cảnh vịnh Đà Nẵng",
+        "Có thể gặp voọc chà vá chân nâu quý hiếm"
+      ],
+      "note": "Đường lên bán đảo nhiều dốc cua — nên đi xe số tay lái vững, buổi sáng mát và ít mây mù hơn chiều.",
+      "booking": "Tự lái xe máy hoặc thuê xe ôm/taxi",
+      "en": {
+        "title": "Son Tra Peninsula Morning Ride",
+        "time": "7:00–11:00 AM (avoid midday heat)",
+        "duration": "~4 hours",
+        "price": "Motorbike rental ~150,000₫/day",
+        "highlights": [
+          "Linh Ung Pagoda, Son Tra — Vietnam's tallest Lady Buddha statue",
+          "Thousand-year-old banyan tree",
+          "Bai But and panoramic viewpoints over Da Nang Bay",
+          "Chance to spot rare red-shanked douc langurs"
+        ],
+        "note": "The road up has many switchbacks — ride a manual bike with steady hands; mornings are cooler and less foggy than afternoons.",
+        "booking": "Self-ride motorbike or hire a driver/taxi"
+      }
+    },
+    {
+      "city": "dn",
+      "type": "food",
+      "title": "Ẩm thực đêm chợ Cồn — Helio",
+      "time": "18h00–21h00",
+      "duration": "~3 tiếng",
+      "price": "~150.000–300.000đ (tự chi trả từng điểm)",
+      "highlights": [
+        "Chợ Cồn — khu ẩm thực về đêm",
+        "Chợ đêm Helio — ẩm thực kết hợp giải trí",
+        "Mì Quảng, bánh xèo, bún mắm đặc sản Đà Nẵng"
+      ],
+      "note": "Chợ Cồn là chợ truyền thống lớn nhất Đà Nẵng, Helio thiên về không gian hiện đại hơn cho giới trẻ.",
+      "booking": "Tự túc — đi lại giữa 2 điểm bằng taxi/Grab ~10 phút",
+      "en": {
+        "title": "Night Food at Con Market — Helio Night Market",
+        "time": "18:00–21:00",
+        "duration": "~3 hours",
+        "price": "~150,000–300,000₫ (pay per stop)",
+        "highlights": [
+          "Con Market — night food section",
+          "Helio Night Market — food combined with entertainment",
+          "Mi Quang, banh xeo, bun mam — Da Nang specialties"
+        ],
+        "note": "Con Market is Da Nang's largest traditional market; Helio has a more modern space geared toward younger crowds.",
+        "booking": "Self-guided — ~10 min by taxi/Grab between the two"
+      }
+    },
+    {
+      "city": "dn",
+      "type": "cyclo",
+      "title": "Xích lô dạo phố cổ Hội An",
+      "time": "9h00–11h00 hoặc 16h00–18h00 (nay thuộc Đà Nẵng)",
+      "duration": "~45–60 phút",
+      "price": "150.000–250.000đ/xe",
+      "highlights": [
+        "Chùa Cầu",
+        "Các hội quán người Hoa",
+        "Nhà cổ dọc phố Trần Phú, Nguyễn Thái Học",
+        "Bờ sông Hoài"
+      ],
+      "note": "Cách nhẹ nhàng để khám phá phố cổ Hội An mà không phải đi bộ nhiều dưới nắng.",
+      "booking": "Bắt trực tiếp tại khu vực phố cổ Hội An",
+      "en": {
+        "title": "Cyclo Ride Through Hoi An Old Town",
+        "time": "9:00–11:00 or 16:00–18:00 (now part of Da Nang)",
+        "duration": "~45–60 minutes",
+        "price": "150,000–250,000₫/cyclo",
+        "highlights": [
+          "Japanese Covered Bridge",
+          "Chinese assembly halls",
+          "Ancient houses along Tran Phu, Nguyen Thai Hoc streets",
+          "Hoai riverside"
+        ],
+        "note": "A gentle way to see Hoi An's old town without walking under the sun the whole time.",
+        "booking": "Flag one down directly in the old town"
+      }
     }
   ],
-  "version": 1,
+  "version": 4,
   "lastUpdated": "2026-07-10",
-  "note": "Giá vé mang tính tham khảo, có thể thay đổi theo thời điểm/khuyến mãi. Các tour đi bộ/xích lô/xe đạp tự túc dùng địa điểm đã xác thực trong destinations.json."
+  "note": "Giá vé và giờ giấc mang tính tham khảo, có thể thay đổi theo thời điểm/khuyến mãi/mùa. Các tour đi bộ/xích lô/xe đạp/ẩm thực tự túc dùng địa điểm đã xác thực trong destinations.json."
 }

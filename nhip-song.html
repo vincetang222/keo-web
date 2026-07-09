@@ -50,6 +50,10 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .nav-mark{width:13px;height:18px}
 .nav-r{display:flex;align-items:center;gap:4px}
 .nav-link{font-size:13px;color:rgba(245,239,230,.65);padding:6px 10px;border-radius:8px;transition:color .2s}
+.lang-toggle{display:flex;align-items:center;gap:5px;margin-left:6px;padding:6px 10px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:700;user-select:none}
+.lang-toggle .lang-opt{color:rgba(245,239,230,.4);transition:color .15s}
+.lang-toggle .lang-opt.on{color:#F5EFE6}
+.lang-toggle .lang-sep{color:rgba(245,239,230,.25)}
 .nav-link:hover{color:#F5EFE6}
 .nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:var(--serif);font-size:13px;font-weight:600}
 
@@ -455,9 +459,12 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="nav-in">
     <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
     <div class="nav-r">
-      <a href="/" class="nav-link">Trang chủ</a>
-      <a href="/thi-truong" class="nav-link">Thị trường</a>
-      <a href="/khoa-hoc-ket-noi" class="nav-link">Khoa học kết nối</a>
+      <a href="/" class="nav-link" data-i18n="nav_home">Trang chủ</a>
+      <a href="/thi-truong" class="nav-link" data-i18n="nav_market">Thị trường</a>
+      <a href="/khoa-hoc-ket-noi" class="nav-link" data-i18n="nav_science">Khoa học kết nối</a>
+      <div class="lang-toggle" id="langToggle" onclick="toggleLang()">
+        <span class="lang-opt on" data-lang="vi">VI</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="en">EN</span>
+      </div>
     </div>
   </div>
 </nav>
@@ -467,25 +474,25 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     <span class="ember e1"></span><span class="ember e2"></span><span class="ember e3"></span><span class="ember e4"></span>
   </div>
   <div class="hero-in">
-    <div class="hero-ey">Chủ đề để bắt đầu trò chuyện</div>
-    <h1>Nhịp Sống — <em>thể thao</em>, du lịch & văn hoá</h1>
-    <p>Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu cho 10 môn thể thao phổ biến — thời tiết thời gian thực cho 3 thành phố Kèo đang hoạt động, cùng lịch thời tiết theo mùa để biết nên đi đâu khi nào — và 12 câu chuyện văn hoá đời sống Việt Nam, từ cà phê đến điện ảnh. Mọi thứ để có chuyện nói khi gặp gỡ.</p>
+    <div class="hero-ey" data-i18n="hero_eyebrow">Chủ đề để bắt đầu trò chuyện</div>
+    <h1 data-i18n-html="hero_h1">Nhịp Sống — <em>thể thao</em>, du lịch & văn hoá</h1>
+    <p data-i18n="hero_p">Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu cho 10 môn thể thao phổ biến — thời tiết thời gian thực cho 3 thành phố Kèo đang hoạt động, cùng lịch thời tiết theo mùa để biết nên đi đâu khi nào — và 12 câu chuyện văn hoá đời sống Việt Nam, từ cà phê đến điện ảnh. Mọi thứ để có chuyện nói khi gặp gỡ.</p>
   </div>
 </div>
 
 <div class="pillars-wrap">
 <div class="pillars">
-  <div class="pillar active" id="pillar-sports-btn" onclick="switchPillar('sports',this)">⚽ Thể thao <span class="pillar-badge">10 MÔN</span></div>
-  <div class="pillar" id="pillar-travel-btn" onclick="switchPillar('travel',this)">✈️ Du lịch <span class="pillar-badge">3 THÀNH PHỐ</span></div>
-  <div class="pillar" id="pillar-culture-btn" onclick="switchPillar('culture',this)">🎭 Văn hoá <span class="pillar-badge">12 CHỦ ĐỀ</span></div>
+  <div class="pillar active" id="pillar-sports-btn" onclick="switchPillar('sports',this)"><span data-i18n="pillar_sports">⚽ Thể thao</span> <span class="pillar-badge" data-i18n="pillar_sports_badge">10 MÔN</span></div>
+  <div class="pillar" id="pillar-travel-btn" onclick="switchPillar('travel',this)"><span data-i18n="pillar_travel">✈️ Du lịch</span> <span class="pillar-badge" data-i18n="pillar_travel_badge">3 THÀNH PHỐ</span></div>
+  <div class="pillar" id="pillar-culture-btn" onclick="switchPillar('culture',this)"><span data-i18n="pillar_culture">🎭 Văn hoá</span> <span class="pillar-badge" data-i18n="pillar_culture_badge">12 CHỦ ĐỀ</span></div>
 </div>
 </div>
 
 <div id="pillar-sports" class="pillar-panel on">
 <main>
   <div class="topic-intro">
-    <div class="travel-title">Thể thao phổ biến tại Việt Nam</div>
-    <p class="travel-sub">Xếp hạng thế giới, vị trí Việt Nam, cách chơi và nơi bắt đầu — chủ đề để bắt đầu trò chuyện.</p>
+    <div class="travel-title" data-i18n="sports_title">Thể thao phổ biến tại Việt Nam</div>
+    <p class="travel-sub" data-i18n="sports_sub">Xếp hạng thế giới, vị trí Việt Nam, cách chơi và nơi bắt đầu — chủ đề để bắt đầu trò chuyện.</p>
   </div>
 
   <div class="sport-tabs">
@@ -508,25 +515,24 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 <div id="pillar-travel" class="pillar-panel">
   <main>
     <div class="travel-tabs">
-      <div class="travel-tab on" id="ttab-weather" onclick="switchTravelTab('weather',this)">🌤️ Thời tiết &amp; không khí</div>
-      <div class="travel-tab" id="ttab-events" onclick="switchTravelTab('events',this)">🗓️ Sự kiện</div>
-      <div class="travel-tab" id="ttab-destinations" onclick="switchTravelTab('destinations',this)">📍 Điểm đến</div>
-      <div class="travel-tab" id="ttab-tours" onclick="switchTravelTab('tours',this)">🗺️ Tour tổng hợp</div>
+      <div class="travel-tab on" id="ttab-weather" onclick="switchTravelTab('weather',this)" data-i18n="tab_weather">🌤️ Thời tiết &amp; không khí</div>
+      <div class="travel-tab" id="ttab-events" onclick="switchTravelTab('events',this)" data-i18n="tab_events">🗓️ Sự kiện</div>
+      <div class="travel-tab" id="ttab-destinations" onclick="switchTravelTab('destinations',this)" data-i18n="tab_destinations">📍 Điểm đến</div>
     </div>
 
     <div id="travel-page-weather" class="travel-page on">
     <div class="travel-intro">
-      <div class="travel-title">Thời tiết &amp; chất lượng không khí — 3 thành phố Kèo đang hoạt động</div>
-      <p class="travel-sub">Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Sài Gòn / Hà Nội thế nào nhỉ?"</p>
+      <div class="travel-title" data-i18n="weather_title">Thời tiết &amp; chất lượng không khí — 3 thành phố Kèo đang hoạt động</div>
+      <p class="travel-sub" data-i18n="weather_sub">Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Sài Gòn / Hà Nội thế nào nhỉ?"</p>
     </div>
     <div id="travel-grid">
-      <div class="ld">Đang tải thời tiết…</div>
+      <div class="ld" data-i18n="weather_loading">Đang tải thời tiết…</div>
     </div>
 
     <div class="szn-wrap">
       <div class="szn-head">
-        <div class="travel-title">🗓️ Lịch thời tiết theo mùa</div>
-        <p class="travel-sub">Ghé đúng lúc, chơi đúng chỗ — mỗi miền một kiểu khí hậu, mỗi giai đoạn hợp một kiểu hoạt động khác nhau.</p>
+        <div class="travel-title" data-i18n="szn_title">🗓️ Lịch thời tiết theo mùa</div>
+        <p class="travel-sub" data-i18n="szn_sub">Ghé đúng lúc, chơi đúng chỗ — mỗi miền một kiểu khí hậu, mỗi giai đoạn hợp một kiểu hoạt động khác nhau.</p>
       </div>
       <div class="szn-city-grid">
 
@@ -691,8 +697,8 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 
     <div id="travel-page-events" class="travel-page">
       <div class="travel-intro">
-        <div class="travel-title">Lịch sự kiện — ngày lễ &amp; lễ hội 3 thành phố</div>
-        <p class="travel-sub">Click 1 ngày để xem sự kiện hôm đó — click lại vào tên tháng để xem cả tháng.</p>
+        <div class="travel-title" data-i18n="events_title">Lịch sự kiện — ngày lễ &amp; lễ hội 3 thành phố</div>
+        <p class="travel-sub" data-i18n="events_sub">Click 1 ngày để xem sự kiện hôm đó — click lại vào tên tháng để xem cả tháng.</p>
       </div>
 
       <div class="cal-split">
@@ -719,20 +725,20 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
         <div class="cal-col-ev" id="calEvZone"></div>
       </div>
 
-      <div class="cal-foot-note">Ngày lễ Việt Nam &amp; quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.</div>
+      <div class="cal-foot-note" data-i18n="events_foot">Ngày lễ Việt Nam &amp; quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.</div>
       <div class="cal-tip" id="calTip"></div>
     </div>
 
     <div id="travel-page-destinations" class="travel-page">
       <div class="travel-intro">
-        <div class="travel-title">Điểm đến — khám phá 3 thành phố Kèo</div>
-        <p class="travel-sub">Chùa, nhà thờ, thắng cảnh, di tích, công viên... chọn thành phố và thể loại để tìm nơi hẹn hò lý tưởng.</p>
+        <div class="travel-title" data-i18n="dest_title">Điểm đến — khám phá 3 thành phố Kèo</div>
+        <p class="travel-sub" data-i18n="dest_sub">Chùa, nhà thờ, thắng cảnh, di tích, công viên, tour tổng hợp... chọn thành phố và thể loại để tìm nơi hẹn hò lý tưởng.</p>
       </div>
 
       <div class="dest-city-tabs" id="destCityTabs">
         <div class="dest-city-tab on" data-city="hcm" onclick="switchDestCity('hcm')">TP.HCM</div>
-        <div class="dest-city-tab" data-city="hn" onclick="switchDestCity('hn')">Hà Nội</div>
-        <div class="dest-city-tab" data-city="dn" onclick="switchDestCity('dn')">Đà Nẵng</div>
+        <div class="dest-city-tab" data-city="hn" onclick="switchDestCity('hn')" data-i18n="city_hn">Hà Nội</div>
+        <div class="dest-city-tab" data-city="dn" onclick="switchDestCity('dn')" data-i18n="city_dn">Đà Nẵng</div>
       </div>
 
       <div class="dest-cat-filter" id="destCatFilter"></div>
@@ -740,27 +746,9 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       <div class="dest-grid" id="destGrid">
         <div class="ld">Đang tải điểm đến…</div>
       </div>
+      <div class="tour-grid" id="tourGrid" style="display:none"></div>
 
-      <div class="cal-foot-note">Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 15 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương &amp; Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.</div>
-    </div>
-
-    <div id="travel-page-tours" class="travel-page">
-      <div class="travel-intro">
-        <div class="travel-title">Tour tổng hợp — lộ trình gợi ý sẵn cho 3 thành phố</div>
-        <p class="travel-sub">Quá nhiều lựa chọn ở tab Điểm đến? Đây là các tour/lộ trình dựng sẵn — đi bộ, xích lô, Vespa, metro, xe bus 2 tầng, du thuyền... chọn 1 kiểu là đi luôn.</p>
-      </div>
-
-      <div class="dest-city-tabs" id="tourCityTabs">
-        <div class="dest-city-tab on" data-city="hcm" onclick="switchTourCity('hcm')">TP.HCM</div>
-        <div class="dest-city-tab" data-city="hn" onclick="switchTourCity('hn')">Hà Nội</div>
-        <div class="dest-city-tab" data-city="dn" onclick="switchTourCity('dn')">Đà Nẵng</div>
-      </div>
-
-      <div class="tour-grid" id="tourGrid">
-        <div class="ld">Đang tải tour…</div>
-      </div>
-
-      <div class="cal-foot-note">Giá vé mang tính tham khảo, có thể thay đổi theo thời điểm/khuyến mãi thực tế — nên kiểm tra lại trước khi đặt. Các lộ trình "đi bộ tự túc" dùng đúng những điểm đến đã kiểm chứng ở tab Điểm đến.</div>
+      <div class="cal-foot-note" id="destFootNote">Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 15 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương &amp; Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.</div>
     </div>
   </main>
 </div>
@@ -768,8 +756,8 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 <div id="pillar-culture" class="pillar-panel">
 <main>
   <div class="topic-intro">
-    <div class="travel-title">Văn hoá đời sống Việt Nam</div>
-    <p class="travel-sub">Vị trí trên bản đồ thế giới, câu chuyện Việt Nam, đặc trưng và nơi trải nghiệm — chủ đề để bắt đầu trò chuyện.</p>
+    <div class="travel-title" data-i18n="culture_title">Văn hoá đời sống Việt Nam</div>
+    <p class="travel-sub" data-i18n="culture_sub">Vị trí trên bản đồ thế giới, câu chuyện Việt Nam, đặc trưng và nơi trải nghiệm — chủ đề để bắt đầu trò chuyện.</p>
   </div>
 
   <div class="sport-tabs">
@@ -841,6 +829,107 @@ function fetchT(url,ms){
   ]);
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// I18N — chuyển ngữ VI/EN. Đã dịch đầy đủ: khung điều hướng (nav/hero/pillar),
+// toàn bộ mục Du lịch (Thời tiết/Sự kiện/Điểm đến/Tour). CHƯA dịch: nội dung
+// dài từng môn Thể thao/chủ đề Văn hoá (chỉ dịch tên tab để điều hướng được),
+// và tiêu đề/mô tả từng sự kiện riêng lẻ trong Lịch sự kiện (giữ tiếng Việt,
+// giống cách "Tết"/"Trung Thu" vẫn giữ nguyên trong app tiếng Anh).
+// ═══════════════════════════════════════════════════════════════════════════
+let LANG = localStorage.getItem('keo_lang') || 'vi';
+
+const I18N = {
+  vi: {
+    nav_home:'Trang chủ', nav_market:'Thị trường', nav_science:'Khoa học kết nối',
+    hero_eyebrow:'Chủ đề để bắt đầu trò chuyện',
+    hero_h1:'Nhịp Sống — <em>thể thao</em>, du lịch & văn hoá',
+    hero_p:'Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu cho 10 môn thể thao phổ biến — thời tiết thời gian thực cho 3 thành phố Kèo đang hoạt động, cùng lịch thời tiết theo mùa để biết nên đi đâu khi nào — và 12 câu chuyện văn hoá đời sống Việt Nam, từ cà phê đến điện ảnh. Mọi thứ để có chuyện nói khi gặp gỡ.',
+    pillar_sports:'⚽ Thể thao', pillar_sports_badge:'10 MÔN',
+    pillar_travel:'✈️ Du lịch', pillar_travel_badge:'3 THÀNH PHỐ',
+    pillar_culture:'🎭 Văn hoá', pillar_culture_badge:'12 CHỦ ĐỀ',
+    sports_title:'Thể thao phổ biến tại Việt Nam',
+    sports_sub:'Xếp hạng thế giới, vị trí Việt Nam, cách chơi và nơi bắt đầu — chủ đề để bắt đầu trò chuyện.',
+    tab_weather:'🌤️ Thời tiết & không khí', tab_events:'🗓️ Sự kiện', tab_destinations:'📍 Điểm đến',
+    weather_title:'Thời tiết & chất lượng không khí — 3 thành phố Kèo đang hoạt động',
+    weather_sub:'Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Sài Gòn / Hà Nội thế nào nhỉ?"',
+    weather_loading:'Đang tải thời tiết…',
+    szn_title:'🗓️ Lịch thời tiết theo mùa',
+    szn_sub:'Ghé đúng lúc, chơi đúng chỗ — mỗi miền một kiểu khí hậu, mỗi giai đoạn hợp một kiểu hoạt động khác nhau.',
+    events_title:'Lịch sự kiện — ngày lễ & lễ hội 3 thành phố',
+    events_sub:'Click 1 ngày để xem sự kiện hôm đó — click lại vào tên tháng để xem cả tháng.',
+    events_foot:'Ngày lễ Việt Nam & quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.',
+    dest_title:'Điểm đến — khám phá 3 thành phố Kèo',
+    dest_sub:'Chùa, nhà thờ, thắng cảnh, di tích, công viên, tour tổng hợp... chọn thành phố và thể loại để tìm nơi hẹn hò lý tưởng.',
+    city_hn:'Hà Nội', city_dn:'Đà Nẵng',
+    culture_title:'Văn hoá đời sống Việt Nam',
+    culture_sub:'Vị trí trên bản đồ thế giới, câu chuyện Việt Nam, đặc trưng và nơi trải nghiệm — chủ đề để bắt đầu trò chuyện.',
+    dest_loading:'Đang tải điểm đến…', dest_foot_normal:'Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 15 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương & Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.',
+    dest_foot_tour:'Giá vé mang tính tham khảo, có thể thay đổi theo thời điểm/khuyến mãi thực tế — nên kiểm tra lại trước khi đặt. Các lộ trình "đi bộ tự túc" dùng đúng những điểm đến đã kiểm chứng ở trên.',
+    dest_cat_all:'Tất cả', dest_cat_tour:'Tour tổng hợp',
+    dest_reviews:'đánh giá', dest_view_maps:'Xem trên Google Maps →',
+    dest_empty_filter:'🔍 Không có điểm đến nào khớp bộ lọc hiện tại.',
+    dest_error:'⚠️ Không tải được dữ liệu điểm đến lúc này', dest_error_retry:'. Thử tải lại trang sau ít phút.',
+    tour_loading:'Đang tải tour…', tour_error:'⚠️ Không tải được dữ liệu tour lúc này', tour_empty:'Chưa có tour cho thành phố này.',
+  },
+  en: {
+    nav_home:'Home', nav_market:'Market', nav_science:'Connection Science',
+    hero_eyebrow:'Conversation starters',
+    hero_h1:'Nhịp Sống — <em>sports</em>, travel & culture',
+    hero_p:'World rankings, Vietnam\'s own story, how to play and where to start for 10 popular sports — real-time weather for Kèo\'s 3 active cities, plus a seasonal calendar so you know where to go and when — and 12 stories on Vietnamese life and culture, from coffee to cinema. Everything you need for a good conversation.',
+    pillar_sports:'⚽ Sports', pillar_sports_badge:'10 SPORTS',
+    pillar_travel:'✈️ Travel', pillar_travel_badge:'3 CITIES',
+    pillar_culture:'🎭 Culture', pillar_culture_badge:'12 TOPICS',
+    sports_title:'Popular sports in Vietnam',
+    sports_sub:'World rankings, Vietnam\'s standing, how to play and where to start — conversation starters.',
+    tab_weather:'🌤️ Weather & Air', tab_events:'🗓️ Events', tab_destinations:'📍 Destinations',
+    weather_title:'Weather & air quality — Kèo\'s 3 active cities',
+    weather_sub:'A conversation starter: "How\'s the weather in Saigon / Hanoi lately?"',
+    weather_loading:'Loading weather…',
+    szn_title:'🗓️ Seasonal weather calendar',
+    szn_sub:'Right time, right place — each region has its own climate, and each season suits different activities.',
+    events_title:'Events calendar — holidays & festivals across 3 cities',
+    events_sub:'Click a date to see that day\'s events — click the month name again to see the whole month.',
+    events_foot:'Vietnamese & international holidays, plus major festivals/events in HCMC, Hanoi and Da Nang — compiled from official plans and public sources. 2027 data currently only includes holidays that can be reliably predicted (fixed by law or lunar calendar, like Tết) — other festivals/events haven\'t been announced yet.',
+    dest_title:'Destinations — explore Kèo\'s 3 cities',
+    dest_sub:'Temples, churches, scenic spots, historic sites, parks, curated tours... pick a city and category to find the ideal date spot.',
+    city_hn:'Hanoi', city_dn:'Da Nang',
+    culture_title:'Vietnamese life & culture',
+    culture_sub:'Where it stands globally, Vietnam\'s own story, what makes it distinct, and where to experience it — conversation starters.',
+    dest_loading:'Loading destinations…', dest_foot_normal:'Location data from Google Places, filtered to rating ≥4.0⭐ and at least 15 reviews (except a few cultural icons with no rating). HCMC includes Binh Duong & Ba Ria-Vung Tau, Da Nang includes Quang Nam/Hoi An — per the new administrative boundaries from 1 July 2025.',
+    dest_foot_tour:'Prices are for reference and may change with season/promotions — double-check before booking. "Self-guided walking" routes use only destinations already verified above.',
+    dest_cat_all:'All', dest_cat_tour:'Curated Tours',
+    dest_reviews:'reviews', dest_view_maps:'View on Google Maps →',
+    dest_empty_filter:'🔍 No destinations match the current filter.',
+    dest_error:'⚠️ Could not load destination data right now', dest_error_retry:'. Please try reloading in a few minutes.',
+    tour_loading:'Loading tours…', tour_error:'⚠️ Could not load tour data right now', tour_empty:'No tours for this city yet.',
+  }
+};
+
+function t(key){ return (I18N[LANG] && I18N[LANG][key]) || (I18N.vi[key]) || key; }
+
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(I18N.vi[key] !== undefined) el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-html');
+    if(I18N.vi[key] !== undefined) el.innerHTML = t(key);
+  });
+  document.querySelectorAll('.lang-opt').forEach(el=>el.classList.toggle('on', el.dataset.lang===LANG));
+  // Render lại các phần nội dung động (điểm đến/tour/lịch) theo ngôn ngữ mới
+  if(typeof renderDestCatFilter==='function' && DEST_DATA) renderDestCatFilter();
+  if(typeof renderDestinations==='function' && (DEST_DATA || destFetchError)) renderDestinations();
+  if(typeof renderCal==='function' && typeof CAL_EVENTS!=='undefined' && CAL_EVENTS.length) renderCal();
+}
+
+function toggleLang(){
+  LANG = LANG==='vi' ? 'en' : 'vi';
+  localStorage.setItem('keo_lang', LANG);
+  applyLang();
+}
+
 // ─── URL Worker — SỬA lại đúng URL thật sau khi deploy (xem hướng dẫn cuối phản hồi) ──────
 const WORKER_BASE = 'https://keo-sport-worker.keo-social.workers.dev'; // ← đã biết subdomain từ đợt deploy trước, giữ nguyên
 
@@ -887,7 +976,6 @@ function switchTravelTab(tab, el){
   $('travel-page-'+tab).classList.add('on');
   if(tab==='events' && !eventsLoaded){ eventsLoaded=true; loadCalEvents(); }
   if(tab==='destinations' && !destLoaded){ destLoaded=true; loadDestinations(); }
-  if(tab==='tours' && !toursLoaded){ toursLoaded=true; loadTours(); }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -900,7 +988,7 @@ function switchTravelTab(tab, el){
 let DEST_DATA = null;
 let destLoaded = false;
 let destFetchError = null;
-let destState = { city: 'hcm', activeCats: new Set() }; // activeCats rỗng = hiện tất cả
+let destState = { city: 'hcm', activeCats: new Set(), tourMode: false }; // activeCats rỗng = hiện tất cả
 
 const DEST_CAT_COLOR = {
   chua:'#E8A22B', nhatho:'#6FA8DC', vuichoi:'#D14060', thangcanh:'#7FB069',
@@ -910,9 +998,13 @@ const DEST_CAT_ICON = {
   chua:'🛕', nhatho:'⛪', vuichoi:'🎢', thangcanh:'🏞️', ditich:'🏛️',
   baotang:'🖼️', congvien:'🌳', kientruc:'🏙️', pho:'🛍️'
 };
+const DEST_CAT_LABEL_EN = {
+  chua:'Temples & Shrines', nhatho:'Churches', vuichoi:'Amusement Parks', thangcanh:'Scenic Spots',
+  ditich:'Historic Sites', baotang:'Museums', congvien:'Parks & Green Spaces', kientruc:'Architecture & Landmarks', pho:'Walking Streets & Markets'
+};
 
 async function loadDestinations(){
-  $('destGrid').innerHTML = '<div class="ld" style="grid-column:1/-1;padding:24px 0">Đang tải điểm đến…</div>';
+  $('destGrid').innerHTML = `<div class="ld" style="grid-column:1/-1;padding:24px 0">${t('dest_loading')}</div>`;
   try{
     const r = await fetchT('/destinations.json', 8000);
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -930,19 +1022,26 @@ async function loadDestinations(){
 function renderDestCatFilter(){
   if(!DEST_DATA){ $('destCatFilter').innerHTML=''; return; }
   const cats = DEST_DATA.categories;
-  const html = ['all', ...Object.keys(cats)].map(k=>{
-    const on = k==='all' ? destState.activeCats.size===0 : destState.activeCats.has(k);
-    const label = k==='all' ? 'Tất cả' : cats[k];
-    const icon = k==='all' ? '✨' : (DEST_CAT_ICON[k]||'');
-    const color = k==='all' ? '#E8A22B' : (DEST_CAT_COLOR[k]||'#E8A22B');
-    return `<div class="dest-cat-pill ${on?'on':''}" style="--pc:${color}" onclick="toggleDestCat('${k}')">${icon} ${label}</div>`;
+  const keys = ['all', ...Object.keys(cats), '__tours__'];
+  const html = keys.map(k=>{
+    const on = k==='__tours__' ? destState.tourMode : (k==='all' ? (destState.activeCats.size===0 && !destState.tourMode) : (destState.activeCats.has(k) && !destState.tourMode));
+    const label = k==='all' ? t('dest_cat_all') : (k==='__tours__' ? t('dest_cat_tour') : (LANG==='en' ? (DEST_CAT_LABEL_EN[k]||cats[k]) : cats[k]));
+    const icon = k==='all' ? '✨' : (k==='__tours__' ? '🗺️' : (DEST_CAT_ICON[k]||''));
+    const color = k==='all' ? '#E8A22B' : (k==='__tours__' ? '#D65F35' : (DEST_CAT_COLOR[k]||'#E8A22B'));
+    const extraClass = k==='__tours__' ? ' dest-cat-pill-tour' : '';
+    return `<div class="dest-cat-pill${extraClass} ${on?'on':''}" style="--pc:${color}" onclick="toggleDestCat('${k}')">${icon} ${label}</div>`;
   }).join('');
   $('destCatFilter').innerHTML = html;
 }
 
 function toggleDestCat(k){
-  if(k==='all'){ destState.activeCats.clear(); }
-  else{
+  if(k==='__tours__'){
+    destState.tourMode = !destState.tourMode;
+    if(destState.tourMode && !toursLoaded){ toursLoaded=true; loadTours(); }
+  }else if(k==='all'){
+    destState.activeCats.clear(); destState.tourMode = false;
+  }else{
+    destState.tourMode = false;
     if(destState.activeCats.has(k)) destState.activeCats.delete(k);
     else destState.activeCats.add(k);
   }
@@ -957,12 +1056,24 @@ function switchDestCity(city){
 }
 
 function renderDestinations(){
-  const grid = $('destGrid');
-  if(destFetchError){
-    grid.innerHTML = `<div class="dest-empty">⚠️ Không tải được dữ liệu điểm đến lúc này (${destFetchError}). Thử tải lại trang sau ít phút.</div>`;
+  const destGrid = $('destGrid'), tourGrid = $('tourGrid');
+  if(destState.tourMode){
+    destGrid.style.display = 'none';
+    tourGrid.style.display = 'grid';
+    $('destFootNote').textContent = t('dest_foot_tour');
+    renderTours();
     return;
   }
-  if(!DEST_DATA){ grid.innerHTML = '<div class="dest-empty">Không có dữ liệu.</div>'; return; }
+  destGrid.style.display = 'grid';
+  tourGrid.style.display = 'none';
+  $('destFootNote').textContent = t('dest_foot_normal');
+
+  const grid = destGrid;
+  if(destFetchError){
+    grid.innerHTML = `<div class="dest-empty">${t('dest_error')} (${destFetchError})${t('dest_error_retry')}</div>`;
+    return;
+  }
+  if(!DEST_DATA){ grid.innerHTML = '<div class="dest-empty">—</div>'; return; }
 
   let places = DEST_DATA.places.filter(p => p.city === destState.city);
   if(destState.activeCats.size > 0){
@@ -971,15 +1082,15 @@ function renderDestinations(){
   places.sort((a,b) => (b.rating||0) - (a.rating||0));
 
   if(places.length === 0){
-    grid.innerHTML = '<div class="dest-empty">🔍 Không có điểm đến nào khớp bộ lọc hiện tại.</div>';
+    grid.innerHTML = `<div class="dest-empty">${t('dest_empty_filter')}</div>`;
     return;
   }
 
   grid.innerHTML = places.map(p => {
     const color = DEST_CAT_COLOR[p.category] || '#E8A22B';
     const icon = DEST_CAT_ICON[p.category] || '';
-    const catLabel = DEST_DATA.categories[p.category] || '';
-    const ratingHtml = p.rating ? `⭐ ${p.rating.toFixed(1)}${p.rating_count ? ` <span style="opacity:.6">(${p.rating_count.toLocaleString('vi-VN')} đánh giá)</span>` : ''}` : '';
+    const catLabel = LANG==='en' ? (DEST_CAT_LABEL_EN[p.category]||DEST_DATA.categories[p.category]||'') : (DEST_DATA.categories[p.category] || '');
+    const ratingHtml = p.rating ? `⭐ ${p.rating.toFixed(1)}${p.rating_count ? ` <span style="opacity:.6">(${p.rating_count.toLocaleString(LANG==='en'?'en-US':'vi-VN')} ${t('dest_reviews')})</span>` : ''}` : '';
     const mapsUrl = p.place_id
       ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}&query_place_id=${p.place_id}`
       : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ', ' + p.address)}`;
@@ -989,7 +1100,7 @@ function renderDestinations(){
       <div class="dest-card-addr">📍 ${p.address}</div>
       ${ratingHtml ? `<div class="dest-card-rating">${ratingHtml}</div>` : ''}
       ${p.note ? `<div class="dest-card-note">${p.note}</div>` : ''}
-      <div class="dest-card-maps">Xem trên Google Maps →</div>
+      <div class="dest-card-maps">${t('dest_view_maps')}</div>
     </a>`;
   }).join('');
 }
@@ -997,22 +1108,28 @@ function renderDestinations(){
 // ═══════════════════════════════════════════════════════════════════════════
 // TOUR TỔNG HỢP — Lộ trình dựng sẵn (đi bộ, xích lô, Vespa, metro, xe bus 2
 // tầng, du thuyền, cáp treo...) cho người dùng bị ngợp bởi quá nhiều lựa chọn
-// ở tab Điểm đến. Dịch vụ có thật (Metro số 1, Hop On Hop Off, Vespa
-// Adventures, du thuyền sông Hàn...) đã xác minh qua tìm kiếm; các lộ trình
-// "đi bộ tự túc" dùng đúng địa điểm đã kiểm chứng trong destinations.json.
+// khi lướt Điểm đến. Truy cập qua pill "🗺️ Tour tổng hợp" trong bộ lọc thể
+// loại — dùng chung city-tab với Điểm đến (destState.city). Dịch vụ có thật
+// (Metro số 1, Hop On Hop Off, Vespa Adventures, du thuyền sông Hàn...) đã
+// xác minh qua tìm kiếm; lộ trình "đi bộ tự túc" dùng địa điểm đã kiểm chứng
+// trong destinations.json.
 // ═══════════════════════════════════════════════════════════════════════════
 let TOUR_DATA = null;
 let toursLoaded = false;
 let toursFetchError = null;
-let tourState = { city: 'hcm' };
 
 const TOUR_TYPE_COLOR = {
   metro:'#6FA8DC', bus2tang:'#D65F35', vespa:'#D14060', cyclo:'#E8A22B',
-  boat:'#4FA88A', walking:'#7FB069', cable_car:'#B58FE0', bicycle:'#E85D5D'
+  boat:'#4FA88A', walking:'#7FB069', cable_car:'#B58FE0', bicycle:'#E85D5D', food:'#E8A22B', daytrip:'#7FB069'
+};
+const TOUR_TYPES_EN = {
+  metro:'🚇 Metro / Light Rail', bus2tang:'🚌 Double-Decker Bus', vespa:'🛵 Vespa / Motorbike',
+  cyclo:'🚲 Cyclo', boat:'⛵ River Cruise', walking:'🚶 Self-Guided Walk', cable_car:'🚡 Cable Car',
+  bicycle:'🚴 Bicycle', food:'🍜 Food Tour', daytrip:'🌿 Full-Day Trip'
 };
 
 async function loadTours(){
-  $('tourGrid').innerHTML = '<div class="ld" style="grid-column:1/-1;padding:24px 0">Đang tải tour…</div>';
+  $('tourGrid').innerHTML = `<div class="ld" style="grid-column:1/-1;padding:24px 0">${t('tour_loading')}</div>`;
   try{
     const r = await fetchT('/tours.json', 8000);
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -1026,40 +1143,43 @@ async function loadTours(){
   renderTours();
 }
 
-function switchTourCity(city){
-  tourState.city = city;
-  document.querySelectorAll('#tourCityTabs .dest-city-tab').forEach(t=>t.classList.toggle('on', t.dataset.city===city));
-  renderTours();
-}
-
 function renderTours(){
   const grid = $('tourGrid');
   if(toursFetchError){
-    grid.innerHTML = `<div class="dest-empty">⚠️ Không tải được dữ liệu tour lúc này (${toursFetchError}). Thử tải lại trang sau ít phút.</div>`;
+    grid.innerHTML = `<div class="dest-empty">${t('tour_error')} (${toursFetchError})${t('dest_error_retry')}</div>`;
     return;
   }
-  if(!TOUR_DATA){ grid.innerHTML = '<div class="dest-empty">Không có dữ liệu.</div>'; return; }
+  if(!TOUR_DATA){ grid.innerHTML = '<div class="dest-empty">—</div>'; return; }
 
-  const tours = TOUR_DATA.tours.filter(t => t.city === tourState.city);
+  const tours = TOUR_DATA.tours.filter(tr => tr.city === destState.city);
   if(tours.length === 0){
-    grid.innerHTML = '<div class="dest-empty">Chưa có tour cho thành phố này.</div>';
+    grid.innerHTML = `<div class="dest-empty">${t('tour_empty')}</div>`;
     return;
   }
 
-  grid.innerHTML = tours.map(t => {
-    const color = TOUR_TYPE_COLOR[t.type] || '#E8A22B';
-    const typeLabel = TOUR_DATA.types[t.type] || '';
-    const stopsHtml = t.highlights.map(h => `<li>${h}</li>`).join('');
+  grid.innerHTML = tours.map(tr => {
+    const color = TOUR_TYPE_COLOR[tr.type] || '#E8A22B';
+    const typeLabel = LANG==='en' ? (TOUR_TYPES_EN[tr.type]||TOUR_DATA.types[tr.type]||'') : (TOUR_DATA.types[tr.type] || '');
+    const en = LANG==='en' && tr.en ? tr.en : null;
+    const title = en ? en.title : tr.title;
+    const time = en ? en.time : tr.time;
+    const duration = en ? en.duration : tr.duration;
+    const price = en ? en.price : tr.price;
+    const highlights = en ? en.highlights : tr.highlights;
+    const note = en ? en.note : tr.note;
+    const booking = en ? en.booking : tr.booking;
+    const stopsHtml = highlights.map(h => `<li>${h}</li>`).join('');
     return `<div class="tour-card" style="--tc:${color}">
       <div class="tour-card-head"><div class="tour-card-type">${typeLabel}</div></div>
-      <div class="tour-card-title">${t.title}</div>
+      <div class="tour-card-title">${title}</div>
       <div class="tour-card-meta">
-        <span>⏱ <b>${t.duration}</b></span>
-        <span>💰 <b>${t.price}</b></span>
+        <span>🕐 <b>${time}</b></span>
+        <span>⏱ <b>${duration}</b></span>
+        <span>💰 <b>${price}</b></span>
       </div>
       <ul class="tour-card-stops">${stopsHtml}</ul>
-      <div class="tour-card-note">${t.note}</div>
-      <div class="tour-card-booking">📌 ${t.booking}</div>
+      <div class="tour-card-note">${note}</div>
+      <div class="tour-card-booking">📌 ${booking}</div>
     </div>`;
   }).join('');
 }
@@ -2237,6 +2357,7 @@ function renderCultureTopic(t){
 }
 
 renderTopic('chess');
+applyLang();
 </script>
 <script src="/cookie-consent.js"></script>
 </body>
