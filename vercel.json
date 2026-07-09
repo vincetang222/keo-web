@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/khoa-hoc-ket-noi",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/khoa-hoc-ket-noi",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(favicon\\.svg|favicon-.*\\.png|apple-touch-icon\\.png|favicon\\.ico)",
