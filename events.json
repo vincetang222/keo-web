@@ -26,14 +26,6 @@
       "desc": "Trùng ngay ngày đầu kỳ nghỉ Tết năm nay — được giới trẻ Việt Nam đón nhận rộng rãi."
     },
     {
-      "start": "2026-02-14",
-      "end": "2026-02-22",
-      "city": "holiday",
-      "title": "Kỳ nghỉ Tết Nguyên Đán Bính Ngọ",
-      "type": "Lễ Việt Nam",
-      "desc": "9 ngày nghỉ liên tục. Mùng 1 Tết chính thức rơi vào 17/2 — thời khắc quan trọng nhất trong năm."
-    },
-    {
       "start": "2026-02-15",
       "end": "2026-02-22",
       "city": "hcm",
@@ -41,6 +33,14 @@
       "type": "Lễ hội",
       "desc": "Sự kiện văn hoá-du lịch trọng điểm mỗi dịp Tết, lần thứ 23. Chủ đề 2026 \"Xuân hội tụ - Vững bước vươn mình\", lần đầu có phiên bản ngày/đêm riêng biệt với Mapping AR.",
       "venue": "Phố đi bộ Nguyễn Huệ, Công viên Trung tâm & Công viên Quang Trung"
+    },
+    {
+      "start": "2026-02-17",
+      "end": "2026-02-19",
+      "city": "holiday",
+      "title": "Tết Nguyên Đán Bính Ngọ",
+      "type": "Lễ Việt Nam",
+      "desc": "Mùng 1-2-3 Tết — 3 ngày quan trọng nhất trong năm của người Việt. Kỳ nghỉ lễ chính thức thực tế kéo dài 9 ngày (14-22/2), nhưng 3 ngày này mới là trọng tâm Tết."
     },
     {
       "start": "2026-02-22",
@@ -146,19 +146,27 @@
     },
     {
       "start": "2026-04-26",
-      "end": "2026-04-27",
+      "end": "2026-04-26",
       "city": "holiday",
       "title": "Giỗ Tổ Hùng Vương",
       "type": "Lễ Việt Nam",
-      "desc": "Chính lễ 10/3 âm lịch (26/4, Chủ nhật), nghỉ bù sang thứ Hai 27/4."
+      "desc": "Chính lễ 10/3 âm lịch. Vì rơi vào Chủ nhật nên có thêm 1 ngày nghỉ bù (27/4) — không tính vào ngày lễ chính thức này."
     },
     {
       "start": "2026-04-30",
-      "end": "2026-05-03",
+      "end": "2026-04-30",
       "city": "holiday",
-      "title": "Giải phóng miền Nam & Quốc tế Lao động",
+      "title": "Ngày Giải phóng miền Nam",
       "type": "Lễ Việt Nam",
-      "desc": "Kỳ nghỉ 4 ngày liên tục — 30/4, 1/5 là 2 ngày lễ chính thức, nối liền cuối tuần 2-3/5."
+      "desc": "Kỷ niệm ngày thống nhất đất nước 30/4/1975. Kỳ nghỉ thực tế nối liền với 1/5 và cuối tuần liền kề thành 4 ngày, nhưng đây là 2 ngày lễ riêng biệt."
+    },
+    {
+      "start": "2026-05-01",
+      "end": "2026-05-01",
+      "city": "holiday",
+      "title": "Quốc tế Lao động",
+      "type": "Lễ quốc tế",
+      "desc": "Ngày Quốc tế Lao động."
     },
     {
       "start": "2026-05-07",
@@ -1332,14 +1340,6 @@
       "desc": "Đêm nhạc indie Việt."
     },
     {
-      "start": "2026-08-29",
-      "end": "2026-09-02",
-      "city": "holiday",
-      "title": "Quốc khánh",
-      "type": "Lễ Việt Nam",
-      "desc": "Kỳ nghỉ 5 ngày liên tục, ngày lễ chính thức 2/9 nối liền cuối tuần liền trước."
-    },
-    {
       "start": "2026-09-01",
       "end": "2026-09-01",
       "city": "hcm",
@@ -1383,6 +1383,14 @@
       "title": "Chương trình Nghệ thuật chào mừng Quốc khánh và Hòa nhạc Đất nước",
       "venue": "Quảng trường Ba Đình",
       "desc": "Chương trình nghệ thuật mừng Quốc khánh tại Ba Đình."
+    },
+    {
+      "start": "2026-09-02",
+      "end": "2026-09-02",
+      "city": "holiday",
+      "title": "Quốc khánh",
+      "type": "Lễ Việt Nam",
+      "desc": "Ngày Quốc khánh 2/9/1945. Kỳ nghỉ thực tế nối liền cuối tuần thành 5 ngày, nhưng đây là ngày lễ chính thức duy nhất."
     },
     {
       "start": "2026-09-05",
@@ -2099,11 +2107,19 @@
     },
     {
       "start": "2027-04-30",
+      "end": "2027-04-30",
+      "city": "holiday",
+      "title": "Ngày Giải phóng miền Nam",
+      "type": "Lễ Việt Nam",
+      "desc": "Ngày lễ cố định theo luật, lặp lại hàng năm."
+    },
+    {
+      "start": "2027-05-01",
       "end": "2027-05-01",
       "city": "holiday",
-      "title": "Giải phóng miền Nam & Quốc tế Lao động",
-      "type": "Lễ Việt Nam",
-      "desc": "2 ngày lễ cố định theo luật — chưa rõ có nối thêm cuối tuần hay không vì chưa có thông báo chính thức."
+      "title": "Quốc tế Lao động",
+      "type": "Lễ quốc tế",
+      "desc": "Ngày lễ cố định theo luật, lặp lại hàng năm."
     },
     {
       "start": "2027-05-07",
@@ -2219,6 +2235,6 @@
     }
   ],
   "lastUpdated": "2026-07-09",
-  "version": 5,
+  "version": 6,
   "_comment": "Dữ liệu sự kiện cho Lịch sự kiện trong nhip-song.html (tab Du lịch > Sự kiện). city: 'holiday' | 'hcm' | 'hn' | 'dn'. start/end dạng YYYY-MM-DD, sự kiện dài ngày mark hết các ngày trong khoảng."
 }
