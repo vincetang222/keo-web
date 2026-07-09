@@ -104,55 +104,114 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 
 /* Card kiểu APPLE WEATHER — 1 gradient liền mạch cho toàn card (đậm + sang trọng, vừa là dark
    theme vừa tinh tế), phân cấp thông tin bằng CỠ CHỮ và khoảng trắng thay vì nhiều khối màu nền.
-   Số nhiệt độ dùng font-weight nhẹ (200) — đặc trưng nhận diện ngay của app Weather thật. */
-.travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:18px}
-.wx-card{position:relative;border-radius:26px;padding:22px 22px 18px;overflow:hidden;background:var(--wx-grad);box-shadow:0 10px 30px rgba(26,21,16,.18);transition:transform .25s,box-shadow .25s;color:#fff}
-.wx-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,21,16,.24)}
-.wx-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, rgba(255,255,255,.14) 0%, transparent 55%);pointer-events:none}
-.wx-cta{display:block;margin-top:14px;padding:11px 16px;border-radius:14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);color:#fff;font-family:var(--sans);font-size:12.5px;font-weight:600;text-align:center;text-decoration:none;transition:background .2s,transform .2s;position:relative;z-index:1}
-.wx-cta:hover{background:rgba(255,255,255,.26);transform:translateY(-2px)}
+   Số nhiệt độ dùng font-weight nhẹ (200) — đặc trưng nhận diện ngay của app Weather thật.
+   Redesign: thêm ambient orb glow, badge thành phố, chi tiết decoration để không còn cảm giác flat. */
+.travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:18px}
+.wx-card{position:relative;border-radius:28px;padding:24px 24px 20px;overflow:hidden;background:var(--wx-grad);box-shadow:0 12px 34px rgba(26,21,16,.22),inset 0 1px 0 rgba(255,255,255,.14);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;color:#fff;isolation:isolate}
+.wx-card:hover{transform:translateY(-6px) scale(1.008);box-shadow:0 22px 48px rgba(26,21,16,.32),inset 0 1px 0 rgba(255,255,255,.2)}
+/* Orb sáng góc trên phải — vẫn giữ */
+.wx-card::before{content:'';position:absolute;top:-40%;right:-25%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28) 0%,transparent 60%);pointer-events:none;z-index:0;filter:blur(6px)}
+/* Orb đối diện dưới trái để cân bằng — tinh tế, tạo cảm giác 3D hơn */
+.wx-card::after{content:'';position:absolute;bottom:-30%;left:-20%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--wx-accent) 35%,transparent) 0%,transparent 65%);pointer-events:none;z-index:0;filter:blur(20px)}
+.wx-cta{display:block;margin-top:14px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(10px);color:#fff;font-family:var(--sans);font-size:12.5px;font-weight:600;text-align:center;text-decoration:none;transition:background .2s,transform .2s;position:relative;z-index:2}
+.wx-cta:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
 
-.wx-head-row{position:relative;display:flex;align-items:flex-start;justify-content:space-between;z-index:1}
-.wx-city{font-family:var(--sans);font-size:17px;font-weight:600;color:#fff;letter-spacing:-.01em}
-.wx-cond{font-family:var(--sans);font-size:12.5px;color:rgba(255,255,255,.7);text-transform:capitalize;margin-top:2px}
-.wx-avatar{width:52px;height:52px;flex-shrink:0;opacity:.92}
-.wx-temp-row{position:relative;display:flex;align-items:baseline;gap:10px;margin-top:2px;z-index:1}
-.wx-temp{font-family:var(--sans);font-size:64px;font-weight:200;color:#fff;line-height:1;letter-spacing:-.02em}
-.wx-feels{font-family:var(--sans);font-size:12.5px;color:rgba(255,255,255,.65)}
+.wx-head-row{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;z-index:2}
+.wx-city-block{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.wx-city{font-family:var(--serif);font-size:22px;font-weight:700;color:#fff;letter-spacing:-.015em;text-shadow:0 1px 3px rgba(0,0,0,.15)}
+.wx-cond{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.78);text-transform:capitalize;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.wx-cond::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 0 8px rgba(255,255,255,.5)}
+.wx-avatar{width:60px;height:60px;flex-shrink:0;opacity:.98;filter:drop-shadow(0 4px 12px rgba(0,0,0,.2))}
+.wx-temp-row{position:relative;display:flex;align-items:baseline;gap:12px;margin-top:10px;z-index:2}
+.wx-temp{font-family:var(--sans);font-size:74px;font-weight:200;color:#fff;line-height:.95;letter-spacing:-.03em;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.wx-feels{font-family:var(--sans);font-size:12.5px;color:rgba(255,255,255,.72);font-weight:500}
 
-/* Dải phân cách MẢNH thay cho khối màu riêng — đúng cách Apple Weather ngăn cách các mục */
-.wx-divider{height:1px;background:rgba(255,255,255,.16);margin:16px 0 14px}
+/* Dải phân cách mảnh có gradient thay vì đơn màu — thêm ambient */
+.wx-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.24),transparent);margin:18px 0 14px}
 
-.wx-hourly{position:relative;z-index:1;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.wx-hourly{position:relative;z-index:2;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;padding:4px 0}
 .wx-hourly::-webkit-scrollbar{display:none}
-.wx-hour{flex:1;min-width:38px;text-align:center;font-family:var(--sans)}
-.wx-hour-t{font-size:10px;color:rgba(255,255,255,.6);font-weight:500}
-.wx-hour-icon{width:26px;height:26px;margin:2px 0}
-.wx-hour-v{font-size:13px;font-weight:600;color:#fff}
+.wx-hour{flex:1;min-width:42px;text-align:center;font-family:var(--sans);padding:6px 2px;border-radius:10px;transition:background .2s}
+.wx-hour:hover{background:rgba(255,255,255,.08)}
+.wx-hour-t{font-size:10px;color:rgba(255,255,255,.65);font-weight:600;letter-spacing:.02em}
+.wx-hour-icon{width:28px;height:28px;margin:3px 0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
+.wx-hour-v{font-size:13.5px;font-weight:700;color:#fff}
 
-.wx-daily{position:relative;z-index:1;display:flex;flex-direction:column;gap:9px}
-.wx-day-row{display:flex;align-items:center;gap:10px}
-.wx-day-name{font-family:var(--sans);font-size:13px;font-weight:600;color:#fff;width:28px;flex-shrink:0}
-.wx-day-icon{width:22px;height:22px;flex-shrink:0}
-.wx-day-track{position:relative;flex:1;height:4px;background:rgba(255,255,255,.16);border-radius:3px;overflow:hidden}
-.wx-day-fill{position:absolute;top:0;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--wx-accent),color-mix(in srgb,var(--wx-accent) 60%,#fff))}
-.wx-day-range{font-family:var(--sans);font-size:12.5px;flex-shrink:0;width:60px;text-align:right}
-.wx-dmin{color:rgba(255,255,255,.55)}
-.wx-dmax{color:#fff;font-weight:600}
+.wx-daily{position:relative;z-index:2;display:flex;flex-direction:column;gap:11px}
+.wx-day-row{display:flex;align-items:center;gap:11px}
+.wx-day-name{font-family:var(--sans);font-size:13px;font-weight:700;color:#fff;width:32px;flex-shrink:0;letter-spacing:.02em}
+.wx-day-icon{width:24px;height:24px;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
+.wx-day-track{position:relative;flex:1;height:5px;background:rgba(255,255,255,.14);border-radius:4px;overflow:hidden}
+.wx-day-fill{position:absolute;top:0;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--wx-accent),color-mix(in srgb,var(--wx-accent) 50%,#fff));box-shadow:0 0 8px color-mix(in srgb,var(--wx-accent) 60%,transparent)}
+.wx-day-range{font-family:var(--sans);font-size:12.5px;flex-shrink:0;width:60px;text-align:right;font-weight:600}
+.wx-dmin{color:rgba(255,255,255,.6)}
+.wx-dmax{color:#fff;font-weight:700}
 
 /* Footer — AQI hiện đúng số + chấm màu đổi theo mức thật (0-50 xanh/51-100 vàng/101-150 cam/
-   151+ đỏ), không còn badge nền phẳng 1 màu cố định như trước */
-.wx-foot-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.wx-aqi{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;color:#fff}
-.wx-aqi-dot{width:8px;height:8px;border-radius:50%;background:var(--aqic);box-shadow:0 0 6px var(--aqic)}
-.wx-aqi .pm{opacity:.65;font-weight:400}
-.wx-stats{display:flex;gap:12px}
-.wx-stat{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.75)}
+   151+ đỏ), có thêm background badge để không còn cảm giác trần trụi */
+.wx-foot-row{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:4px}
+.wx-aqi{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.1);padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,.14)}
+.wx-aqi-dot{width:9px;height:9px;border-radius:50%;background:var(--aqic);box-shadow:0 0 10px var(--aqic),0 0 0 2px rgba(255,255,255,.2)}
+.wx-aqi .pm{opacity:.7;font-weight:500}
+.wx-stats{display:flex;gap:14px}
+.wx-stat{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.82);font-weight:500;display:inline-flex;align-items:center;gap:5px}
 
 .travel-attr{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:22px 0 6px}
 .travel-attr a{color:var(--a);text-decoration:none}
+
+/* ─── LỊCH THỜI TIẾT THEO MÙA — 3 thành phố, mỗi thành phố có bảng màu riêng theo miền ────── */
+.szn-wrap{margin-top:44px;position:relative}
+.szn-head{margin-bottom:22px;text-align:center;max-width:640px;margin-left:auto;margin-right:auto}
+.szn-head .travel-title{background:linear-gradient(90deg,var(--gold),var(--a),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.szn-city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px}
+
+/* Card từng thành phố — mỗi thành phố có bảng màu chủ đạo qua --szn-1/--szn-2/--szn-accent */
+.szn-city{position:relative;background:linear-gradient(160deg,var(--szn-1) 0%,var(--szn-2) 100%);border-radius:24px;padding:0;overflow:hidden;box-shadow:0 14px 34px rgba(26,21,16,.24),inset 0 1px 0 rgba(255,255,255,.14);isolation:isolate;transition:transform .3s,box-shadow .3s}
+.szn-city:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(26,21,16,.32),inset 0 1px 0 rgba(255,255,255,.18)}
+/* Ambient blob decoration cho mỗi thành phố */
+.szn-city::before{content:'';position:absolute;top:-20%;right:-15%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--szn-accent) 40%,transparent) 0%,transparent 65%);filter:blur(24px);pointer-events:none;z-index:0}
+.szn-city::after{content:'';position:absolute;bottom:-25%;left:-15%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--szn-accent) 25%,transparent) 0%,transparent 65%);filter:blur(30px);pointer-events:none;z-index:0}
+
+/* Header thành phố — có gradient bar accent bên trái, huy hiệu miền bên phải */
+.szn-city-head{position:relative;z-index:2;padding:22px 22px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.04),transparent)}
+.szn-city-name{font-family:var(--serif);font-size:24px;font-weight:700;color:#F5EFE6;letter-spacing:-.01em;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.szn-city-name-en{font-family:var(--sans);font-size:11px;color:rgba(245,239,230,.5);margin-top:3px;font-weight:500;letter-spacing:.02em}
+.szn-city-region{display:inline-flex;flex-direction:column;align-items:flex-end;gap:2px;font-family:var(--sans);font-size:9.5px;color:#F5EFE6;text-transform:uppercase;letter-spacing:.06em;text-align:right;background:linear-gradient(135deg,var(--szn-accent),color-mix(in srgb,var(--szn-accent) 60%,#000));padding:8px 12px;border-radius:12px;font-weight:700;box-shadow:0 4px 12px color-mix(in srgb,var(--szn-accent) 45%,transparent)}
+.szn-city-region-sub{font-size:8.5px;color:rgba(255,255,255,.85);letter-spacing:.02em;text-transform:none;font-weight:500}
+
+/* Body chứa các giai đoạn — mỗi giai đoạn là 1 khối con có accent */
+.szn-body{position:relative;z-index:2;padding:20px 22px 22px;display:flex;flex-direction:column;gap:16px}
+.szn-period{position:relative;background:rgba(23,18,25,.4);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--pe-accent, var(--szn-accent));border-radius:14px;padding:14px 16px;backdrop-filter:blur(10px);transition:transform .2s,background .2s}
+.szn-period:hover{background:rgba(23,18,25,.55);transform:translateX(3px)}
+.szn-period-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.szn-period-name{font-family:var(--sans);font-size:14px;font-weight:700;color:#F5EFE6;letter-spacing:-.005em;display:inline-flex;align-items:center;gap:6px}
+.szn-period-time{font-family:var(--sans);font-size:10.5px;color:var(--pe-accent, var(--szn-accent));font-weight:700;background:color-mix(in srgb,var(--pe-accent, var(--szn-accent)) 18%,transparent);padding:3px 10px;border-radius:100px;letter-spacing:.02em}
+.szn-period-temp{font-family:var(--sans);font-size:11px;color:rgba(245,239,230,.75);margin-left:auto;font-weight:600;background:rgba(255,255,255,.06);padding:3px 10px;border-radius:100px;border:1px solid rgba(255,255,255,.08)}
+.szn-period-body{font-family:var(--sans);font-size:12.5px;line-height:1.6;color:rgba(245,239,230,.78);margin-bottom:10px}
+.szn-period-tags{display:flex;flex-wrap:wrap;gap:6px}
+.szn-tag{font-family:var(--sans);font-size:10.5px;color:rgba(245,239,230,.9);background:color-mix(in srgb,var(--pe-accent, var(--szn-accent)) 15%,rgba(255,255,255,.06));border:1px solid color-mix(in srgb,var(--pe-accent, var(--szn-accent)) 25%,rgba(255,255,255,.08));border-radius:100px;padding:5px 12px;font-weight:500;transition:background .2s,transform .2s}
+.szn-tag:hover{background:color-mix(in srgb,var(--pe-accent, var(--szn-accent)) 28%,rgba(255,255,255,.1));transform:translateY(-1px)}
+
+/* Bảng màu miền — TP.HCM (miền Nam, ấm) */
+.szn-city.szn-south{--szn-1:#3B1F1A;--szn-2:#1F1A17;--szn-accent:#E8A22B}
+.szn-city.szn-south .szn-p-dry{--pe-accent:#E8A22B}
+.szn-city.szn-south .szn-p-rain{--pe-accent:#4A90C4}
+
+/* Hà Nội (miền Bắc, 4 mùa) — xanh biển đêm dịu, mỗi mùa 1 accent riêng */
+.szn-city.szn-north{--szn-1:#1B2438;--szn-2:#141A26;--szn-accent:#7BAAD9}
+.szn-city.szn-north .szn-p-spring{--pe-accent:#F5A9C2}
+.szn-city.szn-north .szn-p-summer{--pe-accent:#E8A22B}
+.szn-city.szn-north .szn-p-fall{--pe-accent:#D65F35}
+.szn-city.szn-north .szn-p-winter{--pe-accent:#7BAAD9}
+
+/* Đà Nẵng (miền Trung, biển) — tím lam sương mù, giao thoa 2 miền */
+.szn-city.szn-central{--szn-1:#2A2340;--szn-2:#1A1728;--szn-accent:#9B7FC4}
+.szn-city.szn-central .szn-p-early{--pe-accent:#9B7FC4}
+.szn-city.szn-central .szn-p-dry{--pe-accent:#E8A22B}
+.szn-city.szn-central .szn-p-storm{--pe-accent:#4A90C4}
+
 .travel-attr a:hover{text-decoration:underline}
-@media(max-width:640px){.travel-grid-cards{grid-template-columns:1fr;gap:14px}.wx-temp{font-size:40px}}
+@media(max-width:640px){.travel-grid-cards{grid-template-columns:1fr;gap:16px}.wx-temp{font-size:52px}.szn-city-grid{grid-template-columns:1fr;gap:18px}}
 
 /* ─── SPORT SUB-TABS ─────────────────────────────────────────── */
 .sport-tabs{display:flex;gap:6px;border-bottom:1px solid var(--rim2);flex-wrap:wrap;margin-bottom:22px}
@@ -258,14 +317,14 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="hero-in">
     <div class="hero-ey">Chủ đề để bắt đầu trò chuyện</div>
     <h1>Nhịp Sống — <em>thể thao</em>, du lịch & văn hoá</h1>
-    <p>Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu cho 10 môn thể thao phổ biến — thời tiết thời gian thực cho 10 điểm đến được tìm kiếm nhiều nhất — và 12 câu chuyện văn hoá đời sống Việt Nam, từ cà phê đến điện ảnh. Mọi thứ để có chuyện nói khi gặp gỡ.</p>
+    <p>Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu cho 10 môn thể thao phổ biến — thời tiết thời gian thực cho 3 thành phố Kèo đang hoạt động, cùng lịch thời tiết theo mùa để biết nên đi đâu khi nào — và 12 câu chuyện văn hoá đời sống Việt Nam, từ cà phê đến điện ảnh. Mọi thứ để có chuyện nói khi gặp gỡ.</p>
   </div>
 </div>
 
 <div class="pillars-wrap">
 <div class="pillars">
   <div class="pillar active" id="pillar-sports-btn" onclick="switchPillar('sports',this)">⚽ Thể thao <span class="pillar-badge">10 MÔN</span></div>
-  <div class="pillar" id="pillar-travel-btn" onclick="switchPillar('travel',this)">✈️ Du lịch <span class="pillar-badge">10 ĐIỂM ĐẾN</span></div>
+  <div class="pillar" id="pillar-travel-btn" onclick="switchPillar('travel',this)">✈️ Du lịch <span class="pillar-badge">3 THÀNH PHỐ</span></div>
   <div class="pillar" id="pillar-culture-btn" onclick="switchPillar('culture',this)">🎭 Văn hoá <span class="pillar-badge">12 CHỦ ĐỀ</span></div>
 </div>
 </div>
@@ -302,13 +361,177 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       <div class="travel-tab soon">📍 Điểm đến <span class="soon-tag">SẮP CÓ</span></div>
     </div>
     <div class="travel-intro">
-      <div class="travel-title">Thời tiết &amp; chất lượng không khí — 10 điểm đến phổ biến</div>
-      <p class="travel-sub">Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Đà Lạt / Phú Quốc thế nào nhỉ?"</p>
+      <div class="travel-title">Thời tiết &amp; chất lượng không khí — 3 thành phố Kèo đang hoạt động</div>
+      <p class="travel-sub">Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Sài Gòn / Hà Nội thế nào nhỉ?"</p>
     </div>
     <div id="travel-grid">
       <div class="ld">Đang tải thời tiết…</div>
     </div>
-    <div class="travel-attr">Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a></div>
+
+    <div class="szn-wrap">
+      <div class="szn-head">
+        <div class="travel-title">🗓️ Lịch thời tiết theo mùa</div>
+        <p class="travel-sub">Ghé đúng lúc, chơi đúng chỗ — mỗi miền một kiểu khí hậu, mỗi giai đoạn hợp một kiểu hoạt động khác nhau.</p>
+      </div>
+      <div class="szn-city-grid">
+
+        <div class="szn-city szn-south">
+          <div class="szn-city-head">
+            <div>
+              <div class="szn-city-name">TP. Hồ Chí Minh</div>
+              <div class="szn-city-name-en">Ho Chi Minh City</div>
+            </div>
+            <div class="szn-city-region">Miền Nam<span class="szn-city-region-sub">Khí hậu 2 mùa</span></div>
+          </div>
+          <div class="szn-body">
+            <div class="szn-period szn-p-dry">
+              <div class="szn-period-head">
+                <span class="szn-period-name">☀️ Mùa khô</span>
+                <span class="szn-period-time">Tháng 12 – Tháng 4</span>
+                <span class="szn-period-temp">26–38°C</span>
+              </div>
+              <p class="szn-period-body">Nóng nhất vào tháng 3-4, nhưng trời nắng ráo suốt — mùa cao điểm du lịch trong năm. Đường hoa Nguyễn Huệ và chợ hoa Tết rực rỡ khắp tháng 1-2.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Dạo phố đi bộ Nguyễn Huệ tối</span>
+                <span class="szn-tag">Dã ngoại Cần Giờ / Củ Chi</span>
+                <span class="szn-tag">Cà phê rooftop ngắm hoàng hôn</span>
+              </div>
+            </div>
+            <div class="szn-period szn-p-rain">
+              <div class="szn-period-head">
+                <span class="szn-period-name">🌧️ Mùa mưa</span>
+                <span class="szn-period-time">Tháng 5 – Tháng 11</span>
+                <span class="szn-period-temp">25–32°C</span>
+              </div>
+              <p class="szn-period-body">Mưa thường đến nhanh, tạnh nhanh — chỉ 1-2 tiếng buổi chiều tối, sáng và trưa vẫn nắng đẹp. Tháng 6 và tháng 9 mưa nhiều nhất năm.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Hoạt động ngoài trời buổi sáng</span>
+                <span class="szn-tag">TTTM / rạp phim buổi chiều mưa</span>
+                <span class="szn-tag">Bánh xèo, ốc, lẩu ngày mưa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="szn-city szn-north">
+          <div class="szn-city-head">
+            <div>
+              <div class="szn-city-name">Hà Nội</div>
+              <div class="szn-city-name-en">Hanoi</div>
+            </div>
+            <div class="szn-city-region">Miền Bắc<span class="szn-city-region-sub">4 mùa rõ rệt</span></div>
+          </div>
+          <div class="szn-body">
+            <div class="szn-period szn-p-spring">
+              <div class="szn-period-head">
+                <span class="szn-period-name">🌸 Xuân</span>
+                <span class="szn-period-time">Tháng 2 – Tháng 4</span>
+                <span class="szn-period-temp">18–25°C</span>
+              </div>
+              <p class="szn-period-body">Mùa đẹp nhất để dạo phố cổ, còn dư âm Tết. Làng hoa Nhật Tân, chợ hoa Quảng Bá rực rỡ, thi thoảng có mưa xuân nhẹ.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Cà phê phố cổ buổi sáng</span>
+                <span class="szn-tag">Đi lễ đầu năm</span>
+                <span class="szn-tag">Dạo Hồ Gươm sớm</span>
+              </div>
+            </div>
+            <div class="szn-period szn-p-summer">
+              <div class="szn-period-head">
+                <span class="szn-period-name">☀️ Hạ</span>
+                <span class="szn-period-time">Tháng 5 – Tháng 8</span>
+                <span class="szn-period-temp">28–38°C</span>
+              </div>
+              <p class="szn-period-body">Nóng gay gắt nhất năm, có ngày lên tới 40°C, kèm mưa dông bất chợt buổi chiều. Nên tránh nắng giữa trưa.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Công viên nước</span>
+                <span class="szn-tag">Bảo tàng có điều hoà</span>
+                <span class="szn-tag">Ăn tối muộn ngoài trời</span>
+              </div>
+            </div>
+            <div class="szn-period szn-p-fall">
+              <div class="szn-period-head">
+                <span class="szn-period-name">🍂 Thu</span>
+                <span class="szn-period-time">Tháng 9 – Tháng 11</span>
+                <span class="szn-period-temp">23–28°C</span>
+              </div>
+              <p class="szn-period-body">Mùa được xem là đẹp nhất trong năm — trời trong xanh, mát mẻ, hoa sữa thơm khắp phố, lá vàng rụng.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Đạp xe quanh Hồ Tây</span>
+                <span class="szn-tag">Cốm làng Vòng</span>
+                <span class="szn-tag">Chụp ảnh phố cổ mùa lá</span>
+              </div>
+            </div>
+            <div class="szn-period szn-p-winter">
+              <div class="szn-period-head">
+                <span class="szn-period-name">❄️ Đông</span>
+                <span class="szn-period-time">Tháng 12 – Tháng 1</span>
+                <span class="szn-period-temp">10–19°C</span>
+              </div>
+              <p class="szn-period-body">Lạnh khô, có đợt rét đậm xuống dưới 10°C về đêm. Ngày ngắn, trời tối sớm khoảng 5-6 giờ chiều.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Cà phê trứng ấm nóng</span>
+                <span class="szn-tag">Lẩu cuối tuần</span>
+                <span class="szn-tag">Chợ đêm phố cổ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="szn-city szn-central">
+          <div class="szn-city-head">
+            <div>
+              <div class="szn-city-name">Đà Nẵng</div>
+              <div class="szn-city-name-en">Da Nang</div>
+            </div>
+            <div class="szn-city-region">Miền Trung<span class="szn-city-region-sub">Giao thoa Bắc-Nam</span></div>
+          </div>
+          <div class="szn-body">
+            <div class="szn-period szn-p-early">
+              <div class="szn-period-head">
+                <span class="szn-period-name">🌤️ Đầu năm</span>
+                <span class="szn-period-time">Tháng 1 – Tháng 2</span>
+                <span class="szn-period-temp">21–25°C</span>
+              </div>
+              <p class="szn-period-body">Giai đoạn giao mùa dễ chịu nhất, mát dịu, ít khách du lịch nhất năm nên giá phòng và dịch vụ mềm nhất.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Bà Nà Hills trong sương sớm</span>
+                <span class="szn-tag">Bảo tàng Điêu khắc Chăm</span>
+                <span class="szn-tag">Lễ hội chào năm mới</span>
+              </div>
+            </div>
+            <div class="szn-period szn-p-dry">
+              <div class="szn-period-head">
+                <span class="szn-period-name">☀️ Mùa khô cao điểm</span>
+                <span class="szn-period-time">Tháng 3 – Tháng 8</span>
+                <span class="szn-period-temp">24–34°C</span>
+              </div>
+              <p class="szn-period-body">Nắng đẹp, biển êm, hầu như không mưa bão — mùa du lịch biển tốt nhất trong năm. Nóng nhất vào tháng 6-7.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Tắm biển Mỹ Khê</span>
+                <span class="szn-tag">Lặn ngắm san hô Cù Lao Chàm</span>
+                <span class="szn-tag">Cầu Rồng phun lửa cuối tuần</span>
+              </div>
+            </div>
+            <div class="szn-period szn-p-storm">
+              <div class="szn-period-head">
+                <span class="szn-period-name">🌧️ Mùa mưa bão</span>
+                <span class="szn-period-time">Tháng 9 – Tháng 12</span>
+                <span class="szn-period-temp">21–28°C</span>
+              </div>
+              <p class="szn-period-body">Mưa nhiều, cao điểm bão vào tháng 10-11 — nên theo dõi dự báo trước khi ra biển. Nhiều điểm tham quan trong nhà vẫn đẹp.</p>
+              <div class="szn-period-tags">
+                <span class="szn-tag">Bảo tàng Điêu khắc Chăm</span>
+                <span class="szn-tag">Vincom / Helio Center</span>
+                <span class="szn-tag">Ẩm thực Hội An gần đó</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="travel-attr">Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a> &nbsp;·&nbsp; Lịch thời tiết theo mùa tổng hợp từ số liệu khí hậu trung bình nhiều năm — chỉ mang tính tham khảo, thời tiết thực tế có thể khác theo từng năm.</div>
   </main>
 </div>
 
@@ -405,12 +628,18 @@ function switchPillar(pillar, el){
 // Tab con trong Du lịch — hiện chỉ "Thời tiết" hoạt động, 2 tab còn lại đánh dấu "sắp có" (không
 // có onclick, xem CSS .travel-tab.soon). Hàm này viết sẵn khung để khi có tab #2/#3 chỉ cần thêm
 // đúng 1 dòng if, không phải dựng lại cơ chế chuyển tab từ đầu.
+//
+// CHỈ HIỆN 3 THÀNH PHỐ KÈO ĐANG HOẠT ĐỘNG (TP.HCM, Hà Nội, Đà Nẵng) — trước đây hiện cả 10 điểm
+// đến du lịch, nhưng lọc bớt để đỡ phải theo dõi/cập nhật CTA cho 7 thành phố Kèo chưa mở dịch vụ.
+// Lọc phía client vì Worker vẫn trả về danh sách đầy đủ; nếu muốn tối ưu quota gọi OpenWeather ở
+// tầng backend, cần sửa trực tiếp code Worker (repo riêng, không nằm trong file này).
 async function loadTravel(){
   try{
     const r = await fetchT(WORKER_BASE+'/weather/vn-cities', 10000);
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data = await r.json();
-    const cities = data.cities||[];
+    const allCities = data.cities||[];
+    const cities = allCities.filter(c=>Object.keys(KEO_SERVICE_CITIES).includes(c.name));
     if(!cities.length) throw new Error('Không có dữ liệu thành phố nào trả về');
     html('travel-grid', `<div class="travel-grid-cards">${cities.map((c,i)=>mkWeatherCard(c,i)).join('')}</div>`);
   }catch(err){
@@ -539,7 +768,7 @@ function mkWeatherCard(c, idx){
   // Header: tên thành phố + avatar + nhiệt độ khổng lồ chữ MẢNH (font-weight nhẹ) — đúng đặc
   // trưng nhận diện app Weather của Apple, phân cấp bằng cỡ chữ thay vì nhiều màu nền.
   const header = `<div class="wx-head-row">
-    <div>
+    <div class="wx-city-block">
       <div class="wx-city">${c.name}</div>
       <div class="wx-cond">${c.condition||''}</div>
     </div>
