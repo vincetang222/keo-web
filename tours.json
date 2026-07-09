@@ -1,0 +1,295 @@
+{
+  "types": {
+    "metro": "🚇 Tàu điện / Metro",
+    "bus2tang": "🚌 Xe bus 2 tầng",
+    "vespa": "🛵 Vespa / Xe máy",
+    "cyclo": "🚲 Xích lô",
+    "boat": "⛵ Du thuyền / Tàu sông",
+    "walking": "🚶 Đi bộ tự túc",
+    "cable_car": "🚡 Cáp treo",
+    "bicycle": "🚴 Xe đạp"
+  },
+  "tours": [
+    {
+      "city": "hcm",
+      "type": "metro",
+      "title": "Metro số 1 — Bến Thành đến Suối Tiên",
+      "duration": "~30 phút/chiều (14 ga)",
+      "price": "6.000–20.000đ/lượt · vé ngày 40.000đ",
+      "highlights": [
+        "Ga Bến Thành (ngầm, trung tâm Q.1)",
+        "Ga Nhà hát Thành phố — gần Phố đi bộ Nguyễn Huệ, Bưu điện, Nhà thờ Đức Bà",
+        "Ga Ba Son — gần Landmark 81, bến du thuyền Bạch Đằng",
+        "Ga Suối Tiên — Công viên Văn hoá Suối Tiên"
+      ],
+      "note": "Tuyến metro đầu tiên của TP.HCM, vận hành từ 22/12/2024. Cách di chuyển rẻ và nhanh nhất giữa trung tâm và khu Đông, đồng thời là điểm check-in mới của giới trẻ.",
+      "booking": "Mua vé trực tiếp tại ga hoặc app HCMC Metro HURC"
+    },
+    {
+      "city": "hcm",
+      "type": "bus2tang",
+      "title": "Xe bus 2 tầng Hop-On Hop-Off Sài Gòn",
+      "duration": "45–60 phút/vòng, lên xuống tự do",
+      "price": "Từ 150.000đ/chuyến · 500.000đ/24h không giới hạn",
+      "highlights": [
+        "Nhà hát Thành phố",
+        "Bến Bạch Đằng",
+        "Bitexco Skydeck",
+        "Nguyễn Huệ — UBND TP",
+        "Dinh Độc Lập",
+        "Nhà thờ Đức Bà",
+        "Chợ Bến Thành",
+        "Phố Tây Bùi Viện"
+      ],
+      "note": "Xe mui trần 2 tầng màu đỏ, có thuyết minh đa ngôn ngữ. Có thêm bản tour đêm (15h30–22h30) ngắm thành phố lên đèn.",
+      "booking": "Đặt vé tại hopon-hopoff.vn hoặc mua trực tiếp tại các trạm dừng"
+    },
+    {
+      "city": "hcm",
+      "type": "vespa",
+      "title": "Vespa cổ khám phá Sài Gòn về đêm",
+      "duration": "~4 tiếng (chiều tối)",
+      "price": "55–105 USD/người tuỳ tour",
+      "highlights": [
+        "Ngồi sau Vespa cổ, tài xế + hướng dẫn viên địa phương riêng",
+        "Ghé quán ăn đường phố, quán bar rooftop",
+        "Đi qua các con hẻm, khu chợ mà xe lớn không vào được",
+        "Kết thúc ở khu phố Tây hoặc quán nhạc sống"
+      ],
+      "note": "Do các công ty như Vespa Adventures, Saigon Vespa Tours vận hành — nổi tiếng với tour ẩm thực đêm, đánh giá rất cao trên TripAdvisor.",
+      "booking": "Đặt trước qua website công ty tour, thường đón tại khách sạn"
+    },
+    {
+      "city": "hcm",
+      "type": "boat",
+      "title": "Du thuyền sông Sài Gòn — ngắm hoàng hôn/ăn tối",
+      "duration": "~1.5–2 tiếng",
+      "price": "Từ 300.000đ (chỉ ngắm cảnh) · 699.000đ (kèm ăn tối)",
+      "highlights": [
+        "Bến Bạch Đằng",
+        "Ngắm Landmark 81, cầu Ba Son, cầu Thủ Thiêm từ mặt sông",
+        "Thành phố lên đèn hai bên bờ sông"
+      ],
+      "note": "Có thể kết hợp cùng vé xe bus 2 tầng thành combo trọn gói buổi tối.",
+      "booking": "Đặt qua các công ty du thuyền tại Bến Bạch Đằng"
+    },
+    {
+      "city": "hcm",
+      "type": "walking",
+      "title": "Lộ trình đi bộ Quận 1 tự túc (nửa ngày)",
+      "duration": "~3–4 tiếng đi bộ",
+      "price": "Miễn phí (trừ vé vào cửa từng điểm)",
+      "highlights": [
+        "Nhà thờ Đức Bà Sài Gòn",
+        "Bưu điện Trung tâm Sài Gòn",
+        "Phố sách Sài Gòn",
+        "Dinh Độc Lập",
+        "Bảo tàng Chứng tích Chiến tranh",
+        "Chợ Bến Thành"
+      ],
+      "note": "Toàn bộ nằm trong bán kính đi bộ ~1.5km ở trung tâm Q.1 — không cần đặt tour, tự đi theo thứ tự này là hợp lý nhất về khoảng cách.",
+      "booking": "Tự túc — không cần đặt trước"
+    },
+    {
+      "city": "hcm",
+      "type": "cyclo",
+      "title": "Xích lô khám phá Chợ Lớn (Chinatown)",
+      "duration": "~1.5–2 tiếng",
+      "price": "150.000–300.000đ/xe (tuỳ thương lượng)",
+      "highlights": [
+        "Chợ Bình Tây",
+        "Hội quán Ôn Lăng",
+        "Chùa Bà Thiên Hậu",
+        "Các con phố buôn bán truyền thống người Hoa"
+      ],
+      "note": "Xích lô là cách chậm rãi, đặc trưng để khám phá khu Chợ Lớn — nên thương lượng giá rõ trước khi lên xe.",
+      "booking": "Bắt trực tiếp tại khu vực Chợ Lớn hoặc qua khách sạn đặt hộ"
+    },
+    {
+      "city": "hn",
+      "type": "metro",
+      "title": "Tàu điện Cát Linh – Hà Đông",
+      "duration": "~25 phút toàn tuyến (12 ga)",
+      "price": "8.000–15.000đ/lượt · vé ngày 30.000đ",
+      "highlights": [
+        "Ga Cát Linh",
+        "Ga La Thành",
+        "Ga Thái Hà",
+        "Ga Hà Đông"
+      ],
+      "note": "Tuyến đường sắt đô thị đầu tiên của Hà Nội. Đi qua khu vực Đống Đa, Thanh Xuân, Hà Đông — phù hợp trải nghiệm hơn là tới thẳng khu phố cổ.",
+      "booking": "Mua vé tại ga hoặc thẻ vé tháng"
+    },
+    {
+      "city": "hn",
+      "type": "bus2tang",
+      "title": "Xe bus 2 tầng Hop-On Hop-Off Hà Nội",
+      "duration": "45–60 phút/vòng, lên xuống tự do",
+      "price": "Từ 300.000đ/24h",
+      "highlights": [
+        "Hồ Hoàn Kiếm — Đền Ngọc Sơn",
+        "Nhà hát Lớn Hà Nội",
+        "Văn Miếu — Quốc Tử Giám",
+        "Lăng Chủ tịch Hồ Chí Minh",
+        "Hoàng thành Thăng Long",
+        "Phố cổ Hà Nội"
+      ],
+      "note": "Cùng thương hiệu Hop On Hop Off như TP.HCM, tuyến chạy quanh khu phố cổ và các di tích trung tâm Ba Đình.",
+      "booking": "Đặt vé tại hopon-hopoff.vn hoặc các quầy gần Hồ Gươm"
+    },
+    {
+      "city": "hn",
+      "type": "vespa",
+      "title": "Vespa cổ kiểu lính khám phá Hà Nội",
+      "duration": "~4 tiếng",
+      "price": "Từ 39 USD/người",
+      "highlights": [
+        "Phố cổ và các con hẻm nhỏ",
+        "Hoàng thành Thăng Long, Văn Miếu, chùa Trấn Quốc (đi ngang)",
+        "Phố đường tàu (Hanoi Train Street)",
+        "Quán ăn địa phương, quán bia hơi"
+      ],
+      "note": "Các công ty như Hanoi Backstreet Tours, Vespa Adventures chuyên dòng Vespa quân đội cổ — tour nổi bật với trải nghiệm ẩm thực và phố đường tàu.",
+      "booking": "Đặt trước qua website công ty, đón tại khách sạn khu phố cổ"
+    },
+    {
+      "city": "hn",
+      "type": "cyclo",
+      "title": "Xích lô Phố cổ Hà Nội (36 phố phường)",
+      "duration": "~45–60 phút",
+      "price": "200.000–350.000đ/xe",
+      "highlights": [
+        "Hồ Hoàn Kiếm",
+        "Các phố nghề: Hàng Mã, Hàng Bạc, Hàng Gai...",
+        "Chợ Đồng Xuân",
+        "Ô Quan Chưởng"
+      ],
+      "note": "Trải nghiệm kinh điển nhất khi tới phố cổ Hà Nội — thong thả ngắm kiến trúc từng phố nghề.",
+      "booking": "Bắt trực tiếp quanh Hồ Gươm, nên hỏi giá rõ trước khi đi"
+    },
+    {
+      "city": "hn",
+      "type": "walking",
+      "title": "Lộ trình đi bộ Hồ Gươm — Phố cổ tự túc",
+      "duration": "~3 tiếng đi bộ",
+      "price": "Miễn phí (trừ vé vào cửa)",
+      "highlights": [
+        "Hồ Hoàn Kiếm — Tháp Rùa",
+        "Đền Ngọc Sơn — Cầu Thê Húc",
+        "Nhà thờ Lớn Hà Nội",
+        "Phố cổ (Hàng Mã, Hàng Bạc...)",
+        "Chợ Đồng Xuân"
+      ],
+      "note": "Tất cả nằm gọn trong bán kính đi bộ quanh Hồ Gươm — thứ tự này tránh việc đi qua lại nhiều lần.",
+      "booking": "Tự túc — không cần đặt trước"
+    },
+    {
+      "city": "hn",
+      "type": "bicycle",
+      "title": "Đạp xe quanh Hồ Tây",
+      "duration": "~2 tiếng (vòng hồ ~15km)",
+      "price": "Thuê xe đạp 50.000–100.000đ/ngày",
+      "highlights": [
+        "Chùa Trấn Quốc",
+        "Đường Thanh Niên",
+        "Thung lũng hoa Hồ Tây",
+        "Phủ Tây Hồ"
+      ],
+      "note": "Hồ Tây có đường ven hồ khá bằng phẳng, phù hợp đạp xe buổi sáng sớm hoặc chiều mát.",
+      "booking": "Tự túc, thuê xe đạp tại các quán quanh hồ"
+    },
+    {
+      "city": "dn",
+      "type": "boat",
+      "title": "Du thuyền sông Hàn về đêm",
+      "duration": "45–90 phút",
+      "price": "Từ 130.000đ (ngắm cảnh) · 550.000đ (kèm ăn tối)",
+      "highlights": [
+        "Cầu Rồng — xem phun lửa/nước tối T6-T7-CN lúc 21h",
+        "Cầu Sông Hàn — cầu quay duy nhất Việt Nam",
+        "Cầu Trần Thị Lý",
+        "Cầu Thuận Phước",
+        "Múa Chăm Apsara trên tàu"
+      ],
+      "note": "Đà Nẵng hiện có khoảng 11 du thuyền phục vụ tuyến này — nên đặt vé online trước, đặc biệt cuối tuần.",
+      "booking": "Đặt tại bến du thuyền số 22/34 Bạch Đằng hoặc mua online"
+    },
+    {
+      "city": "dn",
+      "type": "vespa",
+      "title": "Vespa/xe máy khám phá Đà Nẵng — Hội An",
+      "duration": "~4–5 tiếng",
+      "price": "Từ 50–90 USD/người",
+      "highlights": [
+        "Làng chài ven biển",
+        "Đồng lúa ngoại ô",
+        "Phố cổ Hội An về chiều",
+        "Ẩm thực địa phương dọc đường"
+      ],
+      "note": "Vespa Adventures có chi nhánh tại Đà Nẵng/Hội An, chuyên các tour làng quê và ẩm thực.",
+      "booking": "Đặt trước qua website công ty tour"
+    },
+    {
+      "city": "dn",
+      "type": "vespa",
+      "title": "Phượt xe máy đèo Hải Vân",
+      "duration": "~4–6 tiếng (khứ hồi)",
+      "price": "Tự lái hoặc thuê tài xế ~500.000–800.000đ",
+      "highlights": [
+        "Đèo Hải Vân — cung đường ven biển nổi tiếng nhất miền Trung",
+        "Trạm dừng chân đỉnh đèo — toàn cảnh vịnh Lăng Cô",
+        "Hầm Hải Vân (đi về có thể chọn hầm cho nhanh)"
+      ],
+      "note": "Cung đường đẹp nhưng nhiều cua gấp — nên đi xe số, tay lái vững, hoặc thuê 'easy rider' địa phương chở.",
+      "booking": "Tự lái hoặc thuê xe ôm/easy rider tại Đà Nẵng"
+    },
+    {
+      "city": "dn",
+      "type": "cable_car",
+      "title": "Cáp treo Bà Nà Hills — trọn ngày",
+      "duration": "Cả ngày (cáp treo ~20 phút/chặng)",
+      "price": "Vé vào cổng + cáp treo trọn gói ~850.000–900.000đ",
+      "highlights": [
+        "Cầu Vàng (Golden Bridge)",
+        "Làng Pháp",
+        "Chùa Linh Ứng Bà Nà",
+        "Khu vui chơi trong nhà Fantasy Park"
+      ],
+      "note": "Giữ kỷ lục tuyến cáp treo dài và có nhiều cáp trung gian nhất Việt Nam — nên đi từ sáng sớm để tránh đông và tránh mây mù buổi trưa.",
+      "booking": "Mua vé online trước hoặc tại cổng Sun World"
+    },
+    {
+      "city": "dn",
+      "type": "walking",
+      "title": "Lộ trình đi bộ bờ sông Hàn tự túc",
+      "duration": "~2–3 tiếng đi bộ",
+      "price": "Miễn phí",
+      "highlights": [
+        "Cầu Rồng",
+        "Công viên bờ Tây cầu Rồng",
+        "APEC Park",
+        "Chợ Cồn hoặc Bảo tàng Điêu khắc Chăm (gần đó)"
+      ],
+      "note": "Cung đi bộ dọc bờ sông Hàn buổi chiều mát, ngắm hoàng hôn và chờ Cầu Rồng phun lửa nếu đi vào cuối tuần.",
+      "booking": "Tự túc — không cần đặt trước"
+    },
+    {
+      "city": "dn",
+      "type": "walking",
+      "title": "Phố cổ Hội An về đêm — lồng đèn",
+      "duration": "~2–3 tiếng đi bộ (nay thuộc Đà Nẵng)",
+      "price": "Vé tham quan phố cổ ~120.000đ (gồm 1 số điểm)",
+      "highlights": [
+        "Chùa Cầu Hội An",
+        "Nhà cổ Tấn Ký / Quân Thắng",
+        "Thả đèn hoa đăng trên sông Hoài",
+        "Phố đèn lồng về đêm"
+      ],
+      "note": "Đẹp nhất vào tối 14 âm lịch hàng tháng khi phố cổ tắt đèn điện, chỉ thắp đèn lồng (Đêm phố cổ).",
+      "booking": "Tự túc — mua vé tham quan tại các quầy trong phố cổ"
+    }
+  ],
+  "version": 1,
+  "lastUpdated": "2026-07-10",
+  "note": "Giá vé mang tính tham khảo, có thể thay đổi theo thời điểm/khuyến mãi. Các tour đi bộ/xích lô/xe đạp tự túc dùng địa điểm đã xác thực trong destinations.json."
+}

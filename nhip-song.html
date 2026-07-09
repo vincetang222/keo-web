@@ -247,6 +247,21 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .dest-card-maps{font-family:var(--sans);font-size:11px;font-weight:600;color:var(--cc,#E8A22B);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);opacity:.75;transition:opacity .15s}
 .dest-card:hover .dest-card-maps{opacity:1}
 .dest-empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:rgba(245,239,230,.4);font-family:var(--sans);font-size:13px}
+
+/* ─── Tour tổng hợp ─── */
+.tour-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:800px){.tour-grid{grid-template-columns:1fr}}
+.tour-card{position:relative;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:18px;padding:20px 22px;box-shadow:0 8px 24px rgba(26,21,16,.16);overflow:hidden}
+.tour-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--tc,#E8A22B) 45%, transparent) 0%, transparent 55%);pointer-events:none}
+.tour-card-head{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.tour-card-type{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tc,#E8A22B)}
+.tour-card-title{position:relative;z-index:1;font-family:var(--serif);font-size:18px;font-weight:700;color:#F5EFE6;line-height:1.3;margin-bottom:10px}
+.tour-card-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--sans);font-size:12px;color:rgba(245,239,230,.7);margin-bottom:12px}
+.tour-card-meta b{color:#F5EFE6;font-weight:700}
+.tour-card-stops{position:relative;z-index:1;font-family:var(--sans);font-size:12.5px;color:rgba(245,239,230,.82);line-height:1.85;margin-bottom:12px;padding-left:2px}
+.tour-card-stops li{margin-bottom:2px}
+.tour-card-note{position:relative;z-index:1;font-family:var(--sans);font-size:11.5px;color:rgba(245,239,230,.55);line-height:1.6;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);margin-bottom:8px}
+.tour-card-booking{position:relative;z-index:1;font-family:var(--sans);font-size:11px;font-weight:600;color:var(--tc,#E8A22B)}
 .city-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:10.5px;font-weight:600;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(245,239,230,.45);cursor:pointer;transition:all .18s}
 .city-pill .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;transition:box-shadow .18s;background:rgba(245,239,230,.3)}
 .city-pill.on{color:#F5EFE6;background:color-mix(in srgb,var(--pc) 20%,rgba(255,255,255,.05));border-color:color-mix(in srgb,var(--pc) 45%,transparent)}
@@ -496,6 +511,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       <div class="travel-tab on" id="ttab-weather" onclick="switchTravelTab('weather',this)">🌤️ Thời tiết &amp; không khí</div>
       <div class="travel-tab" id="ttab-events" onclick="switchTravelTab('events',this)">🗓️ Sự kiện</div>
       <div class="travel-tab" id="ttab-destinations" onclick="switchTravelTab('destinations',this)">📍 Điểm đến</div>
+      <div class="travel-tab" id="ttab-tours" onclick="switchTravelTab('tours',this)">🗺️ Tour tổng hợp</div>
     </div>
 
     <div id="travel-page-weather" class="travel-page on">
@@ -725,7 +741,26 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
         <div class="ld">Đang tải điểm đến…</div>
       </div>
 
-      <div class="cal-foot-note">Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 100 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương &amp; Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.</div>
+      <div class="cal-foot-note">Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 15 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương &amp; Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.</div>
+    </div>
+
+    <div id="travel-page-tours" class="travel-page">
+      <div class="travel-intro">
+        <div class="travel-title">Tour tổng hợp — lộ trình gợi ý sẵn cho 3 thành phố</div>
+        <p class="travel-sub">Quá nhiều lựa chọn ở tab Điểm đến? Đây là các tour/lộ trình dựng sẵn — đi bộ, xích lô, Vespa, metro, xe bus 2 tầng, du thuyền... chọn 1 kiểu là đi luôn.</p>
+      </div>
+
+      <div class="dest-city-tabs" id="tourCityTabs">
+        <div class="dest-city-tab on" data-city="hcm" onclick="switchTourCity('hcm')">TP.HCM</div>
+        <div class="dest-city-tab" data-city="hn" onclick="switchTourCity('hn')">Hà Nội</div>
+        <div class="dest-city-tab" data-city="dn" onclick="switchTourCity('dn')">Đà Nẵng</div>
+      </div>
+
+      <div class="tour-grid" id="tourGrid">
+        <div class="ld">Đang tải tour…</div>
+      </div>
+
+      <div class="cal-foot-note">Giá vé mang tính tham khảo, có thể thay đổi theo thời điểm/khuyến mãi thực tế — nên kiểm tra lại trước khi đặt. Các lộ trình "đi bộ tự túc" dùng đúng những điểm đến đã kiểm chứng ở tab Điểm đến.</div>
     </div>
   </main>
 </div>
@@ -852,6 +887,7 @@ function switchTravelTab(tab, el){
   $('travel-page-'+tab).classList.add('on');
   if(tab==='events' && !eventsLoaded){ eventsLoaded=true; loadCalEvents(); }
   if(tab==='destinations' && !destLoaded){ destLoaded=true; loadDestinations(); }
+  if(tab==='tours' && !toursLoaded){ toursLoaded=true; loadTours(); }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -955,6 +991,76 @@ function renderDestinations(){
       ${p.note ? `<div class="dest-card-note">${p.note}</div>` : ''}
       <div class="dest-card-maps">Xem trên Google Maps →</div>
     </a>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TOUR TỔNG HỢP — Lộ trình dựng sẵn (đi bộ, xích lô, Vespa, metro, xe bus 2
+// tầng, du thuyền, cáp treo...) cho người dùng bị ngợp bởi quá nhiều lựa chọn
+// ở tab Điểm đến. Dịch vụ có thật (Metro số 1, Hop On Hop Off, Vespa
+// Adventures, du thuyền sông Hàn...) đã xác minh qua tìm kiếm; các lộ trình
+// "đi bộ tự túc" dùng đúng địa điểm đã kiểm chứng trong destinations.json.
+// ═══════════════════════════════════════════════════════════════════════════
+let TOUR_DATA = null;
+let toursLoaded = false;
+let toursFetchError = null;
+let tourState = { city: 'hcm' };
+
+const TOUR_TYPE_COLOR = {
+  metro:'#6FA8DC', bus2tang:'#D65F35', vespa:'#D14060', cyclo:'#E8A22B',
+  boat:'#4FA88A', walking:'#7FB069', cable_car:'#B58FE0', bicycle:'#E85D5D'
+};
+
+async function loadTours(){
+  $('tourGrid').innerHTML = '<div class="ld" style="grid-column:1/-1;padding:24px 0">Đang tải tour…</div>';
+  try{
+    const r = await fetchT('/tours.json', 8000);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    TOUR_DATA = await r.json();
+    toursFetchError = null;
+  }catch(err){
+    console.warn('Lỗi tải tours.json:', err.message);
+    TOUR_DATA = null;
+    toursFetchError = err.message;
+  }
+  renderTours();
+}
+
+function switchTourCity(city){
+  tourState.city = city;
+  document.querySelectorAll('#tourCityTabs .dest-city-tab').forEach(t=>t.classList.toggle('on', t.dataset.city===city));
+  renderTours();
+}
+
+function renderTours(){
+  const grid = $('tourGrid');
+  if(toursFetchError){
+    grid.innerHTML = `<div class="dest-empty">⚠️ Không tải được dữ liệu tour lúc này (${toursFetchError}). Thử tải lại trang sau ít phút.</div>`;
+    return;
+  }
+  if(!TOUR_DATA){ grid.innerHTML = '<div class="dest-empty">Không có dữ liệu.</div>'; return; }
+
+  const tours = TOUR_DATA.tours.filter(t => t.city === tourState.city);
+  if(tours.length === 0){
+    grid.innerHTML = '<div class="dest-empty">Chưa có tour cho thành phố này.</div>';
+    return;
+  }
+
+  grid.innerHTML = tours.map(t => {
+    const color = TOUR_TYPE_COLOR[t.type] || '#E8A22B';
+    const typeLabel = TOUR_DATA.types[t.type] || '';
+    const stopsHtml = t.highlights.map(h => `<li>${h}</li>`).join('');
+    return `<div class="tour-card" style="--tc:${color}">
+      <div class="tour-card-head"><div class="tour-card-type">${typeLabel}</div></div>
+      <div class="tour-card-title">${t.title}</div>
+      <div class="tour-card-meta">
+        <span>⏱ <b>${t.duration}</b></span>
+        <span>💰 <b>${t.price}</b></span>
+      </div>
+      <ul class="tour-card-stops">${stopsHtml}</ul>
+      <div class="tour-card-note">${t.note}</div>
+      <div class="tour-card-booking">📌 ${t.booking}</div>
+    </div>`;
   }).join('');
 }
 
