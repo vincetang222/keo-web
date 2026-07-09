@@ -892,6 +892,15 @@
       "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
     },
     {
+      "start": "2026-07-18",
+      "end": "2026-07-18",
+      "city": "hcm",
+      "type": "Lễ hội",
+      "title": "Lễ hội Ẩm thực Ấn Độ tại Vũng Tàu",
+      "venue": "Vũng Tàu (TP.HCM sau sáp nhập)",
+      "desc": "Lễ hội ẩm thực Ấn Độ. Vũng Tàu nay thuộc TP.HCM sau sáp nhập hành chính 1/7/2025 (trước đây là tỉnh Bà Rịa - Vũng Tàu)."
+    },
+    {
       "start": "2026-07-19",
       "end": "2026-07-19",
       "city": "dn",
@@ -1034,6 +1043,15 @@
       "title": "Chào Show",
       "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
       "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. 19h-21h (nghỉ Thứ Hai hàng tuần)."
+    },
+    {
+      "start": "2026-07-24",
+      "end": "2026-07-24",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "The Grand Ho Tram: Luminous",
+      "venue": "Hồ Tràm (TP.HCM sau sáp nhập)",
+      "desc": "Show diễn tại The Grand Ho Tram. Hồ Tràm nay thuộc TP.HCM sau sáp nhập hành chính 1/7/2025 (trước đây là tỉnh Bà Rịa - Vũng Tàu)."
     },
     {
       "start": "2026-07-25",
@@ -2449,6 +2467,15 @@
     },
     {
       "start": "2026-12-04",
+      "end": "2026-12-04",
+      "city": "dn",
+      "type": "Kỷ niệm",
+      "title": "Kỷ niệm 27 năm Hội An di sản thế giới",
+      "venue": "Phố cổ Hội An (Đà Nẵng sau sáp nhập)",
+      "desc": "Sự kiện kỷ niệm Hội An được UNESCO công nhận di sản văn hoá thế giới. Hội An nay thuộc Đà Nẵng sau sáp nhập hành chính 1/7/2025 (trước đây là tỉnh Quảng Nam)."
+    },
+    {
+      "start": "2026-12-04",
       "end": "2026-12-12",
       "city": "hcm",
       "title": "Tuần lễ Du lịch TP.HCM",
@@ -2865,6 +2892,6 @@
     }
   ],
   "lastUpdated": "2026-07-09",
-  "version": 10,
+  "version": 11,
   "_comment": "Dữ liệu sự kiện cho Lịch sự kiện trong nhip-song.html (tab Du lịch > Sự kiện). city: 'holiday' | 'hcm' | 'hn' | 'dn'. start/end dạng YYYY-MM-DD, sự kiện dài ngày mark hết các ngày trong khoảng."
 }

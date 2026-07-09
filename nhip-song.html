@@ -224,6 +224,27 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .cal-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0F0B0D}
 
 .filter-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+
+/* ─── Điểm đến ─── */
+.dest-city-tabs{display:flex;gap:8px;margin-bottom:14px}
+.dest-city-tab{font-family:var(--sans);font-size:13px;font-weight:700;padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(245,239,230,.6);cursor:pointer;transition:all .15s}
+.dest-city-tab:hover{color:var(--ink);border-color:rgba(255,255,255,.2)}
+.dest-city-tab.on{background:linear-gradient(135deg,#E8A22B,#D65F35);border-color:transparent;color:#1A1006}
+.dest-cat-filter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.dest-cat-pill{font-family:var(--sans);font-size:11.5px;font-weight:600;padding:6px 13px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(245,239,230,.55);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.dest-cat-pill:hover{color:var(--ink)}
+.dest-cat-pill.on{background:var(--pc,#E8A22B);border-color:transparent;color:#1A1006;font-weight:700}
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.dest-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.dest-grid{grid-template-columns:1fr}}
+.dest-card{position:relative;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:16px;padding:16px 18px;border-left:3px solid var(--cc,#E8A22B);box-shadow:0 6px 16px rgba(26,21,16,.14);transition:transform .15s}
+.dest-card:hover{transform:translateY(-2px)}
+.dest-card-cat{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--cc,#E8A22B);margin-bottom:6px}
+.dest-card-name{font-family:var(--serif);font-size:15.5px;font-weight:700;color:#F5EFE6;line-height:1.35;margin-bottom:6px}
+.dest-card-addr{font-family:var(--sans);font-size:11.5px;color:rgba(245,239,230,.55);line-height:1.5;margin-bottom:6px}
+.dest-card-rating{font-family:var(--sans);font-size:12px;color:rgba(245,239,230,.75);display:flex;align-items:center;gap:4px}
+.dest-card-note{font-family:var(--sans);font-size:10.5px;color:rgba(214,95,53,.85);margin-top:8px;font-style:italic;line-height:1.5}
+.dest-empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:rgba(245,239,230,.4);font-family:var(--sans);font-size:13px}
 .city-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:10.5px;font-weight:600;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(245,239,230,.45);cursor:pointer;transition:all .18s}
 .city-pill .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;transition:box-shadow .18s;background:rgba(245,239,230,.3)}
 .city-pill.on{color:#F5EFE6;background:color-mix(in srgb,var(--pc) 20%,rgba(255,255,255,.05));border-color:color-mix(in srgb,var(--pc) 45%,transparent)}
@@ -472,7 +493,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     <div class="travel-tabs">
       <div class="travel-tab on" id="ttab-weather" onclick="switchTravelTab('weather',this)">🌤️ Thời tiết &amp; không khí</div>
       <div class="travel-tab" id="ttab-events" onclick="switchTravelTab('events',this)">🗓️ Sự kiện</div>
-      <div class="travel-tab soon">📍 Điểm đến <span class="soon-tag">SẮP CÓ</span></div>
+      <div class="travel-tab" id="ttab-destinations" onclick="switchTravelTab('destinations',this)">📍 Điểm đến</div>
     </div>
 
     <div id="travel-page-weather" class="travel-page on">
@@ -683,6 +704,27 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       <div class="cal-foot-note">Ngày lễ Việt Nam &amp; quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.</div>
       <div class="cal-tip" id="calTip"></div>
     </div>
+
+    <div id="travel-page-destinations" class="travel-page">
+      <div class="travel-intro">
+        <div class="travel-title">Điểm đến — khám phá 3 thành phố Kèo</div>
+        <p class="travel-sub">Chùa, nhà thờ, thắng cảnh, di tích, công viên... chọn thành phố và thể loại để tìm nơi hẹn hò lý tưởng.</p>
+      </div>
+
+      <div class="dest-city-tabs" id="destCityTabs">
+        <div class="dest-city-tab on" data-city="hcm" onclick="switchDestCity('hcm')">TP.HCM</div>
+        <div class="dest-city-tab" data-city="hn" onclick="switchDestCity('hn')">Hà Nội</div>
+        <div class="dest-city-tab" data-city="dn" onclick="switchDestCity('dn')">Đà Nẵng</div>
+      </div>
+
+      <div class="dest-cat-filter" id="destCatFilter"></div>
+
+      <div class="dest-grid" id="destGrid">
+        <div class="ld">Đang tải điểm đến…</div>
+      </div>
+
+      <div class="cal-foot-note">Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 100 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương &amp; Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.</div>
+    </div>
   </main>
 </div>
 
@@ -807,6 +849,107 @@ function switchTravelTab(tab, el){
   document.querySelectorAll('.travel-page').forEach(p=>p.classList.remove('on'));
   $('travel-page-'+tab).classList.add('on');
   if(tab==='events' && !eventsLoaded){ eventsLoaded=true; loadCalEvents(); }
+  if(tab==='destinations' && !destLoaded){ destLoaded=true; loadDestinations(); }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ĐIỂM ĐẾN — Danh mục địa điểm 3 thành phố Kèo (chùa, nhà thờ, thắng cảnh, di
+// tích, bảo tàng, công viên, kiến trúc, khu vui chơi, phố/chợ). Dữ liệu Google
+// Places, lọc rating>=4.0 & đánh giá>=100 (trừ vài biểu tượng không có rating).
+// TP.HCM gồm Bình Dương + Bà Rịa-Vũng Tàu, Đà Nẵng gồm Quảng Nam/Hội An — theo
+// địa giới hành chính mới từ 1/7/2025.
+// ═══════════════════════════════════════════════════════════════════════════
+let DEST_DATA = null;
+let destLoaded = false;
+let destFetchError = null;
+let destState = { city: 'hcm', activeCats: new Set() }; // activeCats rỗng = hiện tất cả
+
+const DEST_CAT_COLOR = {
+  chua:'#E8A22B', nhatho:'#6FA8DC', vuichoi:'#D14060', thangcanh:'#7FB069',
+  ditich:'#B08463', baotang:'#B58FE0', congvien:'#4FA88A', kientruc:'#D65F35', pho:'#E85D5D'
+};
+const DEST_CAT_ICON = {
+  chua:'🛕', nhatho:'⛪', vuichoi:'🎢', thangcanh:'🏞️', ditich:'🏛️',
+  baotang:'🖼️', congvien:'🌳', kientruc:'🏙️', pho:'🛍️'
+};
+
+async function loadDestinations(){
+  $('destGrid').innerHTML = '<div class="ld" style="grid-column:1/-1;padding:24px 0">Đang tải điểm đến…</div>';
+  try{
+    const r = await fetchT('/destinations.json', 8000);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    DEST_DATA = await r.json();
+    destFetchError = null;
+  }catch(err){
+    console.warn('Lỗi tải destinations.json:', err.message);
+    DEST_DATA = null;
+    destFetchError = err.message;
+  }
+  renderDestCatFilter();
+  renderDestinations();
+}
+
+function renderDestCatFilter(){
+  if(!DEST_DATA){ $('destCatFilter').innerHTML=''; return; }
+  const cats = DEST_DATA.categories;
+  const html = ['all', ...Object.keys(cats)].map(k=>{
+    const on = k==='all' ? destState.activeCats.size===0 : destState.activeCats.has(k);
+    const label = k==='all' ? 'Tất cả' : cats[k];
+    const icon = k==='all' ? '✨' : (DEST_CAT_ICON[k]||'');
+    const color = k==='all' ? '#E8A22B' : (DEST_CAT_COLOR[k]||'#E8A22B');
+    return `<div class="dest-cat-pill ${on?'on':''}" style="--pc:${color}" onclick="toggleDestCat('${k}')">${icon} ${label}</div>`;
+  }).join('');
+  $('destCatFilter').innerHTML = html;
+}
+
+function toggleDestCat(k){
+  if(k==='all'){ destState.activeCats.clear(); }
+  else{
+    if(destState.activeCats.has(k)) destState.activeCats.delete(k);
+    else destState.activeCats.add(k);
+  }
+  renderDestCatFilter();
+  renderDestinations();
+}
+
+function switchDestCity(city){
+  destState.city = city;
+  document.querySelectorAll('.dest-city-tab').forEach(t=>t.classList.toggle('on', t.dataset.city===city));
+  renderDestinations();
+}
+
+function renderDestinations(){
+  const grid = $('destGrid');
+  if(destFetchError){
+    grid.innerHTML = `<div class="dest-empty">⚠️ Không tải được dữ liệu điểm đến lúc này (${destFetchError}). Thử tải lại trang sau ít phút.</div>`;
+    return;
+  }
+  if(!DEST_DATA){ grid.innerHTML = '<div class="dest-empty">Không có dữ liệu.</div>'; return; }
+
+  let places = DEST_DATA.places.filter(p => p.city === destState.city);
+  if(destState.activeCats.size > 0){
+    places = places.filter(p => destState.activeCats.has(p.category));
+  }
+  places.sort((a,b) => (b.rating||0) - (a.rating||0));
+
+  if(places.length === 0){
+    grid.innerHTML = '<div class="dest-empty">🔍 Không có điểm đến nào khớp bộ lọc hiện tại.</div>';
+    return;
+  }
+
+  grid.innerHTML = places.map(p => {
+    const color = DEST_CAT_COLOR[p.category] || '#E8A22B';
+    const icon = DEST_CAT_ICON[p.category] || '';
+    const catLabel = DEST_DATA.categories[p.category] || '';
+    const ratingHtml = p.rating ? `⭐ ${p.rating.toFixed(1)}${p.rating_count ? ` <span style="opacity:.6">(${p.rating_count.toLocaleString('vi-VN')} đánh giá)</span>` : ''}` : '';
+    return `<div class="dest-card" style="--cc:${color}">
+      <div class="dest-card-cat">${icon} ${catLabel}</div>
+      <div class="dest-card-name">${p.name}</div>
+      <div class="dest-card-addr">📍 ${p.address}</div>
+      ${ratingHtml ? `<div class="dest-card-rating">${ratingHtml}</div>` : ''}
+      ${p.note ? `<div class="dest-card-note">${p.note}</div>` : ''}
+    </div>`;
+  }).join('');
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
