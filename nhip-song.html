@@ -29,6 +29,7 @@
   --gn:#00A047;--rd:#D14060;--sky:#3E7C99;
   --illo-ink:color-mix(in srgb, var(--a2) 58%, #000 38%);
   --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --c-holiday:#D65F35;--c-hcm:#E8A22B;--c-hn:#6FA8DC;--c-dn:#B58FE0;--c-quiet:#6B5E56;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -158,6 +159,87 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 
 .travel-attr{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:22px 0 6px}
 .travel-attr a{color:var(--a);text-decoration:none}
+
+/* Nội dung từng tab con trong Du lịch — chỉ 1 hiện tại 1 thời điểm */
+.travel-page{display:none}
+.travel-page.on{display:block}
+
+/* ─── LỊCH SỰ KIỆN — dark card thống nhất, beacon phát sáng cho ngày có sự kiện ─────────── */
+.cal-wrap-outer{max-width:640px;margin:0 auto}
+.cal-card{position:relative;background:linear-gradient(165deg,#26191F 0%,#17111A 55%,#130F14 100%);border-radius:24px;padding:18px 18px 6px;box-shadow:0 18px 42px rgba(26,21,16,.28),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden;isolation:isolate}
+.cal-card::before{content:'';position:absolute;top:-35%;right:-20%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--mood,var(--c-quiet)) 42%,transparent) 0%,transparent 65%);filter:blur(28px);pointer-events:none;z-index:0;transition:background .6s ease,opacity .6s ease}
+.cal-card::after{content:'';position:absolute;bottom:10%;left:-18%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--mood,var(--c-quiet)) 26%,transparent) 0%,transparent 65%);filter:blur(32px);pointer-events:none;z-index:0;transition:background .6s ease,opacity .6s ease}
+.cal-card.quiet::before,.cal-card.quiet::after{opacity:.4}
+
+.year-switch{position:relative;z-index:2;display:inline-flex;padding:3px;border-radius:100px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08);margin-bottom:14px}
+.year-opt{position:relative;z-index:1;font-family:var(--sans);font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;color:rgba(245,239,230,.5);cursor:pointer;transition:color .25s}
+.year-opt.on{color:#1A1006}
+.year-slider{position:absolute;top:3px;bottom:3px;border-radius:100px;background:var(--grad);z-index:0;transition:left .3s cubic-bezier(.2,.8,.2,1),width .3s;box-shadow:0 3px 10px rgba(214,95,53,.35)}
+
+.cal-hero{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:12px}
+.cal-nav-btn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#F5EFE6;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0}
+.cal-nav-btn:hover{background:rgba(255,255,255,.15);transform:scale(1.08)}
+.cal-hero-center{text-align:center;cursor:pointer;padding:2px 10px;border-radius:12px;transition:background .18s;flex:1;min-width:0}
+.cal-hero-center:hover{background:rgba(255,255,255,.04)}
+.cal-month-name{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.05;color:#F5EFE6;letter-spacing:-.01em}
+.cal-month-name .yr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
+.cal-month-stat{font-family:var(--sans);font-size:10.5px;color:rgba(245,239,230,.5);margin-top:3px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-month-stat b{color:var(--mood,var(--gold));font-weight:700}
+
+.cal-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-wd{font-family:var(--sans);font-size:9.5px;font-weight:700;color:rgba(245,239,230,.32);text-align:center;padding:2px 0 6px;text-transform:uppercase;letter-spacing:.03em}
+.cal-day{aspect-ratio:1/0.86;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:11px;cursor:pointer;position:relative;transition:transform .15s cubic-bezier(.3,1.5,.5,1),background .15s;gap:3px;--cell-c:var(--c-quiet)}
+.cal-day.pad{cursor:default}
+.cal-day:not(.pad):hover{transform:translateY(-1px) scale(1.06);z-index:5}
+.cal-day-n{font-family:var(--sans);font-size:12.5px;font-weight:600;color:rgba(245,239,230,.78);position:relative;z-index:1}
+.cal-day.pad .cal-day-n{color:rgba(245,239,230,.1)}
+.cal-day.today:not(.sel){box-shadow:inset 0 0 0 1.5px var(--gold)}
+.cal-day.today:not(.sel) .cal-day-n{color:var(--gold);font-weight:700}
+.cal-day.sel{background:var(--grad);box-shadow:0 5px 15px rgba(214,95,53,.4)}
+.cal-day.sel .cal-day-n{color:#fff;font-weight:700}
+.cal-day.sel .beacon,.cal-day.sel .dot-row{opacity:0}
+.cal-day.span-mid{border-radius:4px}
+.cal-day.span-start{border-radius:11px 4px 4px 11px}
+.cal-day.span-end{border-radius:4px 11px 11px 4px}
+
+.cal-day.has-event:not(.sel){background:color-mix(in srgb,var(--cell-c) 14%,transparent)}
+.cal-day.has-event:not(.sel):hover{background:color-mix(in srgb,var(--cell-c) 24%,transparent)}
+.beacon{position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--cell-c);box-shadow:0 0 8px 1.5px var(--cell-c),0 0 2px var(--cell-c);animation:calPulse 2.4s ease-in-out infinite}
+@keyframes calPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.75)}}
+.dot-row{position:absolute;bottom:6px;display:flex;gap:2.2px}
+.dot-row span{width:3.8px;height:3.8px;border-radius:50%;box-shadow:0 0 4px currentColor;flex-shrink:0}
+
+.cal-tip{position:fixed;z-index:50;background:#0F0B0D;color:#F5EFE6;font-family:var(--sans);font-size:11px;font-weight:600;padding:7px 12px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.35);pointer-events:none;opacity:0;transition:opacity .15s,transform .15s;transform:translate(-50%,4px);border:1px solid rgba(255,255,255,.1);max-width:240px;white-space:normal;text-align:center}
+.cal-tip.show{opacity:1;transform:translate(-50%,0)}
+.cal-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0F0B0D}
+
+.filter-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+.city-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:10.5px;font-weight:600;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(245,239,230,.45);cursor:pointer;transition:all .18s}
+.city-pill .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;transition:box-shadow .18s;background:rgba(245,239,230,.3)}
+.city-pill.on{color:#F5EFE6;background:color-mix(in srgb,var(--pc) 20%,rgba(255,255,255,.05));border-color:color-mix(in srgb,var(--pc) 45%,transparent)}
+.city-pill.on .dot{background:var(--pc);box-shadow:0 0 6px var(--pc)}
+.city-pill:hover{border-color:color-mix(in srgb,var(--pc) 60%,transparent)}
+
+.ev-zone{position:relative;z-index:2;margin-top:8px;padding:14px 0 16px}
+.ev-panel-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:6px}
+.ev-panel-title{font-family:var(--serif);font-size:15px;font-weight:700;color:#F5EFE6}
+.ev-panel-back{font-family:var(--sans);font-size:10.5px;color:var(--gold);cursor:pointer;font-weight:700;padding:5px 11px;border-radius:100px;background:rgba(232,162,43,.12);transition:background .15s}
+.ev-panel-back:hover{background:rgba(232,162,43,.22)}
+.ev-list{display:flex;flex-direction:column;gap:8px;animation:calFadeUp .3s ease}
+@keyframes calFadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.ev-item{display:flex;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06);border-left:3px solid var(--ev-c,var(--gold));transition:transform .15s,background .15s}
+.ev-item:hover{transform:translateX(2px);background:rgba(255,255,255,.075)}
+.ev-item-date{font-family:var(--serif);font-weight:700;color:var(--ev-c,var(--gold));line-height:1.15;flex-shrink:0;width:38px;text-align:center;padding-top:2px;font-size:19px}
+.ev-item-date.range{font-size:12px;padding-top:4px}
+.ev-item-body{flex:1;min-width:0}
+.ev-item-title{font-family:var(--sans);font-size:13px;font-weight:700;color:#F5EFE6;margin-bottom:4px}
+.ev-item-meta{display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap}
+.ev-item-city{font-family:var(--sans);font-size:9px;font-weight:700;color:#1A1006;background:var(--ev-c,var(--gold));padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.02em}
+.ev-item-type{font-family:var(--sans);font-size:10px;color:rgba(245,239,230,.4);font-weight:500}
+.ev-item-desc{font-family:var(--sans);font-size:12px;line-height:1.6;color:rgba(245,239,230,.65)}
+.ev-empty{text-align:center;padding:22px 10px;font-family:var(--sans);font-size:12px;color:rgba(245,239,230,.4);animation:calFadeUp .3s ease}
+.ev-empty-icon{font-size:26px;margin-bottom:8px;opacity:.35}
+.cal-foot-note{text-align:center;font-family:var(--sans);font-size:10.5px;color:var(--i3);padding:16px 0 6px;line-height:1.6}
 
 /* ─── LỊCH THỜI TIẾT THEO MÙA — 3 thành phố, mỗi thành phố có bảng màu riêng theo miền ────── */
 .szn-wrap{margin-top:44px;position:relative}
@@ -356,10 +438,12 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 <div id="pillar-travel" class="pillar-panel">
   <main>
     <div class="travel-tabs">
-      <div class="travel-tab on">🌤️ Thời tiết &amp; không khí</div>
-      <div class="travel-tab soon">🎪 Sự kiện <span class="soon-tag">CHƯA CÓ NGUỒN DỮ LIỆU</span></div>
+      <div class="travel-tab on" id="ttab-weather" onclick="switchTravelTab('weather',this)">🌤️ Thời tiết &amp; không khí</div>
+      <div class="travel-tab" id="ttab-events" onclick="switchTravelTab('events',this)">🗓️ Sự kiện</div>
       <div class="travel-tab soon">📍 Điểm đến <span class="soon-tag">SẮP CÓ</span></div>
     </div>
+
+    <div id="travel-page-weather" class="travel-page on">
     <div class="travel-intro">
       <div class="travel-title">Thời tiết &amp; chất lượng không khí — 3 thành phố Kèo đang hoạt động</div>
       <p class="travel-sub">Chủ đề để bắt đầu trò chuyện: "Dạo này thời tiết ở Sài Gòn / Hà Nội thế nào nhỉ?"</p>
@@ -532,6 +616,39 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     </div>
 
     <div class="travel-attr">Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a> &nbsp;·&nbsp; Lịch thời tiết theo mùa tổng hợp từ số liệu khí hậu trung bình nhiều năm — chỉ mang tính tham khảo, thời tiết thực tế có thể khác theo từng năm.</div>
+    </div>
+
+    <div id="travel-page-events" class="travel-page">
+      <div class="travel-intro">
+        <div class="travel-title">Lịch sự kiện — ngày lễ &amp; lễ hội 3 thành phố</div>
+        <p class="travel-sub">Click 1 ngày để xem sự kiện hôm đó — click lại vào tên tháng để xem cả tháng.</p>
+      </div>
+
+      <div class="cal-wrap-outer">
+        <div class="cal-card" id="calCard">
+          <div class="year-switch" id="yearSwitch">
+            <div class="year-slider" id="yearSlider"></div>
+            <div class="year-opt" data-year="2026">2026</div>
+            <div class="year-opt" data-year="2027">2027</div>
+          </div>
+
+          <div class="cal-hero">
+            <div class="cal-nav-btn" id="calPrevBtn">‹</div>
+            <div class="cal-hero-center" id="calMonthLabel"></div>
+            <div class="cal-nav-btn" id="calNextBtn">›</div>
+          </div>
+
+          <div class="cal-grid" id="calGrid"></div>
+
+          <div class="filter-row" id="calFilterRow"></div>
+
+          <div class="ev-zone" id="calEvZone"></div>
+        </div>
+      </div>
+
+      <div class="cal-foot-note">Ngày lễ Việt Nam &amp; quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.</div>
+      <div class="cal-tip" id="calTip"></div>
+    </div>
   </main>
 </div>
 
@@ -646,6 +763,331 @@ async function loadTravel(){
     console.warn('Lỗi tải thời tiết:', err.message);
     html('travel-grid', `<div class="err">Không tải được dữ liệu thời tiết lúc này (${err.message}). Thử tải lại trang sau ít phút.</div>`);
   }
+}
+
+// ─── TAB CON "SỰ KIỆN" trong Du lịch ────────────────────────────────────────
+let eventsLoaded = false;
+function switchTravelTab(tab, el){
+  document.querySelectorAll('.travel-tab').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.travel-page').forEach(p=>p.classList.remove('on'));
+  $('travel-page-'+tab).classList.add('on');
+  if(tab==='events' && !eventsLoaded){ eventsLoaded=true; renderCal(); }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LỊCH SỰ KIỆN — Ngày lễ (Việt Nam + quốc tế áp dụng tại VN) + sự kiện riêng
+// của 3 thành phố Kèo. Tổng hợp từ kế hoạch chính thức UBND/Sở VHTT các thành
+// phố và nguồn công khai (07/2026). KHÔNG bịa ngày cho 2027 — chỉ những mốc
+// tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) mới có.
+// start/end: sự kiện dài ngày mark ĐỦ mọi ngày trong khoảng, không chỉ ngày đầu.
+// city: 'holiday' | 'hcm' | 'hn' | 'dn'
+// ═══════════════════════════════════════════════════════════════════════════
+const CAL_EVENTS = [
+  // ─────────────────────── NGÀY LỄ 2026 (Việt Nam + quốc tế tại VN) ───────────────────────
+  {start:'2026-01-01', end:'2026-01-01', city:'holiday', title:'Tết Dương lịch', type:'Lễ Việt Nam', desc:'Ngày nghỉ lễ đầu năm dương lịch, nghỉ 1 ngày hưởng nguyên lương.'},
+  {start:'2026-02-14', end:'2026-02-14', city:'holiday', title:'Lễ Tình nhân (Valentine)', type:'Lễ quốc tế', desc:'Trùng ngay ngày đầu kỳ nghỉ Tết năm nay — được giới trẻ Việt Nam đón nhận rộng rãi.'},
+  {start:'2026-02-14', end:'2026-02-22', city:'holiday', title:'Kỳ nghỉ Tết Nguyên Đán Bính Ngọ', type:'Lễ Việt Nam', desc:'9 ngày nghỉ liên tục. Mùng 1 Tết chính thức rơi vào 17/2 — thời khắc quan trọng nhất trong năm.'},
+  {start:'2026-02-27', end:'2026-02-27', city:'holiday', title:'Ngày Thầy thuốc Việt Nam', type:'Lễ Việt Nam', desc:'Tri ân đội ngũ y bác sĩ trên cả nước.'},
+  {start:'2026-03-03', end:'2026-03-03', city:'holiday', title:'Tết Nguyên Tiêu (Rằm tháng Giêng)', type:'Lễ Việt Nam', desc:'"Cúng cả năm không bằng Rằm tháng Giêng" — nhiều người đi chùa, cúng sao giải hạn đầu năm.'},
+  {start:'2026-03-08', end:'2026-03-08', city:'holiday', title:'Quốc tế Phụ nữ', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế được tổ chức rộng rãi tại Việt Nam — tặng hoa, quà cho phụ nữ.'},
+  {start:'2026-03-26', end:'2026-03-26', city:'holiday', title:'Thành lập Đoàn TNCS Hồ Chí Minh', type:'Lễ Việt Nam', desc:'Kỷ niệm ngày thành lập Đoàn Thanh niên Cộng sản Hồ Chí Minh.'},
+  {start:'2026-04-01', end:'2026-04-01', city:'holiday', title:'Cá tháng Tư', type:'Lễ quốc tế', desc:'Ngày nói dối vui vẻ, phổ biến trong giới trẻ và trên mạng xã hội.'},
+  {start:'2026-04-19', end:'2026-04-19', city:'holiday', title:'Tết Hàn Thực', type:'Lễ Việt Nam', desc:'Mùng 3/3 âm lịch — tục lệ làm và ăn bánh trôi, bánh chay.'},
+  {start:'2026-04-26', end:'2026-04-27', city:'holiday', title:'Giỗ Tổ Hùng Vương', type:'Lễ Việt Nam', desc:'Chính lễ 10/3 âm lịch (26/4, Chủ nhật), nghỉ bù sang thứ Hai 27/4.'},
+  {start:'2026-04-30', end:'2026-05-03', city:'holiday', title:'Giải phóng miền Nam & Quốc tế Lao động', type:'Lễ Việt Nam', desc:'Kỳ nghỉ 4 ngày liên tục — 30/4, 1/5 là 2 ngày lễ chính thức, nối liền cuối tuần 2-3/5.'},
+  {start:'2026-05-07', end:'2026-05-07', city:'holiday', title:'Chiến thắng Điện Biên Phủ', type:'Lễ Việt Nam', desc:'Kỷ niệm chiến thắng lịch sử Điện Biên Phủ (7/5/1954).'},
+  {start:'2026-05-19', end:'2026-05-19', city:'holiday', title:'Sinh nhật Chủ tịch Hồ Chí Minh', type:'Lễ Việt Nam', desc:'Kỷ niệm ngày sinh Chủ tịch Hồ Chí Minh (19/5/1890).'},
+  {start:'2026-05-31', end:'2026-05-31', city:'holiday', title:'Lễ Phật Đản', type:'Lễ Việt Nam', desc:'Rằm tháng 4 âm lịch — ngày sinh Đức Phật, Phật tử khắp cả nước tổ chức lễ, thả hoa đăng.'},
+  {start:'2026-06-01', end:'2026-06-01', city:'holiday', title:'Quốc tế Thiếu nhi', type:'Lễ quốc tế', desc:'Ngày dành cho trẻ em — nhiều gia đình tổ chức hoạt động vui chơi.'},
+  {start:'2026-06-19', end:'2026-06-19', city:'holiday', title:'Tết Đoan Ngọ', type:'Lễ Việt Nam', desc:'Mùng 5/5 âm lịch — tục "diệt sâu bọ", ăn rượu nếp, hoa quả đầu mùa.'},
+  {start:'2026-06-21', end:'2026-06-21', city:'holiday', title:'Ngày Báo chí Cách mạng Việt Nam', type:'Lễ Việt Nam', desc:'Tôn vinh những người làm báo trên cả nước.'},
+  {start:'2026-06-28', end:'2026-06-28', city:'holiday', title:'Ngày Gia đình Việt Nam', type:'Lễ Việt Nam', desc:'Đề cao giá trị gia đình trong đời sống người Việt.'},
+  {start:'2026-07-27', end:'2026-07-27', city:'holiday', title:'Ngày Thương binh Liệt sĩ', type:'Lễ Việt Nam', desc:'Ngày tưởng niệm, tri ân — thắp nến tại các nghĩa trang liệt sĩ trên cả nước.'},
+  {start:'2026-08-27', end:'2026-08-27', city:'holiday', title:'Lễ Vu Lan', type:'Lễ Việt Nam', desc:'Rằm tháng 7 âm lịch — lễ báo hiếu cha mẹ, một trong những ngày lễ Phật giáo quan trọng nhất.'},
+  {start:'2026-08-29', end:'2026-09-02', city:'holiday', title:'Quốc khánh', type:'Lễ Việt Nam', desc:'Kỳ nghỉ 5 ngày liên tục, ngày lễ chính thức 2/9 nối liền cuối tuần liền trước.'},
+  {start:'2026-09-25', end:'2026-09-25', city:'holiday', title:'Tết Trung Thu', type:'Lễ Việt Nam', desc:'Rằm tháng 8 âm lịch — Tết Đoàn viên, rước đèn, phá cỗ, dành cho thiếu nhi.'},
+  {start:'2026-10-20', end:'2026-10-20', city:'holiday', title:'Ngày Phụ nữ Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ riêng của Việt Nam (không phải ngày quốc tế), kỷ niệm thành lập Hội Liên hiệp Phụ nữ VN.'},
+  {start:'2026-10-31', end:'2026-10-31', city:'holiday', title:'Halloween', type:'Lễ quốc tế', desc:'Không phải lễ truyền thống nhưng ngày càng phổ biến ở quán bar, cà phê, khu vui chơi.'},
+  {start:'2026-11-20', end:'2026-11-20', city:'holiday', title:'Ngày Nhà giáo Việt Nam', type:'Lễ Việt Nam', desc:'Ngày tri ân thầy cô — một trong những ngày lễ được hưởng ứng rộng rãi nhất trong năm.'},
+  {start:'2026-11-24', end:'2026-11-24', city:'holiday', title:'Ngày Văn hoá Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ MỚI, lần đầu tổ chức toàn quốc — Quốc hội thông qua 24/4/2026, hiệu lực từ 1/7/2026.'},
+  {start:'2026-12-24', end:'2026-12-24', city:'holiday', title:'Giáng sinh', type:'Lễ quốc tế', desc:'Không phải quốc lễ nhưng được đón mừng rộng khắp các thành phố lớn, đặc biệt đêm 24/12.'},
+  {start:'2026-12-31', end:'2026-12-31', city:'holiday', title:'Đêm giao thừa dương lịch', type:'Lễ quốc tế', desc:'Countdown chào năm mới — phố đi bộ, quảng trường các thành phố lớn đều có sự kiện đếm ngược, bắn pháo hoa.'},
+
+  // ─────────────────────── SỰ KIỆN TP.HCM 2026 ───────────────────────
+  {start:'2026-02-15', end:'2026-02-22', city:'hcm', title:'Đường hoa Nguyễn Huệ & Đường sách Tết', type:'Lễ hội', desc:'Sự kiện văn hoá-du lịch trọng điểm mỗi dịp Tết, lần thứ 23. Chủ đề 2026 "Xuân hội tụ - Vững bước vươn mình", lần đầu có phiên bản ngày/đêm riêng biệt với Mapping AR.'},
+  {start:'2026-04-02', end:'2026-04-05', city:'hcm', title:'Ngày hội Du lịch TP.HCM', type:'Lễ hội', desc:'Lần thứ 22, tại Công viên 23/9 — hơn 150 gian hàng du lịch, ẩm thực từ 34 tỉnh thành.'},
+  {start:'2026-05-23', end:'2026-05-23', city:'hcm', title:'Lễ hội đồng diễn mùa hè', type:'Lễ hội', desc:'Tại phố đi bộ Nguyễn Huệ — chương trình đồng diễn quy mô lớn mở màn mùa hè.'},
+  {start:'2026-07-02', end:'2026-07-02', city:'hcm', title:'Kỷ niệm 328 năm Sài Gòn & 50 năm mang tên Bác', type:'Kỷ niệm', desc:'328 năm hình thành Sài Gòn - Chợ Lớn - Gia Định - TP.HCM (1698-2026) và 50 năm chính thức mang tên Chủ tịch Hồ Chí Minh (2/7/1976).'},
+  {start:'2026-08-27', end:'2026-08-29', city:'hcm', title:'ITE HCMC — Hội chợ Du lịch Quốc tế TP.HCM', type:'Hội chợ', desc:'Kỷ niệm 20 năm tổ chức, hội chợ du lịch quốc tế duy nhất tại VN có chương trình Người mua quốc tế. ~500 gian hàng, tại SECC.'},
+  {start:'2026-12-04', end:'2026-12-12', city:'hcm', title:'Tuần lễ Du lịch TP.HCM', type:'Lễ hội', desc:'Lần thứ 6 — chuỗi sự kiện mở đầu mùa lễ hội cuối năm, kết hợp du lịch, thể thao, âm nhạc, mua sắm.'},
+  {start:'2026-12-27', end:'2027-01-01', city:'hcm', title:'Lễ hội TP.HCM đón chào năm mới', type:'Lễ hội', desc:'Countdown, giải đua xe đạp phong trào, Marathon TP.HCM, trình chiếu 3D mapping lên toà nhà UBND và Nhà hát TP.'},
+
+  // ─────────────────────── SỰ KIỆN HÀ NỘI 2026 ───────────────────────
+  {start:'2026-01-01', end:'2026-01-05', city:'hn', title:'Lễ hội Thiết kế Sáng tạo Hà Nội — khởi động', type:'Lễ hội', desc:'"Tụ hội sáng tạo" tại Quảng trường Đông Kinh Nghĩa Thục, mở màn mùa lễ hội thiết kế sáng tạo thường niên (Hà Nội là Thành phố Sáng tạo được UNESCO công nhận).'},
+  {start:'2026-02-22', end:'2026-02-22', city:'hn', title:'Khai hội Chùa Hương', type:'Lễ hội', desc:'Lễ hội hành hương lớn nhất miền Bắc, khai hội đúng mùng 6 Tết, kéo dài đến hết tháng 3 âm lịch.'},
+  {start:'2026-04-05', end:'2026-04-05', city:'hn', title:'Cúp Truyền hình HTV — chặng qua Hồ Hoàn Kiếm', type:'Thể thao', desc:'Đoàn đua xe đạp xuyên Việt đi vòng quanh Hồ Hoàn Kiếm, 1 trong 25 chặng của giải HTV Cup lần thứ 38.'},
+  {start:'2026-06-26', end:'2026-06-28', city:'hn', title:'Lễ hội Sen Hà Nội', type:'Lễ hội', desc:'Tại Tây Hồ — tôn vinh hoa sen, diễu hành áo dài "Sen xuống phố", các không gian trưng bày và trình diễn nghệ thuật.'},
+  {start:'2026-10-10', end:'2026-10-10', city:'hn', title:'Ngày Giải phóng Thủ đô', type:'Kỷ niệm', desc:'Kỷ niệm ngày Hà Nội được giải phóng (10/10/1954) — riêng của Hà Nội, không phải ngày nghỉ lễ toàn quốc.'},
+  {start:'2026-11-21', end:'2026-11-24', city:'hn', title:'Ngày Văn hoá Việt Nam tại Hà Nội', type:'Lễ hội', desc:'Phiên bản mở rộng của Hà Nội — diễu hành di sản, 3D Mapping Tháp Rùa, ~4.000 nghệ sĩ tham gia, tại khu vực Hồ Hoàn Kiếm.'},
+  {start:'2026-12-31', end:'2026-12-31', city:'hn', title:'Countdown Hồ Gươm chào năm mới', type:'Lễ hội', desc:'Bắn pháo hoa nghệ thuật tại nhiều điểm quanh phố đi bộ Hồ Hoàn Kiếm, thu hút hàng vạn người.'},
+
+  // ─────────────────────── SỰ KIỆN ĐÀ NẴNG 2026 ───────────────────────
+  {start:'2026-03-22', end:'2026-03-22', city:'dn', title:'Danang International Marathon', type:'Thể thao', desc:'Lần thứ 13 — giải marathon quốc tế uy tín hàng đầu Đông Nam Á, chạy qua các bãi biển và cây cầu biểu tượng của Đà Nẵng.'},
+  {start:'2026-04-04', end:'2026-04-07', city:'dn', title:'Lễ hội Quán Thế Âm — Ngũ Hành Sơn', type:'Lễ hội', desc:'Lễ hội văn hoá-tâm linh cấp thành phố, chính lễ 6/4. Có đua thuyền trên sông Cổ Cò, diễu hành xe hoa, hội cờ làng, cà kheo.'},
+  {start:'2026-05-30', end:'2026-05-30', city:'dn', title:'DIFF — Đêm khai mạc "Thiên nhiên"', type:'Lễ hội pháo hoa', desc:'Đội chủ nhà Đà Nẵng đấu Trung Quốc (đương kim vô địch 2025). Trực tiếp VTV1 20h10.'},
+  {start:'2026-06-06', end:'2026-06-06', city:'dn', title:'DIFF — Đêm 2 "Di sản"', type:'Lễ hội pháo hoa', desc:'Đội Pháp đấu đội Việt Nam (Z121 Vina Pyrotech).'},
+  {start:'2026-06-13', end:'2026-06-13', city:'dn', title:'DIFF — Đêm 3 "Văn hoá"', type:'Lễ hội pháo hoa', desc:'Đêm thi thứ 3 trong 6 đêm của DIFF 2026.'},
+  {start:'2026-06-20', end:'2026-06-20', city:'dn', title:'DIFF — Đêm 4 "Sáng tạo"', type:'Lễ hội pháo hoa', desc:'Đêm thi thứ 4 trong 6 đêm của DIFF 2026.'},
+  {start:'2026-06-27', end:'2026-06-27', city:'dn', title:'DIFF — Đêm 5 "Tầm nhìn"', type:'Lễ hội pháo hoa', desc:'Đêm thi thứ 5, áp chót trước đêm chung kết.'},
+  {start:'2026-07-11', end:'2026-07-11', city:'dn', title:'DIFF — Đêm chung kết', type:'Lễ hội pháo hoa', desc:'2 đội xuất sắc nhất tranh ngôi quán quân DIFF 2026. Trực tiếp VTV1 20h10.'},
+  {start:'2026-07-19', end:'2026-07-19', city:'dn', title:'VnExpress Marathon Đà Nẵng', type:'Thể thao', desc:'Giải chạy ven biển qua những cây cầu biểu tượng — 1 trong những chặng quy mô nhất hệ thống VnExpress Marathon.'},
+
+  // ─────────────────────── 2027 — CHỈ mốc tính trước được chắc chắn ───────────────────────
+  // Không có lunar-festival (Trung Thu, Vu Lan, Phật Đản...) vì cần quy đổi âm-dương riêng cho
+  // 2027 mà chưa tra cứu được nguồn xác nhận — KHÔNG suy đoán để tránh sai lệch.
+  // Không có sự kiện riêng thành phố nào vì chưa nơi nào công bố kế hoạch 2027.
+  {start:'2027-01-01', end:'2027-01-01', city:'holiday', title:'Tết Dương lịch', type:'Lễ Việt Nam', desc:'Ngày nghỉ lễ đầu năm dương lịch.'},
+  {start:'2027-02-06', end:'2027-02-06', city:'holiday', title:'Mùng 1 Tết Đinh Mùi', type:'Lễ Việt Nam', desc:'Tết Nguyên Đán 2027 (năm con Dê) — lịch nghỉ đầy đủ nhiều ngày chưa được Chính phủ công bố, chỉ chắc chắn đúng mùng 1 vì tính theo lịch âm cố định.'},
+  {start:'2027-02-14', end:'2027-02-14', city:'holiday', title:'Lễ Tình nhân (Valentine)', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+  {start:'2027-02-27', end:'2027-02-27', city:'holiday', title:'Ngày Thầy thuốc Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-03-08', end:'2027-03-08', city:'holiday', title:'Quốc tế Phụ nữ', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+  {start:'2027-03-26', end:'2027-03-26', city:'holiday', title:'Thành lập Đoàn TNCS Hồ Chí Minh', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-04-01', end:'2027-04-01', city:'holiday', title:'Cá tháng Tư', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+  {start:'2027-04-30', end:'2027-05-01', city:'holiday', title:'Giải phóng miền Nam & Quốc tế Lao động', type:'Lễ Việt Nam', desc:'2 ngày lễ cố định theo luật — chưa rõ có nối thêm cuối tuần hay không vì chưa có thông báo chính thức.'},
+  {start:'2027-05-07', end:'2027-05-07', city:'holiday', title:'Chiến thắng Điện Biên Phủ', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-05-19', end:'2027-05-19', city:'holiday', title:'Sinh nhật Chủ tịch Hồ Chí Minh', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-06-01', end:'2027-06-01', city:'holiday', title:'Quốc tế Thiếu nhi', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+  {start:'2027-06-21', end:'2027-06-21', city:'holiday', title:'Ngày Báo chí Cách mạng Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-06-28', end:'2027-06-28', city:'holiday', title:'Ngày Gia đình Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-07-27', end:'2027-07-27', city:'holiday', title:'Ngày Thương binh Liệt sĩ', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-09-02', end:'2027-09-02', city:'holiday', title:'Quốc khánh', type:'Lễ Việt Nam', desc:'Ngày lễ cố định theo luật — chưa rõ có nối thêm ngày nghỉ bù hay không.'},
+  {start:'2027-10-20', end:'2027-10-20', city:'holiday', title:'Ngày Phụ nữ Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-10-31', end:'2027-10-31', city:'holiday', title:'Halloween', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+  {start:'2027-11-20', end:'2027-11-20', city:'holiday', title:'Ngày Nhà giáo Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-11-24', end:'2027-11-24', city:'holiday', title:'Ngày Văn hoá Việt Nam', type:'Lễ Việt Nam', desc:'Ngày lễ cố định, lặp lại hàng năm.'},
+  {start:'2027-12-24', end:'2027-12-24', city:'holiday', title:'Giáng sinh', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+  {start:'2027-12-31', end:'2027-12-31', city:'holiday', title:'Đêm giao thừa dương lịch', type:'Lễ quốc tế', desc:'Ngày lễ quốc tế cố định, lặp lại hàng năm.'},
+];
+
+const CAL_FILTERS = {
+  holiday: {label:'Ngày lễ', color:'var(--c-holiday)'},
+  hcm: {label:'TP. Hồ Chí Minh', color:'var(--c-hcm)'},
+  hn:  {label:'Hà Nội', color:'var(--c-hn)'},
+  dn:  {label:'Đà Nẵng', color:'var(--c-dn)'},
+};
+const CAL_MONTH_NAMES = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+const CAL_WD = ['T2','T3','T4','T5','T6','T7','CN'];
+
+let calState = {
+  year: 2026, month: 1,
+  selectedDay: null,
+  activeFilters: new Set(['holiday','hcm','hn','dn']),
+};
+
+function calEventColor(city){ return CAL_FILTERS[city] ? CAL_FILTERS[city].color : 'var(--gold)'; }
+function calEventCityLabel(city){ return CAL_FILTERS[city] ? CAL_FILTERS[city].label : city; }
+function calEventCoversDay(e, dateStr){ return e.start <= dateStr && dateStr <= e.end; }
+function calEventOverlapsMonth(e, year, month){
+  const monthStart = `${year}-${String(month+1).padStart(2,'0')}-01`;
+  const lastDay = new Date(year, month+1, 0).getDate();
+  const monthEnd = `${year}-${String(month+1).padStart(2,'0')}-${String(lastDay).padStart(2,'0')}`;
+  return e.start <= monthEnd && e.end >= monthStart;
+}
+function calGetVisibleEvents(){
+  return CAL_EVENTS.filter(e=> calEventOverlapsMonth(e, calState.year, calState.month) && calState.activeFilters.has(e.city));
+}
+function calDominantMood(events){
+  if(events.length===0) return 'var(--c-quiet)';
+  const counts = {};
+  events.forEach(e=>{ counts[e.city]=(counts[e.city]||0)+1; });
+  const cityOnly = Object.entries(counts).filter(([k])=>k!=='holiday').sort((a,b)=>b[1]-a[1]);
+  if(cityOnly.length) return `var(--c-${cityOnly[0][0]})`;
+  return 'var(--c-holiday)';
+}
+function calRenderYearSwitch(){
+  document.querySelectorAll('.year-opt').forEach(el=>{
+    el.classList.toggle('on', parseInt(el.dataset.year)===calState.year);
+  });
+  const idx = calState.year===2026 ? 0 : 1;
+  const opts = document.querySelectorAll('.year-opt');
+  const slider = $('yearSlider');
+  requestAnimationFrame(()=>{
+    const el = opts[idx];
+    slider.style.left = el.offsetLeft+'px';
+    slider.style.width = el.offsetWidth+'px';
+  });
+}
+function calRenderFilterRow(){
+  const wrap = $('calFilterRow');
+  wrap.innerHTML = Object.entries(CAL_FILTERS).map(([k,c])=>
+    `<div class="city-pill ${calState.activeFilters.has(k)?'on':''}" style="--pc:${c.color}" data-filter="${k}"><span class="dot"></span>${c.label}</div>`
+  ).join('');
+  wrap.querySelectorAll('.city-pill').forEach(p=>p.onclick=()=>{
+    const k = p.dataset.filter;
+    if(calState.activeFilters.has(k)) calState.activeFilters.delete(k); else calState.activeFilters.add(k);
+    renderCal();
+  });
+}
+function calHideTip(){ $('calTip').classList.remove('show'); }
+function calShowTip(el, text){
+  const tip = $('calTip');
+  const r = el.getBoundingClientRect();
+  tip.textContent = text;
+  tip.style.left = (r.left + r.width/2)+'px';
+  tip.style.top = (r.top - 10)+'px';
+  tip.style.transform = 'translate(-50%,-100%)';
+  tip.classList.add('show');
+}
+function renderCal(){
+  calRenderYearSwitch();
+  calRenderFilterRow();
+
+  const monthEvents = calGetVisibleEvents();
+  const mood = calDominantMood(monthEvents);
+  const card = $('calCard');
+  card.style.setProperty('--mood', mood);
+  card.classList.toggle('quiet', monthEvents.length===0);
+
+  const sorted = monthEvents.slice().sort((a,b)=>a.start.localeCompare(b.start));
+  const statHtml = sorted.length
+    ? `<b>${sorted.length} sự kiện</b> · ${sorted[0].title}`
+    : `Tháng này chưa có sự kiện nào`;
+  html('calMonthLabel', `
+    <div class="cal-month-name">${CAL_MONTH_NAMES[calState.month]} <span class="yr">${calState.year}</span></div>
+    <div class="cal-month-stat">${statHtml}</div>
+  `);
+
+  const first = new Date(calState.year, calState.month, 1);
+  const startOffset = (first.getDay()+6)%7;
+  const daysInMonth = new Date(calState.year, calState.month+1, 0).getDate();
+  const todayStr = new Date().toISOString().slice(0,10);
+
+  let gridHtml = CAL_WD.map(w=>`<div class="cal-wd">${w}</div>`).join('');
+  for(let i=0;i<startOffset;i++) gridHtml += `<div class="cal-day pad"><span class="cal-day-n">·</span></div>`;
+  for(let d=1; d<=daysInMonth; d++){
+    const dateStr = `${calState.year}-${String(calState.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dayEvents = CAL_EVENTS.filter(e=> calEventCoversDay(e,dateStr) && calState.activeFilters.has(e.city));
+    const isToday = dateStr === todayStr;
+    const isSel = calState.selectedDay === dateStr;
+    const hasEvent = dayEvents.length>0;
+    const cellColor = hasEvent ? calEventColor(dayEvents[0].city) : 'var(--c-quiet)';
+
+    let spanClass = '';
+    if(hasEvent && dayEvents.length===1){
+      const ev = dayEvents[0];
+      if(ev.start !== ev.end){
+        const prevStr = `${calState.year}-${String(calState.month+1).padStart(2,'0')}-${String(d-1).padStart(2,'0')}`;
+        const nextStr = `${calState.year}-${String(calState.month+1).padStart(2,'0')}-${String(d+1).padStart(2,'0')}`;
+        const coversPrev = d>1 && calEventCoversDay(ev, prevStr);
+        const coversNext = d<daysInMonth && calEventCoversDay(ev, nextStr);
+        if(coversPrev && coversNext) spanClass='span-mid';
+        else if(coversNext) spanClass='span-start';
+        else if(coversPrev) spanClass='span-end';
+      }
+    }
+
+    let indicator = '';
+    if(hasEvent){
+      if(dayEvents.length===1){
+        indicator = `<div class="beacon"></div>`;
+      } else {
+        indicator = `<div class="dot-row">${dayEvents.slice(0,4).map(e=>`<span style="background:${calEventColor(e.city)}"></span>`).join('')}</div>`;
+      }
+    }
+
+    gridHtml += `<div class="cal-day ${isToday?'today':''} ${isSel?'sel':''} ${hasEvent?'has-event':''} ${spanClass}" style="--cell-c:${cellColor}" data-date="${dateStr}" data-titles="${dayEvents.map(e=>e.title).join(' · ').replace(/"/g,'&quot;')}">
+      <span class="cal-day-n">${d}</span>
+      ${indicator}
+    </div>`;
+  }
+  html('calGrid', gridHtml);
+
+  document.querySelectorAll('.cal-day:not(.pad)').forEach(el=>{
+    el.onclick = ()=>{
+      const d = el.dataset.date;
+      calState.selectedDay = calState.selectedDay===d ? null : d;
+      calHideTip(); renderCal();
+    };
+    if(el.classList.contains('has-event')){
+      el.addEventListener('mouseenter', ()=> calShowTip(el, el.dataset.titles));
+      el.addEventListener('mouseleave', calHideTip);
+    }
+  });
+
+  $('calMonthLabel').onclick = ()=>{ calState.selectedDay=null; calHideTip(); renderCal(); };
+  $('calPrevBtn').onclick = ()=>{
+    calState.month--; if(calState.month<0){calState.month=11; calState.year--;}
+    calState.selectedDay=null; calHideTip(); renderCal();
+  };
+  $('calNextBtn').onclick = ()=>{
+    calState.month++; if(calState.month>11){calState.month=0; calState.year++;}
+    calState.selectedDay=null; calHideTip(); renderCal();
+  };
+  document.querySelectorAll('.year-opt').forEach(el=>{
+    el.onclick = ()=>{ calState.year = parseInt(el.dataset.year); calState.selectedDay=null; calHideTip(); renderCal(); };
+  });
+
+  renderCalEvZone(sorted);
+}
+function renderCalEvZone(monthEvents){
+  let events, title, showBack=false, dayCtx=null;
+
+  if(calState.selectedDay){
+    events = CAL_EVENTS.filter(e=> calEventCoversDay(e,calState.selectedDay) && calState.activeFilters.has(e.city));
+    const [y,m,d] = calState.selectedDay.split('-').map(Number);
+    title = `Ngày ${d} ${CAL_MONTH_NAMES[m-1].toLowerCase()}, ${y}`;
+    showBack = true;
+    dayCtx = calState.selectedDay;
+  } else {
+    events = monthEvents;
+    title = `Sự kiện ${CAL_MONTH_NAMES[calState.month].toLowerCase()} ${calState.year}`;
+  }
+  events = events.slice().sort((a,b)=>a.start.localeCompare(b.start));
+
+  let bodyHtml;
+  if(events.length===0){
+    const is2027 = calState.year===2027;
+    bodyHtml = `<div class="ev-empty">
+      <div class="ev-empty-icon">🗓️</div>
+      ${is2027
+        ? 'Chưa có sự kiện nào được công bố cho tháng này của 2027 — lễ hội/sự kiện địa phương thường chỉ công bố lịch trước vài tháng.'
+        : 'Không có sự kiện nào khớp bộ lọc hiện tại — thử bật thêm thành phố ở trên.'}
+    </div>`;
+  } else {
+    bodyHtml = `<div class="ev-list">${events.map(e=>{
+      let badgeText, isRange;
+      if(dayCtx){
+        badgeText = parseInt(dayCtx.split('-')[2]);
+        isRange = false;
+      } else {
+        const sd = parseInt(e.start.split('-')[2]);
+        const ed = parseInt(e.end.split('-')[2]);
+        isRange = e.start !== e.end;
+        badgeText = isRange ? `${sd}–${ed}` : `${sd}`;
+      }
+      return `<div class="ev-item" style="--ev-c:${calEventColor(e.city)}">
+        <div class="ev-item-date ${isRange?'range':''}">${badgeText}</div>
+        <div class="ev-item-body">
+          <div class="ev-item-title">${e.title}</div>
+          <div class="ev-item-meta">
+            <span class="ev-item-city" style="background:${calEventColor(e.city)}">${calEventCityLabel(e.city)}</span>
+            <span class="ev-item-type">${e.type}</span>
+          </div>
+          <div class="ev-item-desc">${e.desc}</div>
+        </div>
+      </div>`;
+    }).join('')}</div>`;
+  }
+
+  html('calEvZone', `
+    <div class="ev-panel-head">
+      <div class="ev-panel-title">${title}</div>
+      ${showBack ? '<div class="ev-panel-back" id="calBackBtn">← Xem cả tháng</div>' : ''}
+    </div>
+    ${bodyHtml}
+  `);
+  if(showBack) $('calBackBtn').onclick = ()=>{ calState.selectedDay=null; calHideTip(); renderCal(); };
 }
 
 // ─── PHÂN LOẠI THỜI TIẾT → MÀU + NHÂN VẬT MINH HOẠ ─────────────────────────
