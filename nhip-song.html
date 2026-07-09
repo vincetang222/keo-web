@@ -237,13 +237,15 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media(max-width:900px){.dest-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.dest-grid{grid-template-columns:1fr}}
-.dest-card{position:relative;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:16px;padding:16px 18px;border-left:3px solid var(--cc,#E8A22B);box-shadow:0 6px 16px rgba(26,21,16,.14);transition:transform .15s}
-.dest-card:hover{transform:translateY(-2px)}
+.dest-card{position:relative;display:block;text-decoration:none;background:linear-gradient(160deg,#211A22 0%,#171219 100%);border-radius:16px;padding:16px 18px;border-left:3px solid var(--cc,#E8A22B);box-shadow:0 6px 16px rgba(26,21,16,.14);transition:transform .15s,box-shadow .15s}
+.dest-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(26,21,16,.22)}
 .dest-card-cat{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--cc,#E8A22B);margin-bottom:6px}
 .dest-card-name{font-family:var(--serif);font-size:15.5px;font-weight:700;color:#F5EFE6;line-height:1.35;margin-bottom:6px}
 .dest-card-addr{font-family:var(--sans);font-size:11.5px;color:rgba(245,239,230,.55);line-height:1.5;margin-bottom:6px}
 .dest-card-rating{font-family:var(--sans);font-size:12px;color:rgba(245,239,230,.75);display:flex;align-items:center;gap:4px}
 .dest-card-note{font-family:var(--sans);font-size:10.5px;color:rgba(214,95,53,.85);margin-top:8px;font-style:italic;line-height:1.5}
+.dest-card-maps{font-family:var(--sans);font-size:11px;font-weight:600;color:var(--cc,#E8A22B);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);opacity:.75;transition:opacity .15s}
+.dest-card:hover .dest-card-maps{opacity:1}
 .dest-empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:rgba(245,239,230,.4);font-family:var(--sans);font-size:13px}
 .city-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:10.5px;font-weight:600;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(245,239,230,.45);cursor:pointer;transition:all .18s}
 .city-pill .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;transition:box-shadow .18s;background:rgba(245,239,230,.3)}
@@ -942,13 +944,17 @@ function renderDestinations(){
     const icon = DEST_CAT_ICON[p.category] || '';
     const catLabel = DEST_DATA.categories[p.category] || '';
     const ratingHtml = p.rating ? `⭐ ${p.rating.toFixed(1)}${p.rating_count ? ` <span style="opacity:.6">(${p.rating_count.toLocaleString('vi-VN')} đánh giá)</span>` : ''}` : '';
-    return `<div class="dest-card" style="--cc:${color}">
+    const mapsUrl = p.place_id
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}&query_place_id=${p.place_id}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ', ' + p.address)}`;
+    return `<a class="dest-card" style="--cc:${color}" href="${mapsUrl}" target="_blank" rel="noopener">
       <div class="dest-card-cat">${icon} ${catLabel}</div>
       <div class="dest-card-name">${p.name}</div>
       <div class="dest-card-addr">📍 ${p.address}</div>
       ${ratingHtml ? `<div class="dest-card-rating">${ratingHtml}</div>` : ''}
       ${p.note ? `<div class="dest-card-note">${p.note}</div>` : ''}
-    </div>`;
+      <div class="dest-card-maps">Xem trên Google Maps →</div>
+    </a>`;
   }).join('');
 }
 
