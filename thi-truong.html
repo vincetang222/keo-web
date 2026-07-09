@@ -307,7 +307,6 @@ footer a:hover{color:#F5EFE6}
 <div class="tnav-wrap">
 <nav class="tnav" id="tnav">
   <button class="tb on"  id="btn-overview" onclick="go('overview',this)">📊 Tổng quan</button>
-  <button class="tb tb-hl" id="btn-prices"   onclick="go('prices',this)">🛒 Giá tiêu dùng</button>
   <button class="tb"     id="btn-outlook"  onclick="go('outlook',this)">🎯 Nhận định</button>
   <button class="tb"     id="btn-comm"     onclick="go('comm',this)">🥇 Kim loại quý</button>
   <button class="tb"     id="btn-crypto"   onclick="go('crypto',this)">₿ Crypto</button>
@@ -369,8 +368,6 @@ footer a:hover{color:#F5EFE6}
   </div>
   <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">₿</div><div class="sht">Crypto top 5</div><div class="shl"></div><button class="ib" onclick="go('crypto',document.getElementById('btn-crypto'))">Xem tất cả →</button></div>
   <div class="gr" id="ovCrPrev"><div class="ld2">Đang tải…</div></div>
-  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🛒</div><div class="sht">Giá tiêu dùng hôm nay <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div><button class="ib" onclick="go('prices',document.getElementById('btn-prices'))">Xem tất cả →</button></div>
-  <div class="gr" id="ovDomPrev"></div>
 </div>
 
 <!-- PAGE: OUTLOOK -->
@@ -711,47 +708,6 @@ footer a:hover{color:#F5EFE6}
   <div class="gr" id="fxCross"></div>
 </div>
 
-
-<!-- PAGE: PRICES -->
-<div class="pg" id="pg-prices">
-  <div style="background:var(--sf);border:1px solid var(--bd);border-left:3px solid var(--a);border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-family:var(--sans);font-size:11px;color:var(--sub);line-height:1.6;box-shadow:var(--sh1)">
-    🛒 Giá hàng hoá tiêu dùng &amp; nguyên vật liệu trong nước — tổng hợp từ bản tin giá hàng ngày. Xăng dầu/vàng/thép là giá niêm yết thống nhất toàn quốc; riêng mục có ghi <strong style="color:var(--tx)">"giá tham khảo"</strong> chỉ là một điểm mốc để hình dung — giá thực tế dao động khá nhiều theo chợ, siêu thị và khu vực.
-  </div>
-  <div class="sh" data-open="1"><div class="shi" style="background:rgba(0,200,83,.1)">⛽</div><div class="sht">Nhiên liệu &amp; Vàng</div><div class="shl"></div></div>
-  <div class="gr" id="domFuel"></div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏗️</div><div class="sht">Vật liệu xây dựng · phần thô</div><div class="shl"></div></div>
-  <div class="gr" id="domMaterial"></div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🏭</div><div class="sht">Vật liệu kết cấu</div><div class="shl"></div></div>
-  <div class="gr" id="domMaterialStruct"></div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🚪</div><div class="sht">Vật liệu hoàn thiện <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domMaterialFinish"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🐖</div><div class="sht">Gia súc, gia cầm (giá hơi/sống)</div><div class="shl"></div></div>
-  <div class="gr" id="domLive"></div>
-  <div class="sh" data-open="1"><div class="shi" style="background:rgba(232,51,74,.1)">🥩</div><div class="sht">Thịt bán lẻ tại chợ/siêu thị <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domRetail"></div>
-  <div class="sh" data-open="1"><div class="shi" style="background:rgba(232,162,43,.1)">🥚</div><div class="sht">Trứng</div><div class="shl"></div></div>
-  <div class="gr" id="domEgg"></div>
-  <div class="sh"><div class="shi" style="background:rgba(214,95,53,.1)">🧂</div><div class="sht">Gia vị &amp; hàng công nghệ phẩm <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domSpice"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🌽</div><div class="sht">Lương thực khác</div><div class="shl"></div></div>
-  <div class="gr" id="domGrain"></div>
-  <div class="sh" data-open="1"><div class="shi" style="background:rgba(0,200,83,.1)">☕</div><div class="sht">Nông sản trong nước</div><div class="shl"></div></div>
-  <div class="gr" id="domAgri"></div>
-  <div class="sh"><div class="shi" style="background:rgba(232,162,43,.1)">🍊</div><div class="sht">Trái cây <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domFruit"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🥬</div><div class="sht">Rau ăn lá <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domVegLeaf"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,83,.1)">🥕</div><div class="sht">Rau ăn củ, quả <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domVegRoot"></div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">🍄</div><div class="sht">Nấm &amp; rau mầm <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domMushroom"></div>
-  <div class="sh" data-open="1"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản tươi sống <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domSea"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">❄️</div><div class="sht">Thuỷ sản đông lạnh <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domSeaFrozen"></div>
-  <div class="sh"><div class="shi" style="background:rgba(0,200,224,.1)">🐟</div><div class="sht">Thuỷ sản khô &amp; chế biến <span style="opacity:.6;font-weight:400">· giá tham khảo</span></div><div class="shl"></div></div>
-  <div class="gr" id="domSeaDried"></div>
-</div>
 
 </main>
 <footer>
@@ -1157,198 +1113,6 @@ function renderFX(){
   }
 }
 
-// ─── DATA: HÀNG HOÁ TIÊU DÙNG TRONG NƯỚC ──────
-const DOM_FUEL=[
-  {sym:'XANG-E5', nm:'Xăng E5 RON92',        base:19730,    unit:'đ/lít',        ic:'⛽', fixed:true, asOf:'02/07/2026'},
-  {sym:'XANG-E10',nm:'Xăng E10 RON95-III',   base:20415,    unit:'đ/lít',        ic:'⛽', fixed:true, asOf:'02/07/2026'},
-  {sym:'DIESEL',  nm:'Dầu Diesel',           base:21176,    unit:'đ/lít',        ic:'🛢️', fixed:true, asOf:'02/07/2026'},
-  {sym:'MAZUT',   nm:'Dầu Mazut',            base:14053,    unit:'đ/kg',         ic:'🛢️', fixed:true, asOf:'02/07/2026'},
-  {sym:'GAS',     nm:'Gas LPG bình 12kg',    base:420000,   unit:'đ/bình',       ic:'🔥', fixed:true, asOf:'01/07/2026'},
-  {sym:'VANG-SJC',nm:'Vàng miếng SJC',       base:151400000,unit:'đ/lượng',      ic:'🥇'},
-  {sym:'VANG-NHAN',nm:'Vàng nhẫn 24K',       base:149800000,unit:'đ/lượng',      ic:'💍'},
-];
-const DOM_MATERIAL=[
-  {sym:'THEP',    nm:'Thép CB240 Hoà Phát',  base:15430,    unit:'đ/kg',         ic:'🔩', fixed:true, asOf:'07/2026'},
-  {sym:'XIMANG',  nm:'Xi măng PCB40',        base:1450,     unit:'đ/kg',         ic:'🏗️', fixed:true, asOf:'07/2026'},
-  {sym:'GACH',    nm:'Gạch xây tuynel',      base:1350,     unit:'đ/viên',       ic:'🧱', fixed:true, asOf:'07/2026'},
-  {sym:'CAT-XD',  nm:'Cát xây dựng (cát vàng)',base:280000, unit:'đ/m³',         ic:'🏖️', fixed:true, asOf:'07/2026'},
-  {sym:'DA-XD',   nm:'Đá xây dựng 1x2',      base:320000,   unit:'đ/m³',         ic:'🪨', fixed:true, asOf:'07/2026'},
-];
-const DOM_MATERIAL_STRUCT=[
-  {sym:'BETONG',  nm:'Bê tông tươi mác 250', base:1450000,  unit:'đ/m³',         ic:'🏭', fixed:true, asOf:'07/2026'},
-  {sym:'VUAXAY',  nm:'Vữa xây/trát trộn sẵn',base:1650000,  unit:'đ/m³',         ic:'🪣', fixed:true, asOf:'07/2026'},
-];
-const DOM_MATERIAL_FINISH=[
-  {sym:'GACHLAT', nm:'Gạch ốp lát (ceramic)', base:180000,  unit:'đ/m²',         ic:'◻️', fixed:true, asOf:'07/2026'},
-  {sym:'SONNUOC', nm:'Sơn nước ngoại thất',  base:850000,   unit:'đ/thùng 18L',  ic:'🎨', fixed:true, asOf:'07/2026'},
-  {sym:'BONCAU',  nm:'Bồn cầu 1 khối',       base:2800000,  unit:'đ/bộ',         ic:'🚽', fixed:true, asOf:'07/2026'},
-  {sym:'TRANTHACH',nm:'Trần thạch cao',      base:165000,   unit:'đ/m²',         ic:'⬜', fixed:true, asOf:'07/2026'},
-  {sym:'CUANHOM', nm:'Cửa nhôm kính',        base:1850000,  unit:'đ/m²',         ic:'🚪', fixed:true, asOf:'07/2026'},
-];
-const DOM_LIVE=[
-  {sym:'HEO-HOI', nm:'Heo hơi bình quân',    base:63000,    unit:'đ/kg',         ic:'🐖'},
-  {sym:'BO-HOI',  nm:'Bò hơi bình quân',     base:78000,    unit:'đ/kg',         ic:'🐄'},
-  {sym:'GA-HOI',  nm:'Gà công nghiệp (trại)',base:33000,    unit:'đ/kg',         ic:'🐔'},
-  {sym:'GA-TA',   nm:'Gà ta (thả vườn)',     base:88000,    unit:'đ/kg',         ic:'🐓'},
-  {sym:'VIT-HOI', nm:'Vịt thịt (trại)',      base:43000,    unit:'đ/kg',         ic:'🦆'},
-];
-const DOM_RETAIL=[
-  {sym:'HEO-BAROI',nm:'Ba rọi heo',          base:159000,   unit:'đ/kg',         ic:'🥓', fixed:true, asOf:'07/2026'},
-  {sym:'HEO-SUON', nm:'Sườn non heo',        base:171000,   unit:'đ/kg',         ic:'🍖', fixed:true, asOf:'07/2026'},
-  {sym:'HEO-NACVAI',nm:'Nạc vai heo',        base:138000,   unit:'đ/kg',         ic:'🥩', fixed:true, asOf:'07/2026'},
-  {sym:'HEO-NACDUI',nm:'Nạc đùi heo',        base:132000,   unit:'đ/kg',         ic:'🥩', fixed:true, asOf:'07/2026'},
-  {sym:'HEO-XAY',  nm:'Thịt heo xay',        base:132000,   unit:'đ/kg',         ic:'🥩', fixed:true, asOf:'07/2026'},
-  {sym:'BO-THANNOI',nm:'Thăn nội bò',        base:559000,   unit:'đ/kg',         ic:'🥩', fixed:true, asOf:'07/2026'},
-  {sym:'BO-BACHI', nm:'Ba chỉ bò',           base:375000,   unit:'đ/kg',         ic:'🥩', fixed:true, asOf:'07/2026'},
-  {sym:'BO-NAM',   nm:'Nạm/gân/bắp bò',      base:275000,   unit:'đ/kg',         ic:'🍲', fixed:true, asOf:'07/2026'},
-  {sym:'BE-THIT',  nm:'Thịt bê (đùi/vai)',   base:320000,   unit:'đ/kg',         ic:'🐄', fixed:true, asOf:'07/2026'},
-  {sym:'GA-CN-BL', nm:'Gà công nghiệp làm sẵn',base:65000,  unit:'đ/kg',         ic:'🍗', fixed:true, asOf:'07/2026'},
-  {sym:'VIT-BL',   nm:'Vịt làm sẵn',         base:75000,    unit:'đ/kg',         ic:'🍗', fixed:true, asOf:'07/2026'},
-];
-const DOM_EGG=[
-  {sym:'TRUNG-GA', nm:'Trứng gà công nghiệp',base:2200,     unit:'đ/quả',        ic:'🥚', fixed:true, asOf:'07/2026'},
-  {sym:'TRUNG-VIT',nm:'Trứng vịt',           base:3500,     unit:'đ/quả',        ic:'🥚', fixed:true, asOf:'07/2026'},
-];
-const DOM_SPICE=[
-  {sym:'MUOI',    nm:'Muối hạt/muối i-ốt',   base:5000,     unit:'đ/kg',         ic:'🧂', fixed:true, asOf:'07/2026'},
-  {sym:'NUOCMAM', nm:'Nước mắm (loại phổ thông)',base:35000,unit:'đ/chai 500ml',ic:'🍶', fixed:true, asOf:'07/2026'},
-  {sym:'DAUAN',   nm:'Dầu ăn thực vật',       base:52000,    unit:'đ/lít',        ic:'🫗', fixed:true, asOf:'07/2026'},
-  {sym:'SUATUOI', nm:'Sữa tươi tiệt trùng',   base:32000,    unit:'đ/hộp 1L',     ic:'🥛', fixed:true, asOf:'07/2026'},
-  {sym:'MIGOI',   nm:'Mì gói (loại phổ thông)',base:4500,    unit:'đ/gói',        ic:'🍜', fixed:true, asOf:'07/2026'},
-  {sym:'BOTNGOT', nm:'Bột ngọt/hạt nêm',      base:45000,    unit:'đ/kg',         ic:'🧉', fixed:true, asOf:'07/2026'},
-  {sym:'OT',      nm:'Ớt tươi',               base:45000,    unit:'đ/kg',         ic:'🌶️'},
-  {sym:'CHANH',   nm:'Chanh tươi',            base:28000,    unit:'đ/kg',         ic:'🍋'},
-  {sym:'TOI',     nm:'Tỏi khô',               base:55000,    unit:'đ/kg',         ic:'🧄'},
-  {sym:'HANH-LA', nm:'Hành lá',               base:22000,    unit:'đ/kg',         ic:'🌿'},
-  {sym:'HANH-TIM',nm:'Hành tím',              base:38000,    unit:'đ/kg',         ic:'🧅'},
-];
-const DOM_GRAIN=[
-  {sym:'NGO',     nm:'Ngô nếp/ngô tẻ',        base:8000,     unit:'đ/kg',         ic:'🌽', fixed:true, asOf:'07/2026'},
-  {sym:'KHOAILANG',nm:'Khoai lang',           base:12000,    unit:'đ/kg',         ic:'🍠', fixed:true, asOf:'07/2026'},
-  {sym:'DAUXANH', nm:'Đậu xanh',              base:48000,    unit:'đ/kg',         ic:'🫘', fixed:true, asOf:'07/2026'},
-  {sym:'SAN',     nm:'Sắn (khoai mì)',        base:6000,     unit:'đ/kg',         ic:'🥔', fixed:true, asOf:'07/2026'},
-  {sym:'PHANBON', nm:'Phân bón NPK',          base:14500,    unit:'đ/kg',         ic:'🌾', fixed:true, asOf:'07/2026'},
-];
-
-const DOM_AGRI=[
-  {sym:'CAPHE-VN',nm:'Cà phê nhân xô',       base:91800,    unit:'đ/kg',         ic:'☕'},
-  {sym:'TIEU-VN', nm:'Hồ tiêu đen (Đắk Lắk)',base:155000,   unit:'đ/kg',         ic:'🌶️'},
-  {sym:'DIEU-VN', nm:'Hạt điều nhân',        base:220000,   unit:'đ/kg',         ic:'🥜'},
-  {sym:'GAO-TE',  nm:'Gạo tẻ thường',        base:16500,    unit:'đ/kg',         ic:'🍚', fixed:true, asOf:'07/2026'},
-  {sym:'GAO-THOM',nm:'Gạo thơm ST25',        base:28000,    unit:'đ/kg',         ic:'🍚', fixed:true, asOf:'07/2026'},
-  {sym:'DUONG',   nm:'Đường cát trắng',      base:22000,    unit:'đ/kg',         ic:'🍬', fixed:true, asOf:'07/2026'},
-];
-const DOM_FRUIT=[
-  {sym:'SAURIENG',nm:'Sầu riêng Ri6',        base:95000,    unit:'đ/kg',         ic:'🥭'},
-  {sym:'THANHLONG',nm:'Thanh long ruột đỏ',  base:22000,    unit:'đ/kg',         ic:'🍈'},
-  {sym:'XOAI',    nm:'Xoài cát Hoà Lộc',     base:42000,    unit:'đ/kg',         ic:'🥭'},
-  {sym:'CHUOI',   nm:'Chuối già',            base:16000,    unit:'đ/kg',         ic:'🍌'},
-  {sym:'CAM-SANH',nm:'Cam sành',             base:28000,    unit:'đ/kg',         ic:'🍊'},
-  {sym:'BUOI',    nm:'Bưởi da xanh',         base:38000,    unit:'đ/kg',         ic:'🍈'},
-  {sym:'DUAHAU',  nm:'Dưa hấu',              base:12000,    unit:'đ/kg',         ic:'🍉'},
-  {sym:'NHO-VN',  nm:'Nho xanh (nhập)',      base:78000,    unit:'đ/kg',         ic:'🍇'},
-  {sym:'TAO-VN',  nm:'Táo Envy (nhập)',      base:65000,    unit:'đ/kg',         ic:'🍎'},
-  {sym:'BO-QUA',  nm:'Bơ sáp',               base:42000,    unit:'đ/kg',         ic:'🥑'},
-  {sym:'CHOMCHOM',nm:'Chôm chôm',            base:25000,    unit:'đ/kg',         ic:'🍒'},
-  {sym:'MANGCUT', nm:'Măng cụt',             base:48000,    unit:'đ/kg',         ic:'🟣'},
-  {sym:'NHAN',    nm:'Nhãn lồng',            base:35000,    unit:'đ/kg',         ic:'🍈'},
-  {sym:'CHANHDAY',nm:'Chanh dây',            base:30000,    unit:'đ/kg',         ic:'🟡'},
-  {sym:'DUA-THOM',nm:'Dứa (thơm)',           base:12000,    unit:'đ/kg',         ic:'🍍'},
-  {sym:'DUDU',    nm:'Đu đủ chín',           base:15000,    unit:'đ/kg',         ic:'🧡'},
-];
-const DOM_SEA=[
-  {sym:'CA-HOI',  nm:'Cá hồi fillet (nhập)', base:280000,   unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-THU',  nm:'Cá thu',               base:120000,   unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-BASA', nm:'Cá basa',              base:35000,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-TRA',  nm:'Cá tra nguyên liệu',   base:28500,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-LOC',  nm:'Cá lóc',               base:65000,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-DIEU', nm:'Cá điêu hồng',         base:52000,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-LANG', nm:'Cá lăng',              base:95000,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-CHEP', nm:'Cá chép',              base:58000,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'CA-TRAM', nm:'Cá trắm',              base:62000,    unit:'đ/kg',         ic:'🐟'},
-  {sym:'TOM-SU',  nm:'Tôm sú',               base:220000,   unit:'đ/kg',         ic:'🦐'},
-  {sym:'TOM-THE', nm:'Tôm thẻ size 40',      base:145000,   unit:'đ/kg',         ic:'🦐'},
-  {sym:'CUA-BIEN',nm:'Cua biển',             base:280000,   unit:'đ/kg',         ic:'🦀'},
-  {sym:'NGHEU',   nm:'Nghêu trắng',          base:35000,    unit:'đ/kg',         ic:'🐚'},
-  {sym:'HAU',     nm:'Hàu sữa',              base:65000,    unit:'đ/kg',         ic:'🦪'},
-  {sym:'MUC',     nm:'Mực ống',              base:180000,   unit:'đ/kg',         ic:'🦑'},
-  {sym:'BACHTUOC',nm:'Bạch tuộc',            base:150000,   unit:'đ/kg',         ic:'🐙'},
-];
-const DOM_SEA_FROZEN=[
-  {sym:'CAHOI-DL', nm:'Fillet cá hồi đông lạnh',base:320000, unit:'đ/kg',         ic:'❄️', fixed:true, asOf:'07/2026'},
-  {sym:'TOMSU-IQF',nm:'Tôm sú bóc vỏ IQF',   base:250000,   unit:'đ/kg',         ic:'❄️', fixed:true, asOf:'07/2026'},
-  {sym:'BASA-DL',  nm:'Fillet cá basa đông lạnh',base:55000,unit:'đ/kg',         ic:'❄️', fixed:true, asOf:'07/2026'},
-  {sym:'CHAMUC',   nm:'Chả mực viên',        base:120000,   unit:'đ/kg',         ic:'🍥', fixed:true, asOf:'07/2026'},
-];
-const DOM_SEA_DRIED=[
-  {sym:'KHOCALOC', nm:'Khô cá lóc',          base:280000,   unit:'đ/kg',         ic:'🐟', fixed:true, asOf:'07/2026'},
-  {sym:'KHOCASAC', nm:'Khô cá sặc',          base:250000,   unit:'đ/kg',         ic:'🐟', fixed:true, asOf:'07/2026'},
-  {sym:'MUCNANG',  nm:'Mực một nắng',        base:380000,   unit:'đ/kg',         ic:'🦑', fixed:true, asOf:'07/2026'},
-  {sym:'TOMKHO',   nm:'Tôm khô',             base:450000,   unit:'đ/kg',         ic:'🦐', fixed:true, asOf:'07/2026'},
-];
-const DOM_VEG_LEAF=[
-  {sym:'RAUMUONG', nm:'Rau muống',           base:10000,    unit:'đ/kg',         ic:'🥬'},
-  {sym:'CAINGOT',  nm:'Cải ngọt',            base:15000,    unit:'đ/kg',         ic:'🥬'},
-  {sym:'CAIBOXOI', nm:'Cải bó xôi',          base:30000,    unit:'đ/kg',         ic:'🥬'},
-  {sym:'RAUNGOT',  nm:'Rau ngót',            base:15000,    unit:'đ/kg',         ic:'🥬'},
-  {sym:'MONGTOI',  nm:'Mồng tơi',            base:12000,    unit:'đ/kg',         ic:'🥬'},
-  {sym:'XALACH',   nm:'Xà lách',             base:25000,    unit:'đ/kg',         ic:'🥗'},
-  {sym:'NGORI',    nm:'Ngò rí',              base:40000,    unit:'đ/kg',         ic:'🌿'},
-  {sym:'HUNGQUE',  nm:'Húng quế',            base:35000,    unit:'đ/kg',         ic:'🌿'},
-];
-const DOM_VEG_ROOT=[
-  {sym:'CAROT',    nm:'Cà rốt',              base:15000,    unit:'đ/kg',         ic:'🥕'},
-  {sym:'CACHUA',   nm:'Cà chua',             base:20000,    unit:'đ/kg',         ic:'🍅'},
-  {sym:'DUALEO',   nm:'Dưa leo',             base:12000,    unit:'đ/kg',         ic:'🥒'},
-  {sym:'BIDO',     nm:'Bí đỏ',               base:10000,    unit:'đ/kg',         ic:'🎃'},
-  {sym:'KHOQUA',   nm:'Khổ qua',             base:20000,    unit:'đ/kg',         ic:'🥒'},
-  {sym:'BAPCAI',   nm:'Bắp cải',             base:10000,    unit:'đ/kg',         ic:'🥬'},
-  {sym:'SUPLOX',   nm:'Súp lơ xanh',         base:25000,    unit:'đ/kg',         ic:'🥦'},
-  {sym:'SUHAO',    nm:'Su hào',              base:10000,    unit:'đ/kg',         ic:'🥔'},
-];
-const DOM_MUSHROOM=[
-  {sym:'NAMKIMCHAM',nm:'Nấm kim châm',       base:25000,    unit:'đ/kg',         ic:'🍄'},
-  {sym:'NAMDUIGA', nm:'Nấm đùi gà',          base:55000,    unit:'đ/kg',         ic:'🍄'},
-  {sym:'NAMBAONGU',nm:'Nấm bào ngư',         base:40000,    unit:'đ/kg',         ic:'🍄'},
-  {sym:'RAUMAM',   nm:'Rau mầm các loại',    base:30000,    unit:'đ/kg',         ic:'🌱'},
-];
-
-function mkDomestic(d){
-  const fmt=v=>v>=1e6?(v/1e6).toFixed(2)+'tr':v>=1000?Math.round(v).toLocaleString('vi-VN'):Math.round(v).toString();
-  if(d.fixed){
-    // Giá niêm yết / Nhà nước điều hành theo kỳ — đứng yên thật giữa các lần cập nhật giá chính
-    // thức ngoài đời (xăng dầu ~10 ngày/lần, VLXD/hàng đóng gói vài tuần-tháng/lần), nên KHÔNG
-    // mô phỏng dao động giả — hiện đúng giá niêm yết + mốc thời gian.
-    // noChart:true — không có lịch sử giá thật để vẽ chart, tránh gây cảm giác "biểu đồ real-time" giả.
-    return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(d.base)+' ₫',usd:null,pct:0,hist:[d.base,d.base],
-      abs:'giá niêm yết',m1:d.unit,m2:'Cập nhật '+d.asOf},'cc','var(--mu)',true);
-  }
-  const st=sim(d.sym,d.base,1.3), p=st.price, pct=st.pct;
-  const abs=Math.abs(p*pct/100);
-  // noChart:true — giá tham khảo mô phỏng, không phải dữ liệu thị trường thật, nên không vẽ chart để tránh gây hiểu lầm.
-  return card({sym:d.sym,nm:d.nm,ic:d.ic,pr:fmt(p)+' ₫',usd:null,pct,hist:st.hist,abs:(pct>=0?'+':'')+fmt(abs)+'đ',m1:d.unit,m2:''},'cc','var(--a2)',true);
-}
-
-function renderDomestic(){
-  html('domFuel',     DOM_FUEL.map(mkDomestic).join(''));
-  html('domMaterial', DOM_MATERIAL.map(mkDomestic).join(''));
-  html('domMaterialStruct', DOM_MATERIAL_STRUCT.map(mkDomestic).join(''));
-  html('domMaterialFinish', DOM_MATERIAL_FINISH.map(mkDomestic).join(''));
-  html('domLive',     DOM_LIVE.map(mkDomestic).join(''));
-  html('domRetail',   DOM_RETAIL.map(mkDomestic).join(''));
-  html('domEgg',      DOM_EGG.map(mkDomestic).join(''));
-  html('domSpice',    DOM_SPICE.map(mkDomestic).join(''));
-  html('domGrain',    DOM_GRAIN.map(mkDomestic).join(''));
-  html('domAgri',     DOM_AGRI.map(mkDomestic).join(''));
-  html('domFruit',    DOM_FRUIT.map(mkDomestic).join(''));
-  html('domVegLeaf',  DOM_VEG_LEAF.map(mkDomestic).join(''));
-  html('domVegRoot',  DOM_VEG_ROOT.map(mkDomestic).join(''));
-  html('domMushroom', DOM_MUSHROOM.map(mkDomestic).join(''));
-  html('domSea',      DOM_SEA.map(mkDomestic).join(''));
-  html('domSeaFrozen',DOM_SEA_FROZEN.map(mkDomestic).join(''));
-  html('domSeaDried', DOM_SEA_DRIED.map(mkDomestic).join(''));
-}
-
 // Thu gọn/mở rộng từng nhóm — áp dụng cho MỌI tab (không chỉ Giá tiêu dùng), vì tab nào
 // cũng có thể dài trên mobile. Mặc định mở 2 nhóm đầu của MỖI tab, còn lại thu gọn sẵn.
 // Chạy 1 lần duy nhất lúc khởi tạo — toàn bộ .sh đều là HTML tĩnh nên không cần chạy lại mỗi lần đổi tab.
@@ -1542,17 +1306,6 @@ function renderOverviewSim(){
     if(gpct===null){ e2.textContent='— Đang lấy dữ liệu'; e2.style.color='var(--mu)'; }
     else { e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%'; e2.style.color=gpct>=0?'var(--gn)':'var(--rd)'; }
   }
-
-  // Giá tiêu dùng preview (6 mặt hàng đại diện nhiều nhóm) — giữ làm tham khảo
-  const domPicks=[
-    ...DOM_FUEL.filter(d=>d.sym==='XANG-E5'),
-    ...DOM_FUEL.filter(d=>d.sym==='VANG-SJC'),
-    ...DOM_RETAIL.filter(d=>d.sym==='HEO-BAROI'),
-    ...DOM_AGRI.filter(d=>d.sym==='GAO-TE'),
-    ...DOM_VEG_ROOT.filter(d=>d.sym==='CACHUA'),
-    ...DOM_SEA.filter(d=>d.sym==='CA-BASA'),
-  ];
-  html('ovDomPrev', domPicks.map(mkDomestic).join(''));
 }
 
 // ─── TICKER ────────────────────────────────
@@ -1596,7 +1349,6 @@ function loadTab(tab){
     else if(tab==='comm')  { renderComm(); }
     else if(tab==='crypto'){ renderCrypto(); }
     else if(tab==='fx')    { renderFX(); }
-    else if(tab==='prices'){ renderDomestic(); }
   }catch(err){
     console.error('loadTab error ['+tab+']:', err);
   }
