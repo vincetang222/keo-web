@@ -287,8 +287,8 @@
       "city": "hcm",
       "type": "Sân khấu",
       "title": "Chào Show | Tháng 7-2026",
-      "venue": "",
-      "desc": "Chương trình sân khấu định kỳ suốt tháng 7."
+      "venue": "Số 6 Nguyễn Siêu, P. Bến Nghé, Q.1, TP.HCM",
+      "desc": "Chương trình nghệ thuật tôn vinh âm nhạc Việt Nam qua 30 nhạc cụ dân tộc. Diễn định kỳ 19h-21h từ thứ Ba đến Chủ Nhật hàng tuần."
     },
     {
       "start": "2026-07-02",
@@ -342,6 +342,15 @@
       "title": "[BẾN THÀNH] Đêm nhạc Đỗ Hoàng Hiệp - Hà Lê - Huy R",
       "venue": "Phòng trà Bến Thành, Lầu 3, 6 Mạc Đĩnh Chi, Q.1",
       "desc": "Đêm nhạc tại phòng trà Bến Thành."
+    },
+    {
+      "start": "2026-07-09",
+      "end": "2026-12-31",
+      "city": "hcm",
+      "type": "Xiếc nghệ thuật",
+      "title": "Vở diễn À Ố Show — Xiếc Tre Việt Nam",
+      "venue": "Nhà hát Thành phố (Saigon Opera House), 07 Công trường Lam Sơn, Q.1",
+      "desc": "Vở xiếc tre nổi tiếng thế giới của Lune Production, diễn từ 2015, từng lưu diễn Sydney Opera House. Diễn thường kỳ 18h. Trải nghiệm văn hoá đặc sắc, phù hợp cho các buổi hẹn."
     },
     {
       "start": "2026-07-10",
@@ -806,15 +815,6 @@
       "start": "2026-07-25",
       "end": "2026-07-25",
       "city": "hcm",
-      "type": "Đêm nhạc",
-      "title": "[L'AMOUR NIGHTS] MYSTIC NIGHTS — Tăng Phúc x Kay Trần",
-      "venue": "",
-      "desc": "Đêm nhạc chuỗi L'Amour Nights."
-    },
-    {
-      "start": "2026-07-25",
-      "end": "2026-07-25",
-      "city": "hcm",
       "type": "Lễ hội",
       "title": "Tái hiện ký ức tuổi thơ cùng Vạn Phúc Water Show",
       "venue": "Vạn Phúc, TP. Thủ Đức",
@@ -846,6 +846,24 @@
       "title": "Sân Khấu Hồng Vân: Vở Kịch Người Vợ Ma",
       "venue": "Sân khấu Hồng Vân",
       "desc": "Vở kịch tại Sân khấu Hồng Vân."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hcm",
+      "type": "Đêm nhạc",
+      "title": "Musique de Salon 21: Tự Tình Quê Hương",
+      "venue": "",
+      "desc": "Đêm nhạc thính phòng chủ đề quê hương."
+    },
+    {
+      "start": "2026-07-25",
+      "end": "2026-07-25",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "[L'AMOUR NIGHTS] MYSTIC NIGHTS — Tăng Phúc x Kay Trần",
+      "venue": "",
+      "desc": "Đêm nhạc chuỗi L'Amour Nights."
     },
     {
       "start": "2026-07-25",
@@ -1045,6 +1063,15 @@
       "desc": "Liveshow kết hợp hài kịch và âm nhạc."
     },
     {
+      "start": "2026-08-01",
+      "end": "2026-08-01",
+      "city": "hn",
+      "type": "Đêm nhạc",
+      "title": "Musique de Salon 21: Tự Tình Quê Hương",
+      "venue": "",
+      "desc": "Đêm nhạc thính phòng chủ đề quê hương, chặng Hà Nội."
+    },
+    {
       "start": "2026-08-02",
       "end": "2026-08-02",
       "city": "hcm",
@@ -1061,6 +1088,15 @@
       "title": "LIVESHOW SECRET GARDEN — THE GATE: Quốc Thiên, Lân Nhã, Phương Linh",
       "venue": "",
       "desc": "Liveshow Secret Garden."
+    },
+    {
+      "start": "2026-08-02",
+      "end": "2026-08-02",
+      "city": "hn",
+      "type": "Hoà nhạc",
+      "title": "Hoà nhạc đặt vé trước số 185 — Rachmaninov, Wagner",
+      "venue": "",
+      "desc": "Chuỗi hoà nhạc cổ điển đặt vé trước (Subscription Concert)."
     },
     {
       "start": "2026-08-07",
@@ -1182,20 +1218,29 @@
     {
       "start": "2026-08-15",
       "end": "2026-08-15",
-      "city": "hcm",
+      "city": "hn",
       "type": "Đêm nhạc",
-      "title": "E LÀ KHÔNG THỂ — Vicky Nhung & Chu Thúy Quỳnh",
-      "venue": "",
-      "desc": "Đêm nhạc song ca."
+      "title": "Show Hòa nhạc Giao hưởng ngoài trời \"Vietnam Airlines Classic - Hanoi Concert\"",
+      "venue": "Vườn hoa Lý Thái Tổ",
+      "desc": "Hoà nhạc giao hưởng ngoài trời."
     },
     {
       "start": "2026-08-15",
       "end": "2026-08-15",
       "city": "hn",
       "type": "Đêm nhạc",
-      "title": "Show Hòa nhạc Giao hưởng ngoài trời \"Vietnam Airlines Classic - Hanoi Concert\"",
-      "venue": "Vườn hoa Lý Thái Tổ",
-      "desc": "Hoà nhạc giao hưởng ngoài trời."
+      "title": "Live concert Thanh Tùng - Legacy of Love 2026",
+      "venue": "",
+      "desc": "Đêm nhạc tưởng nhớ nhạc sĩ Thanh Tùng, chặng Hà Nội (khác ngày với chặng TP.HCM 14/8)."
+    },
+    {
+      "start": "2026-08-21",
+      "end": "2026-08-21",
+      "city": "hn",
+      "type": "Kịch nói",
+      "title": "Sân khấu kịch huyền ảo | Nguyễn Du – Hồ Xuân Hương Ngoại Truyện (suất diễn 3)",
+      "venue": "",
+      "desc": "Vở kịch huyền ảo lấy cảm hứng từ Nguyễn Du và Hồ Xuân Hương."
     },
     {
       "start": "2026-08-22",
@@ -1367,6 +1412,15 @@
       "desc": "Giao lưu văn hoá làng nghề truyền thống."
     },
     {
+      "start": "2026-09-09",
+      "end": "2026-09-09",
+      "city": "hn",
+      "type": "Hoà nhạc",
+      "title": "Hoà nhạc đặt vé trước số 186 — Rossini, Ravel, Haydn",
+      "venue": "",
+      "desc": "Chuỗi hoà nhạc cổ điển đặt vé trước."
+    },
+    {
       "start": "2026-09-12",
       "end": "2026-09-12",
       "city": "hcm",
@@ -1525,6 +1579,15 @@
       "title": "Giải chạy bộ phong trào sinh viên và thanh niên miền Trung",
       "venue": "Phố đi bộ Bạch Đằng",
       "desc": "Giải chạy bộ phong trào dành cho sinh viên, thanh niên."
+    },
+    {
+      "start": "2026-10-16",
+      "end": "2026-10-16",
+      "city": "hn",
+      "type": "Hoà nhạc",
+      "title": "Hoà nhạc đặt vé trước số 187 — Haydn, Otaka, Debussy",
+      "venue": "",
+      "desc": "Chuỗi hoà nhạc cổ điển đặt vé trước."
     },
     {
       "start": "2026-10-17",
@@ -2156,6 +2219,6 @@
     }
   ],
   "lastUpdated": "2026-07-09",
-  "version": 4,
+  "version": 5,
   "_comment": "Dữ liệu sự kiện cho Lịch sự kiện trong nhip-song.html (tab Du lịch > Sự kiện). city: 'holiday' | 'hcm' | 'hn' | 'dn'. start/end dạng YYYY-MM-DD, sự kiện dài ngày mark hết các ngày trong khoảng."
 }
