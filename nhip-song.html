@@ -227,12 +227,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 
 /* ─── Điểm đến ─── */
 .dest-city-tabs{display:flex;gap:8px;margin-bottom:14px}
-.dest-city-tab{font-family:var(--sans);font-size:13px;font-weight:700;padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(245,239,230,.6);cursor:pointer;transition:all .15s}
-.dest-city-tab:hover{color:var(--ink);border-color:rgba(255,255,255,.2)}
+.dest-city-tab{font-family:var(--sans);font-size:13px;font-weight:700;padding:9px 18px;border-radius:100px;background:var(--s1);border:1px solid var(--rim2);color:var(--i2);cursor:pointer;transition:all .15s}
+.dest-city-tab:hover{color:var(--ink);border-color:rgba(214,95,53,.4)}
 .dest-city-tab.on{background:linear-gradient(135deg,#E8A22B,#D65F35);border-color:transparent;color:#1A1006}
 .dest-cat-filter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.dest-cat-pill{font-family:var(--sans);font-size:11.5px;font-weight:600;padding:6px 13px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(245,239,230,.55);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
-.dest-cat-pill:hover{color:var(--ink)}
+.dest-cat-pill{font-family:var(--sans);font-size:11.5px;font-weight:600;padding:6px 13px;border-radius:100px;background:var(--s1);border:1px solid var(--rim2);color:var(--i2);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+.dest-cat-pill:hover{border-color:var(--pc,#E8A22B);color:var(--ink)}
 .dest-cat-pill.on{background:var(--pc,#E8A22B);border-color:transparent;color:#1A1006;font-weight:700}
 .dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media(max-width:900px){.dest-grid{grid-template-columns:repeat(2,1fr)}}
