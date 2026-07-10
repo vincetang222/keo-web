@@ -172,8 +172,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 /* Layout 2 cột: calendar cố định bên trái (sticky khi cuộn), chi tiết sự kiện linh hoạt bên
    phải — tận dụng hết chiều rộng main (1100px) thay vì nhốt mọi thứ trong 1 cột hẹp 640px. */
 .cal-split{display:flex;gap:22px;align-items:flex-start}
-.cal-col-cal{flex:0 0 380px;position:sticky;top:78px}
-.cal-col-ev{flex:1;min-width:0;position:relative;background:linear-gradient(165deg,#211A22 0%,#171219 100%);border-radius:20px;padding:20px 22px;box-shadow:0 14px 34px rgba(26,21,16,.22);overflow:hidden;min-height:420px;isolation:isolate}
+.cal-col-cal{flex:0 0 380px;max-width:380px;min-width:0;position:sticky;top:78px}
+.cal-col-ev{flex:1;min-width:0;position:relative;background:linear-gradient(165deg,#211A22 0%,#171219 100%);border-radius:20px;padding:20px 22px;box-shadow:0 14px 34px rgba(26,21,16,.22);overflow:hidden;isolation:isolate;height:560px;display:flex;flex-direction:column}
+.cal-ev-scroll{position:relative;z-index:1;overflow-y:auto;flex:1;min-height:0;padding-right:4px;scrollbar-width:thin;scrollbar-color:rgba(245,239,230,.2) transparent}
+.cal-ev-scroll::-webkit-scrollbar{width:6px}
+.cal-ev-scroll::-webkit-scrollbar-thumb{background:rgba(245,239,230,.18);border-radius:10px}
+.cal-ev-scroll::-webkit-scrollbar-thumb:hover{background:rgba(245,239,230,.3)}
 .cal-col-ev::before{content:'';position:absolute;top:-30%;right:-15%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--mood,var(--c-quiet)) 22%,transparent) 0%,transparent 65%);filter:blur(30px);pointer-events:none;z-index:0;transition:background .6s ease}
 @media(max-width:900px){
   .cal-split{flex-direction:column}
@@ -272,7 +276,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .city-pill.on .dot{background:var(--pc);box-shadow:0 0 6px var(--pc)}
 .city-pill:hover{border-color:color-mix(in srgb,var(--pc) 60%,transparent)}
 
-.ev-panel-head{position:relative;z-index:2;display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:6px}
+.ev-panel-head{position:relative;z-index:2;display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:6px;flex-shrink:0}
 .ev-panel-title{font-family:var(--serif);font-size:16px;font-weight:700;color:#F5EFE6}
 .ev-panel-back{font-family:var(--sans);font-size:10.5px;color:var(--gold);cursor:pointer;font-weight:700;padding:5px 11px;border-radius:100px;background:rgba(232,162,43,.12);transition:background .15s}
 .ev-panel-back:hover{background:rgba(232,162,43,.22)}
@@ -1377,6 +1381,11 @@ function renderCal(){
       ${indicator}
     </div>`;
   }
+  // Đệm thêm ô trống cuối tháng để LƯỚI LUÔN CỐ ĐỊNH 6 HÀNG (42 ô) — tránh chiều cao
+  // khung lịch nhảy lên xuống khi chuyển qua tháng có 4/5/6 tuần khác nhau.
+  const totalCellsSoFar = startOffset + daysInMonth;
+  const trailingPad = (7*6) - totalCellsSoFar; // luôn lấp đủ tới 42 ô (6 hàng)
+  for(let i=0;i<trailingPad;i++) gridHtml += `<div class="cal-day pad"><span class="cal-day-n">·</span></div>`;
   html('calGrid', gridHtml);
 
   document.querySelectorAll('.cal-day:not(.pad)').forEach(el=>{
@@ -1475,7 +1484,7 @@ function renderCalEvZone(monthEvents){
       <div class="ev-panel-title">${title}</div>
       ${showBack ? '<div class="ev-panel-back" id="calBackBtn">← Xem cả tháng</div>' : ''}
     </div>
-    ${bodyHtml}
+    <div class="cal-ev-scroll">${bodyHtml}</div>
   `);
   if(showBack) $('calBackBtn').onclick = ()=>{ calState.selectedDay=null; calHideTip(); renderCal(); };
   document.querySelectorAll('.ev-row').forEach(row=>{
