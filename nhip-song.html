@@ -56,6 +56,15 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .lang-toggle .lang-sep{color:rgba(245,239,230,.25)}
 .nav-link:hover{color:#F5EFE6}
 .nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:var(--serif);font-size:13px;font-weight:600}
+/* ─── Register hint cuối mỗi pillar — register-driven ─── */
+.pillar-hint{margin:34px auto 6px;max-width:640px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(120deg,color-mix(in srgb,var(--a) 14%,transparent),color-mix(in srgb,var(--a2) 10%,transparent));border:1px solid color-mix(in srgb,var(--a) 30%,transparent);position:relative;overflow:hidden}
+.pillar-hint::before{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.07),transparent);transform:skewX(-20deg);animation:hintShine 5s ease-in-out infinite}
+@keyframes hintShine{0%,70%{left:-70%}100%{left:130%}}
+.pillar-hint-tx{font-family:var(--serif);font-size:14.5px;font-weight:600;color:#F5EFE6;line-height:1.5}
+.pillar-hint-btn{flex-shrink:0;padding:9px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:var(--sans);font-size:12.5px;font-weight:700;text-decoration:none;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 14px rgba(214,95,53,.35)}
+.pillar-hint-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(214,95,53,.45)}
+@media(max-width:640px){.pillar-hint{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 18px;margin-top:26px}.nav-in{padding:0 12px}.nav-r{gap:2px}.nav-r .nav-link{display:none}.nav-cta{padding:7px 12px;font-size:12px;margin-left:4px}}
+@media(prefers-reduced-motion:reduce){.pillar-hint::before{animation:none}}
 
 /* ─── HERO ────────────────────────────────────────────────── */
 .hero{padding:44px 32px 48px;position:relative;overflow:hidden;background:#17120D}
@@ -479,7 +488,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
 
 footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 .foot-in{max-width:1100px;margin:0 auto}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1.1fr .9fr;gap:30px;padding-bottom:32px;border-bottom:1px solid rgba(240,234,225,.1)}
 .foot-brand .nav-logo{color:#F5EFE6}
 .foot-tagline{font-size:13px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.7;max-width:260px;margin:12px 0 18px}
 .foot-social{display:flex;gap:10px}
@@ -489,6 +498,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 .foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
 .foot-link:hover{color:#F5EFE6}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
+@media(max-width:640px){.foot-top{grid-template-columns:1fr 1fr;gap:22px}.foot-brand{grid-column:1/-1}}
 .foot-legal{display:flex;gap:16px}
 .foot-legal .foot-link{display:inline;padding:0;font-size:11.5px}
 .sport-attrib{text-align:right;font-family:var(--sans);font-size:10.5px;color:var(--i3);margin:2px 0 8px}
@@ -508,6 +518,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       <div class="lang-toggle" id="langToggle" onclick="toggleLang()">
         <span class="lang-opt on" data-lang="vi">VI</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="en">EN</span>
       </div>
+      <a href="/register" class="nav-cta" data-i18n="nav_register">Đăng ký ngay</a>
     </div>
   </div>
 </nav>
@@ -558,6 +569,11 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 
   <div id="topic-content"></div>
 </main>
+
+<div class="pillar-hint rv">
+  <div class="pillar-hint-tx" data-i18n="hint_pillar">Thích những chủ đề này? Gặp một người đồng hành hiểu chuyện để cùng trò chuyện.</div>
+  <a href="/register" class="pillar-hint-btn" data-i18n="hint_cta">Đăng ký ngay →</a>
+</div>
 </div>
 
 <div id="pillar-travel" class="pillar-panel on">
@@ -590,33 +606,33 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
               <div class="szn-city-name">TP. Hồ Chí Minh</div>
               <div class="szn-city-name-en">Ho Chi Minh City</div>
             </div>
-            <div class="szn-city-region">Miền Nam<span class="szn-city-region-sub">Khí hậu 2 mùa</span></div>
+            <div class="szn-city-region"><span data-i18n="szn_r_south">Miền Nam</span><span class="szn-city-region-sub" data-i18n="szn_r_south_sub">Khí hậu 2 mùa</span></div>
           </div>
           <div class="szn-body">
             <div class="szn-period szn-p-dry">
               <div class="szn-period-head">
-                <span class="szn-period-name">☀️ Mùa khô</span>
-                <span class="szn-period-time">Tháng 12 – Tháng 4</span>
+                <span class="szn-period-name" data-i18n="szn_hcm_dry_n">☀️ Mùa khô</span>
+                <span class="szn-period-time" data-i18n="szn_hcm_dry_t">Tháng 12 – Tháng 4</span>
                 <span class="szn-period-temp">26–38°C</span>
               </div>
-              <p class="szn-period-body">Nóng nhất vào tháng 3-4, nhưng trời nắng ráo suốt — mùa cao điểm du lịch trong năm. Đường hoa Nguyễn Huệ và chợ hoa Tết rực rỡ khắp tháng 1-2.</p>
+              <p class="szn-period-body" data-i18n="szn_hcm_dry_b">Nóng nhất vào tháng 3-4, nhưng trời nắng ráo suốt — mùa cao điểm du lịch trong năm. Đường hoa Nguyễn Huệ và chợ hoa Tết rực rỡ khắp tháng 1-2.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Dạo phố đi bộ Nguyễn Huệ tối</span>
-                <span class="szn-tag">Dã ngoại Cần Giờ / Củ Chi</span>
-                <span class="szn-tag">Cà phê rooftop ngắm hoàng hôn</span>
+                <span class="szn-tag" data-i18n="szn_tag_hcm1">Dạo phố đi bộ Nguyễn Huệ tối</span>
+                <span class="szn-tag" data-i18n="szn_tag_hcm2">Dã ngoại Cần Giờ / Củ Chi</span>
+                <span class="szn-tag" data-i18n="szn_tag_hcm3">Cà phê rooftop ngắm hoàng hôn</span>
               </div>
             </div>
             <div class="szn-period szn-p-rain">
               <div class="szn-period-head">
-                <span class="szn-period-name">🌧️ Mùa mưa</span>
-                <span class="szn-period-time">Tháng 5 – Tháng 11</span>
+                <span class="szn-period-name" data-i18n="szn_hcm_rain_n">🌧️ Mùa mưa</span>
+                <span class="szn-period-time" data-i18n="szn_hcm_rain_t">Tháng 5 – Tháng 11</span>
                 <span class="szn-period-temp">25–32°C</span>
               </div>
-              <p class="szn-period-body">Mưa thường đến nhanh, tạnh nhanh — chỉ 1-2 tiếng buổi chiều tối, sáng và trưa vẫn nắng đẹp. Tháng 6 và tháng 9 mưa nhiều nhất năm.</p>
+              <p class="szn-period-body" data-i18n="szn_hcm_rain_b">Mưa thường đến nhanh, tạnh nhanh — chỉ 1-2 tiếng buổi chiều tối, sáng và trưa vẫn nắng đẹp. Tháng 6 và tháng 9 mưa nhiều nhất năm.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Hoạt động ngoài trời buổi sáng</span>
-                <span class="szn-tag">TTTM / rạp phim buổi chiều mưa</span>
-                <span class="szn-tag">Bánh xèo, ốc, lẩu ngày mưa</span>
+                <span class="szn-tag" data-i18n="szn_tag_hcm4">Hoạt động ngoài trời buổi sáng</span>
+                <span class="szn-tag" data-i18n="szn_tag_hcm5">TTTM / rạp phim buổi chiều mưa</span>
+                <span class="szn-tag" data-i18n="szn_tag_hcm6">Bánh xèo, ốc, lẩu ngày mưa</span>
               </div>
             </div>
           </div>
@@ -628,59 +644,59 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
               <div class="szn-city-name">Hà Nội</div>
               <div class="szn-city-name-en">Hanoi</div>
             </div>
-            <div class="szn-city-region">Miền Bắc<span class="szn-city-region-sub">4 mùa rõ rệt</span></div>
+            <div class="szn-city-region"><span data-i18n="szn_r_north">Miền Bắc</span><span class="szn-city-region-sub" data-i18n="szn_r_north_sub">4 mùa rõ rệt</span></div>
           </div>
           <div class="szn-body">
             <div class="szn-period szn-p-spring">
               <div class="szn-period-head">
-                <span class="szn-period-name">🌸 Xuân</span>
-                <span class="szn-period-time">Tháng 2 – Tháng 4</span>
+                <span class="szn-period-name" data-i18n="szn_hn_spring_n">🌸 Xuân</span>
+                <span class="szn-period-time" data-i18n="szn_hn_spring_t">Tháng 2 – Tháng 4</span>
                 <span class="szn-period-temp">18–25°C</span>
               </div>
-              <p class="szn-period-body">Mùa đẹp nhất để dạo phố cổ, còn dư âm Tết. Làng hoa Nhật Tân, chợ hoa Quảng Bá rực rỡ, thi thoảng có mưa xuân nhẹ.</p>
+              <p class="szn-period-body" data-i18n="szn_hn_spring_b">Mùa đẹp nhất để dạo phố cổ, còn dư âm Tết. Làng hoa Nhật Tân, chợ hoa Quảng Bá rực rỡ, thi thoảng có mưa xuân nhẹ.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Cà phê phố cổ buổi sáng</span>
-                <span class="szn-tag">Đi lễ đầu năm</span>
-                <span class="szn-tag">Dạo Hồ Gươm sớm</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn1">Cà phê phố cổ buổi sáng</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn2">Đi lễ đầu năm</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn3">Dạo Hồ Gươm sớm</span>
               </div>
             </div>
             <div class="szn-period szn-p-summer">
               <div class="szn-period-head">
-                <span class="szn-period-name">☀️ Hạ</span>
-                <span class="szn-period-time">Tháng 5 – Tháng 8</span>
+                <span class="szn-period-name" data-i18n="szn_hn_summer_n">☀️ Hạ</span>
+                <span class="szn-period-time" data-i18n="szn_mayaug_t">Tháng 5 – Tháng 8</span>
                 <span class="szn-period-temp">28–38°C</span>
               </div>
-              <p class="szn-period-body">Nóng gay gắt nhất năm, có ngày lên tới 40°C, kèm mưa dông bất chợt buổi chiều. Nên tránh nắng giữa trưa.</p>
+              <p class="szn-period-body" data-i18n="szn_hn_summer_b">Nóng gay gắt nhất năm, có ngày lên tới 40°C, kèm mưa dông bất chợt buổi chiều. Nên tránh nắng giữa trưa.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Công viên nước</span>
-                <span class="szn-tag">Bảo tàng có điều hoà</span>
-                <span class="szn-tag">Ăn tối muộn ngoài trời</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn4">Công viên nước</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn5">Bảo tàng có điều hoà</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn6">Ăn tối muộn ngoài trời</span>
               </div>
             </div>
             <div class="szn-period szn-p-fall">
               <div class="szn-period-head">
-                <span class="szn-period-name">🍂 Thu</span>
-                <span class="szn-period-time">Tháng 9 – Tháng 11</span>
+                <span class="szn-period-name" data-i18n="szn_hn_fall_n">🍂 Thu</span>
+                <span class="szn-period-time" data-i18n="szn_hn_fall_t">Tháng 9 – Tháng 11</span>
                 <span class="szn-period-temp">23–28°C</span>
               </div>
-              <p class="szn-period-body">Mùa được xem là đẹp nhất trong năm — trời trong xanh, mát mẻ, hoa sữa thơm khắp phố, lá vàng rụng.</p>
+              <p class="szn-period-body" data-i18n="szn_hn_fall_b">Mùa được xem là đẹp nhất trong năm — trời trong xanh, mát mẻ, hoa sữa thơm khắp phố, lá vàng rụng.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Đạp xe quanh Hồ Tây</span>
-                <span class="szn-tag">Cốm làng Vòng</span>
-                <span class="szn-tag">Chụp ảnh phố cổ mùa lá</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn7">Đạp xe quanh Hồ Tây</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn8">Cốm làng Vòng</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn9">Chụp ảnh phố cổ mùa lá</span>
               </div>
             </div>
             <div class="szn-period szn-p-winter">
               <div class="szn-period-head">
-                <span class="szn-period-name">❄️ Đông</span>
-                <span class="szn-period-time">Tháng 12 – Tháng 1</span>
+                <span class="szn-period-name" data-i18n="szn_hn_winter_n">❄️ Đông</span>
+                <span class="szn-period-time" data-i18n="szn_hn_winter_t">Tháng 12 – Tháng 1</span>
                 <span class="szn-period-temp">10–19°C</span>
               </div>
-              <p class="szn-period-body">Lạnh khô, có đợt rét đậm xuống dưới 10°C về đêm. Ngày ngắn, trời tối sớm khoảng 5-6 giờ chiều.</p>
+              <p class="szn-period-body" data-i18n="szn_hn_winter_b">Lạnh khô, có đợt rét đậm xuống dưới 10°C về đêm. Ngày ngắn, trời tối sớm khoảng 5-6 giờ chiều.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Cà phê trứng ấm nóng</span>
-                <span class="szn-tag">Lẩu cuối tuần</span>
-                <span class="szn-tag">Chợ đêm phố cổ</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn10">Cà phê trứng ấm nóng</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn11">Lẩu cuối tuần</span>
+                <span class="szn-tag" data-i18n="szn_tag_hn12">Chợ đêm phố cổ</span>
               </div>
             </div>
           </div>
@@ -692,46 +708,46 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
               <div class="szn-city-name">Đà Nẵng</div>
               <div class="szn-city-name-en">Da Nang</div>
             </div>
-            <div class="szn-city-region">Miền Trung<span class="szn-city-region-sub">Giao thoa Bắc-Nam</span></div>
+            <div class="szn-city-region"><span data-i18n="szn_r_central">Miền Trung</span><span class="szn-city-region-sub" data-i18n="szn_r_central_sub">Giao thoa Bắc-Nam</span></div>
           </div>
           <div class="szn-body">
             <div class="szn-period szn-p-early">
               <div class="szn-period-head">
-                <span class="szn-period-name">🌤️ Đầu năm</span>
-                <span class="szn-period-time">Tháng 1 – Tháng 2</span>
+                <span class="szn-period-name" data-i18n="szn_dn_early_n">🌤️ Đầu năm</span>
+                <span class="szn-period-time" data-i18n="szn_dn_early_t">Tháng 1 – Tháng 2</span>
                 <span class="szn-period-temp">21–25°C</span>
               </div>
-              <p class="szn-period-body">Giai đoạn giao mùa dễ chịu nhất, mát dịu, ít khách du lịch nhất năm nên giá phòng và dịch vụ mềm nhất.</p>
+              <p class="szn-period-body" data-i18n="szn_dn_early_b">Giai đoạn giao mùa dễ chịu nhất, mát dịu, ít khách du lịch nhất năm nên giá phòng và dịch vụ mềm nhất.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Bà Nà Hills trong sương sớm</span>
-                <span class="szn-tag">Bảo tàng Điêu khắc Chăm</span>
-                <span class="szn-tag">Lễ hội chào năm mới</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn1">Bà Nà Hills trong sương sớm</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn2">Bảo tàng Điêu khắc Chăm</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn3">Lễ hội chào năm mới</span>
               </div>
             </div>
             <div class="szn-period szn-p-dry">
               <div class="szn-period-head">
-                <span class="szn-period-name">☀️ Mùa khô cao điểm</span>
-                <span class="szn-period-time">Tháng 3 – Tháng 8</span>
+                <span class="szn-period-name" data-i18n="szn_dn_dry_n">☀️ Mùa khô cao điểm</span>
+                <span class="szn-period-time" data-i18n="szn_dn_dry_t">Tháng 3 – Tháng 8</span>
                 <span class="szn-period-temp">24–34°C</span>
               </div>
-              <p class="szn-period-body">Nắng đẹp, biển êm, hầu như không mưa bão — mùa du lịch biển tốt nhất trong năm. Nóng nhất vào tháng 6-7.</p>
+              <p class="szn-period-body" data-i18n="szn_dn_dry_b">Nắng đẹp, biển êm, hầu như không mưa bão — mùa du lịch biển tốt nhất trong năm. Nóng nhất vào tháng 6-7.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Tắm biển Mỹ Khê</span>
-                <span class="szn-tag">Lặn ngắm san hô Cù Lao Chàm</span>
-                <span class="szn-tag">Cầu Rồng phun lửa cuối tuần</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn4">Tắm biển Mỹ Khê</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn5">Lặn ngắm san hô Cù Lao Chàm</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn6">Cầu Rồng phun lửa cuối tuần</span>
               </div>
             </div>
             <div class="szn-period szn-p-storm">
               <div class="szn-period-head">
-                <span class="szn-period-name">🌧️ Mùa mưa bão</span>
-                <span class="szn-period-time">Tháng 9 – Tháng 12</span>
+                <span class="szn-period-name" data-i18n="szn_dn_storm_n">🌧️ Mùa mưa bão</span>
+                <span class="szn-period-time" data-i18n="szn_dn_storm_t">Tháng 9 – Tháng 12</span>
                 <span class="szn-period-temp">21–28°C</span>
               </div>
-              <p class="szn-period-body">Mưa nhiều, cao điểm bão vào tháng 10-11 — nên theo dõi dự báo trước khi ra biển. Nhiều điểm tham quan trong nhà vẫn đẹp.</p>
+              <p class="szn-period-body" data-i18n="szn_dn_storm_b">Mưa nhiều, cao điểm bão vào tháng 10-11 — nên theo dõi dự báo trước khi ra biển. Nhiều điểm tham quan trong nhà vẫn đẹp.</p>
               <div class="szn-period-tags">
-                <span class="szn-tag">Bảo tàng Điêu khắc Chăm</span>
-                <span class="szn-tag">Vincom / Helio Center</span>
-                <span class="szn-tag">Ẩm thực Hội An gần đó</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn2">Bảo tàng Điêu khắc Chăm</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn7">Vincom / Helio Center</span>
+                <span class="szn-tag" data-i18n="szn_tag_dn8">Ẩm thực Hội An gần đó</span>
               </div>
             </div>
           </div>
@@ -740,7 +756,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       </div>
     </div>
 
-    <div class="travel-attr">Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a> &nbsp;·&nbsp; Lịch thời tiết theo mùa tổng hợp từ số liệu khí hậu trung bình nhiều năm — chỉ mang tính tham khảo, thời tiết thực tế có thể khác theo từng năm.</div>
+    <div class="travel-attr" data-i18n-html="szn_attr">Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a> &nbsp;·&nbsp; Lịch thời tiết theo mùa tổng hợp từ số liệu khí hậu trung bình nhiều năm — chỉ mang tính tham khảo, thời tiết thực tế có thể khác theo từng năm.</div>
     </div>
 
     <div id="travel-page-events" class="travel-page">
@@ -799,6 +815,11 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
       <div class="cal-foot-note" id="destFootNote">Dữ liệu địa điểm từ Google Places, lọc theo đánh giá ≥4.0⭐ và tối thiểu 15 lượt đánh giá (trừ vài biểu tượng văn hoá không có rating). TP.HCM gồm cả Bình Dương &amp; Bà Rịa-Vũng Tàu, Đà Nẵng gồm cả Quảng Nam/Hội An — theo địa giới hành chính mới từ 1/7/2025.</div>
     </div>
   </main>
+
+<div class="pillar-hint rv">
+  <div class="pillar-hint-tx" data-i18n="hint_pillar">Thích những chủ đề này? Gặp một người đồng hành hiểu chuyện để cùng trò chuyện.</div>
+  <a href="/register" class="pillar-hint-btn" data-i18n="hint_cta">Đăng ký ngay →</a>
+</div>
 </div>
 
 <div id="pillar-culture" class="pillar-panel">
@@ -825,6 +846,11 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 
   <div id="culture-content"></div>
 </main>
+
+<div class="pillar-hint rv">
+  <div class="pillar-hint-tx" data-i18n="hint_pillar">Thích những chủ đề này? Gặp một người đồng hành hiểu chuyện để cùng trò chuyện.</div>
+  <a href="/register" class="pillar-hint-btn" data-i18n="hint_cta">Đăng ký ngay →</a>
+</div>
 </div>
 
 
@@ -833,7 +859,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
     <div class="foot-top">
       <div class="foot-brand">
         <div class="nav-logo" style="color:#F5EFE6"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
-        <div class="foot-tagline">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</div>
+        <div class="foot-tagline" data-i18n="foot_tagline">Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.</div>
         <div class="foot-social">
           <a href="https://www.instagram.com/keosocialvn/" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
           <a href="https://www.threads.com/@keosocialvn/" class="fsoc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-4.5 0-7 2.8-7 7.2v3.6C5 18.2 7.5 21 12 21s7-2.8 7-7.2M9 9.5c0-1.4 1.2-2.3 2.8-2.3 2 0 3.4 1.3 3.4 3.6 0 1-.3 1.8-.9 2.4M9 9.5c1.6-.3 4.7-.2 5.3 2.9.6 3.1-1.4 5.1-3.6 5.1-1.7 0-2.9-1-2.9-2.5 0-1.7 1.6-2.6 3.9-2.6 1 0 1.9.1 2.6.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -841,24 +867,34 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
         </div>
       </div>
       <div class="foot-col">
-        <div class="foot-col-title">Khám phá</div>
-        <a href="/thi-truong" class="foot-link">Thị trường</a>
-        <a href="/khoa-hoc-ket-noi" class="foot-link">Khoa học kết nối</a>
-        <a href="/nguoidonghanh" class="foot-link">Người đồng hành</a>
-        <a href="/huongdan" class="foot-link">Hướng dẫn sử dụng</a>
+        <div class="foot-col-title" data-i18n="foot_explore">Khám phá</div>
+        <a href="/nguoidonghanh" class="foot-link" data-i18n="foot_companions">Người đồng hành</a>
+        <a href="#su-kien" class="foot-link" data-i18n="foot_events">Sự kiện</a>
+        <a href="#diem-den" class="foot-link" data-i18n="foot_dest">Điểm đến</a>
+        <a href="/khoa-hoc-ket-noi" class="foot-link" data-i18n="foot_blog">Khoa học kết nối</a>
+        <a href="/thi-truong" class="foot-link" data-i18n="foot_market">Thị trường</a>
+        <a href="/huongdan" class="foot-link" data-i18n="foot_guide">Hướng dẫn sử dụng</a>
       </div>
       <div class="foot-col">
-        <div class="foot-col-title">Nhịp Sống</div>
-        <a href="#" class="foot-link" style="color:var(--a)">⚽ Thể thao</a>
-        <a href="#" class="foot-link" style="color:var(--a)">✈️ Du lịch</a>
-        <a href="#" class="foot-link" style="color:var(--a)">🎭 Văn hoá</a>
+        <div class="foot-col-title" data-i18n="foot_join">Tham gia</div>
+        <a href="/chu-xi" class="foot-link" data-i18n="foot_reg_host">Đăng ký Chủ xị</a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link" data-i18n="foot_reg_comp">Đăng ký làm Người đồng hành</a>
+        <a href="/taokeo" class="foot-link" data-i18n="foot_create">Tạo Kèo (đã đăng ký)</a>
+        <a href="/rules" class="foot-link" data-i18n="foot_rules">Quy tắc cộng đồng</a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title" data-i18n="foot_lifestyle">Nhịp Sống</div>
+        <a href="#van-hoa" class="foot-link" style="color:var(--a)" data-i18n="foot_culture">🎭 Văn hoá</a>
+        <a href="#the-thao" class="foot-link" style="color:var(--a)" data-i18n="foot_sports">⚽ Thể thao</a>
+        <a href="#du-lich" class="foot-link" style="color:var(--a)" data-i18n="foot_travel">✈️ Du lịch</a>
+        <a href="#thoi-tiet" class="foot-link" style="color:var(--a)" data-i18n="foot_weather">🌤️ Thời tiết</a>
       </div>
     </div>
     <div class="foot-bot">
-      <div>© 2026 Kèo · Gặp gỡ có chiều sâu</div>
+      <div>© 2026 Kèo · <span data-i18n="foot_tag2">Gặp gỡ có chiều sâu</span></div>
       <div class="foot-legal">
-        <a href="/terms" class="foot-link">Điều khoản</a>
-        <a href="/privacy" class="foot-link">Quyền riêng tư</a>
+        <a href="/terms" class="foot-link" data-i18n="foot_terms">Điều khoản</a>
+        <a href="/privacy" class="foot-link" data-i18n="foot_privacy">Quyền riêng tư</a>
       </div>
       <div>keo.social · @keosocialvn</div>
     </div>
@@ -903,6 +939,45 @@ const I18N = {
     weather_loading:'Đang tải thời tiết…',
     szn_title:'🗓️ Lịch thời tiết theo mùa',
     szn_sub:'Ghé đúng lúc, chơi đúng chỗ — mỗi miền một kiểu khí hậu, mỗi giai đoạn hợp một kiểu hoạt động khác nhau.',
+    szn_r_south:'Miền Nam', szn_r_south_sub:'Khí hậu 2 mùa',
+    szn_r_north:'Miền Bắc', szn_r_north_sub:'4 mùa rõ rệt',
+    szn_r_central:'Miền Trung', szn_r_central_sub:'Giao thoa Bắc-Nam',
+    szn_hcm_dry_n:'☀️ Mùa khô', szn_hcm_rain_n:'🌧️ Mùa mưa',
+    szn_hn_spring_n:'🌸 Xuân', szn_hn_summer_n:'☀️ Hạ', szn_hn_fall_n:'🍂 Thu', szn_hn_winter_n:'❄️ Đông',
+    szn_dn_early_n:'🌤️ Đầu năm', szn_dn_dry_n:'☀️ Mùa khô cao điểm', szn_dn_storm_n:'🌧️ Mùa mưa bão',
+    szn_hcm_dry_t:'Tháng 12 – Tháng 4', szn_hcm_rain_t:'Tháng 5 – Tháng 11', szn_hn_spring_t:'Tháng 2 – Tháng 4',
+    szn_mayaug_t:'Tháng 5 – Tháng 8', szn_hn_fall_t:'Tháng 9 – Tháng 11', szn_hn_winter_t:'Tháng 12 – Tháng 1',
+    szn_dn_early_t:'Tháng 1 – Tháng 2', szn_dn_dry_t:'Tháng 3 – Tháng 8', szn_dn_storm_t:'Tháng 9 – Tháng 12',
+    szn_hcm_dry_b:'Nóng nhất vào tháng 3-4, nhưng trời nắng ráo suốt — mùa cao điểm du lịch trong năm. Đường hoa Nguyễn Huệ và chợ hoa Tết rực rỡ khắp tháng 1-2.',
+    szn_hcm_rain_b:'Mưa thường đến nhanh, tạnh nhanh — chỉ 1-2 tiếng buổi chiều tối, sáng và trưa vẫn nắng đẹp. Tháng 6 và tháng 9 mưa nhiều nhất năm.',
+    szn_hn_spring_b:'Mùa đẹp nhất để dạo phố cổ, còn dư âm Tết. Làng hoa Nhật Tân, chợ hoa Quảng Bá rực rỡ, thi thoảng có mưa xuân nhẹ.',
+    szn_hn_summer_b:'Nóng gay gắt nhất năm, có ngày lên tới 40°C, kèm mưa dông bất chợt buổi chiều. Nên tránh nắng giữa trưa.',
+    szn_hn_fall_b:'Mùa được xem là đẹp nhất trong năm — trời trong xanh, mát mẻ, hoa sữa thơm khắp phố, lá vàng rụng.',
+    szn_hn_winter_b:'Lạnh khô, có đợt rét đậm xuống dưới 10°C về đêm. Ngày ngắn, trời tối sớm khoảng 5-6 giờ chiều.',
+    szn_dn_early_b:'Giai đoạn giao mùa dễ chịu nhất, mát dịu, ít khách du lịch nhất năm nên giá phòng và dịch vụ mềm nhất.',
+    szn_dn_dry_b:'Nắng đẹp, biển êm, hầu như không mưa bão — mùa du lịch biển tốt nhất trong năm. Nóng nhất vào tháng 6-7.',
+    szn_dn_storm_b:'Mưa nhiều, cao điểm bão vào tháng 10-11 — nên theo dõi dự báo trước khi ra biển. Nhiều điểm tham quan trong nhà vẫn đẹp.',
+    szn_tag_hcm1:'Dạo phố đi bộ Nguyễn Huệ tối', szn_tag_hcm2:'Dã ngoại Cần Giờ / Củ Chi', szn_tag_hcm3:'Cà phê rooftop ngắm hoàng hôn',
+    szn_tag_hcm4:'Hoạt động ngoài trời buổi sáng', szn_tag_hcm5:'TTTM / rạp phim buổi chiều mưa', szn_tag_hcm6:'Bánh xèo, ốc, lẩu ngày mưa',
+    szn_tag_hn1:'Cà phê phố cổ buổi sáng', szn_tag_hn2:'Đi lễ đầu năm', szn_tag_hn3:'Dạo Hồ Gươm sớm',
+    szn_tag_hn4:'Công viên nước', szn_tag_hn5:'Bảo tàng có điều hoà', szn_tag_hn6:'Ăn tối muộn ngoài trời',
+    szn_tag_hn7:'Đạp xe quanh Hồ Tây', szn_tag_hn8:'Cốm làng Vòng', szn_tag_hn9:'Chụp ảnh phố cổ mùa lá',
+    szn_tag_hn10:'Cà phê trứng ấm nóng', szn_tag_hn11:'Lẩu cuối tuần', szn_tag_hn12:'Chợ đêm phố cổ',
+    szn_tag_dn1:'Bà Nà Hills trong sương sớm', szn_tag_dn2:'Bảo tàng Điêu khắc Chăm', szn_tag_dn3:'Lễ hội chào năm mới',
+    szn_tag_dn4:'Tắm biển Mỹ Khê', szn_tag_dn5:'Lặn ngắm san hô Cù Lao Chàm', szn_tag_dn6:'Cầu Rồng phun lửa cuối tuần',
+    szn_tag_dn7:'Vincom / Helio Center', szn_tag_dn8:'Ẩm thực Hội An gần đó',
+    szn_attr:'Dữ liệu thời tiết &amp; chất lượng không khí từ <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a> &nbsp;·&nbsp; Lịch thời tiết theo mùa tổng hợp từ số liệu khí hậu trung bình nhiều năm — chỉ mang tính tham khảo, thời tiết thực tế có thể khác theo từng năm.',
+    foot_explore:'Khám phá', foot_companions:'Người đồng hành', foot_events:'Sự kiện', foot_dest:'Điểm đến',
+    foot_blog:'Khoa học kết nối', foot_market:'Thị trường', foot_guide:'Hướng dẫn sử dụng',
+    foot_join:'Tham gia', foot_reg_host:'Đăng ký Chủ xị', foot_reg_comp:'Đăng ký làm Người đồng hành',
+    foot_create:'Tạo Kèo (đã đăng ký)', foot_rules:'Quy tắc cộng đồng',
+    foot_lifestyle:'Nhịp Sống', foot_culture:'🎭 Văn hoá', foot_sports:'⚽ Thể thao', foot_travel:'✈️ Du lịch', foot_weather:'🌤️ Thời tiết',
+    foot_tag2:'Gặp gỡ có chiều sâu', foot_terms:'Điều khoản', foot_privacy:'Quyền riêng tư',
+    foot_tagline:'Gặp gỡ có chiều sâu. Marketplace người đồng hành có chuyên môn tại Việt Nam.',
+    nav_register:'Đăng ký ngay',
+    hint_pillar:'Thích những chủ đề này? Gặp một người đồng hành hiểu chuyện để cùng trò chuyện.',
+    hint_cta:'Đăng ký ngay →',
+
     events_title:'Lịch sự kiện — ngày lễ & lễ hội 3 thành phố',
     events_sub:'Click 1 ngày để xem sự kiện hôm đó — click lại vào tên tháng để xem cả tháng.',
     events_foot:'Ngày lễ Việt Nam & quốc tế, cùng lễ hội/sự kiện lớn của TP.HCM, Hà Nội, Đà Nẵng — tổng hợp từ kế hoạch chính thức và nguồn công khai. Dữ liệu 2027 hiện chỉ có ngày lễ tính trước được chắc chắn (luật định hoặc lịch âm cố định như Tết) — lễ hội/sự kiện khác chưa được công bố lịch nên chưa thể điền.',
@@ -947,6 +1022,45 @@ const I18N = {
     weather_loading:'Loading weather…',
     szn_title:'🗓️ Seasonal weather calendar',
     szn_sub:'Right time, right place — each region has its own climate, and each season suits different activities.',
+    szn_r_south:'The South', szn_r_south_sub:'Two-season climate',
+    szn_r_north:'The North', szn_r_north_sub:'Four distinct seasons',
+    szn_r_central:'Central Coast', szn_r_central_sub:'Where North meets South',
+    szn_hcm_dry_n:'☀️ Dry season', szn_hcm_rain_n:'🌧️ Rainy season',
+    szn_hn_spring_n:'🌸 Spring', szn_hn_summer_n:'☀️ Summer', szn_hn_fall_n:'🍂 Autumn', szn_hn_winter_n:'❄️ Winter',
+    szn_dn_early_n:'🌤️ Early year', szn_dn_dry_n:'☀️ Peak dry season', szn_dn_storm_n:'🌧️ Storm season',
+    szn_hcm_dry_t:'Dec – Apr', szn_hcm_rain_t:'May – Nov', szn_hn_spring_t:'Feb – Apr',
+    szn_mayaug_t:'May – Aug', szn_hn_fall_t:'Sep – Nov', szn_hn_winter_t:'Dec – Jan',
+    szn_dn_early_t:'Jan – Feb', szn_dn_dry_t:'Mar – Aug', szn_dn_storm_t:'Sep – Dec',
+    szn_hcm_dry_b:'Hottest in Mar-Apr but sunny throughout — peak tourist season. Nguyen Hue Flower Street and Tet flower markets bloom through Jan-Feb.',
+    szn_hcm_rain_b:'Rain comes and goes fast — just 1-2 hours in the late afternoon; mornings stay sunny. June and September are the wettest.',
+    szn_hn_spring_b:'The loveliest season for Old Quarter strolls, with Tet still in the air. Nhat Tan and Quang Ba flower markets bloom, with occasional light spring drizzle.',
+    szn_hn_summer_b:'The harshest heat of the year, reaching 40°C some days, with sudden afternoon thunderstorms. Avoid the midday sun.',
+    szn_hn_fall_b:'Widely considered the most beautiful season — clear blue skies, cool air, milk-flower fragrance and falling golden leaves.',
+    szn_hn_winter_b:'Cold and dry, with spells dipping below 10°C at night. Days are short — dark by 5-6 PM.',
+    szn_dn_early_b:'The mildest transition period — cool and quiet, with the fewest tourists and the softest room and service prices.',
+    szn_dn_dry_b:'Sunny skies, calm seas, almost no storms — the best beach season of the year. Hottest in Jun-Jul.',
+    szn_dn_storm_b:'Heavy rain, with peak typhoon risk in Oct-Nov — check forecasts before beach trips. Indoor attractions stay lovely.',
+    szn_tag_hcm1:'Evening stroll on Nguyen Hue', szn_tag_hcm2:'Day trip to Can Gio / Cu Chi', szn_tag_hcm3:'Rooftop coffee at sunset',
+    szn_tag_hcm4:'Outdoor activities in the morning', szn_tag_hcm5:'Malls / cinema on rainy afternoons', szn_tag_hcm6:'Banh xeo, snails & hotpot on rainy days',
+    szn_tag_hn1:'Old Quarter coffee mornings', szn_tag_hn2:'New year temple visits', szn_tag_hn3:'Early walks by Hoan Kiem Lake',
+    szn_tag_hn4:'Water parks', szn_tag_hn5:'Air-conditioned museums', szn_tag_hn6:'Late dinners outdoors',
+    szn_tag_hn7:'Cycling around West Lake', szn_tag_hn8:'Young rice from Vong village', szn_tag_hn9:'Old Quarter photos in leaf season',
+    szn_tag_hn10:'Hot egg coffee', szn_tag_hn11:'Weekend hotpot', szn_tag_hn12:'Old Quarter night market',
+    szn_tag_dn1:'Ba Na Hills in morning mist', szn_tag_dn2:'Cham Sculpture Museum', szn_tag_dn3:'New year festivals',
+    szn_tag_dn4:'Swimming at My Khe Beach', szn_tag_dn5:'Snorkeling at Cham Islands', szn_tag_dn6:'Dragon Bridge fire show weekends',
+    szn_tag_dn7:'Vincom / Helio Center', szn_tag_dn8:'Hoi An cuisine nearby',
+    szn_attr:'Weather &amp; air quality data from <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a> &nbsp;·&nbsp; The seasonal calendar is compiled from long-term climate averages — for reference only; actual weather varies by year.',
+    foot_explore:'Explore', foot_companions:'Companions', foot_events:'Events', foot_dest:'Destinations',
+    foot_blog:'Blog', foot_market:'Market', foot_guide:'How to use',
+    foot_join:'Join', foot_reg_host:'Register as Host', foot_reg_comp:'Register as Companion',
+    foot_create:'Create a Kèo (registered)', foot_rules:'Community rules',
+    foot_lifestyle:'Nhịp Sống', foot_culture:'🎭 Culture', foot_sports:'⚽ Sports', foot_travel:'✈️ Travel', foot_weather:'🌤️ Weather',
+    foot_tag2:'Connections that go deeper', foot_terms:'Terms', foot_privacy:'Privacy',
+    foot_tagline:'Connections that go deeper. Vietnam\'s marketplace for expert companions.',
+    nav_register:'Register now',
+    hint_pillar:'Enjoying these topics? Meet a companion who gets it and talk it through together.',
+    hint_cta:'Register now →',
+
     events_title:'Events calendar — holidays & festivals across 3 cities',
     events_sub:'Click a date to see that day\'s events — click the month name again to see the whole month.',
     events_foot:'Vietnamese & international holidays, plus major festivals/events in HCMC, Hanoi and Da Nang — compiled from official plans and public sources. 2027 data currently only includes holidays that can be reliably predicted (fixed by law or lunar calendar, like Tết) — other festivals/events haven\'t been announced yet.',
@@ -994,6 +1108,7 @@ function applyLang(){
   if(typeof renderDestCatFilter==='function' && DEST_DATA) renderDestCatFilter();
   if(typeof renderDestinations==='function' && (DEST_DATA || destFetchError)) renderDestinations();
   if(typeof renderCal==='function' && typeof CAL_EVENTS!=='undefined' && CAL_EVENTS.length) renderCal();
+  if(typeof renderWeatherCards==='function') renderWeatherCards();
   const activeSportTab = document.querySelector('#pillar-sports .sport-tab.on');
   if(activeSportTab && typeof renderTopic==='function') renderTopic(activeSportTab.dataset.t);
   const activeCultureTab = document.querySelector('#pillar-culture .sport-tab.on');
@@ -1030,6 +1145,11 @@ function switchPillar(pillar, el){
 // đến du lịch, nhưng lọc bớt để đỡ phải theo dõi/cập nhật CTA cho 7 thành phố Kèo chưa mở dịch vụ.
 // Lọc phía client vì Worker vẫn trả về danh sách đầy đủ; nếu muốn tối ưu quota gọi OpenWeather ở
 // tầng backend, cần sửa trực tiếp code Worker (repo riêng, không nằm trong file này).
+let WX_CITIES = null;
+function renderWeatherCards(){
+  if(!WX_CITIES) return;
+  html('travel-grid', `<div class="travel-grid-cards">${WX_CITIES.map((c,i)=>mkWeatherCard(c,i)).join('')}</div>`);
+}
 async function loadTravel(){
   try{
     const r = await fetchT(WORKER_BASE+'/weather/vn-cities', 10000);
@@ -1038,10 +1158,11 @@ async function loadTravel(){
     const allCities = data.cities||[];
     const cities = allCities.filter(c=>Object.keys(KEO_SERVICE_CITIES).includes(c.name));
     if(!cities.length) throw new Error('Không có dữ liệu thành phố nào trả về');
-    html('travel-grid', `<div class="travel-grid-cards">${cities.map((c,i)=>mkWeatherCard(c,i)).join('')}</div>`);
+    WX_CITIES = cities; // cache để render lại khi đổi ngôn ngữ
+    renderWeatherCards();
   }catch(err){
     console.warn('Lỗi tải thời tiết:', err.message);
-    html('travel-grid', `<div class="err">Không tải được dữ liệu thời tiết lúc này (${err.message}). Thử tải lại trang sau ít phút.</div>`);
+    html('travel-grid', `<div class="err">${LANG==='en'?'Could not load weather data right now':'Không tải được dữ liệu thời tiết lúc này'} (${err.message}).</div>`);
   }
 }
 
@@ -1177,7 +1298,7 @@ function renderDestinations(){
       <div class="dest-card-name">${p.name}</div>
       <div class="dest-card-addr">📍 ${p.address}</div>
       ${ratingHtml ? `<div class="dest-card-rating">${ratingHtml}</div>` : ''}
-      ${p.note ? `<div class="dest-card-note">${p.note}</div>` : ''}
+      ${(LANG==='en'?(p.note_en||p.note):p.note) ? `<div class="dest-card-note">${LANG==='en'?(p.note_en||p.note):p.note}</div>` : ''}
       <div class="dest-card-maps">${t('dest_view_maps')}</div>
     </a>`;
   }).join('');
@@ -1295,13 +1416,19 @@ async function loadCalEvents(){
 }
 
 const CAL_FILTERS = {
-  holiday: {label:'Ngày lễ', color:'var(--c-holiday)'},
-  hcm: {label:'TP. Hồ Chí Minh', color:'var(--c-hcm)'},
-  hn:  {label:'Hà Nội', color:'var(--c-hn)'},
-  dn:  {label:'Đà Nẵng', color:'var(--c-dn)'},
+  holiday: {label:'Ngày lễ', labelEn:'Holidays', color:'var(--c-holiday)'},
+  hcm: {label:'TP. Hồ Chí Minh', labelEn:'Ho Chi Minh City', color:'var(--c-hcm)'},
+  hn:  {label:'Hà Nội', labelEn:'Hanoi', color:'var(--c-hn)'},
+  dn:  {label:'Đà Nẵng', labelEn:'Da Nang', color:'var(--c-dn)'},
 };
-const CAL_MONTH_NAMES = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
-const CAL_WD = ['T2','T3','T4','T5','T6','T7','CN'];
+const CAL_MONTH_NAMES_VI = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+const CAL_MONTH_NAMES_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const CAL_WD_VI = ['T2','T3','T4','T5','T6','T7','CN'];
+const CAL_WD_EN = ['Mo','Tu','We','Th','Fr','Sa','Su'];
+// Getter theo ngôn ngữ hiện tại — mọi chỗ render lịch đều gọi qua đây
+function CAL_MONTH_NAME(m){ return (LANG==='en'?CAL_MONTH_NAMES_EN:CAL_MONTH_NAMES_VI)[m]; }
+function calWD(){ return LANG==='en'?CAL_WD_EN:CAL_WD_VI; }
+function calFilterLabel(k){ const c=CAL_FILTERS[k]; return LANG==='en'?(c.labelEn||c.label):c.label; }
 
 const calToday = new Date();
 let calState = {
@@ -1311,7 +1438,7 @@ let calState = {
 };
 
 function calEventColor(city){ return CAL_FILTERS[city] ? CAL_FILTERS[city].color : 'var(--gold)'; }
-function calEventCityLabel(city){ return CAL_FILTERS[city] ? CAL_FILTERS[city].label : city; }
+function calEventCityLabel(city){ return CAL_FILTERS[city] ? calFilterLabel(city) : city; }
 function calEventCoversDay(e, dateStr){ return e.start <= dateStr && dateStr <= e.end; }
 function calEventOverlapsMonth(e, year, month){
   const monthStart = `${year}-${String(month+1).padStart(2,'0')}-01`;
@@ -1346,7 +1473,7 @@ function calRenderYearSwitch(){
 function calRenderFilterRow(){
   const wrap = $('calFilterRow');
   wrap.innerHTML = Object.entries(CAL_FILTERS).map(([k,c])=>
-    `<div class="city-pill ${calState.activeFilters.has(k)?'on':''}" style="--pc:${c.color}" data-filter="${k}"><span class="dot"></span>${c.label}</div>`
+    `<div class="city-pill ${calState.activeFilters.has(k)?'on':''}" style="--pc:${c.color}" data-filter="${k}"><span class="dot"></span>${calFilterLabel(k)}</div>`
   ).join('');
   wrap.querySelectorAll('.city-pill').forEach(p=>p.onclick=()=>{
     const k = p.dataset.filter;
@@ -1364,6 +1491,13 @@ function calShowTip(el, text){
   tip.style.transform = 'translate(-50%,-100%)';
   tip.classList.add('show');
 }
+
+// Lấy title/desc sự kiện theo ngôn ngữ hiện tại (events.json có trường en từ bản dịch)
+function evT(e){ return (LANG==='en' && e.en && e.en.title) ? e.en.title : e.title; }
+function evD(e){ return (LANG==='en' && e.en && e.en.desc) ? e.en.desc : e.desc; }
+const EV_TYPE_EN = {'Đêm nhạc':'Music night','Lễ hội':'Festival','Lễ Việt Nam':'Vietnamese holiday','Sân khấu':'Stage','Thể thao':'Sports','Lễ quốc tế':'International observance','Kịch nói':'Drama','Show thực cảnh':'Live spectacle','Workshop':'Workshop','Lễ hội pháo hoa':'Fireworks festival','Fan meeting':'Fan meeting','Kỷ niệm':'Commemoration','Hài kịch':'Comedy','Giao lưu':'Exchange','Hoà nhạc':'Concert','Thể thao điện tử':'Esports','Thời trang':'Fashion','Nghệ thuật truyền thống':'Traditional arts','Sự kiện thể thao':'Sports event','Hội chợ':'Expo','Triển lãm':'Exhibition','Esport':'Esports','Nhạc kịch':'Musical','Nghệ thuật':'Arts','Cộng đồng':'Community'};
+function evType(e){ return LANG==='en' ? (EV_TYPE_EN[e.type]||e.type) : e.type; }
+
 function renderCal(){
   calRenderYearSwitch();
   calRenderFilterRow();
@@ -1377,10 +1511,10 @@ function renderCal(){
 
   const sorted = monthEvents.slice().sort((a,b)=>a.start.localeCompare(b.start));
   const statHtml = sorted.length
-    ? `<b>${sorted.length} sự kiện</b> · ${sorted[0].title}`
-    : `Tháng này chưa có sự kiện nào`;
+    ? `<b>${sorted.length} ${LANG==='en'?'events':'sự kiện'}</b> · ${evT(sorted[0])}`
+    : (LANG==='en' ? `No events this month yet` : `Tháng này chưa có sự kiện nào`);
   html('calMonthLabel', `
-    <div class="cal-month-name">${CAL_MONTH_NAMES[calState.month]} <span class="yr">${calState.year}</span></div>
+    <div class="cal-month-name">${CAL_MONTH_NAME(calState.month)} <span class="yr">${calState.year}</span></div>
     <div class="cal-month-stat">${statHtml}</div>
   `);
 
@@ -1389,7 +1523,7 @@ function renderCal(){
   const daysInMonth = new Date(calState.year, calState.month+1, 0).getDate();
   const todayStr = new Date().toISOString().slice(0,10);
 
-  let gridHtml = CAL_WD.map(w=>`<div class="cal-wd">${w}</div>`).join('');
+  let gridHtml = calWD().map(w=>`<div class="cal-wd">${w}</div>`).join('');
   for(let i=0;i<startOffset;i++) gridHtml += `<div class="cal-day pad"><span class="cal-day-n">·</span></div>`;
   for(let d=1; d<=daysInMonth; d++){
     const dateStr = `${calState.year}-${String(calState.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
@@ -1422,7 +1556,7 @@ function renderCal(){
       }
     }
 
-    gridHtml += `<div class="cal-day ${isToday?'today':''} ${isSel?'sel':''} ${hasEvent?'has-event':''} ${spanClass}" style="--cell-c:${cellColor}" data-date="${dateStr}" data-titles="${dayEvents.map(e=>e.title).join(' · ').replace(/"/g,'&quot;')}">
+    gridHtml += `<div class="cal-day ${isToday?'today':''} ${isSel?'sel':''} ${hasEvent?'has-event':''} ${spanClass}" style="--cell-c:${cellColor}" data-date="${dateStr}" data-titles="${dayEvents.map(e=>evT(e)).join(' · ').replace(/"/g,'&quot;')}">
       <span class="cal-day-n">${d}</span>
       ${indicator}
     </div>`;
@@ -1467,12 +1601,12 @@ function renderCalEvZone(monthEvents){
   if(calState.selectedDay){
     events = CAL_EVENTS.filter(e=> calEventCoversDay(e,calState.selectedDay) && calState.activeFilters.has(e.city));
     const [y,m,d] = calState.selectedDay.split('-').map(Number);
-    title = `Ngày ${d} ${CAL_MONTH_NAMES[m-1].toLowerCase()}, ${y}`;
+    title = LANG==='en' ? `${CAL_MONTH_NAME(m-1)} ${d}, ${y}` : `Ngày ${d} ${CAL_MONTH_NAME(m-1).toLowerCase()}, ${y}`;
     showBack = true;
     dayCtx = calState.selectedDay;
   } else {
     events = monthEvents;
-    title = `Sự kiện ${CAL_MONTH_NAMES[calState.month].toLowerCase()} ${calState.year}`;
+    title = LANG==='en' ? `Events in ${CAL_MONTH_NAME(calState.month)} ${calState.year}` : `Sự kiện ${CAL_MONTH_NAME(calState.month).toLowerCase()} ${calState.year}`;
   }
   events = events.slice().sort((a,b)=>a.start.localeCompare(b.start));
 
@@ -1480,15 +1614,15 @@ function renderCalEvZone(monthEvents){
   if(calFetchError){
     bodyHtml = `<div class="ev-empty">
       <div class="ev-empty-icon">⚠️</div>
-      Không tải được dữ liệu sự kiện lúc này (${calFetchError}). Thử tải lại trang sau ít phút.
+      ${LANG==='en'?'Could not load event data right now':'Không tải được dữ liệu sự kiện lúc này'} (${calFetchError}).
     </div>`;
   } else if(events.length===0){
     const is2027 = calState.year===2027;
     bodyHtml = `<div class="ev-empty">
       <div class="ev-empty-icon">🗓️</div>
       ${is2027
-        ? 'Chưa có sự kiện nào được công bố cho tháng này của 2027 — lễ hội/sự kiện địa phương thường chỉ công bố lịch trước vài tháng.'
-        : 'Không có sự kiện nào khớp bộ lọc hiện tại — thử bật thêm thành phố ở trên.'}
+        ? (LANG==='en'?'No events announced for this month of 2027 yet — local festivals typically publish schedules only a few months ahead.':'Chưa có sự kiện nào được công bố cho tháng này của 2027 — lễ hội/sự kiện địa phương thường chỉ công bố lịch trước vài tháng.')
+        : (LANG==='en'?'No events match the current filters — try enabling more cities above.':'Không có sự kiện nào khớp bộ lọc hiện tại — thử bật thêm thành phố ở trên.')}
     </div>`;
   } else if(dayCtx){
     // XEM 1 NGÀY — số sự kiện luôn ít (thực tế 1-5), dùng card đầy đủ có mô tả, grid 2 cột
@@ -1499,11 +1633,11 @@ function renderCalEvZone(monthEvents){
           <span class="ev-item-date">${badgeText}</span>
           <span class="ev-item-city" style="background:${calEventColor(e.city)}">${calEventCityLabel(e.city)}</span>
         </div>
-        <div class="ev-item-title">${e.title}</div>
-        <span class="ev-item-type">${e.type}</span>
+        <div class="ev-item-title">${evT(e)}</div>
+        <span class="ev-item-type">${evType(e)}</span>
         ${e.venue ? `<div class="ev-item-venue">📍 ${e.venue}</div>` : ''}
         ${e.starring ? `<div class="ev-item-starring">⭐ ${e.starring}</div>` : ''}
-        <div class="ev-item-desc">${e.desc}</div>
+        <div class="ev-item-desc">${evD(e)}</div>
       </div>`;
     }).join('')}</div>`;
   } else {
@@ -1519,7 +1653,7 @@ function renderCalEvZone(monthEvents){
           <span class="ev-row-date">${dateLabel}</span>
           <span class="ev-row-city">${calEventCityLabel(e.city)}</span>
         </div>
-        <span class="ev-row-title">${e.title}</span>
+        <span class="ev-row-title">${evT(e)}</span>
         ${e.venue ? `<span class="ev-row-venue">📍 ${e.venue}</span>` : ''}
       </div>`;
     }).join('')}</div>`;
@@ -1528,7 +1662,7 @@ function renderCalEvZone(monthEvents){
   html('calEvZone', `
     <div class="ev-panel-head">
       <div class="ev-panel-title">${title}</div>
-      ${showBack ? '<div class="ev-panel-back" id="calBackBtn">← Xem cả tháng</div>' : ''}
+      ${showBack ? `<div class="ev-panel-back" id="calBackBtn">← ${LANG==='en'?'View whole month':'Xem cả tháng'}</div>` : ''}
     </div>
     <div class="cal-ev-scroll">${bodyHtml}</div>
   `);
@@ -1564,7 +1698,10 @@ function weatherCTA(cityName, cat){
   const event = KEO_SERVICE_CITIES[cityName];
   if(!event || cat!=='sunny') return '';
   const url = `/chu-xi?city=${encodeURIComponent(cityName)}&event=${encodeURIComponent(event)}`;
-  return `<a href="${url}" class="wx-cta">🌿 Trời đẹp ở ${cityName} — tìm người đồng hành đi ${event.toLowerCase()}?</a>`;
+  const label = LANG==='en'
+    ? `🌿 Lovely weather in ${cityName} — find a companion for a day out?`
+    : `🌿 Trời đẹp ở ${cityName} — tìm người đồng hành đi ${event.toLowerCase()}?`;
+  return `<a href="${url}" class="wx-cta">${label}</a>`;
 }
 // ─── THEME KIỂU APPLE WEATHER — 1 gradient liền mạch cho toàn card (không tách 4 khối màu riêng
 // như bản trước), đậm và sang trọng để vừa là "dark theme" vừa đủ tinh tế kiểu Apple. Chữ luôn
@@ -1627,11 +1764,13 @@ function weatherAvatar(cat, idSuffix){
   return `<svg class="wx-avatar" viewBox="0 0 100 100">${grad}${inner}</svg>`;
 }
 
-const WD_SHORT=['CN','T2','T3','T4','T5','T6','T7'];
+const WD_SHORT_VI=['CN','T2','T3','T4','T5','T6','T7'];
+const WD_SHORT_EN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function WD_SHORT_ARR(){ return LANG==='en'?WD_SHORT_EN:WD_SHORT_VI; }
 function fmtDayHeader(dateStr){
   const d = new Date(dateStr+'T12:00:00'); // gắn giờ trưa tránh lệch ngày do múi giờ
   if(isNaN(d)) return dateStr;
-  return WD_SHORT[d.getDay()];
+  return WD_SHORT_ARR()[d.getDay()];
 }
 function fmtHour(dt_txt){
   const h = (dt_txt||'').split(' ')[1];
@@ -1649,7 +1788,7 @@ function mkWeatherCard(c, idx){
   if(c.error){
     return `<div class="wx-card" style="${styleVars}">
       <div class="wx-city">${c.name}</div>
-      <div style="font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.55);margin-top:10px">Không lấy được dữ liệu lúc này</div>
+      <div style="font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.55);margin-top:10px">${LANG==='en'?'No data available right now':'Không lấy được dữ liệu lúc này'}</div>
     </div>`;
   }
 
@@ -1666,7 +1805,7 @@ function mkWeatherCard(c, idx){
   </div>
   <div class="wx-temp-row">
     <span class="wx-temp">${c.temp!=null?c.temp+'°':'—'}</span>
-    ${c.feels_like!=null?`<span class="wx-feels">cảm giác như ${c.feels_like}°</span>`:''}
+    ${c.feels_like!=null?`<span class="wx-feels">${LANG==='en'?'feels like':'cảm giác như'} ${c.feels_like}°</span>`:''}
   </div>`;
 
   // 24 giờ tới — nằm trực tiếp trên gradient chung, chỉ có 1 dải phân cách mảnh phía trên/dưới
@@ -1696,13 +1835,15 @@ function mkWeatherCard(c, idx){
     </div>`;
   }).join('');
   const dayZone = dailyHtml ? `<div class="wx-divider"></div>
-    <button class="wx-daily-toggle" onclick="this.closest('.wx-card').classList.toggle('daily-open')"><span class="wx-dt-label">5 ngày tới</span><span class="wx-dt-chev">▾</span></button>
+    <button class="wx-daily-toggle" onclick="this.closest('.wx-card').classList.toggle('daily-open')"><span class="wx-dt-label">${LANG==='en'?'Next 5 days':'5 ngày tới'}</span><span class="wx-dt-chev">▾</span></button>
     <div class="wx-daily-wrap"><div class="wx-daily">${dailyHtml}</div></div>` : '';
 
   // Footer — AQI hiện ĐÚNG SỐ cụ thể (không chỉ nhãn) theo đúng thang bạn mô tả, cùng ẩm/gió.
+  const AQI_LABEL_EN = {'Tốt':'Good','Trung bình':'Moderate','Kém':'Poor','Xấu':'Unhealthy','Rất xấu':'Very unhealthy','Nguy hại':'Hazardous'};
+  const aqiLbl = LANG==='en' ? (AQI_LABEL_EN[c.aqi_label]||c.aqi_label) : c.aqi_label;
   const aqiHtml = c.aqi_label
-    ? `<span class="wx-aqi" style="--aqic:${c.aqi_color}"><span class="wx-aqi-dot"></span>AQI ${c.aqi} · ${c.aqi_label}${c.pm25!=null?` <span class="pm">· PM2.5 ${c.pm25}</span>`:''}</span>`
-    : `<span style="font-size:11px;color:rgba(255,255,255,.5)">Chưa có dữ liệu không khí</span>`;
+    ? `<span class="wx-aqi" style="--aqic:${c.aqi_color}"><span class="wx-aqi-dot"></span>AQI ${c.aqi} · ${aqiLbl}${c.pm25!=null?` <span class="pm">· PM2.5 ${c.pm25}</span>`:''}</span>`
+    : `<span style="font-size:11px;color:rgba(255,255,255,.5)">${LANG==='en'?'No air quality data':'Chưa có dữ liệu không khí'}</span>`;
   const footZone = `<div class="wx-divider"></div><div class="wx-foot-row">
     ${aqiHtml}
     <div class="wx-stats">
