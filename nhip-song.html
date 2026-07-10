@@ -128,7 +128,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
    Số nhiệt độ dùng font-weight nhẹ (200) — đặc trưng nhận diện ngay của app Weather thật.
    Redesign: thêm ambient orb glow, badge thành phố, chi tiết decoration để không còn cảm giác flat. */
 .travel-grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:18px}
-.wx-card{position:relative;border-radius:28px;padding:24px 24px 20px;overflow:hidden;background:var(--wx-grad);box-shadow:0 12px 34px rgba(26,21,16,.22),inset 0 1px 0 rgba(255,255,255,.14);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;color:#fff;isolation:isolate}
+.wx-card{position:relative;border-radius:24px;padding:18px 20px 16px;overflow:hidden;background:var(--wx-grad);box-shadow:0 12px 34px rgba(26,21,16,.22),inset 0 1px 0 rgba(255,255,255,.14);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;color:#fff;isolation:isolate}
 .wx-card:hover{transform:translateY(-6px) scale(1.008);box-shadow:0 22px 48px rgba(26,21,16,.32),inset 0 1px 0 rgba(255,255,255,.2)}
 /* Orb sáng góc trên phải — vẫn giữ */
 .wx-card::before{content:'';position:absolute;top:-40%;right:-25%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28) 0%,transparent 60%);pointer-events:none;z-index:0;filter:blur(6px)}
@@ -144,7 +144,14 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .wx-cond::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 0 8px rgba(255,255,255,.5)}
 .wx-avatar{width:60px;height:60px;flex-shrink:0;opacity:.98;filter:drop-shadow(0 4px 12px rgba(0,0,0,.2))}
 .wx-temp-row{position:relative;display:flex;align-items:baseline;gap:12px;margin-top:10px;z-index:2}
-.wx-temp{font-family:var(--sans);font-size:74px;font-weight:200;color:#fff;line-height:.95;letter-spacing:-.03em;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.wx-temp{font-family:var(--sans);font-size:58px;font-weight:200;color:#fff;line-height:.95;letter-spacing:-.03em;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.wx-daily-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;color:rgba(255,255,255,.75);font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 2px;cursor:pointer;position:relative;z-index:2}
+.wx-dt-chev{transition:transform .3s}
+.wx-card.daily-open .wx-dt-chev{transform:rotate(180deg)}
+.wx-daily-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s cubic-bezier(.3,.9,.3,1);position:relative;z-index:2}
+.wx-daily-wrap>.wx-daily{overflow:hidden;min-height:0}
+.wx-card.daily-open .wx-daily-wrap{grid-template-rows:1fr}
+.wx-card.daily-open .wx-daily-wrap>.wx-daily{padding-bottom:8px}
 .wx-feels{font-family:var(--sans);font-size:12.5px;color:rgba(255,255,255,.72);font-weight:500}
 
 /* Dải phân cách mảnh có gradient thay vì đơn màu — thêm ambient */
@@ -517,15 +524,15 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   <div class="hero-in">
     <div class="hero-ey" data-i18n="hero_eyebrow">Kho chủ đề trò chuyện của Kèo</div>
     <h1 data-i18n-html="hero_h1">Nhịp Sống — <em>văn hoá</em>, thể thao &amp; du lịch</h1>
-    <p data-i18n="hero_p">Một buổi gặp hay bắt đầu từ một câu chuyện hay. Nhịp Sống gom sẵn cho bạn 12 câu chuyện văn hoá Việt — từ ly cà phê phin đến màn ảnh Cannes; 10 môn thể thao cùng vị trí Việt Nam trên bản đồ thế giới; và trọn bộ du lịch 3 thành phố: thời tiết thời gian thực, lịch sự kiện, 200+ điểm đến, tour gợi ý sẵn. Chọn một chủ đề — phần còn lại là cuộc trò chuyện.</p>
+    <p data-i18n="hero_p">Một buổi gặp hay bắt đầu từ một câu chuyện hay. Nhịp Sống tổng hợp sẵn cho bạn 12 câu chuyện văn hoá Việt — từ ly cà phê phin đến màn ảnh Cannes; 10 môn thể thao cùng vị trí Việt Nam trên bản đồ thế giới; và trọn bộ du lịch 3 thành phố: thời tiết thời gian thực, lịch sự kiện, 200+ điểm đến, tour gợi ý sẵn. Chọn một chủ đề — phần còn lại là cuộc trò chuyện.</p>
   </div>
 </div>
 
 <div class="pillars-wrap">
 <div class="pillars">
-  <div class="pillar active" id="pillar-culture-btn" onclick="switchPillar('culture',this)"><span data-i18n="pillar_culture">🎭 Văn hoá</span> <span class="pillar-badge" data-i18n="pillar_culture_badge">12 CHỦ ĐỀ</span></div>
+  <div class="pillar" id="pillar-culture-btn" onclick="switchPillar('culture',this)"><span data-i18n="pillar_culture">🎭 Văn hoá</span> <span class="pillar-badge" data-i18n="pillar_culture_badge">12 CHỦ ĐỀ</span></div>
   <div class="pillar" id="pillar-sports-btn" onclick="switchPillar('sports',this)"><span data-i18n="pillar_sports">⚽ Thể thao</span> <span class="pillar-badge" data-i18n="pillar_sports_badge">10 MÔN</span></div>
-  <div class="pillar" id="pillar-travel-btn" onclick="switchPillar('travel',this)"><span data-i18n="pillar_travel">✈️ Du lịch</span> <span class="pillar-badge" data-i18n="pillar_travel_badge">3 THÀNH PHỐ</span></div>
+  <div class="pillar active" id="pillar-travel-btn" onclick="switchPillar('travel',this)"><span data-i18n="pillar_travel">✈️ Du lịch</span> <span class="pillar-badge" data-i18n="pillar_travel_badge">3 THÀNH PHỐ</span></div>
 </div>
 </div>
 
@@ -553,7 +560,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
 </main>
 </div>
 
-<div id="pillar-travel" class="pillar-panel">
+<div id="pillar-travel" class="pillar-panel on">
   <main>
     <div class="travel-tabs">
       <div class="travel-tab on" id="ttab-weather" onclick="switchTravelTab('weather',this)" data-i18n="tab_weather">🌤️ Thời tiết &amp; không khí</div>
@@ -794,7 +801,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:56px}
   </main>
 </div>
 
-<div id="pillar-culture" class="pillar-panel on">
+<div id="pillar-culture" class="pillar-panel">
 <main>
   <div class="topic-intro">
     <div class="travel-title" data-i18n="culture_title">Văn hoá đời sống Việt Nam</div>
@@ -884,7 +891,7 @@ const I18N = {
     nav_home:'Trang chủ', nav_market:'Thị trường', nav_science:'Khoa học kết nối',
     hero_eyebrow:'Kho chủ đề trò chuyện của Kèo',
     hero_h1:'Nhịp Sống — <em>văn hoá</em>, thể thao & du lịch',
-    hero_p:'Một buổi gặp hay bắt đầu từ một câu chuyện hay. Nhịp Sống gom sẵn cho bạn 12 câu chuyện văn hoá Việt — từ ly cà phê phin đến màn ảnh Cannes; 10 môn thể thao cùng vị trí Việt Nam trên bản đồ thế giới; và trọn bộ du lịch 3 thành phố: thời tiết thời gian thực, lịch sự kiện, 200+ điểm đến, tour gợi ý sẵn. Chọn một chủ đề — phần còn lại là cuộc trò chuyện.',
+    hero_p:'Một buổi gặp hay bắt đầu từ một câu chuyện hay. Nhịp Sống tổng hợp sẵn cho bạn 12 câu chuyện văn hoá Việt — từ ly cà phê phin đến màn ảnh Cannes; 10 môn thể thao cùng vị trí Việt Nam trên bản đồ thế giới; và trọn bộ du lịch 3 thành phố: thời tiết thời gian thực, lịch sự kiện, 200+ điểm đến, tour gợi ý sẵn. Chọn một chủ đề — phần còn lại là cuộc trò chuyện.',
     pillar_sports:'⚽ Thể thao', pillar_sports_badge:'10 MÔN',
     pillar_travel:'✈️ Du lịch', pillar_travel_badge:'3 THÀNH PHỐ',
     pillar_culture:'🎭 Văn hoá', pillar_culture_badge:'12 CHỦ ĐỀ',
@@ -1688,7 +1695,9 @@ function mkWeatherCard(c, idx){
       <div class="wx-day-range"><span class="wx-dmin">${f.temp_min!=null?f.temp_min+'°':''}</span> <span class="wx-dmax">${f.temp_max!=null?f.temp_max+'°':'—'}</span></div>
     </div>`;
   }).join('');
-  const dayZone = dailyHtml ? `<div class="wx-divider"></div><div class="wx-daily">${dailyHtml}</div>` : '';
+  const dayZone = dailyHtml ? `<div class="wx-divider"></div>
+    <button class="wx-daily-toggle" onclick="this.closest('.wx-card').classList.toggle('daily-open')"><span class="wx-dt-label">5 ngày tới</span><span class="wx-dt-chev">▾</span></button>
+    <div class="wx-daily-wrap"><div class="wx-daily">${dailyHtml}</div></div>` : '';
 
   // Footer — AQI hiện ĐÚNG SỐ cụ thể (không chỉ nhãn) theo đúng thang bạn mô tả, cùng ẩm/gió.
   const aqiHtml = c.aqi_label
@@ -2887,8 +2896,12 @@ function renderCultureTopic(topicKey){
   `);
 }
 
-cultureLoaded = true;
-renderCultureTopic('coffee');
+// Trang đích mặc định: Du lịch > Thời tiết — thứ khách mở app cần nhất trước buổi hẹn.
+// Chặn trình duyệt khôi phục vị trí cuộn cũ (nguyên nhân trang từng tự trôi xuống giữa trang).
+if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+travelLoaded = true;
+loadTravel();
 applyLang();
 
 // ─── DEEP LINK qua hash: cho phép trang khác (index footer...) link thẳng tới
