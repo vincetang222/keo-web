@@ -12,7 +12,7 @@
 <meta property="og:title" content="Khoa học kết nối — Kèo">
 <meta property="og:description" content="Khoa học về kết nối xã hội, tâm lý học đô thị, nghi thức ăn uống và nghệ thuật trò chuyện.">
 <meta property="og:url" content="https://keo.social/khoa-hoc-ket-noi">
-<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:image" content="https://keo.social/og-khoa-hoc.png">
 <meta property="og:site_name" content="Kèo">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +72,9 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .nav-link:hover{color:#fff}
 .nav-link:hover,.nav-link.on{color:var(--ink)}
 .nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:'Playfair Display',serif;font-size:13px;font-weight:600}
+.nav-cta{position:relative;overflow:hidden}
+.nav-cta::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);animation:ctaShine 4.5s ease-in-out infinite}
+@keyframes ctaShine{0%,72%{left:-80%}100%{left:140%}}
 
 /* HERO */
 .hero{padding:44px 32px 32px;position:relative;overflow:hidden;background:#17120D}
@@ -99,7 +102,9 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 @media(prefers-reduced-motion:reduce){.ember{display:none}}
 .hero-ey::before{content:"";width:18px;height:2px;background:var(--a)}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-bottom:12px;max-width:640px;color:#F5EFE6}
-.hero h1 em{font-family:'Playfair Display',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 em{font-family:'Playfair Display',serif;font-style:italic;background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:emShimmer 6s ease-in-out infinite}
+@keyframes emShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
 .hero p{font-size:15px;font-weight:300;color:rgba(245,239,230,.68);line-height:1.75;max-width:540px}
 
 /* FEATURED */
@@ -172,7 +177,9 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .grid .post:nth-child(6n+6).rv.in{transition-delay:.25s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
-.post{background:#17120D;border:1px solid rgba(240,234,225,.1);border-radius:14px;overflow:hidden;display:block;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.post{background:#17120D;border:1px solid rgba(240,234,225,.1);border-radius:14px;overflow:hidden;display:block;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.2);position:relative}
+.post::after{content:'';position:absolute;top:0;left:-75%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:skewX(-20deg);transition:left .55s ease;pointer-events:none;z-index:2}
+.post:hover::after{left:130%}
 .post:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.35);border-color:rgba(240,234,225,.2)}
 .post.hidden{display:none}
 
@@ -271,6 +278,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
   .post-tags{display:none}
   .post-time{font-size:9px}
 }
+@media(prefers-reduced-motion:reduce){.hero h1 em,.hero-embers span,.nav-cta::after,.post::after{animation:none !important;transition:none !important}}
 </style>
 </head>
 <body data-accent="orange">
@@ -1628,14 +1636,18 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
       <div class="foot-col">
         <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
         <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
+        <a href="/nhip-song#su-kien" class="foot-link"><span class="vi">Sự kiện</span><span class="en">Events</span></a>
+        <a href="/nhip-song#diem-den" class="foot-link"><span class="vi">Điểm đến</span><span class="en">Destinations</span></a>
         <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
         <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
+        <a href="/nhip-song" class="foot-link"><span class="vi">Nhịp Sống</span><span class="en">Sports &amp; Life</span></a>
         <a href="/huongdan" class="foot-link"><span class="vi">Hướng dẫn sử dụng</span><span class="en">How to Use</span></a>
       </div>
       <div class="foot-col">
         <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
         <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
-        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký làm Người đồng hành</span><span class="en">Register as Companion</span></a>
+        <a href="/taokeo" class="foot-link"><span class="vi">Tạo Kèo (đã đăng ký)</span><span class="en">Create a Kèo (registered)</span></a>
         <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
       </div>
       <div class="foot-col">

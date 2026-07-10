@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://keo.social/">
 <meta property="og:title" content="Kèo — Gặp gỡ có chiều sâu">
 <meta property="og:description" content="Kết nối với người đồng hành có chuyên môn cho những buổi cà phê, bữa tối, triển lãm đáng nhớ tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò.">
-<meta property="og:image" content="https://keo.social/og-image.png">
+<meta property="og:image" content="https://keo.social/og-home.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Kèo — Gặp gỡ có chiều sâu">
@@ -29,7 +29,7 @@
 <meta name="twitter:site" content="@keo_social">
 <meta name="twitter:title" content="Kèo — Gặp gỡ có chiều sâu">
 <meta name="twitter:description" content="Marketplace người đồng hành có chuyên môn tại Sài Gòn, Hà Nội & Đà Nẵng. Không hẹn hò — chỉ là trò chuyện đáng nhớ.">
-<meta name="twitter:image" content="https://keo.social/og-image.png">
+<meta name="twitter:image" content="https://keo.social/og-home.png">
 <link rel="alternate" hreflang="vi" href="https://keo.social/">
 <link rel="alternate" hreflang="en" href="https://keo.social/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://keo.social/">
@@ -257,7 +257,7 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-4
 @keyframes scroll{0%{opacity:1;top:6px}100%{opacity:0;top:16px}}
 
 /* ═══ SECTION SYSTEM ═══ */
-.sec{padding:104px 40px;position:relative;overflow:hidden}
+.sec{padding:84px 40px;position:relative;overflow:hidden}
 .sec::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--rim2) 1.4px,transparent 1.4px);background-size:22px 22px;opacity:.55;mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);pointer-events:none;z-index:0}
 .sec-in{max-width:1120px;margin:0 auto;position:relative;z-index:2}
 .sd{background:var(--bg)}
@@ -323,7 +323,7 @@ body.light .benefit-card,body.light .not-strip,body.light .know-card{box-shadow:
 .know-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
 .know-card{display:block;text-decoration:none;color:var(--ink);padding:0;background:var(--s1);border:1px solid var(--rim);border-radius:16px;transition:transform .28s,border-color .28s,box-shadow .28s;position:relative;overflow:hidden}
 .know-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--gold) 40%,transparent);box-shadow:0 14px 34px rgba(0,0,0,.4)}
-.know-cover{position:relative;height:92px;padding:10px 12px;overflow:hidden}
+.know-cover{position:relative;height:104px;padding:12px 14px;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:7px}
 .know-card[data-kc="amber"] .know-cover{background:linear-gradient(135deg,color-mix(in srgb,var(--amber) 80%,var(--gold) 20%),var(--amber) 55%,color-mix(in srgb,var(--amber) 65%,#000 30%))}
 .know-card[data-kc="teal"] .know-cover{background:linear-gradient(135deg,color-mix(in srgb,var(--teal) 75%,var(--gold) 25%),var(--teal) 55%,color-mix(in srgb,var(--teal) 65%,#000 35%))}
 .know-card[data-kc="indigo"] .know-cover{background:linear-gradient(135deg,color-mix(in srgb,var(--indigo) 75%,var(--gold) 25%),var(--indigo) 55%,color-mix(in srgb,var(--indigo) 65%,#000 35%))}
@@ -333,8 +333,8 @@ body.light .benefit-card,body.light .not-strip,body.light .know-card{box-shadow:
 .know-cover-ic{position:absolute;right:12px;bottom:8px;width:44px;height:44px;opacity:.95;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));transition:transform .3s}
 .know-cover-ic svg{width:100%;height:100%;display:block}
 .know-card:hover .know-cover-ic{transform:rotate(-6deg) translateY(-4px) scale(1.06)}
-.know-body{padding:16px 18px 18px}
-.know-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:8px}
+.know-body{padding:14px 18px 16px}
+.know-cover .know-title{position:relative;font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.28);max-width:calc(100% - 52px)}
 .know-desc{font-size:12.5px;font-weight:300;color:var(--i2);line-height:1.7;margin-bottom:14px}
 .know-link{font-size:12.5px;font-weight:600;color:var(--a);transition:transform .2s;display:inline-block}
 .know-card:hover .know-link{transform:translateX(4px)}
@@ -414,9 +414,7 @@ body.light .mini-cal{box-shadow:0 16px 38px rgba(26,21,16,.18)}
 .mani-ck-desc{font-size:12px;font-weight:300;color:var(--i2);line-height:1.6}
 
 /* ═══ MODEL ═══ */
-.model-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:52px}
-.model-illo{max-width:360px;margin:40px auto 0;padding:0 20px}
-.model-illo svg,.sec-illo svg{width:100%;height:auto;display:block;overflow:visible}
+.model-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;margin-top:36px}
 .sec-illo{max-width:220px;margin:36px auto 0}
 
 /* Shared entrance system for all bold-cartoon illustrations */
@@ -447,7 +445,7 @@ body.light .mini-cal{box-shadow:0 16px 38px rgba(26,21,16,.18)}
 .model-icon{font-size:26px;width:50px;height:50px;border-radius:13px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .model-role{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:-.008em}
 .model-role-sub{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
-.model-body{padding:24px;display:flex;flex-direction:column;gap:16px}
+.model-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:13px}
 .model-desc{font-size:13px;font-weight:300;color:var(--i2);line-height:1.75}
 .model-items{display:flex;flex-direction:column;gap:9px}
 .model-item{display:flex;align-items:baseline;gap:11px;font-size:13px;font-weight:300;color:var(--i2);line-height:1.5}
@@ -467,18 +465,18 @@ body.light .mini-cal{box-shadow:0 16px 38px rgba(26,21,16,.18)}
 .jstep{background:var(--s1);border:1px solid var(--rim);border-radius:16px;position:relative;transition:transform .28s,border-color .28s,box-shadow .28s;overflow:visible}
 .jstep>.jstep-cover,.jstep>.jstep-body{border-radius:inherit}
 .jstep:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(0,0,0,.4)}
-.jstep-cover{position:relative;height:74px;border-radius:15px 15px 0 0;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;overflow:hidden}
+.jstep-cover{position:relative;height:74px;border-radius:15px 15px 0 0;padding:12px 16px;display:flex;align-items:center;gap:12px;overflow:hidden}
 .jstep[data-jc="amber"]  .jstep-cover{background:linear-gradient(135deg,color-mix(in srgb,var(--amber) 80%,var(--gold) 20%),var(--amber) 55%,color-mix(in srgb,var(--amber) 65%,#000 30%))}
 .jstep[data-jc="teal"]   .jstep-cover{background:linear-gradient(135deg,color-mix(in srgb,var(--teal) 75%,var(--gold) 25%),var(--teal) 55%,color-mix(in srgb,var(--teal) 65%,#000 35%))}
 .jstep[data-jc="indigo"] .jstep-cover{background:linear-gradient(135deg,color-mix(in srgb,var(--indigo) 75%,var(--gold) 25%),var(--indigo) 55%,color-mix(in srgb,var(--indigo) 65%,#000 35%))}
 .jstep[data-jc="connect"].jstep .jstep-cover,.jstep[data-jc="connect"] .jstep-cover{background:linear-gradient(135deg,#E8A22B,#D65F35 55%,#D14060)}
 .jstep-cover::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.15) 1px,transparent 1px);background-size:13px 13px;opacity:.5}
-.jstep-num{position:relative;font-family:'Playfair Display',serif;font-size:34px;font-weight:700;font-style:italic;color:#fff;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.25)}
-.jstep-ic{position:relative;width:30px;height:30px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));transition:transform .3s}
+.jstep-num{position:relative;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;font-style:italic;color:rgba(255,255,255,.85);line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.25);flex-shrink:0}
+.jstep-cover .jstep-title{position:relative;flex:1;font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700;color:#fff;line-height:1.25;text-shadow:0 1px 6px rgba(0,0,0,.25)}
+.jstep-ic{position:relative;width:28px;height:28px;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));transition:transform .3s}
 .jstep-ic svg{width:100%;height:100%;display:block}
 .jstep:hover .jstep-ic{transform:rotate(-6deg) scale(1.1)}
-.jstep-body{padding:16px 16px 18px}
-.jstep-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:7px}
+.jstep-body{padding:14px 16px 16px}
 .jstep-desc{font-size:12px;font-weight:300;color:var(--i2);line-height:1.65}
 .jstep-safe{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:5px 10px;border-radius:100px;font-size:10.5px;font-weight:600;letter-spacing:.02em}
 .jstep-safe svg{width:12px;height:12px;flex-shrink:0}
@@ -599,26 +597,41 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
   .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;z-index:480}
   body.menu-open .menu-overlay{opacity:1;visibility:visible}
   .nav-in{padding:0 20px}
-  .hero{padding:96px 20px 72px;min-height:auto}
+  .hero{padding:84px 20px 48px;min-height:auto}
   /* Floating cards INSIDE hero card, not overflowing */
   .hv-float{position:static;margin:0;box-shadow:none;border-radius:12px;padding:10px 14px;animation:none;background:color-mix(in srgb,var(--fx-ink) 4%,transparent)}
   .hv-float-1{margin-bottom:10px}
-  .hv-float-2{margin-top:10px}
+  .hv-float-2{display:none}
+  .hero h1{font-size:clamp(30px,9vw,38px)}
+  .hero-visual{margin-top:10px}
   .hero-visual{overflow:visible}
   .hv-card{transform:none;margin:0}
-  .sec{padding:44px 0 44px 20px}
+  .sec{padding:40px 0 40px 20px}
+  .center-head{margin-bottom:0}
+  .ssub{font-size:14px;line-height:1.65}
+  .stitle{font-size:clamp(24px,7vw,30px)}
   .sec-in{padding-right:20px}
   .prob-intro{padding-right:20px}
   /* Card grids -> horizontal scroll on mobile, like companions carousel — keeps each section short */
-  .problem-grid,.jsteps,.know-grid{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;grid-template-columns:none;padding-right:20px;margin-top:28px}
-  .benefit-grid{grid-template-columns:1fr;gap:10px;margin-top:26px}
-  .problem-grid::-webkit-scrollbar,.jsteps::-webkit-scrollbar,.know-grid::-webkit-scrollbar{display:none}
-  .prob-card,.know-card{min-width:230px;max-width:230px;flex-shrink:0}
-  .jstep{min-width:248px;max-width:248px;flex-shrink:0}
-  .not-strip{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 18px;margin-right:20px}
-  .know-panel{padding:28px 20px;margin-right:20px;border-radius:20px}
-  .city-stage{margin:24px 0 8px}
-  .mini-cal{position:static;width:100%;transform:none;margin-top:16px;display:block}
+  .problem-grid,.jsteps,.know-grid,.benefit-grid{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;grid-template-columns:none;padding-right:20px;margin-top:24px}
+  .problem-grid::-webkit-scrollbar,.jsteps::-webkit-scrollbar,.know-grid::-webkit-scrollbar,.benefit-grid::-webkit-scrollbar{display:none}
+  .prob-card,.know-card{min-width:220px;max-width:220px;flex-shrink:0}
+  .jstep{min-width:240px;max-width:240px;flex-shrink:0}
+  .benefit-card{min-width:246px;max-width:246px;flex-shrink:0;flex-direction:column;gap:10px}
+  .benefit-card .benefit-ic{width:36px;height:36px}
+  .not-strip{flex-direction:column;align-items:flex-start;gap:9px;padding:13px 16px;margin-right:20px;margin-top:14px}
+  .not-item{font-size:14px}
+  .not-strip-is{font-size:14px}
+  .know-panel{padding:22px 16px;margin-right:20px;border-radius:20px}
+  .know-cover{height:88px}
+  .know-cover .know-title{font-size:17px}
+  .know-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+  .know-body{padding:12px 14px 14px}
+  .city-stage{margin:16px 0 4px}
+  .mini-cal{position:static;width:100%;transform:none;margin-top:10px;display:block;padding:12px 14px}
+  .mini-cal-grid{gap:4px;margin-bottom:8px}
+  .mini-cal-hd{margin-bottom:8px}
+  .know-panel .center-head .ssub{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .city-cyclist{display:none}
   .jstep-conn{display:none}
   .stats-band{grid-template-columns:1fr 1fr;margin-top:28px}
@@ -983,10 +996,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
         <a href="/nhip-song#van-hoa" class="know-card rv rv-d1" data-kc="amber">
           <div class="know-cover">
             <span class="know-badge"><span class="vi">12 chủ đề</span><span class="en">12 topics</span></span>
+            <div class="know-title"><span class="vi">Văn hoá</span><span class="en">Culture</span></div>
             <div class="know-cover-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5c2.6 1 5.4 1 8 0v6.5c0 3-1.8 5-4 5s-4-2-4-5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M6.3 9.2q.7.9 1.4 0M9.3 9.2q.7.9 1.4 0M6.8 12.2q1.2 1.2 2.4 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M12 7c2.6 1 5.4 1 8 0v6.5c0 3-1.8 5-4 5-1 0-1.9-.4-2.6-1.1" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M14.3 10.7q.7-.9 1.4 0M17.3 10.7q.7-.9 1.4 0M14.8 14.4q1.2-1.2 2.4 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></div>
           </div>
           <div class="know-body">
-            <div class="know-title"><span class="vi">Văn hoá</span><span class="en">Culture</span></div>
             <div class="know-desc"><span class="vi">12 chủ đề đời sống Việt Nam — từ cà phê, ẩm thực đến điện ảnh, gốm sứ.</span><span class="en">12 topics on Vietnamese life — from coffee and cuisine to cinema and ceramics.</span></div>
             <div class="know-link"><span class="vi">Khám phá →</span><span class="en">Explore →</span></div>
           </div>
@@ -994,10 +1007,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
         <a href="/nhip-song#the-thao" class="know-card rv rv-d2" data-kc="teal">
           <div class="know-cover">
             <span class="know-badge"><span class="vi">10 môn</span><span class="en">10 sports</span></span>
+            <div class="know-title"><span class="vi">Thể thao</span><span class="en">Sports</span></div>
             <div class="know-cover-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="17" r="3.2" stroke="#fff" stroke-width="1.7"/><path d="M9.4 14.6L18.5 5.5M12.2 17.2l7-7M8.7 13.7l7-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M16 3.5l4.5 4.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
           </div>
           <div class="know-body">
-            <div class="know-title"><span class="vi">Thể thao</span><span class="en">Sports</span></div>
             <div class="know-desc"><span class="vi">Xếp hạng thế giới, câu chuyện Việt Nam, cách chơi và nơi bắt đầu.</span><span class="en">World rankings, Vietnam's story, how to play and where to start.</span></div>
             <div class="know-link"><span class="vi">Khám phá →</span><span class="en">Explore →</span></div>
           </div>
@@ -1005,10 +1018,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
         <a href="/nhip-song#du-lich" class="know-card rv rv-d3" data-kc="indigo">
           <div class="know-cover">
             <span class="know-badge"><span class="vi">3 thành phố</span><span class="en">3 cities</span></span>
+            <div class="know-title"><span class="vi">Du lịch</span><span class="en">Travel</span></div>
             <div class="know-cover-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M20.5 3.5L3.5 10l5.6 2.4M20.5 3.5l-4.7 15-4.2-6.1M20.5 3.5L9.1 12.4" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17.5q1.5-1.4 3 0t3 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".7"/></svg></div>
           </div>
           <div class="know-body">
-            <div class="know-title"><span class="vi">Du lịch</span><span class="en">Travel</span></div>
             <div class="know-desc"><span class="vi">Thời tiết thời gian thực, lịch sự kiện, 200+ điểm đến và tour gợi ý sẵn.</span><span class="en">Real-time weather, event calendars, 200+ destinations and curated tours.</span></div>
             <div class="know-link"><span class="vi">Khám phá →</span><span class="en">Explore →</span></div>
           </div>
@@ -1016,10 +1029,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
         <a href="/khoa-hoc-ket-noi" class="know-card rv rv-d4" data-kc="connect">
           <div class="know-cover">
             <span class="know-badge">Blog</span>
+            <div class="know-title"><span class="vi">Khoa học kết nối</span><span class="en">Connection science</span></div>
             <div class="know-cover-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="9" r="3.4" stroke="#fff" stroke-width="1.7"/><circle cx="17" cy="9" r="3.4" stroke="#fff" stroke-width="1.7"/><path d="M7 12.4q0 4 5 5.6 5-1.6 5-5.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M12 4.5l.7 1.4 1.5.2-1.1 1 .3 1.5L12 7.9l-1.4.7.3-1.5-1.1-1 1.5-.2Z" fill="#fff" opacity=".9"/></svg></div>
           </div>
           <div class="know-body">
-            <div class="know-title"><span class="vi">Khoa học kết nối</span><span class="en">Connection science</span></div>
             <div class="know-desc"><span class="vi">Nghi thức gặp gỡ, nghệ thuật trò chuyện và những chủ đề hay ho.</span><span class="en">Meeting etiquette, the art of conversation and great topics.</span></div>
             <div class="know-link"><span class="vi">Khám phá →</span><span class="en">Explore →</span></div>
           </div>
@@ -1039,30 +1052,7 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       <h2 class="stitle"><span class="vi">Hai vai trong <em>một Kèo</em></span><span class="en">Two roles in <em>one Kèo</em></span></h2>
       <p class="ssub"><span class="vi">Một người muốn gặp. Một người có điều để kể. Kèo đứng giữa, kết nối an toàn.</span><span class="en">One person wants to meet. One has expertise to share. Kèo connects them safely.</span></p>
     </div>
-<div class="model-illo rv">
-      <svg viewBox="0 0 340 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs><linearGradient id="illoG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs>
-        <!-- LEFT figure: Chủ xị — filled gradient, thick outline -->
-        <g class="illo-fig illo-fig-l">
-          <path d="M70 195 Q70 140 108 140 Q146 140 146 195 Z" fill="url(#illoG)" stroke="var(--illo-ink)" stroke-width="4"/>
-          <circle cx="108" cy="108" r="34" fill="url(#illoG)" stroke="var(--illo-ink)" stroke-width="4"/>
-          <circle class="illo-blink" cx="98" cy="102" r="3.2" fill="#1A1510"/><circle class="illo-blink" cx="118" cy="102" r="3.2" fill="#1A1510"/>
-          <path d="M94 112 Q108 124 122 112" stroke="var(--illo-ink)" stroke-width="3.6" stroke-linecap="round" fill="none"/>
-        </g>
-        <!-- RIGHT figure: Người đồng hành — same color as left -->
-        <g class="illo-fig illo-fig-r">
-          <path d="M194 195 Q194 140 232 140 Q270 140 270 195 Z" fill="url(#illoG)" stroke="var(--illo-ink)" stroke-width="4"/>
-          <circle cx="232" cy="108" r="34" fill="url(#illoG)" stroke="var(--illo-ink)" stroke-width="4"/>
-          <circle class="illo-blink" cx="222" cy="102" r="3.2" fill="#1A1510"/><circle class="illo-blink" cx="242" cy="102" r="3.2" fill="#1A1510"/>
-          <path d="M218 112 Q232 124 246 112" stroke="var(--illo-ink)" stroke-width="3.6" stroke-linecap="round" fill="none"/>
-        </g>
-        <!-- brand mark connecting them -->
-        <g class="illo-mark">
-          <circle cx="170" cy="55" r="8" fill="url(#illoG)" stroke="var(--illo-ink)" stroke-width="2.5"/>
-          <path d="M150 90 L170 62 L190 90" stroke="url(#illoG)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </g>
-      </svg>
-    </div>
+
     <div class="role-toggle">
       <button class="role-tab on" data-role="host"><span class="vi">👑 Chủ xị</span><span class="en">👑 Host</span></button>
       <button class="role-tab" data-role="companion"><span class="vi">🌿 Người đồng hành</span><span class="en">🌿 Companion</span></button>
@@ -1121,10 +1111,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       <div class="jstep rv rv-d1" data-jc="amber">
         <div class="jstep-cover">
           <span class="jstep-num">1</span>
+          <div class="jstep-title"><span class="vi">Tìm người đồng hành</span><span class="en">Find a companion</span></div>
           <div class="jstep-ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="1.8"/><path d="M15 15l5 5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="10.5" cy="9" r="2" stroke="#fff" stroke-width="1.5"/><path d="M7.5 13.6q1.2-1.8 3-1.8t3 1.8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         </div>
         <div class="jstep-body">
-          <div class="jstep-title"><span class="vi">Tìm người đồng hành</span><span class="en">Find a companion</span></div>
           <div class="jstep-desc"><span class="vi">Khám phá hồ sơ theo lĩnh vực và thành phố — thù lao do chính mỗi người đồng hành tự đặt ra.</span><span class="en">Browse profiles by field and city — each companion sets their own rate.</span></div>
           <div class="jstep-safe"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.6v5.2c0 4.5-2.9 7.6-7 9.7-4.1-2.1-7-5.2-7-9.7V5.6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="vi">Hồ sơ xác minh CCCD</span><span class="en">ID-verified profiles</span></div>
         </div>
@@ -1133,10 +1123,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       <div class="jstep rv rv-d2" data-jc="teal">
         <div class="jstep-cover">
           <span class="jstep-num">2</span>
+          <div class="jstep-title"><span class="vi">Đặt Kèo</span><span class="en">Book the Kèo</span></div>
           <div class="jstep-ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15.5" rx="3" stroke="#fff" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M8.7 14.8l2.2 2.2 4.4-4.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="jstep-body">
-          <div class="jstep-title"><span class="vi">Đặt Kèo</span><span class="en">Book the Kèo</span></div>
           <div class="jstep-desc"><span class="vi">Thống nhất buổi gặp, chốn hẹn và giờ giấc phù hợp cho cả hai.</span><span class="en">Agree on the meetup, venue, and a time that works for both.</span></div>
           <div class="jstep-safe"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.6v5.2c0 4.5-2.9 7.6-7 9.7-4.1-2.1-7-5.2-7-9.7V5.6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="vi">Kèo giữ tiền tới khi gặp xong</span><span class="en">Payment held until it's done</span></div>
         </div>
@@ -1145,10 +1135,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       <div class="jstep rv rv-d3" data-jc="indigo">
         <div class="jstep-cover">
           <span class="jstep-num">3</span>
+          <div class="jstep-title"><span class="vi">Gặp gỡ</span><span class="en">Meet up</span></div>
           <div class="jstep-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M7 20v-1.5q0-3 3-3h4q3 0 3 3V20" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="9.5" r="2.6" stroke="#fff" stroke-width="1.7"/><circle cx="15" cy="9.5" r="2.6" stroke="#fff" stroke-width="1.7"/><path d="M10 5.5q2-1.8 4 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         </div>
         <div class="jstep-body">
-          <div class="jstep-title"><span class="vi">Gặp gỡ</span><span class="en">Meet up</span></div>
           <div class="jstep-desc"><span class="vi">Chuyện trò, học hỏi, kết nối — với kho chủ đề Nhịp Sống đã chuẩn bị sẵn.</span><span class="en">Talk, learn, connect — with Nhịp Sống's topic library at hand.</span></div>
           <div class="jstep-safe"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.6v5.2c0 4.5-2.9 7.6-7 9.7-4.1-2.1-7-5.2-7-9.7V5.6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="vi">Luôn ở nơi công cộng</span><span class="en">Always in public places</span></div>
         </div>
@@ -1157,10 +1147,10 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
       <div class="jstep rv rv-d4" data-jc="connect">
         <div class="jstep-cover">
           <span class="jstep-num">4</span>
+          <div class="jstep-title"><span class="vi">Đánh giá</span><span class="en">Review</span></div>
           <div class="jstep-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5l2.5 5.3 5.8.7-4.3 4 1.1 5.7-5.1-2.8-5.1 2.8 1.1-5.7-4.3-4 5.8-.7L12 3.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
         </div>
         <div class="jstep-body">
-          <div class="jstep-title"><span class="vi">Đánh giá</span><span class="en">Review</span></div>
           <div class="jstep-desc"><span class="vi">Để lại vài dòng — Kèo chuyển thù lao cho người đồng hành.</span><span class="en">Leave a few lines — Kèo releases payment to the companion.</span></div>
           <div class="jstep-safe"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 2.6v5.2c0 4.5-2.9 7.6-7 9.7-4.1-2.1-7-5.2-7-9.7V5.6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span class="vi">Đánh giá công khai, minh bạch</span><span class="en">Public, transparent reviews</span></div>
         </div>
