@@ -60,7 +60,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.85);backdrop-fil
 .pillar-hint{margin:34px auto 6px;max-width:640px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(120deg,color-mix(in srgb,var(--a) 14%,transparent),color-mix(in srgb,var(--a2) 10%,transparent));border:1px solid color-mix(in srgb,var(--a) 30%,transparent);position:relative;overflow:hidden}
 .pillar-hint::before{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.07),transparent);transform:skewX(-20deg);animation:hintShine 5s ease-in-out infinite}
 @keyframes hintShine{0%,70%{left:-70%}100%{left:130%}}
-.pillar-hint-tx{font-family:var(--serif);font-size:14.5px;font-weight:600;color:#F5EFE6;line-height:1.5}
+.pillar-hint-tx{font-family:var(--serif);font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.5}
 .pillar-hint-btn{flex-shrink:0;padding:9px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:var(--sans);font-size:12.5px;font-weight:700;text-decoration:none;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 14px rgba(214,95,53,.35)}
 .pillar-hint-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(214,95,53,.45)}
 @media(max-width:640px){.pillar-hint{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 18px;margin-top:26px}.nav-in{padding:0 12px}.nav-r{gap:2px}.nav-r .nav-link{display:none}.nav-cta{padding:7px 12px;font-size:12px;margin-left:4px}}
