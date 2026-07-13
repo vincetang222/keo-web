@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#17120D">
+<title>Chính sách Cookie | Kèo</title>
+<meta name="description" content="Chính sách Cookie của Kèo — cách chúng tôi dùng cookie và cách bạn kiểm soát chúng.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social/cookie-policy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF5;--s1:#FFFFFF;--s2:#F2EDE8;--s3:#E8E2DC;
+  --ink:#1A1510;--i2:rgba(26,21,16,.72);--i3:rgba(26,21,16,.45);
+  --rim:rgba(26,21,16,.07);--rim2:rgba(26,21,16,.14);
+  --a:#D65F35;--a2:#D14060;--gold:#E8A22B;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7}
+a{text-decoration:none;color:var(--a)}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:4px}
+.en{display:none}
+body.lang-en .vi{display:none !important}
+body.lang-en .en{display:revert !important}
+
+nav{position:sticky;top:0;z-index:200;background:rgba(23,18,13,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(240,234,225,.08)}
+.nav-in{max-width:820px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.015em;color:#F5EFE6}
+.nav-logo span{color:var(--gold)}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:13px;color:rgba(245,239,230,.65)}
+.lang-row{display:flex;gap:2px;padding:3px;border-radius:100px;background:rgba(240,234,225,.08);border:1px solid rgba(240,234,225,.14)}
+.lb{padding:5px 12px;border-radius:100px;border:none;font-size:11px;font-weight:600;letter-spacing:.05em;color:rgba(245,239,230,.55);background:transparent;cursor:pointer;font-family:var(--sans)}
+.lb.on{background:var(--grad);color:#fff}
+
+.hero{background:linear-gradient(160deg,#1F1712 0%,#17120D 100%);padding:52px 32px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 50% 10%,color-mix(in srgb,var(--a) 24%,transparent),transparent 65%)}
+.hero-glow{position:absolute;width:180px;height:180px;border-radius:50%;filter:blur(50px);opacity:.3;pointer-events:none}
+.hero-glow.g1{background:var(--gold);top:-30px;left:10%}
+.hero-glow.g2{background:var(--a2);bottom:-20px;right:8%}
+.hero-in{max-width:820px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(232,162,43,.12);border:1px solid rgba(232,162,43,.3);border-radius:100px;padding:5px 14px;font-size:10.5px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:700;color:#F5EFE6;margin-bottom:10px}
+.updated{font-size:13px;color:rgba(245,239,230,.5)}
+
+.wrap{max-width:820px;margin:0 auto;padding:32px 32px 80px;display:grid;grid-template-columns:200px 1fr;gap:40px}
+.toc{position:sticky;top:80px;align-self:start}
+.toc-title{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--i3);margin-bottom:12px}
+.toc a{display:block;font-size:12.5px;color:var(--i2);padding:5px 0;line-height:1.4}
+.toc a:hover{color:var(--a);text-decoration:none}
+
+.doc h2{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);margin:36px 0 12px;scroll-margin-top:80px}
+.doc h2:first-child{margin-top:0}
+.doc h3{font-family:var(--sans);font-size:14.5px;font-weight:700;color:var(--ink);margin:20px 0 8px}
+.doc p{font-size:14.5px;color:var(--i2);margin-bottom:12px}
+.doc ul,.doc ol{margin:0 0 12px 22px;font-size:14.5px;color:var(--i2)}
+.doc li{margin-bottom:6px}
+.doc strong{color:var(--ink)}
+
+.dtable{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:13.5px}
+.dtable th{text-align:left;padding:9px 12px;background:var(--s2);color:var(--i3);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--rim2)}
+.dtable td{padding:10px 12px;border-bottom:1px solid var(--rim);color:var(--i2);vertical-align:top}
+
+footer{background:#17120D;padding:32px;text-align:center}
+.fl{font-family:var(--serif);font-size:15px;font-weight:700;color:rgba(245,239,230,.4)}
+.fl span{color:rgba(232,162,43,.5)}
+
+@media(max-width:760px){
+  .wrap{grid-template-columns:1fr;padding:24px 20px 60px}
+  .toc{position:static;border-bottom:1px solid var(--rim2);padding-bottom:20px;margin-bottom:8px}
+  .nav-in{padding:0 20px}
+  .hero{padding:36px 20px 32px}
+  .dtable{font-size:12px}
+  .dtable th,.dtable td{padding:7px 8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="nav-logo">Kèo<span>.</span></a>
+    <div class="nav-r">
+      <a href="/" class="nav-back"><span class="vi">← Trang chủ</span><span class="en">← Home</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-in">
+    <div class="eyebrow"><span class="vi">Văn bản pháp lý</span><span class="en">Legal</span></div>
+    <h1><span class="vi">Chính sách Cookie</span><span class="en">Cookie Policy</span></h1>
+    <div class="updated"><span class="vi">Có hiệu lực từ 30/04/2026</span><span class="en">Effective April 30, 2026</span> · <span class="vi">Phiên bản 1.0</span><span class="en">Version 1.0</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <aside class="toc">
+    <div class="toc-title"><span class="vi">Mục lục</span><span class="en">Contents</span></div>
+    <a href="#cookie-la-gi"><span class="vi">1. Cookie là gì</span><span class="en">1. What Are Cookies</span></a>
+    <a href="#loai-cookie"><span class="vi">2. Cookie Kèo sử dụng</span><span class="en">2. Cookies Kèo Uses</span></a>
+    <a href="#ben-thu-ba"><span class="vi">3. Cookie từ bên thứ ba</span><span class="en">3. Third-Party Cookies</span></a>
+    <a href="#kiem-soat"><span class="vi">4. Kiểm soát cookie</span><span class="en">4. Managing Cookies</span></a>
+    <a href="#thay-doi"><span class="vi">5. Thay đổi chính sách</span><span class="en">5. Changes</span></a>
+    <a href="#lien-he"><span class="vi">6. Liên hệ</span><span class="en">6. Contact</span></a>
+  </aside>
+
+  <div class="doc">
+    <h2 id="cookie-la-gi"><span class="vi">1. Cookie là gì</span><span class="en">1. What Are Cookies</span></h2>
+    <p><span class="vi">Cookie là tệp dữ liệu nhỏ được lưu trên trình duyệt của bạn khi truy cập một website, giúp trang ghi nhớ thông tin về lượt truy cập của bạn.</span><span class="en">Cookies are small data files stored in your browser when you visit a website, helping the site remember information about your visit.</span></p>
+    <p><span class="vi">keo.social hiện là một website chủ yếu tĩnh — chúng tôi dùng cookie ở mức <strong>tối thiểu</strong>, không dùng cookie quảng cáo hay theo dõi hành vi xuyên trang.</span><span class="en">keo.social is currently a mostly static website — we use cookies at a <strong>minimal</strong> level, with no advertising or cross-site behavioral tracking cookies.</span></p>
+
+    <h2 id="loai-cookie"><span class="vi">2. Cookie Kèo sử dụng</span><span class="en">2. Cookies Kèo Uses</span></h2>
+    <table class="dtable">
+      <tr><th><span class="vi">Loại</span><span class="en">Type</span></th><th><span class="vi">Mục đích</span><span class="en">Purpose</span></th><th><span class="vi">Bắt buộc?</span><span class="en">Required?</span></th></tr>
+      <tr><td><span class="vi">Tùy chọn ngôn ngữ</span><span class="en">Language preference</span></td><td><span class="vi">Ghi nhớ bạn chọn xem trang bằng Tiếng Việt hay Tiếng Anh</span><span class="en">Remembers whether you view the site in Vietnamese or English</span></td><td><span class="vi">Không</span><span class="en">No</span></td></tr>
+      <tr><td><span class="vi">Thiết yếu vận hành</span><span class="en">Essential operation</span></td><td><span class="vi">Đảm bảo trang tải và hiển thị đúng chức năng cơ bản</span><span class="en">Ensures the site loads and basic functionality displays correctly</span></td><td><span class="vi">Có</span><span class="en">Yes</span></td></tr>
+    </table>
+
+    <h2 id="ben-thu-ba"><span class="vi">3. Cookie từ bên thứ ba</span><span class="en">3. Third-Party Cookies</span></h2>
+    <p><span class="vi">Khi bạn gửi biểu mẫu đăng ký hoặc tạo Kèo, biểu mẫu được xử lý bởi <strong>Formspree</strong> — dịch vụ này có thể đặt cookie riêng để xử lý và chống spam cho biểu mẫu. Việc này nằm ngoài kiểm soát trực tiếp của Kèo; bạn có thể xem thêm tại chính sách của Formspree.</span><span class="en">When you submit a registration or Kèo-creation form, it is processed by <strong>Formspree</strong> — this service may set its own cookies for form processing and spam prevention. This is outside Kèo's direct control; you can review Formspree's own policy for details.</span></p>
+    <p><span class="vi">Chúng tôi không nhúng thêm công cụ quảng cáo, pixel theo dõi mạng xã hội, hay nền tảng phân tích bên thứ ba nào khác ngoài Formspree tại thời điểm hiện tại.</span><span class="en">We do not currently embed any advertising tools, social media tracking pixels, or other third-party analytics platforms beyond Formspree.</span></p>
+
+    <h2 id="kiem-soat"><span class="vi">4. Kiểm soát cookie</span><span class="en">4. Managing Cookies</span></h2>
+    <p><span class="vi">Bạn có thể quản lý hoặc xóa cookie qua cài đặt trình duyệt của mình. Hầu hết trình duyệt cho phép xem cookie đang lưu, xóa từng cookie hoặc toàn bộ, và chặn cookie từ các trang cụ thể. Lưu ý: tắt cookie thiết yếu có thể khiến một số phần của trang hiển thị không đúng.</span><span class="en">You can manage or delete cookies through your browser settings. Most browsers let you view stored cookies, delete some or all of them, and block cookies from specific sites. Note: disabling essential cookies may cause parts of the site to display incorrectly.</span></p>
+
+    <h2 id="thay-doi"><span class="vi">5. Thay đổi chính sách</span><span class="en">5. Changes</span></h2>
+    <p><span class="vi">Khi Kèo bổ sung tính năng mới (ví dụ hệ thống tài khoản), chính sách này sẽ được cập nhật để phản ánh đúng thực tế sử dụng cookie. Thay đổi quan trọng sẽ được thông báo qua website hoặc Zalo.</span><span class="en">As Kèo adds new features (such as an account system), this policy will be updated to reflect actual cookie usage. Material changes will be announced via the website or Zalo.</span></p>
+
+    <h2 id="lien-he"><span class="vi">6. Liên hệ</span><span class="en">6. Contact</span></h2>
+    <p><span class="vi">Câu hỏi về cookie, liên hệ:</span><span class="en">Questions about cookies, contact:</span></p>
+    <ul>
+      <li>Email: <strong>hello@keo.social</strong></li>
+      <li>Zalo: <strong>0902755265</strong></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">Kèo<span>.</span></div>
+</footer>
+
+<script>
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+</script>
+</body>
+</html>
