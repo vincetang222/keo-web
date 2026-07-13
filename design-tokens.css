@@ -1,0 +1,33 @@
+/* design-tokens.css — trích từ brand-guide.html (13/07/2026)
+   Dán khối :root này vào trang mới thay vì gõ lại mã màu bằng tay.
+   Đây cũng là bộ mã ĐÚNG cần dùng khi đồng bộ lại Instagram/Threads. */
+
+:root {
+  /* nền tối — mặc định: trang chủ, hero, social */
+  --surface-dark-bg-primary: #0F0C0A;
+  --surface-dark-bg-secondary: #17120D;
+  --surface-dark-card: #1E1A16;
+  --surface-dark-text-primary: #F5EFE6;
+
+  /* nền sáng — nội dung / pháp lý */
+  --surface-light-bg-primary: #FAFAF5;
+  --surface-light-bg-secondary: #F2EDE8;
+  --surface-light-bg-tertiary: #E8E2DC;
+  --surface-light-text-primary: #1A1510;
+
+  /* accent — chữ ký thương hiệu */
+  --accent-gold: #E8A22B;
+  --accent-orange: #D65F35;
+  --accent-rose: #D14060;
+  --accent-gradient: linear-gradient(135deg, #E8A22B 0%, #D65F35 50%, #D14060 100%);
+
+  /* màu danh mục blog */
+  --category-do-thi: #E8A22B;
+  --category-ky-nang: #6C63C4;
+  --category-nghi-thuc: #2E9E8C;
+  --category-ket-noi: #D65F35;
+
+  /* typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+}

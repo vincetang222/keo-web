@@ -1,0 +1,65 @@
+{
+  "_note": "Trích xuất trực tiếp từ brand-guide.html (13/07/2026). Dùng file này làm nguồn tham chiếu duy nhất khi set màu cho kênh mới (Instagram, TikTok, Threads...) hoặc trang mới, thay vì gõ lại mã màu bằng tay từ trí nhớ.",
+  "color": {
+    "surface": {
+      "dark": {
+        "bg-primary": "#0F0C0A",
+        "bg-secondary": "#17120D",
+        "card": "#1E1A16",
+        "text-primary": "#F5EFE6",
+        "_usage": "Nền mặc định: trang chủ, hero, brand guide, mọi ảnh/video social. Đây là nền ĐÚNG cho Instagram/Threads — KHÔNG phải xanh rêu."
+      },
+      "light": {
+        "bg-primary": "#FAFAF5",
+        "bg-secondary": "#F2EDE8",
+        "bg-tertiary": "#E8E2DC",
+        "text-primary": "#1A1510",
+        "_usage": "Trang nội dung/pháp lý: Nhịp Sống, Điều khoản, Quyền riêng tư, Cookie, Trợ năng."
+      }
+    },
+    "accent": {
+      "gold": "#E8A22B",
+      "orange": "#D65F35",
+      "rose": "#D14060",
+      "gradient": "linear-gradient(135deg, #E8A22B 0%, #D65F35 50%, #D14060 100%)",
+      "_usage": "Chữ ký thương hiệu. Dùng cho điểm nhấn, dải gradient trang trí, logo. KHÔNG dùng làm nền lớn."
+    },
+    "category": {
+      "do-thi": "#E8A22B",
+      "ky-nang": "#6C63C4",
+      "nghi-thuc": "#2E9E8C",
+      "ket-noi": "#D65F35",
+      "_usage": "Màu phụ cho blog Khoa học kết nối, theo chủ đề bài viết."
+    },
+    "banned": {
+      "old-social-bg": "#2E3B2E",
+      "_usage": "Ví dụ mã xanh rêu đậm (giá trị tham khảo — kiểm tra lại mã thật đang dùng trên IG/Threads trước khi thay). Đây là màu CŨ cần thay bằng surface.dark.bg-primary."
+    }
+  },
+  "typography": {
+    "display": {
+      "family": "Playfair Display",
+      "role": "Tiêu đề, nhấn in nghiêng + gradient",
+      "weights": [600, 700, 800],
+      "google-fonts-url": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap"
+    },
+    "body": {
+      "family": "Be Vietnam Pro",
+      "role": "Nội dung, nhãn, mọi text còn lại — hỗ trợ tiếng Việt tốt",
+      "weights": [300, 400, 500, 600, 700],
+      "google-fonts-url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+    },
+    "rule": "Tiêu đề luôn Playfair, thân bài luôn Be Vietnam Pro. Không dùng quá 2 bộ chữ, không dùng font mặc định (Arial, Times)."
+  },
+  "voice": {
+    "tone": "điềm đạm, thành thật, thực dụng",
+    "always_clarify": "Kèo không phải app hẹn hò",
+    "avoid": [
+      "ngôn ngữ lãng mạn (crush, match trái tim, icon trái tim làm chủ đạo)",
+      "hứa hẹn tuyệt đối về an toàn",
+      "tuyên bố chưa kiểm chứng (vd 'nền tảng đầu tiên VN')",
+      "nền xanh rêu cũ",
+      "tag câu view chung chung (viral, trending) thay vì đúng ngách"
+    ]
+  }
+}
