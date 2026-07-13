@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kèo — Playbook Marketing</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========= THEME TOKENS ========= */
+:root{
+  --ink:#0F0C0A; --bg2:#17120D; --s1:#1E1A16; --s2:#2A231B;
+  --cream:#F7F1E8; --cr2:rgba(247,241,232,.82); --cr3:rgba(247,241,232,.6);
+  --gold:#EFAF3D; --a:#E06B3E; --a2:#DE4F70;
+  --indigo:#8B82D8; --teal:#3FB3A0;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --rim:rgba(247,241,232,.13); --rim2:rgba(247,241,232,.22);
+  --dot:rgba(247,241,232,.05);
+  --nav-bg:rgba(15,12,10,.92);
+  --good:#5CC49A; --bad:#E0637A;
+  --serif:'Playfair Display',serif; --sans:'Be Vietnam Pro',sans-serif;
+}
+body[data-theme="light"]{
+  --ink:#F7F2EA; --bg2:#EFE7DA; --s1:#FFFFFF; --s2:#F4EDE2;
+  --cream:#1A1510; --cr2:rgba(26,21,16,.8); --cr3:rgba(26,21,16,.58);
+  --gold:#B07310; --a:#C24E22; --a2:#B93355;
+  --indigo:#5A50B8; --teal:#1E7E6E;
+  --rim:rgba(26,21,16,.12); --rim2:rgba(26,21,16,.22);
+  --dot:rgba(26,21,16,.055);
+  --nav-bg:rgba(247,242,234,.94);
+  --good:#1F8A5E; --bad:#C13A55;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ink);color:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(var(--dot) 1.2px,transparent 1.2px);background-size:26px 26px}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 28px}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+img{max-width:100%}
+code{font-size:.92em;background:var(--s2);padding:1px 6px;border-radius:5px}
+
+/* ========= TAB BAR ========= */
+.tabbar{position:sticky;top:0;z-index:60;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--rim)}
+.tabbar-in{display:flex;align-items:center;gap:4px;padding:10px 20px;max-width:1080px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
+.tabbar-in::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--cr2);background:transparent;border:1px solid transparent;padding:9px 15px;border-radius:100px;cursor:pointer;transition:.15s;white-space:nowrap}
+.tab-btn:hover{color:var(--cream);background:var(--s1)}
+.tab-btn.on{background:var(--grad);color:#1A1006;border-color:transparent}
+.theme-btn{margin-left:auto;flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1px solid var(--rim2);background:var(--s1);color:var(--cream);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.theme-btn:hover{border-color:var(--gold)}
+
+/* ========= HEADER ========= */
+header{padding:56px 0 44px;border-bottom:1px solid var(--rim);position:relative;overflow:hidden}
+header::after{content:"";position:absolute;top:-160px;right:-80px;width:520px;height:420px;border-radius:50%;background:radial-gradient(ellipse,var(--a) 0%,transparent 68%);opacity:.15;filter:blur(50px);z-index:-1}
+.brandmark{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.brandmark svg{width:38px;height:50px}
+.brandmark .wm{font-family:var(--serif);font-size:38px;font-weight:800;letter-spacing:-.02em}
+.brandmark .wm em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.eyebrow-pill{display:inline-flex;align-items:center;gap:7px;background:color-mix(in srgb,var(--gold) 12%,transparent);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);border-radius:100px;padding:6px 15px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+h1.big{font-family:var(--serif);font-size:clamp(28px,4.4vw,42px);font-weight:700;line-height:1.14;letter-spacing:-.015em;margin-bottom:12px;max-width:720px}
+h1.big em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lede{font-size:15.5px;color:var(--cr2);max-width:640px}
+
+/* ========= TAB PANELS & SECTIONS ========= */
+.tab-panel{display:none}
+.tab-panel.on{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+section{padding:48px 0;border-bottom:1px solid var(--rim)}
+section:last-child{border-bottom:none}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h2{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+h2 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-intro{color:var(--cr2);font-size:15px;max-width:680px;margin-bottom:30px}
+.sec-intro b{color:var(--cream)}
+h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:26px 0 14px}
+
+/* ========= REUSED BRAND COMPONENTS ========= */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px}
+.swatch{border:1px solid var(--rim);border-radius:14px;overflow:hidden;background:var(--s1);cursor:pointer;transition:transform .18s,border-color .18s}
+.swatch:hover{transform:translateY(-3px);border-color:var(--rim2)}
+.swatch .chip{height:88px;position:relative}
+.swatch .meta{padding:11px 13px}
+.swatch .nm{font-size:13px;font-weight:600}
+.swatch .hex{font-size:12px;color:var(--cr3);letter-spacing:.02em;margin-top:2px;display:flex;align-items:center;gap:6px}
+.swatch .copy-hint{font-size:10px;color:var(--gold);opacity:0;transition:opacity .2s}
+.swatch:hover .copy-hint{opacity:1}
+.grad-chip{height:120px;border-radius:14px;border:1px solid var(--rim);position:relative;display:flex;align-items:flex-end;padding:14px}
+.grad-chip code{font-size:11.5px;background:rgba(15,12,10,.6);padding:5px 9px;border-radius:6px;color:#fff}
+.type-row{display:flex;align-items:baseline;gap:20px;padding:16px 0;border-bottom:1px solid var(--rim);flex-wrap:wrap}
+.type-label{font-size:12.5px;color:var(--cr3);width:150px;flex-shrink:0}
+.spec-serif{font-family:var(--serif)}
+.spec-sans{font-family:var(--sans)}
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.dd{border:1px solid var(--rim);border-radius:14px;padding:20px;background:var(--s1)}
+.dd h4{font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dd.do h4{color:var(--good)} .dd.dont h4{color:var(--bad)}
+.dd ul{list-style:none;font-size:13.5px;color:var(--cr2)}
+.dd li{padding:5px 0 5px 20px;position:relative}
+.dd.do li::before{content:"✓";position:absolute;left:0;color:var(--good)}
+.dd.dont li::before{content:"✕";position:absolute;left:0;color:var(--bad)}
+/* các khung demo thể hiện nền TỐI thương hiệu — cố định tối ở cả 2 theme */
+.formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;align-items:end}
+.fmt{text-align:center}
+.fmt-frame{position:relative;margin:0 auto 14px;border:2px solid var(--rim2);border-radius:12px;overflow:hidden;background:#17120D;color:#F5EFE6}
+.fmt-frame .content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--safe)}
+.fmt-safe{position:absolute;inset:var(--safe);border:1.5px dashed rgba(232,162,43,.55);border-radius:6px}
+.fmt-mini-logo{font-family:var(--serif);font-weight:800;font-size:var(--logo-sz);letter-spacing:-.02em;display:flex;align-items:center;gap:5px}
+.fmt-mini-logo svg{width:calc(var(--logo-sz) * .75);height:var(--logo-sz)}
+.fmt-mini-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fmt-headline{font-family:var(--serif);font-weight:700;font-size:var(--head-sz);line-height:1.15;margin-top:8px;padding:0 6px}
+.fmt-headline em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fmt-base{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad)}
+.fmt-name{font-size:14px;font-weight:600;margin-bottom:3px}
+.fmt-dim{font-size:12.5px;color:var(--cr3)}
+.fmt-note{font-size:12px;color:var(--cr2);margin-top:9px;line-height:1.5}
+.frame-9x16{width:180px;height:320px;--safe:26px;--logo-sz:15px;--head-sz:19px}
+.frame-1x1{width:260px;height:260px;--safe:24px;--logo-sz:15px;--head-sz:20px}
+.frame-16x9{width:340px;height:191px;--safe:20px;--logo-sz:13px;--head-sz:16px}
+.callout{background:var(--s1);border:1px solid var(--rim);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;font-size:13.5px;color:var(--cr2);margin-top:8px}
+.callout b{color:var(--cream)}
+.callout.warn{border-left-color:var(--bad)}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:100px;background:var(--grad);color:#1A1006;font-weight:700;font-size:13.5px;text-decoration:none;border:none;cursor:pointer;margin-top:18px;font-family:var(--sans)}
+table.spec{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
+table.spec th,table.spec td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rim)}
+table.spec th{color:var(--gold);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+table.spec td{color:var(--cr2)}
+table.spec td:first-child{color:var(--cream);font-weight:500}
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.comp-card{border:1px solid var(--rim);border-radius:14px;overflow:hidden;background:var(--s1)}
+.comp-preview{height:170px;display:flex;align-items:center;justify-content:center;background-color:#0F0C0A}
+.comp-body{padding:15px 16px 16px}
+.comp-nm{font-size:14px;font-weight:600;margin-bottom:5px}
+.comp-desc{font-size:13px;color:var(--cr2);line-height:1.55;margin-bottom:11px}
+.comp-code{background:var(--bg2);border:1px solid var(--rim);border-radius:9px;padding:11px;font-size:10.5px;line-height:1.5;color:var(--cr3);cursor:pointer;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+.comp-code:hover{border-color:color-mix(in srgb,var(--gold) 45%,transparent);color:var(--cr2)}
+
+/* ========= STRATEGY ========= */
+.positioning-line{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--cream);line-height:1.55;padding:22px 26px;border:1px solid var(--rim);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;background:var(--s1);margin-bottom:28px}
+.positioning-line b{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
+.pillar3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.pillar3 .pc{border:1px solid var(--rim);border-radius:16px;padding:22px;background:var(--s1);position:relative;overflow:hidden}
+.pillar3 .pc::before{content:attr(data-n);position:absolute;top:14px;right:18px;font-family:var(--serif);font-size:34px;font-weight:700;color:var(--rim2)}
+.pillar3 .pc h4{font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:8px;max-width:82%}
+.pillar3 .pc h4 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pillar3 .pc p{font-size:13.5px;color:var(--cr2);line-height:1.6}
+.pillar3 .pc .vs{margin-top:14px;padding-top:12px;border-top:1px solid var(--rim);font-size:12px;color:var(--cr3)}
+.pillar3 .pc .vs b{color:var(--bad);font-weight:600}
+.side-toggle{display:inline-flex;gap:3px;padding:3px;border-radius:100px;background:var(--s1);border:1px solid var(--rim);margin-bottom:26px}
+.side-btn{padding:9px 20px;border-radius:100px;border:none;background:transparent;color:var(--cr2);font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.side-btn.on{background:var(--grad);color:#1A1006}
+.persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.persona-side{display:none}
+.persona-side.on{display:grid}
+.persona{border:1px solid var(--rim);border-radius:16px;padding:20px;background:var(--s1)}
+.persona .pct{display:inline-block;font-size:11px;font-weight:700;color:var(--gold);background:color-mix(in srgb,var(--gold) 12%,transparent);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);border-radius:100px;padding:3px 11px;margin-bottom:12px}
+.persona h4{font-family:var(--serif);font-size:17px;font-weight:700;margin-bottom:6px}
+.persona p{font-size:13.5px;color:var(--cr2);line-height:1.55}
+.persona .ch{margin-top:12px;padding-top:10px;border-top:1px solid var(--rim);font-size:12px;color:var(--cr3)}
+.ratio-bar{display:flex;height:34px;border-radius:100px;overflow:hidden;margin:20px 0 22px;border:1px solid var(--rim)}
+.ratio-seg{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#1A1006}
+.pillar-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.pcard{border:1px solid var(--rim);border-radius:16px;padding:20px;background:var(--s1)}
+.pcard .pct-big{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:2px}
+.pcard h4{font-size:14px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.pcard ul{list-style:none;font-size:13.5px;color:var(--cr2)}
+.pcard li{padding:4px 0 4px 16px;position:relative}
+.pcard li::before{content:"—";position:absolute;left:0;color:var(--cr3)}
+.pcard .fmt-tag{margin-top:12px;padding-top:10px;border-top:1px solid var(--rim);font-size:12px;color:var(--cr3)}
+
+/* ========= TEMPLATES ========= */
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.tpl-card{border:1px solid var(--rim);border-radius:16px;overflow:hidden;background:var(--s1)}
+.tpl-num{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--rim)}
+.tpl-num .n{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--gold)}
+.tpl-num .ratio{font-size:11px;color:var(--cr3)}
+.tpl-mock{padding:18px 16px;min-height:110px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:#17120D}
+.tpl-mock .t1{font-family:var(--serif);font-style:italic;font-size:14.5px;color:#F5EFE6;line-height:1.45}
+.tpl-body{padding:13px 16px 16px}
+.tpl-title{font-size:13.5px;font-weight:700;margin-bottom:6px}
+.tpl-src{font-size:12.5px;color:var(--cr2);line-height:1.55}
+.tpl-src b{color:var(--cream)}
+
+/* ========= VIDEO & ANIMATION ========= */
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.vid-card{border:1px solid var(--rim);border-radius:16px;padding:20px;background:var(--s1)}
+.vid-card .vh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.vid-card .vname{font-family:var(--serif);font-weight:700;font-size:16px}
+.vid-card .vmeta{font-size:11px;color:var(--gold);font-weight:700}
+.vid-step{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--rim);font-size:13px}
+.vid-step:first-of-type{border-top:none}
+.vid-step .vs-label{flex-shrink:0;width:70px;color:var(--gold);font-weight:700;font-size:11px}
+.vid-step .vs-txt{color:var(--cr2);line-height:1.5}
+.anim-stage{border:1px solid var(--rim);border-radius:18px;background:#17120D;padding:12px;margin:20px 0;position:relative;overflow:hidden}
+.anim-stage svg{display:block;width:100%;height:auto;max-height:280px}
+.anim-stage .stage-note{position:absolute;bottom:12px;right:16px;font-size:10.5px;color:rgba(245,239,230,.5);letter-spacing:.05em}
+@media(prefers-reduced-motion:no-preference){
+  .char-bob{animation:kBob 3.2s ease-in-out infinite}
+  .char-bob.delay{animation-delay:1.4s}
+  .k-eye{transform-box:fill-box;transform-origin:center;animation:kBlink 4.5s infinite}
+  .k-eye.d2{animation-delay:.9s}
+  .k-bubble{animation:kBubble 6s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom left}
+  .k-bubble.b2{animation-delay:3s;transform-origin:bottom right}
+}
+@keyframes kBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes kBlink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.08)}}
+@keyframes kBubble{0%,12%{opacity:0;transform:scale(.6)}20%,46%{opacity:1;transform:scale(1)}54%,100%{opacity:0;transform:scale(.6)}}
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
+.phase-card{border:1px solid var(--rim);border-radius:16px;padding:22px;background:var(--s1);position:relative}
+.phase-card .pnum{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:12px}
+.phase-card h4{font-family:var(--serif);font-size:18px;font-weight:700;margin-bottom:10px}
+.phase-card h4 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phase-card p{font-size:13.5px;color:var(--cr2);line-height:1.6;margin-bottom:10px}
+.phase-card ul{list-style:none;font-size:13px;color:var(--cr2)}
+.phase-card li{padding:4px 0 4px 16px;position:relative}
+.phase-card li::before{content:"—";position:absolute;left:0;color:var(--cr3)}
+.phase-card .gate{margin-top:14px;padding-top:12px;border-top:1px solid var(--rim);font-size:12px;color:var(--cr3)}
+.phase-card .gate b{color:var(--gold)}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ep-card{border:1px solid var(--rim);border-radius:16px;padding:20px;background:var(--s1)}
+.ep-card .en{font-family:var(--serif);font-size:24px;font-weight:800;color:var(--rim2);float:right}
+.ep-card h4{font-family:var(--serif);font-size:17px;font-weight:700;margin-bottom:4px}
+.ep-card h4 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ep-card .ep-src{font-size:11px;color:var(--gold);font-weight:700;margin-bottom:10px}
+.ep-card p{font-size:13.5px;color:var(--cr2);line-height:1.6}
+.script-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+.script-table th{text-align:left;padding:10px 12px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--rim2)}
+.script-table td{padding:12px;border-bottom:1px solid var(--rim);vertical-align:top;color:var(--cr2)}
+.script-table td:first-child{color:var(--gold);font-weight:700;white-space:nowrap;width:82px}
+.script-table td:nth-child(2){color:var(--cream);width:180px}
+
+/* ========= PRODUCTION ========= */
+.flow{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.flow-step{display:flex;gap:16px;position:relative;padding-bottom:22px}
+.flow-step::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:var(--rim)}
+.flow-step:last-child::before{display:none}
+.flow-step .fnum{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--grad);color:#1A1006;font-family:var(--serif);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.flow-step .ftxt h4{font-size:14.5px;font-weight:700;margin-bottom:3px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.flow-step .ftxt h4 .ftime{font-size:11px;color:var(--gold);font-weight:700}
+.flow-step .ftxt p{font-size:13.5px;color:var(--cr2);line-height:1.55}
+.week-table{width:100%;border-collapse:collapse;margin-top:8px}
+.week-table th{text-align:left;padding:10px 12px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--rim2)}
+.week-table td{padding:13px 12px;border-bottom:1px solid var(--rim);vertical-align:top;font-size:13.5px}
+.week-table .wd{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--cream);white-space:nowrap}
+.week-table .topic{color:var(--cream);font-weight:600;margin-bottom:3px}
+.week-table .src{color:var(--cr3);font-size:12px}
+.week-table .fmt{display:inline-block;background:var(--s2);border:1px solid var(--rim2);border-radius:100px;padding:3px 10px;font-size:11.5px;color:var(--cr2);white-space:nowrap}
+.month-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:8px}
+.month-card{border:1px solid var(--rim);border-radius:16px;padding:22px;background:var(--s1)}
+.month-card .mnum{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.month-card h4{font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:14px}
+.month-card h4 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.month-card ul{list-style:none;font-size:13.5px;color:var(--cr2)}
+.month-card li{padding:5px 0 5px 18px;position:relative}
+.month-card li::before{content:"→";position:absolute;left:0;color:var(--gold)}
+.month-card .goal{margin-top:14px;padding-top:12px;border-top:1px solid var(--rim);font-size:12.5px;color:var(--cr3)}
+.month-card .goal b{color:var(--good)}
+.checklist{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.check-item{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--rim);border-radius:14px;padding:16px 18px;background:var(--s1)}
+.check-item .cnum{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--grad);color:#1A1006;font-family:var(--serif);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.check-item .ctxt h4{font-size:14.5px;font-weight:700;margin-bottom:4px}
+.check-item .ctxt p{font-size:13.5px;color:var(--cr2);line-height:1.55}
+.check-item.blocked{border-left:3px solid var(--bad)}
+.check-item.blocked .cnum{background:var(--bad);color:#fff}
+
+/* ========= CALENDAR ========= */
+.cal-shell{border:1px solid var(--rim);border-radius:18px;background:var(--s1);overflow:hidden;margin-top:8px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--rim);flex-wrap:wrap;gap:10px}
+.cal-title{font-family:var(--serif);font-size:20px;font-weight:700}
+.cal-nav{display:flex;gap:6px}
+.cal-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--rim2);background:transparent;color:var(--cream);font-size:15px;cursor:pointer}
+.cal-nav button:hover{border-color:var(--gold);color:var(--gold)}
+.cal-nav .today-btn{width:auto;padding:0 14px;border-radius:100px;font-size:12px;font-weight:600}
+.cal-stats{font-size:12.5px;color:var(--cr2);padding:10px 20px;border-bottom:1px solid var(--rim);display:flex;gap:16px;flex-wrap:wrap}
+.cal-stats b{color:var(--cream)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr)}
+.cal-wd{padding:9px 0;text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--rim)}
+.cal-cell{min-height:74px;border-right:1px solid var(--rim);border-bottom:1px solid var(--rim);padding:7px 8px;cursor:pointer;position:relative;transition:background .12s}
+.cal-cell:nth-child(7n){border-right:none}
+.cal-cell:hover{background:var(--s2)}
+.cal-cell.other{opacity:.35;cursor:default}
+.cal-cell.other:hover{background:transparent}
+.cal-cell .dnum{font-size:12.5px;font-weight:600;color:var(--cr2)}
+.cal-cell.today .dnum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--grad);color:#1A1006}
+.cal-cell.selected{background:color-mix(in srgb,var(--gold) 10%,transparent);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.cal-dots{display:flex;gap:3px;flex-wrap:wrap;margin-top:5px}
+.cal-dot{width:7px;height:7px;border-radius:50%}
+.cal-dot.posted{outline:1.5px solid var(--good);outline-offset:1px}
+.cal-more{font-size:9.5px;color:var(--cr3)}
+.dot-educate{background:var(--gold)}
+.dot-trust{background:var(--teal)}
+.dot-convert{background:var(--a2)}
+.cal-legend{display:flex;gap:14px;padding:10px 20px;font-size:11.5px;color:var(--cr3);border-top:1px solid var(--rim);flex-wrap:wrap}
+.cal-legend span{display:inline-flex;align-items:center;gap:5px}
+
+/* day panel */
+.day-panel{margin-top:18px;border:1px solid var(--rim);border-radius:18px;background:var(--s1);padding:20px}
+.day-panel h3{margin:0 0 14px;font-size:17px}
+.post-row{border:1px solid var(--rim);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.post-row-head{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;flex-wrap:wrap}
+.post-row-head:hover{background:var(--s2)}
+.post-row-head .pt{flex:1;font-size:13.5px;font-weight:600;color:var(--cream);min-width:140px}
+.post-row-head .ptime{font-size:11.5px;color:var(--cr3)}
+.status-pill{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:100px;white-space:nowrap;border:1px solid transparent}
+.status-idea{background:color-mix(in srgb,var(--cr3) 18%,transparent);color:var(--cr2)}
+.status-preparing{background:color-mix(in srgb,var(--indigo) 20%,transparent);color:var(--indigo)}
+.status-ready{background:color-mix(in srgb,var(--gold) 18%,transparent);color:var(--gold)}
+.status-posted{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.pill-tag{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:100px}
+.pill-educate{background:color-mix(in srgb,var(--gold) 15%,transparent);color:var(--gold)}
+.pill-trust{background:color-mix(in srgb,var(--teal) 15%,transparent);color:var(--teal)}
+.pill-convert{background:color-mix(in srgb,var(--a2) 15%,transparent);color:var(--a2)}
+.post-detail{display:none;padding:0 14px 14px;font-size:13px;color:var(--cr2)}
+.post-row.open .post-detail{display:block}
+.post-detail .pd-row{display:flex;gap:8px;padding:5px 0;border-top:1px solid var(--rim)}
+.post-detail .pd-row:first-child{border-top:none}
+.post-detail .pd-k{flex-shrink:0;width:92px;color:var(--cr3);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding-top:1px}
+.post-detail .pd-v{white-space:pre-wrap;line-height:1.55}
+.post-actions{display:flex;gap:8px;margin-top:12px}
+.post-actions button{font-size:12px;font-weight:600;padding:7px 14px;border-radius:100px;cursor:pointer;font-family:var(--sans);border:1px solid var(--rim2);background:transparent;color:var(--cream)}
+.post-actions button:hover{border-color:var(--gold);color:var(--gold)}
+.post-actions button.danger:hover{border-color:var(--bad);color:var(--bad)}
+
+/* post form */
+.post-form{border-top:1px solid var(--rim);margin-top:16px;padding-top:16px}
+.post-form h4{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:10px}
+.pf-grid label,.pf-full label{display:block;font-size:10.5px;font-weight:700;color:var(--cr3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.pf-grid input,.pf-grid select,.pf-full input,.pf-full textarea{width:100%;background:var(--bg2);border:1px solid var(--rim2);border-radius:9px;padding:9px 12px;color:var(--cream);font-family:var(--sans);font-size:13px}
+.pf-full{margin-bottom:10px}
+.pf-full textarea{min-height:64px;resize:vertical}
+.pf-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pf-actions button{font-family:var(--sans);font-weight:700;font-size:13px;padding:10px 20px;border-radius:100px;cursor:pointer;border:none}
+.pf-save{background:var(--grad);color:#1A1006}
+.pf-cancel{background:transparent;border:1px solid var(--rim2) !important;color:var(--cr2)}
+
+/* io bar */
+.io-bar{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.io-btn{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:100px;border:1px solid var(--rim2);background:var(--s1);color:var(--cream);cursor:pointer;font-family:var(--sans)}
+.io-btn:hover{border-color:var(--gold);color:var(--gold)}
+.schema-box{margin-top:16px;background:var(--bg2);border:1px solid var(--rim);border-radius:12px;padding:14px 16px;font-size:11.5px;line-height:1.6;color:var(--cr2);white-space:pre-wrap;font-family:ui-monospace,monospace;cursor:pointer}
+.schema-box:hover{border-color:color-mix(in srgb,var(--gold) 45%,transparent)}
+
+footer{padding:40px 0 64px;text-align:center;color:var(--cr3);font-size:13px}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gold);color:#1A1006;padding:11px 22px;border-radius:100px;font-size:13px;font-weight:700;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+@media(max-width:760px){
+  .dodont,.formats,.pillar3{grid-template-columns:1fr}
+  .type-label{width:100%}
+  .week-table,.script-table{display:block;overflow-x:auto}
+  .cal-cell{min-height:58px;padding:5px 5px}
+  .pf-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="tabbar">
+  <div class="tabbar-in">
+    <button class="tab-btn on" data-tab="strategy" onclick="switchTab('strategy',this)">📍 Chiến lược</button>
+    <button class="tab-btn" data-tab="brand" onclick="switchTab('brand',this)">🎨 Nhận diện</button>
+    <button class="tab-btn" data-tab="templates" onclick="switchTab('templates',this)">🖼️ Templates</button>
+    <button class="tab-btn" data-tab="video" onclick="switchTab('video',this)">🎬 Video & Hoạt hình</button>
+    <button class="tab-btn" data-tab="production" onclick="switchTab('production',this)">🏭 Sản xuất</button>
+    <button class="tab-btn" data-tab="calendar" onclick="switchTab('calendar',this)">🗓️ Lịch đăng</button>
+    <button class="theme-btn" onclick="toggleTheme()" title="Đổi nền sáng/tối" aria-label="Đổi nền sáng/tối">◐</button>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="brandmark">
+      <svg viewBox="0 0 48 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="kg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8A22B"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#kg0)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#kg0)" stroke-width="3.4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#kg0)" stroke-width="3.4" stroke-linecap="round"/></svg>
+      <div class="wm">Kèo<em>.</em></div>
+    </div>
+    <div class="eyebrow-pill">✦ Playbook marketing · Q3 2026</div>
+    <h1 class="big">Từ chiến lược tới <em>từng bài đăng</em></h1>
+    <p class="lede">Định vị, đối tượng, nội dung, brand, template, kế hoạch sản xuất và lịch đăng — gộp trong một trang, chia tab. Lịch đăng lưu ngay trong trình duyệt, nhập/xuất được JSON.</p>
+  </div>
+</header>
+
+<main>
+  <div class="tab-panel on" id="tab-strategy"><section id="dinh-vi" class="dot-bg">
+  <div class="wrap">
+    <div class="eyebrow">01 · Định vị thương hiệu</div>
+    <h2>Vì sao Chủ xị <em>chọn Kèo</em>?</h2>
+    <p class="sec-intro">Một câu giữ trong đầu trước mỗi lần viết content. Mỗi cụm trong câu này là một điểm bán, không được bỏ khi lên bài.</p>
+
+    <div class="positioning-line">"Trả phí cho một buổi trò chuyện <b>thật</b>, với người có <b>chuyên môn đã xác minh</b>, tại nơi công cộng — không phải hẹn hò, không phải networking."</div>
+
+    <div class="pillar3">
+      <div class="pc" data-n="01">
+        <h4>Người đồng hành <em>có thật</em></h4>
+        <p>Xác minh CCCD, hồ sơ rõ lĩnh vực (UX, thời trang, tâm lý, ẩm thực...), đánh giá công khai sau mỗi buổi. Không phải "ai đó rảnh", mà là người có chuyện để kể.</p>
+        <div class="vs">Đối lập với: <b>app hẹn hò ẩn danh, không ai xác minh ai</b></div>
+      </div>
+      <div class="pc" data-n="02">
+        <h4>An toàn <em>từng bước</em></h4>
+        <p>Kèo giữ tiền tới khi gặp xong, mọi buổi ở nơi công cộng, đánh giá minh bạch sau mỗi lần. Không hứa tuyệt đối — chỉ nói đúng những gì đã làm thật.</p>
+        <div class="vs">Đối lập với: <b>tự hẹn qua tin nhắn, không ai đứng giữa</b></div>
+      </div>
+      <div class="pc" data-n="03">
+        <h4>Không phải <em>hẹn hò</em></h4>
+        <p>Kèo là buổi gặp có chủ đích — cà phê, bữa tối, triển lãm, một chủ đề để nói. Chủ động làm rõ ngay từ câu đầu tiên, không mập mờ để câu tương tác.</p>
+        <div class="vs">Đối lập với: <b>ngôn ngữ "crush", "match" của app hẹn hò</b></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px"><b>Nguyên tắc vàng:</b> mọi post đều phải chạm được ít nhất 1 trong 3 trụ cột trên — dù là hình ảnh (xác minh, công khai), lời văn ("một cuộc chuyện trò thật"), hay chi tiết cụ thể (giữ tiền, nơi công cộng). Post nào không kể được điều nào trong 3 điều này, cân nhắc lại trước khi đăng.</div>
+  </div>
+</section>
+<section id="doi-tuong">
+  <div class="wrap">
+    <div class="eyebrow">02 · Đối tượng</div>
+    <h2>Bạn đang nói <em>với bên nào?</em></h2>
+    <p class="sec-intro">Khác Harmonie (1 phía khách hàng), Kèo là marketplace 2 chiều — mỗi phía cần giọng và kênh riêng. Content nhắm cả 2 cùng lúc thường không nhắm trúng phía nào. <b style="color:var(--cream)">Đây là phân khúc đề xuất</b> dựa trên nội dung site hiện có, chưa phải số đo thật — nên đối chiếu lại khi có dữ liệu đăng ký thật (signup_source).</p>
+
+    <div class="side-toggle" role="tablist">
+      <button class="side-btn on" onclick="switchSide('cx', this)">👑 Chủ xị (cầu)</button>
+      <button class="side-btn" onclick="switchSide('dh', this)">🌿 Người đồng hành (cung)</button>
+    </div>
+
+    <div class="persona-grid persona-side on" id="side-cx">
+      <div class="persona">
+        <span class="pct">Nhóm chính</span>
+        <h4>Mới chuyển thành phố</h4>
+        <p>Tới TP.HCM/Hà Nội/Đà Nẵng vì việc, chưa có vòng bạn bè. Trường lớp, ký túc xá — những nơi tình cờ quen người — đã ở lại thành phố cũ.</p>
+        <div class="ch">Kênh: SEO "chuyển thành phố không quen ai" · TikTok</div>
+      </div>
+      <div class="persona">
+        <span class="pct">Nhóm lớn</span>
+        <h4>Freelancer / làm từ xa</h4>
+        <p>Không có đồng nghiệp tự nhiên gặp mỗi ngày. Ngày dài một mình trước màn hình, thèm một cuộc nói chuyện thật ngoài Slack/Zoom.</p>
+        <div class="ch">Kênh: Threads, cộng đồng freelancer có sẵn</div>
+      </div>
+      <div class="persona">
+        <span class="pct">Nhóm ổn định</span>
+        <h4>27+ bận rộn</h4>
+        <p>Qua tuổi 25, dịp tình cờ làm quen thưa dần. Có công việc, có vòng quen biết — nhưng thân thì hiếm. Sẵn sàng trả phí cho đúng người, đúng lúc.</p>
+        <div class="ch">Kênh: Zalo OA, PR "kinh tế cô đơn"</div>
+      </div>
+      <div class="persona">
+        <span class="pct">Nhóm khám phá</span>
+        <h4>Muốn thử điều mới, cần người dẫn</h4>
+        <p>Thích triển lãm/ẩm thực/thể thao nhưng ngại tự mày mò hoặc đi một mình. Cần người có gu, có kiến thức đi cùng — không phải chỉ có mặt.</p>
+        <div class="ch">Kênh: Instagram/Threads, testimonial thật</div>
+      </div>
+    </div>
+
+    <div class="persona-grid persona-side" id="side-dh">
+      <div class="persona">
+        <span class="pct">Nhóm chính</span>
+        <h4>Chuyên gia muốn thu nhập linh hoạt</h4>
+        <p>UX designer, người làm thời trang, tâm lý, ẩm thực — có chuyên môn thật, có chuyện để kể. Kèo là việc làm thêm hợp pháp, tự đặt lịch, tự đặt giá.</p>
+        <div class="ch">Kênh: LinkedIn-style content, TikTok "nghề tay trái"</div>
+      </div>
+      <div class="persona">
+        <span class="pct">Nhóm mở rộng</span>
+        <h4>Người có kiến thức sâu 1 lĩnh vực</h4>
+        <p>Không nhất thiết là "chuyên gia" theo nghĩa nghề nghiệp — có thể là người mê cờ vua, rành ẩm thực đường phố, hiểu điện ảnh Việt sâu. Thích chia sẻ hơn là dạy.</p>
+        <div class="ch">Kênh: cộng đồng theo sở thích (hội mê board game, hội nhiếp ảnh...)</div>
+      </div>
+      <div class="persona">
+        <span class="pct">Nhóm linh hoạt</span>
+        <h4>Cần việc làm thêm chủ động giờ giấc</h4>
+        <p>Không muốn ràng buộc giờ hành chính. Kèo phù hợp vì không tạo quan hệ lao động — tự quyết định thời gian, khả năng nhận Kèo.</p>
+        <div class="ch">Kênh: nhóm Facebook việc làm linh hoạt, giới thiệu truyền miệng</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="tru-cot" class="dot-bg">
+  <div class="wrap">
+    <div class="eyebrow">03 · Ba trụ cột nội dung</div>
+    <h2>Khoa học · Niềm tin · <em>Chuyển đổi</em></h2>
+    <p class="sec-intro">Mọi post rơi vào 1 trong 3 nhóm. Tỷ lệ khuyến nghị mỗi tuần: <b style="color:var(--cream)">4 · 2 · 1</b> (khớp đúng nhịp 7 ngày ở mục Lịch tuần bên dưới). Nội dung thuần giáo dục không mang khách tới; nội dung thuần bán không giữ được follower.</p>
+
+    <div class="ratio-bar">
+      <div class="ratio-seg" style="width:57%;background:var(--gold)">Khoa học 57%</div>
+      <div class="ratio-seg" style="width:29%;background:var(--teal)">Niềm tin 29%</div>
+      <div class="ratio-seg" style="width:14%;background:var(--a2);color:#fff">Chuyển đổi 14%</div>
+    </div>
+
+    <div class="pillar-cards">
+      <div class="pcard">
+        <div class="pct-big" style="color:var(--gold)">57%</div>
+        <h4 style="color:var(--gold)">Khoa học kết nối</h4>
+        <ul>
+          <li>Tận dụng kho 61 bài đã viết — không cần viết mới, cần làm dễ tìm thấy hơn</li>
+          <li>22 chủ đề Nhịp Sống (10 thể thao + 12 văn hoá) — mỗi chủ đề là nguồn cho nhiều post</li>
+          <li>Câu hỏi thật người Việt gõ: "làm sao kết bạn khi đi làm", "chuyển thành phố không quen ai"</li>
+        </ul>
+        <div class="fmt-tag">Định dạng: carousel tip · quote · reel giải thích</div>
+      </div>
+      <div class="pcard">
+        <div class="pct-big" style="color:var(--teal)">29%</div>
+        <h4 style="color:var(--teal)">Niềm tin</h4>
+        <ul>
+          <li>Chân dung Người đồng hành thật — như Lan Anh (UX), Hương (Tâm lý), Đức (Ẩm thực) trên trang chủ</li>
+          <li>Chi tiết an toàn: xác minh CCCD, giữ tiền tới khi gặp xong, đánh giá công khai</li>
+          <li>Review thật sau buổi Kèo (khi có, xin phép trước khi đăng)</li>
+        </ul>
+        <div class="fmt-tag">Định dạng: story behind-the-scenes · review card · phỏng vấn ngắn</div>
+      </div>
+      <div class="pcard">
+        <div class="pct-big" style="color:var(--a2)">14%</div>
+        <h4 style="color:var(--a2)">Chuyển đổi</h4>
+        <ul>
+          <li>1 post/tuần là đủ — không spam bán</li>
+          <li>"89 người đang sẵn sàng" — cảm giác tình trạng thực, không phải quảng cáo chung chung</li>
+          <li>CTA duy nhất mỗi post: đọc thêm HOẶC thử Kèo — không cả hai</li>
+        </ul>
+        <div class="fmt-tag">Định dạng: story CTA · post đăng ký Người đồng hành mới</div>
+      </div>
+    </div>
+  </div>
+</section></div>
+  <div class="tab-panel" id="tab-brand"><section id="nhan-dien"><div class="wrap">
+  <div class="eyebrow">01 · Logo</div>
+  <h2>Dấu hiệu nhận diện</h2>
+  <p class="sec-intro">Logo gồm hai phần: <b>biểu tượng compa</b> (chiếc compa vẽ kỹ thuật — ẩn dụ cho sự chính xác khi "vẽ" nên một cuộc gặp) và <b>chữ Kèo.</b> với dấu chấm gradient. Luôn giữ khoảng thở tối thiểu bằng chiều cao chữ "K" quanh logo.</p>
+
+  <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:center">
+    <div style="background:var(--ink);padding:34px 44px;border-radius:16px;border:1px solid var(--rim)">
+      <div class="brandmark" style="margin:0"><svg viewBox="0 0 48 64" fill="none" style="width:36px;height:48px"><defs><linearGradient id="lm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0B45C"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#lm1)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#lm1)" stroke-width="3.4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#lm1)" stroke-width="3.4" stroke-linecap="round"/></svg><span class="wm" style="font-size:34px">Kèo<em>.</em></span></div>
+      <div style="font-size:11px;color:var(--cr3);margin-top:12px;text-align:center">Trên nền tối (mặc định)</div>
+    </div>
+    <div style="background:#F7F0E3;padding:34px 44px;border-radius:16px">
+      <div class="brandmark" style="margin:0"><svg viewBox="0 0 48 64" fill="none" style="width:36px;height:48px"><defs><linearGradient id="lm2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8A22B"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#lm2)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#lm2)" stroke-width="3.4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#lm2)" stroke-width="3.4" stroke-linecap="round"/></svg><span class="wm" style="font-size:34px;color:#1A1510">Kèo<em>.</em></span></div>
+      <div style="font-size:11px;color:rgba(26,21,16,.5);margin-top:12px;text-align:center">Trên nền sáng</div>
+    </div>
+  </div>
+  <button class="dl-btn" onclick="downloadLogo()">⭳ Tải logo SVG (nền trong suốt)</button>
+
+  <h3>Cấu trúc kỹ thuật — để tái dựng chính xác, không cần thiết kế lại</h3>
+  <div style="display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:start;flex-wrap:wrap" class="logo-tech-grid">
+    <!-- Bản vẽ toạ độ: lưới 48×64, scale 5.5 -->
+    <div style="background:var(--s1);border:1px solid var(--rim);border-radius:14px;padding:24px">
+      <svg viewBox="-14 -12 76 88" width="290" height="336" style="display:block">
+        <!-- lưới nền mỗi 8 đơn vị -->
+        <g stroke="rgba(245,239,230,.07)" stroke-width=".4">
+          <line x1="0" y1="0" x2="0" y2="64"/><line x1="8" y1="0" x2="8" y2="64"/><line x1="16" y1="0" x2="16" y2="64"/><line x1="24" y1="0" x2="24" y2="64"/><line x1="32" y1="0" x2="32" y2="64"/><line x1="40" y1="0" x2="40" y2="64"/><line x1="48" y1="0" x2="48" y2="64"/>
+          <line x1="0" y1="0" x2="48" y2="0"/><line x1="0" y1="8" x2="48" y2="8"/><line x1="0" y1="16" x2="48" y2="16"/><line x1="0" y1="24" x2="48" y2="24"/><line x1="0" y1="32" x2="48" y2="32"/><line x1="0" y1="40" x2="48" y2="40"/><line x1="0" y1="48" x2="48" y2="48"/><line x1="0" y1="56" x2="48" y2="56"/><line x1="0" y1="64" x2="48" y2="64"/>
+        </g>
+        <!-- khung viewBox -->
+        <rect x="0" y="0" width="48" height="64" fill="none" stroke="rgba(245,239,230,.22)" stroke-width=".6" stroke-dasharray="2 2"/>
+        <!-- trục đối xứng -->
+        <line x1="24" y1="-6" x2="24" y2="70" stroke="rgba(232,162,43,.35)" stroke-width=".5" stroke-dasharray="3 2.4"/>
+        <!-- logo -->
+        <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0B45C"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs>
+        <circle cx="24" cy="9" r="7" fill="url(#tg)"/>
+        <line x1="4" y1="58" x2="24" y2="19" stroke="url(#tg)" stroke-width="3.4" stroke-linecap="round"/>
+        <line x1="44" y1="58" x2="24" y2="19" stroke="url(#tg)" stroke-width="3.4" stroke-linecap="round"/>
+        <!-- chú thích toạ độ -->
+        <g font-family="'Be Vietnam Pro',sans-serif" font-size="3.4" fill="rgba(245,239,230,.75)">
+          <circle cx="24" cy="9" r=".9" fill="#fff"/><text x="27.5" y="7.2">tâm (24, 9) · r = 7</text>
+          <circle cx="24" cy="19" r=".9" fill="#fff"/><text x="27.5" y="21.5">khớp (24, 19)</text>
+          <circle cx="4" cy="58" r=".9" fill="#fff"/><text x="-12.5" y="62.5">chân (4, 58)</text>
+          <circle cx="44" cy="58" r=".9" fill="#fff"/><text x="34" y="62.5">chân (44, 58)</text>
+        </g>
+        <!-- kích thước viewBox -->
+        <g font-family="'Be Vietnam Pro',sans-serif" font-size="3.4" fill="rgba(232,162,43,.9)">
+          <line x1="0" y1="68" x2="48" y2="68" stroke="rgba(232,162,43,.5)" stroke-width=".4"/>
+          <text x="20" y="72.5">48 đv</text>
+          <line x1="52" y1="0" x2="52" y2="64" stroke="rgba(232,162,43,.5)" stroke-width=".4"/>
+          <text x="54" y="33">64 đv</text>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <table class="spec" style="margin-top:0">
+        <tr><th>Thành phần</th><th>Thông số</th></tr>
+        <tr><td>Khung viewBox</td><td class="mono">0 0 48 64 — tỷ lệ 3:4 (đứng)</td></tr>
+        <tr><td>Đầu compa</td><td class="mono">hình tròn, tâm (24, 9), bán kính 7</td></tr>
+        <tr><td>Khớp chụm 2 chân</td><td class="mono">điểm (24, 19) — cách đầu 3 đơn vị</td></tr>
+        <tr><td>Chân trái / phải</td><td class="mono">(24,19) → (4,58) và (24,19) → (44,58)</td></tr>
+        <tr><td>Nét chân</td><td class="mono">stroke-width 3.4 · linecap round (đầu bo tròn)</td></tr>
+        <tr><td>Độ mở 2 chân</td><td class="mono">≈54° (đối xứng qua trục x = 24)</td></tr>
+        <tr><td>Tô màu</td><td class="mono">gradient 135° · #F0B45C → #D65F35 (52%) → #D14060<br>(bản nền sáng dùng #E8A22B thay #F0B45C)</td></tr>
+        <tr><td>Kích thước tối thiểu</td><td class="mono">cao 24 px — nhỏ hơn nét chân bị vỡ</td></tr>
+        <tr><td>Khoảng thở</td><td class="mono">≥ ½ chiều cao biểu tượng ở mọi phía</td></tr>
+      </table>
+      <div style="margin-top:18px">
+        <div style="font-size:12px;font-weight:600;color:var(--cr2);margin-bottom:8px">Mã SVG gốc — bấm để copy, dán vào Figma/Illustrator/code là ra đúng logo:</div>
+        <pre id="logoCode" onclick="copyLogoCode()" style="background:var(--ink);border:1px solid var(--rim);border-radius:10px;padding:14px;font-size:11px;line-height:1.55;color:var(--cr2);cursor:pointer;overflow-x:auto;white-space:pre-wrap;word-break:break-all" title="Bấm để copy">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 64"&gt;
+  &lt;defs&gt;&lt;linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"&gt;
+    &lt;stop offset="0%" stop-color="#E8A22B"/&gt;
+    &lt;stop offset="52%" stop-color="#D65F35"/&gt;
+    &lt;stop offset="100%" stop-color="#D14060"/&gt;
+  &lt;/linearGradient&gt;&lt;/defs&gt;
+  &lt;circle cx="24" cy="9" r="7" fill="url(#kg)"/&gt;
+  &lt;line x1="4" y1="58" x2="24" y2="19" stroke="url(#kg)" stroke-width="3.4" stroke-linecap="round"/&gt;
+  &lt;line x1="44" y1="58" x2="24" y2="19" stroke="url(#kg)" stroke-width="3.4" stroke-linecap="round"/&gt;
+&lt;/svg&gt;</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:22px"><b>Không nên:</b> đổi màu compa sang màu khác ngoài gradient vàng-cam-hồng · xoay nghiêng logo · thêm viền/đổ bóng · kéo giãn lệch tỷ lệ · đặt trên nền có màu gần với cam làm chìm logo.</div>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow">02 · Bảng màu</div>
+  <h2>Màu sắc</h2>
+  <p class="sec-intro">Nền tối ấm là chủ đạo (không phải đen thuần, không phải xanh rêu). Gradient vàng-cam-hồng là chữ ký thị giác — dùng cho điểm nhấn, không lạm dụng làm nền lớn.</p>
+
+  <h3>Màu nền &amp; chữ</h3>
+  <div class="swatch-grid">
+    <div class="swatch" data-hex="#0F0C0A"><div class="chip" style="background:#0F0C0A"></div><div class="meta"><div class="nm">Nền chính</div><div class="hex">#0F0C0A <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#17120D"><div class="chip" style="background:#17120D"></div><div class="meta"><div class="nm">Nền phụ</div><div class="hex">#17120D <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#1E1A16"><div class="chip" style="background:#1E1A16"></div><div class="meta"><div class="nm">Thẻ / khối</div><div class="hex">#1E1A16 <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#F5EFE6"><div class="chip" style="background:#F5EFE6"></div><div class="meta"><div class="nm">Chữ chính (kem)</div><div class="hex">#F5EFE6 <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#F7F0E3"><div class="chip" style="background:#F7F0E3"></div><div class="meta"><div class="nm">Nền sáng</div><div class="hex">#F7F0E3 <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#1A1510"><div class="chip" style="background:#1A1510"></div><div class="meta"><div class="nm">Chữ trên nền sáng</div><div class="hex">#1A1510 <span class="copy-hint">copy</span></div></div></div>
+  </div>
+
+  <h3>Gradient thương hiệu (chữ ký)</h3>
+  <div class="grad-chip" style="background:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%)">
+    <code>linear-gradient(135deg, #E8A22B 0%, #D65F35 50%, #D14060 100%)</code>
+  </div>
+
+  <h3>3 màu gradient tách rời</h3>
+  <div class="swatch-grid">
+    <div class="swatch" data-hex="#E8A22B"><div class="chip" style="background:#E8A22B"></div><div class="meta"><div class="nm">Vàng (Gold)</div><div class="hex">#E8A22B <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#D65F35"><div class="chip" style="background:#D65F35"></div><div class="meta"><div class="nm">Cam (điểm nhấn)</div><div class="hex">#D65F35 <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#D14060"><div class="chip" style="background:#D14060"></div><div class="meta"><div class="nm">Hồng đỏ</div><div class="hex">#D14060 <span class="copy-hint">copy</span></div></div></div>
+  </div>
+
+  <h3>Màu phụ theo danh mục (dùng cho blog / chủ đề)</h3>
+  <div class="swatch-grid">
+    <div class="swatch" data-hex="#E8A22B"><div class="chip" style="background:linear-gradient(135deg,#E8A22B,#C08A2E)"></div><div class="meta"><div class="nm">Đô thị</div><div class="hex">#E8A22B <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#6C63C4"><div class="chip" style="background:linear-gradient(135deg,#8E86D6,#6C63C4)"></div><div class="meta"><div class="nm">Kỹ năng</div><div class="hex">#6C63C4 <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#2E9E8C"><div class="chip" style="background:linear-gradient(135deg,#4FB5A4,#2E9E8C)"></div><div class="meta"><div class="nm">Nghi thức</div><div class="hex">#2E9E8C <span class="copy-hint">copy</span></div></div></div>
+    <div class="swatch" data-hex="#D65F35"><div class="chip" style="background:linear-gradient(135deg,#E8A22B,#D14060)"></div><div class="meta"><div class="nm">Kết nối</div><div class="hex">#D65F35 <span class="copy-hint">copy</span></div></div></div>
+  </div>
+  <div class="callout"><b>Lưu ý màu quan trọng:</b> các kênh social hiện đang dùng nền <b>xanh rêu đậm</b> — đây là màu cũ, KHÔNG khớp thương hiệu. Nền chuẩn là <b>đen ấm #0F0C0A</b>. Cập nhật lại để người xem thấy cùng một Kèo khi chuyển từ Instagram sang website.</div>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow">03 · Kiểu chữ</div>
+  <h2>Typography</h2>
+  <p class="sec-intro">Hai bộ chữ, vai trò rõ ràng: <b>Playfair Display</b> (serif, có chân) cho tiêu đề — mang cảm giác tinh tế, có chiều sâu; <b>Be Vietnam Pro</b> (sans, không chân) cho nội dung — dễ đọc, hỗ trợ tiếng Việt tốt. Cả hai đều miễn phí trên Google Fonts.</p>
+
+  <div class="type-row"><div class="type-label">Playfair Display<br>Tiêu đề lớn · 700</div><div class="spec-serif" style="font-size:38px;font-weight:700">Gặp gỡ có chiều sâu</div></div>
+  <div class="type-row"><div class="type-label">Playfair Display<br>Nhấn · italic 700</div><div class="spec-serif" style="font-size:34px;font-weight:700;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">một câu chuyện hay</div></div>
+  <div class="type-row"><div class="type-label">Be Vietnam Pro<br>Nội dung · 400</div><div class="spec-sans" style="font-size:17px;font-weight:400">Một buổi gặp hay bắt đầu từ một câu chuyện hay.</div></div>
+  <div class="type-row"><div class="type-label">Be Vietnam Pro<br>Nhãn / caption · 600</div><div class="spec-sans" style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)">BÀI NỔI BẬT · KẾT NỐI</div></div>
+  <div class="type-row"><div class="type-label">Be Vietnam Pro<br>Chữ mảnh · 300</div><div class="spec-sans" style="font-size:16px;font-weight:300">Không phải hẹn hò — là kết nối có giá trị thực.</div></div>
+
+  <div class="callout" style="margin-top:24px"><b>Quy tắc:</b> tiêu đề luôn Playfair, thân bài luôn Be Vietnam Pro. Cụm cần nhấn → in nghiêng Playfair + tô gradient. Tránh dùng quá 2 bộ chữ. Không dùng font mặc định (Arial, Times) hay font trang trí khác.</div>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow">04 · Khổ &amp; khung an toàn</div>
+  <h2>Định dạng sản phẩm</h2>
+  <p class="sec-intro">Khung nét đứt vàng là <b>vùng an toàn</b> — giữ chữ và logo bên trong để không bị cắt bởi giao diện nền tảng (nút, caption, thanh tiến trình) hay khi crop. Dải gradient mỏng ở đáy là chữ ký nên có mặt ở mọi sản phẩm.</p>
+
+  <div class="formats">
+    <div class="fmt">
+      <div class="fmt-frame frame-9x16 dot-bg">
+        <div class="fmt-safe"></div>
+        <div class="content">
+          <div class="fmt-mini-logo"><svg viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0B45C"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm1)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm1)" stroke-width="4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm1)" stroke-width="4" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+          <div class="fmt-headline">Thành phố mới.<br><em>Không</em> tìm thấy ai?</div>
+        </div>
+        <div class="fmt-base"></div>
+      </div>
+      <div class="fmt-name">Video ngắn / Story</div>
+      <div class="fmt-dim mono">9:16 · 1080 × 1920 px</div>
+      <div class="fmt-note">TikTok, Reels, Threads video, Story. Chừa ~250px trên và ~380px dưới cho nút nền tảng.</div>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-frame frame-1x1 dot-bg">
+        <div class="fmt-safe"></div>
+        <div class="content">
+          <div class="fmt-mini-logo"><svg viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0B45C"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm2)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm2)" stroke-width="4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm2)" stroke-width="4" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+          <div class="fmt-headline">Tại sao trả tiền<br>để <em>gặp gỡ?</em></div>
+        </div>
+        <div class="fmt-base"></div>
+      </div>
+      <div class="fmt-name">Ảnh vuông / Carousel</div>
+      <div class="fmt-dim mono">1:1 · 1080 × 1080 px</div>
+      <div class="fmt-note">Bài carousel Instagram — đúng format đang chạy tốt hiện tại. Có thể dùng 4:5 (1080×1350) để chiếm nhiều màn hình hơn.</div>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-frame frame-16x9 dot-bg">
+        <div class="fmt-safe"></div>
+        <div class="content">
+          <div class="fmt-mini-logo"><svg viewBox="0 0 48 64" fill="none"><defs><linearGradient id="fm3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0B45C"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#fm3)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#fm3)" stroke-width="4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#fm3)" stroke-width="4" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+          <div class="fmt-headline">Khoa học <em>kết nối</em></div>
+        </div>
+        <div class="fmt-base"></div>
+      </div>
+      <div class="fmt-name">Video dài / YouTube</div>
+      <div class="fmt-dim mono">16:9 · 1920 × 1080 px</div>
+      <div class="fmt-note">YouTube, thumbnail, ảnh bìa. Bố cục chữ lệch trái, chừa phải cho nhân vật/minh hoạ (giống ảnh OG website).</div>
+    </div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow">05 · Thông số nhanh</div>
+  <h2>Bảng tra khi sản xuất</h2>
+  <table class="spec">
+    <tr><th>Sản phẩm</th><th>Tỷ lệ</th><th>Kích thước</th><th>Nền tảng</th></tr>
+    <tr><td>Story / Reels / TikTok</td><td class="mono">9:16</td><td class="mono">1080×1920</td><td>IG, TikTok, Threads</td></tr>
+    <tr><td>Carousel / Ảnh feed</td><td class="mono">1:1 hoặc 4:5</td><td class="mono">1080×1080 / 1080×1350</td><td>Instagram, Threads</td></tr>
+    <tr><td>Video ngang</td><td class="mono">16:9</td><td class="mono">1920×1080</td><td>YouTube, Facebook</td></tr>
+    <tr><td>Ảnh chia sẻ link (OG)</td><td class="mono">1.91:1</td><td class="mono">1200×630</td><td>Khi share keo.social</td></tr>
+    <tr><td>Avatar</td><td class="mono">1:1</td><td class="mono">≥400×400</td><td>Mọi nền tảng</td></tr>
+  </table>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow">06 · Giọng &amp; nội dung</div>
+  <h2>Cách viết cho Kèo</h2>
+  <p class="sec-intro">Giọng thương hiệu: điềm đạm, thành thật, thực dụng — như một người bạn hiểu chuyện, không phóng đại, không sến. Luôn chủ động làm rõ Kèo <b>không phải app hẹn hò</b>.</p>
+  <div class="dodont">
+    <div class="dd do">
+      <h4>✓ Nên</h4>
+      <ul>
+        <li>Nói thẳng "không phải hẹn hò, không phải dịch vụ mập mờ"</li>
+        <li>Đóng khung trả phí như thuê chuyên gia (PT, gia sư) — bình thường, chính đáng</li>
+        <li>Kể câu chuyện thật, cụ thể (một buổi Kèo, một insight)</li>
+        <li>Nhấn an toàn bằng chi tiết: xác minh CCCD, Kèo giữ tiền, đánh giá công khai</li>
+        <li>Giọng người sáng lập thật ở giai đoạn đầu</li>
+      </ul>
+    </div>
+    <div class="dd dont">
+      <h4>✕ Tránh</h4>
+      <ul>
+        <li>Ngôn ngữ lãng mạn: "crush", "match trái tim", biểu tượng trái tim làm chủ đạo</li>
+        <li>Hứa hẹn quá về an toàn khi chưa chắc chắn 100%</li>
+        <li>Tuyên bố tuyệt đối chưa kiểm chứng ("nền tảng đầu tiên VN") nếu chưa chắc</li>
+        <li>Nền xanh rêu (màu cũ) — dùng nền đen ấm chuẩn</li>
+        <li>Tag câu view chung chung (viral, trending) thay vì tag đúng ngách</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+<section id="kho-hinh">
+  <div class="wrap">
+    <div class="eyebrow">07 · Kho hình đã thiết kế</div>
+    <h2>Ảnh OG — xem tại <em>brand-guide.html</em></h2>
+    <p class="sec-intro">11 ảnh OG (1200×630, mỗi trang website 1 ảnh) đã thiết kế sẵn, nhúng đầy đủ tại <a href="/brand-guide">/brand-guide → mục 07</a>. Không nhúng lại ở đây để playbook này không phình to không cần thiết — cùng lý do đã tách dữ liệu khỏi nhip-song.html.</p>
+    <div class="callout">Cần ảnh OG cho trang nào → mở <b>/brand-guide</b>, cuộn tới mục 07, bấm <b>Tải</b> trên đúng ảnh cần.</div>
+  </div>
+</section>
+<section><div class="wrap">
+  <div class="eyebrow">08 · Thành phần tái dùng</div>
+  <h2>Nhân vật &amp; hoạ tiết chữ ký</h2>
+  <p class="sec-intro">Các khối dựng sẵn xuất hiện xuyên suốt website và ảnh OG. Bấm vào mã bên dưới mỗi thành phần để copy — dán vào Figma / Canva (dạng SVG) hoặc code là dùng được ngay, không cần vẽ lại.</p>
+
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-preview dot-bg">
+        <svg viewBox="0 0 60 100" width="72" height="120"><defs><linearGradient id="cf1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8A22B"/><stop offset="55%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><g transform="translate(30 96)"><path d="M-26 0q0-44 26-44T26 0Z" fill="url(#cf1)" stroke="#0F0C0A" stroke-width="5"/><circle cx="0" cy="-66" r="22" fill="url(#cf1)" stroke="#0F0C0A" stroke-width="5"/><circle cx="7" cy="-70" r="3" fill="#0F0C0A"/><circle cx="-5" cy="-70" r="3" fill="#0F0C0A"/><path d="M-7 -58q7 6 14 0" stroke="#0F0C0A" stroke-width="4" stroke-linecap="round" fill="none"/></g></svg>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nm">Nhân vật thương hiệu (bản gradient)</div>
+        <div class="comp-desc">Thân vòm + đầu tròn, viền đậm màu nền. Dùng trong ảnh OG trang chính. Lật ngang (scale -1) để tạo cặp đối thoại.</div>
+        <pre class="comp-code" onclick="copyEl(this)" title="Bấm để copy">&lt;g&gt;&lt;path d="M-26 0q0-44 26-44T26 0Z" fill="url(#grad)" stroke="#0F0C0A" stroke-width="5"/&gt;&lt;circle cx="0" cy="-66" r="22" fill="url(#grad)" stroke="#0F0C0A" stroke-width="5"/&gt;&lt;circle cx="7" cy="-70" r="3" fill="#0F0C0A"/&gt;&lt;circle cx="-5" cy="-70" r="3" fill="#0F0C0A"/&gt;&lt;path d="M-7 -58q7 6 14 0" stroke="#0F0C0A" stroke-width="4" stroke-linecap="round" fill="none"/&gt;&lt;/g&gt;</pre>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-preview" style="background:linear-gradient(150deg,#8E86D6,#6C63C4 52%,#39337A)">
+        <svg viewBox="0 0 80 80" width="104" height="104"><g><path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><circle cx="52" cy="38" r="10" fill="none" stroke="#fff" stroke-width="2.2"/><line x1="59" y1="45" x2="66" y2="52" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g></svg>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nm">Nhân vật nét trắng (bản minh hoạ bài viết)</div>
+        <div class="comp-desc">Nét trắng mảnh trên nền gradient màu danh mục — phong cách minh hoạ của 64 bài blog. Fill trắng 24%, stroke trắng 2px.</div>
+        <pre class="comp-code" onclick="copyEl(this)" title="Bấm để copy">&lt;path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/&gt;&lt;circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/&gt;&lt;circle cx="23" cy="48" r="1.3" fill="#fff"/&gt;&lt;circle cx="31" cy="48" r="1.3" fill="#fff"/&gt;&lt;path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/&gt;</pre>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-preview dot-bg" style="background-color:var(--ink)"></div>
+      <div class="comp-body">
+        <div class="comp-nm">Chấm nền (dot pattern)</div>
+        <div class="comp-desc">Hoạ tiết nền mọi trang &amp; ảnh — chấm kem mờ 5%, lưới 26px. Trên nền gradient dùng chấm trắng 14%, lưới 22px.</div>
+        <pre class="comp-code" onclick="copyEl(this)" title="Bấm để copy">background-image: radial-gradient(rgba(240,234,225,.05) 1.5px, transparent 1.5px);
+background-size: 26px 26px;</pre>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-preview" style="flex-direction:column;gap:14px">
+        <div style="width:82%;height:7px;background:linear-gradient(90deg,#E8A22B,#D65F35 50%,#D14060);border-radius:2px"></div>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:8px 17px;border-radius:100px;border:1.5px solid rgba(232,162,43,.4);color:#E8A22B;background:rgba(232,162,43,.11)">BÀI NỔI BẬT · KẾT NỐI</span>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nm">Dải đáy + chip nhãn</div>
+        <div class="comp-desc">Dải gradient 7px chốt đáy mọi ảnh (chữ ký). Chip nhãn: viền màu chủ đề 40%, nền 11%, chữ hoa cách rộng.</div>
+        <pre class="comp-code" onclick="copyEl(this)" title="Bấm để copy">/* Dải đáy */ height:7px; background:linear-gradient(90deg,#E8A22B,#D65F35 50%,#D14060);
+/* Chip */ border:1.5px solid rgba(232,162,43,.4); background:rgba(232,162,43,.11); color:#E8A22B; border-radius:100px; padding:8px 17px; letter-spacing:.14em; text-transform:uppercase;</pre>
+      </div>
+    </div>
+  </div>
+</div></section></div>
+  <div class="tab-panel" id="tab-templates"><section id="templates">
+  <div class="wrap">
+    <div class="eyebrow">Templates có sẵn</div>
+    <h2>Mỗi tấm hình <em>đều có nguồn</em></h2>
+    <p class="sec-intro">8 template phủ 3 tỷ lệ chính (1:1 post, 4:5 feed, 9:16 story), mỗi cái ghi rõ dùng cho nội dung nào — không phải khung trống, mà trỏ thẳng về đúng bài/dữ liệu đã có trên site. Thay chữ, giữ layout.</p>
+
+    <div class="tpl-grid">
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">01 · 1:1</span><span class="ratio">Quote</span></div>
+        <div class="tpl-mock"><div class="t1">"Qua tuổi 25, những dịp tình cờ để làm quen cứ thưa dần."</div></div>
+        <div class="tpl-body"><div class="tpl-title">Câu hay từ blog</div><div class="tpl-src"><b>Nguồn:</b> trích 1 câu từ 61 bài Khoa học kết nối — ưu tiên bài "Vì sao qua tuổi 25 kết bạn lại khó"</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">02 · 1:1</span><span class="ratio">Tip</span></div>
+        <div class="tpl-mock"><div class="t1">🎭 Chủ đề trò chuyện<br>Cà phê & trà</div></div>
+        <div class="tpl-body"><div class="tpl-title">1 chủ đề Nhịp Sống</div><div class="tpl-src"><b>Nguồn:</b> 22 chủ đề (10 thể thao + 12 văn hoá) trong nhip-song.html — mỗi chủ đề có world/vn/facts/how sẵn, chỉ cần chọn 1 khối</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">03 · 1:1</span><span class="ratio">Q&A</span></div>
+        <div class="tpl-mock"><div class="t1">✦ Kèo giải đáp<br>Q. Kèo có phải hẹn hò không?</div></div>
+        <div class="tpl-body"><div class="tpl-title">Series "Kèo giải đáp"</div><div class="tpl-src"><b>Nguồn:</b> 5 câu FAQ có sẵn trên trang chủ + câu hỏi thật từ Zalo — mỗi tuần 1 câu, đúng nhịp T3 ở Lịch tuần</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">04 · 4:5</span><span class="ratio">Chân dung</span></div>
+        <div class="tpl-mock"><div class="t1">L<br>Lan Anh · UX Designer<br>"Dẫn bạn qua một triển lãm khó quên."</div></div>
+        <div class="tpl-body"><div class="tpl-title">Chân dung Người đồng hành</div><div class="tpl-src"><b>Nguồn:</b> card có sẵn ở trang chủ (Lan Anh, Tuấn Minh, Hương, Đức...) — xin phép trước khi đăng lên kênh social</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">05 · 1:1</span><span class="ratio">Trust</span></div>
+        <div class="tpl-mock"><div class="t1">✓ Đã xác minh danh tính<br>CCCD + hồ sơ rõ ràng</div></div>
+        <div class="tpl-body"><div class="tpl-title">1 chi tiết an toàn</div><div class="tpl-src"><b>Nguồn:</b> 4 bullet "Kèo mang lại gì" trên trang chủ — mỗi bullet tách thành 1 post riêng, không gộp chung 1 lần</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">06 · 9:16</span><span class="ratio">CTA</span></div>
+        <div class="tpl-mock"><div class="t1">🌿<br>89 người đang sẵn sàng<br>Đặt Kèo ngay →</div></div>
+        <div class="tpl-body"><div class="tpl-title">Story nhắc lịch</div><div class="tpl-src"><b>Nguồn:</b> số người đồng hành sẵn sàng — cập nhật số thật, không để số cũ. Tối đa 1 lần/tuần, đúng nhịp T6.</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">07 · 9:16</span><span class="ratio">Reel</span></div>
+        <div class="tpl-mock"><div class="t1">Nghề tay trái #03<br>UX designer, cuối tuần làm Người đồng hành</div></div>
+        <div class="tpl-body"><div class="tpl-title">Chuỗi "Nghề tay trái"</div><div class="tpl-src"><b>Nguồn:</b> phỏng vấn ngắn Người đồng hành thật về 1 buổi Kèo đáng nhớ — không cần quay dựng cầu kỳ, thật quan trọng hơn đẹp</div></div>
+      </div>
+      <div class="tpl-card">
+        <div class="tpl-num"><span class="n">08 · 4:5</span><span class="ratio">Nên/Tránh</span></div>
+        <div class="tpl-mock"><div class="t1">Kèo LÀ / Kèo KHÔNG<br>✓ Buổi trò chuyện có chủ đích<br>✕ Dịch vụ hẹn hò</div></div>
+        <div class="tpl-body"><div class="tpl-title">Làm rõ ranh giới</div><div class="tpl-src"><b>Nguồn:</b> khối "Kèo LÀ / Kèo KHÔNG" đã viết sẵn trong terms.html mục 2 — đăng định kỳ để giữ định vị rõ, không mập mờ</div></div>
+      </div>
+    </div>
+  </div>
+</section></div>
+  <div class="tab-panel" id="tab-video"><section id="video-nguoi-that">
+  <div class="wrap">
+    <div class="eyebrow">01 · Video người thật</div>
+    <h2>Bốn khung <em>quay ngay được</em></h2>
+    <p class="sec-intro">Trụ chính của video Kèo vẫn là người thật — vì "người sáng lập thật, người đồng hành thật" là điểm bán. Hoạt hình (mục 02) là nhánh song song để kể chuyện xã hội, không thay thế nhánh này.</p>
+
+    <div class="vid-grid">
+      <div class="vid-card">
+        <div class="vh"><span class="vname">V1 · Mẹo nhanh</span><span class="vmeta">15–30s · 9:16</span></div>
+        <div class="vid-step"><span class="vs-label">HOOK 0–3s</span><span class="vs-txt">Câu hỏi gây tò mò: "3 điều khiến buổi Kèo đầu tiên bớt gượng"</span></div>
+        <div class="vid-step"><span class="vs-label">NỘI DUNG</span><span class="vs-txt">2–3 ý từ 1 bài Khoa học kết nối, cắt cảnh mỗi 2-3s, phụ đề lớn</span></div>
+        <div class="vid-step"><span class="vs-label">CTA</span><span class="vs-txt">"Lưu lại" hoặc "Comment tình huống của bạn"</span></div>
+      </div>
+      <div class="vid-card">
+        <div class="vh"><span class="vname">V2 · Nghề tay trái</span><span class="vmeta">30–60s · 9:16</span></div>
+        <div class="vid-step"><span class="vs-label">HOOK 0–3s</span><span class="vs-txt">Người đồng hành nói thẳng nghề chính: "Ngày thường mình là UX designer..."</span></div>
+        <div class="vid-step"><span class="vs-label">NỘI DUNG</span><span class="vs-txt">Kể 1 buổi Kèo đáng nhớ thật — thật quan trọng hơn đẹp</span></div>
+        <div class="vid-step"><span class="vs-label">CTA</span><span class="vs-txt">"Xem hồ sơ mình trên Kèo" / nhắc lĩnh vực chuyên môn</span></div>
+      </div>
+      <div class="vid-card">
+        <div class="vh"><span class="vname">V3 · Giải thích sâu</span><span class="vmeta">3–8 phút · 16:9</span></div>
+        <div class="vid-step"><span class="vs-label">MỞ ĐẦU</span><span class="vs-txt">Câu hỏi lớn: "Kèo có phải hẹn hò trá hình không?"</span></div>
+        <div class="vid-step"><span class="vs-label">THÂN BÀI</span><span class="vs-txt">Mở rộng 1 bài blog dài — mô hình, an toàn, demo hồ sơ thật</span></div>
+        <div class="vid-step"><span class="vs-label">CTA</span><span class="vs-txt">Tóm tắt 3 ý + mời đọc Khoa học kết nối</span></div>
+      </div>
+      <div class="vid-card">
+        <div class="vh"><span class="vname">V4 · AMA founder</span><span class="vmeta">Định kỳ · Story/Live</span></div>
+        <div class="vid-step"><span class="vs-label">MỞ ĐẦU</span><span class="vs-txt">Founder trả lời câu hỏi khó nhất tuần (từ Zalo/comment)</span></div>
+        <div class="vid-step"><span class="vs-label">NỘI DUNG</span><span class="vs-txt">Không né câu khó — đúng giọng "điềm đạm, thành thật"</span></div>
+        <div class="vid-step"><span class="vs-label">CTA</span><span class="vs-txt">Không CTA bán — mục tiêu là niềm tin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hoat-hinh">
+  <div class="wrap">
+    <div class="eyebrow">02 · Dự án hoạt hình "Kèo Kể"</div>
+    <h2>Hoạt hình <em>0 đồng</em> — bắt đầu từ thứ đã có</h2>
+    <p class="sec-intro">Kèo <b>đã có sẵn nhân vật</b> — cặp nhân vật thân vòm + đầu tròn trong brand guide (mục 08 tab Nhận diện), đang xuất hiện trên cả 11 ảnh OG. Không cần thuê vẽ, không cần mua công cụ AI. Khung bên dưới là <b>demo sống chạy bằng CSS ngay trong trang này</b> — nhấp nháy mắt, gật gù, bong bóng thoại. Quay màn hình khung này = teaser đầu tiên, chi phí đúng 0 đồng.</p>
+
+    <div class="anim-stage">
+      <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hai nhân vật Kèo đang trò chuyện — demo hoạt hình CSS">
+        <defs>
+          <linearGradient id="pgA" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8A22B"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/>
+          </linearGradient>
+        </defs>
+        <line x1="40" y1="196" x2="360" y2="196" stroke="rgba(245,239,230,.25)" stroke-width="2"/>
+        <!-- nhân vật trái -->
+        <g transform="translate(120,192)">
+          <g class="char-bob">
+            <path d="M-26 0q0-44 26-44T26 0Z" fill="url(#pgA)" stroke="#0F0C0A" stroke-width="5"/>
+            <circle cx="0" cy="-66" r="22" fill="url(#pgA)" stroke="#0F0C0A" stroke-width="5"/>
+            <circle class="k-eye" cx="-5" cy="-70" r="3" fill="#0F0C0A"/>
+            <circle class="k-eye d2" cx="7" cy="-70" r="3" fill="#0F0C0A"/>
+            <path d="M-7 -58q7 6 14 0" stroke="#0F0C0A" stroke-width="4" stroke-linecap="round" fill="none"/>
+          </g>
+        </g>
+        <!-- nhân vật phải (lật gương) -->
+        <g transform="translate(280,192) scale(-1,1)">
+          <g class="char-bob delay">
+            <path d="M-26 0q0-44 26-44T26 0Z" fill="url(#pgA)" stroke="#0F0C0A" stroke-width="5"/>
+            <circle cx="0" cy="-66" r="22" fill="url(#pgA)" stroke="#0F0C0A" stroke-width="5"/>
+            <circle class="k-eye" cx="-5" cy="-70" r="3" fill="#0F0C0A"/>
+            <circle class="k-eye d2" cx="7" cy="-70" r="3" fill="#0F0C0A"/>
+            <path d="M-7 -58q7 6 14 0" stroke="#0F0C0A" stroke-width="4" stroke-linecap="round" fill="none"/>
+          </g>
+        </g>
+        <!-- bong bóng thoại 1 -->
+        <g class="k-bubble" transform="translate(148,74)">
+          <rect x="0" y="0" width="96" height="30" rx="15" fill="#F5EFE6"/>
+          <path d="M14 29 L8 42 L26 29 Z" fill="#F5EFE6"/>
+          <text x="48" y="20" text-anchor="middle" font-family="'Be Vietnam Pro',sans-serif" font-size="12" font-weight="600" fill="#1A1510">Dạo này sao?</text>
+        </g>
+        <!-- bong bóng thoại 2 -->
+        <g class="k-bubble b2" transform="translate(196,42)">
+          <rect x="0" y="0" width="116" height="30" rx="15" fill="#F5EFE6"/>
+          <path d="M100 29 L108 42 L88 29 Z" fill="#F5EFE6"/>
+          <text x="58" y="20" text-anchor="middle" font-family="'Be Vietnam Pro',sans-serif" font-size="12" font-weight="600" fill="#1A1510">Kể mình nghe đi.</text>
+        </g>
+        <text x="200" y="214" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="11" fill="rgba(245,239,230,.55)">Gặp gỡ có chiều sâu</text>
+      </svg>
+      <div class="stage-note">CSS animation · 0 đồng · quay màn hình là dùng được</div>
+    </div>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="pnum" style="background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)">Giai đoạn 0 · 0 đồng</div>
+        <h4>Bắt đầu <em>tuần này</em></h4>
+        <p>Dùng cặp nhân vật SVG có sẵn + CSS animation (như demo trên). Quay màn hình thành clip 10–20s, thêm phụ đề + nhạc nền miễn phí trong CapCut.</p>
+        <ul>
+          <li>Đăng 2-3 teaser thử phản ứng trên TikTok/Reels</li>
+          <li>Mỗi teaser = 1 câu thoại chạm đúng nỗi đau (lấy từ 6 tập bên dưới)</li>
+          <li>Chi phí: 0đ — chỉ tốn ~1 buổi tối/teaser</li>
+        </ul>
+        <div class="gate">Điều kiện lên giai đoạn 1: <b>có teaser vượt trung bình kênh rõ rệt</b></div>
+      </div>
+      <div class="phase-card">
+        <div class="pnum" style="background:color-mix(in srgb,var(--gold) 18%,transparent);color:var(--gold)">Giai đoạn 1 · ~0–300k/tháng</div>
+        <h4>Tập đầu <em>60–90 giây</em></h4>
+        <p>Tách nhân vật thành "con rối 2D" (đầu / thân / mắt / miệng là các lớp SVG riêng), ráp chuyển động trong CapCut hoặc Canva — không vẽ từng khung hình.</p>
+        <ul>
+          <li>Lồng tiếng: giọng thật của bạn (hợp giọng founder) hoặc TTS miễn phí</li>
+          <li>1 tập 60–90s theo kịch bản mẫu ở mục 04</li>
+          <li>Nhịp bền vững: 1 tập / 2-3 tuần, không hơn</li>
+        </ul>
+        <div class="gate">Điều kiện lên giai đoạn 2: <b>3 tập liên tiếp giữ được người xem</b></div>
+      </div>
+      <div class="phase-card">
+        <div class="pnum" style="background:color-mix(in srgb,var(--a2) 18%,transparent);color:var(--a2)">Giai đoạn 2 · khi có ngân sách</div>
+        <h4>Nâng <em>chất lượng</em></h4>
+        <p>Chỉ đầu tư khi giai đoạn 0–1 đã chứng minh có người xem — lúc đó quyết định dựa trên dữ liệu thật, không phải cảm tính.</p>
+        <ul>
+          <li>Animator freelance (vài triệu/tập) hoặc công cụ AI chuyên dụng</li>
+          <li>Giữ nguyên series bible (mục 05) để đổi người làm không đổi chất</li>
+          <li>Nhân vật, màu, giọng KHÔNG đổi — chỉ chuyển động mượt hơn</li>
+        </ul>
+        <div class="gate">Nguyên tắc: <b>không nhảy cóc lên đây khi chưa qua cổng giai đoạn 1</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sau-tap">
+  <div class="wrap">
+    <div class="eyebrow">03 · Sáu tập đầu tiên</div>
+    <h2>Kịch bản từ <em>Khoa học kết nối</em></h2>
+    <p class="sec-intro">Mỗi tập là một vấn đề xã hội đã viết trong blog/trang chủ — không phải nghĩ mới, chỉ chuyển thể. Công thức chung: cảnh đời thường → nút thắt nhỏ → khoảnh khắc kết nối nhẹ → khép bằng tagline. <b>Không bán hàng trong tập</b> — logo góc màn hình là đủ.</p>
+
+    <div class="ep-grid">
+      <div class="ep-card"><span class="en">01</span>
+        <h4>11 giờ <em>đêm</em></h4>
+        <div class="ep-src">Nguồn: trang chủ — "500+ người theo dõi"</div>
+        <p>Nhân vật lướt điện thoại, 500+ follower, tim thả đầy màn hình — nhưng khi thèm một câu chuyện tử tế lúc 11 giờ đêm, cuộn danh bạ mãi chẳng biết gọi ai. Kết: đặt điện thoại xuống, tự pha một ly trà, ghi chú "mai tìm người nói chuyện thật".</p>
+      </div>
+      <div class="ep-card"><span class="en">02</span>
+        <h4>Bàn ăn cho <em>một người</em></h4>
+        <div class="ep-src">Nguồn: trang chủ — "Bữa tối một mình" + bài "Bữa ăn — nghi thức kết nối lâu đời nhất"</div>
+        <p>Quán ngon mới mở, nhân vật háo hức tới — nhân viên hỏi "mấy người ạ?", khựng lại một nhịp. Ăn ngon nhưng thiếu một người để nói "món này lạ ha". Kết: nhìn bàn bên cười nói, mỉm cười — món ngon nhất là câu chuyện đi kèm.</p>
+      </div>
+      <div class="ep-card"><span class="en">03</span>
+        <h4>Thành phố <em>mới</em></h4>
+        <div class="ep-src">Nguồn: trang chủ — "Bối cảnh mới: lớp học, ký túc xá đã xa"</div>
+        <p>Ngày đầu ở thành phố mới: hộp carton chưa mở, bản đồ đầy điểm đánh dấu "muốn đi thử" — nhưng chưa có ai để rủ. Kết: nhân vật dán một mảnh giấy "tuần này: 1 nơi mới, 1 người mới" lên tủ lạnh.</p>
+      </div>
+      <div class="ep-card"><span class="en">04</span>
+        <h4>Sau tuổi <em>25</em></h4>
+        <div class="ep-src">Nguồn: bài nổi bật "Vì sao qua tuổi 25, kết bạn lại khó đến thế"</div>
+        <p>Montage: hồi đi học quen nhau chỉ vì ngồi cạnh; giờ lịch họp chồng lịch gym, tin nhắn "cà phê không?" bị dời 3 lần. Kết: cả hai nhân vật cùng dừng lại, chốt một ngày cụ thể — tình bạn người lớn cần lịch hẹn, và điều đó không sao cả.</p>
+      </div>
+      <div class="ep-card"><span class="en">05</span>
+        <h4>Câu hỏi <em>không nhạt</em></h4>
+        <div class="ep-src">Nguồn: bài "Hỏi thế nào để câu chuyện không bao giờ nhạt"</div>
+        <p>Hai nhân vật ngồi đối diện, thoại lặp vòng "dạo này sao?" – "cũng bình thường". Một người đổi câu hỏi: "tuần này có khoảnh khắc nào làm cậu vui thật không?" — bong bóng thoại nở to dần, tràn màu. Kết: câu hỏi đúng mở ra cả một thế giới.</p>
+      </div>
+      <div class="ep-card"><span class="en">06</span>
+        <h4>Quen thì nhiều, <em>thân thì hiếm</em></h4>
+        <div class="ep-src">Nguồn: headline trang chủ — vấn đề trung tâm của Kèo</div>
+        <p>Nhân vật đứng giữa đám đông avatar mờ — ai cũng "quen quen". Từng avatar lướt qua với nhãn: đồng nghiệp cũ, bạn học, bạn của bạn. Kết: một avatar dừng lại, rõ nét dần khi cả hai thật sự ngồi xuống nói chuyện. Quen là gặp; thân là ngồi lại.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kich-ban-mau">
+  <div class="wrap">
+    <div class="eyebrow">04 · Kịch bản mẫu — Tập 01</div>
+    <h2>"11 giờ đêm" · <em>75 giây</em>, từng cảnh</h2>
+    <p class="sec-intro">Chi tiết đủ để dựng ngay bằng bộ đồ nghề giai đoạn 0–1: nhân vật SVG + CapCut. Cột "Dựng thế nào" ghi đúng thao tác 0 đồng.</p>
+
+    <table class="script-table">
+      <tr><th>Thời điểm</th><th>Cảnh</th><th>Thoại / chữ trên màn hình</th><th>Dựng thế nào (0đ)</th></tr>
+      <tr>
+        <td>0–5s</td>
+        <td>Nhân vật ngồi, ánh điện thoại hắt lên mặt, nền tối #0F0C0A</td>
+        <td>Chữ: "23:07"</td>
+        <td>Nhân vật SVG tĩnh + lớp glow trắng nhấp nháy nhẹ (opacity keyframe). Số giờ gõ text trong CapCut.</td>
+      </tr>
+      <tr>
+        <td>5–20s</td>
+        <td>Tim, like, follower bay đầy màn hình quanh nhân vật</td>
+        <td>Chữ: "500+ người theo dõi"</td>
+        <td>Emoji tim/ngón cái làm sticker CapCut, hiệu ứng bay lên. Càng dày càng tốt — sự tương phản nằm ở đây.</td>
+      </tr>
+      <tr>
+        <td>20–40s</td>
+        <td>Mọi icon tắt dần, còn mình nhân vật. Cuộn danh bạ: các tên lướt qua rồi mờ đi</td>
+        <td>Thoại (lồng tiếng hoặc chữ): "Thèm một câu chuyện tử tế... mà chẳng biết gọi ai."</td>
+        <td>Danh bạ là 1 ảnh PNG cuộn dọc (kéo transform trong CapCut). Tên mờ dần bằng giảm opacity.</td>
+      </tr>
+      <tr>
+        <td>40–58s</td>
+        <td>Nhân vật đặt điện thoại xuống — úp màn hình. Đứng dậy, pha trà. Hơi nước bốc lên</td>
+        <td>Không thoại — chỉ nhạc nền dịu</td>
+        <td>3 khung tĩnh SVG (cầm máy → úp máy → cầm ly), cắt chuyển bằng fade 0.4s. Hơi nước: 2 đường cong trắng mờ trôi lên (keyframe).</td>
+      </tr>
+      <tr>
+        <td>58–70s</td>
+        <td>Cận mảnh giấy ghi chú dán trên bàn</td>
+        <td>Chữ viết tay: "Mai: tìm một người nói chuyện thật."</td>
+        <td>Gõ text font viết tay có sẵn trong CapCut, hiệu ứng typewriter.</td>
+      </tr>
+      <tr>
+        <td>70–75s</td>
+        <td>Nền tối, logo compa + wordmark</td>
+        <td>Chữ: "Gặp gỡ có chiều sâu — Kèo."</td>
+        <td>Logo SVG tải từ tab Nhận diện. Fade in 0.5s. KHÔNG kèm link, không kèm giá — series là xây thương hiệu.</td>
+      </tr>
+    </table>
+
+    <div class="callout" style="margin-top:20px"><b>Checklist trước khi đăng:</b> đúng nền #0F0C0A · phụ đề đọc được khi tắt tiếng · không nhắc giá/dịch vụ trong tập · logo xuất hiện đúng 1 lần ở cuối · cover 9:16 lấy khung cảnh 5–20s (khung giàu thị giác nhất).</div>
+  </div>
+</section>
+
+<section id="series-bible">
+  <div class="wrap">
+    <div class="eyebrow">05 · Series bible</div>
+    <h2>Giữ <em>nhất quán</em> dù ai sản xuất</h2>
+    <p class="sec-intro">Bộ luật cố định của series — về sau nếu đổi công cụ, thuê người dựng, hay dùng AI thì nhân vật và tinh thần không được trôi.</p>
+    <div class="dodont">
+      <div class="dd do">
+        <h4>✓ Nên</h4>
+        <ul>
+          <li>Mỗi tập kết bằng một khoảnh khắc kết nối/tự chăm sóc nhẹ nhàng — không kịch tính hoá</li>
+          <li>Chuyện đời thường ai cũng thấy mình trong đó (đã có sẵn trong blog — cứ lấy từ đó)</li>
+          <li>Nhân vật đúng bản gradient thương hiệu, nền đen ấm #0F0C0A</li>
+          <li>Nhắc thương hiệu tối đa 1 lần/tập — logo cuối tập là đủ</li>
+          <li>Phụ đề luôn có (đa số xem không bật tiếng)</li>
+        </ul>
+      </div>
+      <div class="dd dont">
+        <h4>✕ Tránh</h4>
+        <ul>
+          <li>Nhắc giá, phí, quy trình đặt Kèo trong tập — series xây thương hiệu, không phải quảng cáo</li>
+          <li>Giải quyết vấn đề quá nhanh, quá dễ — mất tính thật</li>
+          <li>Ngôn ngữ lãng mạn (tim, crush) — giữ đúng ranh giới "không phải hẹn hò"</li>
+          <li>Tập nào cũng "dạy đời" — đôi khi chỉ cần đồng cảm</li>
+          <li>Đổi tạo hình nhân vật giữa các tập vì đổi công cụ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+  <div class="tab-panel" id="tab-production"><section id="nhip-tuan">
+  <div class="wrap">
+    <div class="eyebrow">01 · Nhịp sản xuất tuần</div>
+    <h2>Một buổi <em>làm cả tuần</em></h2>
+    <p class="sec-intro">Nguyên tắc: sản xuất theo lô (batch), không làm lắt nhắt mỗi ngày. <b>Chủ nhật chiều, 2,5–3 tiếng</b>, ra trọn 7 post của tuần + lên lịch sẵn. Trong tuần chỉ còn việc bấm đăng và trả lời tương tác.</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="fnum">1</div>
+        <div class="ftxt"><h4>Chọn nội dung nguồn <span class="ftime">~25 phút</span></h4>
+        <p>Mở tab Lịch đăng → xem tuần tới trống slot nào. Theo nhịp T2–CN ở mục 04: chọn 1 bài Khoa học kết nối cho T2 + CN, 1 câu hỏi Zalo cho T3, 1 chủ đề Nhịp Sống cho T4, 1 hồ sơ Người đồng hành cho T5, 1 chi tiết an toàn cho T6. Ghi tất cả vào Lịch đăng với trạng thái "Ý tưởng".</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">2</div>
+        <div class="ftxt"><h4>Dựng 7 hình theo template <span class="ftime">~75–90 phút</span></h4>
+        <p>Mở Canva (bản free đủ dùng) với 3 khung đã lưu sẵn: 1:1, 4:5, 9:16 — đúng thông số ở tab Nhận diện mục 04-05. Mỗi post chỉ thay chữ + đổi minh hoạ, KHÔNG thiết kế lại từ đầu. Nền luôn #0F0C0A, dải gradient đáy luôn có. Trung bình 10–13 phút/hình khi đã quen khung.</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">3</div>
+        <div class="ftxt"><h4>Viết caption cả loạt <span class="ftime">~30 phút</span></h4>
+        <p>Viết 7 caption liền một mạch (giữ giọng đều hơn viết rời rạc). Mỗi caption: 1 ý chính + 1 CTA duy nhất (đọc thêm HOẶC thử Kèo, không cả hai). Dán caption vào đúng post trong Lịch đăng, chuyển trạng thái sang "Đang làm".</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">4</div>
+        <div class="ftxt"><h4>Soát theo checklist thương hiệu <span class="ftime">~10 phút</span></h4>
+        <p>Lướt cả 7 hình một lượt: đúng nền đen ấm? Playfair cho tiêu đề, Be Vietnam Pro cho nội dung? Không ngôn ngữ lãng mạn? Không hứa tuyệt đối về an toàn? (bảng Nên/Tránh đầy đủ ở tab Nhận diện mục 06). Đạt → chuyển trạng thái "Sẵn sàng".</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">5</div>
+        <div class="ftxt"><h4>Lên lịch & chốt sổ <span class="ftime">~15 phút</span></h4>
+        <p>Đặt giờ đăng vào từng post trong Lịch đăng (gợi ý: 19:00–21:00 các ngày thường, 10:00 cuối tuần — chỉnh theo dữ liệu kênh thật sau 1 tháng). Xuất JSON backup 1 lần/tuần để không mất dữ liệu khi đổi máy/xoá cache.</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">6</div>
+        <div class="ftxt"><h4>Trong tuần: đăng & tương tác <span class="ftime">~10 phút/ngày</span></h4>
+        <p>Mỗi ngày đúng giờ: đăng → đổi trạng thái post sang "Đã đăng" trong Lịch đăng → trả lời comment trong 24h đầu (thuật toán ưu tiên tương tác sớm). Câu hỏi hay xuất hiện trong comment = nguồn cho post T3 tuần sau.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="thoi-gian-cong-cu">
+  <div class="wrap">
+    <div class="eyebrow">02 · Thời gian &amp; công cụ</div>
+    <h2>Ước tính <em>thực tế</em> cho từng định dạng</h2>
+    <p class="sec-intro">Số phút bên dưới là mức khi đã quen khung — 2 tuần đầu sẽ chậm hơn khoảng gấp rưỡi, đó là bình thường, đừng nản ở tuần thứ 2.</p>
+
+    <table class="spec">
+      <tr><th>Định dạng</th><th>Thời gian/cái</th><th>Công cụ (0đ)</th><th>Tần suất đề xuất</th></tr>
+      <tr><td>Post tĩnh 1:1 (quote, tip, Q&amp;A)</td><td>10–15 phút</td><td>Canva free — 3 khung lưu sẵn</td><td>4–5 cái/tuần</td></tr>
+      <tr><td>Post 4:5 (chân dung, Nên/Tránh)</td><td>15–20 phút</td><td>Canva free</td><td>1–2 cái/tuần</td></tr>
+      <tr><td>Story 9:16 (nhắc lịch, hậu trường)</td><td>5–10 phút</td><td>Canva / chụp trực tiếp</td><td>3–5 cái/tuần</td></tr>
+      <tr><td>Reel người thật (V1/V2)</td><td>60–90 phút</td><td>Điện thoại + CapCut free</td><td>1 cái/2 tuần</td></tr>
+      <tr><td>Teaser hoạt hình GĐ0 (10–20s)</td><td>60–90 phút</td><td>Quay màn hình demo CSS + CapCut</td><td>Thử 2-3 cái tháng đầu</td></tr>
+      <tr><td>Tập hoạt hình GĐ1 (60–90s)</td><td>3–5 giờ</td><td>SVG tách lớp + CapCut</td><td>1 tập/2-3 tuần, chỉ sau khi teaser được đón nhận</td></tr>
+      <tr><td>Bài blog Khoa học kết nối</td><td>2–3 giờ</td><td>—</td><td>2 bài/tuần (theo IMC)</td></tr>
+    </table>
+
+    <div class="callout" style="margin-top:20px"><b>Tổng tải tuần chuẩn:</b> ~3h batch Chủ nhật + ~10 phút/ngày đăng-tương tác + 4–6h viết blog (2 bài) = khoảng <b>8–10 giờ/tuần</b> cho toàn bộ marketing organic. Nếu tuần nào quá tải: cắt reel trước, giữ 7 post tĩnh — nhịp đều quan trọng hơn định dạng xịn.</div>
+  </div>
+</section>
+
+<section id="quy-trinh-dinh-dang">
+  <div class="wrap">
+    <div class="eyebrow">03 · Quy trình từng định dạng</div>
+    <h2>Làm <em>đúng thứ tự</em>, không sót bước</h2>
+
+    <h3>🖼️ Hình tĩnh (post/carousel/story)</h3>
+    <table class="spec">
+      <tr><th>Bước</th><th>Việc</th><th>Lưu ý</th></tr>
+      <tr><td>1. Chọn khung</td><td>Mở đúng khung Canva theo tỷ lệ (tab Nhận diện mục 04)</td><td>Vùng an toàn: chữ + logo nằm trong khung nét đứt</td></tr>
+      <tr><td>2. Thay chữ</td><td>Dán nội dung từ nguồn (template ở tab Templates ghi rõ nguồn nào)</td><td>Tiêu đề Playfair, thân Be Vietnam Pro — không thêm font</td></tr>
+      <tr><td>3. Minh hoạ</td><td>Dùng nhân vật/hoạ tiết ở tab Nhận diện mục 08 (copy SVG dán vào Canva)</td><td>Không dùng stock ảnh người thật khi chưa có ảnh tự chụp</td></tr>
+      <tr><td>4. Soát</td><td>Nền #0F0C0A, dải gradient đáy, không lỗi chính tả</td><td>Đọc to caption 1 lần — nghe gượng là viết lại</td></tr>
+      <tr><td>5. Xuất &amp; ghi lịch</td><td>Xuất PNG, ghi vào tab Lịch đăng kèm caption</td><td>Đặt trạng thái "Sẵn sàng"</td></tr>
+    </table>
+
+    <h3>🎥 Reel người thật (V1/V2)</h3>
+    <table class="spec">
+      <tr><th>Bước</th><th>Việc</th><th>Lưu ý</th></tr>
+      <tr><td>1. Kịch bản 3 dòng</td><td>Hook / 2-3 ý / CTA — viết trước khi bấm quay</td><td>Khung V1–V4 ở tab Video mục 01</td></tr>
+      <tr><td>2. Quay</td><td>Điện thoại dọc, ánh sáng cửa sổ, quay 2-3 lần chọn lần tốt nhất</td><td>Thật quan trọng hơn đẹp — không cần đèn, mic rời</td></tr>
+      <tr><td>3. Dựng CapCut</td><td>Cắt nhịp 2-3s/cảnh, phụ đề tự động rồi soát tay</td><td>Phụ đề đọc được khi tắt tiếng là bắt buộc</td></tr>
+      <tr><td>4. Cover</td><td>Chọn khung hình giàu biểu cảm nhất làm bìa</td><td>Thêm tiêu đề Playfair lên cover</td></tr>
+      <tr><td>5. Đăng chéo</td><td>1 video → TikTok + Reels + Threads video</td><td>Không sản xuất riêng cho từng kênh</td></tr>
+    </table>
+
+    <h3>🎬 Hoạt hình giai đoạn 0 (teaser)</h3>
+    <table class="spec">
+      <tr><th>Bước</th><th>Việc</th><th>Lưu ý</th></tr>
+      <tr><td>1. Chọn 1 câu thoại</td><td>Lấy từ 6 tập ở tab Video mục 03 — 1 teaser = 1 câu chạm nỗi đau</td><td>Ví dụ: "500+ follower. 11 giờ đêm, chẳng biết gọi ai."</td></tr>
+      <tr><td>2. Quay màn hình demo</td><td>Mở khung demo ở tab Video mục 02, quay màn hình 15-20s</td><td>Chỉnh chữ bong bóng thoại trước nếu muốn (sửa text trong file)</td></tr>
+      <tr><td>3. Ghép trong CapCut</td><td>Thêm câu thoại dạng chữ + nhạc nền không lời nhẹ</td><td>Kết bằng logo (tải từ tab Nhận diện mục 01)</td></tr>
+      <tr><td>4. Đăng &amp; đo</td><td>Đăng TikTok/Reels, ghi lại lượt xem so với trung bình kênh</td><td>Đây là "cổng" quyết định có làm giai đoạn 1 không</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="lich-tuan">
+  <div class="wrap">
+    <div class="eyebrow">04 · Lịch nội dung tuần</div>
+    <h2>7 ngày · <em>7 post</em></h2>
+    <p class="sec-intro">Nhịp cố định, đúng tỷ lệ 4:2:1 (Khoa học · Niềm tin · Chuyển đổi — chi tiết ở tab Chiến lược). Nguồn có sẵn từ site thật, không phải nghĩ mới.</p>
+
+    <table class="week-table">
+      <tr><th>Ngày</th><th>Chủ đề &amp; nguồn</th><th>Trụ cột</th><th>Template</th></tr>
+      <tr><td class="wd">T2</td><td><div class="topic">Mẹo kết nối</div><div class="src">1 ý từ bài Khoa học kết nối tuần đó</div></td><td><span class="fmt" style="color:var(--gold)">Khoa học</span></td><td><span class="fmt">01/02 · 1:1</span></td></tr>
+      <tr><td class="wd">T3</td><td><div class="topic">Kèo giải đáp</div><div class="src">Câu hỏi được hỏi nhiều nhất trên Zalo/comment tuần trước</div></td><td><span class="fmt" style="color:var(--gold)">Khoa học</span></td><td><span class="fmt">03 · 1:1</span></td></tr>
+      <tr><td class="wd">T4</td><td><div class="topic">Chủ đề Nhịp Sống</div><div class="src">Xoay vòng 22 chủ đề (10 thể thao + 12 văn hoá)</div></td><td><span class="fmt" style="color:var(--gold)">Khoa học</span></td><td><span class="fmt">02 · 1:1</span></td></tr>
+      <tr><td class="wd">T5</td><td><div class="topic">Chân dung Người đồng hành</div><div class="src">Hồ sơ thật, xoay vòng lĩnh vực — xin phép trước</div></td><td><span class="fmt" style="color:var(--teal)">Niềm tin</span></td><td><span class="fmt">04 · 4:5</span></td></tr>
+      <tr><td class="wd">T6</td><td><div class="topic">An toàn / Kèo LÀ–KHÔNG</div><div class="src">1 chi tiết an toàn hoặc khối ranh giới từ terms.html</div></td><td><span class="fmt" style="color:var(--teal)">Niềm tin</span></td><td><span class="fmt">05/08 · 1:1</span></td></tr>
+      <tr><td class="wd">T7</td><td><div class="topic">Nhắc lịch cuối tuần</div><div class="src">Số Người đồng hành sẵn sàng — số thật, cập nhật mỗi tuần</div></td><td><span class="fmt" style="color:var(--a2)">Chuyển đổi</span></td><td><span class="fmt">06 · 9:16</span></td></tr>
+      <tr><td class="wd">CN</td><td><div class="topic">Câu trích hay</div><div class="src">Dòng đắt trong 61 bài Khoa học kết nối</div></td><td><span class="fmt" style="color:var(--gold)">Khoa học</span></td><td><span class="fmt">01 · 1:1</span></td></tr>
+    </table>
+    <div class="callout" style="margin-top:18px">Reel/teaser hoạt hình <b>không nằm trong nhịp 7 post</b> — đó là lớp cộng thêm 1 cái/2 tuần, chèn vào ngày nào cũng được (ưu tiên T4 hoặc T7).</div>
+  </div>
+</section>
+
+<section id="ke-hoach-90">
+  <div class="wrap">
+    <div class="eyebrow">05 · Kế hoạch 90 ngày</div>
+    <h2>Từ giờ đến <em>hết Q3</em></h2>
+    <p class="sec-intro">Mỗi tháng 1 trọng tâm. Post hằng ngày vẫn theo nhịp mục 04 xuyên suốt — bảng này là lớp "dự án lớn" chạy bên trên.</p>
+
+    <div class="month-grid">
+      <div class="month-card" style="border-color:color-mix(in srgb,var(--bad) 40%,transparent)">
+        <div class="mnum" style="color:var(--bad)">Tháng 1 (T7–T8) · có 1 quyết định chặn</div>
+        <h4>Kích hoạt &amp; <em>làm sạch nền</em></h4>
+        <ul>
+          <li><b style="color:var(--cream)">Chốt trước:</b> keo-platform (tài khoản + referral) deploy trong tháng này không?</li>
+          <li>Nếu có → deploy, chốt ưu đãi 2 chiều, mời 20-30 người dùng đầu</li>
+          <li>Nếu chưa → chạy referral thủ công qua Zalo (mẫu tin đã soạn), không đợi</li>
+          <li>Đồng bộ màu Instagram/Threads về đen ấm chuẩn</li>
+          <li>Bắt đầu nhịp 7 post/tuần + đăng 2-3 teaser hoạt hình GĐ0 thử phản ứng</li>
+          <li>Rà 10 bài SEO tiềm năng nhất: CTA rõ, trả lời lên đầu bài, tiêu đề ưu tiên "Kèo Social"</li>
+        </ul>
+        <div class="goal">Cuối tháng: <b>vòng giới thiệu chạy được + nhịp đăng đều 4 tuần liên tiếp + biết teaser hoạt hình có ai xem không</b></div>
+      </div>
+      <div class="month-card">
+        <div class="mnum">Tháng 2 (T8–T9)</div>
+        <h4>Nhân nội dung &amp; <em>công cụ</em></h4>
+        <ul>
+          <li>Giữ nhịp 2 bài blog/tuần + 7 post/tuần</li>
+          <li>Nếu teaser GĐ0 được đón nhận → dựng tập hoạt hình đầu tiên (60–90s, kịch bản Tập 01 có sẵn)</li>
+          <li>Dựng công cụ miễn phí đầu tiên (quiz "kiểu trò chuyện" — dễ chia sẻ nhất)</li>
+          <li>Dựng 1 trang SEO mẫu từ destinations.json, review kỹ trước khi nhân bản</li>
+        </ul>
+        <div class="goal">Cuối tháng: <b>1 công cụ free live + 1 trang SEO mẫu đã duyệt + (nếu qua cổng) tập hoạt hình 01</b></div>
+      </div>
+      <div class="month-card">
+        <div class="mnum">Tháng 3 (T9–T10)</div>
+        <h4>Phân phối &amp; <em>đo lường</em></h4>
+        <ul>
+          <li>Nhân bản trang SEO theo mẫu đã kiểm chứng</li>
+          <li>2 pitch PR: "kinh tế cô đơn" + "kinh tế gig linh hoạt"</li>
+          <li>Duy trì hoạt hình 1 tập/2-3 tuần nếu đang chạy</li>
+          <li>Cuối tháng: mở tab Lịch đăng xem tỷ lệ 3 trụ cột thực tế vs 4:2:1, xem signup_source — dồn lực 2-3 kênh tốt nhất cho quý sau</li>
+        </ul>
+        <div class="goal">Cuối tháng: <b>quyết định dồn kênh cho Q4 dựa trên số thật, không phải cảm giác</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tuan-nay">
+  <div class="wrap">
+    <div class="eyebrow">06 · Việc làm ngay tuần này</div>
+    <h2>6 việc <em>ưu tiên</em></h2>
+    <div class="checklist">
+      <div class="check-item blocked"><div class="cnum">!</div><div class="ctxt"><h4>Chốt lịch deploy keo-platform</h4><p>Quyết định này chi phối nhánh Tháng 1 — biết càng sớm, chọn referral thủ công hay tự động càng sớm.</p></div></div>
+      <div class="check-item"><div class="cnum">1</div><div class="ctxt"><h4>Lưu 3 khung Canva chuẩn (1:1, 4:5, 9:16)</h4><p>Làm 1 lần dùng cả năm — đúng thông số tab Nhận diện mục 04-05, nền #0F0C0A, dải gradient đáy. Đây là điều kiện để batch Chủ nhật chạy nhanh.</p></div></div>
+      <div class="check-item"><div class="cnum">2</div><div class="ctxt"><h4>Đồng bộ màu Instagram/Threads</h4><p>Đổi nền xanh rêu cũ sang đen ấm #0F0C0A — copy mã từ tab Nhận diện, không gõ tay.</p></div></div>
+      <div class="check-item"><div class="cnum">3</div><div class="ctxt"><h4>Chạy batch Chủ nhật đầu tiên</h4><p>Theo đúng 6 bước ở mục 01 — lần đầu sẽ mất ~4h thay vì 3h, không sao. Ghi hết vào tab Lịch đăng.</p></div></div>
+      <div class="check-item"><div class="cnum">4</div><div class="ctxt"><h4>Quay teaser hoạt hình đầu tiên</h4><p>Quay màn hình demo ở tab Video mục 02, ghép câu thoại tập 01 trong CapCut — 1 buổi tối là xong. Đăng thử, ghi lại số liệu.</p></div></div>
+      <div class="check-item"><div class="cnum">5</div><div class="ctxt"><h4>Gửi tin nhắn nhóm giới thiệu đầu tiên</h4><p>Mẫu đã soạn (giọng founder, minh bạch bản thủ công) — điền tên + mức % ưu đãi rồi gửi 20-30 người dùng hiện có qua Zalo.</p></div></div>
+    </div>
+  </div>
+</section>
+</div>
+  <div class="tab-panel" id="tab-calendar"><section id="lich-dang">
+  <div class="wrap">
+    <div class="eyebrow">Lịch đăng bài</div>
+    <h2>Tháng · ngày · <em>chi tiết sản xuất</em></h2>
+    <p class="sec-intro">Bấm một ngày để xem/thêm bài. Mỗi bài lưu đủ chi tiết sản xuất: trụ cột, kênh, định dạng, trạng thái, template dùng, caption, ghi chú. Dữ liệu lưu trong trình duyệt máy này — <b>xuất JSON backup mỗi tuần</b> (bước 5 quy trình batch) để không mất khi đổi máy. Cần lên lịch hàng loạt: nhờ Claude soạn JSON theo schema cuối trang rồi bấm Nhập JSON.</p>
+
+    <div class="cal-shell">
+      <div class="cal-head">
+        <div class="cal-title" id="calTitle">—</div>
+        <div class="cal-nav">
+          <button onclick="calPrev()" aria-label="Tháng trước">‹</button>
+          <button class="today-btn" onclick="calToday()">Hôm nay</button>
+          <button onclick="calNext()" aria-label="Tháng sau">›</button>
+        </div>
+      </div>
+      <div class="cal-stats" id="calStats"></div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-legend">
+        <span><span class="cal-dot dot-educate"></span> Khoa học</span>
+        <span><span class="cal-dot dot-trust"></span> Niềm tin</span>
+        <span><span class="cal-dot dot-convert"></span> Chuyển đổi</span>
+        <span><span class="cal-dot dot-educate posted"></span> viền xanh = đã đăng</span>
+      </div>
+    </div>
+
+    <div class="day-panel" id="dayPanel" style="display:none">
+      <h3 id="dayTitle">—</h3>
+      <div id="dayPosts"></div>
+
+      <div class="post-form">
+        <h4 id="formTitle">Thêm bài mới</h4>
+        <div class="pf-grid">
+          <div><label for="pfDate">Ngày</label><input type="date" id="pfDate"></div>
+          <div><label for="pfTime">Giờ đăng</label><input type="time" id="pfTime"></div>
+          <div><label for="pfPillar">Trụ cột</label><select id="pfPillar">
+            <option value="educate">Khoa học</option>
+            <option value="trust">Niềm tin</option>
+            <option value="convert">Chuyển đổi</option>
+          </select></div>
+          <div><label for="pfStatus">Trạng thái</label><select id="pfStatus">
+            <option value="idea">Ý tưởng</option>
+            <option value="preparing">Đang làm</option>
+            <option value="ready">Sẵn sàng</option>
+            <option value="posted">Đã đăng</option>
+          </select></div>
+          <div><label for="pfPlatform">Kênh</label><select id="pfPlatform">
+            <option value="instagram">Instagram</option>
+            <option value="threads">Threads</option>
+            <option value="tiktok">TikTok</option>
+            <option value="zalo">Zalo OA</option>
+            <option value="facebook">Facebook</option>
+            <option value="youtube">YouTube</option>
+            <option value="website">Website/Blog</option>
+          </select></div>
+          <div><label for="pfFormat">Định dạng</label><select id="pfFormat">
+            <option value="post">Post tĩnh</option>
+            <option value="carousel">Carousel</option>
+            <option value="story">Story</option>
+            <option value="reel">Reel</option>
+            <option value="hoat-hinh">Hoạt hình</option>
+            <option value="video-dai">Video dài</option>
+            <option value="blog">Bài blog</option>
+          </select></div>
+          <div><label for="pfTemplate">Template</label><input type="text" id="pfTemplate" placeholder="VD: Template 03"></div>
+        </div>
+        <div class="pf-full"><label for="pfTitle">Tên bài *</label><input type="text" id="pfTitle" placeholder="VD: Kèo giải đáp — Kèo có phải hẹn hò không?"></div>
+        <div class="pf-full"><label for="pfCaption">Caption</label><textarea id="pfCaption" placeholder="Caption đầy đủ, viết sẵn ở bước batch để trong tuần chỉ cần dán"></textarea></div>
+        <div class="pf-full"><label for="pfNotes">Ghi chú sản xuất</label><textarea id="pfNotes" placeholder="VD: cần xin phép Lan Anh trước khi đăng · nguồn: bài blog X · quay thêm cảnh cận"></textarea></div>
+        <div class="pf-actions">
+          <button class="pf-save" id="pfSaveBtn" onclick="savePost()">+ Thêm bài</button>
+          <button class="pf-cancel" id="pfCancelBtn" onclick="cancelEdit()" style="display:none">Huỷ sửa</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="io-bar">
+      <button class="io-btn" onclick="exportJSON()">⭳ Xuất JSON (backup)</button>
+      <label class="io-btn" style="cursor:pointer">⭱ Nhập JSON<input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importJSON(event)"></label>
+      <button class="io-btn" onclick="copySchema()">📋 Copy schema mẫu (đưa cho Claude soạn)</button>
+    </div>
+
+    <h3 style="margin-top:28px">Schema JSON — bấm để copy</h3>
+    <p style="font-size:13px;color:var(--cr2);margin-bottom:10px">Chỉ <b style="color:var(--cream)">date</b> và <b style="color:var(--cream)">title</b> là bắt buộc — thiếu trường nào tự để mặc định. Nhập nhiều lần không trùng (tự lọc theo ngày + tên bài).</p>
+    <div class="schema-box" id="schemaBox" onclick="copySchema()">{
+  "posts": [
+    {
+      "date": "2026-07-20",
+      "time": "19:00",
+      "title": "Kèo giải đáp — Kèo có phải hẹn hò không?",
+      "pillar": "educate",
+      "platform": "instagram",
+      "format": "carousel",
+      "status": "ready",
+      "templateRef": "Template 03",
+      "caption": "Không. Kèo là marketplace kết nối bạn với người đồng hành...",
+      "notes": "Nguồn: FAQ trang chủ"
+    }
+  ]
+}
+// pillar: educate | trust | convert
+// platform: instagram | threads | tiktok | zalo | facebook | youtube | website
+// format: post | carousel | story | reel | hoat-hinh | video-dai | blog
+// status: idea | preparing | ready | posted</div>
+  </div>
+</section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">Kèo — Playbook Marketing · Dựng từ brand-guide + KE-HOACH-IMC + Khoa học kết nối · Cập nhật 14/07/2026</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= THEME ================= */
+const THEME_KEY = 'keo_pb_theme';
+function applyTheme(t){
+  if(t === 'light') document.body.setAttribute('data-theme','light');
+  else document.body.removeAttribute('data-theme');
+}
+function toggleTheme(){
+  const cur = document.body.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  const next = cur === 'light' ? 'dark' : 'light';
+  applyTheme(next);
+  try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
+}
+try{ applyTheme(localStorage.getItem(THEME_KEY) || 'dark'); }catch(e){}
+
+/* ================= TABS ================= */
+function switchTab(id, btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('on', b === btn || b.dataset.tab === id));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('on', p.id === 'tab-'+id));
+  try{ history.replaceState(null,'','#'+id); }catch(e){}
+  window.scrollTo({top:0});
+}
+(function initTab(){
+  const h = (location.hash||'').replace('#','');
+  const valid = ['strategy','brand','templates','video','production','calendar'];
+  if(valid.includes(h)){
+    const btn = document.querySelector('.tab-btn[data-tab="'+h+'"]');
+    if(btn) switchTab(h, btn);
+  }
+})();
+
+/* ================= TOAST & COPY ================= */
+function showToastMsg(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 1600);
+}
+function fallbackCopy(text, cb){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); cb && cb(); }catch(e){}
+  document.body.removeChild(ta);
+}
+function copyText(text, msg){
+  const done = ()=>showToastMsg(msg || 'Đã copy');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+document.querySelectorAll('.swatch').forEach(sw=>{
+  sw.addEventListener('click', ()=>copyText(sw.dataset.hex, 'Đã copy ' + sw.dataset.hex));
+});
+function copyEl(el){ copyText(el.textContent, 'Đã copy mã'); }
+function copyLogoCode(){ const el = document.getElementById('logoCode'); if(el) copyEl(el); }
+function downloadLogo(){
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 64" width="48" height="64"><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8A22B"/><stop offset="52%" stop-color="#D65F35"/><stop offset="100%" stop-color="#D14060"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#kg)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#kg)" stroke-width="3.4" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#kg)" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+  const blob = new Blob([svg], {type:'image/svg+xml'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'keo-logo-mark.svg';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ================= PERSONA TOGGLE ================= */
+function switchSide(side, btn){
+  document.querySelectorAll('.side-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('side-cx').classList.toggle('on', side==='cx');
+  document.getElementById('side-dh').classList.toggle('on', side==='dh');
+}
+
+/* ================= CALENDAR ================= */
+const CAL_KEY = 'keo_pb_calendar_v1';
+const OLD_TRK_KEY = 'keo_playbook_tracker_v1';
+
+const PILLARS = {educate:'Khoa học', trust:'Niềm tin', convert:'Chuyển đổi'};
+const STATUSES = {idea:'Ý tưởng', preparing:'Đang làm', ready:'Sẵn sàng', posted:'Đã đăng'};
+const PLATFORMS = {instagram:'Instagram', threads:'Threads', tiktok:'TikTok', zalo:'Zalo OA', facebook:'Facebook', youtube:'YouTube', website:'Website'};
+const FORMATS = {post:'Post tĩnh', carousel:'Carousel', story:'Story', reel:'Reel', 'hoat-hinh':'Hoạt hình', 'video-dai':'Video dài', blog:'Bài blog'};
+const MONTH_VI = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+const WD_VI = ['T2','T3','T4','T5','T6','T7','CN'];
+
+function loadPosts(){
+  try{
+    const raw = localStorage.getItem(CAL_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  // migrate từ tracker cũ (bản playbook trước) nếu có
+  try{
+    const old = localStorage.getItem(OLD_TRK_KEY);
+    if(old){
+      const rows = JSON.parse(old);
+      const migrated = rows.map(r => normalizePost({date:r.date, title:r.title, pillar:r.pillar, status:'posted'}));
+      savePosts(migrated);
+      return migrated;
+    }
+  }catch(e){}
+  return [];
+}
+function savePosts(posts){
+  try{ localStorage.setItem(CAL_KEY, JSON.stringify(posts)); }
+  catch(e){ showToastMsg('Không lưu được — trình duyệt chặn localStorage'); }
+}
+function normalizePost(p){
+  return {
+    id: p.id || (Date.now().toString(36) + Math.random().toString(36).slice(2,6)),
+    date: p.date || '',
+    time: p.time || '',
+    title: (p.title || '').trim(),
+    pillar: PILLARS[p.pillar] ? p.pillar : 'educate',
+    platform: PLATFORMS[p.platform] ? p.platform : 'instagram',
+    format: FORMATS[p.format] ? p.format : 'post',
+    status: STATUSES[p.status] ? p.status : 'idea',
+    templateRef: p.templateRef || '',
+    caption: p.caption || '',
+    notes: p.notes || ''
+  };
+}
+
+let calPosts = loadPosts();
+const _now = new Date();
+let calView = {year: _now.getFullYear(), month: _now.getMonth()};
+let selectedDate = null;
+let editingId = null;
+
+function pad2(n){ return String(n).padStart(2,'0'); }
+function dateStr(y,m,d){ return `${y}-${pad2(m+1)}-${pad2(d)}`; }
+function todayStr(){ const n=new Date(); return dateStr(n.getFullYear(), n.getMonth(), n.getDate()); }
+function postsOn(ds){ return calPosts.filter(p => p.date === ds); }
+
+function renderCal(){
+  const {year, month} = calView;
+  document.getElementById('calTitle').textContent = `${MONTH_VI[month]} ${year}`;
+
+  // stats tháng
+  const prefix = `${year}-${pad2(month+1)}-`;
+  const monthPosts = calPosts.filter(p => p.date.startsWith(prefix));
+  const posted = monthPosts.filter(p=>p.status==='posted').length;
+  const counts = {educate:0, trust:0, convert:0};
+  monthPosts.forEach(p=>{ if(counts[p.pillar]!==undefined) counts[p.pillar]++; });
+  document.getElementById('calStats').innerHTML = monthPosts.length
+    ? `<span><b>${monthPosts.length}</b> bài trong tháng</span><span>🟢 đã đăng <b>${posted}</b> · 🟡 chưa <b>${monthPosts.length-posted}</b></span><span>Tỷ lệ: Khoa học <b>${counts.educate}</b> · Niềm tin <b>${counts.trust}</b> · Chuyển đổi <b>${counts.convert}</b> <span style="color:var(--cr3)">(mục tiêu ~4:2:1/tuần)</span></span>`
+    : '<span>Chưa có bài nào trong tháng — bấm một ngày để thêm, hoặc Nhập JSON bên dưới.</span>';
+
+  // grid
+  const grid = document.getElementById('calGrid');
+  let html = WD_VI.map(w=>`<div class="cal-wd">${w}</div>`).join('');
+  const firstWd = (new Date(year, month, 1).getDay() + 6) % 7; // Mon=0
+  const daysIn = new Date(year, month+1, 0).getDate();
+  const daysPrev = new Date(year, month, 0).getDate();
+  const today = todayStr();
+
+  const totalCells = Math.ceil((firstWd + daysIn) / 7) * 7;
+  for(let i=0; i<totalCells; i++){
+    const dayNum = i - firstWd + 1;
+    if(dayNum < 1){
+      html += `<div class="cal-cell other"><span class="dnum">${daysPrev + dayNum}</span></div>`;
+    } else if(dayNum > daysIn){
+      html += `<div class="cal-cell other"><span class="dnum">${dayNum - daysIn}</span></div>`;
+    } else {
+      const ds = dateStr(year, month, dayNum);
+      const dayPosts = postsOn(ds);
+      const cls = ['cal-cell'];
+      if(ds === today) cls.push('today');
+      if(ds === selectedDate) cls.push('selected');
+      let dots = '';
+      dayPosts.slice(0,4).forEach(p=>{
+        dots += `<span class="cal-dot dot-${p.pillar}${p.status==='posted'?' posted':''}"></span>`;
+      });
+      if(dayPosts.length > 4) dots += `<span class="cal-more">+${dayPosts.length-4}</span>`;
+      html += `<div class="${cls.join(' ')}" onclick="selectDay('${ds}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectDay('${ds}')"><span class="dnum">${dayNum}</span><div class="cal-dots">${dots}</div></div>`;
+    }
+  }
+  grid.innerHTML = html;
+  renderDayPanel();
+}
+
+function selectDay(ds){
+  selectedDate = ds;
+  cancelEdit(true);
+  document.getElementById('pfDate').value = ds;
+  renderCal();
+  const panel = document.getElementById('dayPanel');
+  panel.style.display = 'block';
+}
+
+function escapeHtml(s){
+  const d = document.createElement('div');
+  d.textContent = s || '';
+  return d.innerHTML;
+}
+
+function renderDayPanel(){
+  const panel = document.getElementById('dayPanel');
+  if(!selectedDate){ panel.style.display='none'; return; }
+  panel.style.display = 'block';
+  const [y,m,d] = selectedDate.split('-').map(Number);
+  const wd = WD_VI[(new Date(y, m-1, d).getDay()+6)%7];
+  document.getElementById('dayTitle').textContent = `${wd}, ${d}/${m}/${y}`;
+
+  const posts = postsOn(selectedDate).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+  const box = document.getElementById('dayPosts');
+  if(posts.length === 0){
+    box.innerHTML = '<p style="font-size:13px;color:var(--cr3);padding:4px 0 8px">Chưa có bài nào ngày này.</p>';
+    return;
+  }
+  box.innerHTML = posts.map(p => `
+    <div class="post-row" id="row-${p.id}">
+      <div class="post-row-head" onclick="togglePost('${p.id}')">
+        <span class="status-pill status-${p.status}">${STATUSES[p.status]}</span>
+        <span class="pt">${escapeHtml(p.title)}</span>
+        <span class="pill-tag pill-${p.pillar}">${PILLARS[p.pillar]}</span>
+        <span class="ptime">${p.time ? '🕐 '+p.time : ''} · ${PLATFORMS[p.platform]} · ${FORMATS[p.format]}</span>
+      </div>
+      <div class="post-detail">
+        ${p.templateRef ? `<div class="pd-row"><span class="pd-k">Template</span><span class="pd-v">${escapeHtml(p.templateRef)}</span></div>` : ''}
+        ${p.caption ? `<div class="pd-row"><span class="pd-k">Caption</span><span class="pd-v">${escapeHtml(p.caption)}</span></div>` : ''}
+        ${p.notes ? `<div class="pd-row"><span class="pd-k">Ghi chú</span><span class="pd-v">${escapeHtml(p.notes)}</span></div>` : ''}
+        <div class="post-actions">
+          ${p.status !== 'posted' ? `<button onclick="markPosted('${p.id}')">✓ Đánh dấu đã đăng</button>` : ''}
+          ${p.caption ? `<button onclick="copyCaption('${p.id}')">📋 Copy caption</button>` : ''}
+          <button onclick="editPost('${p.id}')">✎ Sửa</button>
+          <button class="danger" onclick="deletePost('${p.id}')">✕ Xoá</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function togglePost(id){
+  const row = document.getElementById('row-'+id);
+  if(row) row.classList.toggle('open');
+}
+function markPosted(id){
+  const p = calPosts.find(x=>x.id===id);
+  if(p){ p.status='posted'; savePosts(calPosts); renderCal(); showToastMsg('Đã đánh dấu đã đăng'); }
+}
+function copyCaption(id){
+  const p = calPosts.find(x=>x.id===id);
+  if(p && p.caption) copyText(p.caption, 'Đã copy caption');
+}
+function deletePost(id){
+  if(!confirm('Xoá bài này?')) return;
+  calPosts = calPosts.filter(p=>p.id!==id);
+  savePosts(calPosts);
+  renderCal();
+}
+function editPost(id){
+  const p = calPosts.find(x=>x.id===id);
+  if(!p) return;
+  editingId = id;
+  document.getElementById('formTitle').textContent = 'Sửa bài: ' + p.title;
+  document.getElementById('pfDate').value = p.date;
+  document.getElementById('pfTime').value = p.time;
+  document.getElementById('pfPillar').value = p.pillar;
+  document.getElementById('pfStatus').value = p.status;
+  document.getElementById('pfPlatform').value = p.platform;
+  document.getElementById('pfFormat').value = p.format;
+  document.getElementById('pfTemplate').value = p.templateRef;
+  document.getElementById('pfTitle').value = p.title;
+  document.getElementById('pfCaption').value = p.caption;
+  document.getElementById('pfNotes').value = p.notes;
+  document.getElementById('pfSaveBtn').textContent = '✓ Lưu thay đổi';
+  document.getElementById('pfCancelBtn').style.display = 'inline-block';
+  document.getElementById('pfTitle').focus();
+}
+function cancelEdit(silent){
+  editingId = null;
+  document.getElementById('formTitle').textContent = 'Thêm bài mới';
+  document.getElementById('pfSaveBtn').textContent = '+ Thêm bài';
+  document.getElementById('pfCancelBtn').style.display = 'none';
+  ['pfTime','pfTemplate','pfTitle','pfCaption','pfNotes'].forEach(id=>{ document.getElementById(id).value=''; });
+  document.getElementById('pfPillar').value = 'educate';
+  document.getElementById('pfStatus').value = 'idea';
+  document.getElementById('pfPlatform').value = 'instagram';
+  document.getElementById('pfFormat').value = 'post';
+  if(selectedDate) document.getElementById('pfDate').value = selectedDate;
+  if(!silent) showToastMsg('Đã huỷ sửa');
+}
+function savePost(){
+  const date = document.getElementById('pfDate').value;
+  const title = document.getElementById('pfTitle').value.trim();
+  if(!date || !title){ showToastMsg('Cần ít nhất ngày và tên bài'); return; }
+  const data = {
+    date, title,
+    time: document.getElementById('pfTime').value,
+    pillar: document.getElementById('pfPillar').value,
+    status: document.getElementById('pfStatus').value,
+    platform: document.getElementById('pfPlatform').value,
+    format: document.getElementById('pfFormat').value,
+    templateRef: document.getElementById('pfTemplate').value.trim(),
+    caption: document.getElementById('pfCaption').value.trim(),
+    notes: document.getElementById('pfNotes').value.trim()
+  };
+  if(editingId){
+    const idx = calPosts.findIndex(p=>p.id===editingId);
+    if(idx>-1) calPosts[idx] = normalizePost({...data, id: editingId});
+    showToastMsg('Đã lưu thay đổi');
+  } else {
+    calPosts.push(normalizePost(data));
+    showToastMsg('Đã thêm bài');
+  }
+  savePosts(calPosts);
+  selectedDate = date;
+  cancelEdit(true);
+  renderCal();
+}
+
+function calPrev(){ calView.month--; if(calView.month<0){calView.month=11;calView.year--;} renderCal(); }
+function calNext(){ calView.month++; if(calView.month>11){calView.month=0;calView.year++;} renderCal(); }
+function calToday(){ const n=new Date(); calView={year:n.getFullYear(),month:n.getMonth()}; selectedDate=todayStr(); document.getElementById('pfDate').value=selectedDate; renderCal(); }
+
+/* ---- JSON import / export ---- */
+function exportJSON(){
+  const blob = new Blob([JSON.stringify({posts: calPosts}, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const n = new Date();
+  a.href = url;
+  a.download = `keo-lich-dang-${n.getFullYear()}${pad2(n.getMonth()+1)}${pad2(n.getDate())}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToastMsg('Đã xuất ' + calPosts.length + ' bài');
+}
+function importJSON(ev){
+  const file = ev.target.files && ev.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const data = JSON.parse(reader.result);
+      const incoming = Array.isArray(data.posts) ? data.posts : (Array.isArray(data) ? data : null);
+      if(!incoming) throw new Error('Không tìm thấy mảng "posts"');
+      const existKeys = new Set(calPosts.map(p => p.date + '||' + p.title.toLowerCase()));
+      let added = 0, skipped = 0;
+      incoming.forEach(raw => {
+        const p = normalizePost(raw);
+        if(!p.date || !p.title){ skipped++; return; }
+        const key = p.date + '||' + p.title.toLowerCase();
+        if(existKeys.has(key)){ skipped++; return; }
+        existKeys.add(key);
+        calPosts.push(p);
+        added++;
+      });
+      savePosts(calPosts);
+      renderCal();
+      showToastMsg(`Đã nhập ${added} bài` + (skipped ? ` · bỏ qua ${skipped} (trùng/thiếu)` : ''));
+    }catch(e){
+      showToastMsg('File JSON không hợp lệ: ' + e.message);
+    }
+    ev.target.value = '';
+  };
+  reader.readAsText(file);
+}
+function copySchema(){
+  copyText(document.getElementById('schemaBox').textContent, 'Đã copy schema — dán cho Claude kèm kế hoạch tuần của bạn');
+}
+
+/* init */
+function initCalendar(){ renderCal(); }
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCalendar);
+else initCalendar();
+
+</script>
+
+</body>
+</html>
