@@ -437,6 +437,9 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
 .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12px;color:var(--fx-i3);flex-wrap:wrap;gap:12px}
 .foot-legal{display:flex;gap:16px}
 .foot-legal .foot-link{display:inline;padding:0;font-size:12px}
+.foot-sub{display:block;font-size:12px;color:var(--fx-i3);padding:4px 0 4px 15px;transition:color .2s;position:relative}
+.foot-sub::before{content:'';position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--fx-i3)}
+.foot-sub:hover{color:var(--fx-i2)}
 
 @media(max-width:960px){
   .prob-intro{grid-template-columns:1fr;text-align:center}
@@ -1080,6 +1083,11 @@ footer{background:var(--fx-s1);border-top:1px solid var(--fx-rim);padding:56px 4
         <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
         <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
         <a href="/nhip-song" class="foot-link"><span class="vi">Nhịp Sống</span><span class="en">Sports &amp; Life</span></a>
+        <a href="/nhip-song#su-kien" class="foot-sub"><span class="vi">Sự kiện</span><span class="en">Events</span></a>
+        <a href="/nhip-song#diem-den" class="foot-sub"><span class="vi">Điểm đến</span><span class="en">Destinations</span></a>
+        <a href="/nhip-song#thoi-tiet" class="foot-sub"><span class="vi">Thời tiết</span><span class="en">Weather</span></a>
+        <a href="/nhip-song#the-thao" class="foot-sub"><span class="vi">Thể thao</span><span class="en">Sports</span></a>
+        <a href="/nhip-song#van-hoa" class="foot-sub"><span class="vi">Văn hoá</span><span class="en">Culture</span></a>
         <a href="/huongdan" class="foot-link"><span class="vi">Hướng dẫn sử dụng</span><span class="en">How to Use</span></a>
       </div>
       <div class="foot-col">
