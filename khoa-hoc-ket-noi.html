@@ -12,7 +12,7 @@
 <meta property="og:title" content="Khoa học kết nối — Kèo">
 <meta property="og:description" content="Khoa học về kết nối xã hội, tâm lý học đô thị, nghi thức ăn uống và nghệ thuật trò chuyện.">
 <meta property="og:url" content="https://keo.social/khoa-hoc-ket-noi">
-<meta property="og:image" content="https://keo.social/og-khoa-hoc.png">
+<meta property="og:image" content="https://keo.social/og-image.png">
 <meta property="og:site_name" content="Kèo">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,9 +72,6 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .nav-link:hover{color:#fff}
 .nav-link:hover,.nav-link.on{color:var(--ink)}
 .nav-cta{margin-left:8px;padding:8px 18px;border-radius:100px;background:var(--grad);color:#fff;font-family:'Playfair Display',serif;font-size:13px;font-weight:600}
-.nav-cta{position:relative;overflow:hidden}
-.nav-cta::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);animation:ctaShine 4.5s ease-in-out infinite}
-@keyframes ctaShine{0%,72%{left:-80%}100%{left:140%}}
 
 /* HERO */
 .hero{padding:44px 32px 32px;position:relative;overflow:hidden;background:#17120D}
@@ -102,9 +99,7 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 @media(prefers-reduced-motion:reduce){.ember{display:none}}
 .hero-ey::before{content:"";width:18px;height:2px;background:var(--a)}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-bottom:12px;max-width:640px;color:#F5EFE6}
-.hero h1 em{font-family:'Playfair Display',serif;font-style:italic;background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:emShimmer 6s ease-in-out infinite}
-@keyframes emShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-
+.hero h1 em{font-family:'Playfair Display',serif;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{font-size:15px;font-weight:300;color:rgba(245,239,230,.68);line-height:1.75;max-width:540px}
 
 /* FEATURED */
@@ -177,9 +172,7 @@ nav.scrolled{background:#17120D;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .grid .post:nth-child(6n+6).rv.in{transition-delay:.25s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
-.post{background:#17120D;border:1px solid rgba(240,234,225,.1);border-radius:14px;overflow:hidden;display:block;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.2);position:relative}
-.post::after{content:'';position:absolute;top:0;left:-75%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.06),transparent);transform:skewX(-20deg);transition:left .55s ease;pointer-events:none;z-index:2}
-.post:hover::after{left:130%}
+.post{background:#17120D;border:1px solid rgba(240,234,225,.1);border-radius:14px;overflow:hidden;display:block;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .post:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.35);border-color:rgba(240,234,225,.2)}
 .post.hidden{display:none}
 
@@ -236,6 +229,7 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
 .fsoc:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
 .foot-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,239,230,.35);margin-bottom:14px}
 .foot-link{display:block;font-size:13px;color:rgba(245,239,230,.6);padding:5px 0;transition:color .2s}
+.foot-legal{display:flex;gap:16px}
 .foot-link:hover{color:var(--a)}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:11.5px;color:rgba(245,239,230,.35);flex-wrap:wrap;gap:10px}
 @media(max-width:640px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}.foot-brand{grid-column:span 2}}
@@ -278,7 +272,6 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
   .post-tags{display:none}
   .post-time{font-size:9px}
 }
-@media(prefers-reduced-motion:reduce){.hero h1 em,.hero-embers span,.nav-cta::after,.post::after{animation:none !important;transition:none !important}}
 </style>
 </head>
 <body data-accent="orange">
@@ -365,30 +358,34 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
   <div class="featured-in">
   <div class="feat-card">
     <div class="feat-main">
-      <a href="/kho-ket-ban-sau-25-tuoi" class="feat-cover">
+      <a href="/su-khac-biet-giua-dong-cam-va-thuong-hai" class="feat-cover">
         <svg viewBox="0 0 500 220" fill="none" class="feat-cover-art" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="fcg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" style="stop-color:color-mix(in srgb,var(--amber) 80%,var(--gold) 20%)"/>
-            <stop offset="55%" style="stop-color:var(--amber)"/>
-            <stop offset="100%" style="stop-color:color-mix(in srgb,var(--amber) 65%,#000 30%)"/>
-          </linearGradient></defs>
+          <defs><linearGradient id="fcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--cat-connect-gold)"/><stop offset="55%" stop-color="var(--cat-connect)"/><stop offset="100%" stop-color="var(--cat-connect-2)"/></linearGradient></defs>
           <rect width="500" height="220" fill="url(#fcg)"/>
           <circle cx="420" cy="45" r="95" fill="#fff" opacity=".05"/>
           <path d="M0 200 Q150 175 300 195 T500 180" stroke="#fff" stroke-width="1.4" opacity=".14" fill="none"/>
-          <!-- Một người, một mình giữa các toà nhà — minh hoạ gốc của bài, phóng lớn -->
-          <g transform="translate(300,4) scale(2.15)">
-            <path d="M18 76 Q18 60 27 60 Q36 60 36 76Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="27" cy="50" r="11" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2"/><circle cx="23" cy="48" r="1.3" fill="#fff"/><circle cx="31" cy="48" r="1.3" fill="#fff"/><path d="M23 54 Q27 57 31 54" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="48" y="14" width="14" height="40" fill="none" stroke="#fff" stroke-width="1.8"/><rect x="52" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="20" width="3" height="4" fill="#fff" opacity=".7"/><rect x="52" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="58" y="28" width="3" height="4" fill="#fff" opacity=".7"/><rect x="65" y="26" width="9" height="28" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/>
+          <!-- Two figures at eye level, connected — the article's empathy illustration, adapted -->
+          <g transform="translate(300,10)">
+            <path d="M18 190 Q18 152 34 152 Q50 152 50 190 Z" fill="rgba(255,255,255,.16)" stroke="#fff" stroke-width="2.2" opacity=".9"/>
+            <circle cx="34" cy="128" r="20" fill="rgba(255,255,255,.16)" stroke="#fff" stroke-width="2.2" opacity=".9"/>
+            <circle cx="28" cy="124" r="2" fill="#fff" opacity=".9"/><circle cx="40" cy="124" r="2" fill="#fff" opacity=".9"/>
+            <path d="M27 134 Q34 139 41 134" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".9"/>
+            <path d="M88 190 Q88 148 106 148 Q124 148 124 190 Z" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2.2"/>
+            <circle cx="106" cy="122" r="22" fill="rgba(255,255,255,.24)" stroke="#fff" stroke-width="2.2"/>
+            <circle cx="99" cy="118" r="2.2" fill="#fff"/><circle cx="113" cy="118" r="2.2" fill="#fff"/>
+            <path d="M98 128 Q106 133 114 128" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M54 142 Q68 132 84 142" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".85"/>
           </g>
         </svg>
         <div class="feat-cover-overlay">
-          <span class="feat-badge vi">★ Bài nổi bật · Đô thị &amp; Kết nối</span>
-          <span class="feat-badge en">★ Featured · Urban Life</span>
-          <div class="feat-title"><span class="vi">Tại sao người trẻ Việt Nam ngày càng khó kết bạn <em>sau 25 tuổi</em></span><span class="en">Why Making Friends <em>After 25</em> Gets Harder for Young Vietnamese</span></div>
+          <span class="feat-badge vi">★ Bài nổi bật · Kết nối</span>
+          <span class="feat-badge en">★ Featured · Connection</span>
+          <div class="feat-title"><span class="vi">Sự khác biệt giữa <em>đồng cảm</em> và thương hại</span><span class="en">The Difference Between <em>Empathy</em> and Sympathy</span></div>
         </div>
       </a>
       <div class="feat-body">
-        <div class="feat-desc"><span class="vi">Không phải vì bạn bận hơn hay khó tính hơn. Cấu trúc cuộc sống người lớn không được thiết kế để tình bạn tự nhiên hình thành.</span><span class="en">It's not that you're busier or pickier. Adult life just isn't built for friendships to form on their own.</span></div>
-        <a href="/kho-ket-ban-sau-25-tuoi" class="feat-read"><span class="vi">Đọc bài viết →</span><span class="en">Read article →</span></a>
+        <div class="feat-desc"><span class="vi">Không phải vì bạn bận hơn hay khó tính hơn. Cấu trúc cuộc sống người lớn không được thiết kế để tình bạn tự nhiên hình thành — và nghiên cứu của Rebecca Adams giải thích tại sao.</span><span class="en">Not because you're busier or more particular. Adult life isn't designed for friendships to form naturally — and research by Rebecca Adams explains exactly why.</span></div>
+        <a href="/su-khac-biet-giua-dong-cam-va-thuong-hai" class="feat-read"><span class="vi">Đọc bài viết →</span><span class="en">Read article →</span></a>
       </div>
     </div>
     <div class="feat-right">
@@ -1632,18 +1629,14 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
       <div class="foot-col">
         <div class="foot-col-title"><span class="vi">Khám phá</span><span class="en">Explore</span></div>
         <a href="/nguoidonghanh" class="foot-link"><span class="vi">Người đồng hành</span><span class="en">Companions</span></a>
-        <a href="/nhip-song#su-kien" class="foot-link"><span class="vi">Sự kiện</span><span class="en">Events</span></a>
-        <a href="/nhip-song#diem-den" class="foot-link"><span class="vi">Điểm đến</span><span class="en">Destinations</span></a>
         <a href="/khoa-hoc-ket-noi" class="foot-link"><span class="vi">Khoa học kết nối</span><span class="en">Blog</span></a>
         <a href="/thi-truong" class="foot-link"><span class="vi">Thị trường</span><span class="en">Market</span></a>
-        <a href="/nhip-song" class="foot-link"><span class="vi">Nhịp Sống</span><span class="en">Sports &amp; Life</span></a>
         <a href="/huongdan" class="foot-link"><span class="vi">Hướng dẫn sử dụng</span><span class="en">How to Use</span></a>
       </div>
       <div class="foot-col">
         <div class="foot-col-title"><span class="vi">Tham gia</span><span class="en">Join</span></div>
         <a href="/chu-xi" class="foot-link"><span class="vi">Đặt Kèo (Chủ xị)</span><span class="en">Book (Host)</span></a>
-        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký làm Người đồng hành</span><span class="en">Register as Companion</span></a>
-        <a href="/taokeo" class="foot-link"><span class="vi">Tạo Kèo (đã đăng ký)</span><span class="en">Create a Kèo (registered)</span></a>
+        <a href="/nguoi-dong-hanh-dang-ky" class="foot-link"><span class="vi">Đăng ký đồng hành</span><span class="en">Become companion</span></a>
         <a href="/rules" class="foot-link"><span class="vi">Quy tắc cộng đồng</span><span class="en">Community rules</span></a>
       </div>
       <div class="foot-col">
@@ -1655,6 +1648,12 @@ footer{background:#17120D;padding:56px 32px 32px;margin-top:64px}
     </div>
     <div class="foot-bot">
       <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div class="foot-legal">
+        <a href="/terms" class="foot-link"><span class="vi">Điều khoản</span><span class="en">Terms</span></a>
+        <a href="/privacy" class="foot-link"><span class="vi">Quyền riêng tư</span><span class="en">Privacy</span></a>
+        <a href="/cookie-policy" class="foot-link"><span class="vi">Cookie</span><span class="en">Cookies</span></a>
+        <a href="/accessibility" class="foot-link"><span class="vi">Trợ năng</span><span class="en">Accessibility</span></a>
+      </div>
       <div>keo.social · @keosocialvn</div>
     </div>
   </div>
