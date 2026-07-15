@@ -1,0 +1,66 @@
+<svg viewBox="0 0 360 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradBody" gradientUnits="userSpaceOnUse" x1="110" y1="240" x2="256" y2="386">
+      <stop offset="0%" stop-color="#E8A22B"/>
+      <stop offset="52%" stop-color="#D65F35"/>
+      <stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+    <linearGradient id="gradHead" gradientUnits="userSpaceOnUse" x1="126" y1="122" x2="238" y2="240">
+      <stop offset="0%" stop-color="#E8A22B"/>
+      <stop offset="52%" stop-color="#D65F35"/>
+      <stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+    <linearGradient id="gradDot" gradientUnits="userSpaceOnUse" x1="238" y1="93" x2="260" y2="115">
+      <stop offset="0%" stop-color="#E8A22B"/>
+      <stop offset="100%" stop-color="#D14060"/>
+    </linearGradient>
+  </defs>
+
+  <g id="keo-character">
+    <ellipse id="ground-shadow" cx="180" cy="392" rx="92" ry="13" fill="#000000" opacity="0.32"/>
+
+    <g id="arm-left">
+      <path id="arm-left-outline" d="M116 296 Q94 316 100 342" fill="none" stroke="#0F0C0A" stroke-width="24" stroke-linecap="round"/>
+      <path id="arm-left-fill" d="M116 296 Q94 316 100 342" fill="none" stroke="url(#gradBody)" stroke-width="13" stroke-linecap="round"/>
+    </g>
+    <g id="arm-right">
+      <path id="arm-right-outline" d="M244 296 Q266 316 260 342" fill="none" stroke="#0F0C0A" stroke-width="24" stroke-linecap="round"/>
+      <path id="arm-right-fill" d="M244 296 Q266 316 260 342" fill="none" stroke="url(#gradBody)" stroke-width="13" stroke-linecap="round"/>
+    </g>
+
+    <g id="body-group">
+      <path id="body" d="M106 384 C106 288 134 240 180 240 C226 240 254 288 254 384 Z" fill="url(#gradBody)" stroke="#0F0C0A" stroke-width="6" stroke-linejoin="round"/>
+      <path id="body-highlight" d="M126 350 C124 300 138 264 166 252 C150 270 140 306 140 350 Z" fill="#F7F1E8" opacity="0.16"/>
+      <path id="body-shading" d="M236 372 C238 316 228 278 210 258 C230 268 246 306 248 372 Z" fill="#8E2144" opacity="0.22"/>
+    </g>
+
+    <g id="head-group">
+      <circle id="head" cx="180" cy="182" r="60" fill="url(#gradHead)" stroke="#0F0C0A" stroke-width="6"/>
+      <path id="head-shading" d="M136 214 C158 236 202 236 224 214 C214 234 196 242 180 242 C164 242 146 234 136 214 Z" fill="#8E2144" opacity="0.2"/>
+      <circle id="head-highlight-big" cx="152" cy="146" r="13" fill="#F7F1E8" opacity="0.30"/>
+      <circle id="head-highlight-small" cx="170" cy="134" r="5" fill="#F7F1E8" opacity="0.30"/>
+
+      <ellipse id="blush-left" cx="135" cy="202" rx="10.5" ry="6" fill="#E86B8A" opacity="0.55"/>
+      <ellipse id="blush-right" cx="225" cy="202" rx="10.5" ry="6" fill="#E86B8A" opacity="0.55"/>
+
+      <path id="brow-left" d="M145 156 Q157 150 169 155" fill="none" stroke="#0F0C0A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow-right" d="M191 155 Q203 150 215 156" fill="none" stroke="#0F0C0A" stroke-width="5" stroke-linecap="round"/>
+
+      <g id="eye-left">
+        <ellipse id="eye-left-shape" cx="158" cy="179" rx="8" ry="11.5" fill="#0F0C0A"/>
+        <circle id="eye-left-light" cx="161.5" cy="173.5" r="2.8" fill="#FFF7EC"/>
+      </g>
+      <g id="eye-right">
+        <ellipse id="eye-right-shape" cx="202" cy="179" rx="8" ry="11.5" fill="#0F0C0A"/>
+        <circle id="eye-right-light" cx="205.5" cy="173.5" r="2.8" fill="#FFF7EC"/>
+      </g>
+
+      <g id="mouth-group">
+        <path id="mouth" d="M162 202 Q180 209 198 202 Q194 226 180 227 Q166 226 162 202 Z" fill="#2A0E14" stroke="#0F0C0A" stroke-width="3" stroke-linejoin="round"/>
+        <ellipse id="tongue" cx="180" cy="220" rx="9" ry="5" fill="#E0637A"/>
+      </g>
+    </g>
+
+    <circle id="dot-accent" cx="249" cy="104" r="11" fill="url(#gradDot)" stroke="#0F0C0A" stroke-width="4"/>
+  </g>
+</svg>
