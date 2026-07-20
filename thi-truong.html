@@ -366,11 +366,11 @@ footer a:hover{color:#F5EFE6}
   <!-- ═══ HÔM NAY CÓ GÌ ĐÁNG NÓI ═══ -->
   <div class="khoi-head"><span class="kh-ico">💬</span><h3>Hôm nay có gì đáng nói</h3><span class="kh-sub">Đọc nhanh · lấy ý bắt chuyện</span></div>
   <div class="today-strip">
-    <div class="tcard up">
-      <div class="tc-top"><span class="tc-ico">🥇</span><span class="tc-tag tag-up">Cao kỷ lục</span></div>
-      <div class="tc-headline">Vàng đang ở <span class="big">vùng cao nhất lịch sử</span></div>
-      <div class="tc-say"><b>Nói gì:</b> "Vàng trong nước bình quân nửa đầu năm tăng hơn 58% so cùng kỳ — ai mua vàng cưới đầu năm giờ lời to."</div>
-      <div class="tc-src"><span class="live-dot"></span>giá live gold-api · Cục Thống kê</div>
+    <div class="tcard up" id="tcGold">
+      <div class="tc-top"><span class="tc-ico">🥇</span><span class="tc-tag tag-up" id="tcGoldTag"><span class="live-dot"></span>LIVE</span></div>
+      <div class="tc-headline">Vàng thế giới đang ở <span class="big" id="tcGoldPrice">— đang lấy</span></div>
+      <div class="tc-say" id="tcGoldSay"><b>Nói gì:</b> "Giá vàng cập nhật theo thời gian thực — con số mới nhất ngay trên thẻ này."</div>
+      <div class="tc-src"><span class="live-dot"></span>giá live gold-api · cập nhật realtime</div>
     </div>
     <div class="tcard forecast">
       <div class="tc-top"><span class="tc-ico">🇺🇸</span><span class="tc-tag tag-forecast">Dự đoán</span></div>
@@ -1416,6 +1416,20 @@ function renderOverviewSim(){
   // Card "Giới chuyên môn dự đoán" — JPM: nối giá vàng live (đơn vị $/oz, làm tròn)
   const e3=$('fcGoldNow');
   if(e3 && gReal){ e3.textContent='$'+Math.round(gp).toLocaleString('en-US')+'/oz'; }
+
+  // Thẻ "Hôm nay có gì đáng nói" — vàng: đổ giá live + xu hướng, KHÔNG dùng câu tĩnh lệch thời điểm
+  const tp=$('tcGoldPrice'), tsay=$('tcGoldSay'), ttag=$('tcGoldTag');
+  if(tp && gReal){
+    tp.textContent='$'+Math.round(gp).toLocaleString('en-US')+'/oz';
+    if(gpct===null){
+      // đã có giá nhưng chưa đủ 2 nhịp để biết xu hướng — nói trung tính, không phán tăng/giảm
+      if(tsay) tsay.innerHTML='<b>Nói gì:</b> "Vàng thế giới đang quanh mốc '+Math.round(gp).toLocaleString('en-US')+' đô/ounce — một chủ đề luôn có chuyện để bàn."';
+    } else {
+      const up=gpct>=0;
+      if(ttag){ ttag.innerHTML='<span class="live-dot"></span>'+(up?'ĐANG TĂNG':'ĐANG GIẢM'); }
+      if(tsay) tsay.innerHTML='<b>Nói gì:</b> "Vàng thế giới đang '+(up?'nhích lên':'chững lại')+' quanh '+Math.round(gp).toLocaleString('en-US')+' đô/ounce ('+(up?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'% gần đây) — chuyện muôn thuở khi trà dư tửu hậu."';
+    }
+  }
 }
 
 // ─── TICKER ────────────────────────────────
