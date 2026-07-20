@@ -264,6 +264,50 @@ footer a:hover{color:#F5EFE6}
 @media(max-width:900px){.ov4{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.gr{grid-template-columns:1fr 1fr;}main{padding:10px;}.tb{padding:6px 10px;font-size:10px;}}
 @media(max-width:400px){.gr{grid-template-columns:1fr;}}
+/* ═══ KHỐI MỚI: Hôm nay có gì đáng nói + Giới chuyên môn dự đoán ═══ */
+.khoi-head{display:flex;align-items:center;gap:10px;margin:0 0 16px}
+.khoi-head .kh-ico{font-size:19px}
+.khoi-head h3{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin:0}
+.khoi-head .kh-sub{font-size:12px;color:var(--ink-mu);margin-left:auto}
+.today-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:14px;margin-bottom:34px}
+.tcard{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:19px;position:relative;overflow:hidden;box-shadow:var(--sh2);transition:transform var(--tr)}
+.tcard:hover{transform:translateY(-3px)}
+.tcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.tcard.up::before{background:linear-gradient(90deg,var(--gn),transparent)}
+.tcard.forecast::before{background:linear-gradient(90deg,var(--pu),transparent)}
+.tcard.neutral::before{background:linear-gradient(90deg,var(--go),transparent)}
+.tc-top{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+.tc-ico{font-size:21px}
+.tc-tag{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-left:auto}
+.tag-up{background:rgba(0,200,83,.15);color:#5CC49A}
+.tag-neutral{background:rgba(232,162,43,.15);color:var(--go)}
+.tag-forecast{background:rgba(156,127,232,.18);color:#b9a6f0}
+.tc-headline{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--tx);line-height:1.28;margin-bottom:8px}
+.tc-headline .big{background:linear-gradient(135deg,#E8A22B,#D65F35 55%,#D14060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tc-say{font-size:12px;color:var(--sub);line-height:1.5;padding-top:10px;border-top:1px solid var(--bd)}
+.tc-say b{color:var(--tx);font-weight:600}
+.tc-src{font-size:10px;color:var(--mu);margin-top:9px;font-family:var(--mono)}
+.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gn);margin-right:4px;vertical-align:middle;animation:lblink 2s ease-in-out infinite}
+@keyframes lblink{0%,100%{opacity:1}50%{opacity:.4}}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin-bottom:14px}
+.fc-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh2);display:flex;flex-direction:column}
+.fc-head{padding:15px 17px 13px;border-bottom:1px solid var(--bd)}
+.fc-org{font-size:11px;font-weight:600;color:var(--go);margin-bottom:6px}
+.fc-title{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--tx);line-height:1.3}
+.fc-body{padding:15px 17px;flex:1}
+.fc-now,.fc-stat{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--bd)}
+.fc-stat:last-child{border-bottom:none}
+.fc-now-l,.fc-stat-l{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:5px}
+.fc-now-v,.fc-stat-v{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--tx)}
+.fc-stat-v.up{color:#5CC49A}
+.fc-stat-v.hl{color:var(--go)}
+.fc-say{font-size:12px;color:var(--sub);line-height:1.5;margin-top:12px;padding-top:12px;border-top:1px solid var(--bd)}
+.fc-say b{color:var(--tx);font-weight:600}
+.fc-src{padding:10px 17px;background:rgba(240,234,225,.02);border-top:1px solid var(--bd);font-size:10px;color:var(--mu);font-family:var(--mono)}
+.fc-disc{padding:13px 17px;background:rgba(214,95,53,.06);border:1px solid var(--bd);border-radius:12px;font-size:12px;color:var(--ink-sub);line-height:1.6;margin-bottom:28px}
+.fc-disc b{color:var(--ink)}
+@media(max-width:600px){.today-strip{grid-template-columns:1fr 1fr}.tc-headline{font-size:15px}}
+@media(max-width:420px){.today-strip{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -318,6 +362,69 @@ footer a:hover{color:#F5EFE6}
 
 <!-- PAGE: OVERVIEW -->
 <div class="pg on" id="pg-overview">
+
+  <!-- ═══ HÔM NAY CÓ GÌ ĐÁNG NÓI ═══ -->
+  <div class="khoi-head"><span class="kh-ico">💬</span><h3>Hôm nay có gì đáng nói</h3><span class="kh-sub">Đọc nhanh · lấy ý bắt chuyện</span></div>
+  <div class="today-strip">
+    <div class="tcard up">
+      <div class="tc-top"><span class="tc-ico">🥇</span><span class="tc-tag tag-up">Cao kỷ lục</span></div>
+      <div class="tc-headline">Vàng đang ở <span class="big">vùng cao nhất lịch sử</span></div>
+      <div class="tc-say"><b>Nói gì:</b> "Vàng trong nước bình quân nửa đầu năm tăng hơn 58% so cùng kỳ — ai mua vàng cưới đầu năm giờ lời to."</div>
+      <div class="tc-src"><span class="live-dot"></span>giá live gold-api · Cục Thống kê</div>
+    </div>
+    <div class="tcard forecast">
+      <div class="tc-top"><span class="tc-ico">🇺🇸</span><span class="tc-tag tag-forecast">Dự đoán</span></div>
+      <div class="tc-headline">Goldman nâng dự báo S&amp;P lên <span class="big">8.000</span></div>
+      <div class="tc-say"><b>Nói gì:</b> "Goldman Sachs dự đoán chứng khoán Mỹ còn tăng ~6% tới cuối năm — họ vẫn lạc quan dù giá đã cao."</div>
+      <div class="tc-src">Goldman Sachs Research · 27/05/2026</div>
+    </div>
+    <div class="tcard neutral">
+      <div class="tc-top"><span class="tc-ico">🇻🇳</span><span class="tc-tag tag-neutral">Cột mốc</span></div>
+      <div class="tc-headline">VN-Index có thể chạm <span class="big">2.014</span> cuối năm</div>
+      <div class="tc-say"><b>Nói gì:</b> "VNDirect dự đoán VN-Index lên quanh 2.014 điểm cuối 2026 — tức còn dư địa tăng khoảng 8% từ giờ."</div>
+      <div class="tc-src">VNDirect &amp; SSI Research · 07/2026</div>
+    </div>
+    <div class="tcard up">
+      <div class="tc-top"><span class="tc-ico">☕</span><span class="tc-tag tag-up">#2 thế giới</span></div>
+      <div class="tc-headline">Cà phê Việt xuất khẩu <span class="big">kỷ lục</span></div>
+      <div class="tc-say"><b>Nói gì:</b> "Cà phê Việt Nam lập kỷ lục xuất khẩu, đứng thứ 2 thế giới sau Brazil — ly cà phê sáng đáng giá hơn ta tưởng."</div>
+      <div class="tc-src">VietnamBiz, USDA · 01/2026</div>
+    </div>
+  </div>
+
+  <!-- ═══ GIỚI CHUYÊN MÔN DỰ ĐOÁN ═══ -->
+  <div class="khoi-head"><span class="kh-ico">🎯</span><h3>Giới chuyên môn dự đoán</h3><span class="kh-sub">Dự báo từ các định chế lớn · có nguồn</span></div>
+  <div class="fc-grid">
+    <div class="fc-card">
+      <div class="fc-head"><div class="fc-org">🇺🇸 Goldman Sachs</div><div class="fc-title">S&amp;P 500 — mục tiêu cuối 2026</div></div>
+      <div class="fc-body">
+        <div class="fc-now"><span class="fc-now-l">Hiện tại</span><span class="fc-now-v">≈ 7.519</span></div>
+        <div class="fc-stat"><span class="fc-stat-l">Mục tiêu cuối 2026</span><span class="fc-stat-v up">8.000 (+6,4%)</span></div>
+        <div class="fc-say"><b>Nói gì:</b> "Goldman vẫn đặt cửa chứng khoán Mỹ tăng tiếp dù đang ở đỉnh — niềm tin của nhà cái lớn nhất phố Wall."</div>
+      </div>
+      <div class="fc-src">Goldman Sachs Research · 27/05/2026</div>
+    </div>
+    <div class="fc-card">
+      <div class="fc-head"><div class="fc-org">🥇 J.P. Morgan</div><div class="fc-title">Vàng thế giới — lộ trình dự báo</div></div>
+      <div class="fc-body">
+        <div class="fc-now"><span class="fc-now-l"><span class="live-dot"></span>Hiện tại</span><span class="fc-now-v" id="fcGoldNow">— Đang lấy</span></div>
+        <div class="fc-stat"><span class="fc-stat-l">Mục tiêu xa</span><span class="fc-stat-v hl">$6.000</span></div>
+        <div class="fc-say"><b>Nói gì:</b> "JPM dự đoán vàng còn lên tới $6.000 nhờ ngân hàng trung ương gom mua — vàng chưa hết chuyện."</div>
+      </div>
+      <div class="fc-src">J.P. Morgan Global Research · 05-06/2026</div>
+    </div>
+    <div class="fc-card">
+      <div class="fc-head"><div class="fc-org">🇻🇳 VNDirect &amp; SSI</div><div class="fc-title">VN-Index — kịch bản dự báo</div></div>
+      <div class="fc-body">
+        <div class="fc-now"><span class="fc-now-l">Hiện tại</span><span class="fc-now-v">≈ 1.860</span></div>
+        <div class="fc-stat"><span class="fc-stat-l">VNDirect (cơ sở)</span><span class="fc-stat-v hl">2.014 (+8,3%)</span></div>
+        <div class="fc-say"><b>Nói gì:</b> "Các công ty chứng khoán VN dự đoán chỉ số còn tăng ~8% cuối năm, nhất là nếu được nâng hạng thị trường."</div>
+      </div>
+      <div class="fc-src">VNDirect &amp; SSI Research · 07/2026</div>
+    </div>
+  </div>
+  <div class="fc-disc">⚠️ Đây là <b>tổng hợp dự báo công khai</b> từ các định chế tài chính — không phải khuyến nghị đầu tư của Kèo. Mỗi dự đoán đều ghi rõ nguồn và thời điểm. Dự báo là quan điểm tại thời điểm công bố, không đảm bảo sẽ đúng. Luôn tự nghiên cứu trước khi quyết định.</div>
+
   <div class="sh"><div class="shi" style="background:rgba(232,51,74,.1)">🌐</div><div class="sht">Chỉ số thị trường Việt Nam &amp; Quốc tế</div><div class="shl"></div><span style="font-family:var(--sans);font-size:9px;color:var(--mu)">Widget thật từ DNSE &amp; TradingView</span></div>
   <div class="vn-split">
     <div id="dnse-market-index" class="dnse-market-index" style="border-radius:14px;overflow:hidden"><script src="https://cdn.dnse.com.vn/dnse-price/_embed/embed-widget-1.2.4.js">{"indexes":["VNINDEX","VN30","HNX30","HNX","UPCOM"],"width":"100%","height":400,"theme":"dark"}</script></div>
@@ -1306,6 +1413,9 @@ function renderOverviewSim(){
     if(gpct===null){ e2.textContent='— Đang lấy dữ liệu'; e2.style.color='var(--mu)'; }
     else { e2.textContent=(gpct>=0?'▲ +':'▼ ')+Math.abs(gpct).toFixed(2)+'%'; e2.style.color=gpct>=0?'var(--gn)':'var(--rd)'; }
   }
+  // Card "Giới chuyên môn dự đoán" — JPM: nối giá vàng live (đơn vị $/oz, làm tròn)
+  const e3=$('fcGoldNow');
+  if(e3 && gReal){ e3.textContent='$'+Math.round(gp).toLocaleString('en-US')+'/oz'; }
 }
 
 // ─── TICKER ────────────────────────────────
