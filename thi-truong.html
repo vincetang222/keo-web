@@ -468,13 +468,9 @@ footer a:hover{color:#F5EFE6}
   </div>
   <div class="ova" style="margin-top:24px;margin-bottom:18px">
     <div class="ovc"><div class="ovl">Vàng / Gold</div><div class="ovv" id="ovGold">--</div><div class="ovc2" id="ovGoldC">--</div></div>
-    <div class="ovc"><div class="ovl">Bitcoin</div><div class="ovv" id="ovBtc">--</div><div class="ovc2" id="ovBtcC">--</div></div>
     <div class="ovc"><div class="ovl">💱 USD/VND <span id="fxB" style="font-size:8px;color:var(--sub)">~EST</span></div><div class="ovv" id="ovFx">--</div><div class="ovc2" id="ovFxC">--</div></div>
-    <div class="ovc"><div class="ovl">Ethereum</div><div class="ovv" id="ovEth">--</div><div class="ovc2" id="ovEthC">--</div></div>
     <div class="ovc"><div class="ovl">Fear &amp; Greed</div><div class="ovv" id="ovFng">--</div><div class="ovc2" id="ovFngL">--</div></div>
   </div>
-  <div class="sh"><div class="shi" style="background:rgba(156,127,232,.1)">₿</div><div class="sht">Crypto top 5</div><div class="shl"></div><button class="ib" onclick="go('crypto',document.getElementById('btn-crypto'))">Xem tất cả →</button></div>
-  <div class="gr" id="ovCrPrev"><div class="ld2">Đang tải…</div></div>
 </div>
 
 <!-- PAGE: OUTLOOK -->
@@ -1469,7 +1465,7 @@ function refreshCurrent(){ loadTab(curTab); }
 
 function loadTab(tab){
   try{
-    if(tab==='overview'){ renderOverviewSim(); renderFX(); renderCrypto(); }
+    if(tab==='overview'){ renderOverviewSim(); renderFX(); updateFearGreed(); }
     else if(tab==='comm')  { renderComm(); }
     else if(tab==='crypto'){ renderCrypto(); }
     else if(tab==='fx')    { renderFX(); }
@@ -1486,8 +1482,10 @@ async function init(){
   loadTab('overview');
   setupCollapsibleSections(); // chạy 1 lần cho toàn bộ trang — mọi tab đều có thể thu gọn
   seedFXHistory().then(()=>{ if(curTab==='fx') renderFX(); }); // chạy nền — không chặn tải trang ban đầu
-  // Lịch sử giá kim loại quý: xem ghi chú đầy đủ phía trên fetchMetals() — cần Worker proxy,
-  // chưa deploy. Khi deploy xong, gọi fetch tới Worker ở đây rồi renderComm() nếu đang ở tab đó.
+  // Nhịp fetch thứ 2 SỚM (sau 8 giây) cho vàng + FX: lần fetch đầu ở trên chưa tính được % thay đổi
+  // (chưa có giá trước để so → nhãn hiện "đang lấy dữ liệu"). Fetch lại sau 8s để có ngay giá cũ→mới,
+  // thẻ hiện ▲/▼% thật thay vì kẹt nhãn xám tới tận nhịp 60s. Sau đó setInterval 60s lo phần còn lại.
+  setTimeout(async()=>{ await Promise.all([fetchFX(), fetchMetals()]); if(curTab==='overview'){ renderOverviewSim(); renderFX(); } mkStatus(); }, 8000);
 }
 init();
 
