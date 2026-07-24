@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Kèo đang mở | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0C0A;--bg2:#1F1712;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.05) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.5}
+nav,.wrap{position:relative;z-index:1}
+nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rim)}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-r{display:flex;gap:18px;font-size:13.5px;color:var(--cr2)}
+.wrap{max-width:800px;margin:0 auto;padding:38px 24px 80px}
+.gate{text-align:center;padding:70px 20px;color:var(--cr3);font-size:14px;line-height:1.7}
+.gate a{color:var(--gold);font-weight:600}
+h1{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:6px}
+.sub{font-size:14px;color:var(--cr2)}
+.filters{display:flex;gap:8px;margin:22px 0;flex-wrap:wrap}
+.filter{padding:8px 16px;border-radius:100px;border:1px solid var(--rim2);background:var(--bg2);font-size:13px;color:var(--cr2);cursor:pointer;transition:all .2s}
+.filter.on{background:var(--grad);color:#1A1006;border-color:transparent;font-weight:600}
+.keo-card{background:var(--bg2);border:1px solid var(--rim2);border-radius:16px;padding:22px;margin-bottom:16px;transition:border-color .2s}
+.keo-card:hover{border-color:rgba(232,162,43,.35)}
+.keo-top{display:flex;justify-content:space-between;gap:14px;margin-bottom:12px}
+.keo-title{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.25}
+.keo-city{flex-shrink:0;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(232,162,43,.12);color:var(--gold);height:fit-content}
+.keo-desc{font-size:14px;color:var(--cr2);line-height:1.6;margin-bottom:16px}
+.keo-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--cr3);margin-bottom:18px}
+.keo-meta b{color:var(--cream)}
+.keo-fee{color:var(--gold);font-weight:600}
+.apply-btn{padding:11px 22px;border:none;border-radius:100px;background:var(--grad);color:#1A1006;font-family:var(--sans);font-size:13.5px;font-weight:700;cursor:pointer}
+.applied-tag{font-size:13px;color:var(--ok);font-weight:600}
+.empty{text-align:center;padding:50px 20px;color:var(--cr3);font-size:14px}
+.modal-bg{position:fixed;inset:0;background:rgba(10,8,6,.72);z-index:50;display:none;align-items:center;justify-content:center;padding:24px}
+.modal-bg.show{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--rim2);border-radius:20px;padding:28px;max-width:460px;width:100%}
+.modal h2{font-family:var(--serif);font-size:22px;font-weight:800;margin-bottom:4px}
+.mk-sub{font-size:13px;color:var(--cr2);margin-bottom:20px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--cr2);margin-bottom:7px}
+.field textarea,.field input{width:100%;padding:12px 14px;background:var(--bg);border:1.5px solid var(--rim2);border-radius:11px;color:var(--cream);font-family:var(--sans);font-size:14px}
+.field textarea{resize:vertical;min-height:96px}
+.field .opt{font-weight:400;color:var(--cr3)}
+.modal-msg{font-size:13px;padding:10px 13px;border-radius:9px;margin-bottom:14px;display:none;background:rgba(224,99,122,.12);border:1px solid rgba(224,99,122,.3);color:var(--err)}
+.modal-msg.show{display:block}
+.modal-actions{display:flex;gap:10px}
+.btn-cancel{flex:1;padding:12px;border-radius:100px;background:transparent;border:1px solid var(--rim2);color:var(--cr2);font-family:var(--sans);font-size:13.5px;font-weight:600;cursor:pointer}
+.btn-send{flex:2;padding:12px;border:none;border-radius:100px;background:var(--grad);color:#1A1006;font-family:var(--sans);font-size:13.5px;font-weight:700;cursor:pointer}
+.hidden{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r"><a href="/tai-khoan">Tài khoản</a></div>
+</nav>
+
+<div class="wrap">
+  <div id="gate" class="gate">Đang kiểm tra…</div>
+  <div id="content" class="hidden">
+    <h1>Kèo đang mở</h1>
+    <p class="sub">Những buổi gặp Chủ xị đang tìm người đồng hành. Chọn Kèo hợp gu và gửi lời ứng tuyển.</p>
+    <div class="filters" id="filters">
+      <div class="filter on" data-city="all">Tất cả</div>
+      <div class="filter" data-city="hcm">TP.HCM</div>
+      <div class="filter" data-city="hn">Hà Nội</div>
+      <div class="filter" data-city="dn">Đà Nẵng</div>
+    </div>
+    <div id="keoList"></div>
+    <div id="empty" class="empty hidden">Chưa có Kèo mở nào ở khu vực này. Ghé lại sau nhé 🌿</div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2>Ứng tuyển Kèo</h2>
+    <p class="mk-sub" id="modalTitle">—</p>
+    <div class="modal-msg" id="modalMsg"></div>
+    <div class="field"><label>Lời nhắn tới Chủ xị</label>
+      <textarea id="applyMsg" placeholder="Giới thiệu ngắn về bạn và vì sao bạn hợp với buổi gặp này…" maxlength="600"></textarea></div>
+    <div class="field hidden" id="feeField"><label>Mức thù lao đề xuất <span class="opt">(không bắt buộc — VND)</span></label>
+      <input type="number" id="applyFee" placeholder="VD: 300000" min="0" step="50000"></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Huỷ</button>
+      <button class="btn-send" id="sendBtn" onclick="submitApp()">Gửi ứng tuyển</button>
+    </div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+let ME=null, ALL=[], APPLIED=new Set(), FILTER='all', MODAL=null;
+
+async function init(){
+  const auth = await Keo.requireAuth({ role:'nguoi_dong_hanh', requireVerified:true });
+  if(!auth) return;
+  const gate = document.getElementById('gate');
+  if(auth.roleMismatch){
+    gate.innerHTML = 'Trang này dành cho Người đồng hành.<br>Bạn đang đăng nhập bằng tài khoản Chủ xị.<br><br><a href="/taokeo">Đăng Kèo mở của bạn →</a>';
+    return;
+  }
+  if(auth.needsVerification){
+    gate.innerHTML = '🔒 Cần xác minh CCCD để ứng tuyển Kèo.<br>Việc này giữ an toàn cho cả cộng đồng.<br><br><a href="/xac-minh">Xác minh danh tính →</a>';
+    return;
+  }
+  ME = auth.session.user;
+  gate.classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+  bindFilters();
+  await load();
+}
+
+function bindFilters(){
+  document.querySelectorAll('.filter').forEach(f=>f.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(x=>x.classList.remove('on'));
+    f.classList.add('on'); FILTER=f.dataset.city; render();
+  }));
+}
+
+async function load(){
+  const { data: keos } = await Keo.sb.from('open_keos')
+    .select('*, host:profiles!open_keos_host_id_fkey(full_name, rating_avg)')
+    .eq('status','open').order('created_at',{ascending:false});
+  ALL = keos || [];
+  const { data: apps } = await Keo.sb.from('keo_applications').select('keo_id').eq('companion_id', ME.id);
+  APPLIED = new Set((apps||[]).map(a=>a.keo_id));
+  render();
+}
+
+function render(){
+  const list = FILTER==='all' ? ALL : ALL.filter(k=>k.city===FILTER);
+  document.getElementById('empty').classList.toggle('hidden', list.length>0);
+  document.getElementById('keoList').innerHTML = list.map(k=>{
+    const applied = APPLIED.has(k.id);
+    const fee = k.fixed_fee ? `<span class="keo-fee">Thù lao: ${Keo.formatVND(k.fixed_fee)}</span>` : `<span>Thù lao: <b>thoả thuận</b></span>`;
+    return `<div class="keo-card">
+      <div class="keo-top"><div class="keo-title">${Keo.esc(k.title)}</div><span class="keo-city">${Keo.CITY_LABEL[k.city]||k.city}</span></div>
+      ${k.description?`<div class="keo-desc">${Keo.esc(k.description)}</div>`:''}
+      <div class="keo-meta">
+        ${k.category?`<span>🏷️ ${Keo.CATEGORY_LABEL[k.category]||k.category}</span>`:''}
+        <span>🕒 ${Keo.formatDate(k.scheduled_at)}</span>${fee}
+        <span>👤 <b>${Keo.esc(k.host?.full_name||'—')}</b></span>
+      </div>
+      ${applied ? '<span class="applied-tag">✓ Đã ứng tuyển — chờ Chủ xị duyệt</span>'
+        : `<button class="apply-btn" onclick='openModal("${k.id}", ${JSON.stringify(k.title).replace(/'/g,"&#39;")}, ${!!k.fixed_fee})'>Ứng tuyển →</button>`}
+    </div>`;
+  }).join('');
+}
+
+function openModal(id, title, hasFee){
+  MODAL = { id, hasFee };
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('applyMsg').value='';
+  document.getElementById('applyFee').value='';
+  document.getElementById('feeField').classList.toggle('hidden', hasFee);
+  document.getElementById('modalMsg').classList.remove('show');
+  document.getElementById('modalBg').classList.add('show');
+}
+function closeModal(){ document.getElementById('modalBg').classList.remove('show'); MODAL=null; }
+document.getElementById('modalBg').addEventListener('click',e=>{ if(e.target.id==='modalBg') closeModal(); });
+
+async function submitApp(){
+  const msg = document.getElementById('applyMsg').value.trim();
+  const mm = document.getElementById('modalMsg');
+  if(msg.length < 10){ mm.textContent='Lời nhắn cần ít nhất 10 ký tự — hãy giới thiệu đôi chút về bạn.'; mm.classList.add('show'); return; }
+  const btn = document.getElementById('sendBtn'); btn.disabled=true; btn.textContent='Đang gửi…';
+  const payload = { keo_id: MODAL.id, companion_id: ME.id, message: msg };
+  if(!MODAL.hasFee){ const f = parseInt(document.getElementById('applyFee').value); if(f>0) payload.proposed_fee=f; }
+  const { error } = await Keo.sb.from('keo_applications').insert(payload);
+  btn.disabled=false; btn.textContent='Gửi ứng tuyển';
+  if(error){ mm.textContent = error.message.includes('duplicate')?'Bạn đã ứng tuyển Kèo này rồi.':'Lỗi: '+error.message; mm.classList.add('show'); return; }
+  APPLIED.add(MODAL.id); closeModal(); Keo.toast('✓ Đã gửi ứng tuyển'); render();
+}
+
+init();
+</script>
+</body></html>

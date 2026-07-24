@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Thông báo | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0C0A;--bg2:#1F1712;--s1:#1E1A16;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.05) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.5}
+nav,.wrap{position:relative;z-index:1}
+nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rim)}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-r a{font-size:13.5px;color:var(--cr2)}
+.wrap{max-width:640px;margin:0 auto;padding:36px 24px 80px}
+h1{font-family:var(--serif);font-size:28px;font-weight:800;margin-bottom:6px}
+.sub{font-size:14px;color:var(--cr2);margin-bottom:26px}
+.gate{text-align:center;padding:80px 20px;color:var(--cr3)}
+.n-item{display:flex;gap:14px;padding:16px 18px;background:var(--bg2);border:1px solid var(--rim2);border-radius:14px;margin-bottom:12px;transition:border-color .2s}
+.n-item.unread{border-color:rgba(232,162,43,.35)}
+.n-item:hover{border-color:rgba(232,162,43,.5)}
+.n-ic{width:40px;height:40px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;background:rgba(232,162,43,.12)}
+.n-body{flex:1;min-width:0}
+.n-title{font-size:14.5px;font-weight:600;margin-bottom:3px}
+.n-text{font-size:13px;color:var(--cr2);line-height:1.5}
+.n-time{font-size:11.5px;color:var(--cr3);margin-top:5px}
+.n-dot{width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0;align-self:center}
+.empty{text-align:center;padding:60px 20px;color:var(--cr3);font-size:14px}
+.mark-all{background:none;border:1px solid var(--rim2);color:var(--cr2);font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:100px;cursor:pointer;margin-bottom:20px}
+.mark-all:hover{border-color:var(--gold);color:var(--gold)}
+.hidden{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r"><a href="/tai-khoan">← Tài khoản</a></div>
+</nav>
+
+<div class="wrap">
+  <div id="gate" class="gate">Đang tải…</div>
+  <div id="content" class="hidden">
+    <h1>Thông báo</h1>
+    <p class="sub">Cập nhật về Kèo, đơn ứng tuyển và tin nhắn của bạn.</p>
+    <button class="mark-all" id="markAll" onclick="markAllRead()">Đánh dấu tất cả đã đọc</button>
+    <div id="list"></div>
+    <div id="empty" class="empty hidden">Chưa có thông báo nào 🌿</div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+let ME=null, NOTIFS=[];
+const ICON = { application:'📨', accepted:'🎉', invited:'📬', declined:'↩️', message:'💬', review:'⭐', dispute:'⚠️', default:'🔔' };
+
+async function init(){
+  const auth = await Keo.requireAuth();
+  if(!auth) return;
+  ME = auth.session.user;
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+  await load();
+}
+
+async function load(){
+  const { data } = await Keo.sb.from('notifications')
+    .select('*').eq('user_id', ME.id).order('created_at',{ascending:false}).limit(50);
+  NOTIFS = data || [];
+  render();
+}
+
+function timeAgo(iso){
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff/60000);
+  if(mins < 1) return 'Vừa xong';
+  if(mins < 60) return mins + ' phút trước';
+  const hrs = Math.floor(mins/60);
+  if(hrs < 24) return hrs + ' giờ trước';
+  const days = Math.floor(hrs/24);
+  if(days < 30) return days + ' ngày trước';
+  return new Date(iso).toLocaleDateString('vi-VN');
+}
+
+function render(){
+  const unread = NOTIFS.filter(n=>!n.read_at).length;
+  document.getElementById('markAll').style.display = unread ? 'inline-block':'none';
+  document.getElementById('empty').classList.toggle('hidden', NOTIFS.length>0);
+  document.getElementById('list').innerHTML = NOTIFS.map(n=>`
+    <a class="n-item ${n.read_at?'':'unread'}" href="${encodeURI(n.link||'#')}" onclick="clickNotif('${n.id}')">
+      <div class="n-ic">${ICON[n.type]||ICON.default}</div>
+      <div class="n-body">
+        <div class="n-title">${Keo.esc(n.title)}</div>
+        ${n.body?`<div class="n-text">${Keo.esc(n.body)}</div>`:''}
+        <div class="n-time">${timeAgo(n.created_at)}</div>
+      </div>
+      ${n.read_at?'':'<div class="n-dot"></div>'}
+    </a>`).join('');
+}
+
+async function clickNotif(id){
+  const n = NOTIFS.find(x=>x.id===id);
+  if(n && !n.read_at){ await Keo.markNotificationRead(id); n.read_at=new Date().toISOString(); }
+  // để link tự điều hướng
+}
+
+async function markAllRead(){
+  const unread = NOTIFS.filter(n=>!n.read_at);
+  await Promise.all(unread.map(n=>Keo.markNotificationRead(n.id)));
+  unread.forEach(n=>n.read_at=new Date().toISOString());
+  render();
+  Keo.toast('✓ Đã đánh dấu tất cả đã đọc');
+}
+
+init();
+</script>
+</body></html>

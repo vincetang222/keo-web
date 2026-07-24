@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Tài khoản | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0C0A;--bg2:#1F1712;--s1:#1E1A16;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.05) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.5}
+nav,.wrap{position:relative;z-index:1}
+nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rim)}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-r{display:flex;gap:18px;align-items:center;font-size:13.5px;color:var(--cr2)}
+.nav-r a:hover,.nav-r button:hover{color:var(--cream)}
+.nav-r button{background:none;border:none;color:var(--cr2);font-family:var(--sans);font-size:13.5px;cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:36px 24px 80px}
+.gate{text-align:center;padding:80px 20px;color:var(--cr3)}
+.gate a{color:var(--gold);font-weight:600}
+.card{background:var(--bg2);border:1px solid var(--rim2);border-radius:16px;padding:24px;margin-bottom:18px}
+.card h2{font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:4px}
+.card .ch{font-size:13px;color:var(--cr2);margin-bottom:18px}
+.avatar-row{display:flex;align-items:center;gap:18px;margin-bottom:20px}
+.avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;background:var(--s1);border:2px solid var(--rim2)}
+.avatar-ph{width:76px;height:76px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:30px;font-weight:800;color:#1A1006}
+.up-btn{padding:9px 16px;border-radius:100px;background:var(--s1);border:1px solid var(--rim2);color:var(--cream);font-family:var(--sans);font-size:12.5px;font-weight:600;cursor:pointer}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--cr2);margin-bottom:7px}
+.field input,.field textarea,.field select{width:100%;padding:11px 13px;background:var(--bg);border:1.5px solid var(--rim2);border-radius:10px;color:var(--cream);font-family:var(--sans);font-size:14px}
+.field textarea{resize:vertical;min-height:70px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.save-btn{padding:11px 22px;border:none;border-radius:100px;background:var(--grad);color:#1A1006;font-family:var(--sans);font-size:13.5px;font-weight:700;cursor:pointer}
+.save-btn:disabled{opacity:.5}
+.verify-row{margin-top:14px;padding:12px 15px;border-radius:10px;font-size:13px;font-weight:500}
+.verify-row.yes{background:rgba(92,196,154,.1);border:1px solid rgba(92,196,154,.25);color:var(--ok)}
+.verify-row.no{background:rgba(232,162,43,.08);border:1px solid rgba(232,162,43,.22);color:var(--gold)}
+.verify-row a{color:inherit;text-decoration:underline;font-weight:600}
+
+/* Portfolio ảnh */
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.img-cell{position:relative;aspect-ratio:1;border-radius:11px;overflow:hidden;border:1px solid var(--rim2);background:var(--s1)}
+.img-cell img{width:100%;height:100%;object-fit:cover}
+.img-cell .del{position:absolute;top:5px;right:5px;width:24px;height:24px;border-radius:50%;background:rgba(10,8,6,.7);border:none;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.img-add{aspect-ratio:1;border-radius:11px;border:1.5px dashed var(--rim2);background:transparent;color:var(--cr3);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px}
+.img-add:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Referral */
+.ref-input-row{display:flex;gap:8px}
+.ref-input-row input{flex:1}
+.ref-stats{margin-top:16px;padding-top:14px;border-top:1px solid var(--rim);font-size:13.5px;color:var(--cr2);display:none}
+.ref-stats b{color:var(--gold)}
+
+/* Kèo của tôi */
+.keo-tabs{display:flex;gap:6px;margin-bottom:16px}
+.kt{padding:7px 15px;border-radius:100px;font-size:12.5px;font-weight:600;color:var(--cr2);background:var(--s1);border:1px solid var(--rim2);cursor:pointer}
+.kt.on{background:var(--grad);color:#1A1006;border-color:transparent}
+.keo-item{padding:14px 0;border-bottom:1px solid var(--rim);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.keo-item:last-child{border-bottom:none}
+.keo-item-t{font-family:var(--serif);font-size:15px;font-weight:700}
+.keo-item-m{font-size:12px;color:var(--cr3);margin-top:2px}
+.keo-badge{font-size:11px;font-weight:700;padding:4px 11px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.keo-badge.open{background:rgba(92,196,154,.14);color:var(--ok)}
+.keo-badge.filled{background:rgba(232,162,43,.14);color:var(--gold)}
+.keo-badge.completed{background:rgba(108,99,196,.16);color:#A29BE0}
+.keo-badge.cancelled{background:rgba(224,99,122,.14);color:var(--err)}
+.empty-mini{font-size:13px;color:var(--cr3);padding:22px 0;text-align:center}
+.hidden{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r">
+    <a href="/keo-mo" id="navKeoMo" class="hidden">Kèo mở</a>
+    <a href="/quan-ly-keo" id="navQuanLy" class="hidden">Quản lý Kèo</a>
+    <a href="/thong-bao">Thông báo</a>
+    <button onclick="Keo.signOut()">Đăng xuất</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div id="gate" class="gate">Đang tải…</div>
+
+  <div id="content" class="hidden">
+    <!-- Hồ sơ -->
+    <div class="card">
+      <h2>Hồ sơ của bạn</h2>
+      <p class="ch" id="roleLine">—</p>
+      <div class="avatar-row">
+        <div id="avatarWrap"></div>
+        <div>
+          <button class="up-btn" onclick="document.getElementById('avatarInput').click()">Đổi ảnh đại diện</button>
+          <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="uploadAvatar(this)">
+        </div>
+      </div>
+      <div class="field"><label>Họ tên</label><input type="text" id="fullName"></div>
+      <div class="field-row">
+        <div class="field"><label>Số điện thoại</label><input type="tel" id="phone"></div>
+        <div class="field"><label>Thành phố</label>
+          <select id="city"><option value="">—</option><option value="hcm">TP.HCM</option><option value="hn">Hà Nội</option><option value="dn">Đà Nẵng</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Giới thiệu ngắn</label><textarea id="bio" placeholder="Đôi dòng về bạn…"></textarea></div>
+      <button class="save-btn" onclick="saveProfile()">Lưu thay đổi</button>
+      <div id="verifyRow" class="verify-row no"></div>
+    </div>
+
+    <!-- Ảnh hồ sơ (portfolio) — chỉ Người đồng hành -->
+    <div class="card hidden" id="portfolioCard">
+      <h2>Ảnh hồ sơ</h2>
+      <p class="ch">Ảnh minh hoạ về bạn và chuyên môn — Chủ xị xem được khi cân nhắc chọn bạn.</p>
+      <div class="imgs" id="portfolioGrid"></div>
+      <input type="file" id="portfolioInput" accept="image/*" style="display:none" onchange="uploadPortfolio(this)">
+    </div>
+
+    <!-- Mời bạn bè -->
+    <div class="card">
+      <h2>🎁 Mời bạn bè</h2>
+      <p class="ch">Chia sẻ mã của bạn. Khi bạn bè hoàn thành buổi Kèo đầu tiên, cả hai cùng nhận ưu đãi.</p>
+      <div class="field"><label>Mã giới thiệu</label>
+        <div class="ref-input-row">
+          <input type="text" id="refCode" readonly style="font-family:var(--serif);font-weight:700;letter-spacing:.08em;color:var(--gold)">
+          <button class="save-btn" onclick="copyRef('code',event)">Copy</button>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:0"><label>Link mời</label>
+        <div class="ref-input-row">
+          <input type="text" id="refLink" readonly style="font-size:12.5px;color:var(--cr2)">
+          <button class="save-btn" onclick="copyRef('link',event)">Copy</button>
+        </div>
+      </div>
+      <div class="ref-stats" id="refStats">Bạn đã mời thành công <b id="refCount">0</b> người 🌿</div>
+    </div>
+
+    <!-- Kèo của tôi -->
+    <div class="card">
+      <h2>Kèo của tôi</h2>
+      <p class="ch" id="keoMineHint">Lịch sử các buổi Kèo của bạn.</p>
+      <div class="keo-tabs">
+        <div class="kt on" data-f="upcoming" onclick="switchKeoTab('upcoming')">Sắp tới</div>
+        <div class="kt" data-f="past" onclick="switchKeoTab('past')">Đã xong</div>
+      </div>
+      <div id="keoMineList"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+let ME=null, PROFILE=null, MY_KEOS=[];
+
+async function init(){
+  const auth = await Keo.requireAuth();
+  if(!auth) return;
+  ME = auth.session.user; PROFILE = auth.profile;
+
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+
+  // Điều hướng theo vai trò
+  if(PROFILE.role==='nguoi_dong_hanh'){
+    document.getElementById('navKeoMo').classList.remove('hidden');
+    document.getElementById('portfolioCard').classList.remove('hidden');
+  } else {
+    document.getElementById('navQuanLy').classList.remove('hidden');
+  }
+
+  fillProfile();
+  renderAvatar();
+  if(PROFILE.role==='nguoi_dong_hanh') loadPortfolio();
+  loadReferral();
+  loadMyKeos();
+}
+
+function fillProfile(){
+  document.getElementById('roleLine').textContent = Keo.ROLE_LABEL[PROFILE.role] || '';
+  document.getElementById('fullName').value = PROFILE.full_name || '';
+  document.getElementById('phone').value = PROFILE.phone || '';
+  document.getElementById('city').value = PROFILE.city || '';
+  document.getElementById('bio').value = PROFILE.bio || '';
+  // Xác minh
+  const vr = document.getElementById('verifyRow');
+  if(PROFILE.cccd_verified){
+    vr.className = 'verify-row yes'; vr.innerHTML = '✓ Danh tính đã được xác minh (CCCD)';
+  } else if(PROFILE.role==='nguoi_dong_hanh'){
+    vr.className = 'verify-row no';
+    vr.innerHTML = '⏳ Chưa xác minh danh tính — <a href="/xac-minh">xác minh CCCD</a> để ứng tuyển Kèo mở.';
+  } else {
+    vr.className = 'verify-row no';
+    vr.innerHTML = 'ℹ️ Tài khoản Chủ xị không bắt buộc xác minh CCCD.';
+  }
+}
+
+function renderAvatar(){
+  const wrap = document.getElementById('avatarWrap');
+  if(PROFILE.avatar_url){
+    wrap.innerHTML = `<img class="avatar" src="${Keo.esc(PROFILE.avatar_url)}" alt="avatar">`;
+  } else {
+    const initial = (PROFILE.full_name||'K').trim().charAt(0).toUpperCase();
+    wrap.innerHTML = `<div class="avatar-ph">${Keo.esc(initial)}</div>`;
+  }
+}
+
+async function saveProfile(){
+  const btn = event.target; btn.disabled = true; btn.textContent='Đang lưu…';
+  const { error } = await Keo.sb.from('profiles').update({
+    full_name: document.getElementById('fullName').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    city: document.getElementById('city').value || null,
+    bio: document.getElementById('bio').value.trim(),
+    updated_at: new Date().toISOString()
+  }).eq('id', ME.id);
+  btn.disabled=false; btn.textContent='Lưu thay đổi';
+  if(error){ Keo.toast('Lỗi: '+error.message,'err'); return; }
+  PROFILE.full_name = document.getElementById('fullName').value.trim();
+  renderAvatar();
+  Keo.toast('✓ Đã lưu hồ sơ');
+}
+
+async function uploadAvatar(input){
+  const file = input.files[0]; if(!file) return;
+  Keo.toast('Đang tải ảnh…');
+  try{
+    const path = await Keo.uploadImage('avatars', ME.id, file, {prefix:'avatar', upsert:true});
+    const url = Keo.publicImageUrl('avatars', path);
+    await Keo.sb.from('profiles').update({avatar_url:url}).eq('id', ME.id);
+    PROFILE.avatar_url = url; renderAvatar();
+    Keo.toast('✓ Đã cập nhật ảnh đại diện');
+  }catch(e){ Keo.toast('Lỗi tải ảnh: '+e.message,'err'); }
+}
+
+async function loadPortfolio(){
+  const { data } = await Keo.sb.from('portfolio_images').select('*').eq('profile_id', ME.id).order('sort_order');
+  const grid = document.getElementById('portfolioGrid');
+  const cells = (data||[]).map(img=>{
+    const url = Keo.publicImageUrl('portfolio', img.storage_path);
+    return `<div class="img-cell"><img src="${url}" alt="${Keo.esc(img.caption||'')}">
+      <button class="del" onclick="deletePortfolio('${img.id}','${img.storage_path}')">✕</button></div>`;
+  });
+  cells.push(`<button class="img-add" onclick="document.getElementById('portfolioInput').click()"><span style="font-size:22px">+</span>Thêm ảnh</button>`);
+  grid.innerHTML = cells.join('');
+}
+
+async function uploadPortfolio(input){
+  const file = input.files[0]; if(!file) return;
+  Keo.toast('Đang tải ảnh…');
+  try{
+    const path = await Keo.uploadImage('portfolio', ME.id, file, {prefix:'port'});
+    await Keo.sb.from('portfolio_images').insert({profile_id:ME.id, storage_path:path});
+    loadPortfolio();
+    Keo.toast('✓ Đã thêm ảnh');
+  }catch(e){ Keo.toast('Lỗi: '+e.message,'err'); }
+  input.value='';
+}
+
+async function deletePortfolio(id, path){
+  await Keo.sb.from('portfolio_images').delete().eq('id', id);
+  await Keo.sb.storage.from('portfolio').remove([path]);
+  loadPortfolio();
+  Keo.toast('Đã xoá ảnh');
+}
+
+async function loadReferral(){
+  document.getElementById('refCode').value = PROFILE.referral_code || '';
+  document.getElementById('refLink').value = location.origin + '/dang-nhap?tab=signup&ref=' + (PROFILE.referral_code||'');
+  const { data } = await Keo.sb.from('my_referral_stats').select('successful_referrals').eq('referrer_id', ME.id).maybeSingle();
+  if(data && data.successful_referrals > 0){
+    document.getElementById('refCount').textContent = data.successful_referrals;
+    document.getElementById('refStats').style.display='block';
+  }
+}
+function copyRef(which, e){
+  const el = document.getElementById(which==='code'?'refCode':'refLink');
+  const done=()=>{ const o=e.target.textContent; e.target.textContent='✓'; setTimeout(()=>e.target.textContent=o,1400); };
+  if(navigator.clipboard?.writeText){ navigator.clipboard.writeText(el.value).then(done).catch(()=>{el.select();document.execCommand('copy');done();}); }
+  else { el.select(); document.execCommand('copy'); done(); }
+}
+
+async function loadMyKeos(){
+  // Chủ xị: Kèo mình tạo. Người đồng hành: Kèo mình được chấp nhận.
+  if(PROFILE.role==='chu_xi'){
+    const { data } = await Keo.sb.from('open_keos').select('*').eq('host_id', ME.id).order('created_at',{ascending:false});
+    MY_KEOS = (data||[]).map(k=>({...k, _role:'host'}));
+    document.getElementById('keoMineHint').textContent = 'Các Kèo bạn đã đăng.';
+  } else {
+    const { data } = await Keo.sb.from('keo_applications')
+      .select('status, keo:open_keos(*)')
+      .eq('companion_id', ME.id).eq('status','accepted');
+    MY_KEOS = (data||[]).map(a=>({...a.keo, _role:'companion'}));
+    document.getElementById('keoMineHint').textContent = 'Các Kèo bạn được chọn làm người đồng hành.';
+  }
+  switchKeoTab('upcoming');
+}
+
+function switchKeoTab(f){
+  document.querySelectorAll('.kt').forEach(t=>t.classList.toggle('on', t.dataset.f===f));
+  const list = MY_KEOS.filter(k=>{
+    const past = k.status==='completed' || k.status==='cancelled';
+    return f==='past' ? past : !past;
+  });
+  const el = document.getElementById('keoMineList');
+  if(!list.length){ el.innerHTML = `<div class="empty-mini">${f==='past'?'Chưa có Kèo nào đã xong.':'Chưa có Kèo sắp tới.'}</div>`; return; }
+  el.innerHTML = list.map(k=>`<div class="keo-item">
+    <div><div class="keo-item-t">${Keo.esc(k.title)}</div>
+      <div class="keo-item-m">${Keo.CITY_LABEL[k.city]||k.city} · ${Keo.formatDate(k.scheduled_at)}${k.fixed_fee?' · '+Keo.formatVND(k.fixed_fee):''}</div></div>
+    <span class="keo-badge ${k.status}">${badgeLabel(k.status)}</span>
+  </div>`).join('');
+}
+function badgeLabel(s){ return {open:'Đang mở',filled:'Đã chốt',completed:'Hoàn thành',cancelled:'Đã huỷ'}[s]||s; }
+
+init();
+</script>
+</body></html>

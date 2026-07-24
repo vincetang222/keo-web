@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Lời mời chờ bạn đồng ý | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<!--
+  STAGE 2 — trang này chỉ hoạt động sau khi chạy db/patches/03-two-sided-consent.sql
+  (thêm trạng thái application_status 'host_selected'). Trước đó nó luôn rỗng.
+  Xem docs/INTEGRATION-two-sided-consent.md.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17120D;--bg2:#1F1712;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rim)}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-r a{font-size:13.5px;color:var(--cr2)}
+.wrap{max-width:680px;margin:0 auto;padding:40px 24px 80px}
+.gate{text-align:center;padding:70px 20px;color:var(--cr3);font-size:14px;line-height:1.7}
+.gate a{color:var(--gold);font-weight:600}
+.page-h{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:6px}
+.page-sub{color:var(--cr2);font-size:14px;margin-bottom:24px;line-height:1.5}
+.empty{text-align:center;padding:60px 20px;background:var(--bg2);border:1px dashed var(--rim2);border-radius:16px;color:var(--cr3)}
+.empty .em-ic{font-size:44px;margin-bottom:12px;opacity:.5}
+.empty .em-t{color:var(--cream);font-family:var(--serif);font-size:18px;margin-bottom:6px}
+.empty .em-s{font-size:13px}
+.inv{background:var(--bg2);border:1px solid var(--rim2);border-radius:16px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden}
+.inv::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.inv-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:rgba(232,162,43,.15);color:var(--gold);margin-bottom:10px}
+.inv-tag.private{background:rgba(214,95,53,.15);color:#e89670}
+.inv-title{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.28;margin-bottom:10px}
+.inv-meta{display:flex;gap:16px;flex-wrap:wrap;color:var(--cr3);font-size:12.5px;margin-bottom:14px}
+.inv-host{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg);border:1px solid var(--rim);border-radius:11px;margin-bottom:14px}
+.inv-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#1A1006;font-weight:700;font-size:15px;flex-shrink:0}
+.inv-host-l{font-size:11px;color:var(--cr3);text-transform:uppercase;letter-spacing:.06em}
+.inv-host-n{font-size:14px;font-weight:600;margin-top:1px}
+.inv-host-check{margin-left:auto;font-size:11px;color:var(--ok);display:flex;align-items:center;gap:4px}
+.inv-desc{font-size:13px;color:var(--cr2);line-height:1.55;padding:12px 14px;background:var(--bg);border-radius:10px;border-left:2px solid var(--gold);margin-bottom:14px}
+.inv-fee{display:flex;justify-content:space-between;padding:10px 12px;background:var(--bg);border:1px solid var(--rim);border-radius:10px;margin-bottom:16px}
+.inv-fee-l{font-size:12px;color:var(--cr3)}
+.inv-fee-v{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--gold)}
+.inv-actions{display:flex;gap:10px}
+.inv-btn{flex:1;padding:13px;border:none;border-radius:100px;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s}
+.inv-btn-yes{background:var(--grad);color:#1A1006}
+.inv-btn-yes:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(232,162,43,.3)}
+.inv-btn-no{background:transparent;color:var(--cr2);border:1px solid var(--rim2)}
+.inv-btn-no:hover{background:var(--bg);color:var(--err);border-color:var(--err)}
+.inv-hint{font-size:11.5px;color:var(--cr3);text-align:center;margin-top:10px;line-height:1.5}
+.hidden{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r"><a href="/tai-khoan">← Tài khoản</a></div>
+</nav>
+
+<div class="wrap">
+  <div id="gate" class="gate">Đang kiểm tra…</div>
+  <div id="content" class="hidden">
+    <h1 class="page-h">Lời mời chờ bạn đồng ý</h1>
+    <p class="page-sub">Chủ xị đã chọn bạn cho các buổi Kèo dưới. Xem lại và cho biết bạn có tham gia không.</p>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+let ME=null, INVITES=[];
+
+async function init(){
+  const auth = await Keo.requireAuth({ role:'nguoi_dong_hanh' });
+  if(!auth) return;
+  const gate = document.getElementById('gate');
+  if(auth.roleMismatch){
+    gate.innerHTML = 'Trang này dành cho Người đồng hành.<br><br><a href="/tai-khoan">← Về tài khoản</a>';
+    return;
+  }
+  ME = auth.session.user;
+  gate.classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+  await load();
+}
+
+async function load(){
+  // Lấy mọi đơn của tôi đang ở 'host_selected' (chờ tôi đồng ý cuối)
+  const { data, error } = await Keo.sb.from('keo_applications')
+    .select(`
+      id, keo_id, proposed_fee, status,
+      keo:open_keos!inner(
+        id, title, description, city, category, scheduled_at, fixed_fee, visibility,
+        host:profiles!open_keos_host_id_fkey(id, full_name, cccd_verified)
+      )
+    `)
+    .eq('companion_id', ME.id)
+    .eq('status', 'host_selected')
+    .order('created_at', { ascending: false });
+  if(error){ Keo.toast('Lỗi tải: '+error.message, 'err'); INVITES=[]; render(); return; }
+  INVITES = (data||[]).map(a => ({
+    id: a.id,
+    kind: a.keo.visibility === 'private' ? 'invite' : 'application',
+    keo: {
+      id: a.keo.id, title: a.keo.title, city: a.keo.city,
+      when: a.keo.scheduled_at ? Keo.formatDate(a.keo.scheduled_at) : 'Thoả thuận sau',
+      fee: a.keo.fixed_fee || a.proposed_fee || null,
+      desc: a.keo.description || '(không có mô tả thêm)',
+    },
+    host: { name: a.keo.host?.full_name || 'Chủ xị', verified: !!a.keo.host?.cccd_verified },
+  }));
+  render();
+}
+
+function render(){
+  const list = document.getElementById('list');
+  if(!INVITES.length){
+    list.innerHTML = `<div class="empty">
+      <div class="em-ic">📭</div>
+      <div class="em-t">Chưa có lời mời nào</div>
+      <div class="em-s">Khi Chủ xị chọn bạn cho buổi Kèo nào đó, nó sẽ xuất hiện ở đây.</div>
+    </div>`;
+    return;
+  }
+  list.innerHTML = INVITES.map(inv => {
+    const initials = inv.host.name.split(' ').map(x=>x[0]).join('').slice(0,2);
+    const tag = inv.kind==='invite'
+      ? '<span class="inv-tag private">Mời riêng</span>'
+      : '<span class="inv-tag">Được chọn từ đơn của bạn</span>';
+    const feeBlock = inv.keo.fee
+      ? `<div class="inv-fee"><span class="inv-fee-l">Thù lao cho bạn</span><span class="inv-fee-v">${Keo.formatVND(inv.keo.fee)}</span></div>`
+      : '';
+    return `<div class="inv">
+      ${tag}
+      <div class="inv-title">${Keo.esc(inv.keo.title)}</div>
+      <div class="inv-meta">
+        <span>📍 ${Keo.CITY_LABEL[inv.keo.city]||inv.keo.city}</span>
+        <span>🕒 ${inv.keo.when}</span>
+      </div>
+      <div class="inv-host">
+        <div class="inv-avatar">${Keo.esc(initials)}</div>
+        <div><div class="inv-host-l">Chủ xị</div><div class="inv-host-n">${Keo.esc(inv.host.name)}</div></div>
+        ${inv.host.verified?'<div class="inv-host-check">✓ Đã xác minh</div>':''}
+      </div>
+      <div class="inv-desc">${Keo.esc(inv.keo.desc)}</div>
+      ${feeBlock}
+      <div class="inv-actions">
+        <button class="inv-btn inv-btn-no"  onclick="respond('${inv.id}', false)">Không thể tham gia</button>
+        <button class="inv-btn inv-btn-yes" onclick="respond('${inv.id}', true)">Tôi đồng ý tham gia</button>
+      </div>
+      <div class="inv-hint">Chỉ đồng ý khi bạn thật sự có thể tham dự. Sau khi đồng ý, kênh chat sẽ mở để hai bên trao đổi chi tiết.</div>
+    </div>`;
+  }).join('');
+}
+
+async function respond(appId, agree){
+  if(!agree && !confirm('Bạn chắc chắn không thể tham gia? Chủ xị sẽ được thông báo và có thể chọn người khác.')) return;
+  const newStatus = agree ? 'accepted' : 'rejected';
+  const { error } = await Keo.sb.from('keo_applications').update({ status: newStatus }).eq('id', appId);
+  if(error){ Keo.toast('Lỗi: '+error.message, 'err'); return; }
+  Keo.toast(agree ? '✓ Bạn đã đồng ý — Chủ xị được thông báo' : 'Đã từ chối lời đề nghị');
+  // Trigger DB (patch 03) tự lo phần còn lại. Đơn không còn 'host_selected' → xoá khỏi list.
+  INVITES = INVITES.filter(i => i.id !== appId);
+  render();
+}
+
+init();
+</script>
+</body></html>

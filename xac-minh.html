@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Xác minh danh tính | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0C0A;--bg2:#1F1712;--s1:#1E1A16;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.05) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.5}
+nav,.wrap{position:relative;z-index:1}
+nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rim)}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-r a{font-size:13.5px;color:var(--cr2)}
+.wrap{max-width:600px;margin:0 auto;padding:40px 24px 80px}
+.gate{text-align:center;padding:80px 20px;color:var(--cr3)}
+.gate a{color:var(--gold);font-weight:600}
+h1{font-family:var(--serif);font-size:28px;font-weight:800;margin-bottom:8px}
+.lede{font-size:14px;color:var(--cr2);line-height:1.6;margin-bottom:26px}
+.card{background:var(--bg2);border:1px solid var(--rim2);border-radius:16px;padding:24px;margin-bottom:18px}
+.status-banner{padding:16px 18px;border-radius:12px;font-size:14px;font-weight:500;margin-bottom:22px;line-height:1.55}
+.status-banner.submitted{background:rgba(232,162,43,.1);border:1px solid rgba(232,162,43,.25);color:var(--gold)}
+.status-banner.verified{background:rgba(92,196,154,.1);border:1px solid rgba(92,196,154,.25);color:var(--ok)}
+.status-banner.rejected{background:rgba(224,99,122,.1);border:1px solid rgba(224,99,122,.25);color:var(--err)}
+.privacy{background:var(--s1);border:1px solid var(--rim);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 18px;font-size:13px;color:var(--cr2);line-height:1.6;margin-bottom:22px}
+.privacy b{color:var(--cream)}
+.up-zone{border:1.5px dashed var(--rim2);border-radius:14px;padding:34px 20px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.up-zone:hover{border-color:var(--gold);background:rgba(232,162,43,.03)}
+.up-zone .ic{font-size:34px;margin-bottom:10px}
+.up-zone .t{font-size:14px;font-weight:600;margin-bottom:4px}
+.up-zone .s{font-size:12px;color:var(--cr3)}
+.preview{display:flex;align-items:center;gap:14px;padding:12px;background:var(--s1);border-radius:11px;margin-bottom:16px}
+.preview img{width:60px;height:60px;border-radius:8px;object-fit:cover}
+.preview .pn{flex:1;font-size:13px;color:var(--cr2)}
+.preview .rm{background:none;border:none;color:var(--err);cursor:pointer;font-size:13px;font-weight:600}
+.vfield{margin-bottom:15px}
+.vfield label{display:block;font-size:12.5px;font-weight:600;color:var(--cr2);margin-bottom:7px}
+.vfield input{width:100%;padding:11px 13px;background:var(--bg);border:1.5px solid var(--rim2);border-radius:10px;color:var(--cream);font-family:var(--sans);font-size:14px}
+.vfield input:focus{border-color:var(--gold);outline:none}
+.vhint{font-size:11.5px;color:var(--cr3);margin-top:6px;line-height:1.5}
+.data-card{background:var(--s1);border:1px solid var(--rim);border-radius:12px;padding:18px 20px;margin-top:16px}
+.data-card h3{font-size:13px;font-weight:600;color:var(--cr2);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
+.data-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--rim);font-size:13.5px}
+.data-row:last-child{border-bottom:none}
+.data-row .k{color:var(--cr3)}
+.data-row .v{color:var(--cream);font-weight:500}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:20px;cursor:pointer}
+.consent input{margin-top:3px;flex-shrink:0}
+.consent span{font-size:13px;color:var(--cr2);line-height:1.55}
+.submit{width:100%;padding:13px;border:none;border-radius:100px;background:var(--grad);color:#1A1006;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer}
+.submit:disabled{opacity:.5;cursor:not-allowed}
+.hidden{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r"><a href="/tai-khoan">← Về tài khoản</a></div>
+</nav>
+
+<div class="wrap">
+  <div id="gate" class="gate">Đang tải…</div>
+
+  <div id="content" class="hidden">
+    <h1>Xác minh danh tính</h1>
+    <p class="lede">Người đồng hành cần xác minh CCCD trước khi ứng tuyển Kèo — bước này giữ an toàn cho cả cộng đồng và tăng lòng tin từ Chủ xị.</p>
+
+    <div id="statusBanner" class="hidden"></div>
+
+    <div id="uploadArea">
+      <div class="privacy">
+        <b>Dữ liệu của bạn được bảo vệ thế nào:</b> Ảnh CCCD được lưu ở khu vực riêng tư, mã hoá, <b>không hiển thị công khai</b> và không ai ngoài bạn cùng bộ phận xác minh của Kèo xem được. Sau khi xác minh xong, chúng tôi khuyến nghị xoá ảnh và chỉ giữ trạng thái "đã xác minh". Việc xử lý tuân theo Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân.
+      </div>
+
+      <div class="card">
+        <div class="up-zone" id="upZone" onclick="document.getElementById('cccdInput').click()">
+          <div class="ic">🪪</div>
+          <div class="t">Tải ảnh CCCD (mặt trước)</div>
+          <div class="s">JPG hoặc PNG · ảnh rõ nét, đủ 4 góc</div>
+        </div>
+        <input type="file" id="cccdInput" accept="image/*" style="display:none" onchange="previewFile(this)">
+        <div id="preview" class="hidden"></div>
+
+        <div class="vfield">
+          <label for="cccdName">Họ tên trên CCCD</label>
+          <input type="text" id="cccdName" placeholder="NGUYỄN VĂN A" oninput="updateSubmit()">
+        </div>
+        <div class="vfield">
+          <label for="cccdNumber">Số CCCD (12 số)</label>
+          <input type="text" id="cccdNumber" inputmode="numeric" maxlength="12" placeholder="0XX XXX XXX XXX" oninput="updateSubmit()">
+          <div class="vhint">Số này được lưu dưới dạng mã hoá — chúng tôi chỉ hiển thị lại 4 số cuối cho bạn nhận diện.</div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="consent">
+          <span>Tôi đồng ý cho Kèo thu thập và xử lý CCCD của tôi nhằm mục đích xác minh danh tính, theo Nghị định 13/2023/NĐ-CP.</span>
+        </label>
+
+        <button class="submit" id="submitBtn" onclick="submitVerification()" disabled>Gửi xác minh</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+let ME=null, PROFILE=null, selectedFile=null;
+
+async function init(){
+  const auth = await Keo.requireAuth({ role:'nguoi_dong_hanh' });
+  if(!auth) return;
+  if(auth.roleMismatch){
+    document.getElementById('gate').innerHTML = 'Xác minh CCCD chỉ dành cho Người đồng hành.<br><br><a href="/tai-khoan">← Về tài khoản</a>';
+    return;
+  }
+  ME = auth.session.user; PROFILE = auth.profile;
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+
+  // Lấy bản ghi xác minh gần nhất (nếu có)
+  const { data: docs } = await Keo.sb.from('verification_documents')
+    .select('*').eq('profile_id', ME.id).order('created_at',{ascending:false}).limit(1);
+  const doc = docs && docs.length ? docs[0] : null;
+
+  // Nếu đã xác minh — hiện trạng thái + DỮ LIỆU ĐÃ CUNG CẤP (để họ tự kiểm tra)
+  if(PROFILE.cccd_verified){
+    showStatus('verified', '✓ Danh tính của bạn đã được xác minh. Bạn có thể ứng tuyển Kèo mở.');
+    document.getElementById('uploadArea').classList.add('hidden');
+    if(doc) renderProvidedData(doc);
+    return;
+  }
+  if(doc && doc.status==='submitted'){
+    showStatus('submitted', '⏳ Thông tin của bạn đã được gửi và đang chờ xác minh. Chúng tôi sẽ phản hồi sớm.');
+    document.getElementById('uploadArea').classList.add('hidden');
+    renderProvidedData(doc);
+  } else if(doc && doc.status==='rejected'){
+    showStatus('rejected', 'Lần xác minh trước chưa đạt' + (doc.reject_reason?': '+doc.reject_reason:' (ảnh mờ hoặc thiếu góc)') + '. Vui lòng thử lại.');
+  }
+}
+
+// Hiển thị dữ liệu người dùng đã cung cấp — họ tự kiểm tra được, KHÔNG lộ số CCCD đầy đủ
+function renderProvidedData(doc){
+  const area = document.getElementById('content');
+  const imgState = doc.image_deleted_at
+    ? 'Đã xoá theo lịch bảo mật (dữ liệu xác minh vẫn được giữ)'
+    : (doc.image_expires_at ? 'Được lưu an toàn tới ' + new Date(doc.image_expires_at).toLocaleDateString('vi-VN') : 'Đang lưu an toàn');
+  const html = `<div class="data-card">
+    <h3>Thông tin bạn đã cung cấp</h3>
+    <div class="data-row"><span class="k">Họ tên</span><span class="v">${Keo.esc(doc.full_name_snapshot||'—')}</span></div>
+    <div class="data-row"><span class="k">Số CCCD</span><span class="v">${doc.cccd_last4?'•••• •••• '+Keo.esc(doc.cccd_last4):'—'}</span></div>
+    <div class="data-row"><span class="k">Ngày gửi</span><span class="v">${Keo.formatDate(doc.created_at)}</span></div>
+    <div class="data-row"><span class="k">Ảnh CCCD</span><span class="v">${imgState}</span></div>
+  </div>`;
+  area.insertAdjacentHTML('beforeend', html);
+}
+
+function showStatus(type, msg){
+  const b = document.getElementById('statusBanner');
+  b.className = 'status-banner ' + type; b.textContent = msg; b.classList.remove('hidden');
+}
+
+function previewFile(input){
+  const file = input.files[0]; if(!file) return;
+  selectedFile = file;
+  const url = URL.createObjectURL(file);
+  document.getElementById('upZone').classList.add('hidden');
+  const p = document.getElementById('preview');
+  p.className = 'preview';
+  p.innerHTML = `<img src="${url}" alt="preview"><div class="pn">${Keo.esc(file.name)}</div>
+    <button class="rm" onclick="clearFile()">Đổi ảnh</button>`;
+  updateSubmit();
+}
+function clearFile(){
+  selectedFile=null;
+  document.getElementById('cccdInput').value='';
+  document.getElementById('upZone').classList.remove('hidden');
+  document.getElementById('preview').className='hidden';
+  document.getElementById('preview').innerHTML='';
+  updateSubmit();
+}
+document.getElementById('consent').addEventListener('change', updateSubmit);
+function updateSubmit(){
+  const name = document.getElementById('cccdName').value.trim();
+  const num = document.getElementById('cccdNumber').value.replace(/\D/g,'');
+  const ok = selectedFile && document.getElementById('consent').checked && name.length>=3 && num.length===12;
+  document.getElementById('submitBtn').disabled = !ok;
+}
+
+// Băm SHA-256 số CCCD (tầng 1) — chạy trong trình duyệt, số gốc KHÔNG gửi đi.
+// LƯU Ý BẢO MẬT: đây là hash TRẦN phía client. Không gian số CCCD nhỏ + có cấu
+// trúc nên hash trần có thể bị vét cạn nếu cccd_hash bị rò rỉ. Bản vá bảo mật
+// (db/patches/04-security-hardening.sql) bổ sung hàm HMAC phía server dùng làm
+// nguồn đối chiếu chuẩn; hash client này chỉ để hiển thị/so khớp sơ bộ.
+async function sha256(text){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function submitVerification(){
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Đang gửi…';
+  try{
+    const name = document.getElementById('cccdName').value.trim();
+    const num = document.getElementById('cccdNumber').value.replace(/\D/g,'');
+    // Tầng 1: hash số CCCD + giữ 4 số cuối hiển thị
+    const cccd_hash = await sha256(num);
+    const cccd_last4 = num.slice(-4);
+    // Tầng 2: upload ảnh vào bucket PRIVATE
+    const path = await Keo.uploadImage('cccd', ME.id, selectedFile, {prefix:'cccd'});
+    const { error } = await Keo.sb.from('verification_documents').insert({
+      profile_id: ME.id, doc_type:'cccd', status:'submitted',
+      cccd_hash, cccd_last4, full_name_snapshot: name, storage_path: path
+    });
+    if(error) throw error;
+    // profiles.verification='submitted' + nhật ký audit do TRIGGER
+    // on_verification_submitted (patch 04) tự ghi phía server — client KHÔNG
+    // ghi trực tiếp nữa (RLS chặn user tự sửa cột verification / bảng audit).
+    document.getElementById('uploadArea').classList.add('hidden');
+    showStatus('submitted', '✓ Đã gửi! Thông tin của bạn đang chờ xác minh. Chúng tôi sẽ phản hồi sớm.');
+    Keo.toast('✓ Đã gửi yêu cầu xác minh');
+  }catch(e){
+    btn.disabled=false; btn.textContent='Gửi xác minh';
+    Keo.toast('Lỗi: '+e.message, 'err');
+  }
+}
+
+init();
+</script>
+</body></html>

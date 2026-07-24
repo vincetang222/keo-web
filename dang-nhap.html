@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Đăng nhập | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0C0A;--bg2:#1F1712;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh;display:flex;flex-direction:column}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.05) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.5}
+.top{position:relative;z-index:1;padding:22px 32px}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.wrap{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{width:100%;max-width:420px;background:var(--bg2);border:1px solid var(--rim2);border-radius:20px;padding:32px}
+.tabs{display:flex;gap:6px;background:var(--bg);border-radius:100px;padding:5px;margin-bottom:24px}
+.tab{flex:1;text-align:center;padding:10px;border-radius:100px;font-size:13.5px;font-weight:600;color:var(--cr2);cursor:pointer;transition:all .2s}
+.tab.on{background:var(--grad);color:#1A1006}
+h1{font-family:var(--serif);font-size:24px;font-weight:800;margin-bottom:6px}
+.sub{font-size:13px;color:var(--cr2);margin-bottom:22px}
+.msg{font-size:13px;padding:11px 14px;border-radius:10px;margin-bottom:16px;display:none}
+.msg.show{display:block}
+.msg.err{background:rgba(224,99,122,.12);border:1px solid rgba(224,99,122,.3);color:var(--err)}
+.msg.ok{background:rgba(92,196,154,.12);border:1px solid rgba(92,196,154,.3);color:var(--ok)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--cr2);margin-bottom:7px}
+.field input{width:100%;padding:12px 14px;background:var(--bg);border:1.5px solid var(--rim2);border-radius:11px;color:var(--cream);font-family:var(--sans);font-size:14px}
+.field input:focus{border-color:var(--gold);outline:none}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.role-opt{position:relative;cursor:pointer}
+.role-opt input{position:absolute;opacity:0}
+.role-box{padding:14px 12px;border:1.5px solid var(--rim2);border-radius:12px;text-align:center;transition:all .2s}
+.role-opt input:checked+.role-box{border-color:var(--gold);background:rgba(232,162,43,.08)}
+.role-box .rt{font-size:13.5px;font-weight:600;margin-bottom:2px}
+.role-box .rd{font-size:11px;color:var(--cr3)}
+.submit{width:100%;padding:13px;border:none;border-radius:100px;background:var(--grad);color:#1A1006;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;margin-top:4px}
+.submit:disabled{opacity:.5;cursor:not-allowed}
+.foot{text-align:center;font-size:12.5px;color:var(--cr3);margin-top:18px}
+</style>
+</head><body>
+<div class="top"><a href="/" class="logo">Kèo<span>.</span></a></div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="tabs">
+      <div class="tab on" id="tabLogin" onclick="switchTab('login')">Đăng nhập</div>
+      <div class="tab" id="tabSignup" onclick="switchTab('signup')">Đăng ký</div>
+    </div>
+
+    <div class="msg" id="msg"></div>
+    <div class="msg ok" id="refBanner" style="display:none">🎁 Bạn được một người bạn mời tham gia Kèo — cả hai sẽ nhận ưu đãi cho buổi Kèo tiếp theo.</div>
+
+    <!-- LOGIN -->
+    <form id="loginForm" onsubmit="doLogin(event)">
+      <h1>Chào mừng trở lại</h1>
+      <p class="sub">Đăng nhập để quản lý Kèo và hồ sơ của bạn.</p>
+      <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="email"></div>
+      <div class="field"><label>Mật khẩu</label><input type="password" name="password" required autocomplete="current-password"></div>
+      <button type="submit" class="submit" id="loginBtn">Đăng nhập</button>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signupForm" onsubmit="doSignup(event)" style="display:none">
+      <h1>Tạo tài khoản Kèo</h1>
+      <p class="sub">Bạn muốn tham gia với vai trò nào?</p>
+      <div class="roles">
+        <label class="role-opt"><input type="radio" name="role" value="chu_xi" checked>
+          <div class="role-box"><div class="rt">Chủ xị</div><div class="rd">Tìm người đồng hành</div></div></label>
+        <label class="role-opt"><input type="radio" name="role" value="nguoi_dong_hanh">
+          <div class="role-box"><div class="rt">Người đồng hành</div><div class="rd">Nhận Kèo, chia sẻ</div></div></label>
+      </div>
+      <div class="field"><label>Họ tên</label><input type="text" name="full_name" required autocomplete="name"></div>
+      <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="email"></div>
+      <div class="field"><label>Mật khẩu <span style="color:var(--cr3);font-weight:400">(tối thiểu 8 ký tự)</span></label><input type="password" name="password" required minlength="8" autocomplete="new-password"></div>
+      <button type="submit" class="submit" id="signupBtn">Tạo tài khoản</button>
+    </form>
+
+    <div class="foot">Bằng việc tiếp tục, bạn đồng ý với <a href="/rules" style="color:var(--gold)">Quy tắc cộng đồng</a> của Kèo.</div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+// Bắt attribution ngay khi vào trang (first-touch)
+Keo.captureAttribution();
+
+function switchTab(which){
+  const login = which==='login';
+  document.getElementById('tabLogin').classList.toggle('on', login);
+  document.getElementById('tabSignup').classList.toggle('on', !login);
+  document.getElementById('loginForm').style.display = login ? 'block':'none';
+  document.getElementById('signupForm').style.display = login ? 'none':'block';
+  hideMsg();
+}
+function showMsg(text, type){
+  const m = document.getElementById('msg');
+  m.textContent = text; m.className = 'msg show ' + type;
+}
+function hideMsg(){ document.getElementById('msg').className = 'msg'; }
+
+function nextUrl(){
+  const p = new URLSearchParams(location.search);
+  return p.get('next') || '/tai-khoan';
+}
+
+async function doLogin(e){
+  e.preventDefault();
+  const f = e.target; const btn = document.getElementById('loginBtn');
+  btn.disabled = true; btn.textContent = 'Đang đăng nhập…';
+  const { error } = await Keo.sb.auth.signInWithPassword({
+    email: f.email.value, password: f.password.value
+  });
+  btn.disabled = false; btn.textContent = 'Đăng nhập';
+  if(error){ showMsg(Keo.friendlyAuthError(error.message), 'err'); return; }
+  location.href = nextUrl();
+}
+
+async function doSignup(e){
+  e.preventDefault();
+  const f = e.target; const btn = document.getElementById('signupBtn');
+  btn.disabled = true; btn.textContent = 'Đang tạo…';
+
+  const { ref_code, utm } = Keo.getAttribution();
+  const signup_source = ref_code ? 'referral' : (utm ? (JSON.parse(utm).source || 'organic') : 'organic');
+  const meta = { full_name: f.full_name.value, role: f.role.value, signup_source };
+  if(ref_code) meta.ref_code = ref_code;
+  if(utm) meta.signup_utm = utm;
+
+  const { data, error } = await Keo.sb.auth.signUp({
+    email: f.email.value, password: f.password.value, options: { data: meta }
+  });
+  btn.disabled = false; btn.textContent = 'Tạo tài khoản';
+  if(error){ showMsg(Keo.friendlyAuthError(error.message), 'err'); return; }
+
+  Keo.clearAttribution();
+  if(data.session){
+    showMsg('Tạo tài khoản thành công — đang chuyển hướng…', 'ok');
+    setTimeout(()=> location.href = nextUrl(), 600);
+  } else {
+    showMsg('Tạo tài khoản thành công! Kiểm tra email để xác nhận, rồi đăng nhập.', 'ok');
+    setTimeout(()=> switchTab('login'), 1800);
+  }
+}
+
+// Khởi tạo trạng thái vào trang
+(async function(){
+  const p = new URLSearchParams(location.search);
+  if(p.get('tab')==='signup') switchTab('signup');
+  if(p.get('role')==='nguoi_dong_hanh'){
+    const r = document.querySelector('input[name="role"][value="nguoi_dong_hanh"]');
+    if(r) r.checked = true;
+  }
+  // Banner giới thiệu
+  if(Keo.getAttribution().ref_code){
+    const b = document.getElementById('refBanner');
+    b.style.display='block'; b.classList.add('show');
+    switchTab('signup');
+  }
+  // Đã đăng nhập sẵn → vào thẳng tài khoản
+  const session = await Keo.getSession();
+  if(session) location.href = nextUrl();
+})();
+</script>
+</body></html>

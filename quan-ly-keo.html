@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#17120D">
+<title>Quản lý Kèo | Kèo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0C0A;--bg2:#1F1712;--s1:#1E1A16;--gold:#E8A22B;--a:#D65F35;--a2:#D14060;
+  --grad:linear-gradient(135deg,#E8A22B 0%,#D65F35 50%,#D14060 100%);
+  --cream:#F5EFE6;--cr2:rgba(245,239,230,.62);--cr3:rgba(245,239,230,.4);
+  --rim:rgba(245,239,230,.1);--rim2:rgba(245,239,230,.16);
+  --serif:'Playfair Display',serif;--sans:'Be Vietnam Pro',sans-serif;
+  --ok:#5CC49A;--err:#E0637A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--cream);min-height:100vh}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(245,239,230,.05) 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.5}
+nav,.wrap{position:relative;z-index:1}
+nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rim)}
+.logo{font-family:var(--serif);font-size:22px;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-r{display:flex;gap:18px;font-size:13.5px;color:var(--cr2)}
+.wrap{max-width:820px;margin:0 auto;padding:38px 24px 80px}
+.gate{text-align:center;padding:70px 20px;color:var(--cr3);font-size:14px;line-height:1.7}
+.gate a{color:var(--gold);font-weight:600}
+h1{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:6px}
+.sub{font-size:14px;color:var(--cr2);margin-bottom:24px}
+.new-btn{display:inline-flex;gap:8px;padding:12px 24px;border-radius:100px;background:var(--grad);color:#1A1006;font-weight:700;font-size:14px;margin-bottom:24px}
+.keo-block{background:var(--bg2);border:1px solid var(--rim2);border-radius:16px;margin-bottom:16px;overflow:hidden}
+.keo-hd{padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.keo-hd:hover{background:rgba(245,239,230,.02)}
+.keo-hd-title{font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:5px}
+.keo-hd-meta{font-size:12.5px;color:var(--cr3);display:flex;gap:14px;flex-wrap:wrap}
+.keo-status{flex-shrink:0;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.keo-status.open{background:rgba(92,196,154,.14);color:var(--ok)}
+.keo-status.filled{background:rgba(232,162,43,.14);color:var(--gold)}
+.keo-status.completed{background:rgba(108,99,196,.16);color:#A29BE0}
+.keo-status.cancelled{background:rgba(224,99,122,.14);color:var(--err)}
+.badge-count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 7px;border-radius:100px;background:var(--grad);color:#1A1006;font-size:12px;font-weight:700;margin-left:8px}
+.apps{border-top:1px solid var(--rim);padding:6px 22px 18px;display:none}
+.apps.show{display:block}
+.app{padding:16px 0;border-bottom:1px solid var(--rim)}
+.app:last-child{border-bottom:none}
+.app-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px}
+.app-name{font-family:var(--serif);font-size:16px;font-weight:700}
+.app-rating{font-size:12.5px;color:var(--gold)}
+.app-msg{font-size:14px;color:var(--cr2);line-height:1.6;margin-bottom:8px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--rim)}
+.app-fee{font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.app-actions{display:flex;gap:8px}
+.app-actions button{padding:8px 18px;border-radius:100px;font-family:var(--sans);font-size:12.5px;font-weight:600;cursor:pointer;border:none}
+.btn-accept{background:var(--grad);color:#1A1006}
+.btn-reject{background:transparent;border:1px solid var(--rim2)!important;color:var(--cr2)}
+.app-result{font-size:13px;font-weight:600;padding:7px 0}
+.app-result.accepted{color:var(--ok)}.app-result.rejected{color:var(--cr3)}
+.no-apps{font-size:13.5px;color:var(--cr3);padding:16px 0;text-align:center}
+.empty{text-align:center;padding:50px 20px;color:var(--cr3);font-size:14px}
+.empty a{color:var(--gold);font-weight:600}
+.hidden{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="/" class="logo">Kèo<span>.</span></a>
+  <div class="nav-r"><a href="/taokeo">+ Tạo Kèo</a><a href="/tai-khoan">Tài khoản</a></div>
+</nav>
+
+<div class="wrap">
+  <div id="gate" class="gate">Đang kiểm tra…</div>
+  <div id="content" class="hidden">
+    <h1>Kèo của tôi</h1>
+    <p class="sub">Quản lý các Kèo bạn đã đăng và duyệt đơn ứng tuyển từ Người đồng hành.</p>
+    <a href="/taokeo" class="new-btn">+ Đăng Kèo mở mới</a>
+    <div id="keoList"></div>
+    <div id="empty" class="empty hidden">Bạn chưa đăng Kèo mở nào.<br><br><a href="/taokeo">Tạo Kèo đầu tiên →</a></div>
+  </div>
+</div>
+
+<script src="/vendor/supabase.js"></script>
+<script src="/lib/keo.js"></script>
+<script>
+let ME=null, COUNTS={};
+
+async function init(){
+  const auth = await Keo.requireAuth({ role:'chu_xi' });
+  if(!auth) return;
+  if(auth.roleMismatch){
+    document.getElementById('gate').innerHTML = 'Trang này dành cho Chủ xị.<br>Bạn đang đăng nhập bằng tài khoản Người đồng hành.<br><br><a href="/keo-mo">Xem Kèo đang mở để ứng tuyển →</a>';
+    return;
+  }
+  ME = auth.session.user;
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+  await loadKeos();
+}
+
+async function loadKeos(){
+  const { data: keos } = await Keo.sb.from('open_keos').select('*').eq('host_id', ME.id).order('created_at',{ascending:false});
+  document.getElementById('empty').classList.toggle('hidden', (keos&&keos.length)>0);
+  const { data: counts } = await Keo.sb.from('keo_application_counts').select('*');
+  COUNTS = {}; (counts||[]).forEach(c=>COUNTS[c.keo_id]=c);
+
+  document.getElementById('keoList').innerHTML = (keos||[]).map(k=>{
+    const c = COUNTS[k.id] || {pending_count:0,total_count:0};
+    const feeTxt = k.fixed_fee ? Keo.formatVND(k.fixed_fee) : 'Thoả thuận';
+    const badge = (k.status==='open' && c.pending_count>0) ? `<span class="badge-count">${c.pending_count}</span>` : '';
+    return `<div class="keo-block">
+      <div class="keo-hd" onclick="toggleApps('${k.id}')">
+        <div><div class="keo-hd-title">${Keo.esc(k.title)} ${badge}</div>
+          <div class="keo-hd-meta"><span>${Keo.CITY_LABEL[k.city]||k.city}</span><span>🕒 ${Keo.formatDate(k.scheduled_at)}</span><span>💰 ${feeTxt}</span><span>${c.total_count} đơn</span></div></div>
+        <span class="keo-status ${k.status}">${statusLabel(k.status)}</span>
+      </div>
+      <div class="apps" id="apps-${k.id}"><div class="no-apps">Đang tải…</div></div>
+    </div>`;
+  }).join('');
+}
+function statusLabel(s){ return {open:'Đang mở',filled:'Đã chọn',completed:'Hoàn thành',cancelled:'Đã huỷ'}[s]||s; }
+
+async function toggleApps(keoId){
+  const box = document.getElementById('apps-'+keoId);
+  const wasOpen = box.classList.contains('show');
+  document.querySelectorAll('.apps.show').forEach(el=>el.classList.remove('show'));
+  if(wasOpen) return;
+  box.classList.add('show');
+  await loadApps(keoId);
+}
+
+async function loadApps(keoId){
+  const box = document.getElementById('apps-'+keoId);
+  const { data: apps } = await Keo.sb.from('keo_applications')
+    .select('*, companion:profiles!keo_applications_companion_id_fkey(full_name, rating_avg, city)')
+    .eq('keo_id', keoId).order('created_at',{ascending:true});
+  if(!apps || !apps.length){ box.innerHTML='<div class="no-apps">Chưa có đơn ứng tuyển nào.</div>'; return; }
+  box.innerHTML = apps.map(a=>{
+    const c = a.companion||{};
+    const rating = c.rating_avg ? `★ ${c.rating_avg}` : 'Chưa có đánh giá';
+    let actions='';
+    if(a.status==='pending') actions=`<div class="app-actions"><button class="btn-accept" onclick="decide('${a.id}','${keoId}','accepted')">✓ Chấp nhận</button><button class="btn-reject" onclick="decide('${a.id}','${keoId}','rejected')">Từ chối</button></div>`;
+    else if(a.status==='accepted') actions='<div class="app-result accepted">✓ Đã chấp nhận — Kèo đã có người đồng hành</div>';
+    else if(a.status==='rejected') actions='<div class="app-result rejected">Đã từ chối</div>';
+    else if(a.status==='withdrawn') actions='<div class="app-result rejected">Người này đã rút đơn</div>';
+    return `<div class="app">
+      <div class="app-top"><div class="app-name">${Keo.esc(c.full_name||'Người đồng hành')}</div><div class="app-rating">${rating}</div></div>
+      <div class="app-msg">${Keo.esc(a.message)}</div>
+      ${a.proposed_fee?`<div class="app-fee">Đề xuất thù lao: ${Keo.formatVND(a.proposed_fee)}</div>`:''}
+      ${actions}</div>`;
+  }).join('');
+}
+
+async function decide(appId, keoId, decision){
+  const { error } = await Keo.sb.from('keo_applications').update({ status: decision }).eq('id', appId);
+  if(error){ Keo.toast('Lỗi: '+error.message,'err'); return; }
+  if(decision==='accepted'){
+    Keo.toast('✓ Đã chấp nhận — các đơn còn lại tự chuyển sang từ chối');
+    await loadKeos(); setTimeout(()=>toggleApps(keoId), 100);
+  } else { Keo.toast('Đã từ chối đơn này'); await loadApps(keoId); }
+}
+
+init();
+</script>
+</body></html>
