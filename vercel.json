@@ -111,315 +111,315 @@
   "rewrites": [
     {
       "source": "/dang-nhap",
-      "destination": "/app/dang-nhap.html"
+      "destination": "/app/dang-nhap"
     },
     {
       "source": "/keo-mo",
-      "destination": "/app/keo-mo.html"
+      "destination": "/app/keo-mo"
     },
     {
       "source": "/loi-moi-cho-xac-nhan",
-      "destination": "/app/loi-moi-cho-xac-nhan.html"
+      "destination": "/app/loi-moi-cho-xac-nhan"
     },
     {
       "source": "/quan-ly-keo",
-      "destination": "/app/quan-ly-keo.html"
+      "destination": "/app/quan-ly-keo"
     },
     {
       "source": "/tai-khoan",
-      "destination": "/app/tai-khoan.html"
+      "destination": "/app/tai-khoan"
     },
     {
       "source": "/taokeo",
-      "destination": "/app/taokeo.html"
+      "destination": "/app/taokeo"
     },
     {
       "source": "/thong-bao",
-      "destination": "/app/thong-bao.html"
+      "destination": "/app/thong-bao"
     },
     {
       "source": "/xac-minh",
-      "destination": "/app/xac-minh.html"
+      "destination": "/app/xac-minh"
     },
     {
       "source": "/10-cau-hoi-khong-ai-hoi-nhung-nen-hoi-trong-buoi-gap-dau-tien",
-      "destination": "/blog/10-cau-hoi-khong-ai-hoi-nhung-nen-hoi-trong-buoi-gap-dau-tien.html"
+      "destination": "/blog/10-cau-hoi-khong-ai-hoi-nhung-nen-hoi-trong-buoi-gap-dau-tien"
     },
     {
       "source": "/36-cau-hoi-cua-arthur-aron-nghien-cuu-tao-ra-tinh-yeu-trong-45-phut",
-      "destination": "/blog/36-cau-hoi-cua-arthur-aron-nghien-cuu-tao-ra-tinh-yeu-trong-45-phut.html"
+      "destination": "/blog/36-cau-hoi-cua-arthur-aron-nghien-cuu-tao-ra-tinh-yeu-trong-45-phut"
     },
     {
       "source": "/5-loai-buoi-keo",
-      "destination": "/blog/5-loai-buoi-keo.html"
+      "destination": "/blog/5-loai-buoi-keo"
     },
     {
       "source": "/ban-an-gia-dinh-viet-nam-nghi-thuc-dang-mat-di",
-      "destination": "/blog/ban-an-gia-dinh-viet-nam-nghi-thuc-dang-mat-di.html"
+      "destination": "/blog/ban-an-gia-dinh-viet-nam-nghi-thuc-dang-mat-di"
     },
     {
       "source": "/bua-an-la-nghi-thuc-ket-noi",
-      "destination": "/blog/bua-an-la-nghi-thuc-ket-noi.html"
+      "destination": "/blog/bua-an-la-nghi-thuc-ket-noi"
     },
     {
       "source": "/ca-phe-va-van-hoa-gap-mat-o-viet-nam",
-      "destination": "/blog/ca-phe-va-van-hoa-gap-mat-o-viet-nam.html"
+      "destination": "/blog/ca-phe-va-van-hoa-gap-mat-o-viet-nam"
     },
     {
       "source": "/cach-cam-ly-ruou-vang-dung-va-tai-sao-dieu-do-quan-trong",
-      "destination": "/blog/cach-cam-ly-ruou-vang-dung-va-tai-sao-dieu-do-quan-trong.html"
+      "destination": "/blog/cach-cam-ly-ruou-vang-dung-va-tai-sao-dieu-do-quan-trong"
     },
     {
       "source": "/cach-dat-cau-hoi",
-      "destination": "/blog/cach-dat-cau-hoi.html"
+      "destination": "/blog/cach-dat-cau-hoi"
     },
     {
       "source": "/cach-doc-menu-ruou-vang-o-nha-hang-ma-khong-bi-lac",
-      "destination": "/blog/cach-doc-menu-ruou-vang-o-nha-hang-ma-khong-bi-lac.html"
+      "destination": "/blog/cach-doc-menu-ruou-vang-o-nha-hang-ma-khong-bi-lac"
     },
     {
       "source": "/cach-goi-mon-cho-hai-nguoi-khi-chua-biet-khau-vi-cua-nhau",
-      "destination": "/blog/cach-goi-mon-cho-hai-nguoi-khi-chua-biet-khau-vi-cua-nhau.html"
+      "destination": "/blog/cach-goi-mon-cho-hai-nguoi-khi-chua-biet-khau-vi-cua-nhau"
     },
     {
       "source": "/co-don-do-thi",
-      "destination": "/blog/co-don-do-thi.html"
+      "destination": "/blog/co-don-do-thi"
     },
     {
       "source": "/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon",
-      "destination": "/blog/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon.html"
+      "destination": "/blog/cung-trai-qua-kho-khan-gan-ket-nguoi-ta-nhanh-hon"
     },
     {
       "source": "/dat-keo-lan-dau",
-      "destination": "/blog/dat-keo-lan-dau.html"
+      "destination": "/blog/dat-keo-lan-dau"
     },
     {
       "source": "/di-an-toi-mot-minh",
-      "destination": "/blog/di-an-toi-mot-minh.html"
+      "destination": "/blog/di-an-toi-mot-minh"
     },
     {
       "source": "/gap-go-co-chieu-sau",
-      "destination": "/blog/gap-go-co-chieu-sau.html"
+      "destination": "/blog/gap-go-co-chieu-sau"
     },
     {
       "source": "/hieu-ung-don-thuan-tiep-xuc-tai-sao-gap-nhieu-lan-tu-nhien-thay-than-hon",
-      "destination": "/blog/hieu-ung-don-thuan-tiep-xuc-tai-sao-gap-nhieu-lan-tu-nhien-thay-than-hon.html"
+      "destination": "/blog/hieu-ung-don-thuan-tiep-xuc-tai-sao-gap-nhieu-lan-tu-nhien-thay-than-hon"
     },
     {
       "source": "/hieu-ung-guong-va-khoa-hoc-cua-su-gan-gui",
-      "destination": "/blog/hieu-ung-guong-va-khoa-hoc-cua-su-gan-gui.html"
+      "destination": "/blog/hieu-ung-guong-va-khoa-hoc-cua-su-gan-gui"
     },
     {
       "source": "/hieu-ung-spotlight-tai-sao-ban-nghi-nguoi-khac-chu-y-den-ban-nhieu-hon-thuc-te",
-      "destination": "/blog/hieu-ung-spotlight-tai-sao-ban-nghi-nguoi-khac-chu-y-den-ban-nhieu-hon-thuc-te.html"
+      "destination": "/blog/hieu-ung-spotlight-tai-sao-ban-nghi-nguoi-khac-chu-y-den-ban-nhieu-hon-thuc-te"
     },
     {
       "source": "/introvert-ket-noi-sau-hon-extrovert",
-      "destination": "/blog/introvert-ket-noi-sau-hon-extrovert.html"
+      "destination": "/blog/introvert-ket-noi-sau-hon-extrovert"
     },
     {
       "source": "/keo-co-an-toan-khong",
-      "destination": "/blog/keo-co-an-toan-khong.html"
+      "destination": "/blog/keo-co-an-toan-khong"
     },
     {
       "source": "/keo-danh-cho-ai",
-      "destination": "/blog/keo-danh-cho-ai.html"
+      "destination": "/blog/keo-danh-cho-ai"
     },
     {
       "source": "/keo-khac-gi-dating-app",
-      "destination": "/blog/keo-khac-gi-dating-app.html"
+      "destination": "/blog/keo-khac-gi-dating-app"
     },
     {
       "source": "/keo-khong-phai-ca-cuoc",
-      "destination": "/blog/keo-khong-phai-ca-cuoc.html"
+      "destination": "/blog/keo-khong-phai-ca-cuoc"
     },
     {
       "source": "/kho-ket-ban-sau-25-tuoi",
-      "destination": "/blog/kho-ket-ban-sau-25-tuoi.html"
+      "destination": "/blog/kho-ket-ban-sau-25-tuoi"
     },
     {
       "source": "/khoa-hoc-cua-su-biet-on-va-tac-dong-len-moi-quan-he",
-      "destination": "/blog/khoa-hoc-cua-su-biet-on-va-tac-dong-len-moi-quan-he.html"
+      "destination": "/blog/khoa-hoc-cua-su-biet-on-va-tac-dong-len-moi-quan-he"
     },
     {
       "source": "/ky-uc-chung-gan-ket-nguoi-ta-hon-trai-nghiem-hien-tai",
-      "destination": "/blog/ky-uc-chung-gan-ket-nguoi-ta-hon-trai-nghiem-hien-tai.html"
+      "destination": "/blog/ky-uc-chung-gan-ket-nguoi-ta-hon-trai-nghiem-hien-tai"
     },
     {
       "source": "/lang-nghe-that-su",
-      "destination": "/blog/lang-nghe-that-su.html"
+      "destination": "/blog/lang-nghe-that-su"
     },
     {
       "source": "/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem",
-      "destination": "/blog/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem.html"
+      "destination": "/blog/mang-xa-hoi-500-nguoi-theo-doi-nhung-khong-ai-goi-luc-11-gio-dem"
     },
     {
       "source": "/millennials-co-don-hon-bat-ky-the-he-nao-truoc",
-      "destination": "/blog/millennials-co-don-hon-bat-ky-the-he-nao-truoc.html"
+      "destination": "/blog/millennials-co-don-hon-bat-ky-the-he-nao-truoc"
     },
     {
       "source": "/natural-wine-la-gi-va-tai-sao-nguoi-tre-dang-uong-nhieu",
-      "destination": "/blog/natural-wine-la-gi-va-tai-sao-nguoi-tre-dang-uong-nhieu.html"
+      "destination": "/blog/natural-wine-la-gi-va-tai-sao-nguoi-tre-dang-uong-nhieu"
     },
     {
       "source": "/nghe-thuat-chia-se-mon-an-tapas-omakase-lau",
-      "destination": "/blog/nghe-thuat-chia-se-mon-an-tapas-omakase-lau.html"
+      "destination": "/blog/nghe-thuat-chia-se-mon-an-tapas-omakase-lau"
     },
     {
       "source": "/nghe-thuat-dat-ten-cho-cam-xuc",
-      "destination": "/blog/nghe-thuat-dat-ten-cho-cam-xuc.html"
+      "destination": "/blog/nghe-thuat-dat-ten-cho-cam-xuc"
     },
     {
       "source": "/nghe-thuat-ke-chuyen-trong-tro-chuyen",
-      "destination": "/blog/nghe-thuat-ke-chuyen-trong-tro-chuyen.html"
+      "destination": "/blog/nghe-thuat-ke-chuyen-trong-tro-chuyen"
     },
     {
       "source": "/nguoi-dong-hanh-da-nang",
-      "destination": "/blog/nguoi-dong-hanh-da-nang.html"
+      "destination": "/blog/nguoi-dong-hanh-da-nang"
     },
     {
       "source": "/nguoi-dong-hanh-ha-noi",
-      "destination": "/blog/nguoi-dong-hanh-ha-noi.html"
+      "destination": "/blog/nguoi-dong-hanh-ha-noi"
     },
     {
       "source": "/nguoi-dong-hanh-kiem-duoc-bao-nhieu",
-      "destination": "/blog/nguoi-dong-hanh-kiem-duoc-bao-nhieu.html"
+      "destination": "/blog/nguoi-dong-hanh-kiem-duoc-bao-nhieu"
     },
     {
       "source": "/nguoi-dong-hanh-sai-gon",
-      "destination": "/blog/nguoi-dong-hanh-sai-gon.html"
+      "destination": "/blog/nguoi-dong-hanh-sai-gon"
     },
     {
       "source": "/nguoi-gioi-nhat-trong-phong-thuong-noi-it-nhat",
-      "destination": "/blog/nguoi-gioi-nhat-trong-phong-thuong-noi-it-nhat.html"
+      "destination": "/blog/nguoi-gioi-nhat-trong-phong-thuong-noi-it-nhat"
     },
     {
       "source": "/nguoi-thanh-cong-an-toi-voi-nguoi-la",
-      "destination": "/blog/nguoi-thanh-cong-an-toi-voi-nguoi-la.html"
+      "destination": "/blog/nguoi-thanh-cong-an-toi-voi-nguoi-la"
     },
     {
       "source": "/nguoi-viet-va-noi-so-di-mot-minh",
-      "destination": "/blog/nguoi-viet-va-noi-so-di-mot-minh.html"
+      "destination": "/blog/nguoi-viet-va-noi-so-di-mot-minh"
     },
     {
       "source": "/omakase-va-nghe-thuat-pho-thac",
-      "destination": "/blog/omakase-va-nghe-thuat-pho-thac.html"
+      "destination": "/blog/omakase-va-nghe-thuat-pho-thac"
     },
     {
       "source": "/oxytocin-va-khoa-hoc-cua-su-tin-tuong",
-      "destination": "/blog/oxytocin-va-khoa-hoc-cua-su-tin-tuong.html"
+      "destination": "/blog/oxytocin-va-khoa-hoc-cua-su-tin-tuong"
     },
     {
       "source": "/phan-biet-ruou-vang-do-va-trang",
-      "destination": "/blog/phan-biet-ruou-vang-do-va-trang.html"
+      "destination": "/blog/phan-biet-ruou-vang-do-va-trang"
     },
     {
       "source": "/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a",
-      "destination": "/blog/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a.html"
+      "destination": "/blog/seoul-tokyo-sai-gon-nhung-thanh-pho-co-don-nhat-chau-a"
     },
     {
       "source": "/song-mot-minh-khi-o-mot-minh-tro-thanh-lua-chon",
-      "destination": "/blog/song-mot-minh-khi-o-mot-minh-tro-thanh-lua-chon.html"
+      "destination": "/blog/song-mot-minh-khi-o-mot-minh-tro-thanh-lua-chon"
     },
     {
       "source": "/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su",
-      "destination": "/blog/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su.html"
+      "destination": "/blog/su-im-lang-thoai-mai-dau-hieu-cua-ket-noi-that-su"
     },
     {
       "source": "/su-khac-biet-giua-dong-cam-va-thuong-hai",
-      "destination": "/blog/su-khac-biet-giua-dong-cam-va-thuong-hai.html"
+      "destination": "/blog/su-khac-biet-giua-dong-cam-va-thuong-hai"
     },
     {
       "source": "/tai-sao-di-bo-canh-nhau-giup-tro-chuyen-sau-hon-ngoi-doi-dien",
-      "destination": "/blog/tai-sao-di-bo-canh-nhau-giup-tro-chuyen-sau-hon-ngoi-doi-dien.html"
+      "destination": "/blog/tai-sao-di-bo-canh-nhau-giup-tro-chuyen-sau-hon-ngoi-doi-dien"
     },
     {
       "source": "/tai-sao-nguoi-phap-an-toi-3-tieng",
-      "destination": "/blog/tai-sao-nguoi-phap-an-toi-3-tieng.html"
+      "destination": "/blog/tai-sao-nguoi-phap-an-toi-3-tieng"
     },
     {
       "source": "/tai-sao-nguoi-ta-hay-ngat-loi-nhau-va-cach-khong-lam-vay",
-      "destination": "/blog/tai-sao-nguoi-ta-hay-ngat-loi-nhau-va-cach-khong-lam-vay.html"
+      "destination": "/blog/tai-sao-nguoi-ta-hay-ngat-loi-nhau-va-cach-khong-lam-vay"
     },
     {
       "source": "/tai-sao-nguoi-ta-hay-tam-su-voi-nguoi-la-tren-may-bay",
-      "destination": "/blog/tai-sao-nguoi-ta-hay-tam-su-voi-nguoi-la-tren-may-bay.html"
+      "destination": "/blog/tai-sao-nguoi-ta-hay-tam-su-voi-nguoi-la-tren-may-bay"
     },
     {
       "source": "/tai-sao-nguoi-ta-kho-noi-loi-xin-loi-that-su",
-      "destination": "/blog/tai-sao-nguoi-ta-kho-noi-loi-xin-loi-that-su.html"
+      "destination": "/blog/tai-sao-nguoi-ta-kho-noi-loi-xin-loi-that-su"
     },
     {
       "source": "/tai-sao-nguoi-ta-thich-nguoi-giong-minh-va-khi-nao-dieu-do-can-tro-ket-noi",
-      "destination": "/blog/tai-sao-nguoi-ta-thich-nguoi-giong-minh-va-khi-nao-dieu-do-can-tro-ket-noi.html"
+      "destination": "/blog/tai-sao-nguoi-ta-thich-nguoi-giong-minh-va-khi-nao-dieu-do-can-tro-ket-noi"
     },
     {
       "source": "/tai-sao-nguoi-tre-ngai-goi-dien-hon-nhan-tin",
-      "destination": "/blog/tai-sao-nguoi-tre-ngai-goi-dien-hon-nhan-tin.html"
+      "destination": "/blog/tai-sao-nguoi-tre-ngai-goi-dien-hon-nhan-tin"
     },
     {
       "source": "/tai-sao-nguoi-y-khong-an-toi-truoc-8-gio-toi",
-      "destination": "/blog/tai-sao-nguoi-y-khong-an-toi-truoc-8-gio-toi.html"
+      "destination": "/blog/tai-sao-nguoi-y-khong-an-toi-truoc-8-gio-toi"
     },
     {
       "source": "/tai-sao-thanh-pho-lon-co-nhieu-nguoi-nhung-it-cong-dong",
-      "destination": "/blog/tai-sao-thanh-pho-lon-co-nhieu-nguoi-nhung-it-cong-dong.html"
+      "destination": "/blog/tai-sao-thanh-pho-lon-co-nhieu-nguoi-nhung-it-cong-dong"
     },
     {
       "source": "/thu-keo",
-      "destination": "/blog/thu-keo.html"
+      "destination": "/blog/thu-keo"
     },
     {
       "source": "/tra-tien-de-gap-go",
-      "destination": "/blog/tra-tien-de-gap-go.html"
+      "destination": "/blog/tra-tien-de-gap-go"
     },
     {
       "source": "/two-truths-one-lie-tro-choi-giup-biet-nguoi-moi-nhanh-hon",
-      "destination": "/blog/two-truths-one-lie-tro-choi-giup-biet-nguoi-moi-nhanh-hon.html"
+      "destination": "/blog/two-truths-one-lie-tro-choi-giup-biet-nguoi-moi-nhanh-hon"
     },
     {
       "source": "/van-hoa-tra-va-su-cham-rai-trong-ket-noi",
-      "destination": "/blog/van-hoa-tra-va-su-cham-rai-trong-ket-noi.html"
+      "destination": "/blog/van-hoa-tra-va-su-cham-rai-trong-ket-noi"
     },
     {
       "source": "/whiskey-101-scotch-bourbon-single-malt-khac-nhau-the-nao",
-      "destination": "/blog/whiskey-101-scotch-bourbon-single-malt-khac-nhau-the-nao.html"
+      "destination": "/blog/whiskey-101-scotch-bourbon-single-malt-khac-nhau-the-nao"
     },
     {
       "source": "/wine-tasting-va-nghe-thuat-lang-nghe",
-      "destination": "/blog/wine-tasting-va-nghe-thuat-lang-nghe.html"
+      "destination": "/blog/wine-tasting-va-nghe-thuat-lang-nghe"
     },
     {
       "source": "/work-from-home-va-cai-gia-an-cua-su-linh-hoat",
-      "destination": "/blog/work-from-home-va-cai-gia-an-cua-su-linh-hoat.html"
+      "destination": "/blog/work-from-home-va-cai-gia-an-cua-su-linh-hoat"
     },
     {
       "source": "/brand-guide",
-      "destination": "/internal/brand-guide.html"
+      "destination": "/internal/brand-guide"
     },
     {
       "source": "/keo-brand-system",
-      "destination": "/internal/keo-brand-system.html"
+      "destination": "/internal/keo-brand-system"
     },
     {
       "source": "/playbook",
-      "destination": "/internal/playbook.html"
+      "destination": "/internal/playbook"
     },
     {
       "source": "/cookie-policy",
-      "destination": "/legal/cookie-policy.html"
+      "destination": "/legal/cookie-policy"
     },
     {
       "source": "/privacy",
-      "destination": "/legal/privacy.html"
+      "destination": "/legal/privacy"
     },
     {
       "source": "/rules",
-      "destination": "/legal/rules.html"
+      "destination": "/legal/rules"
     },
     {
       "source": "/terms",
-      "destination": "/legal/terms.html"
+      "destination": "/legal/terms"
     }
   ]
 }
