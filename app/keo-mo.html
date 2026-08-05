@@ -68,7 +68,7 @@ h1{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:6px}
 
 <nav>
   <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r"><a href="/tai-khoan">Tài khoản</a></div>
+  <div class="nav-r"><a href="/app/tai-khoan">Tài khoản</a></div>
 </nav>
 
 <div class="wrap">
@@ -113,11 +113,11 @@ async function init(){
   if(!auth) return;
   const gate = document.getElementById('gate');
   if(auth.roleMismatch){
-    gate.innerHTML = 'Trang này dành cho Người đồng hành.<br>Bạn đang đăng nhập bằng tài khoản Chủ xị.<br><br><a href="/taokeo">Đăng Kèo mở của bạn →</a>';
+    gate.innerHTML = 'Trang này dành cho Người đồng hành.<br>Bạn đang đăng nhập bằng tài khoản Chủ xị.<br><br><a href="/app/taokeo">Đăng Kèo mở của bạn →</a>';
     return;
   }
   if(auth.needsVerification){
-    gate.innerHTML = '🔒 Cần xác minh CCCD để ứng tuyển Kèo.<br>Việc này giữ an toàn cho cả cộng đồng.<br><br><a href="/xac-minh">Xác minh danh tính →</a>';
+    gate.innerHTML = '🔒 Cần xác minh CCCD để ứng tuyển Kèo.<br>Việc này giữ an toàn cho cả cộng đồng.<br><br><a href="/app/xac-minh">Xác minh danh tính →</a>';
     return;
   }
   ME = auth.session.user;

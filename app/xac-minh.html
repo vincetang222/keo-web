@@ -70,7 +70,7 @@ h1{font-family:var(--serif);font-size:28px;font-weight:800;margin-bottom:8px}
 
 <nav>
   <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r"><a href="/tai-khoan">← Về tài khoản</a></div>
+  <div class="nav-r"><a href="/app/tai-khoan">← Về tài khoản</a></div>
 </nav>
 
 <div class="wrap">
@@ -126,7 +126,7 @@ async function init(){
   const auth = await Keo.requireAuth({ role:'nguoi_dong_hanh' });
   if(!auth) return;
   if(auth.roleMismatch){
-    document.getElementById('gate').innerHTML = 'Xác minh CCCD chỉ dành cho Người đồng hành.<br><br><a href="/tai-khoan">← Về tài khoản</a>';
+    document.getElementById('gate').innerHTML = 'Xác minh CCCD chỉ dành cho Người đồng hành.<br><br><a href="/app/tai-khoan">← Về tài khoản</a>';
     return;
   }
   ME = auth.session.user; PROFILE = auth.profile;

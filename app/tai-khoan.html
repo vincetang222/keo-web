@@ -86,9 +86,9 @@ nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:cen
 <nav>
   <a href="/" class="logo">Kèo<span>.</span></a>
   <div class="nav-r">
-    <a href="/keo-mo" id="navKeoMo" class="hidden">Kèo mở</a>
-    <a href="/quan-ly-keo" id="navQuanLy" class="hidden">Quản lý Kèo</a>
-    <a href="/thong-bao">Thông báo</a>
+    <a href="/app/keo-mo" id="navKeoMo" class="hidden">Kèo mở</a>
+    <a href="/app/quan-ly-keo" id="navQuanLy" class="hidden">Quản lý Kèo</a>
+    <a href="/app/thong-bao">Thông báo</a>
     <button onclick="Keo.signOut()">Đăng xuất</button>
   </div>
 </nav>
@@ -200,7 +200,7 @@ function fillProfile(){
     vr.className = 'verify-row yes'; vr.innerHTML = '✓ Danh tính đã được xác minh (CCCD)';
   } else if(PROFILE.role==='nguoi_dong_hanh'){
     vr.className = 'verify-row no';
-    vr.innerHTML = '⏳ Chưa xác minh danh tính — <a href="/xac-minh">xác minh CCCD</a> để ứng tuyển Kèo mở.';
+    vr.innerHTML = '⏳ Chưa xác minh danh tính — <a href="/app/xac-minh">xác minh CCCD</a> để ứng tuyển Kèo mở.';
   } else {
     vr.className = 'verify-row no';
     vr.innerHTML = 'ℹ️ Tài khoản Chủ xị không bắt buộc xác minh CCCD.';

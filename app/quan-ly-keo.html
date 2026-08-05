@@ -68,7 +68,7 @@ h1{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:6px}
 
 <nav>
   <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r"><a href="/taokeo">+ Tạo Kèo</a><a href="/tai-khoan">Tài khoản</a></div>
+  <div class="nav-r"><a href="/app/taokeo">+ Tạo Kèo</a><a href="/app/tai-khoan">Tài khoản</a></div>
 </nav>
 
 <div class="wrap">
@@ -76,9 +76,9 @@ h1{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:6px}
   <div id="content" class="hidden">
     <h1>Kèo của tôi</h1>
     <p class="sub">Quản lý các Kèo bạn đã đăng và duyệt đơn ứng tuyển từ Người đồng hành.</p>
-    <a href="/taokeo" class="new-btn">+ Đăng Kèo mở mới</a>
+    <a href="/app/taokeo" class="new-btn">+ Đăng Kèo mở mới</a>
     <div id="keoList"></div>
-    <div id="empty" class="empty hidden">Bạn chưa đăng Kèo mở nào.<br><br><a href="/taokeo">Tạo Kèo đầu tiên →</a></div>
+    <div id="empty" class="empty hidden">Bạn chưa đăng Kèo mở nào.<br><br><a href="/app/taokeo">Tạo Kèo đầu tiên →</a></div>
   </div>
 </div>
 
@@ -91,7 +91,7 @@ async function init(){
   const auth = await Keo.requireAuth({ role:'chu_xi' });
   if(!auth) return;
   if(auth.roleMismatch){
-    document.getElementById('gate').innerHTML = 'Trang này dành cho Chủ xị.<br>Bạn đang đăng nhập bằng tài khoản Người đồng hành.<br><br><a href="/keo-mo">Xem Kèo đang mở để ứng tuyển →</a>';
+    document.getElementById('gate').innerHTML = 'Trang này dành cho Chủ xị.<br>Bạn đang đăng nhập bằng tài khoản Người đồng hành.<br><br><a href="/app/keo-mo">Xem Kèo đang mở để ứng tuyển →</a>';
     return;
   }
   ME = auth.session.user;

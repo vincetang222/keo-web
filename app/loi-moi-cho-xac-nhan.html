@@ -67,7 +67,7 @@ nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:cen
 
 <nav>
   <a href="/" class="logo">Kèo<span>.</span></a>
-  <div class="nav-r"><a href="/tai-khoan">← Tài khoản</a></div>
+  <div class="nav-r"><a href="/app/tai-khoan">← Tài khoản</a></div>
 </nav>
 
 <div class="wrap">
@@ -89,7 +89,7 @@ async function init(){
   if(!auth) return;
   const gate = document.getElementById('gate');
   if(auth.roleMismatch){
-    gate.innerHTML = 'Trang này dành cho Người đồng hành.<br><br><a href="/tai-khoan">← Về tài khoản</a>';
+    gate.innerHTML = 'Trang này dành cho Người đồng hành.<br><br><a href="/app/tai-khoan">← Về tài khoản</a>';
     return;
   }
   ME = auth.session.user;
