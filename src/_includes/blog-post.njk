@@ -1,0 +1,86 @@
+---
+layout: base.njk
+---
+<div class="zone-dark">
+<nav>
+  <div class="nav-in">
+    <a href="/" class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></a>
+    <div class="nav-r">
+      <a href="/khoa-hoc-ket-noi" class="nav-back"><span class="vi">← Khoa học kết nối</span><span class="en">← The Science of Connection</span></a>
+      <div class="lang-row">
+        <button class="lb on" id="lang-vi" onclick="setEN(false)">VI</button>
+        <button class="lb" id="lang-en" onclick="setEN(true)">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="breadcrumb"><span class="vi">{{ categoryVi }}</span><span class="en">{{ categoryEn }}</span></div>
+  <h1 class="art-title"><span class="vi">{{ titleVi | safe }}</span><span class="en">{{ titleEn | safe }}</span></h1>
+  <p class="art-dek"><span class="vi">{{ dekVi }}</span><span class="en">{{ dekEn }}</span></p>
+  <div class="art-meta">
+    <span>Kèo Journal</span><span class="art-meta-dot"></span><span class="vi">{{ readTime or "5 phút đọc" }}</span><span class="en">{{ readTimeEn or "5 min read" }}</span><span class="art-meta-dot"></span><span class="vi">Cập nhật gần đây</span><span class="en">Recently updated</span>
+  </div>
+</div>
+</div><!-- /zone-dark -->
+
+{% if illustration %}
+<div class="art-illo">
+  <div class="art-illo-frame">
+    {{ illustration | safe }}
+  </div>
+  {% if illustrationCaption %}
+  <div class="art-illo-cap"><span class="vi">{{ illustrationCaption.vi }}</span><span class="en">{{ illustrationCaption.en }}</span></div>
+  {% endif %}
+</div>
+{% endif %}
+
+<div class="art-body">
+{{ content | safe }}
+</div>
+
+{% if related and related.length %}
+<div class="related-section">
+  <div class="related-eyebrow"><span class="vi">Đọc thêm</span><span class="en">Read more</span></div>
+  <h2 class="related-h2"><span class="vi">Bài viết liên quan</span><span class="en">Related articles</span></h2>
+  <div class="related-grid">
+    {% for r in related %}
+    <a href="/blog/{{ r.slug }}" class="rel-card">
+      <div class="rel-cover rel-cover-{{ r.cat }}">
+        <span class="rel-cat"><span class="vi">{{ r.catViLabel }}</span><span class="en">{{ r.catEnLabel }}</span></span>
+        <div class="rel-illo">{% include "icons/" + r.cat + ".njk" %}</div>
+        <div class="rel-title"><span class="vi">{{ r.titleVi }}</span><span class="en">{{ r.titleEn }}</span></div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if faq and faq.length %}
+<div class="faq-section">
+  <div class="faq-section-inner">
+    <div class="faq-eyebrow"><span class="vi">Câu hỏi thường gặp</span><span class="en">FAQ</span></div>
+    <h2 class="faq-h2"><span class="vi">Giải đáp nhanh</span><span class="en">Quick answers</span></h2>
+    {% for item in faq %}
+    <div class="faq">
+      <div class="faq-q">
+        <div class="faq-num">{{ loop.index }}</div>
+        <div class="faq-q-text">{{ item.q }}</div>
+        <div class="faq-ic">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-in">{{ item.a }}</div></div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<div class="art-cta">
+  <div class="art-cta-inner">
+    <h3><span class="vi">Muốn có một buổi gặp như vậy?</span><span class="en">Want a meeting like this?</span></h3>
+    <p><span class="vi">Kèo kết nối bạn với người đồng hành thật, đã xác minh danh tính.</span><span class="en">Kèo connects you with real, identity-verified companions.</span></p>
+    <a href="/keo-danh-cho-ai" class="art-cta-btn"><span class="vi">Tìm hiểu về Kèo →</span><span class="en">Learn about Kèo →</span></a>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }} — Kèo</title>
+<meta name="description" content="{{ description }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://keo.social{{ cleanUrl }}">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:title" content="{{ title }} — Kèo">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="https://keo.social{{ cleanUrl }}">
+<meta property="og:image" content="{{ ogImage or '/assets/icons/og-image.png' }}">
+<meta property="og:site_name" content="Kèo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+{% if faq %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{% for item in faq %}
+  {"@type":"Question","name":{{ item.q | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ item.a | dump | safe }}}}{% if not loop.last %},{% endif %}
+{% endfor %}
+]}
+</script>
+{% endif %}
+<link rel="stylesheet" href="/assets/css/blog.css">
+{% if accentColor %}
+<style>:root{--a:{{ accentColor.a }};--a2:{{ accentColor.a2 }};}</style>
+{% endif %}
+</head>
+<body>
+
+{{ content | safe }}
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-logo"><svg class="nav-mark" viewBox="0 0 48 64" fill="none"><defs><linearGradient id="nm2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="color-mix(in srgb, var(--a) 55%, #fff 30%)"/><stop offset="52%" stop-color="var(--a)"/><stop offset="100%" stop-color="var(--a2)"/></linearGradient></defs><circle cx="24" cy="9" r="7" fill="url(#nm2)"/><line x1="4" y1="58" x2="24" y2="19" stroke="url(#nm2)" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="58" x2="24" y2="19" stroke="url(#nm2)" stroke-width="3" stroke-linecap="round"/></svg>Kèo<em>.</em></div>
+        <p class="foot-tagline"><span class="vi">Gặp gỡ có chiều sâu, không phải hẹn hò.</span><span class="en">Connections that go deeper, not dating.</span></p>
+      </div>
+      <div>
+        <div class="foot-col-title">Kèo</div>
+        <a href="/khoa-hoc-ket-noi" class="foot-link">Khoa học kết nối</a>
+        <a href="/huongdan" class="foot-link">Hướng dẫn</a>
+        <a href="/thi-truong" class="foot-link">Thị trường</a>
+      </div>
+      <div>
+        <div class="foot-col-title">Thành phố</div>
+        <a href="/nguoidonghanh" class="foot-link">TP.HCM</a>
+        <a href="/nguoidonghanh" class="foot-link">Hà Nội</a>
+        <a href="/nguoidonghanh" class="foot-link">Đà Nẵng</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 Kèo · <span class="vi">Gặp gỡ có chiều sâu</span><span class="en">Connections that go deeper</span></div>
+      <div>keo.social · @keosocialvn</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setEN(g){
+  document.body.classList.toggle('lang-en',g);
+  document.getElementById('lang-vi').classList.toggle('on',!g);
+  document.getElementById('lang-en').classList.toggle('on',g);
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var faq=q.parentElement;
+    var ans=q.nextElementSibling;
+    var open=faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f){f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){faq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
+});
+</script>
+</body>
+</html>
