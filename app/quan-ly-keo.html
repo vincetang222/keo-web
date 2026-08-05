@@ -59,6 +59,7 @@ h1{font-family:var(--serif);font-size:30px;font-weight:800;margin-bottom:6px}
 .btn-reject{background:transparent;border:1px solid var(--rim2)!important;color:var(--cr2)}
 .app-result{font-size:13px;font-weight:600;padding:7px 0}
 .app-result.accepted{color:var(--ok)}.app-result.rejected{color:var(--cr3)}
+.app-result.waiting{color:var(--gold)}
 .no-apps{font-size:13.5px;color:var(--cr3);padding:16px 0;text-align:center}
 .empty{text-align:center;padding:50px 20px;color:var(--cr3);font-size:14px}
 .empty a{color:var(--gold);font-weight:600}
@@ -141,9 +142,10 @@ async function loadApps(keoId){
     const c = a.companion||{};
     const rating = c.rating_avg ? `★ ${c.rating_avg}` : 'Chưa có đánh giá';
     let actions='';
-    if(a.status==='pending') actions=`<div class="app-actions"><button class="btn-accept" onclick="decide('${a.id}','${keoId}','accepted')">✓ Chấp nhận</button><button class="btn-reject" onclick="decide('${a.id}','${keoId}','rejected')">Từ chối</button></div>`;
-    else if(a.status==='accepted') actions='<div class="app-result accepted">✓ Đã chấp nhận — Kèo đã có người đồng hành</div>';
-    else if(a.status==='rejected') actions='<div class="app-result rejected">Đã từ chối</div>';
+    if(a.status==='pending') actions=`<div class="app-actions"><button class="btn-accept" onclick="decide('${a.id}','${keoId}','host_selected')">✓ Chọn người này</button><button class="btn-reject" onclick="decide('${a.id}','${keoId}','rejected')">Từ chối</button></div>`;
+    else if(a.status==='host_selected') actions='<div class="app-result waiting">⏳ Đang chờ Người đồng hành đồng ý cuối</div>';
+    else if(a.status==='accepted') actions='<div class="app-result accepted">✓ Đã chốt — Kèo đã có người đồng hành</div>';
+    else if(a.status==='rejected') actions='<div class="app-result rejected">Đã từ chối / bị đóng</div>';
     else if(a.status==='withdrawn') actions='<div class="app-result rejected">Người này đã rút đơn</div>';
     return `<div class="app">
       <div class="app-top"><div class="app-name">${Keo.esc(c.full_name||'Người đồng hành')}</div><div class="app-rating">${rating}</div></div>
@@ -156,9 +158,11 @@ async function loadApps(keoId){
 async function decide(appId, keoId, decision){
   const { error } = await Keo.sb.from('keo_applications').update({ status: decision }).eq('id', appId);
   if(error){ Keo.toast('Lỗi: '+error.message,'err'); return; }
-  if(decision==='accepted'){
-    Keo.toast('✓ Đã chấp nhận — các đơn còn lại tự chuyển sang từ chối');
-    await loadKeos(); setTimeout(()=>toggleApps(keoId), 100);
+  if(decision==='host_selected'){
+    // CHƯA chốt Kèo ở bước này — chỉ là đề nghị. Kèo chỉ thật sự "filled" khi
+    // Người đồng hành tự đồng ý ở trang /loi-moi-cho-xac-nhan (trigger DB lo phần đó).
+    Keo.toast('✓ Đã đề nghị chọn — đang chờ Người đồng hành đồng ý cuối');
+    await loadApps(keoId);
   } else { Keo.toast('Đã từ chối đơn này'); await loadApps(keoId); }
 }
 
