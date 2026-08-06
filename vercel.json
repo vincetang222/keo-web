@@ -11,6 +11,11 @@
       "source": "/blog.html",
       "destination": "/khoa-hoc-ket-noi",
       "permanent": true
+    },
+    {
+      "source": "/nguoi-dong-hanh-dang-ky",
+      "destination": "/dang-nhap?tab=signup&role=nguoi_dong_hanh",
+      "permanent": true
     }
   ],
   "headers": [
